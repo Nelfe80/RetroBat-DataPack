@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Boss Gaiden",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-super-boss-gaiden",
+    hashes = {
+      { hash = "99a5ebfdf38faf4e194bfac535aa936b", label = "Super Boss Gaiden (World) (v1.2) (Aftermarket) (Unl).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X078C, type="u8", condition="change", action="PAUSE_ON", desc="0x0A:Paused" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X078D, type="u8", condition="eq", value=0X0A, action="LOSE_LIFE", desc="Die" },
+      },
+      health = {
+        { address=0X078D, type="u8", condition="eq", value=0X08, action="HIT", desc="Hurt" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X078D, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0X078D, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Double Jump" },
+        { address=0X078D, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump" },
+      },
+    },
+  },
+}

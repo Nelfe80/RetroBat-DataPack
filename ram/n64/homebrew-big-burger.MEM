@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Big Burger",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-big-burger",
+    hashes = {
+      { hash = "fcaccc60351a9e7de6647ce71e9c56c3", label = "Big Burger (World) (N64brew Game Jam 2020) (NTSC) (Aftermarket) (Unl).z64" },
+    }
+  },
+
+  events = {
+  },
+}

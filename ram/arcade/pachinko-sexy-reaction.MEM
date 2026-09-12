@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pachinko Sexy Reaction",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Mature"
+  },
+
+  rom = {
+    name = "pachinko-sexy-reaction",
+    hashes = {
+      { hash = "ed6b61fc3c23bab78e12cf3b49f6df9f", label = "sxyreact.7z <Pachinko Sexy Reaction (Japan)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0068, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits - 8-bit" },
+        { address=0X288C, type="u8", condition="change", action="DEMO_MODE", desc="Demo Related - 8-bit" },
+        { address=0X6ACC, type="u8", condition="change", action="CREDITS_SCREEN", desc="End Credits?" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X28E8, type="u8", condition="change", action="NEW_LEVEL", desc="Round - 8-bit" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X6AD4, type="u8", condition="increase", action="GAIN_LIFE", desc="Balls Remaining - 8-bit increased" },
+        { address=0X6AD4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Balls Remaining - 8-bit decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X6B02, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score - 16-bit" },
+        { address=0X6B06, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score (Better Timing) - 16-bit" },
+      },
+    },
+  },
+}

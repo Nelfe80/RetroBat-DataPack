@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ An Autumn With You",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-an-autumn-with-you",
+    hashes = {
+      { hash = "c3a774c513a2ab5a2b134e0210b6caf1", label = "Autumn With You, An (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

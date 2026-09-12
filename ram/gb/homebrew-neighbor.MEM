@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Neighbor",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-neighbor",
+    hashes = {
+      { hash = "fce7079639133df3c4d1f7beb8a89b21", label = "Neighbor (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

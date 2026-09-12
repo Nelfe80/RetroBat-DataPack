@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Settlers",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-settlers",
+    hashes = {
+      { hash = "01b4cda6e3a93c0f9e725ad568bef947", label = "Settlers, The (USA) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ninja World 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ninja-world-2",
+    hashes = {
+      { hash = "c08aaf6fc033c580a53dd98272fa488c", label = "SMW - Ninja World 2 (VLSkoot).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="beating a level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pentagram",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "pentagram",
+    hashes = {
+      { hash = "09dada521e1764070a482bd73432e240", label = "Pentagram (1986) (A.C.G.).rom" },
+      { hash = "f5c81b3dbc4f25ec5216f1a434fb6fc9", label = "Pentagram (1986) (A.C.G.) [BLOAD'CAS-',R].cas" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA621, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="game over" },
+        { address=0XA69B, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="valid room ID, but the title screen also resets this memory to 0" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA64D, type="u16be", condition="eq", value=0X0000, action="LEVEL_CLEAR", desc="cleared to zero at the start of a game" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA621, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XA621, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XA621, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="last life" },
+        { address=0XA621, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="initial value, although the game start goes 5->4 briefly to spawn the player" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA644, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit BE] Score" },
+      },
+    },
+  },
+}

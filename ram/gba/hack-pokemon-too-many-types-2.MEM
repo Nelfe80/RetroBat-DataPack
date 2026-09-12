@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Too Many Types 2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-too-many-types-2",
+    hashes = {
+      { hash = "0b9462d49fcf4f5bbe70c4a771535c8a", label = "Pokemon Emerald - Too Many Types 2 (v1.5.2) (kobazco).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3ACE8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 1 - Level [v1.5.2)" },
+        { address=0X3ACEC, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 1 Level" },
+        { address=0X3AD4C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 2 - Level [v1.5.2)" },
+        { address=0X3AD50, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 2 Level" },
+        { address=0X3ADB0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 3 - Level [v1.5.2)" },
+        { address=0X3ADB4, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 3 Level" },
+        { address=0X3AE14, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 4 - Level [v1.5.2)" },
+        { address=0X3AE18, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 4 Level" },
+        { address=0X3AE78, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 5 - Level [v1.5.2)" },
+        { address=0X3AE7C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 5 Level" },
+        { address=0X3AEDC, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 6 - Level [v1.5.2)" },
+        { address=0X3AEE0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 6 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X85D6, type="u16le", condition="increase", action="HEAL", desc="Pokemon In Battle - Current HP increased" },
+        { address=0X85D6, type="u16le", condition="decrease", action="HIT", desc="Pokemon In Battle - Current HP decreased" },
+      },
+    },
+  },
+}

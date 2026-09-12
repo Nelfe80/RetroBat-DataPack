@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Board Game Classics",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Board Game, Compilation"
+  },
+
+  rom = {
+    name = "board-game-classics",
+    hashes = {
+      { hash = "871133b4e4e8b172f7538b0250c9bb45", label = "Board Game Classics (USA).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X4810, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timed Game:" },
+      },
+    },
+  },
+}

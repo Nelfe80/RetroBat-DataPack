@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The King of Fighters '98: Anniversary Edition",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-king-of-fighters-98-anniversary-edition",
+    hashes = {
+      { hash = "24edc1496150c9b7fc9a1fe99edcf112", label = "kof98ae2016.7z <>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8502, type="u16le", condition="eq", value=0X1EE4, action="TITLE_SCREEN", desc="Title Screen/Mode Select" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="Game Over" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1 (beginner)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2 (easy)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3 Normal (AES default)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4 (MVS default)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5 (Hard)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6 (Very Hard)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Level 7 (Hardest)" },
+        { address=0X00CE, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 8 (Expert)" },
+      },
+      stage = {
+        { address=0XA7EB, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGES IN GAME" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="STREET" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="CHINA" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="PORT" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="INDIA" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="TEMPLE" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="EUA" },
+        { address=0XA7EB, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="STAGE FINAL" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA84A, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Psycho Soldier Team" },
+      },
+      health = {
+        { address=0X8238, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="1P - HP" },
+        { address=0X8238, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="Slow" },
+        { address=0X8238, type="u8", condition="eq", value=0X66, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X8238, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="K.O" },
+        { address=0X8450, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="CPU/2P - HP" },
+        { address=0X8450, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="Slow" },
+        { address=0X8450, type="u8", condition="eq", value=0X67, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X8450, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="K.O" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00D1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="PLAY TIME - AES" },
+      },
+    },
+  },
+}

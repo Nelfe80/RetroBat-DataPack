@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pang: Magical Michael",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "pang-magical-michael",
+    hashes = {
+      { hash = "c6826434cd43d78a582179bd4c8c8da7", label = "Magical Michael Pang (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XBC4D4, type="u8", condition="change", action="NEW_LEVEL", desc="Panic Mode Level?" },
+        { address=0XF04F6, type="u8", condition="change", action="NEW_LEVEL", desc="Panic Mode Level?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD0100, type="u8", condition="increase", action="GAIN_LIFE", desc="Panic Mode - Number of Lives increased" },
+        { address=0XD0100, type="u8", condition="decrease", action="LOSE_LIFE", desc="Panic Mode - Number of Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XF2188, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Tour Mode - Current Score x100" },
+        { address=0X121040, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Tour Mode - Current Stage Score x100" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF0EC6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Stage Timer" },
+      },
+    },
+  },
+}

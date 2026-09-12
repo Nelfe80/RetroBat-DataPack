@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Lawn Mower",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-lawn-mower",
+    hashes = {
+      { hash = "9eb653a03d880c138a24033509c924ff", label = "Lawn Mower (World) (NESDev 2011) (Aftermarket) (Unl).nes" },
+      { hash = "9f1819a94b2eb71995efc95e38e53a89", label = "Lawn Mower (World) (v1.1) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00E9, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Paused or not" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00B2, type="u8", condition="change", action="NEW_LEVEL", desc="level percentage" },
+        { address=0X00CA, type="u8", condition="change", action="NEW_LEVEL", desc="Levels" },
+        { address=0X08B2, type="u8", condition="change", action="NEW_LEVEL", desc="Level Percentage" },
+      },
+    },
+  },
+}

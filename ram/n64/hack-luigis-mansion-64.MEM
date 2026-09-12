@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Luigi's Mansion 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-luigis-mansion-64",
+    hashes = {
+      { hash = "4d62cb128d949c1b319fa1cce7e31d91", label = "SM64 - Luigi's Mansion 64  (Mariocrash, me-me).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3331D1, type="u8", condition="change", action="PAUSE_ON", desc="01 when fire is active. 00 when not or paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Mountain Escaping - Level 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Luigi's Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Luigi's Lives decreased" },
+        { address=0X33D5D4, type="u32be", condition="eq", value=0X4, action="LOSE_LIFE", desc="BOWSER_ACT_DEAD" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X33B264, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B264, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X33D60C, type="u8", condition="increase", action="HEAL", desc="Bowser's Health - Second and Final Fight increased" },
+        { address=0X33D60C, type="u8", condition="decrease", action="HIT", desc="Bowser's Health - Second and Final Fight decreased" },
+        { address=0X33DF8C, type="u8", condition="increase", action="HEAL", desc="Bowser Health (First Fight) increased" },
+        { address=0X33DF8C, type="u8", condition="decrease", action="HIT", desc="Bowser Health (First Fight) decreased" },
+        { address=0X33DFFC, type="u8", condition="increase", action="HEAL", desc="Bowser Health (Second Fight) increased" },
+        { address=0X33DFFC, type="u8", condition="decrease", action="HIT", desc="Bowser Health (Second Fight) decreased" },
+        { address=0X34518C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Big Bookshelf Health" },
+        { address=0X34518C, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="No Health" },
+        { address=0X34518C, type="u8", condition="eq", value=0X03, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X3458AC, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Eyerok (Right Hand) Health" },
+        { address=0X3458AC, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X345B0C, type="u8", condition="increase", action="HEAL", desc="Eyerok (Left Hand) Health increased" },
+        { address=0X345B0C, type="u8", condition="decrease", action="HIT", desc="Eyerok (Left Hand) Health decreased" },
+        { address=0X34810C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Big Boo Health (in Basement)" },
+        { address=0X34810C, type="u8", condition="eq", value=0X03, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X34D8EC, type="u8", condition="increase", action="HEAL", desc="King Zomb-omb's Health increased" },
+        { address=0X34D8EC, type="u8", condition="decrease", action="HIT", desc="King Zomb-omb's Health decreased" },
+        { address=0X35A2CC, type="u8", condition="increase", action="HEAL", desc="Wiggler Health increased" },
+        { address=0X35A2CC, type="u8", condition="decrease", action="HIT", desc="Wiggler Health decreased" },
+        { address=0X361442, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X361442, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XF40F4, type="u8", condition="increase", action="COIN_GAIN", desc="Shiny Numbers - Locations and Coin Stars (doesn't reset unless new collection begins) increased" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Gather the Red Coins" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Collet 5 Secret Coins" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coin Star" },
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Red Coins of the Hills" },
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coin Star" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Amount of Coins increased" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Amount of Coins increased" },
+        { address=0X34D5FC, type="u8", condition="increase", action="COIN_GAIN", desc="Shiny Numbers - Locations and Coin Stars (doesn't reset unless new collection begins) increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Amount of Red Coins Player has in a level increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Red Switch Pressed" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch Pressed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B26F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Related to minutes on the timer" },
+      },
+    },
+  },
+}

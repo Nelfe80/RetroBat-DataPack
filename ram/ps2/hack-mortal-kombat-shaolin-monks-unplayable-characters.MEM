@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mortal Kombat: Shaolin Monks - Unplayable Characters",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mortal-kombat-shaolin-monks-unplayable-characters",
+    hashes = {
+      { hash = "97a850b3abfddc0fa3f52c1ab22a4e58", label = "Mortal Kombat - Shaolin Monks (USA) (Unplayable Characters) (v1.03)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5E1650, type="u16le", condition="eq", value=0X14, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5E6B64, type="u32le", condition="eq", value=0XB0B, action="LOSE_LIFE", desc="Kiss of Death (Fatality)" },
+      },
+      health = {
+        { address=0XC08928, type="u32le", condition="increase", action="HEAL", desc="Health [32 bits] increased" },
+        { address=0XC08928, type="u32le", condition="decrease", action="HIT", desc="Health [32 bits] decreased" },
+        { address=0XC093A8, type="u32le", condition="increase", action="HEAL", desc="Entity 1 - Health [32 bits] increased" },
+        { address=0XC093A8, type="u32le", condition="decrease", action="HIT", desc="Entity 1 - Health [32 bits] decreased" },
+        { address=0XC098E8, type="u32le", condition="increase", action="HEAL", desc="Entity 2 - Health [32 bits] increased" },
+        { address=0XC098E8, type="u32le", condition="decrease", action="HIT", desc="Entity 2 - Health [32 bits] decreased" },
+        { address=0XC29760, type="u32le", condition="increase", action="HEAL", desc="Game - Health Upgrades [32 bits] increased" },
+        { address=0XC29760, type="u32le", condition="decrease", action="HIT", desc="Game - Health Upgrades [32 bits] decreased" },
+      },
+    },
+  },
+}

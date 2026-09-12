@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Madden NFL 2000",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "madden-nfl-2000",
+    hashes = {
+      { hash = "071ad15a9890f73890c4e0dedd07793e", label = "Madden NFL 2000 (USA, Europe) (SGB Enhanced) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

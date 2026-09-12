@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "GoldenEye: Rogue Agent",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "goldeneye-rogue-agent",
+    hashes = {
+      { hash = "91d72c3c92456a970435ef20918fbd8a", label = "GoldenEye - Rogue Agent (USA) (Disc 1)" },
+      { hash = "2485d5d0e781438db7733664aa945000", label = "GoldenEye - Rogue Agent (USA) (Disc 2)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X4F98B0, type="u32be", condition="eq", value=0X03, action="LIVES_STATE", desc="One Life Mode" },
+      },
+    },
+  },
+}

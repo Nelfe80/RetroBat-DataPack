@@ -1,0 +1,759 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "popn2",
+  "game_name": "popn2",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Device",
+          "type": "unknown",
+          "raw": "",
+          "codes": [],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "popnmusic_btn",
+            "tag": "BTN2",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":BTN2",
+            "cfg_tag": ":BTN2",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":BTN2",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":BTN2",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "led0",
+          "label": "Led0",
+          "function": "led0",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "led0#1",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led1",
+          "label": "White Left LED",
+          "function": "led1",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "white",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 1,
+          "panel_index": 1,
+          "color": "White",
+          "side": "left",
+          "id": "led1#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led2",
+          "label": "Yellow Left LED",
+          "function": "led2",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "yellow",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 2,
+          "panel_index": 2,
+          "color": "Yellow",
+          "side": "left",
+          "id": "led2#6",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led3",
+          "label": "Green Left LED",
+          "function": "led3",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "green",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 3,
+          "panel_index": 3,
+          "color": "Green",
+          "side": "left",
+          "id": "led3#7",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led4",
+          "label": "Blue Left LED",
+          "function": "led4",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "blue",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 4,
+          "panel_index": 4,
+          "color": "Blue",
+          "side": "left",
+          "id": "led4#8",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led5",
+          "label": "Red Center LED",
+          "function": "led5",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "red",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 5,
+          "panel_index": 5,
+          "color": "Red",
+          "side": "center",
+          "id": "led5#9",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led6",
+          "label": "Blue Right LED",
+          "function": "led6",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "blue",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 6,
+          "panel_index": 6,
+          "color": "Blue",
+          "side": "right",
+          "id": "led6#10",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led7",
+          "label": "Green Right LED",
+          "function": "led7",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "green",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 7,
+          "panel_index": 7,
+          "color": "Green",
+          "side": "right",
+          "id": "led7#11",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led8",
+          "label": "Yellow Right LED",
+          "function": "led8",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "yellow",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 8,
+          "panel_index": 8,
+          "color": "Yellow",
+          "side": "right",
+          "id": "led8#12",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led9",
+          "label": "White Right LED",
+          "function": "led9",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led",
+            "white",
+            "button",
+            "popn"
+          ],
+          "group": "popn_button_leds",
+          "usage": "button_lamp",
+          "player": 1,
+          "index": 9,
+          "panel_index": 9,
+          "color": "White",
+          "side": "right",
+          "id": "led9#13",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led10",
+          "label": "Led10",
+          "function": "led10",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 10,
+          "panel_index": 11,
+          "color": "Gray",
+          "side": "",
+          "id": "led10#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led11",
+          "label": "Led11",
+          "function": "led11",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 11,
+          "panel_index": 12,
+          "color": "Gray",
+          "side": "",
+          "id": "led11#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led12",
+          "label": "Led12",
+          "function": "led12",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 12,
+          "panel_index": 13,
+          "color": "Gray",
+          "side": "",
+          "id": "led12#5",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled1",
+          "label": "Pled1",
+          "function": "pled1",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 1,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "pled1#14",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled2",
+          "label": "Pled2",
+          "function": "pled2",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 2,
+          "panel_index": 2,
+          "color": "Gray",
+          "side": "",
+          "id": "pled2#15",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled3",
+          "label": "Pled3",
+          "function": "pled3",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 3,
+          "panel_index": 3,
+          "color": "Gray",
+          "side": "",
+          "id": "pled3#16",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled4",
+          "label": "Pled4",
+          "function": "pled4",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 4,
+          "panel_index": 4,
+          "color": "Gray",
+          "side": "",
+          "id": "pled4#17",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled5",
+          "label": "Pled5",
+          "function": "pled5",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 5,
+          "panel_index": 5,
+          "color": "Gray",
+          "side": "",
+          "id": "pled5#18",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled6",
+          "label": "Pled6",
+          "function": "pled6",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 6,
+          "panel_index": 6,
+          "color": "Gray",
+          "side": "",
+          "id": "pled6#19",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled7",
+          "label": "Pled7",
+          "function": "pled7",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 7,
+          "panel_index": 7,
+          "color": "Gray",
+          "side": "",
+          "id": "pled7#20",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "pled8",
+          "label": "Pled8",
+          "function": "pled8",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 8,
+          "panel_index": 8,
+          "color": "Gray",
+          "side": "",
+          "id": "pled8#21",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {},
+      "axes": [
+        {
+          "id": "P1_DIAL",
+          "input": "DIAL",
+          "label": "PORT_BIT( 0xff, 0x00, IPT_DIAL ) PORT_SENSITIVITY(30) PORT_KEYDELTA(15) PORT_PLAYER(1)",
+          "function": "port_bit_0xff_0x00_ipt_dial_port_sensitivity_30_port_keydelta_15_port_player_1",
+          "short": "POR",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "DIAL",
+            "input_id": "P1_DIAL",
+            "label": "PORT_BIT( 0xff, 0x00, IPT_DIAL ) PORT_SENSITIVITY(30) PORT_KEYDELTA(15) PORT_PLAYER(1)",
+            "function": "port_bit_0xff_0x00_ipt_dial_port_sensitivity_30_port_keydelta_15_port_player_1",
+            "control_type": "dial",
+            "joystick_way": "",
+            "port_block": "popnmusic_btn",
+            "tag": "TT1",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_DIAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "PORT_BIT( 0xff, 0x00, IPT_DIAL ) PORT_SENSITIVITY(30) PORT_KEYDELTA(15) PORT_PLAYER(1)",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 30,
+            "keydelta": 15,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "",
+            "mame_type": "",
+            "mame_tag": "",
+            "cfg_tag": "",
+            "input_label": "PORT_BIT( 0xff, 0x00, IPT_DIAL ) PORT_SENSITIVITY(30) PORT_KEYDELTA(15) PORT_PLAYER(1)",
+            "input_function": "port_bit_0xff_0x00_ipt_dial_port_sensitivity_30_port_keydelta_15_port_player_1",
+            "type": "DIAL",
+            "normalized_type": "DIAL",
+            "tag_raw": ":TT1",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":TT1",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

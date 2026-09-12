@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokemblem",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemblem",
+    hashes = {
+      { hash = "c896dedced9c5aa6b0323356d7f36ede", label = "FE8 - Pokemblem (v1.16.01) (Vesly).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Clear Flag" },
+        { address=0X33E9C, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 2 Level" },
+      },
+      stage = {
+        { address=0X33E54, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - Current Level - Character 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Boss Death Quote" },
+      },
+      health = {
+        { address=0X33E5E, type="u8", condition="increase", action="HEAL", desc="[8 Bit] - Max HP - Character 1 increased" },
+        { address=0X33E5E, type="u8", condition="decrease", action="HIT", desc="[8 Bit] - Max HP - Character 1 decreased" },
+        { address=0X33E5F, type="u8", condition="increase", action="HEAL", desc="[8 Bit] - Current HP - Character 1 increased" },
+        { address=0X33E5F, type="u8", condition="decrease", action="HIT", desc="[8 Bit] - Current HP - Character 1 decreased" },
+        { address=0X33EA6, type="u8", condition="increase", action="HEAL", desc="Slot 2 Max HP increased" },
+        { address=0X33EA6, type="u8", condition="decrease", action="HIT", desc="Slot 2 Max HP decreased" },
+        { address=0X33EA7, type="u8", condition="increase", action="HEAL", desc="Slot 2 Current HP increased" },
+        { address=0X33EA7, type="u8", condition="decrease", action="HIT", desc="Slot 2 Current HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X326AC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Stat Block] Start of ASCII Data for current scene text" },
+      },
+    },
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Borbo's Quest",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-borbos-quest",
+    hashes = {
+      { hash = "71b5b10dd41f6c8449cb9ca52dd6e590", label = "Borbo's Quest (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC211, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC211, type="u8", condition="eq", value=0X10, action="TITLE_SCREEN", desc="Title Screen1" },
+        { address=0XC211, type="u8", condition="eq", value=0X17, action="PAUSE_ON", desc="[Paused]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC5AE, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Item - Sunblock" },
+      },
+    },
+  },
+}

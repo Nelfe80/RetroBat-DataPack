@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Jet Set Willy",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-jet-set-willy",
+    hashes = {
+      { hash = "c4258d9d2cb6d802d8ffdc209c33391c", label = "Jet Set Willy (World) (WLS) (Aftermarket) (GB Studio).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC15C, type="u8", condition="increase", action="GAIN_LIFE", desc="lower 4 - lives increased" },
+        { address=0XC15C, type="u8", condition="decrease", action="LOSE_LIFE", desc="lower 4 - lives decreased" },
+      },
+    },
+  },
+}

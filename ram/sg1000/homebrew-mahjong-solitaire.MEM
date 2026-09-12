@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mahjong Solitaire",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mahjong-solitaire",
+    hashes = {
+      { hash = "894cb6837dc67fd4ada3be7126c1cbd4", label = "Mahjong Solitaire (World) (v1.16) (Aftermarket) (Unl) (under4mhz).sg" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pen Pen TriIcelon",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "pen-pen-triicelon",
+    hashes = {
+      { hash = "085679291df1b35468901c89fc874775", label = "PenPen (Europe) (En,Fr,De,Es,It,Nl)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XCFDA9C, type="u8", condition="change", action="RANK_STATE", desc="Position in Race" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1B79F6, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Mogutan's Mask (all gold medals)" },
+      },
+    },
+  },
+}

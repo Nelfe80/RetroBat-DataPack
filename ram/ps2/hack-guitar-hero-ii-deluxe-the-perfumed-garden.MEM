@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Guitar Hero II: Deluxe - The Perfumed Garden",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-guitar-hero-ii-deluxe-the-perfumed-garden",
+    hashes = {
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5A2274, type="u32le", condition="change", action="TITLE_SCREEN", desc="[32 Bit] Song Title Always | Extras" },
+      },
+    },
+  },
+}

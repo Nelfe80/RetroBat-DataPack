@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Choro Q Holiday Puzzle",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "choro-q-holiday-puzzle",
+    hashes = {
+      { hash = "5ceb3452093a933175f9f29022e84587", label = "Choro Q Holiday Puzzle.d88" },
+    }
+  },
+
+  events = {
+  },
+}

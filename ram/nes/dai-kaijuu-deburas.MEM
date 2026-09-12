@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dai Kaijuu Deburas",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "dai-kaijuu-deburas",
+    hashes = {
+      { hash = "52c1ce5616a04f43a4b9df63e3d93a00", label = "Daikaijuu Deburas (Japan).nes" },
+    }
+  },
+
+  events = {
+  },
+}

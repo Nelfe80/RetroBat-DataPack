@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 2048",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-2048",
+    hashes = {
+      { hash = "0277a480b3c3cfa204d3fe1debc450db", label = "2048 (World) (Aftermarket) (Unl).j64" },
+      { hash = "08d14cfb678dadfdbea9e2dc02849f98", label = "2048 (World) (Aftermarket) (Unl).rom" },
+    }
+  },
+
+  events = {
+  },
+}

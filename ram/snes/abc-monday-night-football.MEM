@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "ABC Monday Night Football",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "abc-monday-night-football",
+    hashes = {
+      { hash = "acaab9b12349f4aa3c6669878dc35ef4", label = "ABC Monday Night Football (USA).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

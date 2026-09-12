@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Snap: Custom Levels",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-snap-custom-levels",
+    hashes = {
+      { hash = "1464a5f15365406036197989c5e9ffef", label = "Pokemon Snap - Custom Levels (Basement).z64" },
+      { hash = "9a1eac3d6af50e642f7b8ea028ba7690", label = "Pokemon Snap - Custom Levels (Rith Essa).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC2244, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Butterfree Score (32bit)" },
+        { address=0XC224C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Pidgey Score (32bit)" },
+        { address=0XC2250, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Pikachu Score (32bit)" },
+        { address=0XC2274, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Meowth Score (32bit)" },
+        { address=0XC22B0, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Doduo Score (32bit)" },
+        { address=0XC22D0, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Chansey Score (32bit)" },
+        { address=0XC22D4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Kangaskhan Score (32bit)" },
+        { address=0XC22E4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Scyther Score (32bit)" },
+        { address=0XC22FC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Lapras Score (32bit)" },
+        { address=0XC2304, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Eevee Score (32bit)" },
+        { address=0XC230C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Pokemon - Snorlax Score (32bit)" },
+        { address=0X2291A4, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Picture 1 shown - Score (16bit)" },
+        { address=0X2291C0, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Picture 2 shown - Score (16bit)" },
+        { address=0X2291DC, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Picture 3 shown - Score (16bit)" },
+        { address=0X2291F8, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Picture 4 shown - Score (16bit)" },
+        { address=0X232A6C, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Points when Picture shown" },
+      },
+    },
+  },
+}

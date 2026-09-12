@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Stargate",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Handheld Game"
+  },
+
+  rom = {
+    name = "stargate",
+    hashes = {
+      { hash = "520783fffa010e3879bc51b61dfd79aa", label = "stargate.7z <Stargate>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDE36, type="u8", condition="eq", value=0X10, action="CREDITS_SCREEN", desc=": 10, not 16" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFFD7, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shell's Retriever",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shells-retriever",
+    hashes = {
+      { hash = "5773848cba599a17e1496da384639d2c", label = "SMW - Shell's Retriever (Cartesius) (1.1).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="beat a level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

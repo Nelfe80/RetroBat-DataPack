@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Super Boy I",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-super-boy-i",
+    hashes = {
+      { hash = "71ece7df60858964e9d7a5c0c1c1e1ae", label = "Super Boy I (Korea) (Unl).rom" },
+    }
+  },
+
+  events = {
+  },
+}

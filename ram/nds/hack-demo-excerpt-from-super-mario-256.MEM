@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Excerpt from Super Mario 256",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-excerpt-from-super-mario-256",
+    hashes = {
+      { hash = "4d3701f733b2de3ac28aa98eb9ac1fa8", label = "SM64DS - Excerpt from Super Mario 256 (v0.1.4) Josh65536.nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X564AC, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Titlescreen/File Select" },
+        { address=0X56508, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X619BE, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7CE68, type="u8", condition="change", action="NEW_LEVEL", desc="Current Progress: Underground Shell Cave" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X61805, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X61805, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X104360, type="u8", condition="increase", action="GAIN_LIFE", desc="Perform 1-UP with using Mushroom increased" },
+        { address=0X104360, type="u8", condition="decrease", action="LOSE_LIFE", desc="Perform 1-UP with using Mushroom decreased" },
+      },
+      health = {
+        { address=0XC0904, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XC0904, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0XDD700, type="u8", condition="increase", action="HEAL", desc="Goomba Gunner's HP increased" },
+        { address=0XDD700, type="u8", condition="decrease", action="HIT", desc="Goomba Gunner's HP decreased" },
+        { address=0XDDE9F, type="u8", condition="increase", action="HEAL", desc="Kamella's HP increased" },
+        { address=0XDDE9F, type="u8", condition="decrease", action="HIT", desc="Kamella's HP decreased" },
+        { address=0X102749, type="u8", condition="increase", action="HEAL", desc="Drill Top's HP increased" },
+        { address=0X102749, type="u8", condition="decrease", action="HIT", desc="Drill Top's HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X103ED6, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Bee Mushroom - Power-Up" },
+        { address=0X103F34, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Dash Bolt - Power-Up" },
+        { address=0X103F36, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Heart - Power-Up" },
+        { address=0X103F37, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Cloud Flower - Power-Up" },
+        { address=0X103F3F, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Rainbow Star - Power-Up" },
+        { address=0X104388, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Fire Power-Up" },
+        { address=0X104389, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Metal Power-Up" },
+        { address=0X104390, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Wing Power-Up" },
+        { address=0X104392, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Vanish Power-Up" },
+        { address=0X104394, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mega Mushroom Power-Up" },
+        { address=0X1043A8, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Tox Box Flower - Power-Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X56504, type="u8", condition="eq", value=0X5D, action="MONEY_STATE", desc="256 Coin Victory Spot" },
+        { address=0X617F8, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X617FC, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+        { address=0X619DC, type="u8", condition="increase", action="COIN_GAIN", desc="Warp to Course number (Only change when entering new course, not changing if returning to overwo" },
+        { address=0X7CE82, type="u8", condition="increase", action="COIN_GAIN", desc="Current Progress: Underground Shell Cave increased" },
+        { address=0X7CE85, type="u8", condition="increase", action="COIN_GAIN", desc="Current Progress: Flip-Jump Swap-Kick Woods increased" },
+        { address=0X7CE87, type="u8", condition="increase", action="COIN_GAIN", desc="Current Progress: Blocky Block Land increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X7CE6B, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Current Progress: Flip-Jump Swap-Kick Woods" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X564AC, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Course 0 'Blocky Block Land' Main Area" },
+        { address=0X564AC, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="Course 0 'Blocky Block Land' Sub Area" },
+        { address=0X7CE48, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Activate ? Red Switch" },
+        { address=0X7CE6D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Current Progress: Blocky Block Land" },
+      },
+    },
+  },
+}

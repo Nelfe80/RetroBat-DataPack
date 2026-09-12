@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Street Fighter Alpha: Warriors' Dreams",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "street-fighter-alpha-warriors-dreams",
+    hashes = {
+      { hash = "6acd649d8ab0ec4f26b8ca3930434264", label = "Street Fighter Alpha - Warriors' Dreams (Japan).gbc" },
+      { hash = "db1aeaa7135bd5707dbbccc427808cd7", label = "Street Fighter Alpha - Warriors' Dreams (USA).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC3EE, type="u8", condition="change", action="NEW_LEVEL", desc="Number Rounds 02 - 1R | 01 - 3R | 00 - 5R" },
+        { address=0XC664, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of rounds won by P2" },
+      },
+      stage = {
+        { address=0XC47C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage | 8 - Final" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC3E3, type="u8", condition="change", action="LOSE_LIFE", desc="play1 bar | 37 - full | 00 - Death" },
+        { address=0XC3E4, type="u8", condition="change", action="LOSE_LIFE", desc="play2 bar | 37 - full | 00 - Death" },
+        { address=0XC451, type="u8", condition="change", action="LOSE_LIFE", desc="Play 1 | 00 - Ryu |01 - Ken |02 - Akuma |03 - Charlie |04 - Chun-Li |05 - Adon |06 - Sodom |07 -" },
+      },
+      health = {
+        { address=0XC3EF, type="u8", condition="change", action="HIT", desc="Setup - Damage" },
+        { address=0XC4B5, type="u8", condition="increase", action="HEAL", desc="P1 - Health increased" },
+        { address=0XC4B5, type="u8", condition="decrease", action="HIT", desc="P1 - Health decreased" },
+        { address=0XC6B5, type="u8", condition="increase", action="HEAL", desc="P2 - Health increased" },
+        { address=0XC6B5, type="u8", condition="decrease", action="HIT", desc="P2 - Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC598, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC3EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time Limit 00 - Infinito | 01 - 99 seg | 02 - 75 seg | 03 - 50 seg | 04 - 25 seg" },
+      },
+    },
+  },
+}

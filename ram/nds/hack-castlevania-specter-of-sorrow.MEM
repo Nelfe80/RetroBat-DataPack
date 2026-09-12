@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Specter of Sorrow",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-specter-of-sorrow",
+    hashes = {
+      { hash = "b2f9acb7ccdba152bcfc93819d1a3009", label = "Castlevania - Specter of Sorrow (v1.0) (Muddy).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC07F0, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Pause State" },
+        { address=0XC07F2, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Alt Pause Menu detection" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XF740C, type="u16le", condition="change", action="NEW_LEVEL", desc="[16 Bit] Current Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XD2448, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Soma 2nd Form HP Pool increased" },
+        { address=0XD2448, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Soma 2nd Form HP Pool decreased" },
+        { address=0XF7410, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Current HP increased" },
+        { address=0XF7410, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Current HP decreased" },
+      },
+    },
+  },
+}

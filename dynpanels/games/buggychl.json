@@ -1,0 +1,583 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "buggychl",
+  "game_name": "Buggy Challenge",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 1,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": "As it\u0027s mapped in mame, holidng down the shifter button keeps the car in high gear."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "360 Steering Wheel",
+          "type": "dial",
+          "raw": "360 Steering Wheel\u002Bdial",
+          "codes": [
+            "dial"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "High-Low Shifter",
+          "type": "shifter",
+          "raw": "High-Low Shifter\u002Bbutton\u002BP1_BUTTON2",
+          "codes": [
+            "button",
+            "P1_BUTTON2"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D3",
+          "label": "Pedal (Microswitch)",
+          "type": "pedal",
+          "raw": "Pedal (Microswitch)\u002Bbutton\u002BP1_BUTTON1",
+          "codes": [
+            "button",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Cyan",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "buggychl",
+            "tag": "IN0",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN0",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Cyan",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "buggychl",
+            "tag": "IN1",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN1",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "led0",
+          "label": "Led0",
+          "function": "led0",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "led0#1",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Accelerate",
+          "color": "Blue",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Gear Shift",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "H / L",
+          "color": "Blue",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P1_BUTTON2",
+            "label": "P1 Gear Shift",
+            "function": "p1_gear_shift",
+            "control_type": "shifter",
+            "joystick_way": "",
+            "port_block": "buggychl",
+            "tag": "IN0",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": true,
+            "condition": "",
+            "mame_label": "P1 Gear Shift",
+            "mame_type": "61",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "P1 Gear Shift",
+            "input_function": "p1_gear_shift",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":IN0",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "libretro": {}
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_PEDAL",
+          "input": "PEDAL",
+          "label": "P1 Pedal",
+          "function": "p1_pedal",
+          "short": "P1 ",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "PEDAL",
+            "input_id": "P1_PEDAL",
+            "label": "P1 Pedal",
+            "function": "p1_pedal",
+            "control_type": "pedal",
+            "joystick_way": "",
+            "port_block": "buggychl",
+            "tag": "PEDAL",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_PEDAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "accelerator",
+            "player": 1,
+            "min": 0,
+            "max": 255,
+            "sensitivity": 100,
+            "keydelta": 15,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Pedal",
+            "mame_type": "153",
+            "mame_tag": ":PEDAL",
+            "cfg_tag": ":PEDAL",
+            "input_label": "P1 Pedal",
+            "input_function": "p1_pedal",
+            "type": "PEDAL",
+            "normalized_type": "PEDAL",
+            "tag_raw": ":PEDAL",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":PEDAL",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_DIAL",
+          "input": "DIAL",
+          "label": "Dial",
+          "function": "dial",
+          "short": "DIAL",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "DIAL",
+            "input_id": "P1_DIAL",
+            "label": "Dial",
+            "function": "dial",
+            "control_type": "dial",
+            "joystick_way": "",
+            "port_block": "buggychl",
+            "tag": "WHEEL",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_DIAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 10,
+            "keydelta": 10,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": true,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Dial",
+            "mame_type": "161",
+            "mame_tag": ":WHEEL",
+            "cfg_tag": ":WHEEL",
+            "input_label": "Dial",
+            "input_function": "dial",
+            "type": "DIAL",
+            "normalized_type": "DIAL",
+            "tag_raw": ":WHEEL",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":WHEEL",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:11:51.4467120Z",
+      "matched_by_name": 0,
+      "matched_by_order": 1
+    }
+  }
+}

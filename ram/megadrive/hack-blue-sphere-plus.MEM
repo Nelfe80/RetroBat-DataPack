@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Blue Sphere Plus",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-blue-sphere-plus",
+    hashes = {
+      { hash = "921734da4123ecbc4494e32fcf071e56", label = "Sonic & Knuckles - Blue Sphere Plus (v11) (Main Memory).md" },
+    }
+  },
+
+  events = {
+  },
+}

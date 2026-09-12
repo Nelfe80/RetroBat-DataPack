@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Virtua Striker 2",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "virtua-striker-2",
+    hashes = {
+      { hash = "18f9db2d7e7a874feb5701d515d2258b", label = "Virtua Striker 2 (USA) (En,Ja,De,Es)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X285404, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[16bit] Match Time." },
+        { address=0X2E213A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Half Time Setting:" },
+        { address=0X2E213A, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="2:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="3:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="5:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X03, action="GENERAL_TIMER", desc="10:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X04, action="GENERAL_TIMER", desc="1:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X05, action="GENERAL_TIMER", desc="2:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X06, action="GENERAL_TIMER", desc="3:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X07, action="GENERAL_TIMER", desc="4:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X08, action="GENERAL_TIMER", desc="5:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X09, action="GENERAL_TIMER", desc="6:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0A, action="GENERAL_TIMER", desc="7:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0B, action="GENERAL_TIMER", desc="8:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0C, action="GENERAL_TIMER", desc="9:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0D, action="GENERAL_TIMER", desc="10:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0E, action="GENERAL_TIMER", desc="11:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X0F, action="GENERAL_TIMER", desc="12:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X10, action="GENERAL_TIMER", desc="13:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X11, action="GENERAL_TIMER", desc="14:00." },
+        { address=0X2E213A, type="u8", condition="eq", value=0X12, action="GENERAL_TIMER", desc="15:00." },
+      },
+    },
+  },
+}

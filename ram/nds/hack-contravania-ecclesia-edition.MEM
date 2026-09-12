@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Contravania: Ecclesia Edition+",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-contravania-ecclesia-edition",
+    hashes = {
+      { hash = "17aecdb2bbfcd7503564695d4230950d", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Genbei Jaguar Yagyu) (ncoZ).nds" },
+      { hash = "3d0afd5d7465b9d86bed2396317ab9bb", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Bill Rizer) (ncoZ).nds" },
+      { hash = "3ed32592df52ae375a5dde0d47bd42b1", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Soma Cruz) (ncoZ).nds" },
+      { hash = "5eb75fa425e5c88e92266faa4a7b6b17", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Newt Plissken) (ncoZ).nds" },
+      { hash = "8920dc6cacd3c7e0490376c6aad1ceae", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Brad Fang) (ncoZ).nds" },
+      { hash = "c4cb2f2d4ddcada7ce92ae3c5518f5a6", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Sans) (ncoZ).nds" },
+      { hash = "d1fd412721f4f595e79aaad7d903833d", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Richter Belmont) (ncoZ).nds" },
+      { hash = "fa3628063da8ead52aa51bded4fe8c8d", label = "Contravania - Ecclesia Edition+ (v1.2.0) (Probotector) (ncoZ).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1000F4, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Character immobilized (Pause)" },
+        { address=0X1000F6, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] PAUSE Indicator" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFFCB9, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Zone ID" },
+        { address=0XFFCBA, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Zone ID" },
+        { address=0X1002B0, type="u16le", condition="change", action="NEW_LEVEL", desc="[16 Bit] Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1002B4, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Current HP increased" },
+        { address=0X1002B4, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Current HP decreased" },
+        { address=0X1002B6, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Max HP increased" },
+        { address=0X1002B6, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Max HP decreased" },
+      },
+    },
+  },
+}

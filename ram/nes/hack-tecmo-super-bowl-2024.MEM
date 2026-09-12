@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Tecmo Super Bowl 2024",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-tecmo-super-bowl-2024",
+    hashes = {
+      { hash = "5d1ab97ada705d940ffd62b03224db54", label = "TSB - Tecmo Super Bowl 2024 (Rev 2) (Knobbe).nes" },
+    }
+  },
+
+  events = {
+  },
+}

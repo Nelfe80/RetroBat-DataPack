@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bases Loaded 3",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "bases-loaded-3",
+    hashes = {
+      { hash = "375b68c8e71d7383335038692dcc9b53", label = "Bases Loaded 3 (USA).nes" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X037E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="'Ball' counter." },
+        { address=0X0B7E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="'Ball' counter." },
+        { address=0X137E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="'Ball' counter." },
+        { address=0X1B7E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="'Ball' counter." },
+      },
+    },
+  },
+}

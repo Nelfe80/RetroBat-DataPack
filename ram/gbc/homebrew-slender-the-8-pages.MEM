@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Slender: The 8 Pages",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-slender-the-8-pages",
+    hashes = {
+      { hash = "4165032fb478ebda7e15d35deb5937a8", label = "Slender - The 8 Pages (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

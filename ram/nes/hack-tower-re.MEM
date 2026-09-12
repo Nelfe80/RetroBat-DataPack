@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Tower RE",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-tower-re",
+    hashes = {
+      { hash = "009de00a78f2b496efe392ac4f907793", label = "Tower RE Mario Bros (Betaworld).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0760, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X0770, type="u8", condition="change", action="NEW_LEVEL", desc="Level state" },
+      },
+      zone = {
+        { address=0X075F, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X001E, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 1 Alt Sprite | 22 : Dead" },
+        { address=0X001F, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 2 Alt Sprite | 22 : Dead" },
+        { address=0X0020, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 3 Alt Sprite | 22 : Dead" },
+        { address=0X0021, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 4 Alt Sprite | 22 : Dead" },
+        { address=0X0022, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 5 Alt Sprite | 22 : Dead" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0756, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X075E, type="u8", condition="increase", action="COIN_GAIN", desc="coins increased" },
+      },
+    },
+  },
+}

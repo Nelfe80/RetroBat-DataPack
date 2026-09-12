@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Titenic",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "unlicensed-titenic",
+    hashes = {
+      { hash = "c5b336ddb50969d8171306a6a773bdf9", label = "Titenic (Asia) (En) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0028, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue?" },
+        { address=0X0028, type="u8", condition="eq", value=0X0B, action="TITLE_SCREEN", desc="Title" },
+        { address=0X0028, type="u8", condition="eq", value=0X0F, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0038, type="u8", condition="eq", value=0X0, action="PAUSE_OFF", desc="Unpaused, 1 : Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0199, type="u8", condition="change", action="NEW_LEVEL", desc="Level Number [8 bit] - zero-indexed" },
+        { address=0X0199, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X0199, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X0199, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X0199, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Level 4" },
+        { address=0X0199, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Level 5" },
+      },
+      stage = {
+        { address=0X04E8, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Stage 4 lower side room" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X018D, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Count [8 bit] increased" },
+        { address=0X018D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Count [8 bit] decreased" },
+        { address=0X031E, type="u8", condition="eq", value=0X0B, action="LOSE_LIFE", desc="Jack dead" },
+        { address=0X031E, type="u8", condition="eq", value=0X0C, action="LOSE_LIFE", desc="Rose dead" },
+        { address=0X04E8, type="u8", condition="eq", value=0X0B, action="GAIN_LIFE", desc="Stage 4 upper side room (1up)" },
+        { address=0X0564, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="alive" },
+        { address=0X0564, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="fallen (freezes here if you get back up immediately)" },
+      },
+      health = {
+        { address=0X0193, type="u8", condition="eq", value=0X57, action="HIT", desc="dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0091, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [24 bit]" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X04E8, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Stage 4 boss room" },
+        { address=0X0675, type="u8", condition="eq", value=0X5F, action="BOSS_DEFEATED", desc="dead" },
+        { address=0X0685, type="u8", condition="eq", value=0X5F, action="BOSS_DEFEATED", desc="dead" },
+        { address=0X068C, type="u8", condition="eq", value=0X5F, action="BOSS_DEFEATED", desc="dead" },
+        { address=0X0699, type="u8", condition="eq", value=0X5F, action="BOSS_DEFEATED", desc="dead" },
+        { address=0X06A0, type="u8", condition="eq", value=0X5F, action="BOSS_DEFEATED", desc="dead" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0072, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Number of Objects [8 bit]" },
+        { address=0X030A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Sprite IDs [List of 8 bit values]" },
+        { address=0X0314, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Metadata [List of 8 bit values]" },
+        { address=0X031E, type="u8", condition="eq", value=0X19, action="OBJECT_INTERACTION", desc="Jack shoulder check" },
+        { address=0X031E, type="u8", condition="eq", value=0X29, action="OBJECT_INTERACTION", desc="Rose wins" },
+        { address=0X031E, type="u8", condition="eq", value=0X30, action="OBJECT_INTERACTION", desc="Jack wins" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0160, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Time Remaining - 'Seconds' [8 bit]" },
+        { address=0X0161, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", desc="Time Remaining - 'Minutes' [8 bit]" },
+        { address=0X0564, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Flashing Death Timer [8 bit BE]" },
+      },
+    },
+  },
+}

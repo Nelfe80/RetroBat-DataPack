@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Beck: The Game",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "beck-the-game",
+    hashes = {
+      { hash = "2d9362927eb8dfc181a92a35074edd5b", label = "Beck - The Game (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

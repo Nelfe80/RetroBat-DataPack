@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "God of War: Chains of Olympus",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "god-of-war-chains-of-olympus",
+    hashes = {
+      { hash = "799b09290b80129d6d0a880f7bac59b6", label = "God of War - Chains of Olympus (Europe, Australia) (En,Fr,De,Es,It).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB2DEB8, type="u8", condition="change", action="TITLE_SCREEN", desc="[8-bits] Subtitles [00/01]" },
+        { address=0XBCE180, type="u8", condition="bit_true", mask=0X08, action="PAUSE_ON", desc="Game Paused" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X40, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="The Lost Levels" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XC8440C, type="u8", condition="change", action="TREASURE", desc="IDENTIFIER - Ghost Value for in-game/out-game differentiator [00/01] [8-bits] // a good way to d" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="'Completed the game in any difficulty'" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Challenge 1" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Challenge 2" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="Challenge 3" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Challenge 4" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Challenge 5" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="Bonus Costume 1" },
+        { address=0X1988588, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="Bonus Costume 2" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Bonus Costume 3" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="God Mode" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="In-Game Movies" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="Making of Africa" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Inside Ready at Dawn Studios" },
+        { address=0X1988589, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="Characters" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Environments" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Outtakes" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="'Unknown' // unsure" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="'Challenge of Hades complete' // unsure" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="'Completed the game in Mortal (Easy)'" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="'Completed the game in Hero (Normal)'" },
+        { address=0X198858A, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="'Completed the game in Spartan (Hard)'" },
+        { address=0X198858B, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="'Completed the game in God (Very Hard)'" },
+      },
+    },
+  },
+}

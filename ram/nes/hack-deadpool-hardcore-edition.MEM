@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Deadpool Hardcore Edition",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-deadpool-hardcore-edition",
+    hashes = {
+      { hash = "973b2f4061d5930f770ce4ace513a6a0", label = "Ninja Gaiden - Deadpool - Hardcore Edition (v600) (DANGER X).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Menu / Title screen" },
+        { address=0X0010, type="u8", condition="eq", value=0X22, action="GAME_OVER", desc="When Game Over, this then decrements in value back to 0x01" },
+        { address=0X001B, type="u8", condition="eq", value=0X0C, action="TITLE_SCREEN", desc="When going to title screen it stays at this value for some unknown reasons" },
+        { address=0X00FB, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0703, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Select" },
+        { address=0X0703, type="u8", condition="eq", value=0X27, action="PROGRESSION_STAGE", desc="On" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0076, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0076, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X00C8, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Deadpool uses guns / Ryu uses shurikens" },
+        { address=0X07C1, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths shown in result screen (goes back to 0 after going over 0xff)" },
+      },
+      health = {
+        { address=0X0062, type="u8", condition="increase", action="HEAL", desc="Countdown for regenerating HP Bar increased" },
+        { address=0X0062, type="u8", condition="decrease", action="HIT", desc="Countdown for regenerating HP Bar decreased" },
+        { address=0X0065, type="u8", condition="increase", action="HEAL", desc="HP Bar - can be tampered with increased" },
+        { address=0X0065, type="u8", condition="decrease", action="HIT", desc="HP Bar - can be tampered with decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X07BF, type="u16le", condition="change", action="DYNAMIC_INVENTORY", desc="Powerups picked up. Statistic shows up after beating the game." },
+      },
+      weapon = {
+        { address=0X00C9, type="u8", condition="eq", value=0X80, action="WEAPON_STATE", desc="Explosions / Rockets" },
+        { address=0X00C9, type="u8", condition="eq", value=0X81, action="WEAPON_STATE", desc="Bullets / Daggers" },
+        { address=0X00C9, type="u8", condition="eq", value=0X82, action="WEAPON_STATE", desc="Teleport" },
+        { address=0X00C9, type="u8", condition="eq", value=0X85, action="WEAPON_STATE", desc="Spinslash" },
+        { address=0X00C9, type="u8", condition="eq", value=0X86, action="WEAPON_STATE", desc="Bomb (kills all enemies on screen)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0064, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Sub-Weapon Ammo - can be tampered with" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0066, type="u8", condition="change", action="BOSS_HIT", desc="Enemy (boss) HP bar" },
+        { address=0X03EA, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="In BR Mode" },
+        { address=0X03EA, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="In-Game (Normal)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0080, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="Jump Attack Move" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X07A0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter in a full playthrough. Statistic shows up after beating the game." },
+      },
+    },
+  },
+}

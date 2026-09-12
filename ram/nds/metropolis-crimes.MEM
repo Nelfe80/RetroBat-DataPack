@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Metropolis Crimes",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Adventure, Puzzle"
+  },
+
+  rom = {
+    name = "metropolis-crimes",
+    hashes = {
+      { hash = "99ed9c6785d0b42df6c62c77bc5b02dd", label = "Metropolis Crime$ (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X197E00, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Points [16bit]" },
+      },
+    },
+  },
+}

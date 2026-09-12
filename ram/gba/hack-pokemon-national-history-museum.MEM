@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: National History Museum",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-national-history-museum",
+    hashes = {
+      { hash = "7f6cc86de572a068ae03b63c926716ca", label = "Pokemon Emerald - National History Museum (v1.0.4) (wiz1989).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X2AF9E, type="u16le", condition="increase", action="HEAL", desc="Battle - Player Pokémon 1 - Current HP [16bit] increased" },
+        { address=0X2AF9E, type="u16le", condition="decrease", action="HIT", desc="Battle - Player Pokémon 1 - Current HP [16bit] decreased" },
+        { address=0X2AFFE, type="u16le", condition="increase", action="HEAL", desc="Battle - Opponent Pokémon 1 - Current HP [16bit] increased" },
+        { address=0X2AFFE, type="u16le", condition="decrease", action="HIT", desc="Battle - Opponent Pokémon 1 - Current HP [16bit] decreased" },
+        { address=0X2B05E, type="u16le", condition="increase", action="HEAL", desc="Battle - Player Pokémon 2 - Current HP [16bit] increased" },
+        { address=0X2B05E, type="u16le", condition="decrease", action="HIT", desc="Battle - Player Pokémon 2 - Current HP [16bit] decreased" },
+        { address=0X2B0BE, type="u16le", condition="increase", action="HEAL", desc="Battle - Opponent Pokémon 2 - Current HP [16bit] increased" },
+        { address=0X2B0BE, type="u16le", condition="decrease", action="HIT", desc="Battle - Opponent Pokémon 2 - Current HP [16bit] decreased" },
+      },
+    },
+  },
+}

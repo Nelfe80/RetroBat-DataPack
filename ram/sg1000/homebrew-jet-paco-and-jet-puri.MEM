@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Jet Paco and Jet Puri",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-jet-paco-and-jet-puri",
+    hashes = {
+      { hash = "c07672a810c23e269a65a02e3893172a", label = "Jet Paco and Jet Puri (USA) (v1.0) (Aftermarket) (Unl).sg" },
+      { hash = "e13c66c69904b94459fa46da26aca87e", label = "Jet Paco and Jet Puri (Europe) (v1.0) (Aftermarket) (Unl).sg" },
+    }
+  },
+
+  events = {
+  },
+}

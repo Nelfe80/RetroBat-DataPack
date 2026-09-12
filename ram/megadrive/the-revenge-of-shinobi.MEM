@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Revenge of Shinobi",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "the-revenge-of-shinobi",
+    hashes = {
+      { hash = "84906f06b302216a6db943ee52a8956c", label = "Revenge of Shinobi, The (USA, Europe) (Rev A).md" },
+      { hash = "b7eeed1bd8420ce1d895b2ca46a0643a", label = "Revenge of Shinobi, The (USA, Europe).md" },
+      { hash = "c296021f74ab1192ed7e1865cdebc972", label = "Revenge of Shinobi, The (Japan, USA) (En).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE102, type="u16be", condition="eq", value=0X01, action="PAUSE_ON", desc="paused" },
+        { address=0XE13C, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFF20, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+      stage = {
+        { address=0XC010, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression" },
+        { address=0XC011, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XE140, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Left increased" },
+        { address=0XE140, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Left decreased" },
+        { address=0XE152, type="u8", condition="change", action="LOSE_LIFE", desc="Naoko's Status: 0:OK, 1:in danger, 2:deaded" },
+        { address=0XF93A, type="u8", condition="eq", value=0X39, action="GAIN_LIFE", desc="1-up" },
+      },
+      health = {
+        { address=0XE13A, type="u8", condition="increase", action="HEAL", desc="Health Remaining increased" },
+        { address=0XE13A, type="u8", condition="decrease", action="HIT", desc="Health Remaining decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XE00D, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="01 : Power-Up Active (super shuriken)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC42B, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XC82A, type="u8", condition="change", action="BOSS_DEFEATED", desc="Countdown after defeat last boss and before release Naoko" },
+        { address=0XC839, type="u8", condition="change", action="BOSS_HIT", desc="8-bit - Final Boss Health" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC014, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump height?" },
+      },
+    },
+  },
+}

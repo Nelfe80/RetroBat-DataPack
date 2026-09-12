@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Sims 2",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-sims-2",
+    hashes = {
+      { hash = "853efc99347c19ba9c599d9f25c8d0d6", label = "Sims 2, The (USA).iso" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XA29720, type="u32le", condition="eq", value=0X0906A6A8, action="LOSE_LIFE", desc="Deadtree Meeting House" },
+        { address=0XA29720, type="u32le", condition="eq", value=0X0911EBC8, action="LOSE_LIFE", desc="Deadtree" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X19C7CB8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[Float] Time: Seconds" },
+        { address=0X19C7CC4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Time: Day" },
+        { address=0X19C7CC8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Time: Hour" },
+        { address=0X19C7CCC, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time: Minutes" },
+      },
+    },
+  },
+}

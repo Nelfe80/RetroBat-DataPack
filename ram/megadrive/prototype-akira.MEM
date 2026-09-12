@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Akira",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Beat 'em Up, Platform, Racing, Shooter"
+  },
+
+  rom = {
+    name = "prototype-akira",
+    hashes = {
+      { hash = "ff78730a97d6e38a9c34ce8cf6f63bdb", label = "Akira (USA) (Proto).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X002A, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 4 (dT) Att" },
+        { address=0X0034, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level:" },
+        { address=0X0059, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 1 Bike State" },
+        { address=0X0059, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Punch" },
+        { address=0X00B1, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 2 (K) Health" },
+        { address=0X00FC, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 3 (T) Bear Direction" },
+        { address=0X00FC, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="North" },
+        { address=0X00FC, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="West" },
+        { address=0X00FC, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="South" },
+        { address=0X00FC, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="East" },
+        { address=0X11BC, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 2 (T) Total slots in Inv" },
+        { address=0X12C0, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 2 (T) Inv Key" },
+        { address=0X12C0, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="key" },
+        { address=0X2AFC, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Objects Remaining on Level" },
+        { address=0X3E56, type="u8", condition="change", action="NEW_LEVEL", desc="Level 2 (K) Ammo / Level 4 (T) Psc" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0059, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Wheelie/Glitch Jump" },
+      },
+    },
+  },
+}

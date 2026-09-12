@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Shifting Sand Dungeon",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-shifting-sand-dungeon",
+    hashes = {
+      { hash = "df38abdf743f5ac6e30e215c4e7642ec", label = "Legend of Zelda, The - OoT - Shifting Sand Dungeon (v20200126) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X11A602, type="u16be", condition="increase", action="HEAL", desc="Current Health 16bits increased" },
+        { address=0X11A602, type="u16be", condition="decrease", action="HIT", desc="Current Health 16bits decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X11A65F, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Sticks" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X11A67F, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Key" },
+        { address=0X1CA1D8, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Chest - Boss Key" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Switch - Main Room" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Switch" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Switch - Main Room" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Switch" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Switch - Main Room" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Switch - Main Room" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Switch - Main Room" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X121F0E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Song ID????" },
+      },
+    },
+  },
+}

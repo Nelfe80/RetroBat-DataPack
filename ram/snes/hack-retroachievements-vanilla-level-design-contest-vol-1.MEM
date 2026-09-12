@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ RetroAchievements Vanilla Level Design Contest Vol. 1",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-retroachievements-vanilla-level-design-contest-vol-1",
+    hashes = {
+      { hash = "cb272886fee9794b37ed3f9b95f4dfef", label = "SMW - The First Annual RetroAchievements Vanilla Level Design Contest (v1.0) (SubliminalSiren).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X20100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X21F11, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Map" },
+        { address=0X21F11, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Scott's Island" },
+        { address=0X21F11, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Cryptic Caves" },
+        { address=0X21F11, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Finalists" },
+        { address=0X21F11, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Cheevo Zone" },
+        { address=0X21F11, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Star Mountain" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X21421, type="u8", condition="increase", action="GAIN_LIFE", desc="Invisible 1-Up counter increased" },
+        { address=0X21421, type="u8", condition="decrease", action="LOSE_LIFE", desc="Invisible 1-Up counter decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20DBF, type="u8", condition="eq", value=0X63, action="COIN_GAIN", desc="Max" },
+        { address=0X20DC0, type="u8", condition="increase", action="COIN_GAIN", desc="Green star block coin counter increased" },
+        { address=0X21420, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins collected increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X20F31, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Hundreds of seconds" },
+        { address=0X20F32, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Tens of seconds" },
+        { address=0X20F33, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds" },
+      },
+    },
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Sudoku (NiceCode)",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-sudoku-nicecode",
+    hashes = {
+      { hash = "378300142d3988a241c7a985bf11ddd5", label = "Sudoku (Asia) (Multicart Rip) (Nice Code).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0012, type="u16le", condition="eq", value=0XE494, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X05CF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Time (Seconds)" },
+        { address=0X05D0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Timer (Minutes)" },
+        { address=0X05D1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Time (Hours)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "DonPachi",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "donpachi",
+    hashes = {
+      { hash = "55e3a560128c0ecfd8999ab366ef7cf2", label = "donpachi.7z <DonPachi (USA, ver. 1.12, 95/05/2x)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0042, type="u8", condition="change", action="CONTINUE_SCREEN", desc="transition flag:0 ingame:80 continue:c0" },
+        { address=0X0043, type="u8", condition="change", action="CONTINUE_SCREEN", desc="transition flag:00 instage:80 continue:0c" },
+        { address=0X128E, type="u8", condition="bit_true", mask=0X01, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0X128F, type="u8", condition="bit_true", mask=0X80, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0X139A, type="u8", condition="change", action="CREDITS_SCREEN", desc="Player 1 - Credits" },
+        { address=0X18EC, type="u8", condition="change", action="DEMO_MODE", desc="demo flag:05 ingame:07 continue scene:08 ship select secene:0b" },
+        { address=0X18EE, type="u8", condition="eq", value=0XF0, action="CONTINUE_SCREEN", desc="Countdown on Screen" },
+        { address=0X18EE, type="u8", condition="eq", value=0XF2, action="CONTINUE_SCREEN", desc="Countdown Gone to 0" },
+      },
+      events = {
+        { address=0X174E, type="u8", condition="change", action="COMBO_HIT", desc="current combo value" },
+        { address=0X1750, type="u8", condition="change", action="COMBO_HIT", desc="combo value display" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X379A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="donpachis collected in a stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1A0A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Active (No death in run)" },
+        { address=0X1A0A, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Inactive (Died)" },
+        { address=0X1A2E, type="u8", condition="increase", action="GAIN_LIFE", desc="player 1 lives counter increased" },
+        { address=0X1A2E, type="u8", condition="decrease", action="LOSE_LIFE", desc="player 1 lives counter decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X2194, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="power up stored" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X177A, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X128E, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Coin Slot 1" },
+        { address=0X128E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Coin Slot 2" },
+        { address=0X21A0, type="u8", condition="increase", action="COIN_GAIN", desc="bitflags 0:continue 1:screen 2:c button 3:advertise sound 4:1 coin 2 plays 5: 2 coins 1 play 4an" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1A8B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="State change" },
+      },
+    },
+  },
+}

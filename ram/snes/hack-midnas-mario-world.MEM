@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Midna's Mario World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-midnas-mario-world",
+    hashes = {
+      { hash = "eaf2792472041a1f64afb9f6d1d28f3a", label = "SMW - Midna's Mario World (v2.0) (Midna).sfc" },
+      { hash = "12a7d3d91b4efeb65a07989d2b1a5aaf", label = "SMW - Midna's Mario World (v2.0) (Inf. Lives + Save Anywhere) (Midna).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Boo! Haunted House" },
+        { address=0X13BF, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Travel Patterns" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Castle's Garden" },
+        { address=0X13BF, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Castle of Spikes" },
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Mario vs. Shell" },
+        { address=0X13BF, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Spiky Cave" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Labyrinth of Plants" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="PROGRESSION_STAGE", desc="Test of Greed" },
+        { address=0X13BF, type="u8", condition="eq", value=0X15, action="PROGRESSION_STAGE", desc="Black Plant Valley" },
+        { address=0X13BF, type="u8", condition="eq", value=0X25, action="PROGRESSION_STAGE", desc="Spiderkoopa's Keep" },
+        { address=0X13BF, type="u8", condition="eq", value=0X26, action="PROGRESSION_STAGE", desc="Flooded Lands" },
+        { address=0X13BF, type="u8", condition="eq", value=0X27, action="PROGRESSION_STAGE", desc="Mountains of Doom" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="LOSE_LIFE", desc="Yoshi's Death (x2)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="JUMPING", no_log=true, no_survey=true, desc="Some Simple Jumps" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="Yes" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch Hit" },
+      },
+    },
+  },
+}

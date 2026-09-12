@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Angel Paradise Vol. 1: Sakaki Yuko - Koi no Yokan in Hollywood",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "angel-paradise-vol-1-sakaki-yuko-koi-no-yokan-in-hollywood",
+    hashes = {
+      { hash = "3caeb9cf3b76b02c5c62f71e41d526be", label = "Angel Paradise Vol. 1 - Sakaki Yuko - Koi no Yokan in Hollywood (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X14A2C5, type="u8", condition="change", action="NEW_LEVEL", desc="In puzzle - show video background (Jigsaw only)" },
+        { address=0X14A2C5, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Showing" },
+        { address=0X14B89D, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Falling" },
+        { address=0X1568A4, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="Clear" },
+      },
+      stage = {
+        { address=0X14A399, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X1566FD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Number graphic is displaying, sometimes able to manipulate, sometimes not. But always goes" },
+        { address=0X1566FD, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Yes" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1568EC, type="u8", condition="decrease", action="HIT", desc="Puzzle - Using reveal powerups decreased" },
+        { address=0X1568ED, type="u8", condition="decrease", action="HIT", desc="Puzzle - Using time stop power up decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1568EC, type="u8", condition="eq", value=0X1, action="DYNAMIC_INVENTORY", desc="Jigsaw puzzle reveal active" },
+        { address=0X1568EC, type="u8", condition="eq", value=0X2, action="DYNAMIC_INVENTORY", desc="Slide puzzle order reveal active" },
+        { address=0X1568ED, type="u8", condition="eq", value=0X1, action="DYNAMIC_INVENTORY", desc="Active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14A2CA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time remaining" },
+      },
+    },
+  },
+}

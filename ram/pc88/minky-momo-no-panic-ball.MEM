@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Minky Momo no Panic Ball",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "minky-momo-no-panic-ball",
+    hashes = {
+      { hash = "e7c22b3f0deca65ecdc2124477877452", label = "Minky Momo no Panic Ball {V1 mode}.d88" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X339A, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Current Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X339B, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Lives remaining increased" },
+        { address=0X339B, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Lives remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3398, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Score * 10" },
+      },
+    },
+  },
+}

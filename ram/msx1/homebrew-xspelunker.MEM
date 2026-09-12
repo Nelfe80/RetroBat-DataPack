@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ XSpelunker",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-xspelunker",
+    hashes = {
+      { hash = "3c4a05c9f667362c317510ed8c55fec4", label = "XSpelunker (2017) (v1.4.3) (32K) (Brain Games).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00BB, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Title" },
+        { address=0X00BB, type="u8", condition="eq", value=0X2, action="GAME_PLAYING", desc="Level Setup" },
+        { address=0X00BB, type="u8", condition="eq", value=0X3, action="GAME_PLAYING", desc="Playing Level" },
+        { address=0X00BB, type="u8", condition="eq", value=0X4, action="GAME_OVER", desc="Game Over" },
+        { address=0X00BB, type="u8", condition="eq", value=0X5, action="GAME_OVER", desc="Ending" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0073, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Main [8 bit]" },
+        { address=0X0073, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Yucatan Jungle" },
+        { address=0X0073, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Outer Ruins" },
+        { address=0X0073, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Alien Lab (Inner Ruins)" },
+        { address=0X0074, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Section [8 bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X15F4, type="u8", condition="eq", value=0X22, action="LOSE_LIFE", desc="dead right" },
+        { address=0X15F4, type="u8", condition="eq", value=0X23, action="LOSE_LIFE", desc="dead left" },
+      },
+      health = {
+        { address=0X0062, type="u8", condition="increase", action="HEAL", desc="Health [8 bit] increased" },
+        { address=0X0062, type="u8", condition="decrease", action="HIT", desc="Health [8 bit] decreased" },
+        { address=0X15F4, type="u8", condition="eq", value=0X20, action="HIT", desc="hurt right" },
+        { address=0X15F4, type="u8", condition="eq", value=0X21, action="HIT", desc="hurt left" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0063, type="u16le", condition="eq", value=0X6, action="SHIELD_GAIN", desc="shield" },
+        { address=0X15F4, type="u8", condition="eq", value=0X16, action="SHIELD_GAIN", desc="shield right" },
+        { address=0X15F4, type="u8", condition="eq", value=0X17, action="SHIELD_GAIN", desc="shield left" },
+      },
+      player = {
+        { address=0X0061, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="neutral jump" },
+        { address=0X0061, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="jumping right" },
+        { address=0X0061, type="u8", condition="eq", value=0XFF, action="JUMPING", no_log=true, no_survey=true, desc="jumping left" },
+        { address=0X15F4, type="u8", condition="eq", value=0X12, action="SWIMMING", no_log=true, no_survey=true, desc="swim right" },
+        { address=0X15F4, type="u8", condition="eq", value=0X13, action="SWIMMING", no_log=true, no_survey=true, desc="swim left" },
+        { address=0X15F4, type="u8", condition="eq", value=0X8, action="JUMPING", no_log=true, no_survey=true, desc="jumping right" },
+        { address=0X15F4, type="u8", condition="eq", value=0X9, action="JUMPING", no_log=true, no_survey=true, desc="jumping left" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0063, type="u16le", condition="eq", value=0X15, action="DOOR_OPENED", desc="door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00AF, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Time Readout in HUD" },
+      },
+    },
+  },
+}

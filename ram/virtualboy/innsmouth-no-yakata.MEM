@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Innsmouth no Yakata",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Lightgun Shooter"
+  },
+
+  rom = {
+    name = "innsmouth-no-yakata",
+    hashes = {
+      { hash = "1eb964d0eaa3223cfefdcc99a6265c88", label = "Insmouth no Yakata (Japan).vb" },
+      { hash = "4698a0b151d95bbbb833e2a523a12be7", label = "Innsmouth no Yakata (Japan) (En) (v1.0) (Thunderstruck).vb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6B02, type="u8", condition="change", action="LEVEL_CLEAR", desc="0x03 - Stage Clear?" },
+        { address=0X6B0E, type="u8", condition="change", action="LEVEL_CLEAR", desc="0x01 - Stage Clear?" },
+      },
+      stage = {
+        { address=0X3CF6, type="u24le", condition="change", action="PROGRESSION_STAGE", desc="STARTING STAGE" },
+        { address=0X3CF8, type="u24le", condition="change", action="PROGRESSION_STAGE", desc="CURRENT STAGE" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3CF0, type="u8", condition="change", action="AMMO_STATE", desc="Ammo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X6B14, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Actual Stage Timer - 16-bit Hex" },
+        { address=0X6B18, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage Timer Display - 8-bit - Hex" },
+      },
+    },
+  },
+}

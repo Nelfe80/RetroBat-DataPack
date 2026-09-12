@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Iron Cor: Stainless",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-iron-cor-stainless",
+    hashes = {
+      { hash = "c49c17b7c695d382ff80ae49899109ba", label = "Iron Cor - Stainless (World) (v2.0) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC52A, type="u8", condition="eq", value=0X58C6, action="CREDITS_SCREEN", desc="Credits Screen" },
+        { address=0XC52A, type="u8", condition="eq", value=0X6207, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC52A, type="u8", condition="eq", value=0X6AA1, action="BOSS_HIT", desc="Talking to Boss" },
+      },
+    },
+  },
+}

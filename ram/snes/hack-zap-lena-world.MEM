@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Zap Lena World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-zap-lena-world",
+    hashes = {
+      { hash = "49a0b5d909d6846b0c6b0fb5683fb271", label = "SMW - Zap Lena World (Yagami) (1.2).sfc" },
+      { hash = "b153eda959779351a892d59e55a939eb", label = "SMW - Zap Lena World (Yagami) (1.1).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="complete a level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

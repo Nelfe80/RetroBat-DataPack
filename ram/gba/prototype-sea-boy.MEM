@@ -1,0 +1,62 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Sea Boy",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-sea-boy",
+    hashes = {
+      { hash = "33c513111814b0ac9c1375bb20ddb0b9", label = "Sea Boy (USA) (Proto) (2022-10-24).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X82E3, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Not on title screen" },
+        { address=0X82E3, type="u8", condition="eq", value=0X40, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0XAA94, type="u8", condition="eq", value=0X01, action="GAME_PLAYING", desc="In level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC122, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC123, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC124, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC125, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC126, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC127, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC127, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Pearl" },
+        { address=0XC127, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Perfect" },
+        { address=0XC127, type="u8", condition="bit_true", mask=0X40, action="LEVEL_CLEAR", desc="Fishionary - No.006 Topobg" },
+        { address=0XC128, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC129, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC12A, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC136, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC137, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC138, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC139, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC13A, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0XC14B, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X21AE4, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Not in goal" },
+        { address=0X21AE4, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Reco vered (green check mark)" },
+        { address=0X30310, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Incomplete" },
+        { address=0X30310, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Complete" },
+      },
+      stage = {
+        { address=0X30310, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage completion flag" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC123, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Pearl" },
+        { address=0XC123, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Perfect" },
+        { address=0XC123, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Fishionary - No.002 Topoby" },
+      },
+    },
+  },
+}

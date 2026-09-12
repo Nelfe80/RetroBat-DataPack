@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Roblox 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-roblox-64",
+    hashes = {
+      { hash = "b991902fad60ca703b73b5e8a0c30d5b", label = "SM64 - Roblox 64 (SwiftySky) (1.1).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="u died room" },
+      },
+    },
+  },
+}

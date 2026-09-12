@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Völgarr the Viking",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-volgarr-the-viking",
+    hashes = {
+      { hash = "c07256a894f512e6ab5c2da9a6366b34", label = "Volgarr the Viking (USA, Japan) (Unl)" },
+    }
+  },
+
+  events = {
+    inventory = {
+      weapon = {
+        { address=0X26422F, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="current weapon" },
+      },
+    },
+  },
+}

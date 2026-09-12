@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Hydellius",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-hydellius",
+    hashes = {
+      { hash = "fc1a61374869dd0cc203af9c8221e262", label = "Super Metroid - Hydellius (v1.4) (TROM).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X09C2, type="u8", condition="increase", action="GAIN_LIFE", desc="vida/life increased" },
+        { address=0X09C2, type="u8", condition="decrease", action="LOSE_LIFE", desc="vida/life decreased" },
+      },
+    },
+  },
+}

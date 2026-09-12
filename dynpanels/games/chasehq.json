@@ -1,0 +1,938 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "chasehq",
+  "game_name": "chasehq",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN1",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN1",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN0",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN0",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "genout5",
+          "label": "Red Lamp",
+          "function": "red_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp",
+            "red",
+            "top_lamp",
+            "top_header_lamps"
+          ],
+          "group": "top_header_lamps",
+          "usage": "top_lamp",
+          "player": null,
+          "index": 5,
+          "panel_index": 1,
+          "color": "Red",
+          "side": "top",
+          "id": "genout5#1",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            }
+          }
+        },
+        {
+          "name": "genout6",
+          "label": "Blue Lamp",
+          "function": "blue_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp",
+            "blue",
+            "top_lamp",
+            "top_header_lamps"
+          ],
+          "group": "top_header_lamps",
+          "usage": "top_lamp",
+          "player": null,
+          "index": 6,
+          "panel_index": 2,
+          "color": "Blue",
+          "side": "top",
+          "id": "genout6#2",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            }
+          }
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Gas Switch",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "Gas Switch",
+            "function": "gas_switch",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN1",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x02, EQUALS, 0x02",
+            "mame_label": "Gas Switch",
+            "mame_type": "60",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Gas Switch",
+            "input_function": "gas_switch",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":IN1",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Accelerator",
+              "matched_by": "name"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Brake Switch",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P1_BUTTON2",
+            "label": "Brake Switch",
+            "function": "brake_switch",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN0",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x02, EQUALS, 0x02",
+            "mame_label": "Brake Switch",
+            "mame_type": "61",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "Brake Switch",
+            "input_function": "brake_switch",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":IN0",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Brake",
+              "matched_by": "name"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "Turbo",
+          "color": "Green",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON3",
+            "input_id": "P1_BUTTON3",
+            "label": "Turbo",
+            "function": "turbo",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN1",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON3",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Turbo",
+            "mame_type": "62",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Turbo",
+            "input_function": "turbo",
+            "type": "BUTTON3",
+            "normalized_type": "BUTTON3",
+            "tag_raw": ":IN1",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Turbo",
+              "matched_by": "name"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "Shifter",
+          "color": "Blue",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON4",
+            "input_id": "P1_BUTTON4",
+            "label": "Shifter",
+            "function": "shifter",
+            "control_type": "shifter",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "IN1",
+            "mask": "0x10",
+            "mask_int": 16,
+            "defvalue": "0x10",
+            "defvalue_int": 16,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON4",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": true,
+            "condition": "",
+            "mame_label": "Shifter",
+            "mame_type": "63",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Shifter",
+            "input_function": "shifter",
+            "type": "BUTTON4",
+            "normalized_type": "BUTTON4",
+            "tag_raw": ":IN1",
+            "mask_dec": 16,
+            "mask_hex": "0x0010",
+            "defvalue_dec": 16,
+            "defvalue_hex": "0x0010",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Gear Shift",
+              "matched_by": "name"
+            }
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_PEDAL2",
+          "input": "PEDAL2",
+          "label": "Brake Pedal",
+          "function": "brake_pedal",
+          "short": "BRA",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "PEDAL2",
+            "input_id": "P1_PEDAL2",
+            "label": "Brake Pedal",
+            "function": "brake_pedal",
+            "control_type": "pedal2",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "BRAKE",
+            "mask": "0x7",
+            "mask_int": 7,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_PEDAL2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 25,
+            "keydelta": 1,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x02, EQUALS, 0x00",
+            "mame_label": "Brake Pedal",
+            "mame_type": "154",
+            "mame_tag": ":BRAKE",
+            "cfg_tag": ":BRAKE",
+            "input_label": "Brake Pedal",
+            "input_function": "brake_pedal",
+            "type": "PEDAL2",
+            "normalized_type": "PEDAL2",
+            "tag_raw": ":BRAKE",
+            "mask_dec": 7,
+            "mask_hex": "0x0007",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":BRAKE",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_PEDAL",
+          "input": "PEDAL",
+          "label": "Gas Pedal",
+          "function": "gas_pedal",
+          "short": "GAS",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "PEDAL",
+            "input_id": "P1_PEDAL",
+            "label": "Gas Pedal",
+            "function": "gas_pedal",
+            "control_type": "pedal",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "GAS",
+            "mask": "0x7",
+            "mask_int": 7,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_PEDAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 25,
+            "keydelta": 1,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x02, EQUALS, 0x00",
+            "mame_label": "Gas Pedal",
+            "mame_type": "153",
+            "mame_tag": ":GAS",
+            "cfg_tag": ":GAS",
+            "input_label": "Gas Pedal",
+            "input_function": "gas_pedal",
+            "type": "PEDAL",
+            "normalized_type": "PEDAL",
+            "tag_raw": ":GAS",
+            "mask_dec": 7,
+            "mask_hex": "0x0007",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":GAS",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_PADDLE",
+          "input": "PADDLE",
+          "label": "Steering Wheel",
+          "function": "steering_wheel",
+          "short": "STE",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "PADDLE",
+            "input_id": "P1_PADDLE",
+            "label": "Steering Wheel",
+            "function": "steering_wheel",
+            "control_type": "wheel",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "STEER",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "0x80",
+            "ipt": "IPT_PADDLE",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": 32,
+            "max": 224,
+            "sensitivity": 100,
+            "keydelta": 10,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x03, NOTEQUALS, 0x02",
+            "mame_label": "Steering Wheel",
+            "mame_type": "151",
+            "mame_tag": ":STEER",
+            "cfg_tag": ":STEER",
+            "input_label": "Steering Wheel",
+            "input_function": "steering_wheel",
+            "type": "PADDLE",
+            "normalized_type": "PADDLE",
+            "tag_raw": ":STEER",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":STEER",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_DIAL",
+          "input": "DIAL",
+          "label": "Steering Wheel",
+          "function": "steering_wheel",
+          "short": "STE",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "DIAL",
+            "input_id": "P1_DIAL",
+            "label": "Steering Wheel",
+            "function": "steering_wheel",
+            "control_type": "dial",
+            "joystick_way": "",
+            "port_block": "chasehq",
+            "tag": "STEER",
+            "mask": "0xffff",
+            "mask_int": 65535,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0x00",
+            "ipt": "IPT_DIAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 100,
+            "keydelta": 2,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "\u0022DSWA\u0022, 0x03, EQUALS, 0x02",
+            "mame_label": "",
+            "mame_type": "",
+            "mame_tag": "",
+            "cfg_tag": "",
+            "input_label": "Steering Wheel",
+            "input_function": "steering_wheel",
+            "type": "DIAL",
+            "normalized_type": "DIAL",
+            "tag_raw": ":STEER",
+            "mask_dec": 65535,
+            "mask_hex": "0xFFFF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":STEER",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_device_mapping": {
+        "joycode": "JOYCODE_1",
+        "label": "Generic USB Joystick",
+        "device": "product_00060079",
+        "raw_device_id": "Generic   USB  Joystick   product_00060079-0000-0000-0000-504944564944 instance_27cc81c0-3c45-11f1-8001-444553540000",
+        "source": ""
+      },
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "neo_4",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "neo_4",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 1
+            },
+            "3": {
+              "panel_slot": 3
+            },
+            "4": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "neo_4",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 4
+            },
+            "3": {
+              "panel_slot": 3
+            },
+            "4": {
+              "panel_slot": 5
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "neo_4",
+          "system_inputs": {},
+          "system_outputs": {
+            "genout5#1": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            },
+            "genout6#2": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            }
+          },
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 6
+            },
+            "4": {
+              "panel_slot": 8
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:12:23.8322151Z",
+      "matched_by_name": 4,
+      "matched_by_order": 0
+    }
+  }
+}

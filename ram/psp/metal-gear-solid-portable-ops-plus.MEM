@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Metal Gear Solid: Portable Ops Plus",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "metal-gear-solid-portable-ops-plus",
+    hashes = {
+      { hash = "9fd360e2d5a6e0df0953a8ea59199268", label = "Metal Gear Solid - Portable Ops Plus (USA).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9A5818, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Pause (Not In-Game Accessible?)" },
+        { address=0X9D9891, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Paused/Dead?" },
+        { address=0X9D98EE, type="u8", condition="eq", value=0X76, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9D9891, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Codec Open?" },
+        { address=0X9D9891, type="u8", condition="eq", value=0X08, action="LEVEL_CLEAR", desc="Inventory Menu Open?" },
+      },
+      stage = {
+        { address=0X9A5780, type="u8", condition="eq", value=0X1E, action="PROGRESSION_STAGE", desc="Stage Select?" },
+        { address=0X9D98EE, type="u8", condition="eq", value=0X87, action="PROGRESSION_STAGE", desc="Stage Select" },
+        { address=0XA17A00, type="u24le", condition="eq", value=0X0F, action="PROGRESSION_STAGE", desc="Training Stage Select" },
+        { address=0XA17A00, type="u24le", condition="eq", value=0X15, action="PROGRESSION_STAGE", desc="Stage Select" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X9D9891, type="u8", condition="eq", value=0X10, action="BOSS_DEFEATED", desc="Boss Defeated?" },
+        { address=0X9D98EE, type="u8", condition="eq", value=0X6F, action="BOSS_HIT", desc="Boss Rush" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA17A00, type="u24le", condition="eq", value=0X13, action="OBJECT_INTERACTION", desc="Switching Recruit/Match/Training Menu" },
+        { address=0XA17A00, type="u24le", condition="eq", value=0X16, action="OBJECT_INTERACTION", desc="Switching Screens on Management Menu" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X9D98B4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Stage Time?" },
+      },
+    },
+  },
+}

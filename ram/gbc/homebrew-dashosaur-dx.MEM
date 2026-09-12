@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dashosaur DX",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-dashosaur-dx",
+    hashes = {
+      { hash = "598881aec8a8044ff00d353567a54f4a", label = "Dashosaur DX (World) (v0.23) (Aftermarket) (GB Studio) (Sleeping Panda Games).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCC30, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Egg Obtained" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCC22, type="u16le", condition="change", action="LOSE_LIFE", desc="Deaths" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCC36, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Times (seconds)" },
+      },
+    },
+  },
+}

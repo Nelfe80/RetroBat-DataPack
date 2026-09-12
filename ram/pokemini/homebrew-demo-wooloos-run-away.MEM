@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Wooloo's Run Away",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-wooloos-run-away",
+    hashes = {
+      { hash = "890fed94636776716a2b7b0754c8d5be", label = "Wooloo's Run Away (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

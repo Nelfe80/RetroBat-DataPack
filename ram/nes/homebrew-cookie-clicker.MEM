@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cookie Clicker",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Construction and Management Simulation"
+  },
+
+  rom = {
+    name = "homebrew-cookie-clicker",
+    hashes = {
+      { hash = "b1ba60845163ae84afc3bc5165558202", label = "Cookie Clicker (World) (Proto) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

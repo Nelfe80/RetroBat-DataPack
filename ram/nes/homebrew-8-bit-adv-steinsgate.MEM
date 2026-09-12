@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 8-Bit ADV Steins;Gate",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-8-bit-adv-steinsgate",
+    hashes = {
+      { hash = "694adbf6a69e89370a614084c5bcbdea", label = "8-BIT ADV STEINS;GATE (USA) (Switch) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

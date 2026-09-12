@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fantasia",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Mature"
+  },
+
+  rom = {
+    name = "hack-fantasia",
+    hashes = {
+      { hash = "ef7a9769517063dbf92fa16e8c815cdd", label = "fantasia.7z <Fantasia (940429 PCB, set 1)>" },
+    }
+  },
+
+  events = {
+  },
+}

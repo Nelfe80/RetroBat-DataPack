@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tomb Raider: Anniversary",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Adventure, Platform"
+  },
+
+  rom = {
+    name = "tomb-raider-anniversary",
+    hashes = {
+      { hash = "f8db58af578e0af8f3c1483088fd574e", label = "Lara Croft Tomb Raider - Anniversary (USA)" },
+      { hash = "302be53406eb148556f392033f8b5ea0", label = "Tomb Raider Anniversary (USA) (60fps) (v1.0) (Homuki).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3983D8, type="u8", condition="change", action="TITLE_SCREEN", desc="[Float] Subtitles (Display Value)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X398528, type="u32le", condition="change", action="NEW_LEVEL", desc="[32-bit float] Level ID" },
+        { address=0X398548, type="u8", condition="change", action="NEW_LEVEL", desc="[Float] Replay Level Indicator" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3C2057, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Not Dead" },
+        { address=0X3C2057, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X3984A8, type="u8", condition="increase", action="HEAL", desc="[Float] Show Enemy Health Cheat (Logical Value) increased" },
+        { address=0X3984A8, type="u8", condition="decrease", action="HIT", desc="[Float] Show Enemy Health Cheat (Logical Value) decreased" },
+        { address=0X3984D0, type="u8", condition="increase", action="HEAL", desc="[Float] Infinite Health Cheat (Logical Value) increased" },
+        { address=0X3984D0, type="u8", condition="decrease", action="HIT", desc="[Float] Infinite Health Cheat (Logical Value) decreased" },
+        { address=0X398578, type="u8", condition="increase", action="HEAL", desc="[Float] Lara's Health (Display Value) increased" },
+        { address=0X398578, type="u8", condition="decrease", action="HIT", desc="[Float] Lara's Health (Display Value) decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X3984C8, type="u8", condition="change", action="WEAPON_STATE", desc="[Float] All Weapons Cheat (Logical Value)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3984B0, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[Float] Infinite 50 Caliber Pistol Ammo Cheat (Logical Value)" },
+        { address=0X3984B8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[Float] Infinite Shotgun Ammo (Logical Value)" },
+        { address=0X3984C0, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[Float] Infinite Mini SMG Ammo (Logical Value)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X3C0BB8, type="u8", condition="eq", value=0X18, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X398770, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left in Time Trial" },
+        { address=0X398C28, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time (Seconds) (Display Value)" },
+        { address=0X4954E0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="[Float] Countdown until the timer resumes when respawning" },
+        { address=0X495910, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] Game time in millionths of seconds." },
+      },
+    },
+  },
+}

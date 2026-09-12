@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Dee Dee Planet",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-dee-dee-planet",
+    hashes = {
+      { hash = "f2e9df4eeffa4ec19b53ffb8244d2e40", label = "Dee Dee Planet (Japan) (Proto)" },
+    }
+  },
+
+  events = {
+  },
+}

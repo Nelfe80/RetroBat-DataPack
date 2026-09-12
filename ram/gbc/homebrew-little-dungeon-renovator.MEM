@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Little Dungeon Renovator",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-little-dungeon-renovator",
+    hashes = {
+      { hash = "c93bd5f1928944452cee933dce345f89", label = "Little Dungeon Renovator (World) (v1.0) (GBCompo2023) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCBA3, type="u8", condition="change", action="LOSE_LIFE", desc="bit 0 - get an offer to make a potion if ingredients can be found" },
+        { address=0XCBF5, type="u8", condition="change", action="LOSE_LIFE", desc="bit 0 - give correct first ingredient" },
+        { address=0XCBF7, type="u8", condition="change", action="LOSE_LIFE", desc="bit 0 - give correct second ingredient" },
+        { address=0XCBFB, type="u8", condition="change", action="LOSE_LIFE", desc="bit 0 - give correct ingredients" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCBAF, type="u8", condition="change", action="BOSS_HIT", desc="bit 0 - find the boss' drawing" },
+        { address=0XCBB5, type="u8", condition="change", action="BOSS_HIT", desc="bit 0 - talk to boss with all items cleaned" },
+        { address=0XCBB7, type="u8", condition="change", action="BOSS_HIT", desc="bit 0 - give boss the charm" },
+        { address=0XCBC7, type="u8", condition="change", action="BOSS_HIT", desc="bit 0 - toggles if you ask the boss for a reminder of what to do, untoggles when asking him how" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCBC3, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit 0 - destroyed the rock" },
+      },
+    },
+  },
+}

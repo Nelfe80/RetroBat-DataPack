@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Double Dragon 3: The Arcade Game",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Beat 'em Up"
+  },
+
+  rom = {
+    name = "double-dragon-3-the-arcade-game",
+    hashes = {
+      { hash = "783a70fd1a6339d947a2ba8556bd7bba", label = "Double Dragon 3 - The Arcade Game (USA, Europe).md" },
+    }
+  },
+
+  events = {
+  },
+}

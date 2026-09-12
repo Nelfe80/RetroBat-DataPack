@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Frogger",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "frogger",
+    hashes = {
+      { hash = "1ed313c4fd78b81a8ca3613e6234da7e", label = "Frogger (USA).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC134, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen/Frogger Card" },
+        { address=0XC134, type="u8", condition="eq", value=0X2, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC134, type="u8", condition="eq", value=0X5, action="SCORE_STATE", desc="High Score Screen" },
+      },
+    },
+  },
+}

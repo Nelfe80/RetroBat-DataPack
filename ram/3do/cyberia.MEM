@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cyberia",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Action, Puzzle, Shooter"
+  },
+
+  rom = {
+    name = "cyberia",
+    hashes = {
+      { hash = "6f504d3860c4419c9ed1066497beac23", label = "Cyberia (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X84E66, type="u8", condition="change", action="NEW_LEVEL", desc="Arcade level [8bit]" },
+        { address=0X84E6A, type="u8", condition="change", action="NEW_LEVEL", desc="Puzzle Level [8bit]" },
+      },
+    },
+  },
+}

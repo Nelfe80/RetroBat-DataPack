@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Prototype~ UndertaleNDS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-prototype-undertalends",
+    hashes = {
+      { hash = "f46e3f13499c034c6d7f3cb1a7b6c144", label = "Undertale (World) (Demo) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X4A9A4, type="u8", condition="eq", value=0X1, action="OBJECT_DESTROYED", desc="Defeated Flowey" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X2, action="OBJECT_DESTROYED", desc="Toriel entered second Ruins room" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X3, action="OBJECT_DESTROYED", desc="Toriel opens the door to the third Ruins room" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X4, action="OBJECT_DESTROYED", desc="Switch puzzle solved" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X5, action="OBJECT_DESTROYED", desc="Dummy defeated" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X6, action="OBJECT_DESTROYED", desc="Spike puzzle 'solved'" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X7, action="OBJECT_DESTROYED", desc="Independence test passed" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X8, action="OBJECT_DESTROYED", desc="'Be good, alright?'" },
+        { address=0X4A9A4, type="u8", condition="eq", value=0X9, action="OBJECT_DESTROYED", desc="Preferred pie flavor chosen" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X4D730, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Music ID." },
+      },
+    },
+  },
+}

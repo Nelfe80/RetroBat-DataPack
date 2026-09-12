@@ -1,0 +1,110 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VIP and Wall Mix 3",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vip-and-wall-mix-3",
+    hashes = {
+      { hash = "f26bc47d7ad7dcf11e7c3439e5ec3050", label = "SMW - VIP and Wall Mix 3 (Vipper).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="09 - Titlescreen Stuff" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="0d - loads overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="13 - loads level" },
+        { address=0X0DBA, type="u8", condition="change", action="NEW_LEVEL", desc="Behaves like 0x0013c7, except it only updates on the Overworld instead inside of a level, very f" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Bitflag for how the level was beaten:" },
+        { address=0X13E0, type="u8", condition="change", action="NEW_LEVEL", desc="Boon's Sprite (upon loading the level mario's sprite is 0 for aleast 1 frame)" },
+        { address=0X1426, type="u8", condition="change", action="NEW_LEVEL", desc="Message block ID in the level (same as in Lunar Magic, it's either 1 or 2)" },
+        { address=0X187A, type="u8", condition="change", action="NEW_LEVEL", desc="Animation Related to Being on Yoshi inside of a level" },
+        { address=0X1F02, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F03, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F04, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F05, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F06, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F07, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F08, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F0A, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F0B, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F0D, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit bitflags:" },
+        { address=0X1F11, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld map ID" },
+        { address=0X1F2E, type="u8", condition="change", action="NEW_LEVEL", desc="Level exits count" },
+        { address=0XE444, type="u32le", condition="change", action="NEW_LEVEL", desc="One of Tiles from Level Data, this block is a Star Block in ''Grasping in the Dark''" },
+      },
+      stage = {
+        { address=0X0DDA, type="u24le", condition="change", action="PROGRESSION_STAGE", desc="Music ID in stage:" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives decreased" },
+        { address=0X1697, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Jump Combo :) increased" },
+        { address=0X1697, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Jump Combo :) decreased" },
+        { address=0X18DD, type="u8", condition="increase", action="GAIN_LIFE", desc="Silver coin combo counter increased" },
+        { address=0X18DD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Silver coin combo counter decreased" },
+        { address=0XCAC8, type="u8", condition="change", action="LOSE_LIFE", desc="One of Tiles from Level Data, this block is a ON/OFF Block in ''Billowing Death Gas':'" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Boon's Current powerup:" },
+        { address=0X0DC2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Reserve Item Box Item ID" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Current amount of coins increased" },
+        { address=0X13BF, type="u32le", condition="increase", action="COIN_GAIN", desc="Level ID increased" },
+        { address=0X1F09, type="u8", condition="increase", action="COIN_GAIN", desc="Level exit bitflags: increased" },
+        { address=0X1F2F, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F30, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F31, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F32, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F33, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F34, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F35, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F36, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F37, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+        { address=0X1F38, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon coin flags: increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1490, type="u8", condition="increase", action="INVINCIBILITY_START", desc="Starman Timer, starts at FF, decrements after 4 frames by 1, no star when 00 started" },
+        { address=0X1490, type="u8", condition="decrease", action="INVINCIBILITY_STOP", desc="Starman Timer, starts at FF, decrements after 4 frames by 1, no star when 00 ended" },
+        { address=0X1497, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Boon's Invincibility Timer, decrements from 7f to 0" },
+      },
+      player = {
+        { address=0X1DFA, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="01 - Boon's Normal Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway, Removes the entrance cutscene when 40, otherwise 0" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch, 01 activated, 00 not" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch, 01 activated, 00 not" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch, 01 activated, 00 not" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch, 01 activated, 00 not" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1474, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Overworld Lore Explanation Opening Timer, stops when the message if fully opened" },
+        { address=0X1F0E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level exit bitflags:" },
+      },
+    },
+  },
+}

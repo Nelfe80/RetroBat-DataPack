@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Little Cup Red",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-little-cup-red",
+    hashes = {
+      { hash = "1ef07bec11e159d0cb8092799c96356a", label = "Pokemon Little Cup Red (v1.9) (GreenAndACat).gb" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Yuuto Ichika Makes Friends",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Visual Novel"
+  },
+
+  rom = {
+    name = "homebrew-yuuto-ichika-makes-friends",
+    hashes = {
+      { hash = "29fe84cfca35b651a0bb86abf4b08792", label = "Yuuto Ichika Makes Friends (World) (En,Ja) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

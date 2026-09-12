@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ GRAVITY: Sylux's Crusade",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-gravity-syluxs-crusade",
+    hashes = {
+      { hash = "a6d7a4dcdb9751b6092cf81de5301aef", label = "Metroid - Zero Mission - GRAVITY - Sylux's Crusade (v1.01) (Roebloz).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X175D, type="u8", condition="change", action="CREDITS_SCREEN", desc="Completion Percentage Shown after Credits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1530, type="u16le", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X1530, type="u16le", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X1536, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X1536, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+      },
+    },
+  },
+}

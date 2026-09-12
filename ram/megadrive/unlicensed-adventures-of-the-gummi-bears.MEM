@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Adventures of the Gummi Bears",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-adventures-of-the-gummi-bears",
+    hashes = {
+      { hash = "d8f5bed1738f13b3cf6398d0929900fd", label = "Adventures of the Gummi Bears, The (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

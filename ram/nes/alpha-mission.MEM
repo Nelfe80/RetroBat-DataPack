@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alpha Mission",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shoot'em Up, Shoot'em up, Vertical"
+  },
+
+  rom = {
+    name = "alpha-mission",
+    hashes = {
+      { hash = "1dfa56ebc412f33f161d16207ceced06", label = "Alpha Mission (Europe).nes" },
+      { hash = "6307b2766d33a38ae68c639019dc8890", label = "Alpha Mission (USA).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X00EA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00DF, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X00DF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X00DB, type="u8", condition="increase", action="HEAL", desc="Energy increased" },
+        { address=0X00DB, type="u8", condition="decrease", action="HIT", desc="Energy decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00DC, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit] [BCD] Score / 10" },
+      },
+    },
+  },
+}

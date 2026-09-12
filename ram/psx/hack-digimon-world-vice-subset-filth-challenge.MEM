@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Digimon World Vice [Subset - Filth Challenge]",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-digimon-world-vice-subset-filth-challenge",
+    hashes = {
+      { hash = "5f90675d2e1ec9a18a1c65286a8ac8b8", label = "Digimon World - Vice [Subset - Filth Challenge]" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1557A4, type="u8", condition="change", action="NEW_LEVEL", desc="[Tamer Level] [8-Bits]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1384A8, type="u8", condition="increase", action="GAIN_LIFE", desc="[Digimon Lifetime] [8-Bits] increased" },
+        { address=0X1384A8, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Digimon Lifetime] [8-Bits] decreased" },
+        { address=0X155824, type="u8", condition="increase", action="GAIN_LIFE", desc="[Digimon Lives] [8-Bits] increased" },
+        { address=0X155824, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Digimon Lives] [8-Bits] decreased" },
+      },
+      health = {
+        { address=0X1557F0, type="u16le", condition="increase", action="HEAL", desc="[Digimon Max HP] [16-Bits] increased" },
+        { address=0X1557F0, type="u16le", condition="decrease", action="HIT", desc="[Digimon Max HP] [16-Bits] decreased" },
+        { address=0X1557F4, type="u16le", condition="increase", action="HEAL", desc="[Digimon Actual HP] [16-Bits] increased" },
+        { address=0X1557F4, type="u16le", condition="decrease", action="HIT", desc="[Digimon Actual HP] [16-Bits] decreased" },
+        { address=0X155874, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16-Bits] increased" },
+        { address=0X155874, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16-Bits] decreased" },
+        { address=0X1559AC, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16-Bits] increased" },
+        { address=0X1559AC, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16-Bits] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X134FFE, type="u32le", condition="eq", value=0X00D1, action="TREASURE", desc="Treasure Hunt" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X134FFE, type="u32le", condition="eq", value=0X0068, action="BOSS_HIT", desc="Ice Sanctuary | Secret Boss" },
+        { address=0X134FFE, type="u32le", condition="eq", value=0X00FF, action="BOSS_HIT", desc="Native Forest [But it sends you to the Puzzle area for the Secret Boss]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bill & Ted - Time & Time Again",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bill-ted-time-time-again",
+    hashes = {
+      { hash = "972d4ccee6d54a5b3c53a42b44b9994a", label = "Bill & Ted - Time & Time Again (World) (v2009) (Aftermarket) (Unl) (spinal).nds" },
+    }
+  },
+
+  events = {
+  },
+}

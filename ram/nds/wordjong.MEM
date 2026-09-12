@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WordJong",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "wordjong",
+    hashes = {
+      { hash = "65c58c7571356426b80482ef3d7ac01c", label = "WordJong (Europe).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X3BA84E, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="February 16, 2024 (?) daily puzzle score" },
+      },
+    },
+  },
+}

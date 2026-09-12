@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Monopoly Streets",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "monopoly-streets",
+    hashes = {
+      { hash = "7a17a39afb8054b78fdca0e919e64ae2", label = "Monopoly Streets (Europe) (En,Fr,De,Es,It,Nl)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1285033C, type="u32be", condition="eq", value=0X01, action="LOSE_LIFE", desc="Speed Die" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X12851C54, type="u32be", condition="increase", action="COIN_GAIN", desc="[32-bit-BE] Profile money increased" },
+      },
+    },
+  },
+}

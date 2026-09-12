@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Flicky's Flock",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-flickys-flock",
+    hashes = {
+      { hash = "018b17e20bba5797f0f32c47f45dd333", label = "Flicky's Flock (Homebrew) (Custom Hash)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X190906, type="u32le", condition="increase", action="GAIN_LIFE", desc="[32bit] Lives Option increased" },
+        { address=0X190906, type="u32le", condition="decrease", action="LOSE_LIFE", desc="[32bit] Lives Option decreased" },
+      },
+    },
+  },
+}

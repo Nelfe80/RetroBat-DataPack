@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Moémon Star Emerald",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-moemon-star-emerald",
+    hashes = {
+      { hash = "83ecbe0d2587c7897132208ad4d960fb", label = "Pokemon Emerald - Moemon Star Emerald (v1.1c) (Moemon Project).gba" },
+    }
+  },
+
+  events = {
+  },
+}

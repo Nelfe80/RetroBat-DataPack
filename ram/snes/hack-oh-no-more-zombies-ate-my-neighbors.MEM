@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Oh No! More Zombies Ate My Neighbors!",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-oh-no-more-zombies-ate-my-neighbors",
+    hashes = {
+      { hash = "7f44a65cf20b213502314fc118b5a6f4", label = "Oh No! More Zombies Ate My Neighbors (v1.0) (Sloat,Stanley Decker).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000E, type="u8", condition="change", action="TITLE_SCREEN", desc="LucasArts Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0CE0, type="u32le", condition="change", action="NEW_LEVEL", desc="Level Bonuses:" },
+        { address=0X0CE0, type="u32le", condition="eq", value=0XC282C41D, action="NEW_LEVEL", desc="Ten Cheerleader Bonus" },
+        { address=0X0CE0, type="u32le", condition="eq", value=0XC282D28A, action="NEW_LEVEL", desc="Secret Bonus" },
+        { address=0X1E8E, type="u8", condition="change", action="NEW_LEVEL", desc="New level screen cards [01 : Level Intro, 00 : Level Number + Name]" },
+        { address=0X1FB8, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Door [00 : Unentered, 01 : Entered] [Resets upon spawning into level]" },
+        { address=0X1FEC, type="u8", condition="change", action="NEW_LEVEL", desc="Vampires Killed on Current Level" },
+      },
+      stage = {
+        { address=0X1E7C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+        { address=0X1E9C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player on stage? [0x10] + Survivors Rescued [Victory Screen]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1D50, type="u16le", condition="change", action="LOSE_LIFE", desc="Survivors Alive [Carrys between levels until survivor dies]" },
+        { address=0X1D52, type="u16le", condition="change", action="LOSE_LIFE", desc="Survivors in Current level [Will decrease upon rescuing or death of survivor]" },
+      },
+      health = {
+        { address=0X0848, type="u8", condition="increase", action="HEAL", desc="Snakeoid HP Value increased" },
+        { address=0X0848, type="u8", condition="decrease", action="HIT", desc="Snakeoid HP Value decreased" },
+        { address=0X1CB8, type="u8", condition="increase", action="HEAL", desc="HP [Player 1] increased" },
+        { address=0X1CB8, type="u8", condition="decrease", action="HIT", desc="HP [Player 1] decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1CBC, type="u8", condition="change", action="WEAPON_STATE", desc="Held Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1E72, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Score (Last 4 Digits]" },
+        { address=0X1E74, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Score [First 4 Digits]" },
+        { address=0X1E9E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Enter your score screen" },
+      },
+      collectibles = {
+        { address=0X1CE6, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="Current ammo [Flamethrower]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1FE4, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Martian Mothership Destroyed [0x00 : No, 0x01 : Yes]" },
+      },
+    },
+  },
+}

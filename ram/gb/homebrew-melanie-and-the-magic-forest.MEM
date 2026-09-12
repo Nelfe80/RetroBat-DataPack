@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Melanie and the Magic Forest",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-melanie-and-the-magic-forest",
+    hashes = {
+      { hash = "6669ba8e9dcd087124ab657c8a8ad0db", label = "Melanie and the Magic Forest (World) (v2025) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC520, type="u32le", condition="eq", value=0X0D4B9D13, action="TITLE_SCREEN", desc="'the Scrolling Title'," },
+        { address=0XC520, type="u32le", condition="eq", value=0X104B2713, action="TITLE_SCREEN", desc="'the Title Screen'," },
+        { address=0XC7AC, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XCB9E, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen Displayed" },
+        { address=0XCB9E, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="New Game Started, Introductory Text Displayed" },
+        { address=0XCB9E, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="In-Game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCBAA, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="True" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCB3A, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="True" },
+      },
+    },
+  },
+}

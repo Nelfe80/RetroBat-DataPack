@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Picture Puzzle (Karoshi)",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-picture-puzzle-karoshi",
+    hashes = {
+      { hash = "6ee570b6fa73fe9a147846078cddc11c", label = "Picture Puzzle (2004) (64K) (Crunchworks).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0F4A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="On (In Level)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0F4A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Timer Activated" },
+      },
+    },
+  },
+}

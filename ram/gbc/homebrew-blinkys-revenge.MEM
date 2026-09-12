@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Blinky's Revenge",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-blinkys-revenge",
+    hashes = {
+      { hash = "4948bfdacce45f5c1d0facab23f3ba54", label = "Blinky's Revenge (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCCEB, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues Left" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCCE7, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+  },
+}

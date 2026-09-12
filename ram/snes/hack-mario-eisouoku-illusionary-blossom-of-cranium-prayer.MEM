@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Eisouoku ~ Illusionary Blossom of Cranium Prayer",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-eisouoku-illusionary-blossom-of-cranium-prayer",
+    hashes = {
+      { hash = "c8a933ddce28affc136d490401b20f2b", label = "SMW - Mario Eisouoku ~ Illusionary Blossom of Cranium Prayer (bebn legg,E-man38,Koopster,Valentine,Mellonpiz).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2010B, type="u8", condition="eq", value=0XC7, action="TITLE_SCREEN", desc="Problaby the Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X21EA3, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Amount of Stages Clear" },
+      },
+      stage = {
+        { address=0X21EA3, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Stage 2| Where Rural and Urban Become One ~ Rural Factory Path Unlocked" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Stage 3| Sparkling Powder over a Deep Green ~ Icebreaker Path Unlocked" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Stage 5| Those Who Turn Their Backs at Night ~ Suspicious Stars Path Unlocked" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Stage 4| The Cacophonous Fishes' Dwelling ~ Forsaken Fisheye Path Unlocked" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Stage 2| Where Rural and Urban Become One ~ Rural Factory Path Unlocked" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X20D82, type="u8", condition="decrease", action="HIT", desc="Power-up decreased" },
+        { address=0X20F42, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Current HP" },
+        { address=0X20F42, type="u8", condition="eq", value=0X7, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X21497, type="u8", condition="eq", value=0X7F, action="HIT", desc="Damage" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20D82, type="u8", condition="eq", value=0XC8, action="DYNAMIC_INVENTORY", desc="Normal" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X20F34, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points [24-bits]" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X218C5, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Giant Thwimp (Igneous Sign 'Cemented Waltz')" },
+        { address=0X218C5, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Sleepy Star (Nebula Sign 'Underfoot Galaxy')" },
+        { address=0X218C7, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Entering" },
+        { address=0X218C7, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Battling" },
+        { address=0X218C7, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Bonus Fail" },
+        { address=0X218C7, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="Get Spell Card Bonus" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X218C5, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Giant Jumpin' Piranha Plant (Plant Sign 'Red Fan'" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X218C6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Mini Boss Timer" },
+      },
+    },
+  },
+}

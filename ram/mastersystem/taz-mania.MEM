@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Taz-Mania",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "taz-mania",
+    hashes = {
+      { hash = "cfc878f0163933fcfcc89e134fbeb31f", label = "Taz-Mania (Europe, Brazil) (En).sms" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0112, type="u8", condition="change", action="NEW_LEVEL", desc="Ground running speed - f9-ff : left speed (lower : faster), 00-07 : right speed" },
+        { address=0X0F00, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="increase", action="GAIN_LIFE", desc="Life count increased" },
+        { address=0X0100, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life count decreased" },
+      },
+      health = {
+        { address=0X0103, type="u8", condition="increase", action="HEAL", desc="Health (00-20) increased" },
+        { address=0X0103, type="u8", condition="decrease", action="HIT", desc="Health (00-20) decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1120, type="u8", condition="change", action="BOSS_HIT", desc="Boss health (tested on Valley boss)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Front Line",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "front-line",
+    hashes = {
+      { hash = "971ccddc493e00489962df1200bad281", label = "Front Line {V1 mode}.d88" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XA1AB, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8bit] increased" },
+        { address=0XA1AB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8bit] decreased" },
+      },
+    },
+  },
+}

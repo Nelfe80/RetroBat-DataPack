@@ -1,0 +1,18 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ultimate Doom the Way id Did",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ultimate-doom-the-way-id-did",
+    hashes = {
+    }
+  },
+
+  events = {
+  },
+}

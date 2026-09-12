@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Final Tetris",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-final-tetris",
+    hashes = {
+      { hash = "176e2cd082315d56ab5b9be67562a9f4", label = "finalttr.7z <Final Tetris>" },
+    }
+  },
+
+  events = {
+  },
+}

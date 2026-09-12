@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Little Odyssey",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-little-odyssey",
+    hashes = {
+      { hash = "af4e6b6ae78cfd2d909d494a0648f625", label = "SM64 - Mario's Little Odyssey (Kaze Emanuar) (2021-05-04).z64" },
+      { hash = "b9d4fb1265600da46153fe89b113bd6c", label = "SM64 - Mario's Little Odyssey (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X33D60C, type="u8", condition="increase", action="HEAL", desc="Bowser Health increased" },
+        { address=0X33D60C, type="u8", condition="decrease", action="HIT", desc="Bowser Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+      },
+    },
+  },
+}

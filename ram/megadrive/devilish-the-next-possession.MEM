@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Devilish: The Next Possession",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "devilish-the-next-possession",
+    hashes = {
+      { hash = "6fa7cd092a175c9040b318d289ffff93", label = "Devilish - The Next Possession (USA).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9968, type="u16be", condition="change", action="PAUSE_ON", desc="GAME : Pause boolean" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X984E, type="u16be", condition="change", action="LEVEL_CLEAR", desc="GAME : Stage Clear flag" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE700, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="PLAYER : Score 2/2" },
+        { address=0XE702, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="PLAYER : Score 1/2" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC200, type="u16be", condition="change", action="BOSS_HIT", desc="GAME : Boss HP" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X982A, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="GAME : Stage ID" },
+        { address=0XE1CA, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="PLAYER : Blue power-up Timer" },
+        { address=0XE1CC, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="PLAYER : Red power-up Timer" },
+        { address=0XE1D2, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="PLAYER : Short Block Timer" },
+        { address=0XE704, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="GAME : Timer - Seconds" },
+        { address=0XE705, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="GAME : Timer - Minutes" },
+        { address=0XE714, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="PLAYER : Yellow Power-up Timer" },
+      },
+    },
+  },
+}

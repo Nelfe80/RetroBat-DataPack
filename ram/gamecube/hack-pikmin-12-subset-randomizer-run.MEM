@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pikmin 1² [Subset - Randomizer Run]",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pikmin-12-subset-randomizer-run",
+    hashes = {
+      { hash = "b4799cdf60ffa240d24e7444c0f28713", label = "Pikmin 1² [Subset - Randomizer Run]" },
+    }
+  },
+
+  events = {
+  },
+}

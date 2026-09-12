@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Lemmings",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Miscellaneous"
+  },
+
+  rom = {
+    name = "prototype-lemmings",
+    hashes = {
+      { hash = "98e1f108b5e78847dec7fff9ca486576", label = "lemmings.7z <Lemmings (US prototype)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X07B9, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Out Game/ Demo mode/ Selected Level" },
+        { address=0XA3B4, type="u8", condition="change", action="CREDITS_SCREEN", desc="Total credits inserted [hex]" },
+        { address=0XA3CE, type="u8", condition="change", action="CREDITS_SCREEN", desc="Remaining credits [hex]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA39A, type="u8", condition="change", action="NEW_LEVEL", desc="Level selected:" },
+        { address=0XA39E, type="u8", condition="change", action="NEW_LEVEL", desc="Level selected:" },
+        { address=0XA3A0, type="u8", condition="change", action="NEW_LEVEL", desc="Total lemmings saved all levels (sum) [hex]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XEFBA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blocker count" },
+        { address=0XEFFA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blocker count" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X06CA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer in seconds on table classification" },
+        { address=0XF060, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer:" },
+        { address=0XF060, type="u8", condition="eq", value=0X2, action="GENERAL_TIMER", no_log=true, desc="00 minutes : 180 seconds : B4 hexa" },
+      },
+    },
+  },
+}

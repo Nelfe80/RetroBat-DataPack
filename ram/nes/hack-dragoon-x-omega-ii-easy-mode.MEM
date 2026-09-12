@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Dragoon X Omega II: Easy Mode",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-dragoon-x-omega-ii-easy-mode",
+    hashes = {
+      { hash = "421f40260793e81afb28f4c7bdd6c139", label = "Dragoon X Omega II - Easy Mode (Final 2) (Silver X,Thaddeus) (Addendum) (obscurumlux01).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6116, type="u16le", condition="change", action="NEW_LEVEL", desc="XP to next level" },
+        { address=0X6300, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 1" },
+        { address=0X6301, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 1" },
+        { address=0X6304, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 2" },
+        { address=0X6305, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 2" },
+        { address=0X6308, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 3" },
+        { address=0X6309, type="u8", condition="change", action="NEW_LEVEL", desc="PSI - Level 3" },
+        { address=0X630C, type="u8", condition="change", action="NEW_LEVEL", desc="Level 4 PST" },
+        { address=0X630D, type="u8", condition="change", action="NEW_LEVEL", desc="Level 4 PST" },
+        { address=0X6310, type="u8", condition="change", action="NEW_LEVEL", desc="Level 5 PSI" },
+        { address=0X6311, type="u8", condition="change", action="NEW_LEVEL", desc="Level 5 PSI" },
+        { address=0X6314, type="u8", condition="change", action="NEW_LEVEL", desc="Level 6 PSI" },
+        { address=0X6315, type="u8", condition="change", action="NEW_LEVEL", desc="Level 6 PSI" },
+        { address=0X6318, type="u8", condition="change", action="NEW_LEVEL", desc="Level 7 PSI" },
+        { address=0X6319, type="u8", condition="change", action="NEW_LEVEL", desc="Level 7 PSI" },
+        { address=0X631C, type="u8", condition="change", action="NEW_LEVEL", desc="Level 8 PSI" },
+        { address=0X631D, type="u8", condition="change", action="NEW_LEVEL", desc="Level 8 PSI" },
+        { address=0X6320, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 1 PSI remaining" },
+        { address=0X6321, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 2 PSI remaining" },
+        { address=0X6322, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 3 PSI remaining" },
+        { address=0X6323, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 4 PSI remaining" },
+        { address=0X6324, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 5 PSI remaining" },
+        { address=0X6325, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 6 PSI remaining" },
+        { address=0X6326, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 7 PSI remaining" },
+        { address=0X6327, type="u8", condition="change", action="NEW_LEVEL", desc="Number of charges of level 8 PSI remaining" },
+        { address=0X6328, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 1 PSI" },
+        { address=0X6329, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 2 PSI" },
+        { address=0X632A, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 3 PSI" },
+        { address=0X632B, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 4 PSI" },
+        { address=0X632C, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 5 PSI" },
+        { address=0X632D, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 6 PSI" },
+        { address=0X632E, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 7 PSI" },
+        { address=0X632F, type="u8", condition="change", action="NEW_LEVEL", desc="Total charges of level 8 PSI" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X6041, type="u8", condition="increase", action="HEAL", desc="Sargon's initial HP increased" },
+        { address=0X6041, type="u8", condition="decrease", action="HIT", desc="Sargon's initial HP decreased" },
+        { address=0X6047, type="u8", condition="change", action="HIT", desc="Sargon's initial Damage" },
+        { address=0X610A, type="u16le", condition="increase", action="HEAL", desc="Sargon's current HP increased" },
+        { address=0X610A, type="u16le", condition="decrease", action="HIT", desc="Sargon's current HP decreased" },
+        { address=0X610C, type="u16le", condition="increase", action="HEAL", desc="Sargon's max HP increased" },
+        { address=0X610C, type="u16le", condition="decrease", action="HIT", desc="Sargon's max HP decreased" },
+        { address=0X6BD5, type="u8", condition="increase", action="HEAL", desc="Enerny 1 HP increased" },
+        { address=0X6BD5, type="u8", condition="decrease", action="HIT", desc="Enerny 1 HP decreased" },
+        { address=0X6BD6, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP overflow increased" },
+        { address=0X6BD6, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP overflow decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X6118, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="First weapon available to equip" },
+        { address=0X6119, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Second weapon available to equip" },
+        { address=0X611A, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Third weapon available to equip" },
+        { address=0X611B, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Fourth weapon available to equip" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X601C, type="u16le", condition="increase", action="COIN_GAIN", desc="Amount of money in possession increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X6008, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 0 - Switch pulled" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X628F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="bit 0 - Second encounter with Tyris in the ark" },
+      },
+    },
+  },
+}

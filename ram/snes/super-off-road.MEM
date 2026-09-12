@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Off Road",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Racing, Driving, Third-Person Racing"
+  },
+
+  rom = {
+    name = "super-off-road",
+    hashes = {
+      { hash = "0c1cc5369a31c988858a087598bab9c3", label = "Super Off Road (USA).sfc" },
+      { hash = "7f9fdad2f596ad4b8ace178aa588215b", label = "Super Off-Road (USA) (MSU-1) (Arcade Pack) (Relikk).sfc" },
+      { hash = "8fd2d0b42286b001e3ea5e779426cccf", label = "Super Off Road (Europe).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0006, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="demo," },
+        { address=0X057A, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="Not" },
+        { address=0X057A, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="On Continue screen" },
+      },
+    },
+  },
+}

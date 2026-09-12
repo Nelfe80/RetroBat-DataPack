@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ultimate Spider-Man",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "ultimate-spider-man",
+    hashes = {
+      { hash = "1df4425b873cfe5de65353ea41d6ef98", label = "Ultimate Spider-Man (Europe).nds" },
+      { hash = "7bf19397d15898c9137c670c14ef2c55", label = "Ultimate Spider-Man (USA).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X13CEC0, type="u32le", condition="increase", action="HEAL", desc="[32bit] Health increased" },
+        { address=0X13CEC0, type="u32le", condition="decrease", action="HIT", desc="[32bit] Health decreased" },
+      },
+    },
+  },
+}

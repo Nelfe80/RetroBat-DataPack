@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Agile Warrior F-111X",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Flight Simulator, Shooter"
+  },
+
+  rom = {
+    name = "agile-warrior-f-111x",
+    hashes = {
+      { hash = "5ad524fd0e7fc4915f13a0807ecefc7c", label = "Agile Warrior - F-111X (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Sonic's Edusoft",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Education"
+  },
+
+  rom = {
+    name = "prototype-sonics-edusoft",
+    hashes = {
+      { hash = "5919b101624d4710a10825c34e753ba2", label = "Sonic's Edusoft (Unknown) (Proto).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X05CB, type="u8", condition="eq", value=0X34, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X087C, type="u8", condition="eq", value=0X08, action="GAME_OVER", desc="Game Over text on screen" },
+        { address=0X0A07, type="u8", condition="eq", value=0X01, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X05CB, type="u8", condition="eq", value=0X3F, action="NEW_LEVEL", desc="overworld" },
+      },
+    },
+  },
+}

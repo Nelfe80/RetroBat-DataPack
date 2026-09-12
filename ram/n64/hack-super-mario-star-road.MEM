@@ -1,0 +1,108 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Star Road",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-star-road",
+    hashes = {
+      { hash = "4f79367d5db29a00590377dba46e3b58", label = "SM64 - Super Mario Star Road (Unknown Rev).z64" },
+      { hash = "5b5396190e4afbb4d2d358a699522cb0", label = "SM64 - Super Mario Star Road (Final).z64" },
+      { hash = "80e5019c9dd12648f909b3a5715ed580", label = "SM64 - Super Mario Star Road (Final) (Deluxe Edition) (Skelux).z64" },
+      { hash = "da2689fb890854138c9390dd8f487cc0", label = "SM64 - Super Mario Star Road (GT).z64" },
+      { hash = "dc25c74081244916a31472092d78a64d", label = "SM64 - Super Mario Star Road (Skelux) (1.01).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF0892, type="u16be", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="Pause : 2" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X207710, type="u8", condition="eq", value=0X3, action="TREASURE", desc="The Bee's Treasure" },
+        { address=0X207711, type="u8", condition="eq", value=0X2, action="TREASURE", desc="Ancient Treasure inside the Pyramid" },
+        { address=0X207714, type="u8", condition="eq", value=0X4, action="TREASURE", desc="The Giant Thwomp's Treasure" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20770C, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="The Chuckya's Red Coins" },
+        { address=0X20770C, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20770D, type="u8", condition="eq", value=0X2, action="MONEY_STATE", desc="8 Red Coins of the Pond" },
+        { address=0X20770D, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20770E, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Red Coins of the Sky" },
+        { address=0X20770E, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20770F, type="u8", condition="eq", value=0X3, action="MONEY_STATE", desc="Find the 8 Red Coins" },
+        { address=0X20770F, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207710, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Vine-Climbing for 8 Red Coins" },
+        { address=0X207710, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207711, type="u8", condition="eq", value=0X3, action="MONEY_STATE", desc="8 Rocky Red Coins" },
+        { address=0X207711, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207712, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Red Coins of the Deep" },
+        { address=0X207712, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207713, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Haunted Ride for Red Coins" },
+        { address=0X207713, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207714, type="u8", condition="eq", value=0X5, action="MONEY_STATE", desc="Airborne Red Coins" },
+        { address=0X207714, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207715, type="u8", condition="eq", value=0X5, action="MONEY_STATE", desc="Playful Red Coins" },
+        { address=0X207715, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207716, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207717, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="The 8 Musical Red Coins" },
+        { address=0X207717, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207719, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Red Coins in the Crater" },
+        { address=0X207719, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20771A, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="The Rusty Red Coins" },
+        { address=0X20771A, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20771B, type="u8", condition="eq", value=0X4, action="MONEY_STATE", desc="Burning Red Coins" },
+        { address=0X20771B, type="u8", condition="eq", value=0X6, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20771D, type="u8", condition="eq", value=0X1, action="MONEY_STATE", desc="Secret Star (MMT Red Coins)" },
+        { address=0X207720, type="u8", condition="eq", value=0X1, action="MONEY_STATE", desc="Secret Star (SSS Time)" },
+        { address=0X207720, type="u8", condition="eq", value=0X5, action="MONEY_STATE", desc="Star Replica (SSS)" },
+        { address=0X207723, type="u8", condition="eq", value=0X5, action="MONEY_STATE", desc="Star Replica (Wing)" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X20770C, type="u8", condition="eq", value=0X1, action="SWIMMING", no_log=true, no_survey=true, desc="Swim Into the Flooded Cage" },
+        { address=0X207712, type="u8", condition="eq", value=0X3, action="SWIMMING", no_log=true, no_survey=true, desc="Precision Swimming" },
+        { address=0X207715, type="u8", condition="eq", value=0X4, action="JUMPING", no_log=true, no_survey=true, desc="Pole-Jumping" },
+        { address=0X207716, type="u8", condition="eq", value=0X4, action="JUMPING", no_log=true, no_survey=true, desc="Cliff Jumping for Red Coins" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="eq", value=0XB2, action="OBJECT_INTERACTION", desc="Metal Cap Switch" },
+        { address=0X207708, type="u8", condition="eq", value=0XB3, action="OBJECT_INTERACTION", desc="Vanish Cap Switch" },
+        { address=0X207708, type="u8", condition="eq", value=0XB4, action="OBJECT_INTERACTION", desc="B1 Key" },
+        { address=0X207708, type="u8", condition="eq", value=0XB5, action="OBJECT_INTERACTION", desc="B2 Key" },
+        { address=0X20770E, type="u8", condition="eq", value=0X3, action="OBJECT_INTERACTION", desc="Finding the Purple Switch" },
+        { address=0X207715, type="u8", condition="eq", value=0X2, action="DOOR_OPENED", desc="Door-Knocking" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X20770D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="0 : Climb the Ruins" },
+        { address=0X207720, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="0 : Secret Star (SSS Red Coins)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ms. Pac-Man",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "ms-pac-man",
+    hashes = {
+      { hash = "01052a074f9e7ce8dc823a5dd2155d14", label = "mspacman.zip <MS Pacman>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X05D1, type="u8", condition="change", action="PAUSE_OFF", desc="[bit 0] Ghost Eating Pause (0 : unpause, 1 paused)" },
+        { address=0X0602, type="u8", condition="eq", value=0X10, action="DEMO_MODE", desc="Demo" },
+        { address=0X0604, type="u8", condition="eq", value=0X7, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0604, type="u8", condition="eq", value=0XA, action="LOSE_LIFE", desc="Dead" },
+        { address=0X0614, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Internal increased" },
+        { address=0X0614, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Internal decreased" },
+        { address=0X0615, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Displayed increased" },
+        { address=0X0615, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Displayed decreased" },
+        { address=0X066F, type="u8", condition="increase", action="GAIN_LIFE", desc="Starting Lives (DIP settings 1, 2, 3, or 5) increased" },
+        { address=0X066F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Starting Lives (DIP settings 1, 2, 3, or 5) decreased" },
+        { address=0X0671, type="u8", condition="increase", action="GAIN_LIFE", desc="Bonus Life (DIP setting 0x10 : 10k, 0x15 : 15k, 0x20 : 20k, 0xff : none) increased" },
+        { address=0X0671, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bonus Life (DIP setting 0x10 : 10k, 0x15 : 15k, 0x20 : 20k, 0xff : none) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X4E80, type="u24be", condition="change", action="TREASURE", color="white", min=10000, max=10000, desc="Score delta 10000-10000: ?" },
+        { address=0X4E80, type="u24be", condition="change", action="TREASURE", color="orange", min=300, max=300, desc="Score delta 300-300: Strawberry" },
+        { address=0X4E80, type="u24be", condition="change", action="TREASURE", color="yellow", min=5000, max=5000, desc="Score delta 5000-5000: Banana" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X4E80, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X4E6E, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

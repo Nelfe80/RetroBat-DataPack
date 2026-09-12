@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Rogue V2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-rogue-v2",
+    hashes = {
+      { hash = "d433c84e2a0d267cd2e30bb15fdbfcce", label = "Pokemon Emerald - Emerald Rogue (v2.0-EX) (Pokabbie).gba" },
+      { hash = "a0992265d19175678b2ed4e61c522500", label = "Pokemon Emerald - Emerald Rogue (v2.0.1-EX) (Pokabbie).gba" },
+      { hash = "f595619a4920fc30d65bb31fdcd6b59b", label = "Pokemon Emerald - Emerald Rogue (v2.0.1a-EX) (Pokabbie).gba" },
+    }
+  },
+
+  events = {
+  },
+}

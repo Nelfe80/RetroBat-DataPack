@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Waluigi's Taco Stand",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-waluigis-taco-stand",
+    hashes = {
+      { hash = "e9013937e0025d305d35dbc259e54de1", label = "SM64 - Waluigi's Taco Stand (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X206C7C, type="u8", condition="change", action="PAUSE_ON", desc="Is the game paused?" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Titlescreen/File Select" },
+        { address=0X331493, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Option" },
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag (Bit1)" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="First World" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X13, action="PROGRESSION_ZONE", desc="Second World" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X15, action="PROGRESSION_ZONE", desc="Third World" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X1F, action="PROGRESSION_ZONE", desc="Fourth World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3331B4, type="u8", condition="change", action="LOSE_LIFE", desc="SFX for collecting ingredients?" },
+        { address=0X40DCFC, type="u32be", condition="change", action="LOSE_LIFE", desc="Ingredients Gathered (32-bit)" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Lettuce/Fish/Chicken/Sauce" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Cheese/Coconut/Lettuce/Eye" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Tomato/Garlic/Cheese/Spider" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Mushroom/Tomato/Horn" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Beef" },
+        { address=0X40DCFD, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Cheese/Cactus" },
+      },
+    },
+  },
+}

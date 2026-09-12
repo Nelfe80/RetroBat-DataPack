@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Echo Night Beyond",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Adventure, Horror"
+  },
+
+  rom = {
+    name = "echo-night-beyond",
+    hashes = {
+      { hash = "bf17ca0722cae016ae2f37490e6c1443", label = "Echo Night - Beyond (USA)" },
+      { hash = "4bab193192d5955bab19deba5e21e6d3", label = "Echo Night - Beyond (USA) (Es) (v1.0.1) (Tío Víctor)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2ADB90, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="First Level" },
+        { address=0X2ADB90, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Second Level" },
+        { address=0X2ADC04, type="u8", condition="change", action="NEW_LEVEL", desc="[Float] Brightness Level" },
+        { address=0X2BBBA8, type="u8", condition="change", action="NEW_LEVEL", desc="(Float) Map - Zoom Level" },
+        { address=0X9CCD00, type="u16le", condition="change", action="NEW_LEVEL", desc="(32 bit) Level 1 Card Key" },
+        { address=0X9CCD00, type="u16le", condition="eq", value=0X1, action="NEW_LEVEL", desc="card dropped" },
+        { address=0X9CCD00, type="u16le", condition="eq", value=0X2, action="NEW_LEVEL", desc="obtained" },
+        { address=0X9CCD04, type="u16le", condition="change", action="NEW_LEVEL", desc="(32 bit) Level 2 Card Key" },
+        { address=0X9CCD04, type="u16le", condition="eq", value=0X1, action="NEW_LEVEL", desc="card dropped" },
+        { address=0X9CCD04, type="u16le", condition="eq", value=0X2, action="NEW_LEVEL", desc="obtained" },
+        { address=0X9CCD08, type="u16le", condition="change", action="NEW_LEVEL", desc="(32 bit) Level 3 Card Key" },
+        { address=0X9CCD08, type="u16le", condition="eq", value=0X1, action="NEW_LEVEL", desc="card dropped" },
+        { address=0X9CCD08, type="u16le", condition="eq", value=0X2, action="NEW_LEVEL", desc="obtained" },
+        { address=0XAD6DE4, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="First Level" },
+        { address=0XAD6DE4, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Second Level" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2ADBA8, type="u8", condition="eq", value=0X1, action="MONEY_STATE", desc="Promise Ring" },
+        { address=0X9CCD80, type="u32le", condition="eq", value=0X1, action="MONEY_STATE", desc="obtained" },
+        { address=0X9CCDA4, type="u32le", condition="eq", value=0X1, action="MONEY_STATE", desc="raised the seat" },
+        { address=0X9CCDA4, type="u32le", condition="eq", value=0X2, action="MONEY_STATE", desc="obtained" },
+        { address=0X9CCDA8, type="u32le", condition="eq", value=0X1, action="MONEY_STATE", desc="obtained" },
+        { address=0X9CCDAC, type="u32le", condition="eq", value=0X1, action="COIN_LOSE", desc="dropped" },
+        { address=0X9CCDAC, type="u32le", condition="eq", value=0X2, action="MONEY_STATE", desc="obtained" },
+        { address=0X9CCF18, type="u32le", condition="eq", value=0X14, action="MONEY_STATE", desc="released" },
+        { address=0X9CCF48, type="u32le", condition="eq", value=0X14, action="MONEY_STATE", desc="released" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9CCEB8, type="u32le", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="Cutscene were he block your path" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2ADBE8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="[Float] Elapsed Time" },
+        { address=0X9CCE88, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(32 bit) Kenneth Livingston" },
+        { address=0X9CD2F8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(32 bit) Syrigne at Studio" },
+      },
+    },
+  },
+}

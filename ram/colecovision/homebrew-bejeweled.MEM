@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bejeweled",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bejeweled",
+    hashes = {
+      { hash = "d4de9cddf1ee32bea6f407ced643cbf7", label = "Bejeweled (World) (Aftermarket) (Unl).col" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X008E, type="u8", condition="change", action="NEW_LEVEL", desc="Progress Until Next Level?" },
+        { address=0X01F2, type="u8", condition="change", action="NEW_LEVEL", desc="1 when leveling up. (may be inconsistent)" },
+        { address=0X01FA, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level Up Mode (random jewels go away)" },
+        { address=0X01FA, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="Cleared a subsequent set." },
+        { address=0X01FA, type="u8", condition="eq", value=0X07, action="LEVEL_CLEAR", desc="Cleared a first set of 3 (or failed to swap correctly)." },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X01EB, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score * 10" },
+        { address=0X03AE, type="u8", condition="eq", value=0X06, action="SCORE_STATE", desc="Viewing High Scores" },
+      },
+      collectibles = {
+        { address=0X0004, type="u8", condition="increase", action="COIN_GAIN", desc="Pieces are falling. Sustained 0x01 for a bit while nothing is falling and you eventually get con" },
+      },
+    },
+  },
+}

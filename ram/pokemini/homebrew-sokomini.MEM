@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SOKOmini",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sokomini",
+    hashes = {
+      { hash = "2586b3aa4989969c0b200a57c13f5aae", label = "SOKOmini (World) (v1.0) (Hardware Fixed) (Aftermarket) (Unl).min" },
+      { hash = "6048dce48222e4d75e8fdce9c2f55c39", label = "SOKOmini (World) (v1.0) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00DD, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0800, type="u8", condition="change", action="NEW_LEVEL", desc="Appears to be coordinates within level. Changes with every step" },
+        { address=0X0802, type="u8", condition="change", action="NEW_LEVEL", desc="Levels. Starts at 00" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0801, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Planned movement? This change even when running into blocks" },
+      },
+    },
+  },
+}

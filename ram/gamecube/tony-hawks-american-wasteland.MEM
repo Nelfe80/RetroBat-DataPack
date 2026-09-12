@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tony Hawk's American Wasteland",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "tony-hawks-american-wasteland",
+    hashes = {
+      { hash = "c676889cdbc2adbd256dce33796d4ce8", label = "Tony Hawk's American Wasteland (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9F9968, type="u32be", condition="change", action="NEW_LEVEL", desc="[32-bit BE] Level ID" },
+        { address=0X9F9968, type="u32be", condition="eq", value=0X1, action="NEW_LEVEL", desc="Hollywood" },
+      },
+    },
+  },
+}

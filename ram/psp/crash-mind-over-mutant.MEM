@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Crash: Mind Over Mutant",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "crash-mind-over-mutant",
+    hashes = {
+      { hash = "64b2f25f81718c233e1ce3ab948f25ed", label = "Crash - Mind over Mutant (USA) (En,Fr).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1B8F4D4, type="u32le", condition="eq", value=0X00000000, action="PAUSE_ON", desc="in pause menu" },
+        { address=0X1B8F4D4, type="u32le", condition="eq", value=0XFFFFFFFF, action="PAUSE_ON", desc="not in pause menu" },
+      },
+      events = {
+        { address=0X1B8CC74, type="u32le", condition="change", action="COMBO_HIT", desc="[32 Bit] Current Combo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XE734C0, type="u32be", condition="change", action="NEW_LEVEL", desc="[32 Bit BE] Level ID ASCII Related?" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XDAC0AA, type="u8", condition="change", action="HIT", desc="[8 Bit] Cheat Active | Enemies Leave behind Quad Damage" },
+      },
+    },
+  },
+}

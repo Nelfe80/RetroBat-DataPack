@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon FireRed Omega Plus Plus",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-firered-omega-plus-plus",
+    hashes = {
+      { hash = "071019e9ba6d815c75c0c7faee8526d6", label = "Pokemon - FireRed Omega (Drayano).gba" },
+      { hash = "8a9239138f40ed68e04a38af19d143b9", label = "Pokemon FireRed - Omega Plus Plus (v3.8).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0F9C, type="u8", condition="change", action="PAUSE_ON", desc="Pause Player Movement (:01)" },
+        { address=0X7307, type="u8", condition="change", action="PAUSE_ON", desc="b7:Pause Music Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="Active Pokemon Current HP increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="Active Pokemon Current HP decreased" },
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="Enemy Current HP increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="Enemy Current HP decreased" },
+        { address=0X2BC68, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X2BC68, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X8FAD, type="u8", condition="bit_true", mask=0XB4, action="DYNAMIC_INVENTORY", desc="Sun Stone (Pewter City)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "bucaner",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "buccaneer",
+    hashes = {
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X4E6E, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

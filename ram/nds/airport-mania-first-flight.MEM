@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Airport Mania: First Flight",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "airport-mania-first-flight",
+    hashes = {
+      { hash = "1013f21e5385d3085139c1693fbaad79", label = "Airport Mania - First Flight (Europe, Australia)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X15A260, type="u16le", condition="eq", value=0XFFFF, action="NEW_LEVEL", desc="Level Locked" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X15A337, type="u8", condition="bit_true", mask=0X40, action="SCORE_STATE", desc="Million Points Award" },
+        { address=0X15B38C, type="u16le", condition="eq", value=0X04, action="SCORE_STATE", desc="Completed (Supreme Score)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X15A336, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Puddle Jumper" },
+        { address=0X15A336, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Turbo Twin Airliner Award" },
+      },
+    },
+  },
+}

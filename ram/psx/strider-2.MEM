@@ -1,0 +1,93 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Strider 2",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "strider-2",
+    hashes = {
+      { hash = "6414b73e0ce2030a199dbb259db71b77", label = "Strider 2 (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9FCC8, type="u8", condition="eq", value=0X0, action="PAUSE_ON", desc="false" },
+        { address=0X9FCC8, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="true" },
+        { address=0XAB718, type="u32le", condition="eq", value=0XFFFF0101, action="TITLE_SCREEN", desc="title menu" },
+        { address=0X1F69F8, type="u8", condition="bit_true", mask=0X40, action="TITLE_SCREEN", desc="options" },
+        { address=0X1F69F8, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="game start" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XA8D59, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 0 Unlocked [Bit0]" },
+        { address=0XA8E55, type="u8", condition="change", action="RANK_STATE", desc="[ 8bit ] player position x axis??" },
+        { address=0XAB718, type="u32le", condition="eq", value=0X00000101, action="PROGRESSION_STAGE", desc="stage 1" },
+        { address=0XAB718, type="u32le", condition="eq", value=0X01010101, action="PROGRESSION_STAGE", desc="stage 2" },
+        { address=0XAB718, type="u32le", condition="eq", value=0X02020101, action="PROGRESSION_STAGE", desc="stage 3" },
+        { address=0XAB718, type="u32le", condition="eq", value=0X04040101, action="PROGRESSION_STAGE", desc="stage 4" },
+        { address=0XAB718, type="u32le", condition="eq", value=0X05050101, action="PROGRESSION_STAGE", desc="stage 5" },
+        { address=0XAB89F, type="u8", condition="change", action="RANK_STATE", desc="[ 8bit ] Player position y axis ?" },
+        { address=0XD9DDC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="STAGE 1" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="STAGE 2" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="STAGE 3" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Stage 0" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="STAGE 4" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="STAGE 5" },
+        { address=0XD9DDC, type="u8", condition="eq", value=0X8, action="PROGRESSION_STAGE", desc="Main menu" },
+        { address=0XD9DDE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage part (Scene)" },
+        { address=0XD9DE3, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] stage select stage selected." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XABA32, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="dead" },
+      },
+      health = {
+        { address=0XA4601, type="u8", condition="change", action="HIT", desc="[ 8bit ] damage given to boss" },
+        { address=0XABA32, type="u8", condition="change", action="HEALTH_STATE", desc="player current health" },
+        { address=0XE0B02, type="u8", condition="increase", action="HEAL", desc="[ 8bit ] random enemy health increased" },
+        { address=0XE0B02, type="u8", condition="decrease", action="HIT", desc="[ 8bit ] random enemy health decreased" },
+        { address=0XE0B04, type="u8", condition="increase", action="HEAL", desc="[ 8bit ] random enemy health on screen increased" },
+        { address=0XE0B04, type="u8", condition="decrease", action="HIT", desc="[ 8bit ] random enemy health on screen decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XABB3D, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up activated : 01" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD9DEC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="[32 bit Score in hex]" },
+        { address=0XD9DF0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[ 32bit ] total score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCDF80, type="u8", condition="change", action="BOSS_HIT", desc="[ 8bit ] bosses healthbar" },
+        { address=0XCDFD0, type="u8", condition="change", action="BOSS_HIT", desc="[ 8-bit ] bosshealthbar on-screen" },
+        { address=0XDE0D2, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA8D4E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="time limit" },
+        { address=0XD9DFF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[ 8-bits ] Clear Time minutes" },
+        { address=0XD9E00, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[ 8-bits ] Clear Time seconds" },
+        { address=0XD9E01, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[ 8-bits ] Clear Time milliseconds" },
+        { address=0XD9E02, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[ 8bit ] timer minutes" },
+        { address=0XD9E03, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[ 8bit ] timer seconds" },
+        { address=0XEBB8A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[ 8bit ] continue timer seconds" },
+        { address=0XEBB8E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[ 8bit ] continue timer milliseconds" },
+      },
+    },
+  },
+}

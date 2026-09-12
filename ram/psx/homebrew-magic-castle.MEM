@@ -1,0 +1,97 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Magic Castle",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-magic-castle",
+    hashes = {
+      { hash = "4b42cd8609cdf91378177ed2c9460ca3", label = "Magic Castle (Net Yaroze) (v2021-05-07) (Kaiga)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X12FC40, type="u8", condition="eq", value=0X27, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1583B0, type="u8", condition="eq", value=0XB5, action="CREDITS_SCREEN", desc="Display Credits" },
+        { address=0X1583C0, type="u8", condition="change", action="GAME_OVER", desc="[En] [b0] Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X158922, type="u8", condition="change", action="LEVEL_CLEAR", desc="[En] Task Cleared Message Frames Elapsed (0xc8)" },
+        { address=0X158924, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="New Game" },
+        { address=0X158924, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Find the Treasure" },
+        { address=0X158924, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="Hunt a Ghost" },
+        { address=0X158924, type="u8", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="Defeat the Black Golem" },
+        { address=0X158924, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="Release the Fairies" },
+        { address=0X158924, type="u8", condition="eq", value=0X5, action="LEVEL_CLEAR", desc="Class Promotion (Hidden)" },
+        { address=0X158924, type="u8", condition="eq", value=0X6, action="LEVEL_CLEAR", desc="Help Your Allies (Hidden)" },
+        { address=0X158924, type="u8", condition="eq", value=0X7, action="LEVEL_CLEAR", desc="Heal the Rat Queen (Hidden)" },
+        { address=0X158924, type="u8", condition="eq", value=0X8, action="LEVEL_CLEAR", desc="Defeat the Doppelgangers (Hidden)" },
+        { address=0X158A18, type="u8", condition="eq", value=0X9, action="LEVEL_CLEAR", desc="Quest Cleared Statistics" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1589DE, type="u8", condition="eq", value=0X7, action="LOSE_LIFE", desc="Friendly Deathmatch" },
+        { address=0X1589F4, type="u8", condition="increase", action="GAIN_LIFE", desc="[En] [b0] Used a Lucky Charm (Extra Life) (Skill Factor) increased" },
+        { address=0X1589F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="[En] [b0] Used a Lucky Charm (Extra Life) (Skill Factor) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1589DE, type="u8", condition="eq", value=0X4, action="TREASURE", desc="Treasure Hunt" },
+        { address=0X158A58, type="u8", condition="change", action="TREASURE", desc="[En] [b0] Find the Treasure Task (Rank Factor)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X158A18, type="u8", condition="eq", value=0X7, action="SCORE_STATE", desc="Scoreboard" },
+        { address=0X160D40, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Normal Scoreboard - Knight - Rank" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X0, action="SCORE_STATE", desc="D" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X1, action="SCORE_STATE", desc="C" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X2, action="SCORE_STATE", desc="B" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X3, action="SCORE_STATE", desc="A" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X4, action="SCORE_STATE", desc="A+" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X5, action="SCORE_STATE", desc="AA" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X6, action="SCORE_STATE", desc="AA+" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X7, action="SCORE_STATE", desc="AAA" },
+        { address=0X160D40, type="u16le", condition="eq", value=0X8, action="SCORE_STATE", desc="AAA+" },
+        { address=0X160D40, type="u16le", condition="eq", value=0XFFFF, action="SCORE_STATE", desc="No Entry" },
+        { address=0X160D44, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[EN] [16-bit] Normal Scoreboard - Wizard - Rank" },
+        { address=0X160D48, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Normal Scoreboard - Fighter - Rank" },
+        { address=0X160D4C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Normal Scoreboard - Archer - Rank" },
+        { address=0X160D4E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Hard Scoreboard - Character" },
+        { address=0X160D4E, type="u16le", condition="eq", value=0X1, action="SCORE_STATE", desc="Knight" },
+        { address=0X160D4E, type="u16le", condition="eq", value=0X2, action="SCORE_STATE", desc="Wizard" },
+        { address=0X160D4E, type="u16le", condition="eq", value=0X3, action="SCORE_STATE", desc="Fighter" },
+        { address=0X160D4E, type="u16le", condition="eq", value=0X4, action="SCORE_STATE", desc="Archer" },
+        { address=0X160D52, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Hard Scoreboard - Rank" },
+        { address=0X160D54, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Escape the Blaze - Minutes Left" },
+        { address=0X160D56, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Escape the Blaze - Seconds Left" },
+        { address=0X160D58, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Raid at Night - Minutes Left" },
+        { address=0X160D5A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Raid at Night - Seconds Left" },
+        { address=0X160D5C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Treasure Hunt - Minutes Left" },
+        { address=0X160D5E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Treasure Hunt - Seconds Left" },
+        { address=0X160D60, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Black Knight - Minutes Left" },
+        { address=0X160D62, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Black Knight - Seconds Left" },
+        { address=0X160D64, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Cursed - Minutes Left" },
+        { address=0X160D66, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[En] [16-bit] Unlockables Scoreboard - Cursed - Seconds Left" },
+      },
+      collectibles = {
+        { address=0X158A02, type="u8", condition="increase", action="COIN_GAIN", desc="[En] [b0] Used the Ring of Power (Skill Factor) increased" },
+        { address=0X160D3E, type="u16le", condition="eq", value=0XFFFF, action="MONEY_STATE", desc="No Entry" },
+        { address=0X160D42, type="u16le", condition="increase", action="COIN_GAIN", desc="[En] [16-bit] Normal Scoreboard - Wizard - Coins increased" },
+        { address=0X160D46, type="u16le", condition="increase", action="COIN_GAIN", desc="[En] [16-bit] Normal Scoreboard - Fighter - Coins increased" },
+        { address=0X160D4A, type="u16le", condition="increase", action="COIN_GAIN", desc="[En] [16-bit] Normal Scoreboard - Archer - Coins increased" },
+        { address=0X160D50, type="u16le", condition="increase", action="COIN_GAIN", desc="[En] [16-bit] Hard Scoreboard - Coins increased" },
+      },
+    },
+  },
+}

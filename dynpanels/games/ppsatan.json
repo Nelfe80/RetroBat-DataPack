@@ -1,0 +1,1089 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "ppsatan",
+  "game_name": "ppsatan",
+  "meta": {
+    "players": 2,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "SYSTEM",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":SYSTEM",
+            "cfg_tag": ":SYSTEM",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":SYSTEM",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":SYSTEM",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "led0",
+          "label": "Led0",
+          "function": "led0",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "led0#1",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led1",
+          "label": "Led1",
+          "function": "led1",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 1,
+          "panel_index": 2,
+          "color": "Gray",
+          "side": "",
+          "id": "led1#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led2",
+          "label": "Led2",
+          "function": "led2",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 2,
+          "panel_index": 3,
+          "color": "Gray",
+          "side": "",
+          "id": "led2#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led3",
+          "label": "Led3",
+          "function": "led3",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 3,
+          "panel_index": 4,
+          "color": "Gray",
+          "side": "",
+          "id": "led3#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led4",
+          "label": "Led4",
+          "function": "led4",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 4,
+          "panel_index": 5,
+          "color": "Gray",
+          "side": "",
+          "id": "led4#5",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led5",
+          "label": "Led5",
+          "function": "led5",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 5,
+          "panel_index": 6,
+          "color": "Gray",
+          "side": "",
+          "id": "led5#6",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led6",
+          "label": "Led6",
+          "function": "led6",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 6,
+          "panel_index": 7,
+          "color": "Gray",
+          "side": "",
+          "id": "led6#7",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led7",
+          "label": "Led7",
+          "function": "led7",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 7,
+          "panel_index": 8,
+          "color": "Gray",
+          "side": "",
+          "id": "led7#8",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led8",
+          "label": "Led8",
+          "function": "led8",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 8,
+          "panel_index": 9,
+          "color": "Gray",
+          "side": "",
+          "id": "led8#9",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "P1 Button 1",
+            "function": "p1_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH1_X",
+            "mask": "0x8000",
+            "mask_int": 32768,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":TOUCH1_X",
+            "cfg_tag": ":TOUCH1_X",
+            "input_label": "P1 Button 1",
+            "input_function": "p1_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":TOUCH1_X",
+            "mask_dec": 32768,
+            "mask_hex": "0x8000",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":TOUCH1_X",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_LIGHTGUN_X",
+          "input": "LIGHTGUN_X",
+          "label": "Lightgun X",
+          "function": "lightgun_x",
+          "short": "LGX",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "LIGHTGUN_X",
+            "input_id": "P1_LIGHTGUN_X",
+            "label": "Lightgun X",
+            "function": "lightgun_x",
+            "control_type": "lightgun",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH1_X",
+            "mask": "0x7fff",
+            "mask_int": 32767,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "0x20",
+            "ipt": "IPT_LIGHTGUN_X",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": 0,
+            "max": 319,
+            "sensitivity": 35,
+            "keydelta": 8,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Lightgun X",
+            "mame_type": "156",
+            "mame_tag": ":TOUCH1_X",
+            "cfg_tag": ":TOUCH1_X",
+            "input_label": "Lightgun X",
+            "input_function": "lightgun_x",
+            "type": "LIGHTGUN_X",
+            "normalized_type": "LIGHTGUN_X",
+            "tag_raw": ":TOUCH1_X",
+            "mask_dec": 32767,
+            "mask_hex": "0x7FFF",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":TOUCH1_X",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_LIGHTGUN_Y",
+          "input": "LIGHTGUN_Y",
+          "label": "Lightgun Y",
+          "function": "lightgun_y",
+          "short": "LGY",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "LIGHTGUN_Y",
+            "input_id": "P1_LIGHTGUN_Y",
+            "label": "Lightgun Y",
+            "function": "lightgun_y",
+            "control_type": "lightgun",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH1_Y",
+            "mask": "0xffff",
+            "mask_int": 65535,
+            "defvalue": "0x18",
+            "defvalue_int": 24,
+            "default_raw": "0x18",
+            "ipt": "IPT_LIGHTGUN_Y",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": 0,
+            "max": 223,
+            "sensitivity": 35,
+            "keydelta": 8,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Lightgun Y",
+            "mame_type": "157",
+            "mame_tag": ":TOUCH1_Y",
+            "cfg_tag": ":TOUCH1_Y",
+            "input_label": "Lightgun Y",
+            "input_function": "lightgun_y",
+            "type": "LIGHTGUN_Y",
+            "normalized_type": "LIGHTGUN_Y",
+            "tag_raw": ":TOUCH1_Y",
+            "mask_dec": 65535,
+            "mask_hex": "0xFFFF",
+            "defvalue_dec": 24,
+            "defvalue_hex": "0x0018",
+            "runtime_tag": ":TOUCH1_Y",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Red",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "led0",
+          "label": "Led0",
+          "function": "led0",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "led0#1",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led1",
+          "label": "Led1",
+          "function": "led1",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 1,
+          "panel_index": 2,
+          "color": "Gray",
+          "side": "",
+          "id": "led1#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led2",
+          "label": "Led2",
+          "function": "led2",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 2,
+          "panel_index": 3,
+          "color": "Gray",
+          "side": "",
+          "id": "led2#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led3",
+          "label": "Led3",
+          "function": "led3",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 3,
+          "panel_index": 4,
+          "color": "Gray",
+          "side": "",
+          "id": "led3#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led4",
+          "label": "Led4",
+          "function": "led4",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 4,
+          "panel_index": 5,
+          "color": "Gray",
+          "side": "",
+          "id": "led4#5",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led5",
+          "label": "Led5",
+          "function": "led5",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 5,
+          "panel_index": 6,
+          "color": "Gray",
+          "side": "",
+          "id": "led5#6",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led6",
+          "label": "Led6",
+          "function": "led6",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 6,
+          "panel_index": 7,
+          "color": "Gray",
+          "side": "",
+          "id": "led6#7",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led7",
+          "label": "Led7",
+          "function": "led7",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 7,
+          "panel_index": 8,
+          "color": "Gray",
+          "side": "",
+          "id": "led7#8",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led8",
+          "label": "Led8",
+          "function": "led8",
+          "physical_type": "led",
+          "value_type": "boolean",
+          "families": [
+            "led"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": 8,
+          "panel_index": 9,
+          "color": "Gray",
+          "side": "",
+          "id": "led8#9",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P2_BUTTON1",
+            "label": "P2 Button 1",
+            "function": "p2_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH2_X",
+            "mask": "0x8000",
+            "mask_int": 32768,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P2 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":TOUCH2_X",
+            "cfg_tag": ":TOUCH2_X",
+            "input_label": "P2 Button 1",
+            "input_function": "p2_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":TOUCH2_X",
+            "mask_dec": 32768,
+            "mask_hex": "0x8000",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":TOUCH2_X",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P2_LIGHTGUN_X",
+          "input": "LIGHTGUN_X",
+          "label": "Lightgun X 2",
+          "function": "lightgun_x_2",
+          "short": "LIG",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "LIGHTGUN_X",
+            "input_id": "P2_LIGHTGUN_X",
+            "label": "Lightgun X 2",
+            "function": "lightgun_x_2",
+            "control_type": "lightgun",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH2_X",
+            "mask": "0x7fff",
+            "mask_int": 32767,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "0x20",
+            "ipt": "IPT_LIGHTGUN_X",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": 0,
+            "max": 319,
+            "sensitivity": 35,
+            "keydelta": 8,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Lightgun X 2",
+            "mame_type": "156",
+            "mame_tag": ":TOUCH2_X",
+            "cfg_tag": ":TOUCH2_X",
+            "input_label": "Lightgun X 2",
+            "input_function": "lightgun_x_2",
+            "type": "LIGHTGUN_X",
+            "normalized_type": "LIGHTGUN_X",
+            "tag_raw": ":TOUCH2_X",
+            "mask_dec": 32767,
+            "mask_hex": "0x7FFF",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":TOUCH2_X",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P2_LIGHTGUN_Y",
+          "input": "LIGHTGUN_Y",
+          "label": "Lightgun Y 2",
+          "function": "lightgun_y_2",
+          "short": "LIG",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "LIGHTGUN_Y",
+            "input_id": "P2_LIGHTGUN_Y",
+            "label": "Lightgun Y 2",
+            "function": "lightgun_y_2",
+            "control_type": "lightgun",
+            "joystick_way": "",
+            "port_block": "ppsatan",
+            "tag": "TOUCH2_Y",
+            "mask": "0xffff",
+            "mask_int": 65535,
+            "defvalue": "0x18",
+            "defvalue_int": 24,
+            "default_raw": "0x18",
+            "ipt": "IPT_LIGHTGUN_Y",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": 0,
+            "max": 223,
+            "sensitivity": 35,
+            "keydelta": 8,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Lightgun Y 2",
+            "mame_type": "157",
+            "mame_tag": ":TOUCH2_Y",
+            "cfg_tag": ":TOUCH2_Y",
+            "input_label": "Lightgun Y 2",
+            "input_function": "lightgun_y_2",
+            "type": "LIGHTGUN_Y",
+            "normalized_type": "LIGHTGUN_Y",
+            "tag_raw": ":TOUCH2_Y",
+            "mask_dec": 65535,
+            "mask_hex": "0xFFFF",
+            "defvalue_dec": 24,
+            "defvalue_hex": "0x0018",
+            "runtime_tag": ":TOUCH2_Y",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ SimCopter 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Flight Simulator"
+  },
+
+  rom = {
+    name = "prototype-simcopter-64",
+    hashes = {
+      { hash = "3777ddb4a7494a0f39f78f25756890d1", label = "SimCopter 64 (USA) (Proto) (E3 1997).z64" },
+    }
+  },
+
+  events = {
+  },
+}

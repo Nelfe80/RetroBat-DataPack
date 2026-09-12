@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ninjabread Man",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "ninjabread-man",
+    hashes = {
+      { hash = "d1861ba435b74acdc0e63c6f868768b3", label = "Ninjabread Man (Europe)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X448EDC, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] Selected Level" },
+        { address=0X44B25C, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Locked" },
+        { address=0X44B25C, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Score Pickups Unlocked" },
+        { address=0X44B25C, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Time Attack Unlocked" },
+        { address=0X44B25C, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Hidden Pickups Unlocked" },
+        { address=0X44B2FC, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Locked" },
+        { address=0X44B2FC, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Score Pickups Unlocked" },
+        { address=0X44B2FC, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Time Attack Unlocked" },
+        { address=0X44B2FC, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Hidden Pickups Unlocked" },
+        { address=0X44B308, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Locked" },
+        { address=0X44B308, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Score Pickups Unlocked" },
+        { address=0X44B308, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Time Attack Unlocked" },
+        { address=0X44B308, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Hidden Pickups Unlocked" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X449B90, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Level 1 High Score" },
+        { address=0X44A090, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Level 3 High Score" },
+        { address=0X44A0F0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Level 2 High Score" },
+      },
+    },
+  },
+}

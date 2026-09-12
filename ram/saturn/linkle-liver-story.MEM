@@ -1,0 +1,87 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Linkle Liver Story",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "linkle-liver-story",
+    hashes = {
+      { hash = "2f64a277f265ab19a1d0ba51f326337c", label = "Linkle Liver Story (Japan)" },
+      { hash = "477d34dd63ac4c8379b97e9c454328da", label = "Linkle Liver Story (Japan) (En) (v1.0) (Stardust Crusaders)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XFFE60, type="u8", condition="change", action="NEW_LEVEL", desc="Water Seed Level" },
+        { address=0XFFE61, type="u8", condition="change", action="NEW_LEVEL", desc="Earth Seed Level" },
+        { address=0XFFE62, type="u8", condition="change", action="NEW_LEVEL", desc="Wind Seed Level" },
+        { address=0XFFE63, type="u8", condition="change", action="NEW_LEVEL", desc="Fire Seed Level" },
+      },
+      zone = {
+        { address=0XFFF81, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="Heading out to world" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X01, action="HEALTH_STATE", desc="Rocky Plaza;" },
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", desc="Crown Village;" },
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", desc="Sky Island(missable);" },
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="Flume Fortress;" },
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X10, action="HEALTH_STATE", desc="Mistral Peak;" },
+        { address=0XFFE67, type="u8", condition="bit_true", mask=0X20, action="HEALTH_STATE", desc="Coral Island" },
+        { address=0XFFF02, type="u8", condition="increase", action="HEAL", desc="Current HP, Max starts at 0x30 increased" },
+        { address=0XFFF02, type="u8", condition="decrease", action="HIT", desc="Current HP, Max starts at 0x30 decreased" },
+        { address=0X197058, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X197058, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XFFE08, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Hammer Obtained" },
+        { address=0XFFE09, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Glove Obtained" },
+        { address=0XFFE0A, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Ax Obtained" },
+        { address=0XFFE0B, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Boomerang Obtained" },
+        { address=0XFFE0C, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Sword Obtained" },
+        { address=0XFFE0D, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Spear Obtained" },
+        { address=0XFFE0F, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Cane Obtained" },
+        { address=0XFFE2B, type="u8", condition="change", action="WEAPON_STATE", desc="Starting-Weapon's Elemental Type" },
+        { address=0XFFE5C, type="u8", condition="change", action="WEAPON_STATE", desc="Slot2 Weapon Type" },
+        { address=0XFFE5D, type="u8", condition="change", action="WEAPON_STATE", desc="Slot1 Weapon Type" },
+        { address=0XFFE5E, type="u8", condition="change", action="WEAPON_STATE", desc="Slot4 Weapon Type" },
+        { address=0XFFE5F, type="u8", condition="change", action="WEAPON_STATE", desc="Slot3 Weapon Type" },
+        { address=0XFFF06, type="u8", condition="change", action="WEAPON_STATE", desc="Selected Weapon Slot" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFFF04, type="u8", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XFFFC0, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Machine Head Midboss 2 defeated;" },
+        { address=0XFFFC0, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Machine Head Midboss 3 defeated;" },
+        { address=0XFFFC0, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Machine Head Wall-Boss defeated;" },
+        { address=0XFFFC0, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Volcano Boss defeated;" },
+        { address=0XFFFC0, type="u8", condition="bit_true", mask=0X80, action="BOSS_DEFEATED", desc="Fake Cassie defeated" },
+        { address=0XFFFC2, type="u8", condition="change", action="BOSS_DEFEATED", desc="bit7 : Final Boss Defeated" },
+        { address=0XFFFC9, type="u8", condition="change", action="BOSS_DEFEATED", desc="bit0 : Final Boss Defeated" },
+        { address=0X19EABC, type="u8", condition="change", action="BOSS_HIT", desc="Might be unique 'boss lock' for Keeller, whose fight is different, also Presstor" },
+        { address=0X1A3C02, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Screen is changed to boss-mode in Crown Village; Also seems to be 01 for most rooms that can fun" },
+        { address=0X1CC5AE, type="u8", condition="change", action="BOSS_HIT", desc="Caterpillar most-stable boss-mode addr, starts at zero then becomes something different when the" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFFF00, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Max HP, increases every time a flower is restored" },
+        { address=0XFFF70, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Bosses Defeated;" },
+      },
+    },
+  },
+}

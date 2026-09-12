@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic the Hedgehog 2 XL",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "hack-sonic-the-hedgehog-2-xl",
+    hashes = {
+      { hash = "224489113ed26aab6b57c95bba244ef7", label = "Sonic the Hedgehog 2 - Sonic the Hedgehog 2 XL (Captain Bozo, Ranger).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XF203, type="u8", condition="eq", value=0XC8, action="NEW_LEVEL", desc="To go down one fat level" },
+      },
+    },
+  },
+}

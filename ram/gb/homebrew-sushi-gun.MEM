@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sushi Gun",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-sushi-gun",
+    hashes = {
+      { hash = "b150ebb4eef4643b9a392f41a0cd62e5", label = "Sushi Gun (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XCA6F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time remaining in current meal." },
+      },
+    },
+  },
+}

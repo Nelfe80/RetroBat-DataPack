@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Prince of Persia",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prince-of-persia",
+    hashes = {
+      { hash = "197a96c252a12ba83c3770914aa1b81f", label = "Prince of Persia (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0080, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo" },
+        { address=0X0080, type="u8", condition="eq", value=0XFC, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X0080, type="u8", condition="eq", value=0XFD, action="TITLE_SCREEN", desc="Title screen/intro" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0080, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X0080, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X0080, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Final level (returns to this immediately after Jaffar is killed)" },
+        { address=0X0080, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Jaffar battle" },
+        { address=0X0080, type="u8", condition="eq", value=0XFE, action="NEW_LEVEL", desc="Ending" },
+        { address=0X0774, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Level 3 skeleton defeated" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0736, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+        { address=0X075A, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+        { address=0X07C6, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X0736, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Current health +1" },
+        { address=0X0738, type="u8", condition="increase", action="HEAL", desc="Max health +1 increased" },
+        { address=0X0738, type="u8", condition="decrease", action="HIT", desc="Max health +1 decreased" },
+        { address=0X075A, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Fat guard health" },
+        { address=0X075A, type="u8", condition="eq", value=0X06, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X07C6, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Jaffar health" },
+        { address=0X07C6, type="u8", condition="eq", value=0X0A, action="HEALTH_STATE", no_log=true, desc="Full" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", desc="Time left - minutes place" },
+        { address=0X00BD, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Time left - seconds place" },
+      },
+    },
+  },
+}

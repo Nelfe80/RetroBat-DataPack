@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shrek 2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "shrek-2",
+    hashes = {
+      { hash = "9ef8e30824db751f3d42e048514a3624", label = "Shrek 2 (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7D04, type="u8", condition="eq", value=0X19, action="PAUSE_ON", desc="Pause Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0E80, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="In level" },
+        { address=0X7D04, type="u8", condition="eq", value=0X8C, action="NEW_LEVEL", desc="Quit Level Menu" },
+        { address=0X191C3, type="u16le", condition="change", action="NEW_LEVEL", desc="Level 5-1 (Mongo) Seconds" },
+        { address=0X191C3, type="u16le", condition="eq", value=0X32, action="NEW_LEVEL", desc="20" },
+        { address=0X191C3, type="u16le", condition="eq", value=0X33, action="NEW_LEVEL", desc="30" },
+        { address=0X191C4, type="u8", condition="change", action="NEW_LEVEL", desc="Level 5-1 (Mongo) Seconds" },
+        { address=0X191C4, type="u8", condition="eq", value=0X38, action="NEW_LEVEL", desc="8" },
+        { address=0X191C4, type="u8", condition="eq", value=0X39, action="NEW_LEVEL", desc="9" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1886C, type="u16le", condition="eq", value=0X2517, action="BOSS_HIT", desc="last hit to boss" },
+      },
+    },
+  },
+}

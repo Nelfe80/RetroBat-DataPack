@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shell's Kitchen: Leo/Nico's Journey",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shells-kitchen-leonicos-journey",
+    hashes = {
+      { hash = "1d4b529e0d11e152cd9c7bcbcb12e263", label = "SMW - Shell's Kitchen - Nico's Journey (Saphros).sfc" },
+      { hash = "1a3859feb0ca38664b6fa20b56afd898", label = "SMW - Shell's Kitchen - Leo's Journey (Saphros).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X010B, type="u8", condition="eq", value=0X113, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X13BF, type="u8", condition="eq", value=0X57, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X010B, type="u8", condition="eq", value=0X10B, action="JUMPING", no_log=true, no_survey=true, desc="Walljump Beach" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2F, action="JUMPING", no_log=true, no_survey=true, desc="Walljump Beach" },
+        { address=0X13BF, type="u8", condition="eq", value=0X49, action="JUMPING", no_log=true, no_survey=true, desc="Walljump Beach" },
+      },
+    },
+  },
+}

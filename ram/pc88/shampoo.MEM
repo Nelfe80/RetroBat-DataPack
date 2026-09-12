@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shampoo",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "shampoo",
+    hashes = {
+      { hash = "44f3480628d3203f7acbf0025bc4b336", label = "Shampoo [Set 1].d88" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X8618, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Number" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X868E, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Remaining Time" },
+      },
+    },
+  },
+}

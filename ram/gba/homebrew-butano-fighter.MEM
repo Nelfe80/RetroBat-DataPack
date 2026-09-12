@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Butano Fighter",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-butano-fighter",
+    hashes = {
+      { hash = "5174f0efdb27136a8d2df79e8b932219", label = "Butano Fighter (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8105, type="u8", condition="change", action="PAUSE_OFF", desc="Pause Flag (0x01 - on, 0x00 - off)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X77D0, type="u8", condition="change", action="NEW_LEVEL", desc="Current Player Level" },
+      },
+      stage = {
+        { address=0X41818, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage (0x00-0x03)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X40144, type="u8", condition="change", action="LOSE_LIFE", desc="Death Flag (0x03 when alive, 0x00 otherwise)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X77DC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score EXP" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X3F5DC, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 4 Boss HP (Max: 0x0a28 or 2600)" },
+        { address=0X3F9A4, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 3 Boss HP (Max: 0x05dc or 1500)" },
+        { address=0X3FA58, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 1 Boss HP (Max: 0x029e or 670)" },
+        { address=0X3FA9C, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 2 Boss HP (Max: 0x0474 or 1170)" },
+      },
+    },
+  },
+}

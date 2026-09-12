@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "RoboCop",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "robocop",
+    hashes = {
+      { hash = "a477ac86be35d1fa70b708ad08dc88b8", label = "RoboCop (USA, Europe) (Rev 1).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0BE, type="u8", condition="eq", value=0XE9, action="GAME_OVER", desc="Paused / Game Over / Intro" },
+        { address=0XC0BE, type="u8", condition="eq", value=0XEB, action="CONTINUE_SCREEN", desc="Intro / Continue" },
+      },
+    },
+  },
+}

@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bugs Bunny Crazy Castle II",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "bugs-bunny-crazy-castle-ii",
+    hashes = {
+      { hash = "8963803e642dbfbe4f5f3bc5a567785d", label = "Bugs Bunny Crazy Castle 2, The (USA).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC147, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="No Music Playing (often used for pauses)" },
+        { address=0XC147, type="u8", condition="eq", value=0X12, action="TITLE_SCREEN", desc="Title Screen (also shares with Entering Exit Door)" },
+        { address=0XC147, type="u8", condition="eq", value=0X17, action="CONTINUE_SCREEN", desc="Game Over (out of continues or choosing not to continue)" },
+        { address=0XC182, type="u8", condition="eq", value=0X67, action="GAME_OVER", desc="Game Over" },
+        { address=0XC182, type="u8", condition="eq", value=0X68, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC3B3, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of Continues" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XC380, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC147, type="u8", condition="eq", value=0X14, action="LIVES_STATE", desc="Life Lost" },
+        { address=0XC182, type="u8", condition="eq", value=0X76, action="LOSE_LIFE", desc="Death" },
+        { address=0XC399, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0XC399, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XC3CC, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Found Hammer?" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XD000, type="u8", condition="eq", value=0XC0, action="OBJECT_DESTROYED", desc="Destroying Block w/Hammer OR Entering Door OR Entering Warp" },
+        { address=0XD013, type="u8", condition="change", action="DOOR_OPENED", desc="Door Animation" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Doc Louis's Punch-Out!!",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "doc-louiss-punch-out",
+    hashes = {
+      { hash = "904fffe4e4cc5daa96d76a7106d1bceb", label = "Doc Louis's Punch-Out!! (USA) (Club Nintendo) (WiiWare)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33CD7C, type="u32be", condition="eq", value=0X01, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X33CD7C, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused (Both for In-Game Pause and Wii Pause Overlay)" },
+      },
+    },
+  },
+}

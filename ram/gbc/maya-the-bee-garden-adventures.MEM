@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Maya the Bee: Garden Adventures",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "maya-the-bee-garden-adventures",
+    hashes = {
+      { hash = "45db77fb2f2923c33ff9d521d5eaecce", label = "Maya the Bee - Garden Adventures (Europe) (En,Fr,De,Es).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

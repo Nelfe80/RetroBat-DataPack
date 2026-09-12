@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Tasac",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-tasac",
+    hashes = {
+      { hash = "265817448658a8fcd44dc2496f7d6987", label = "Tasac (Asia) (En) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

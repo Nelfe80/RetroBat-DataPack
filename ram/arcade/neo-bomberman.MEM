@@ -1,0 +1,120 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Neo Bomberman",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "neo-bomberman",
+    hashes = {
+      { hash = "1380a4e5e4e91a812a86b9f925fa6581", label = "neobombe.7z <Neo Bomberman>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0082, type="u8", condition="eq", value=0X78B4, action="CONTINUE_SCREEN", desc="Continue?" },
+        { address=0X1B59, type="u8", condition="eq", value=0XDEAD, action="CONTINUE_SCREEN", desc="ff - continue screen" },
+        { address=0XD0ED, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of items on screen if you use a continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0082, type="u8", condition="eq", value=0XFA6E, action="LEVEL_CLEAR", desc="level finished" },
+        { address=0X0082, type="u8", condition="eq", value=0XFCAC, action="LEVEL_CLEAR", desc="Stage Clear!" },
+        { address=0X00F9, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="finished" },
+        { address=0X00F9, type="u8", condition="eq", value=0XA0, action="LEVEL_CLEAR", desc="unfinished" },
+        { address=0XD0EA, type="u8", condition="change", action="LEVEL_CLEAR", desc="0x01 Stage Clear" },
+      },
+      stage = {
+        { address=0X00E0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="SUB-STAGE ID ALT1 (also Battle Mode)" },
+        { address=0X00E1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE ID ALT1 (also Battle Mode)" },
+        { address=0X00E1, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1 - Amusement Park" },
+        { address=0X00E1, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 2 - Sewer" },
+        { address=0X00E1, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage 3 - Mechanical City" },
+        { address=0X00E1, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage 4 - Factory" },
+        { address=0X00E1, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 5 - Bizarre Space Chess" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0FD9, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives ALT1 increased" },
+        { address=0X0FD9, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives ALT1 decreased" },
+        { address=0X1059, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives alt8 increased" },
+        { address=0X1059, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives alt8 decreased" },
+        { address=0X12D9, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives alt7 increased" },
+        { address=0X12D9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives alt7 decreased" },
+        { address=0X1659, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives ALT4 increased" },
+        { address=0X1659, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives ALT4 decreased" },
+        { address=0X1659, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="dead" },
+        { address=0X16D9, type="u8", condition="increase", action="GAIN_LIFE", desc="P2 Lives ALT1 increased" },
+        { address=0X16D9, type="u8", condition="decrease", action="LOSE_LIFE", desc="P2 Lives ALT1 decreased" },
+        { address=0X17D9, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives ALT2 increased" },
+        { address=0X17D9, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives ALT2 decreased" },
+        { address=0X1B59, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives ALT5 increased" },
+        { address=0X1B59, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives ALT5 decreased" },
+        { address=0X1F59, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives ALT6 increased" },
+        { address=0X1F59, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives ALT6 decreased" },
+        { address=0X2159, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives ALT3 increased" },
+        { address=0X2159, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives ALT3 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X15C6, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up flag ALT1" },
+        { address=0X1646, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="kick boots" },
+        { address=0X1646, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="power glove" },
+        { address=0X1B46, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up flag ALT3" },
+        { address=0X1F46, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up flag ALT6" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X165A, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X01DB, type="u8", condition="eq", value=0X0F, action="BOSS_HIT", desc="full" },
+        { address=0X0FDB, type="u8", condition="change", action="BOSS_HIT", desc="Boss health ALT1" },
+        { address=0X225B, type="u8", condition="change", action="BOSS_HIT", desc="Boss health ALT2" },
+        { address=0X2BDB, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health ALT3" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X165E, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility" },
+        { address=0X1855, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility countdown ALT5" },
+        { address=0X1B55, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility countdown ALT3" },
+        { address=0X1F55, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility countdown ALT6" },
+        { address=0X2155, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility countdown ALT4" },
+      },
+      player = {
+        { address=0X15C7, type="u8", condition="eq", value=0XC1, action="JUMPING", no_log=true, no_survey=true, desc="jumping for a ride" },
+        { address=0X1647, type="u8", condition="eq", value=0X81, action="JUMPING", no_log=true, no_survey=true, desc="riding" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X03FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Time secs ALT3" },
+        { address=0X077E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="timer sec ALT4" },
+        { address=0X17FE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="TIME - Seconds ALT1 CHANGE ON EVERY STAGE" },
+        { address=0X17FF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="TIME - minutes ALT1" },
+        { address=0X22FE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time seconds AES" },
+        { address=0X22FF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time minutes AES" },
+        { address=0X24FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Time secs ALT5" },
+        { address=0X2CFE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Time secs ALT6" },
+        { address=0X367E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time seconds (alt3)" },
+        { address=0X367F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time minutes (alt3)" },
+        { address=0X37FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Time secs ALT4" },
+        { address=0X39FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Time secs ALT2" },
+        { address=0X3CFE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time seconds (alt3)" },
+        { address=0X3CFF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time minutes (alt3)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Inazuma Eleven Exploder",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-inazuma-eleven-exploder",
+    hashes = {
+      { hash = "4c48e9b5fc452a0ee1adef2a7ae2bb49", label = "IE1 - Inazuma Eleven Exploder (v1.0) (AndrésCup957).nds" },
+    }
+  },
+
+  events = {
+  },
+}

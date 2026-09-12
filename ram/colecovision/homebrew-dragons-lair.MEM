@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dragon's Lair",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-dragons-lair",
+    hashes = {
+      { hash = "3568ed427a9e33de164b44402103ae64", label = "Dragon's Lair (World) (SGM) (Aftermarket) (Team Pixelboy).col" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7808, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X781B, type="u8", condition="eq", value=0XF0, action="TITLE_SCREEN", desc="Title Screen/Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X781B, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID [8bit] (In Game Order)" },
+        { address=0X781B, type="u8", condition="eq", value=0XF1, action="NEW_LEVEL", desc="Floating Platform" },
+        { address=0X781B, type="u8", condition="eq", value=0XF2, action="NEW_LEVEL", desc="Hallway" },
+        { address=0X781B, type="u8", condition="eq", value=0XF3, action="NEW_LEVEL", desc="Ropes" },
+        { address=0X781B, type="u8", condition="eq", value=0XF4, action="NEW_LEVEL", desc="Fire Room (4th Screen)" },
+        { address=0X781B, type="u8", condition="eq", value=0XF5, action="NEW_LEVEL", desc="Collapsing Platforms (5th Screen)" },
+        { address=0X781B, type="u8", condition="eq", value=0XF6, action="NEW_LEVEL", desc="Snake Room (6th Screen)" },
+        { address=0X781B, type="u8", condition="eq", value=0XF7, action="NEW_LEVEL", desc="Black Knight" },
+        { address=0X781B, type="u8", condition="eq", value=0XF8, action="NEW_LEVEL", desc="Dragon's Lair" },
+        { address=0X781B, type="u8", condition="eq", value=0XFA, action="NEW_LEVEL", desc="Hall of Fame" },
+        { address=0X7880, type="u8", condition="change", action="NEW_LEVEL", desc="Skill Level [Lower4]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X7808, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Remaining [8bit] increased" },
+        { address=0X7808, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Remaining [8bit] decreased" },
+        { address=0X7808, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1 Life" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X7804, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [16-bit BCD] x100" },
+      },
+    },
+  },
+}

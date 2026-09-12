@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Iron Man",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-iron-man",
+    hashes = {
+      { hash = "b2fca7b63bfadb89d0db3265d16fb7d8", label = "Iron Man (Russia) (Aftermarket) (Unl).md" },
+      { hash = "42292287930bb213da54723b929b276b", label = "Iron Man (World) (v1.01) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

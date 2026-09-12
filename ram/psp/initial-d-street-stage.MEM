@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Initial D: Street Stage",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "initial-d-street-stage",
+    hashes = {
+      { hash = "2fde5d6366cd497d8445a7823cfd90bf", label = "Initial D - Street Stage (Japan).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD58C20, type="u8", condition="change", action="TITLE_SCREEN", desc="In Title Screen Flag" },
+        { address=0XDB8F38, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X120F054, type="u8", condition="change", action="RANK_STATE", desc="Position in the race" },
+      },
+    },
+  },
+}

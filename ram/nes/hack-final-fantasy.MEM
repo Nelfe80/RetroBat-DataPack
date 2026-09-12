@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy ++",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "hack-final-fantasy",
+    hashes = {
+      { hash = "40525c187f65f54505982e44f0758dc6", label = "Final Fantasy ++ (Grond) (1.5).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X6126, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 1 Level -1" },
+        { address=0X6166, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 2 Level -1" },
+        { address=0X61A6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 3 Level -1" },
+        { address=0X61E6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 4 Level -1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X6034, type="u8", condition="change", action="LOSE_LIFE", desc="Death Gaze / Crystal" },
+        { address=0X6BD9, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy Dead Slot 1" },
+      },
+      health = {
+        { address=0X610A, type="u16le", condition="increase", action="HEAL", desc="Character 1 Current Health increased" },
+        { address=0X610A, type="u16le", condition="decrease", action="HIT", desc="Character 1 Current Health decreased" },
+        { address=0X610C, type="u16le", condition="increase", action="HEAL", desc="Character 1 Total Health increased" },
+        { address=0X610C, type="u16le", condition="decrease", action="HIT", desc="Character 1 Total Health decreased" },
+        { address=0X614A, type="u16le", condition="increase", action="HEAL", desc="Character 2 Current Health increased" },
+        { address=0X614A, type="u16le", condition="decrease", action="HIT", desc="Character 2 Current Health decreased" },
+        { address=0X614C, type="u16le", condition="increase", action="HEAL", desc="Character 2 Total Health increased" },
+        { address=0X614C, type="u16le", condition="decrease", action="HIT", desc="Character 2 Total Health decreased" },
+        { address=0X618A, type="u16le", condition="increase", action="HEAL", desc="Character 3 Current Health increased" },
+        { address=0X618A, type="u16le", condition="decrease", action="HIT", desc="Character 3 Current Health decreased" },
+        { address=0X618C, type="u16le", condition="increase", action="HEAL", desc="Character 3 Total Health increased" },
+        { address=0X618C, type="u16le", condition="decrease", action="HIT", desc="Character 3 Total Health decreased" },
+        { address=0X61CA, type="u16le", condition="increase", action="HEAL", desc="Character 4 Current Health increased" },
+        { address=0X61CA, type="u16le", condition="decrease", action="HIT", desc="Character 4 Current Health decreased" },
+        { address=0X61CC, type="u16le", condition="increase", action="HEAL", desc="Character 4 Total Health increased" },
+        { address=0X61CC, type="u16le", condition="decrease", action="HIT", desc="Character 4 Total Health decreased" },
+        { address=0X6BD5, type="u8", condition="increase", action="HEAL", desc="Enemy 1 Current HP 1/2 increased" },
+        { address=0X6BD5, type="u8", condition="decrease", action="HIT", desc="Enemy 1 Current HP 1/2 decreased" },
+        { address=0X6BD6, type="u8", condition="increase", action="HEAL", desc="Enemy 1 Current HP 2/2 increased" },
+        { address=0X6BD6, type="u8", condition="decrease", action="HIT", desc="Enemy 1 Current HP 2/2 decreased" },
+        { address=0X6BE5, type="u8", condition="increase", action="HEAL", desc="Enemy 1 Total HP 1/2 increased" },
+        { address=0X6BE5, type="u8", condition="decrease", action="HIT", desc="Enemy 1 Total HP 1/2 decreased" },
+        { address=0X6BE6, type="u8", condition="increase", action="HEAL", desc="Enemy 1 Total HP 2/2 increased" },
+        { address=0X6BE6, type="u8", condition="decrease", action="HIT", desc="Enemy 1 Total HP 2/2 decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X6118, type="u8", condition="change", action="WEAPON_STATE", desc="Character 1 1st Weapon Slot" },
+        { address=0X6119, type="u8", condition="change", action="WEAPON_STATE", desc="Character 1 2nd Weapon Slot" },
+        { address=0X611A, type="u8", condition="change", action="WEAPON_STATE", desc="Character 1 3rd Weapon Slot" },
+        { address=0X611B, type="u8", condition="change", action="WEAPON_STATE", desc="Character 1 4th Weapon Slot" },
+        { address=0X6158, type="u8", condition="change", action="WEAPON_STATE", desc="Character 2 1st Weapon Slot" },
+        { address=0X6159, type="u8", condition="change", action="WEAPON_STATE", desc="Character 2 2nd Weapon Slot" },
+        { address=0X615A, type="u8", condition="change", action="WEAPON_STATE", desc="Character 2 3rd Weapon Slot" },
+        { address=0X615B, type="u8", condition="change", action="WEAPON_STATE", desc="Character 2 4th Weapon Slot" },
+        { address=0X6198, type="u8", condition="change", action="WEAPON_STATE", desc="Character 3 1st Weapon Slot" },
+        { address=0X6199, type="u8", condition="change", action="WEAPON_STATE", desc="Character 3 2nd Weapon Slot" },
+        { address=0X619A, type="u8", condition="change", action="WEAPON_STATE", desc="Character 3 3rd Weapon Slot" },
+        { address=0X619B, type="u8", condition="change", action="WEAPON_STATE", desc="Character 3 4th Weapon Slot" },
+        { address=0X61D8, type="u8", condition="change", action="WEAPON_STATE", desc="Character 4 1st Weapon Slot" },
+        { address=0X61D9, type="u8", condition="change", action="WEAPON_STATE", desc="Character 4 2nd Weapon Slot" },
+        { address=0X61DA, type="u8", condition="change", action="WEAPON_STATE", desc="Character 4 3rd Weapon Slot" },
+        { address=0X61DB, type="u8", condition="change", action="WEAPON_STATE", desc="Character 4 4th Weapon Slot" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Engacho!",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "engacho",
+    hashes = {
+      { hash = "7fdba4fa13ee00ae256203f7f0de7ea5", label = "Engacho! (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

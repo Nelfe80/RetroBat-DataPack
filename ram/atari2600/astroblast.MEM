@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Astroblast",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "astroblast",
+    hashes = {
+      { hash = "170e7589a48739cfb9cc782cbb0fe25a", label = "Astroblast (USA) (v1.1).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X004C, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Player Lives Remaining increased" },
+        { address=0X004C, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Player Lives Remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X004B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="[8bit] Score" },
+        { address=0X004B, type="u8", condition="eq", value=0X1, action="SCORE_STATE", desc="10points" },
+      },
+    },
+  },
+}

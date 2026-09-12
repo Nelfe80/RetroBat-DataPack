@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Minesweeper",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-minesweeper",
+    hashes = {
+      { hash = "99bdf43a103833cfad727aea337d4691", label = "Minesweeper (v2.11) (Ryp)" },
+    }
+  },
+
+  events = {
+  },
+}

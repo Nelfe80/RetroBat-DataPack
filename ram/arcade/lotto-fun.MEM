@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lotto Fun",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "lotto-fun",
+    hashes = {
+      { hash = "7eef33eb51dc35a4445ec6342130440d", label = "arcade\lottofun.zip" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDA09, type="u8", condition="change", action="CREDITS_SCREEN", desc="Number of Credits" },
+        { address=0XDA3D, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo (chute doesn't open automatically)" },
+        { address=0XDA3D, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Regular" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ S.o.L.o.",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-solo",
+    hashes = {
+      { hash = "6b6bf20d7a5557f44ebf2dc23347a5e1", label = "S.o.L.o. (2021) (v1.0) (En) (Roolandoo).rom" },
+      { hash = "d0743965e39ec01b79131e88590b44c1", label = "S.o.L.o. (2021) (v1.0) (Es) (Roolandoo).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2028, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="selected to go to Cold Zone" },
+        { address=0X2028, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Cold Zone recovered gyroscope" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X205B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8 bit] increased" },
+        { address=0X205B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8 bit] decreased" },
+        { address=0X205B, type="u8", condition="eq", value=0X0, action="LIVES_STATE", desc="out of game" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X202B, type="u8", condition="eq", value=0X05, action="JUMPING", no_log=true, no_survey=true, desc="Broken / Jumping" },
+      },
+    },
+  },
+}

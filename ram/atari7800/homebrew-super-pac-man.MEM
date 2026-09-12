@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Pac-Man",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-super-pac-man",
+    hashes = {
+      { hash = "7ab539bb0e99e1e5a1c89230bde64610", label = "Super Pac-Man (World) (v1.09) (NTSC) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00A4, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X2730, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Attract/Title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0040, type="u8", condition="change", action="NEW_LEVEL", desc="Starting Level [8bit]" },
+        { address=0X0040, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Apple" },
+        { address=0X0040, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Bananas" },
+        { address=0X0040, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Burger" },
+        { address=0X0040, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Egg" },
+        { address=0X0040, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Corn" },
+        { address=0X0040, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Cake" },
+        { address=0X0040, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Turnip" },
+        { address=0X0040, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Melon" },
+        { address=0X0040, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Mushroom" },
+        { address=0X0040, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Bell" },
+        { address=0X0040, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="Clover" },
+        { address=0X0040, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Present" },
+        { address=0X00A7, type="u8", condition="change", action="NEW_LEVEL", desc="Round [8bit]" },
+      },
+      stage = {
+        { address=0X00A8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Remaining Items in Stage [8bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00A4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8bit] increased" },
+        { address=0X00A4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8bit] decreased" },
+        { address=0X00A4, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1 Life" },
+        { address=0X00A4, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="2 Lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0046, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32bit BE]" },
+      },
+    },
+  },
+}

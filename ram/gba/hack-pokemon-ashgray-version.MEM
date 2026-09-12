@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon AshGray Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-ashgray-version",
+    hashes = {
+      { hash = "92262059190c05a5615be6b98612fb14", label = "Pokemon - FireRed Version - AshGray (v4.5.3) (metapod23).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C080, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon enemy level" },
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 1 level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 2 level?" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="pkm 3 level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="pkm 4 level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="pkm 5 level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="pkm 6 level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X7300, type="u16le", condition="eq", value=0X5640, action="LOSE_LIFE", desc="died" },
+      },
+      health = {
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="real enemy hp increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="real enemy hp decreased" },
+        { address=0X2C082, type="u8", condition="increase", action="HEAL", desc="enemy current hp increased" },
+        { address=0X2C082, type="u8", condition="decrease", action="HIT", desc="enemy current hp decreased" },
+        { address=0X2C084, type="u8", condition="increase", action="HEAL", desc="enemy max hp increased" },
+        { address=0X2C084, type="u8", condition="decrease", action="HIT", desc="enemy max hp decreased" },
+        { address=0X2C2DA, type="u8", condition="increase", action="HEAL", desc="1st pkm current health increased" },
+        { address=0X2C2DA, type="u8", condition="decrease", action="HIT", desc="1st pkm current health decreased" },
+        { address=0X2C2DC, type="u8", condition="increase", action="HEAL", desc="1st pkm max hp increased" },
+        { address=0X2C2DC, type="u8", condition="decrease", action="HIT", desc="1st pkm max hp decreased" },
+        { address=0X2C33E, type="u8", condition="increase", action="HEAL", desc="2nd pokemon curren hp increased" },
+        { address=0X2C33E, type="u8", condition="decrease", action="HIT", desc="2nd pokemon curren hp decreased" },
+        { address=0X2C340, type="u8", condition="increase", action="HEAL", desc="2nd pokemon max hp increased" },
+        { address=0X2C340, type="u8", condition="decrease", action="HIT", desc="2nd pokemon max hp decreased" },
+        { address=0X2C3A2, type="u8", condition="increase", action="HEAL", desc="pkm 3 current hp increased" },
+        { address=0X2C3A2, type="u8", condition="decrease", action="HIT", desc="pkm 3 current hp decreased" },
+        { address=0X2C3A4, type="u8", condition="increase", action="HEAL", desc="pkm max hp increased" },
+        { address=0X2C3A4, type="u8", condition="decrease", action="HIT", desc="pkm max hp decreased" },
+        { address=0X2C406, type="u8", condition="increase", action="HEAL", desc="pkm 4 current hp increased" },
+        { address=0X2C406, type="u8", condition="decrease", action="HIT", desc="pkm 4 current hp decreased" },
+        { address=0X2C408, type="u8", condition="increase", action="HEAL", desc="pkm 4 max hp increased" },
+        { address=0X2C408, type="u8", condition="decrease", action="HIT", desc="pkm 4 max hp decreased" },
+        { address=0X2C46A, type="u8", condition="increase", action="HEAL", desc="pokemon 5 current hp increased" },
+        { address=0X2C46A, type="u8", condition="decrease", action="HIT", desc="pokemon 5 current hp decreased" },
+        { address=0X2C46C, type="u8", condition="increase", action="HEAL", desc="pokemon 5 max hp increased" },
+        { address=0X2C46C, type="u8", condition="decrease", action="HIT", desc="pokemon 5 max hp decreased" },
+        { address=0X2C4CE, type="u8", condition="increase", action="HEAL", desc="pokemon 6 current hp increased" },
+        { address=0X2C4CE, type="u8", condition="decrease", action="HIT", desc="pokemon 6 current hp decreased" },
+        { address=0X2C4D0, type="u8", condition="increase", action="HEAL", desc="pkm 6 max hp increased" },
+        { address=0X2C4D0, type="u8", condition="decrease", action="HIT", desc="pkm 6 max hp decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2A88C, type="u8", condition="increase", action="COIN_GAIN", desc="money value increased" },
+        { address=0X4193C, type="u8", condition="increase", action="COIN_GAIN", desc="money spent? increased" },
+        { address=0X4193C, type="u8", condition="eq", value=0X0, action="COIN_LOSE", desc="money spent? empty" },
+        { address=0X4196C, type="u8", condition="increase", action="COIN_GAIN", desc="some value related to money? increased" },
+      },
+    },
+  },
+}

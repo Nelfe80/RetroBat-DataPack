@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King's Field",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "kings-field",
+    hashes = {
+      { hash = "54efd85dda05c355545492ef7b69d51a", label = "King's Field (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X12004, type="u32le", condition="eq", value=0X0FFFF001, action="DEMO_MODE", desc="OPEN.EXE (Game Demo/Menu)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA0788, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X6CA6C, type="u8", condition="increase", action="GAIN_LIFE", desc="Tree Life increased" },
+        { address=0X6CA6C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Tree Life decreased" },
+        { address=0X6D1BC, type="u16le", condition="eq", value=0X0, action="LOSE_LIFE", desc="Dead" },
+        { address=0X6DF84, type="u8", condition="increase", action="GAIN_LIFE", desc="Red Scorpion Life increased" },
+        { address=0X6DF84, type="u8", condition="decrease", action="LOSE_LIFE", desc="Red Scorpion Life decreased" },
+      },
+      health = {
+        { address=0X6D1BC, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="object 47 current hp" },
+        { address=0X6D1BC, type="u16le", condition="eq", value=0X5A, action="HIT", desc="Initial Value (no damage taken)" },
+        { address=0XA0790, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0XA0790, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0XA0792, type="u16le", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0XA0792, type="u16le", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XA07E4, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Weapon Slot" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X652CF, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Coin increased" },
+        { address=0X652D8, type="u8", condition="increase", action="COIN_GAIN", desc="Light Ring increased" },
+        { address=0X652DB, type="u8", condition="increase", action="COIN_GAIN", desc="Twin Dragon Ring increased" },
+        { address=0X652DC, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Cross increased" },
+        { address=0XA07AC, type="u8", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X6C634, type="u8", condition="change", action="BOSS_HIT", desc="Final Boss HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X652C2, type="u8", condition="change", action="SHIELD_GAIN", desc="Small Shield" },
+        { address=0X652C3, type="u8", condition="change", action="SHIELD_GAIN", desc="Knight Shield" },
+        { address=0X652C4, type="u8", condition="change", action="SHIELD_GAIN", desc="Tower Shield" },
+        { address=0XA0812, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield Slot" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9DDB6, type="u8", condition="change", action="DOOR_OPENED", desc="Bitflag - When door to fountain opens" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA07D8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Time Elapsed since loaded" },
+      },
+    },
+  },
+}

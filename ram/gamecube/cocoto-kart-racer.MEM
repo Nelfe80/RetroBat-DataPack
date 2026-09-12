@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cocoto Kart Racer",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "cocoto-kart-racer",
+    hashes = {
+      { hash = "2bc67cfff79e63e509e146a0cd3a0252", label = "Cocoto Kart Racer (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XE4890, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-Bit BE] Tournament Player 1 Total Points" },
+      },
+    },
+  },
+}

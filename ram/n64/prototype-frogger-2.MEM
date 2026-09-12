@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Frogger 2",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-frogger-2",
+    hashes = {
+      { hash = "27f61a55e27ea7f1ede4ca11966acc7c", label = "Frogger 2 (USA) (Proto 2).z64" },
+    }
+  },
+
+  events = {
+  },
+}

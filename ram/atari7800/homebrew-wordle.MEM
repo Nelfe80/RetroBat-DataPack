@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Wordle",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-wordle",
+    hashes = {
+      { hash = "71ce8910b0efd5d0014a9695cce3b7ad", label = "Wordle (World) (v1.07) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X017A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[BCD] Number of Times Word was Guessed 1st Try" },
+      },
+    },
+  },
+}

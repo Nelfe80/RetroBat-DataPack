@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "bigrun",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "big-run",
+    hashes = {
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XF000D, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

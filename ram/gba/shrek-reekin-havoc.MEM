@@ -1,0 +1,85 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shrek: Reekin' Havoc",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "shrek-reekin-havoc",
+    hashes = {
+      { hash = "05d2d50f8aac9d4d6e1889432e197167", label = "Shrek - Reekin' Havoc (USA) (En,Fr,De,Es,It,Nl).gba" },
+      { hash = "57709c330edf8fe50cc52ce5fbfeb2f6", label = "Shrek - Reekin' Havoc (Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9268, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9286, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1: 'Bad Pinocchio'" },
+        { address=0X9286, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2: 'Fairy Woods'" },
+        { address=0X9286, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3: 'Sweetsville'" },
+        { address=0X9286, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4: 'Beanstalk Town'" },
+        { address=0X9286, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5: 'Fake Peter Pan'" },
+        { address=0X9286, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6: 'The Ghost of Lord Farquaad'" },
+        { address=0XC0F8, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Results - Rank" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="A" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="B" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="C" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="D" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X04, action="NEW_LEVEL", desc="E" },
+        { address=0XC0F8, type="u16le", condition="eq", value=0X05, action="NEW_LEVEL", desc="F" },
+        { address=0XCDA8, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1: 'Bad Pinocchio'" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2: 'Fairy Woods'" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3: 'Sweetsville'" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4: 'Beanstalk Town'" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5: 'Fake Peter Pan'" },
+        { address=0XCDA8, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6: 'The Ghost of Lord Farquaad'" },
+      },
+      stage = {
+        { address=0XC0FC, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Fairy Tale Character 1" },
+        { address=0XC0FC, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Fairy Tale Character 2" },
+        { address=0XC0FC, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Fairy Tale Character 3" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC110, type="u32le", condition="increase", action="GAIN_LIFE", desc="Level Results - Life Bonus Score increased" },
+        { address=0XC110, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Level Results - Life Bonus Score decreased" },
+        { address=0XCD9E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XCD9E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0XCD9F, type="u8", condition="increase", action="HEAL", desc="Player Health Meter Size increased" },
+        { address=0XCD9F, type="u8", condition="decrease", action="HIT", desc="Player Health Meter Size decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9286, type="u8", condition="eq", value=0X06, action="SCORE_STATE", desc="Total Score" },
+        { address=0XC100, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level Results - Level Clear Bonus Score" },
+        { address=0XC104, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level Results - Total Score" },
+        { address=0XC108, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level Results - Fairy Tale Bonus Score" },
+        { address=0XCDA4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+      collectibles = {
+        { address=0XCD9D, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCDA0, type="u8", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0XCDA0, type="u8", condition="change", action="SPEED_TIMER", no_log=true, desc="Power Meter" },
+        { address=0XCDA0, type="u8", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+      },
+    },
+  },
+}

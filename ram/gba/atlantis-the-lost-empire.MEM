@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Atlantis: The Lost Empire",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "atlantis-the-lost-empire",
+    hashes = {
+      { hash = "45f0b97050a666ce7ab4e3960929f47b", label = "Atlantis - The Lost Empire (Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0078, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="language select screen" },
+        { address=0X0078, type="u8", condition="eq", value=0X7F, action="TITLE_SCREEN", desc="everything else" },
+        { address=0X015C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="paused/in menu" },
+        { address=0X015C, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="ingame" },
+        { address=0X7884, type="u16le", condition="eq", value=0X10, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X09BC, type="u32le", condition="eq", value=0X0400F001, action="NEW_LEVEL", desc="level 9: 4:00 mins" },
+        { address=0X09BC, type="u32le", condition="eq", value=0X0500F001, action="NEW_LEVEL", desc="levels 2 and 3: 5:00 mins" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X16, action="NEW_LEVEL", desc="level 2 22" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X18, action="NEW_LEVEL", desc="level 3 24" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X3B, action="NEW_LEVEL", desc="level 5 59" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X41, action="NEW_LEVEL", desc="level 1 65" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X56, action="NEW_LEVEL", desc="level 4 86" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X5A, action="NEW_LEVEL", desc="level 6 90" },
+        { address=0X1A10, type="u24le", condition="eq", value=0X78, action="NEW_LEVEL", desc="level 8 120" },
+        { address=0X1A10, type="u24le", condition="eq", value=0XBD, action="NEW_LEVEL", desc="level 7 189" },
+        { address=0X1A14, type="u8", condition="change", action="NEW_LEVEL", desc="bonus collected in level" },
+        { address=0X1A19, type="u8", condition="change", action="NEW_LEVEL", desc="Level check" },
+        { address=0X1A1A, type="u8", condition="change", action="NEW_LEVEL", desc="Level check 2" },
+        { address=0X39D0, type="u8", condition="change", action="NEW_LEVEL", desc="Health level 1, 5, 6, 9 and 10" },
+        { address=0X3A28, type="u8", condition="change", action="NEW_LEVEL", desc="Health level 4" },
+        { address=0X3A34, type="u8", condition="change", action="NEW_LEVEL", desc="Health level 2" },
+        { address=0X3A80, type="u8", condition="change", action="NEW_LEVEL", desc="Health level 3, 7 and 8" },
+        { address=0X7884, type="u16le", condition="change", action="NEW_LEVEL", desc="16:level mission screen" },
+        { address=0X7884, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="ingame" },
+        { address=0X7884, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="try again screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1A18, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1A18, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X09BC, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="(32bit) timer" },
+        { address=0X1A10, type="u24le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Crystal counter" },
+      },
+    },
+  },
+}

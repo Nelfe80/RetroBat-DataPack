@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ SegaSonic Bros.",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "prototype-segasonic-bros",
+    hashes = {
+      { hash = "3bc15da3bc855e0601cf99166f36f918", label = "ssonicbr.zip" },
+    }
+  },
+
+  events = {
+  },
+}

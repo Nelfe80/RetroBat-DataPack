@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pokémon Sodateyasan mini",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "pokemon-sodateyasan-mini",
+    hashes = {
+      { hash = "0eb5e7e191ce056f3ee2c6572bc61906", label = "Pokemon Sodateyasan Mini (Japan).min" },
+      { hash = "0f78ee2c193fc8d0c129f051f262dcdf", label = "Pokemon Sodateyasan Mini (Japan) (En) (Mr. Blinky) (1.0).min" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0ADA, type="u8", condition="increase", action="HEAL", desc="Egg hatch/Hp meter increased" },
+        { address=0X0ADA, type="u8", condition="decrease", action="HIT", desc="Egg hatch/Hp meter decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X05AE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time [Minutes, Hex]" },
+        { address=0X05AF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time [Seconds, Hex]" },
+      },
+    },
+  },
+}

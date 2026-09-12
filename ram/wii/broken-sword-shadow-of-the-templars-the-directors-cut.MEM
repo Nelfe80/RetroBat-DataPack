@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Broken Sword: Shadow of the Templars - The Director's Cut",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "broken-sword-shadow-of-the-templars-the-directors-cut",
+    hashes = {
+      { hash = "100ca830d93af5dd6b2c7869e8197b5f", label = "Broken Sword - Shadow of the Templars - The Director's Cut (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+  },
+}

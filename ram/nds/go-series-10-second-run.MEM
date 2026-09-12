@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "GO Series: 10 Second Run",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "go-series-10-second-run",
+    hashes = {
+      { hash = "37d3d4190bfc1db0b6e5f3b742b1f432", label = "GO Series - 10 Second Run (Europe)" },
+      { hash = "58f1510467ca214fa88e4dcf58dc2218", label = "GO Series - 10 Second Run (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA5064, type="u16le", condition="eq", value=0X1, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA5034, type="u16le", condition="eq", value=0X8, action="LEVEL_CLEAR", desc="Entering Goal Portal" },
+        { address=0XA5034, type="u16le", condition="eq", value=0X9, action="LEVEL_CLEAR", desc="Descending Goal Portal" },
+        { address=0XA5064, type="u16le", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="Goal" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA5034, type="u16le", condition="eq", value=0XB, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XA5034, type="u16le", condition="eq", value=0X3, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X83BA4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Mode" },
+        { address=0XA5064, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Course State" },
+        { address=0XA54C8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="10-Second Timer Mode - State" },
+      },
+    },
+  },
+}

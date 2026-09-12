@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Pocket Monster",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-pocket-monster",
+    hashes = {
+      { hash = "e2be9447b4665f2f9a0683c56615ee5d", label = "Pikachu (Pocket Monsters) (Taiwan) (En) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE022, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[8 Bits] b8 in the continue? screen" },
+        { address=0XEB0F, type="u8", condition="change", action="DEMO_MODE", desc="This is for demo mode. Only goes ff if you are in demo mode and changed to 00 when not in demo m" },
+        { address=0XFFF6, type="u8", condition="eq", value=0X1, action="CONTINUE_SCREEN", desc="3" },
+        { address=0XFFF6, type="u8", condition="eq", value=0X2, action="CONTINUE_SCREEN", desc="4" },
+        { address=0XFFF6, type="u8", condition="eq", value=0X3, action="CONTINUE_SCREEN", desc="5" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XEB04, type="u8", condition="change", action="NEW_LEVEL", desc="This tells what level you are playing." },
+        { address=0XEB04, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="level 1" },
+        { address=0XEB04, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="level 2" },
+        { address=0XEB04, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="level 3" },
+        { address=0XEB04, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="level 4" },
+        { address=0XEB04, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="level 5" },
+        { address=0XEB04, type="u8", condition="eq", value=0X8, action="NEW_LEVEL", desc="End" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XE452, type="u8", condition="increase", action="GAIN_LIFE", desc="This tells you how much life you have in the game increased" },
+        { address=0XE452, type="u8", condition="decrease", action="LOSE_LIFE", desc="This tells you how much life you have in the game decreased" },
+        { address=0XE492, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bits Offset] Boss life increased" },
+        { address=0XE492, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bits Offset] Boss life decreased" },
+        { address=0XEA0D, type="u8", condition="increase", action="GAIN_LIFE", desc="This value tell you how many lives you have in the game. increased" },
+        { address=0XEA0D, type="u8", condition="decrease", action="LOSE_LIFE", desc="This value tell you how many lives you have in the game. decreased" },
+        { address=0XFFF4, type="u8", condition="increase", action="GAIN_LIFE", desc="This is for the number of starting lives set in the options menu. increased" },
+        { address=0XFFF4, type="u8", condition="decrease", action="LOSE_LIFE", desc="This is for the number of starting lives set in the options menu. decreased" },
+        { address=0XFFF4, type="u8", condition="eq", value=0X1, action="LIVES_STATE", desc="3" },
+        { address=0XFFF4, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="4" },
+        { address=0XFFF4, type="u8", condition="eq", value=0X3, action="LIVES_STATE", desc="5" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XE472, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bits] Always Final Boss Health" },
+        { address=0XE4B2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE4D2, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+        { address=0XE4F2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE512, type="u8", condition="change", action="BOSS_HIT", desc="boss health" },
+        { address=0XE532, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE552, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE572, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+        { address=0XE592, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+        { address=0XE5B2, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+        { address=0XE5D2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE5F2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE612, type="u8", condition="change", action="BOSS_HIT", desc="Boss HEalth" },
+        { address=0XE632, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE652, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE672, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE692, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE6B2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XE6D2, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XEB04, type="u8", condition="eq", value=0X3, action="BOSS_HIT", desc="level 2 boss fight" },
+        { address=0XEB04, type="u8", condition="eq", value=0X7, action="BOSS_HIT", desc="Final boss" },
+      },
+    },
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sir Ababol",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-sir-ababol",
+    hashes = {
+      { hash = "2406e40c0a0518978ff28d0dd16537e1", label = "Sir Ababol (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X006A, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X006A, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X006A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X006A, type="u8", condition="eq", value=0X09, action="LIVES_STATE", desc="9 Lives" },
+      },
+    },
+  },
+}

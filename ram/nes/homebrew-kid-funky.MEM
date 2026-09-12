@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Kid Funky",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-kid-funky",
+    hashes = {
+      { hash = "751579010c5f87baaaf240c41cae5ff7", label = "Kid Funky (World) (v1.1) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0516, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0516, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

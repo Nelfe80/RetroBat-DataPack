@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Quest IV",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-playing (RPG)"
+  },
+
+  rom = {
+    name = "dragon-quest-iv",
+    hashes = {
+      { hash = "192f2997b7f5123ebc81b7b8c469c1ea", label = "Dragon Quest IV - Michibikareshi Monotachi (Japan) (Rev 1).nes" },
+      { hash = "80d5683ac95537401f2f003a76379b8e", label = "Dragon Quest IV - Michibikareshi Monotachi (Japan).nes" },
+      { hash = "d8a1d610c93b96ad98e55e09dfcc7533", label = "Dragon Warrior IV (USA).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6276, type="u8", condition="change", action="NEW_LEVEL", desc="items hidden in furniture: Lakanaba, Kieves, Gottside, Konenber, Island Shack, Edgar's Lab, Secr" },
+        { address=0X6E81, type="u8", condition="change", action="NEW_LEVEL", desc="Arena Round" },
+      },
+      zone = {
+        { address=0X0042, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Player World X" },
+        { address=0X0043, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Player World Y" },
+        { address=0X6267, type="u8", condition="change", action="PROGRESSION_ZONE", desc="b0-b3: chests in Cave to the Dark World" },
+        { address=0X6268, type="u8", condition="change", action="PROGRESSION_ZONE", desc="b0-b7: chests in Cave to the Dark World" },
+        { address=0X6269, type="u8", condition="eq", value=0XB7, action="PROGRESSION_ZONE", desc="chests in Cave to the Dark World" },
+      },
+      stage = {
+        { address=0X60BA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="character 1's level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X60B6, type="u8", condition="increase", action="HEAL", desc="character 1 hp? increased" },
+        { address=0X60B6, type="u8", condition="decrease", action="HIT", desc="character 1 hp? decreased" },
+        { address=0X60C1, type="u8", condition="increase", action="HEAL", desc="max hp increased" },
+        { address=0X60C1, type="u8", condition="decrease", action="HIT", desc="max hp decreased" },
+        { address=0X727E, type="u8", condition="increase", action="HEAL", desc="[2byte] Monster 1 HP increased" },
+        { address=0X727E, type="u8", condition="decrease", action="HIT", desc="[2byte] Monster 1 HP decreased" },
+        { address=0X728C, type="u8", condition="increase", action="HEAL", desc="[2byte] Monster 2 HP increased" },
+        { address=0X728C, type="u8", condition="decrease", action="HIT", desc="[2byte] Monster 2 HP decreased" },
+        { address=0X729A, type="u8", condition="increase", action="HEAL", desc="[2byte] Monster 3 HP increased" },
+        { address=0X729A, type="u8", condition="decrease", action="HIT", desc="[2byte] Monster 3 HP decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X60C5, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="exp points" },
+      },
+      collectibles = {
+        { address=0X6157, type="u24le", condition="increase", action="COIN_GAIN", desc="[24-bit] total Gold increased" },
+        { address=0X62AD, type="u8", condition="increase", action="COIN_GAIN", desc="[3 bytes] Casino Coins increased" },
+        { address=0X7201, type="u8", condition="increase", action="COIN_GAIN", desc="[Battle] [2 bytes] Gold earned from defeated monsters increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X6283, type="u8", condition="change", action="BOSS_DEFEATED", desc="bit7:defeated 1st boss" },
+      },
+    },
+  },
+}

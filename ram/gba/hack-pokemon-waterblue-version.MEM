@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon WaterBlue Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-waterblue-version",
+    hashes = {
+      { hash = "51709fdb15ddc75b0023f28502b2db93", label = "Pokemon - Fire Red Version (Hack) - Pokemon WaterBlue Version.gba" },
+      { hash = "df52f58b944ef96a9a5ed350972c1ca6", label = "Pokemon - Fire Red Version (Hack) - Pokemon WaterBlue Version (v1.5).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="Enemy Pokemon HP increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="Enemy Pokemon HP decreased" },
+      },
+    },
+  },
+}

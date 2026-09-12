@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ 40 Winks",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-40-winks",
+    hashes = {
+      { hash = "b88c172ed14f4acb43c4a352d71cc640", label = "40 Winks (USA) (Aftermarket) (Unl).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9AE5C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level Master" },
+        { address=0X9E04C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Winks On Level" },
+        { address=0X9E050, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Winks Collected on Level" },
+        { address=0X11CFDC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level Sectors" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1C7C64, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Lives Total increased" },
+        { address=0X1C7C64, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Lives Total decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1CB700, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Final Boss Health" },
+        { address=0X1CB710, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Nightmare Boss Health" },
+        { address=0X1CB7D0, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Space Boss Health" },
+        { address=0X1CBA80, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Final Boss Health" },
+        { address=0X1CBA90, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Nightmare Boss Health" },
+        { address=0X1CBB50, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Space Boss Health" },
+        { address=0X1CC320, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Prehistoric Boss Health" },
+        { address=0X1CC6A0, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Prehistoric Boss Health" },
+        { address=0X1CCED0, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Castle Boss Health" },
+        { address=0X1CD250, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Castle Boss Health" },
+        { address=0X1CD4F0, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Pirate Boss Health" },
+        { address=0X1CD870, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Pirate Boss Health" },
+        { address=0X1CDDD0, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Tumble Underwater Boss Health" },
+        { address=0X1CE150, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Ruff Underwater Boss Health" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1CBD07, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] Front Door Lock" },
+      },
+    },
+  },
+}

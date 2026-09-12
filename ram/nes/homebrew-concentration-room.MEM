@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Concentration Room",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Board Game, Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-concentration-room",
+    hashes = {
+      { hash = "d5d6fd078b6a1e6d66dbfd7af30fd2f6", label = "Concentration Room (World) (v0.02) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

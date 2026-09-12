@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Goldrush",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-goldrush",
+    hashes = {
+      { hash = "8dc17812d7f6bca0062c5e5217abc304", label = "Gold Rush (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

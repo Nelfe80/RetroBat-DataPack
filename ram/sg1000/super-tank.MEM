@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Tank",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "super-tank",
+    hashes = {
+      { hash = "59d01bf1093a65e9ec08e533cfbbc5ff", label = "Super Tank (Japan).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0000, type="u8", condition="eq", value=0X02, action="GAME_PLAYING", desc="Level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X021F, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X021F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X021F, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X021F, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X021F, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4" },
+        { address=0X021F, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5" },
+        { address=0X021F, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6" },
+        { address=0X021F, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Level 7" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0000, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Boss?" },
+      },
+    },
+  },
+}

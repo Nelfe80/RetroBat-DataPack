@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Fast Food 64",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-fast-food-64",
+    hashes = {
+      { hash = "88b332a84c80be1981bbc784c09aba2c", label = "Fast Food 64 (USA) (Unl)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1F43AA, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 - Pause pressed" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1F44A4, type="u32be", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="Score (P2) [32-bit BE]" },
+        { address=0X1F44EC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32-bit BE]" },
+      },
+    },
+  },
+}

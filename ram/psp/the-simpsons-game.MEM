@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Simpsons Game",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-simpsons-game",
+    hashes = {
+      { hash = "0a909602291308d929748bf7fd09d900", label = "Simpsons Game, The (Europe).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC03A45, type="u8", condition="bit_true", mask=0X80, action="GAME_OVER", desc="Game Over (36-37)" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0XC03A44, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="Around the World in 80 Bites (6-7)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC03B00, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Cliche 16: Chasm Death" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XC03AFF, type="u8", condition="bit_true", mask=0X80, action="DYNAMIC_INVENTORY", desc="Cliche 15: Temporary Power Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC03B00, type="u8", condition="bit_true", mask=0X20, action="AMMO_STATE", no_log=true, desc="Cliche 21: Ammo Box" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC03AFE, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Cliche 1: Double Jump!" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC03AFE, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Cliche 2: Switches and Levers" },
+        { address=0XC03AFE, type="u8", condition="bit_true", mask=0X08, action="DOOR_OPENED", desc="Cliche 3: The Doors" },
+      },
+    },
+  },
+}

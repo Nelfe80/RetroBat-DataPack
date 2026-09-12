@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Bubble Mania",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "super-bubble-mania",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X320AC8, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Stage Number" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X31C184, type="u32le", condition="change", action="WEAPON_STATE", desc="1P - Current Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X31C178, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="(1P) Left Player Score" },
+        { address=0X31C5CC, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="(2P) Right Player Score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X31C168, type="u32le", condition="change", action="SHIELD_GAIN", desc="Shield (0x01)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X320AD4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage Timer" },
+      },
+    },
+  },
+}

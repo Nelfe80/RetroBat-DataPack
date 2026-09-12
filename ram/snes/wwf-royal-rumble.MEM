@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWF Royal Rumble",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "wwf-royal-rumble",
+    hashes = {
+      { hash = "7efb87f54aa3ba558230a704a919e076", label = "WWF Royal Rumble (USA).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0844, type="u8", condition="change", action="NEW_LEVEL", desc="Tournament Round" },
+        { address=0X0846, type="u8", condition="change", action="NEW_LEVEL", desc="Last Round" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X01AA, type="u8", condition="increase", action="HEAL", desc="Player 1's health increased" },
+        { address=0X01AA, type="u8", condition="decrease", action="HIT", desc="Player 1's health decreased" },
+        { address=0X01AC, type="u8", condition="increase", action="HEAL", desc="Player 2's health increased" },
+        { address=0X01AC, type="u8", condition="decrease", action="HIT", desc="Player 2's health decreased" },
+        { address=0X0644, type="u8", condition="increase", action="HEAL", desc="Royal Rumble _2 Entrants Health increased" },
+        { address=0X0644, type="u8", condition="decrease", action="HIT", desc="Royal Rumble _2 Entrants Health decreased" },
+        { address=0X0646, type="u8", condition="increase", action="HEAL", desc="Royal Rumble Entrant's 3 Health increased" },
+        { address=0X0646, type="u8", condition="decrease", action="HIT", desc="Royal Rumble Entrant's 3 Health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0922, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Match timer?" },
+      },
+    },
+  },
+}

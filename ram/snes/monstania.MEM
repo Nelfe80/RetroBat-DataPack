@@ -1,0 +1,92 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Monstania",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "monstania",
+    hashes = {
+      { hash = "40ea05f3f1b7ce72ecc83ab213f08c8f", label = "Monstania (Japan) (En) (v1.03) (AGTP).sfc" },
+      { hash = "6dfdb138abeb84899c4143342e1901ea", label = "Monstania (Japan).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC7BD, type="u8", condition="change", action="NEW_LEVEL", desc="Level Hero" },
+        { address=0XC811, type="u8", condition="change", action="NEW_LEVEL", desc="Level Heroine" },
+        { address=0XC865, type="u8", condition="change", action="NEW_LEVEL", desc="Chitta Level" },
+        { address=0XC8B9, type="u8", condition="change", action="NEW_LEVEL", desc="Morin Level" },
+        { address=0XC90D, type="u8", condition="change", action="NEW_LEVEL", desc="Mike Level" },
+        { address=0XC961, type="u8", condition="change", action="NEW_LEVEL", desc="Marina Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCAA5, type="u16le", condition="eq", value=0X1E, action="LIVES_STATE", desc="Life Ring" },
+      },
+      health = {
+        { address=0XC365, type="u16le", condition="increase", action="HEAL", desc="Enemy A HP increased" },
+        { address=0XC365, type="u16le", condition="decrease", action="HIT", desc="Enemy A HP decreased" },
+        { address=0XC385, type="u16le", condition="increase", action="HEAL", desc="Enemy B HP increased" },
+        { address=0XC385, type="u16le", condition="decrease", action="HIT", desc="Enemy B HP decreased" },
+        { address=0XC3A5, type="u16le", condition="increase", action="HEAL", desc="Enemy C HP increased" },
+        { address=0XC3A5, type="u16le", condition="decrease", action="HIT", desc="Enemy C HP decreased" },
+        { address=0XC3C5, type="u16le", condition="increase", action="HEAL", desc="Enemy D HP increased" },
+        { address=0XC3C5, type="u16le", condition="decrease", action="HIT", desc="Enemy D HP decreased" },
+        { address=0XC3E5, type="u16le", condition="increase", action="HEAL", desc="Enemy E HP increased" },
+        { address=0XC3E5, type="u16le", condition="decrease", action="HIT", desc="Enemy E HP decreased" },
+        { address=0XC405, type="u16le", condition="increase", action="HEAL", desc="Enemy F HP increased" },
+        { address=0XC405, type="u16le", condition="decrease", action="HIT", desc="Enemy F HP decreased" },
+        { address=0XC425, type="u16le", condition="increase", action="HEAL", desc="Enemy G HP increased" },
+        { address=0XC425, type="u16le", condition="decrease", action="HIT", desc="Enemy G HP decreased" },
+        { address=0XC445, type="u16le", condition="increase", action="HEAL", desc="Enemy H HP increased" },
+        { address=0XC445, type="u16le", condition="decrease", action="HIT", desc="Enemy H HP decreased" },
+        { address=0XC465, type="u16le", condition="increase", action="HEAL", desc="Enemy I HP increased" },
+        { address=0XC465, type="u16le", condition="decrease", action="HIT", desc="Enemy I HP decreased" },
+        { address=0XC485, type="u16le", condition="increase", action="HEAL", desc="Enemy J HP increased" },
+        { address=0XC485, type="u16le", condition="decrease", action="HIT", desc="Enemy J HP decreased" },
+        { address=0XC7BF, type="u8", condition="increase", action="HEAL", desc="HP Hero increased" },
+        { address=0XC7BF, type="u8", condition="decrease", action="HIT", desc="HP Hero decreased" },
+        { address=0XC7C1, type="u8", condition="increase", action="HEAL", desc="MAX HP Hero increased" },
+        { address=0XC7C1, type="u8", condition="decrease", action="HIT", desc="MAX HP Hero decreased" },
+        { address=0XC813, type="u8", condition="increase", action="HEAL", desc="HP Heroine increased" },
+        { address=0XC813, type="u8", condition="decrease", action="HIT", desc="HP Heroine decreased" },
+        { address=0XC815, type="u8", condition="increase", action="HEAL", desc="MAX HP Heroine increased" },
+        { address=0XC815, type="u8", condition="decrease", action="HIT", desc="MAX HP Heroine decreased" },
+        { address=0XC867, type="u8", condition="increase", action="HEAL", desc="Chitta HP increased" },
+        { address=0XC867, type="u8", condition="decrease", action="HIT", desc="Chitta HP decreased" },
+        { address=0XC869, type="u8", condition="increase", action="HEAL", desc="Chitta Max HP increased" },
+        { address=0XC869, type="u8", condition="decrease", action="HIT", desc="Chitta Max HP decreased" },
+        { address=0XC8BB, type="u8", condition="increase", action="HEAL", desc="Morin HP increased" },
+        { address=0XC8BB, type="u8", condition="decrease", action="HIT", desc="Morin HP decreased" },
+        { address=0XC8BD, type="u8", condition="increase", action="HEAL", desc="Morin Max HP increased" },
+        { address=0XC8BD, type="u8", condition="decrease", action="HIT", desc="Morin Max HP decreased" },
+        { address=0XC90F, type="u8", condition="increase", action="HEAL", desc="Mike HP increased" },
+        { address=0XC90F, type="u8", condition="decrease", action="HIT", desc="Mike HP decreased" },
+        { address=0XC911, type="u8", condition="increase", action="HEAL", desc="Mike Max HP increased" },
+        { address=0XC911, type="u8", condition="decrease", action="HIT", desc="Mike Max HP decreased" },
+        { address=0XC963, type="u8", condition="increase", action="HEAL", desc="Marina HP increased" },
+        { address=0XC963, type="u8", condition="decrease", action="HIT", desc="Marina HP decreased" },
+        { address=0XC965, type="u8", condition="increase", action="HEAL", desc="Marina Max HP increased" },
+        { address=0XC965, type="u8", condition="decrease", action="HIT", desc="Marina Max HP decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCAA5, type="u16le", condition="eq", value=0X16, action="SHIELD_GAIN", desc="Wooden Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC7AB, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Play Time (seconds)" },
+        { address=0XC7AD, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Play Time (minutes)" },
+      },
+    },
+  },
+}

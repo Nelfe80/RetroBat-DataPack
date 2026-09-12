@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King's Knight Special",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "kings-knight-special",
+    hashes = {
+      { hash = "bd60f2e3dcc2d25225670fd54e330118", label = "King's Knight Special (Disk 1).d88" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XFE02, type="u8", condition="increase", action="HEAL", desc="Rayjack's (Knight) Hp increased" },
+        { address=0XFE02, type="u8", condition="decrease", action="HIT", desc="Rayjack's (Knight) Hp decreased" },
+        { address=0XFE15, type="u8", condition="increase", action="HEAL", desc="Kaliva's (Wizard) Hp increased" },
+        { address=0XFE15, type="u8", condition="decrease", action="HIT", desc="Kaliva's (Wizard) Hp decreased" },
+        { address=0XFE28, type="u8", condition="increase", action="HEAL", desc="Varusa's (Monster) Hp increased" },
+        { address=0XFE28, type="u8", condition="decrease", action="HIT", desc="Varusa's (Monster) Hp decreased" },
+        { address=0XFE3B, type="u8", condition="increase", action="HEAL", desc="Toby's (Thief) Hp increased" },
+        { address=0XFE3B, type="u8", condition="decrease", action="HIT", desc="Toby's (Thief) Hp decreased" },
+      },
+    },
+  },
+}

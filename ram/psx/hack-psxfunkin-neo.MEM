@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ PSXFunkin: Neo",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-psxfunkin-neo",
+    hashes = {
+      { hash = "00ba499bf3817696d0828a5c29ecbb72", label = "PSXFunkin' - Neo (v2.0) (UNSTOP4BLE, IgorSou30000)" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X1D6D5A, type="u16le", condition="change", action="COMBO_HIT", desc="Combo (16-bit)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1D6D58, type="u16le", condition="increase", action="HEAL", desc="Health Meter (16-bit) increased" },
+        { address=0X1D6D58, type="u16le", condition="decrease", action="HIT", desc="Health Meter (16-bit) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1D6D60, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (32-bit)" },
+      },
+    },
+  },
+}

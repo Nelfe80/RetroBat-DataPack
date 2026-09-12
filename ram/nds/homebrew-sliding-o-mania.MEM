@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SLIDING O MANIA",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sliding-o-mania",
+    hashes = {
+      { hash = "76b2becb1054faad5e88fe088a8c51bb", label = "Sliding O' Mania (World) (v2007) (Aftermarket) (Unl) (Kukulcan).nds" },
+    }
+  },
+
+  events = {
+  },
+}

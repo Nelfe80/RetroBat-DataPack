@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 5th Hacking Competition: Christmas 2018",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-5th-hacking-competition-christmas-2018",
+    hashes = {
+      { hash = "0dc44fe484378e5911fba55de0254a47", label = "Sweater Weather.z64" },
+      { hash = "1635b35c5c7aa4149c7b0eefa9ca740f", label = "Simply Christmas.z64" },
+      { hash = "1654876cc9aa70f968cb7fea8fe295d4", label = "Climbing Mount. Stardust.z64" },
+      { hash = "41cefe0060d2bf568e4512fbdf658efa", label = "Grinch Mario 64.z64" },
+      { hash = "60b4058243db0b3d1d1b56db176a4e9f", label = "Christmas Crusade.z64" },
+      { hash = "69fcafe05e342698a7f2e3be2077af12", label = "Present Hunt.z64" },
+      { hash = "845aba3bc2a1c1eeb45dca48785ca63d", label = "Christmas Factory.z64" },
+      { hash = "8576188d08785f0806ef5c3cbc7c6105", label = "A Simple Christmas Eve.z64" },
+      { hash = "8589fa684fcbc4e3793ae5657011f710", label = "Adventure in the Snow Globe.z64" },
+      { hash = "8ed7cf47b109a47673c68b6e40c1854a", label = "Spritent.z64" },
+      { hash = "a593f06b00052ebc8beed0d59f84b467", label = "A Snowy Evening.z64" },
+      { hash = "a6c106a69853697ff5dce644efd0c9aa", label = "DariusTheJanitor.z64" },
+      { hash = "a8e1c0426c40c42b5d55d98ebc7fb4d7", label = "Wuhu at Winter.z64" },
+      { hash = "afa33c0d2b9ef1c5b28df2f0290d412d", label = "Defeat the King of Christmas (v1.4).z64" },
+      { hash = "c68b27b4cf9c7b6b9944a2c37a1119f9", label = "SM64 - Holiday Highlands.z64" },
+      { hash = "e20d3193bed78cdd9514b41c8bbb501a", label = "Marios 8-Bit Christmas [MKWarrior64].z64" },
+      { hash = "e6b83b190097aa6abe2fc9e5751b8853", label = "SM64 - Christmas Hack.z64" },
+      { hash = "f62555a1444e280b48ea4480b8fbdecd", label = "Ks Christmas.z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X33B264, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B264, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X34D1CC, type="u8", condition="increase", action="HEAL", desc="Enemy Health (some of them) increased" },
+        { address=0X34D1CC, type="u8", condition="decrease", action="HIT", desc="Enemy Health (some of them) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X341AEC, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health (Highlands)" },
+        { address=0X34246C, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health (KoFaI)" },
+      },
+    },
+  },
+}

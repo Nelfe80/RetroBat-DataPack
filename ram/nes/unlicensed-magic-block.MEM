@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Magic Block",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-magic-block",
+    hashes = {
+      { hash = "636b6e6ac849d55eab111cf520a5b6e3", label = "Magic Block (Asia) (En) (Mega Soft) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X136A, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="All track parts cleared" },
+      },
+    },
+  },
+}

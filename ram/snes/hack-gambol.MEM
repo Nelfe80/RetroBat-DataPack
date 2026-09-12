@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Gambol",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-gambol",
+    hashes = {
+      { hash = "1942d5d49c39352bc491a1e7b286f1c6", label = "SMW - Gambol (v1.1) (JezJitzu).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13BF, type="u16le", condition="eq", value=0X4C, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13BF, type="u16le", condition="change", action="NEW_LEVEL", desc="16bit - level ID" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X25, action="NEW_LEVEL", desc="Dream Restaurant" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X27, action="NEW_LEVEL", desc="The Hugh Road" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X2A, action="NEW_LEVEL", desc="Morning Glory" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X2B, action="NEW_LEVEL", desc="Sewer or Later" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X2D, action="NEW_LEVEL", desc="The Salt Mines" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X30, action="NEW_LEVEL", desc="Treehouse Of Horror" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X36, action="NEW_LEVEL", desc="Emerald Palace" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X3A, action="NEW_LEVEL", desc="Ruby Palace" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X3C, action="NEW_LEVEL", desc="Pier Pressure" },
+        { address=0X13BF, type="u16le", condition="eq", value=0X44, action="NEW_LEVEL", desc="Air of the Dog" },
+      },
+      stage = {
+        { address=0X13BF, type="u16le", condition="eq", value=0X29, action="PROGRESSION_STAGE", desc="Subtractor Raptor" },
+      },
+    },
+  },
+}

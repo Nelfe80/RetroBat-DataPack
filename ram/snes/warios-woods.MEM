@@ -1,0 +1,97 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wario's Woods",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "warios-woods",
+    hashes = {
+      { hash = "f5c1bd28f88529473ab205b3f364def8", label = "Wario's Woods (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0108, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title/Demo" },
+        { address=0X0802, type="u8", condition="eq", value=0X2E, action="DEMO_MODE", desc="Start demo play" },
+        { address=0X0804, type="u8", condition="eq", value=0X04, action="GAME_OVER", desc="Round lost / Game Over" },
+        { address=0X0804, type="u8", condition="eq", value=0X09, action="GAME_OVER", desc="Loading ending" },
+        { address=0X0804, type="u8", condition="eq", value=0X0A, action="GAME_OVER", desc="Ending" },
+        { address=0X0804, type="u8", condition="eq", value=0X0B, action="GAME_OVER", desc="VS COM ending" },
+        { address=0X0804, type="u8", condition="eq", value=0X0F, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0099, type="u8", condition="change", action="NEW_LEVEL", desc="Round Game Level?" },
+        { address=0X0699, type="u8", condition="change", action="NEW_LEVEL", desc="Round Level" },
+        { address=0X0804, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Round Clear" },
+        { address=0X0AE1, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Round ongoing" },
+        { address=0X0AE1, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Round complete (in VS modes, set when either side wins)" },
+        { address=0X1330, type="u8", condition="change", action="NEW_LEVEL", desc="Round failed flag" },
+        { address=0X1330, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Failed" },
+        { address=0X136F, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 game level" },
+        { address=0X1371, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 game level" },
+        { address=0X1B85, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round Game" },
+        { address=0X1B87, type="u8", condition="change", action="NEW_LEVEL", desc="VS mode 1P number of rounds won" },
+        { address=0X1B88, type="u8", condition="change", action="NEW_LEVEL", desc="VS mode 2P number of rounds won" },
+        { address=0X1B89, type="u8", condition="change", action="NEW_LEVEL", desc="VS mode number of rounds played" },
+        { address=0X120C4, type="u16le", condition="change", action="NEW_LEVEL", desc="1P modes: UI top window round type indicator tile" },
+        { address=0X120C4, type="u16le", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Round Game" },
+        { address=0X120C4, type="u16le", condition="eq", value=0X4F, action="NEW_LEVEL", desc="Easy Time Race" },
+        { address=0X120C4, type="u16le", condition="eq", value=0X5E, action="NEW_LEVEL", desc="Normal Time Race" },
+        { address=0X120C4, type="u16le", condition="eq", value=0X5F, action="NEW_LEVEL", desc="Hard Time Race" },
+        { address=0X20063, type="u8", condition="change", action="NEW_LEVEL", desc="Round Game best round reached" },
+        { address=0X2006C, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Round Game" },
+        { address=0X20072, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="2 Rounds" },
+        { address=0X20072, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="3 Rounds" },
+        { address=0X20072, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="4 Rounds" },
+        { address=0X20072, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="5 Rounds" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B8C, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives in Round Game (USA) increased" },
+        { address=0X1B8C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives in Round Game (USA) decreased" },
+        { address=0X1C54, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives in Round Game increased" },
+        { address=0X1C54, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives in Round Game decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1B8B, type="u8", condition="increase", action="COIN_GAIN", desc="Coins in Round Game (USA) increased" },
+        { address=0X1C53, type="u8", condition="increase", action="COIN_GAIN", desc="Coins in Round Game increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0802, type="u8", condition="change", action="LEVEL_TIMER", player=2, timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="second", desc="Menu state" },
+        { address=0X0813, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Current time in seconds" },
+        { address=0X1B85, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Board configuration" },
+        { address=0X2003F, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Easy 2R record time, in seconds" },
+        { address=0X20041, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Easy 3R record time, in seconds" },
+        { address=0X20043, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Easy 4R record time, in seconds" },
+        { address=0X20045, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Easy 5R record time, in seconds" },
+        { address=0X20047, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Normal 2R record time, in seconds" },
+        { address=0X20049, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Normal 3R record time, in seconds" },
+        { address=0X2004B, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Normal 4R record time, in seconds" },
+        { address=0X2004D, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Normal 5R record time, in seconds" },
+        { address=0X2004F, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Hard 2R record time, in seconds" },
+        { address=0X20051, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Hard 3R record time, in seconds" },
+        { address=0X20053, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Hard 4R record time, in seconds" },
+        { address=0X20055, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Hard 5R record time, in seconds" },
+        { address=0X20057, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Easy total time in seconds" },
+        { address=0X20059, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Normal total time in seconds" },
+        { address=0X2005B, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Race: Hard total time in seconds" },
+        { address=0X2006C, type="u16le", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Game mode" },
+        { address=0X20070, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time Race difficulty" },
+        { address=0X20072, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Time Race course length" },
+      },
+    },
+  },
+}

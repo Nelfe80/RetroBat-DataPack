@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Victory Unity",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-victory-unity",
+    hashes = {
+      { hash = "98fbf4b2057ac5e0d51254ec97a32e44", label = "SM64 - Victory Unity (v1.1) (ShiN3 et al.).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20769B, type="u8", condition="change", action="NEW_LEVEL", desc="overworld stars" },
+        { address=0X32DDFA, type="u16be", condition="change", action="NEW_LEVEL", desc="[16bit] gCurrLevelNum (level id)" },
+        { address=0X33B249, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] sub-level id" },
+      },
+      stage = {
+        { address=0X2076B1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="cloud stage stars" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] nof lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] nof lives decreased" },
+      },
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] hp increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] hp decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin count increased" },
+        { address=0X33B260, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin display increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B220, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="[8bit] hp increment counter" },
+        { address=0X33B221, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8bit] hp decrement counter" },
+      },
+    },
+  },
+}

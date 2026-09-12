@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "MayQ",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "mayq",
+    hashes = {
+      { hash = "d035f2392ac7c1b686ef01988d16d1da", label = "MayQ (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X030B, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X024B, type="u16le", condition="increase", action="HEAL", desc="Monster 1 HP increased" },
+        { address=0X024B, type="u16le", condition="decrease", action="HIT", desc="Monster 1 HP decreased" },
+        { address=0X028F, type="u16le", condition="increase", action="HEAL", desc="Monster 5 HP increased" },
+        { address=0X028F, type="u16le", condition="decrease", action="HIT", desc="Monster 5 HP decreased" },
+        { address=0X030B, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player Health" },
+        { address=0X030B, type="u8", condition="eq", value=0X32, action="HEALTH_STATE", no_log=true, desc="Full" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X031D, type="u8", condition="change", action="SHIELD_GAIN", desc="Upgrades - Shield" },
+      },
+    },
+  },
+}

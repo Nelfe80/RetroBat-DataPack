@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ PSXFunkin: D Sides",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-psxfunkin-d-sides",
+    hashes = {
+      { hash = "1b74c4039bcf1da22510e56cd61c5e02", label = "PSXFunkin' - D Sides (IgorSou30000)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D9B74, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1D9B74, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1D9B75, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1D9B75, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1D9E5C, type="u16le", condition="increase", action="GAIN_LIFE", desc="Current Life increased" },
+        { address=0X1D9E5C, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Current Life decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1D9E64, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+      },
+    },
+  },
+}

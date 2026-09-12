@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Skweek",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "super-skweek",
+    hashes = {
+      { hash = "a19802bd3a7e390daf7e2cbe5a81ed38", label = "Super Skweek (USA, Europe).lnx" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X02A9, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X02A9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

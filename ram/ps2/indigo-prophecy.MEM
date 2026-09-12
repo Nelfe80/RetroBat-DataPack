@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Indigo Prophecy",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "indigo-prophecy",
+    hashes = {
+      { hash = "a88f791552404010043efc51c069c3c4", label = "Fahrenheit (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X64633C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Elapsed Time (32-bit)" },
+      },
+    },
+  },
+}

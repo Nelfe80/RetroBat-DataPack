@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Tom vs. Jerry: The Chase is On!",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-tom-vs-jerry-the-chase-is-on",
+    hashes = {
+      { hash = "55d4156933f56409a8790bf8289254b3", label = "Tom vs Jerry - The Chase Is On! (USA) (Proto) (1995-04-28).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

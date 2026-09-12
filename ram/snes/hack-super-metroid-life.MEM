@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Life",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-life",
+    hashes = {
+      { hash = "20c5dbe02a8a64fa4114c1425ab47e7a", label = "Super Metroid - Life (v1.0) (Nevyn 1.0).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0998, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Save Select" },
+        { address=0X0998, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Map of zebes" },
+        { address=0X0998, type="u8", condition="eq", value=0X08, action="TITLE_SCREEN", desc="Playing" },
+        { address=0X0998, type="u8", condition="eq", value=0X0B, action="TITLE_SCREEN", desc="entering in a door" },
+        { address=0X0998, type="u8", condition="eq", value=0X1A, action="TITLE_SCREEN", desc="Game over" },
+        { address=0X0998, type="u8", condition="eq", value=0X1E, action="TITLE_SCREEN", desc="First cutscene of game" },
+        { address=0X0998, type="u8", condition="eq", value=0X25, action="TITLE_SCREEN", desc="ending" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0F8C, type="u16le", condition="increase", action="HEAL", desc="Golden Torizo HP [16 bits] increased" },
+        { address=0X0F8C, type="u16le", condition="decrease", action="HIT", desc="Golden Torizo HP [16 bits] decreased" },
+      },
+    },
+  },
+}

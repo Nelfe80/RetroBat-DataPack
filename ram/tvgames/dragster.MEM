@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragster",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "dragster",
+    hashes = {
+      { hash = "3a15e7b4920fe8ebb3253b01a226ee32", label = "Dragster (Europe) (ESS-011-6).tvc" },
+    }
+  },
+
+  events = {
+  },
+}

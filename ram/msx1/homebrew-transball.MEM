@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Transball",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-transball",
+    hashes = {
+      { hash = "a58689d44636dfeb752ae49b549ab625", label = "Transball (2016) (En) (v1.3.2) (Braingames).rom" },
+      { hash = "f45889716effd3c2bc801693181189f8", label = "Transball (2016) (Es) (v1.3.2) (Braingames).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0076, type="u8", condition="change", action="NEW_LEVEL", desc="Level [8 bit]" },
+        { address=0X0076, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Level 01" },
+        { address=0X0076, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Level 02" },
+        { address=0X0076, type="u8", condition="eq", value=0X15, action="NEW_LEVEL", desc="Level 16" },
+        { address=0X0076, type="u8", condition="eq", value=0X16, action="NEW_LEVEL", desc="Congratulations!" },
+        { address=0X13D5, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="incomplete" },
+        { address=0X13D5, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="complete" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13D6, type="u8", condition="change", action="DOOR_OPENED", desc="Toggle Door Count [8 bit]" },
+        { address=0X13F5, type="u8", condition="change", action="DOOR_OPENED", desc="Ball Door Count [8 bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0077, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Minutes [8 bit]" },
+        { address=0X0078, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time - Seconds 10s [8 bit]" },
+        { address=0X0079, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time - Seconds 1s [8 bit]" },
+        { address=0X1C5A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Current Time Buffer" },
+        { address=0X1C5F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Best Times [80 bytes, 16 x 5 byte data]" },
+      },
+    },
+  },
+}

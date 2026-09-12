@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dustin",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "dustin",
+    hashes = {
+      { hash = "f67ca607925f5d2057fdc0588b94b0c0", label = "Dustin (1986)(Dinamic Software)(es)[tape].dsk" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X92F5, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X92F5, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X62B0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Minute" },
+        { address=0X62B1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Sub-Minute (150 : 1 minute)" },
+      },
+    },
+  },
+}

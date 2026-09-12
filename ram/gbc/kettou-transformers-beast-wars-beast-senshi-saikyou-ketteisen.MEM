@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kettou Transformers Beast Wars: Beast Senshi Saikyou Ketteisen",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "kettou-transformers-beast-wars-beast-senshi-saikyou-ketteisen",
+    hashes = {
+      { hash = "adfb8d9dc0d5633b1c385be79f3b425f", label = "Kettou Transformers Beast Wars - Beast Senshi Saikyou Ketteisen (Japan) (SGB Enhanced) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC2F1, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0XC2F1, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC2D2, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round in match" },
+        { address=0XC2D2, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round 1" },
+        { address=0XC2D2, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Round 2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC2DD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer" },
+      },
+    },
+  },
+}

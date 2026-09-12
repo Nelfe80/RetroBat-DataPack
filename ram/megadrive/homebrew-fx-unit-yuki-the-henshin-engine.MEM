@@ -1,0 +1,125 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ FX Unit Yuki: The Henshin Engine",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-fx-unit-yuki-the-henshin-engine",
+    hashes = {
+      { hash = "9c0a4c071a15fe7b273ae586b39ddfd4", label = "FX Unit Yuki - The Henshin Engine (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u8", condition="eq", value=0X0C, action="GAME_OVER", desc="Game Over" },
+        { address=0X0010, type="u8", condition="eq", value=0X1F, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XB2AD, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="Game over" },
+        { address=0XFE62, type="u8", condition="eq", value=0X06, action="GAME_OVER", desc="Game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XAFFF, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Stage Clear" },
+      },
+      stage = {
+        { address=0XA8E2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level 2 and 5 Character Horizontal coordenate" },
+        { address=0XA8E2, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Maximum Left (Level 2)" },
+        { address=0XA8E2, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Maximum Left (Level 5)" },
+        { address=0XA8E2, type="u8", condition="eq", value=0XDE, action="PROGRESSION_STAGE", desc="Maximum Right (Level 5)" },
+        { address=0XA8E2, type="u8", condition="eq", value=0XE0, action="PROGRESSION_STAGE", desc="Maximum Right (Level 2)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XAE9B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XAE9B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XAE9B, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="Insane Difficult Initial Lives" },
+        { address=0XAE9B, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="Hard Difficult Initial Lives" },
+        { address=0XAE9B, type="u8", condition="eq", value=0X07, action="LIVES_STATE", desc="Medium Difficult Initial Lives" },
+        { address=0XAE9B, type="u8", condition="eq", value=0X09, action="LIVES_STATE", desc="Easy Difficult Initial Lives" },
+        { address=0XB149, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="0 Points of Life (Dead)" },
+        { address=0XB149, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1 Points of Life (Red)" },
+        { address=0XB149, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="2 Points of Life (Orange)" },
+        { address=0XB149, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3 Points of Life (Yellow)" },
+        { address=0XB149, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="4 Points of Life (Green)" },
+        { address=0XB149, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="5 Points of Life (Green)" },
+      },
+      health = {
+        { address=0XB0CA, type="u8", condition="change", action="HIT", desc="Horizontal Coordenate Not 100% Confirmed But Used To 1st Boss Nodamage Achievement" },
+        { address=0XB149, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health" },
+        { address=0XB161, type="u8", condition="eq", value=0X0A, action="HEALTH_STATE", no_log=true, desc="Charge Shot/Energy Shot" },
+        { address=0XB161, type="u8", condition="eq", value=0X40, action="HIT", desc="Damage" },
+        { address=0XB3B1, type="u8", condition="decrease", action="HIT", desc="Charge Shot Power up decreased" },
+        { address=0XB51B, type="u8", condition="decrease", action="HIT", desc="Slide Power up decreased" },
+        { address=0XBA86, type="u8", condition="decrease", action="HIT", desc="Duble Jump Power up decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XB3B1, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Without the power up" },
+        { address=0XB3B1, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Power up Obtained" },
+        { address=0XB51B, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Without the power up" },
+        { address=0XB51B, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Power up Obtained" },
+        { address=0XBA86, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Without the power up" },
+        { address=0XBA86, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Power up Obtained" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XB000, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 2 Digit" },
+        { address=0XB001, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 1 Digit" },
+        { address=0XB002, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 4 Digit" },
+        { address=0XB003, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 3 Digit" },
+        { address=0XB004, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 6 Digit" },
+        { address=0XB005, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 5 Digit" },
+        { address=0XB006, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 7 Digit" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0010, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Stage 03 Section Boss" },
+        { address=0X0010, type="u8", condition="eq", value=0X12, action="BOSS_HIT", desc="Stage 04 Section Boss" },
+        { address=0X0010, type="u8", condition="eq", value=0X15, action="BOSS_HIT", desc="Stage 05 Section Boss" },
+        { address=0X0010, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Stage 06 Section Boss" },
+        { address=0XB172, type="u8", condition="change", action="BOSS_HIT", desc="Stage 3 Bat Subboss : 0x0a, Stage 4 Boss Phase 1 : 0x19, Stage 6 Subboss : 0x06 And 0x0a, Final" },
+        { address=0XB17A, type="u8", condition="change", action="BOSS_HIT", desc="Stage 3 Boss Health : 0x1e, and One Hand of Final Boss 2 form : 0x16" },
+        { address=0XB17E, type="u8", condition="change", action="BOSS_HIT", desc="One Hand of Final Boss 2 form Health : 0x16" },
+        { address=0XB458, type="u8", condition="change", action="BOSS_HIT", desc="Stage 1: 0x08, 2 Bosses Health : 0x78 , Stage 4 Boss Phase 2 Health : 0x18, Stage 5 Boss Health" },
+        { address=0XB5DB, type="u8", condition="change", action="BOSS_HIT", desc="Used when starting the Battle against the Stage 2 boss" },
+        { address=0XB6D4, type="u8", condition="change", action="BOSS_HIT", desc="Stage 5 Second Session One of Two Woman Boss : 0x1e, And Stage 5 Third Session Subboss Health :" },
+        { address=0XB89C, type="u8", condition="change", action="BOSS_HIT", desc="One of Two Woman Boss Health : 0x1e" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB161, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Jump 1" },
+        { address=0XB161, type="u8", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="Jump 2" },
+        { address=0XB161, type="u8", condition="eq", value=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Double Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XFF8E, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 1 [Broken in game]" },
+        { address=0XFF92, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 2 [Broken in game]" },
+        { address=0XFF96, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 3 [Broken in game]" },
+        { address=0XFF9A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 4 [Broken in game]" },
+        { address=0XFF9E, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 5 [Broken in game]" },
+        { address=0XFFA2, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Enter code 6 [Broken in game]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XAACE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Internal Counter Minutes" },
+        { address=0XAAD1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Internal Counter Seconds" },
+        { address=0XB2AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Menu/Options/Audition Selection" },
+        { address=0XFE62, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Audition" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Geometry Wars Portable",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-geometry-wars-portable",
+    hashes = {
+      { hash = "b49ee9cd7cbe6ac68d5803722729df88", label = "Geometry Wars Portable (v0.7) (Victory Studio)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X986AA8, type="u32le", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X11C8968, type="u16le", condition="eq", value=0X01, action="CREDITS_SCREEN", desc="Credits (Thanks for the Cigarattes!)" },
+        { address=0X11C8968, type="u16le", condition="eq", value=0X41, action="GAME_OVER", desc="Game Over" },
+        { address=0X121D668, type="u32le", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X121D2B8, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives 1 increased" },
+        { address=0X121D2B8, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives 1 decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X121D2B0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 1" },
+      },
+    },
+  },
+}

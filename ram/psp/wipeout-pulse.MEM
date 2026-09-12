@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wipeout Pulse",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "wipeout-pulse",
+    hashes = {
+      { hash = "db480e08aa7ea0e237b8838c1b14aa5f", label = "WipEout Pulse (Europe, Australia) (En,Fr,De,Es,It).iso" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC16784, type="u32le", condition="change", action="NEW_LEVEL", desc="Grid 1: Zone: Talon's Junction White Campaign Record" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XCF12FC, type="u32le", condition="change", action="WEAPON_STATE", desc="[ASCII][Stats][32bytes] Favourite weapon/item" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC16584, type="u32le", condition="eq", value=0X01, action="MONEY_STATE", desc="Gold" },
+        { address=0XC16684, type="u32le", condition="eq", value=0X01, action="MONEY_STATE", desc="Gold" },
+        { address=0XC16884, type="u32le", condition="eq", value=0X01, action="MONEY_STATE", desc="Gold" },
+        { address=0XC16904, type="u32le", condition="eq", value=0X01, action="MONEY_STATE", desc="Gold" },
+        { address=0XCF1368, type="u32le", condition="increase", action="COIN_GAIN", desc="Race Campaign Gold Medals Won increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCF1390, type="u32le", condition="change", action="SHIELD_GAIN", desc="Shields" },
+        { address=0XCF13C4, type="u32le", condition="change", action="SHIELD_GAIN", desc="Shields Absorbed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCF1320, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Stats] Num Weapon/item pads over time" },
+        { address=0XCF1334, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Single Race (in Seconds)" },
+        { address=0XCF1338, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Time Trial (in Seconds)" },
+        { address=0XCF133C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Game Time by Event: Zone (in Seconds)" },
+        { address=0XCF1344, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Tournament (in Seconds)" },
+        { address=0XCF1348, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Eliminator (in Seconds)" },
+        { address=0XCF134C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Head to Head (in Seconds)" },
+        { address=0XCF1350, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time by Event: Speed Lap (in Seconds)" },
+        { address=0XCF145C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time: Race Campaign (in Seconds)" },
+        { address=0XCF1460, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time: Racebox (in Seconds)" },
+        { address=0XCF1464, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time: Ad Hoc (in Seconds)" },
+        { address=0XCF1468, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time: Online (in Seconds)" },
+      },
+    },
+  },
+}

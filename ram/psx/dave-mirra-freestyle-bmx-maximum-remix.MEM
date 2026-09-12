@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dave Mirra Freestyle BMX: Maximum Remix",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "dave-mirra-freestyle-bmx-maximum-remix",
+    hashes = {
+      { hash = "1dd2f19e25f9ad4cab8a2fcc3cbdc2ec", label = "Dave Mirra Freestyle BMX - Maximum Remix (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X910C8, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Pause" },
+        { address=0X910C8, type="u8", condition="eq", value=0X0C, action="GAME_PLAYING", desc="About the level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X91E95, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Ground" },
+      },
+    },
+  },
+}

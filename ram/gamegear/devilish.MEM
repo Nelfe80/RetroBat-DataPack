@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Devilish",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "devilish",
+    hashes = {
+      { hash = "f0ceed28d0e83bc4adc688d06d12bf2e", label = "Devilish (USA).gg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0B1F, type="u8", condition="eq", value=0X85, action="GAME_PLAYING", desc="Stage Clear (Time Trial)" },
+        { address=0X0B1F, type="u8", condition="eq", value=0X89, action="GAME_PLAYING", desc="Stage Clear (Campaign)" },
+        { address=0X0B1F, type="u8", condition="eq", value=0XAE, action="GAME_OVER", desc="Game Over" },
+        { address=0X0B1F, type="u8", condition="eq", value=0XD3, action="CONTINUE_SCREEN", desc="Continue Screen" },
+        { address=0X1FEC, type="u16le", condition="eq", value=0X16, action="PAUSE_ON", desc="paused" },
+        { address=0X1FEC, type="u16le", condition="eq", value=0X17, action="PAUSE_ON", desc="not paused in game" },
+        { address=0X1FEC, type="u16le", condition="eq", value=0X27, action="CONTINUE_SCREEN", desc="Continue Screne" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0B1F, type="u8", condition="eq", value=0X85, action="LEVEL_CLEAR", desc="Stage Clear (Time Trial)" },
+        { address=0X0B1F, type="u8", condition="eq", value=0X89, action="LEVEL_CLEAR", desc="Stage Clear (Campaign)" },
+        { address=0X1FEC, type="u16le", condition="eq", value=0X15, action="NEW_LEVEL", desc="Level loading" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0B1F, type="u8", condition="eq", value=0X24, action="SCORE_STATE", desc="Time Trial without high score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1FEC, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="13 : Time Trial Reset" },
+      },
+    },
+  },
+}

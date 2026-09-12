@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tom & Jerry",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "tom-jerry",
+    hashes = {
+      { hash = "5af4d81459e7e34adfc4e065c98dd643", label = "Tom & Jerry (USA, Europe).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD541, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Yes" },
+        { address=0XD552, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of Continues" },
+        { address=0XDD72, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0XDD72, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+      events = {
+        { address=0XD53A, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD53B, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD53C, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD53D, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD53E, type="u8", condition="eq", value=0X03, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD53F, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+        { address=0XD540, type="u8", condition="eq", value=0X06, action="COMBO_HIT", desc="Correct Combination" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD54F, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0XD54F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Street" },
+        { address=0XD54F, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Park" },
+        { address=0XD54F, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Rooftops" },
+        { address=0XD54F, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Lounge" },
+        { address=0XD54F, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Shower" },
+        { address=0XD54F, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Kitchen" },
+        { address=0XD54F, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Garage" },
+        { address=0XD54F, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Garden" },
+        { address=0XD54F, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Treetops" },
+        { address=0XD54F, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Bedroom" },
+        { address=0XDC55, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Yes" },
+      },
+      stage = {
+        { address=0XD544, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Select Enabled" },
+        { address=0XD544, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD53A, type="u8", condition="increase", action="GAIN_LIFE", desc="Infinite Lives Combo Correct increased" },
+        { address=0XD53A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Infinite Lives Combo Correct decreased" },
+        { address=0XD542, type="u8", condition="increase", action="GAIN_LIFE", desc="Infinite Lives Enabled increased" },
+        { address=0XD542, type="u8", condition="decrease", action="LOSE_LIFE", desc="Infinite Lives Enabled decreased" },
+        { address=0XD542, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="Yes" },
+        { address=0XD54E, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0XD54E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+      health = {
+        { address=0XD545, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Infinite Health Enabled" },
+        { address=0XD545, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="Yes" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD550, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD4EE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continue Timer" },
+        { address=0XD53B, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Infinite Time Combo Correct" },
+        { address=0XD543, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Infinite Time Enabled" },
+      },
+    },
+  },
+}

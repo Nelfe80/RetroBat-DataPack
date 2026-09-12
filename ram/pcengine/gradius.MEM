@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gradius",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Shoot'em Up, Action, Shoot'em up, Horizontal"
+  },
+
+  rom = {
+    name = "gradius",
+    hashes = {
+      { hash = "16fe78b1630a790bee6755e3c850a366", label = "Gradius (Japan).pce" },
+      { hash = "bff0dffcbc2c3add3bf0b670d2a137b0", label = "pce/gradius.7z <Gradius>" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0081, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0085, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of lives increased" },
+        { address=0X0085, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of lives decreased" },
+        { address=0X0D10, type="u8", condition="change", action="LOSE_LIFE", desc="Value at death (explosion) is 07" },
+      },
+      health = {
+        { address=0X0C5C, type="u8", condition="change", action="HIT", desc="Last boss energy: 01 is hurt, 00 is safe" },
+        { address=0X0C60, type="u8", condition="change", action="HIT", desc="Last boss energy: 01 is hurt, 00 is safe" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X00A4, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon selection (bottom screen)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1F04, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 32 bits" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0AD1, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield: max is 0f" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0052, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Animation for destroying a moai: 09 to 63" },
+      },
+    },
+  },
+}

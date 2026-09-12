@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hachiemon",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "hachiemon",
+    hashes = {
+      { hash = "6c8460b00a7dcade834b0579116771db", label = "Hachiemon (Japan).gba" },
+    }
+  },
+
+  events = {
+  },
+}

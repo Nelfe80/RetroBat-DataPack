@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Knights of the Round",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "knights-of-the-round",
+    hashes = {
+      { hash = "2061bac208c7bdd2665fbf4b7067e468", label = "knights.7z <Knights of the Round (911127 etc)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XAC9B, type="u8", condition="bit_true", mask=0X04, action="CONTINUE_SCREEN", desc="game active" },
+        { address=0XAC9B, type="u8", condition="bit_true", mask=0X08, action="CONTINUE_SCREEN", desc="Game Over" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X83D5, type="u8", condition="eq", value=0X00, action="CHARACTER_SELECTED", player=1, desc="Arthur" },
+        { address=0X83D5, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=1, desc="Lancelot" },
+        { address=0X83D5, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=1, desc="Percival" },
+        { address=0X8455, type="u8", condition="eq", value=0X00, action="CHARACTER_SELECTED", player=2, desc="Arthur" },
+        { address=0X8455, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=2, desc="Lancelot" },
+        { address=0X8455, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=2, desc="Percival" },
+        { address=0X84D5, type="u8", condition="eq", value=0X00, action="CHARACTER_SELECTED", player=3, desc="Arthur" },
+        { address=0X84D5, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=3, desc="Lancelot" },
+        { address=0X84D5, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=3, desc="Percival" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE7DA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Time Remaining (bcd)" },
+        { address=0XE7DA, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="00:XX" },
+        { address=0XE7DB, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Time Remaining (bcd)" },
+        { address=0XE7DB, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="XX:00" },
+      },
+    },
+  },
+}

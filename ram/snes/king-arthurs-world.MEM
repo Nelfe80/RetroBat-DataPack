@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King Arthur's World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "king-arthurs-world",
+    hashes = {
+      { hash = "2c09803c418da30c4fbd99c59ba057eb", label = "King Arthur's World (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0096, type="u8", condition="eq", value=0X08, action="PAUSE_ON", desc="Paused" },
+        { address=0X0096, type="u8", condition="eq", value=0X0F, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X00C6, type="u8", condition="eq", value=0X0A, action="DEMO_MODE", desc="Demon Gulp" },
+        { address=0X00F7, type="u8", condition="change", action="PAUSE_ON", desc="Pause Pressed" },
+        { address=0X01F9, type="u8", condition="eq", value=0X10, action="GAME_PLAYING", desc="Beat Training Level + Got Gold" },
+        { address=0X01F9, type="u8", condition="eq", value=0X17, action="GAME_PLAYING", desc="Beat Training Level" },
+        { address=0X01F9, type="u8", condition="eq", value=0X60, action="TITLE_SCREEN", desc="Title/Demo" },
+        { address=0X01F9, type="u8", condition="eq", value=0XD1, action="GAME_PLAYING", desc="Beat Level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X165E9, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="0 : Off, 1 : On" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0018, type="u16le", condition="eq", value=0X0CB9, action="LOSE_LIFE", desc="Soldier" },
+        { address=0X0721, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Soldier" },
+        { address=0X0941, type="u8", condition="eq", value=0X13, action="LOSE_LIFE", desc="Dead" },
+        { address=0X1FF15, type="u8", condition="change", action="LOSE_LIFE", desc="Soldier Reserves" },
+        { address=0X1FF3D, type="u8", condition="change", action="LOSE_LIFE", desc="Soldier Unit Size [0x01 : Default]" },
+      },
+      health = {
+        { address=0X0941, type="u8", condition="eq", value=0X8A, action="HIT", desc="Hurt" },
+        { address=0X0953, type="u8", condition="increase", action="HEAL", desc="King Arthur HP increased" },
+        { address=0X0953, type="u8", condition="decrease", action="HIT", desc="King Arthur HP decreased" },
+        { address=0X1FF21, type="u8", condition="increase", action="HEAL", desc="Health Spells Remaining increased" },
+        { address=0X1FF21, type="u8", condition="decrease", action="HIT", desc="Health Spells Remaining decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00C6, type="u8", condition="eq", value=0X2A, action="COIN_GAIN", desc="Collect Coin" },
+        { address=0X16567, type="u16le", condition="increase", action="COIN_GAIN", desc="Unclaimed Gold increased" },
+        { address=0X16569, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+      },
+    },
+  },
+}

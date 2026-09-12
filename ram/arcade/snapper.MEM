@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Snapper",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "snapper",
+    hashes = {
+      { hash = "9d630db6fcf053cd0b15e4ca69068579", label = "snapper.7z <Snapper (Korea)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X30D1, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits [8-bit BCD]" },
+        { address=0X30E2, type="u8", condition="change", action="DEMO_MODE", desc="Demo mode : 0xff" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X280E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Pellets Remaining In Stage" },
+        { address=0X30DC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2814, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (FF : Game Over) increased" },
+        { address=0X2814, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (FF : Game Over) decreased" },
+        { address=0X30E7, type="u8", condition="increase", action="GAIN_LIFE", desc="Starting lives dipswitch increased" },
+        { address=0X30E7, type="u8", condition="decrease", action="LOSE_LIFE", desc="Starting lives dipswitch decreased" },
+        { address=0X30E7, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="3 starting lives" },
+        { address=0X30E7, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="6 starting lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2870, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score in 10,000s [16-bit BCD]" },
+        { address=0X2872, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score lower half [16-bit BCD]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X281C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Continue Timer (FF : Game Over)" },
+      },
+    },
+  },
+}

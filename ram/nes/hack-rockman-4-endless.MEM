@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rockman 4: Endless",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rockman-4-endless",
+    hashes = {
+      { hash = "861c44e48dff1332bbaad4670ddbcd89", label = "Rockman 4 - Endless (v1.0) (Rock5easily).nes" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Electrician",
+    system = "fds",
+    system_name = "Famicom Disk System",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "electrician",
+    hashes = {
+      { hash = "858c75bac6e034cee44afe665c23069f", label = "Electrician (Japan).fds" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X04A1, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Seems to be the world ID (level ID). Act wierd when freezing the addr" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04A2, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X04A2, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+    },
+  },
+}

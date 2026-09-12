@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Odyssey",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-odyssey",
+    hashes = {
+      { hash = "6074f5ee69d1af489a48cfa3d9492ceb", label = "Pokemon FireRed - Pokemon Odyssey (v4.0.0) (Yggdrasil Project).gba" },
+      { hash = "f08d1b00fdd11bbb7a0a7b26b1e34e3f", label = "Pokemon FireRed - Pokemon Odyssey (v4.0.1) (Yggdrasil Project).gba" },
+      { hash = "4d05834b0e72362bc19681eb718acf8c", label = "Pokemon FireRed - Pokemon Odyssey (v4.0.3) (Yggdrasil Project).gba" },
+      { hash = "c2f1f0d5a1659c05e2686c23a448b48c", label = "Pokemon FireRed - Pokemon Odyssey (v4.1.0) (Yggdrasil Project).gba" },
+      { hash = "c1a19efc331c0489912e70178bda1004", label = "Pokemon FireRed - Pokemon Odyssey (v4.1.1) (Yggdrasil Project).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="1st - Level" },
+        { address=0X2C33C, type="u16le", condition="change", action="NEW_LEVEL", desc="2nd - Level" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="3rd - Level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="4th - Level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="5th - Level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="6th - Level" },
+        { address=0X2C5E0, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Magnezone" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="1st - Current HP increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="1st - Current HP decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="1st - Max HP increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="1st - Max HP decreased" },
+        { address=0X2C33E, type="u16le", condition="increase", action="HEAL", desc="2nd - Current HP increased" },
+        { address=0X2C33E, type="u16le", condition="decrease", action="HIT", desc="2nd - Current HP decreased" },
+        { address=0X2C340, type="u16le", condition="increase", action="HEAL", desc="2nd - Max HP increased" },
+        { address=0X2C340, type="u16le", condition="decrease", action="HIT", desc="2nd - Max HP decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X2C5C7, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5008, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Old Rod" },
+        { address=0X5008, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Fibernia Woods - Repel" },
+        { address=0X500C, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="1st Stratum" },
+        { address=0X500C, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Battle Style [0 Shift -> 1 Set]" },
+      },
+    },
+  },
+}

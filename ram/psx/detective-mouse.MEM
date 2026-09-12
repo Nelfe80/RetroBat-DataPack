@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Detective Mouse",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "detective-mouse",
+    hashes = {
+      { hash = "c36da7ccadfed7c2906751c37730fad3", label = "Detective Mouse (Europe) (En,Fr,De)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X4D9B8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Movie timer -44da" },
+        { address=0X1F7F90, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Puzzle time (20 : 1 second)" },
+      },
+    },
+  },
+}

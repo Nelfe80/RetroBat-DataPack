@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puzzle - Echter Puzzlespass für Unterwegs: Diddl",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "puzzle-echter-puzzlespass-fur-unterwegs-diddl",
+    hashes = {
+      { hash = "17dfd12974acd6bb4dc72bcf00092380", label = "Diddl Puzzle - Echter Puzzlespass fuer Unterwegs (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

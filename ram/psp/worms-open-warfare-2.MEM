@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Worms: Open Warfare 2",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "worms-open-warfare-2",
+    hashes = {
+      { hash = "b261aa8286529faa67e5e8383e5425ed", label = "Worms - Open Warfare 2 (Europe) (En,Fr,De,Es,It).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD900EC, type="u32le", condition="change", action="PAUSE_ON", desc="[32 Bit] Pause Active" },
+        { address=0XDC84A6, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] In Game Pause Active" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XF541E8, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit] Background ID" },
+      },
+    },
+  },
+}

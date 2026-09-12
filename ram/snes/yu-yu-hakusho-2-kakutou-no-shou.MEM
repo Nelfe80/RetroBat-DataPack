@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Yu Yu Hakusho 2: Kakutou no Shou",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "yu-yu-hakusho-2-kakutou-no-shou",
+    hashes = {
+      { hash = "d5f4d1a52de393e6ef10d707e92fd2cb", label = "Yu Yu Hakusho 2 - Kakutou no Shou (Japan).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0A86, type="u8", condition="change", action="CONTINUE_SCREEN", desc="-- Continues --" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1620, type="u8", condition="change", action="NEW_LEVEL", desc="P1/P2 - Round winner 1" },
+        { address=0X1621, type="u8", condition="change", action="NEW_LEVEL", desc="P1/P2 - Round winner 2" },
+        { address=0X1628, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds ?" },
+      },
+      stage = {
+        { address=0X0944, type="u8", condition="change", action="PROGRESSION_STAGE", desc="------------ Stage -------------" },
+        { address=0X0944, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Park / 04 : Suzaku's chamber" },
+        { address=0X0944, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Hospital roof / 05 : Inside Suikin's mansion" },
+        { address=0X0944, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Warehouse / 06 : Ankoku Arena" },
+        { address=0X0944, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Genkai's dojo / 07 : Ankoku Dome" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0C0A, type="u8", condition="increase", action="HEAL", desc="P1 - Health Bar increased" },
+        { address=0X0C0A, type="u8", condition="decrease", action="HIT", desc="P1 - Health Bar decreased" },
+        { address=0X0C0E, type="u8", condition="increase", action="HEAL", desc="P1 - Spiritual Energy Bar increased" },
+        { address=0X0C0E, type="u8", condition="decrease", action="HIT", desc="P1 - Spiritual Energy Bar decreased" },
+        { address=0X110A, type="u8", condition="increase", action="HEAL", desc="P2 - Health Bar increased" },
+        { address=0X110A, type="u8", condition="decrease", action="HIT", desc="P2 - Health Bar decreased" },
+        { address=0X110E, type="u8", condition="increase", action="HEAL", desc="P2 - Spiritual Energy Bar increased" },
+        { address=0X110E, type="u8", condition="decrease", action="HIT", desc="P2 - Spiritual Energy Bar decreased" },
+      },
+    },
+  },
+}

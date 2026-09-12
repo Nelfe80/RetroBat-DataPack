@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: World Famous Talking Cactus Version",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-world-famous-talking-cactus-version",
+    hashes = {
+      { hash = "33970457b30d86bb3b027ea18451550a", label = "Pokemon Blue - World Famous Talking Cactus Version (v1.2) (Philip Reuben).gb" },
+      { hash = "0ed6d42b3d5a74311f8ae66a213dc91b", label = "Pokemon Red - World Famous Talking Cactus Version (v1.2) (Philip Reuben).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCFE6, type="u16le", condition="increase", action="HEAL", desc="[16 bit] Enemy HP increased" },
+        { address=0XCFE6, type="u16le", condition="decrease", action="HIT", desc="[16 bit] Enemy HP decreased" },
+      },
+    },
+  },
+}

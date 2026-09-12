@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Ants",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-ants",
+    hashes = {
+      { hash = "00e51a104d12ac1b6b3738a4553c3a06", label = "Ants (USA) (Unl)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E459F, type="u8", condition="bit_true", mask=0X01, action="PAUSE_OFF", desc="0 Off" },
+        { address=0X1E459F, type="u8", condition="bit_true", mask=0X01, action="PAUSE_ON", desc="1 On" },
+        { address=0X1E45E7, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X1E463B, type="u8", condition="eq", value=0X0E, action="GAME_OVER", desc="Game Over/Options (press select)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1E4677, type="u8", condition="change", action="NEW_LEVEL", desc="Round 8 Bits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1E45E7, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health 8 Bits" },
+        { address=0X1E45E7, type="u8", condition="eq", value=0X64, action="HEALTH_STATE", no_log=true, desc="Full health" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1E45C3, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="0 Off" },
+        { address=0X1E45C6, type="u8", condition="change", action="BOSS_HIT", desc="Antzilla/Bossquito HP (BCD > value 255) 8 Bits" },
+        { address=0X1E45C7, type="u8", condition="eq", value=0X2C, action="BOSS_HIT", desc="Full HP (0x1e45c6:0x01)" },
+      },
+    },
+  },
+}

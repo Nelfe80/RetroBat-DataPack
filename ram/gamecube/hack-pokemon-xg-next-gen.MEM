@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon XG: NeXt Gen",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-xg-next-gen",
+    hashes = {
+      { hash = "790d420d49b0908a37f6e64f714acdf2", label = "Pokemon XD - Gale of Darkness - Pokemon XG (v1.2.1-3) (StarsMmd)" },
+    }
+  },
+
+  events = {
+  },
+}

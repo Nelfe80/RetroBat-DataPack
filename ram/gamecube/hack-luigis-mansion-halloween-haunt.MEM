@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Luigi's Mansion: Halloween Haunt",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-luigis-mansion-halloween-haunt",
+    hashes = {
+      { hash = "b7e749c5b9367c3efe7b0ca6fbb6182d", label = "Luigi's Mansion - Halloween Haunt (v1.0) (Colby)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Better Call Saul DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-better-call-saul-ds",
+    hashes = {
+      { hash = "069759f656b71b83ed85f392dd55a56c", label = "Better Call Saul DS (World) (v1.0) (Aftermarket) (Unl) (William278).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2CC, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] Level" },
+      },
+    },
+  },
+}

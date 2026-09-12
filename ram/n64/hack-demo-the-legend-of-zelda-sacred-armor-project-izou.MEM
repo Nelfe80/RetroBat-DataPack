@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ The Legend of Zelda: Sacred Armor - Project Izou",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-the-legend-of-zelda-sacred-armor-project-izou",
+    hashes = {
+      { hash = "b72ebe6994c2557a3b371305bcafc819", label = "Legend of Zelda, The - Sacred Armor - Project Izou (Demo) (Team Izou).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X15F9B4, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Boot/Title Screen/File Select" },
+        { address=0X15F9BC, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X2120C6, type="u8", condition="eq", value=0X54, action="CREDITS_SCREEN", desc="Credits Room" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X15E692, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0X15E692, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X15E6FE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Wooden Shield" },
+      },
+    },
+  },
+}

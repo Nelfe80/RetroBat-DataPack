@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "ArduRogue",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ardurogue",
+    hashes = {
+      { hash = "d0f8b93d78f1fc7852f98990fd0940d7", label = "ArduRogue (World) (brow1067).hex" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X087B, type="u8", condition="change", action="NEW_LEVEL", desc="Dungeon Level" },
+        { address=0X087B, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X0883, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Experience" },
+        { address=0X0894, type="u8", condition="change", action="NEW_LEVEL", desc="Player Level" },
+        { address=0X0894, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X08B3, type="u32be", condition="eq", value=0X67726966, action="LOSE_LIFE", desc="grif(fin)" },
+        { address=0X08B3, type="u32be", condition="eq", value=0X686F6267, action="LOSE_LIFE", desc="hobg(oblin)" },
+        { address=0X08B3, type="u32be", condition="eq", value=0X6D696D69, action="LOSE_LIFE", desc="mimi(c)" },
+        { address=0X08B3, type="u32be", condition="eq", value=0X74726F6C, action="LOSE_LIFE", desc="trol(l)" },
+      },
+      health = {
+        { address=0X0739, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X0739, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X0882, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X0882, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0886, type="u8", condition="eq", value=0XFF, action="WEAPON_STATE", desc="Not Equipped" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0897, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score: 1st" },
+        { address=0X089B, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score: 2nd" },
+        { address=0X089F, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score: 3rd" },
+        { address=0X08A3, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score: 4th" },
+      },
+      collectibles = {
+        { address=0X088A, type="u8", condition="eq", value=0XFF, action="MONEY_STATE", desc="Not Equipped" },
+        { address=0X088B, type="u8", condition="eq", value=0XFF, action="MONEY_STATE", desc="Not Equipped" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X08B9, type="u32be", condition="eq", value=0X646F6F72, action="DOOR_OPENED", desc="door" },
+      },
+    },
+  },
+}

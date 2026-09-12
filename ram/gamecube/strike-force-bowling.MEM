@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Strike Force Bowling",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "strike-force-bowling",
+    hashes = {
+      { hash = "1b8b82de38fed2eafa7e0488f15317d3", label = "Strike Force Bowling (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X343C18, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bit] Mars Night Level" },
+        { address=0X343C18, type="u32be", condition="eq", value=0X01, action="NEW_LEVEL", desc="Yes" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2B27DC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit BE] Score" },
+        { address=0X2B27DC, type="u32be", condition="eq", value=0XFFFFFFFF, action="SCORE_STATE", desc="-1" },
+      },
+      collectibles = {
+        { address=0X2B27C4, type="u32be", condition="increase", action="COIN_GAIN", desc="[32bit BE] Player 1 - Skins Money Won increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3D0D78, type="u32be", condition="eq", value=0X06, action="OBJECT_INTERACTION", desc="Name Entry - Block for Unlockables" },
+      },
+    },
+  },
+}

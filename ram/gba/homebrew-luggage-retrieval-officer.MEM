@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Luggage Retrieval Officer",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-luggage-retrieval-officer",
+    hashes = {
+      { hash = "01ad547e076252f97adddfce4a21f395", label = "Luggage Retrieval Officer (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6AC0, type="u8", condition="change", action="NEW_LEVEL", desc="Displayed rank of currently selected Arcade level" },
+        { address=0X7710, type="u32le", condition="change", action="LEVEL_CLEAR", desc="Total number of story levels complete" },
+      },
+      stage = {
+        { address=0X6488, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Most recent stage entered; Story levels go from 0x01 to 0x32 and Arcade levels go from 0x33 to 0" },
+        { address=0X6494, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Most recent Arcade stage entered; does not change if Story levels are played" },
+      },
+    },
+  },
+}

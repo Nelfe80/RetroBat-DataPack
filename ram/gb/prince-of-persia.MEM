@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Prince of Persia",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prince-of-persia",
+    hashes = {
+      { hash = "80034da43f35307291714ae2553d9ddf", label = "Prince of Persia (USA).gb" },
+    }
+  },
+
+  events = {
+  },
+}

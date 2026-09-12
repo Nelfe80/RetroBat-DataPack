@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario World 2021",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-world-2021",
+    hashes = {
+      { hash = "21d9649ce0dcb180775d6c284b4e46cf", label = "SMW - Super Mario World 2021 (edu_dyck).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0X9E10, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Strange Waters" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="PROGRESSION_STAGE", desc="YELLOW Switch Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X25, action="PROGRESSION_STAGE", desc="Iggy's Castle" },
+        { address=0X13BF, type="u8", condition="eq", value=0X26, action="PROGRESSION_STAGE", desc="Bush Island 3" },
+        { address=0X13BF, type="u8", condition="eq", value=0X27, action="PROGRESSION_STAGE", desc="Bush Island 4" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="PROGRESSION_STAGE", desc="Yoshi's House" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="PROGRESSION_STAGE", desc="Bush Island 2" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="PROGRESSION_STAGE", desc="Bush Island 1" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch" },
+      },
+    },
+  },
+}

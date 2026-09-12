@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Adventures of Willy Beamish",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-adventures-of-willy-beamish",
+    hashes = {
+      { hash = "88e929c3c9db840c2f784d16398651d8", label = "Adventures of Willy Beamish, The (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X4819C, type="u8", condition="change", action="NEW_LEVEL", desc="trouble meter level" },
+        { address=0X4819C, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="good boy" },
+        { address=0X4819C, type="u8", condition="eq", value=0XA, action="NEW_LEVEL", desc="military school" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X56722, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="before you get wooden block" },
+        { address=0X56722, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="after you get wooden block" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X55B9E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="1:dad asks willy to mow lawn" },
+        { address=0X55CFE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="2:time for dinner" },
+      },
+    },
+  },
+}

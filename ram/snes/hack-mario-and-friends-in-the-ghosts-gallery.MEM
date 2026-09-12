@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario and Friends in: The Ghost's Gallery",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-and-friends-in-the-ghosts-gallery",
+    hashes = {
+      { hash = "79c763ed1b798d3b2d804d24d03776c2", label = "SMW - Mario and Friends in The Ghost's Gallery (v1.1) (Various).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X010B, type="u16le", condition="change", action="NEW_LEVEL", desc="16 bits level" },
+      },
+      stage = {
+        { address=0X0071, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Entering Stage" },
+        { address=0X19E30, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Star In Mario+Luigi Stage Collected?" },
+        { address=0X19E30, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+        { address=0X19E31, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Star In Mario+Daisy Stage Collected?" },
+        { address=0X19E31, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+        { address=0X19E35, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Star In Luigi+Daisy Stage Collected?" },
+        { address=0X19E35, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+        { address=0X19E38, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Star In Wario+Peach Stage Collected?" },
+        { address=0X19E38, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi Coins increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Home Run Derby!",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-home-run-derby",
+    hashes = {
+      { hash = "bc696313d459a3829c209c81a04e5f6a", label = "Home Run Derby (World) (v2.0) (Aftermarket) (Unl) (MGNS8M).cdi" },
+      { hash = "89c1de1195d7f25bda63875201445f25", label = "Home Run Derby (World) (v1.0) (Aftermarket) (Unl) (MGNS8M).cdi" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X179060, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen;" },
+        { address=0X1790BE, type="u8", condition="change", action="TITLE_SCREEN", desc="Amount of opponents defeated; can go up at title-screen if 'cheat codes' are entered, but should" },
+        { address=0X179180, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen;" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X17906E, type="u16be", condition="increase", action="GAIN_LIFE", desc="16-bit fiveSec timer lives here... although it can count more than 5 seconds I just named it tha" },
+        { address=0X17906E, type="u16be", condition="decrease", action="LOSE_LIFE", desc="16-bit fiveSec timer lives here... although it can count more than 5 seconds I just named it tha" },
+        { address=0X179070, type="u16be", condition="increase", action="GAIN_LIFE", desc="16-bit throwTimer lives here ... I was already using fiveSec to do other things so I needed anot" },
+        { address=0X179070, type="u16be", condition="decrease", action="LOSE_LIFE", desc="16-bit throwTimer lives here ... I was already using fiveSec to do other things so I needed anot" },
+        { address=0X179071, type="u8", condition="increase", action="GAIN_LIFE", desc="fiveSec timer lives here... although it can count more than 5 seconds I just named it that becau" },
+        { address=0X179071, type="u8", condition="decrease", action="LOSE_LIFE", desc="fiveSec timer lives here... although it can count more than 5 seconds I just named it that becau" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1790AA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Home Run Counter full Score" },
+        { address=0X1791CA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Actual Score" },
+      },
+    },
+  },
+}

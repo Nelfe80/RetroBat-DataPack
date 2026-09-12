@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Revolution X",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Gun"
+  },
+
+  rom = {
+    name = "revolution-x",
+    hashes = {
+      { hash = "08a2bbb8b4eb45a2d887ce4b76fd0117", label = "revx.7z <Revolution X (rev 1.0 6/16/94)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X18E60A, type="u8", condition="increase", action="HEAL", desc="P1 Health increased" },
+        { address=0X18E60A, type="u8", condition="decrease", action="HIT", desc="P1 Health decreased" },
+      },
+    },
+  },
+}

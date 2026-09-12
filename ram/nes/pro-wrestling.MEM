@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pro Wrestling",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Sports, Lutte"
+  },
+
+  rom = {
+    name = "pro-wrestling",
+    hashes = {
+      { hash = "1696622370dc54399e55c85ef8605241", label = "Pro Wrestling (USA) (Rev 1).nes" },
+      { hash = "9d19a9edfd95f1c240ea4b8f728b59a0", label = "Pro Wrestling (USA).nes" },
+      { hash = "d292d34547c4eacb9ce9f42b8992ee1f", label = "Pro Wrestling (Europe).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002F, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="true" },
+        { address=0X0039, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="title | 03 : Infos and selection |" },
+        { address=0X0105, type="u8", condition="change", action="TITLE_SCREEN", desc="Successful title defenses" },
+        { address=0X01A2, type="u16le", condition="eq", value=0X16, action="TITLE_SCREEN", desc="title screen | 0c : Champion screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X01A2, type="u16le", condition="change", action="NEW_LEVEL", desc="Background hue?" },
+        { address=0X01A2, type="u16le", condition="eq", value=0X25, action="NEW_LEVEL", desc="flashing hue when winning" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0067, type="u8", condition="increase", action="HEAL", desc="Your Energy increased" },
+        { address=0X0067, type="u8", condition="decrease", action="HIT", desc="Your Energy decreased" },
+        { address=0X0077, type="u8", condition="increase", action="HEAL", desc="Opponent energy increased" },
+        { address=0X0077, type="u8", condition="decrease", action="HIT", desc="Opponent energy decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0039, type="u8", condition="eq", value=0X05, action="MONEY_STATE", desc="ring | 06 : Winner and Champ | 07 : Versus" },
+        { address=0X0042, type="u8", condition="increase", action="COIN_GAIN", desc="P1 Vertical Coords (2d - 7f : in ring) increased" },
+        { address=0X0043, type="u32le", condition="increase", action="COIN_GAIN", desc="P1 Horizontal Coords (1a - e4 : in ring) increased" },
+        { address=0X005C, type="u8", condition="increase", action="COIN_GAIN", desc="Player 1 ID in ring increased" },
+        { address=0X008E, type="u8", condition="eq", value=0X30, action="MONEY_STATE", desc="yes" },
+        { address=0X0093, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="none | 01 : 1 | 02 : both" },
+        { address=0X0148, type="u8", condition="increase", action="COIN_GAIN", desc="P2 Vertical Coords (2d - 7f : in ring) increased" },
+        { address=0X0149, type="u32le", condition="increase", action="COIN_GAIN", desc="P2 Horizontal coords (1a - e4 : in ring) increased" },
+        { address=0X01A4, type="u8", condition="eq", value=0X36, action="MONEY_STATE", desc="In Ring | 30 : Versus Screen |" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X006C, type="u8", condition="eq", value=0X05, action="INVINCIBILITY_START", desc="King Slender | 06 : Puma" },
+        { address=0X018D, type="u8", condition="eq", value=0X05, action="INVINCIBILITY_START", desc="King Slender | 06 : Puma" },
+        { address=0X018E, type="u8", condition="eq", value=0X03, action="INVINCIBILITY_START", desc="Panther | 04 : Amazon | 05 : King Slender" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0048, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Elasped time Minutes" },
+        { address=0X0049, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Elapsed time seconds" },
+        { address=0X0085, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timelimit miliseconds" },
+        { address=0X0086, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timelimit seconds" },
+        { address=0X0087, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timelimit Minutes" },
+      },
+    },
+  },
+}

@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cadillacs and Dinosaurs",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "cadillacs-and-dinosaurs",
+    hashes = {
+      { hash = "b246ff693d453c3b1a3049752da2bc75", label = "dino.7z <Cadillacs & Dinosaurs (930201 World)>" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X84D7, type="u8", condition="change", action="NEW_LEVEL", desc="slowdown level" },
+        { address=0X84D7, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="freeze" },
+        { address=0X8502, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage complete" },
+      },
+      stage = {
+        { address=0X0D6C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Horizontal stage scrolling progress" },
+        { address=0X0D6D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Horizontal stage scrolling progress big parts" },
+        { address=0X84D8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X8787, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Substage" },
+        { address=0X87A9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage particle" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB316, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0XB316, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0XB496, type="u8", condition="increase", action="GAIN_LIFE", desc="P2 Lives increased" },
+        { address=0XB496, type="u8", condition="decrease", action="LOSE_LIFE", desc="P2 Lives decreased" },
+        { address=0XB616, type="u8", condition="increase", action="GAIN_LIFE", desc="P3 Lives increased" },
+        { address=0XB616, type="u8", condition="decrease", action="LOSE_LIFE", desc="P3 Lives decreased" },
+        { address=0XF668, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of llives on start (0 based, 3 max) increased" },
+        { address=0XF668, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of llives on start (0 based, 3 max) decreased" },
+      },
+      health = {
+        { address=0XB2E0, type="u8", condition="increase", action="HEAL", desc="P1 Energy increased" },
+        { address=0XB2E0, type="u8", condition="decrease", action="HIT", desc="P1 Energy decreased" },
+        { address=0XB460, type="u8", condition="increase", action="HEAL", desc="P2 Energy increased" },
+        { address=0XB460, type="u8", condition="decrease", action="HIT", desc="P2 Energy decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0F6A, type="u8", condition="change", action="WEAPON_STATE", desc="P1 Holding weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XB374, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB276, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=1, desc="Jack Tenrec" },
+        { address=0XB276, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=1, desc="Hannah Dundee" },
+        { address=0XB276, type="u8", condition="eq", value=0X03, action="CHARACTER_SELECTED", player=1, desc="Mustapha Cairo" },
+        { address=0XB276, type="u8", condition="eq", value=0X04, action="CHARACTER_SELECTED", player=1, desc="Mess O Bradovich" },
+        { address=0XB3F6, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=2, desc="Jack Tenrec" },
+        { address=0XB3F6, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=2, desc="Hannah Dundee" },
+        { address=0XB3F6, type="u8", condition="eq", value=0X03, action="CHARACTER_SELECTED", player=2, desc="Mustapha Cairo" },
+        { address=0XB3F6, type="u8", condition="eq", value=0X04, action="CHARACTER_SELECTED", player=2, desc="Mess O Bradovich" },
+        { address=0XB576, type="u8", condition="eq", value=0X01, action="CHARACTER_SELECTED", player=3, desc="Jack Tenrec" },
+        { address=0XB576, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=3, desc="Hannah Dundee" },
+        { address=0XB576, type="u8", condition="eq", value=0X03, action="CHARACTER_SELECTED", player=3, desc="Mustapha Cairo" },
+        { address=0XB576, type="u8", condition="eq", value=0X04, action="CHARACTER_SELECTED", player=3, desc="Mess O Bradovich" },
+      },
+    },
+  },
+}

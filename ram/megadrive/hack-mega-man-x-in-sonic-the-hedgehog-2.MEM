@@ -1,0 +1,154 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man X in Sonic the Hedgehog 2",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-x-in-sonic-the-hedgehog-2",
+    hashes = {
+      { hash = "19627102b662ef2cd43785a240a1fbf7", label = "Sonic 2 - Mega Man X in Sonic the Hedgehog 2 (SCH2018 Demo) (Pacca).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF601, type="u8", condition="eq", value=0X00, action="CORPORATE_SCREEN", desc="Sega Screen" },
+        { address=0XF601, type="u8", condition="eq", value=0X0C, action="GAME_PLAYING", desc="In a Stage" },
+        { address=0XF601, type="u8", condition="eq", value=0X10, action="GAME_PLAYING", desc="Special Stage (Inaccessible)" },
+        { address=0XF601, type="u8", condition="eq", value=0X14, action="CONTINUE_SCREEN", desc="Continue Screen" },
+        { address=0XF601, type="u8", condition="eq", value=0X20, action="GAME_OVER", desc="Ending Cutscene" },
+        { address=0XF601, type="u8", condition="eq", value=0X28, action="GAME_PLAYING", desc="Original Level Select (Inaccessible)" },
+        { address=0XF601, type="u8", condition="eq", value=0X2C, action="GAME_PLAYING", desc="Stage Select" },
+        { address=0XF601, type="u8", condition="eq", value=0X38, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XF601, type="u8", condition="eq", value=0X8C, action="GAME_PLAYING", desc="Loading Into a Stage" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XB01C, type="u8", condition="eq", value=0X24, action="NEW_LEVEL", desc="Shooting on the ground" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Emerald Hill Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Chemical Plant Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Aquatic Ruin Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X08, action="LEVEL_CLEAR", desc="Casino Night Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X10, action="LEVEL_CLEAR", desc="Hill Top Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X20, action="LEVEL_CLEAR", desc="Mystic Cave Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X40, action="LEVEL_CLEAR", desc="Oil Ocean Zone Cleared" },
+        { address=0XE788, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Metropolis Zone Cleared" },
+        { address=0XFE11, type="u8", condition="eq", value=0X00, action="LEVEL_EMERALD_HILL", desc="Emerald Hill" },
+        { address=0XFE11, type="u8", condition="eq", value=0X04, action="LEVEL_METROPOLIS", desc="Metropolis" },
+        { address=0XFE11, type="u8", condition="eq", value=0X05, action="LEVEL_METROPOLIS_ACT_3", desc="Metropolis (act 3)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X06, action="LEVEL_WING_FORTRESS", desc="Wing Fortress" },
+        { address=0XFE11, type="u8", condition="eq", value=0X07, action="LEVEL_HILL_TOP", desc="Hill Top" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0A, action="LEVEL_OIL_OCEAN", desc="Oil Ocean" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0B, action="LEVEL_MYSTIC_CAVE", desc="Mystic Cave" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0C, action="LEVEL_CASINO_NIGHT", desc="Casino Night" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0D, action="LEVEL_CHEMICAL_PLANT", desc="Chemical Plant" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0E, action="LEVEL_DEATH_EGG", desc="Death Egg" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0F, action="LEVEL_AQUATIC_RUIN", desc="Aquatic Ruin" },
+        { address=0XFE11, type="u8", condition="eq", value=0X10, action="LEVEL_SKY_CHASE", desc="Sky Chase" },
+        { address=0XFE1F, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Stage finished by stage post or animals freed" },
+        { address=0XFE1F, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Playing the stage" },
+        { address=0XFFD1, type="u8", condition="eq", value=0X00, action="LEVEL_OFF", desc="Off" },
+        { address=0XFFD1, type="u8", condition="eq", value=0X01, action="LEVEL_ON", desc="On" },
+      },
+      zone = {
+        { address=0XFE11, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },
+      },
+      stage = {
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act" },
+        { address=0XFE10, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Act 1" },
+        { address=0XFE10, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Act 2" },
+        { address=0XFFD1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level Select Active (unsure if accessible)" },
+        { address=0XFFD1, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="On" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB01C, type="u8", condition="eq", value=0X18, action="LOSE_LIFE", desc="Died" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Count increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Count decreased" },
+      },
+      health = {
+        { address=0XB01C, type="u8", condition="eq", value=0X1A, action="HIT", desc="Hurt" },
+        { address=0XE740, type="u8", condition="increase", action="HEAL", desc="X's Health increased" },
+        { address=0XE740, type="u8", condition="decrease", action="HIT", desc="X's Health decreased" },
+        { address=0XE742, type="u8", condition="increase", action="HEAL", desc="X's Max Health increased" },
+        { address=0XE742, type="u8", condition="decrease", action="HIT", desc="X's Max Health decreased" },
+        { address=0XE786, type="u8", condition="increase", action="HEAL", desc="This also appears to control X's health. increased" },
+        { address=0XE786, type="u8", condition="decrease", action="HIT", desc="This also appears to control X's health. decreased" },
+        { address=0XE78A, type="u8", condition="increase", action="HEAL", desc="Currently eqquiped subweapon energy increased" },
+        { address=0XE78A, type="u8", condition="decrease", action="HIT", desc="Currently eqquiped subweapon energy decreased" },
+        { address=0XE78C, type="u8", condition="increase", action="HEAL", desc="Currently eqquiped subweapon energy increased" },
+        { address=0XE78C, type="u8", condition="decrease", action="HIT", desc="Currently eqquiped subweapon energy decreased" },
+        { address=0XE790, type="u16be", condition="increase", action="HEAL", desc="Viridian Driller Energy increased" },
+        { address=0XE790, type="u16be", condition="decrease", action="HIT", desc="Viridian Driller Energy decreased" },
+        { address=0XE792, type="u16be", condition="increase", action="HEAL", desc="Synthetic Globule Energy increased" },
+        { address=0XE792, type="u16be", condition="decrease", action="HIT", desc="Synthetic Globule Energy decreased" },
+        { address=0XE794, type="u16be", condition="increase", action="HEAL", desc="Stable Arrow Energy increased" },
+        { address=0XE794, type="u16be", condition="decrease", action="HIT", desc="Stable Arrow Energy decreased" },
+        { address=0XE796, type="u16be", condition="increase", action="HEAL", desc="Adherent Explosive Energy increased" },
+        { address=0XE796, type="u16be", condition="decrease", action="HIT", desc="Adherent Explosive Energy decreased" },
+        { address=0XE798, type="u16be", condition="increase", action="HEAL", desc="Burning Globe Energy increased" },
+        { address=0XE798, type="u16be", condition="decrease", action="HIT", desc="Burning Globe Energy decreased" },
+        { address=0XE79A, type="u16be", condition="increase", action="HEAL", desc="Stone Stalagmite Energy increased" },
+        { address=0XE79A, type="u16be", condition="decrease", action="HIT", desc="Stone Stalagmite Energy decreased" },
+        { address=0XE79C, type="u16be", condition="increase", action="HEAL", desc="Reversal Phaser Energy increased" },
+        { address=0XE79C, type="u16be", condition="decrease", action="HIT", desc="Reversal Phaser Energy decreased" },
+        { address=0XE79E, type="u16be", condition="increase", action="HEAL", desc="Guardian Orb Energy increased" },
+        { address=0XE79E, type="u16be", condition="decrease", action="HIT", desc="Guardian Orb Energy decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Shield" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Invincibility" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Speed Shoes" },
+        { address=0XE7A4, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Emerald Hill" },
+      },
+      weapon = {
+        { address=0XF601, type="u8", condition="eq", value=0X30, action="WEAPON_STATE", no_log=true, desc="Weapon Get" },
+        { address=0XF604, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="A (Weapon Change)" },
+        { address=0XF605, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="A (Weapon Change)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XF7D0, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Enemy Combo (affects score from defeated enemies)" },
+        { address=0XFE26, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score - Upper Half" },
+        { address=0XFE28, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score - Lower Half" },
+      },
+      collectibles = {
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="Current Ring Count increased" },
+        { address=0XFEF0, type="u8", condition="increase", action="COIN_GAIN", desc="Another Ring Counter? increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB520, type="u8", condition="change", action="BOSS_HIT", desc="Controls boss health" },
+        { address=0XB521, type="u8", condition="change", action="BOSS_HIT", desc="Controls boss health" },
+        { address=0XE7A6, type="u8", condition="change", action="BOSS_HIT", desc="Controls boss health" },
+        { address=0XE7A8, type="u8", condition="change", action="BOSS_HIT", desc="Controls boss health" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB01C, type="u8", condition="eq", value=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0XB01C, type="u8", condition="eq", value=0X21, action="JUMPING", no_log=true, no_survey=true, desc="Falling (either off a ledge or from a jump)" },
+        { address=0XB01C, type="u8", condition="eq", value=0X29, action="JUMPING", no_log=true, no_survey=true, desc="Walljumping" },
+        { address=0XF604, type="u8", condition="bit_true", mask=0X20, action="JUMPING", no_log=true, no_survey=true, desc="B (Jump)" },
+        { address=0XF605, type="u8", condition="bit_true", mask=0X20, action="JUMPING", no_log=true, no_survey=true, desc="B (Jump)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer - Minutes" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Solitaire Royale",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "solitaire-royale",
+    hashes = {
+      { hash = "ee4c7205d56384f37414f7f199484ece", label = "Solitaire Royale.d88" },
+    }
+  },
+
+  events = {
+  },
+}

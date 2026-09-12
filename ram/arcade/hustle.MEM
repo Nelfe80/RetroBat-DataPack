@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hustle",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "hustle",
+    hashes = {
+      { hash = "2cdfa70eba7bdb19eede5a2652b432da", label = "hustle.7z <Hustle>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X011B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x10000" },
+        { address=0X011C, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x1000" },
+        { address=0X011D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x100" },
+        { address=0X011E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x10" },
+        { address=0X011F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x1" },
+      },
+    },
+  },
+}

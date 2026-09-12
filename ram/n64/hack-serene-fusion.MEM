@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Serene Fusion",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-serene-fusion",
+    hashes = {
+      { hash = "1f72882b33d92fa278efddbc0a12b604", label = "SM64 - Serene Fusion (v1.2) (Various).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6CE99, type="u8", condition="change", action="NEW_LEVEL", desc="bits 0-1 - pie level" },
+        { address=0X1FF696, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level id" },
+        { address=0X2012F8, type="u8", condition="change", action="NEW_LEVEL", desc="gCurrLevelArea - only place where level + sublevel id are together and updated properly" },
+        { address=0X20306A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level index of the last collected star" },
+        { address=0X20D52E, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level index" },
+        { address=0X20E4C0, type="u8", condition="change", action="LEVEL_CLEAR", desc="[3 floats] cam goal focus x, y, z" },
+        { address=0X20E775, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] sub-level (area) id - doesn't update for some instant warps" },
+        { address=0X20E776, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] alt. level id" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X20E840, type="u16be", condition="increase", action="HEAL", desc="[16bit] hp increased" },
+        { address=0X20E840, type="u16be", condition="decrease", action="HIT", desc="[16bit] hp decreased" },
+        { address=0X20E844, type="u8", condition="increase", action="HEAL", desc="[8bit] hp increment increased" },
+        { address=0X20E844, type="u8", condition="decrease", action="HIT", desc="[8bit] hp increment decreased" },
+        { address=0X20E845, type="u8", condition="increase", action="HEAL", desc="[8bit] hp decrement increased" },
+        { address=0X20E845, type="u8", condition="decrease", action="HIT", desc="[8bit] hp decrement decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20E784, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin display increased" },
+        { address=0X20E83E, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] nof coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X203014, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] ptr to stood on object" },
+      },
+    },
+  },
+}

@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "spyhunt",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "spy-hunter",
+    hashes = {
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X242F, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Best Text Adventure",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-best-text-adventure",
+    hashes = {
+      { hash = "e15744f9e33180f5825c0242900f5a89", label = "Best Text Adventure, The (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Skeleton+",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-skeleton",
+    hashes = {
+      { hash = "eafe8b40313a65792e88ff9f2fe2655c", label = "Skeleton+ (NTSC) (Aftermarket) (Unl) (Eric Ball).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0034, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Current Health Decimals 8bits" },
+        { address=0X0034, type="u8", condition="eq", value=0X2F, action="HEALTH_STATE", no_log=true, desc="0" },
+        { address=0X0034, type="u8", condition="eq", value=0X34, action="HEALTH_STATE", no_log=true, desc="1" },
+        { address=0X0034, type="u8", condition="eq", value=0X39, action="HEALTH_STATE", no_log=true, desc="2" },
+        { address=0X0034, type="u8", condition="eq", value=0X3E, action="HEALTH_STATE", no_log=true, desc="3" },
+        { address=0X0034, type="u8", condition="eq", value=0X43, action="HEALTH_STATE", no_log=true, desc="4" },
+        { address=0X0034, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", no_log=true, desc="5" },
+        { address=0X0034, type="u8", condition="eq", value=0X4D, action="HEALTH_STATE", no_log=true, desc="6" },
+        { address=0X0034, type="u8", condition="eq", value=0X52, action="HEALTH_STATE", no_log=true, desc="7" },
+        { address=0X0034, type="u8", condition="eq", value=0X57, action="HEALTH_STATE", no_log=true, desc="8" },
+        { address=0X0034, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="9" },
+        { address=0X0036, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Current Health Units 8bits" },
+        { address=0X0036, type="u8", condition="eq", value=0X2F, action="HEALTH_STATE", no_log=true, desc="0" },
+        { address=0X0036, type="u8", condition="eq", value=0X34, action="HEALTH_STATE", no_log=true, desc="1" },
+        { address=0X0036, type="u8", condition="eq", value=0X39, action="HEALTH_STATE", no_log=true, desc="2" },
+        { address=0X0036, type="u8", condition="eq", value=0X3E, action="HEALTH_STATE", no_log=true, desc="3" },
+        { address=0X0036, type="u8", condition="eq", value=0X43, action="HEALTH_STATE", no_log=true, desc="4" },
+        { address=0X0036, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", no_log=true, desc="5" },
+        { address=0X0036, type="u8", condition="eq", value=0X4D, action="HEALTH_STATE", no_log=true, desc="6" },
+        { address=0X0036, type="u8", condition="eq", value=0X52, action="HEALTH_STATE", no_log=true, desc="7" },
+        { address=0X0036, type="u8", condition="eq", value=0X57, action="HEALTH_STATE", no_log=true, desc="8" },
+        { address=0X0036, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="9" },
+      },
+    },
+  },
+}

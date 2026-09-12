@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ Picross_a",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-picross-a",
+    hashes = {
+      { hash = "d44dfa26a30c4238271e480177cd0297", label = "Picross a (World).hex" },
+    }
+  },
+
+  events = {
+  },
+}

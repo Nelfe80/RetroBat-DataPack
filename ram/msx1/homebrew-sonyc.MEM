@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sonyc",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sonyc",
+    hashes = {
+      { hash = "8862fece2e199eecb0d8f68e0f9dee70", label = "Sonyc (1995) (Analogy).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

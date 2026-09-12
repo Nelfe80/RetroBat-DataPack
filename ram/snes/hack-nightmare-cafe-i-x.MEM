@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Nightmare Cafe I-X",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-nightmare-cafe-i-x",
+    hashes = {
+      { hash = "1aaf57d8dcfc25064e6c6c42738d3d99", label = "SMW - Nightmare Cafe (v1.1) (Lush_50).sfc" },
+      { hash = "0d3fecab61ed7d91fad8bc3580b522e3", label = "SMW - Nightmare Cafe II (v1.3) (Lush_50).sfc" },
+      { hash = "4e3c1946aa366ff03a90619266364ec4", label = "SMW - Nightmare Cafe III (v1.3) (Lush_50).sfc" },
+      { hash = "9312de9eeeddb90fe32bfedacab15aa9", label = "SMW - Nightmare Cafe IV (v1.3) (Lush_50).sfc" },
+      { hash = "1788da82695c636ecde270d297844d87", label = "SMW - Nightmare Cafe V (v1.0) (Lush_50).sfc" },
+      { hash = "9f661ca491f64178c66626e0f2870844", label = "SMW - Nightmare Cafe VI (v1.3) (Lush_50).sfc" },
+      { hash = "19dc9693e56839b6160ef7dbaa2ca960", label = "SMW - Nightmare Cafe VII (v1.3) (Lush_50).sfc" },
+      { hash = "44fb92e435817ce2f19ac5750cc77b17", label = "SMW - Nightmare Cafe VIII (v1.3) (Lush_50).sfc" },
+      { hash = "09b2a7e0d86a3d804e2525c45bddba5d", label = "SMW - Nightmare Cafe IX (v1.0) (Lush_50).sfc" },
+      { hash = "8780521a6511f5b8562598c7338cdc3a", label = "SMW - Nightmare Cafe X (v1.0) (Lush_50).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X1DF, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X1E0, action="BOSS_HIT", desc="Boss room" },
+      },
+    },
+  },
+}

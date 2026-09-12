@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sudoku (Tectoy)",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sudoku",
+    hashes = {
+      { hash = "1ef2a7240551c4666b47a72e4fc6c473", label = "Sudoku (Brazil) (Mega Drive 4).sms" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X033B, type="u8", condition="change", action="NEW_LEVEL", desc="This tells what level you are playing" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lilo and Stitch: Trouble in Paradise",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Adventure, Platform"
+  },
+
+  rom = {
+    name = "lilo-and-stitch-trouble-in-paradise",
+    hashes = {
+      { hash = "026ead58e6227ad1a726e8eec7e87543", label = "Disney's Lilo & Stitch (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Traffic Jam",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-traffic-jam",
+    hashes = {
+      { hash = "c405d4af33c77cc902211b9308031449", label = "Traffic Jam (2006) (Imanok).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X2B3E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2B41, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time remaining" },
+      },
+    },
+  },
+}

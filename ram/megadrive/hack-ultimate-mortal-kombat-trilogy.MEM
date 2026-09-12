@@ -1,0 +1,102 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ultimate Mortal Kombat Trilogy",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ultimate-mortal-kombat-trilogy",
+    hashes = {
+      { hash = "073bef4bea44531dd1a217e801ab04b7", label = "Ultimate Mortal Kombat Trilogy (v5125 Fixed).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0223, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Game - Continues (Credits)" },
+        { address=0X02AA, type="u8", condition="eq", value=0X08, action="DEMO_MODE", desc="Fatality 1" },
+        { address=0X02AA, type="u8", condition="eq", value=0X09, action="DEMO_MODE", desc="Fatality 2" },
+        { address=0X02AA, type="u8", condition="eq", value=0X0A, action="DEMO_MODE", desc="Fatality 3" },
+        { address=0X02AA, type="u8", condition="eq", value=0X0B, action="DEMO_MODE", desc="Fatality 4" },
+        { address=0X02E2, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Demo Fatality 1, 2" },
+        { address=0X02E2, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="Demo Fatality 3, 4" },
+        { address=0X02E2, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Demo Animalities" },
+        { address=0X02E2, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo Brutalities" },
+      },
+      events = {
+        { address=0XA2E6, type="u8", condition="change", action="COMBO_HIT", desc="P1 - Combo Moves ID" },
+        { address=0XA2ED, type="u8", condition="change", action="COMBO_HIT", desc="P1 - Combo Hits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X001D, type="u8", condition="change", action="NEW_LEVEL", desc="Options - Level (Difficult)" },
+        { address=0X001D, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Easiest" },
+        { address=0X001D, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Easy" },
+        { address=0X001D, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Medium" },
+        { address=0X001D, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Hard" },
+        { address=0X001D, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Hardest" },
+        { address=0X029E, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds Win (Global)" },
+        { address=0X02F8, type="u8", condition="change", action="NEW_LEVEL", desc="Fight - Round Ended" },
+        { address=0X9F8C, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Round Wins (Combat)" },
+        { address=0XF502, type="u8", condition="change", action="NEW_LEVEL", desc="Fight - Round Started (0/1)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1FFFE, type="u24be", condition="eq", value=0X1F, action="LOSE_LIFE", desc="Dead Pool" },
+      },
+      health = {
+        { address=0X9F7A, type="u8", condition="increase", action="HEAL", desc="P1 - Health Bar (Display) increased" },
+        { address=0X9F7A, type="u8", condition="decrease", action="HIT", desc="P1 - Health Bar (Display) decreased" },
+        { address=0XA22A, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0XA2E8, type="u8", condition="eq", value=0X14D, action="HIT", desc="200%" },
+        { address=0XA2E8, type="u8", condition="eq", value=0XA6, action="HIT", desc="100% Damage" },
+        { address=0XEE7A, type="u16be", condition="change", action="HEALTH_STATE", no_log=true, desc="P2 - Health Bar (Display) [16-bits, 2]" },
+        { address=0XEE7A, type="u16be", condition="eq", value=0X14C, action="HEALTH_STATE", no_log=true, desc="Full HP (200 health)" },
+        { address=0XEE7A, type="u16be", condition="eq", value=0XA6, action="HEALTH_STATE", no_log=true, desc="Full HP (100 health)" },
+        { address=0XEE92, type="u16be", condition="change", action="HEALTH_STATE", no_log=true, desc="P1 - Health Bar (Display) [16-bits,2]" },
+        { address=0XEE92, type="u16be", condition="eq", value=0X14C, action="HEALTH_STATE", no_log=true, desc="Full HP (200 health)" },
+        { address=0XEE92, type="u16be", condition="eq", value=0XA6, action="HEALTH_STATE", no_log=true, desc="Full HP (100 health)" },
+        { address=0XF228, type="u16be", condition="change", action="HEALTH_STATE", no_log=true, desc="P1 - Health Bar (Value) [16-bits]" },
+        { address=0XF228, type="u16be", condition="eq", value=0X14C, action="HEALTH_STATE", no_log=true, desc="Full HP (200 health)" },
+        { address=0XF228, type="u16be", condition="eq", value=0XA6, action="HEALTH_STATE", no_log=true, desc="Full HP (100 health)" },
+        { address=0XF39A, type="u16be", condition="change", action="HEALTH_STATE", no_log=true, desc="P2 - Health Bar (Value) [16-bits]" },
+        { address=0XF39A, type="u16be", condition="eq", value=0X14C, action="HEALTH_STATE", no_log=true, desc="Full HP (200 health)" },
+        { address=0XF39A, type="u16be", condition="eq", value=0XA6, action="HEALTH_STATE", no_log=true, desc="Full HP (100 health)" },
+        { address=0XF8B2, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Options - Health" },
+        { address=0XF8B2, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="100" },
+        { address=0XF8B2, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="200" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X020E, type="u8", condition="eq", value=0X01, action="TREASURE", desc="Treasure/8v8 Classifications" },
+        { address=0X02E2, type="u8", condition="eq", value=0X00, action="TREASURE", desc="Character Bio" },
+        { address=0X02E2, type="u8", condition="eq", value=0X01, action="TREASURE", desc="Hidden Game" },
+        { address=0X02E2, type="u8", condition="eq", value=0X06, action="TREASURE", desc="Noob Saibot - Ermac Endurance" },
+        { address=0X02E2, type="u8", condition="eq", value=0X07, action="TREASURE", desc="Endurance vs 4 Players" },
+        { address=0X02E2, type="u8", condition="eq", value=0X08, action="TREASURE", desc="Mega Endurance Kombat" },
+        { address=0X02E2, type="u8", condition="eq", value=0X09, action="TREASURE", desc="Mega Endurance Kombat" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XA1FA, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0XA22A, type="u8", condition="eq", value=0X0A, action="JUMPING", no_log=true, no_survey=true, desc="Neutral Jump + Kick" },
+        { address=0XA22A, type="u8", condition="eq", value=0X0B, action="JUMPING", no_log=true, no_survey=true, desc="Jump + Kick" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD657, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Secrets - Timer" },
+        { address=0XEF66, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Fight - Round Timer (Lower)" },
+        { address=0XEF68, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Fight - Round Timer (Upper)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "X-COM: Terror from the Deep",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "x-com-terror-from-the-deep",
+    hashes = {
+      { hash = "8832a88f06d8c5f73045b851c2d95d44", label = "X-COM - Terror from the Deep (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7EA4, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="Play, 3:Pause, 5:FastForward, 6:Rewind" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XDDC44, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Active" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X47FFA, type="u8", condition="increase", action="COIN_GAIN", desc="2 during credits increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7E7C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Popup timer - time left" },
+      },
+    },
+  },
+}

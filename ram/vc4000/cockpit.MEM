@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cockpit",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "cockpit",
+    hashes = {
+      { hash = "d329379e2763121a83413f17b646901d", label = "Cockpit (Europe).bin" },
+    }
+  },
+
+  events = {
+  },
+}

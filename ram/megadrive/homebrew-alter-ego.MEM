@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Alter Ego",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-alter-ego",
+    hashes = {
+      { hash = "30c01f5a82b51fd7e23315dd070d5818", label = "AlterEgo - Remastered (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0838, type="u8", condition="change", action="NEW_LEVEL", desc="- Level" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0842, type="u8", condition="change", action="OBJECT_INTERACTION", desc="- Number of phantom switchs left" },
+        { address=0X0846, type="u8", condition="change", action="OBJECT_INTERACTION", desc="- Number of blocks remaining" },
+      },
+    },
+  },
+}

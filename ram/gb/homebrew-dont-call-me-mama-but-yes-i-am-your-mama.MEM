@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Don't Call Me Mama But Yes I Am Your Mama",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-dont-call-me-mama-but-yes-i-am-your-mama",
+    hashes = {
+      { hash = "f89f14b54db224ab47ebe8a0d6077a3e", label = "Don't Call Me Mama But Yes I Am Your Mama (World) (v2.0) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC228, type="u8", condition="eq", value=0X25, action="CREDITS_SCREEN", desc="Credits Screen 1" },
+        { address=0XC228, type="u8", condition="eq", value=0X26, action="CREDITS_SCREEN", desc="Credits Screen 2" },
+        { address=0XC228, type="u8", condition="eq", value=0X27, action="CREDITS_SCREEN", desc="Credits Screen 3" },
+        { address=0XC228, type="u8", condition="eq", value=0X48, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC5A5, type="u8", condition="change", action="LOSE_LIFE", desc="1st Ingredient Loaded bitflag" },
+        { address=0XC5CD, type="u8", condition="change", action="LOSE_LIFE", desc="2nd Ingredient Loaded bitflag" },
+        { address=0XC5D0, type="u8", condition="change", action="LOSE_LIFE", desc="3rd Ingredient Loaded bitflag" },
+        { address=0XC5D3, type="u8", condition="change", action="LOSE_LIFE", desc="4th Ingredient Loaded bitflag" },
+        { address=0XC5D4, type="u8", condition="change", action="LOSE_LIFE", desc="5th Ingredient Loaded bitflag" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XC228, type="u8", condition="eq", value=0X19, action="WEAPON_STATE", desc="Weapons Machine" },
+        { address=0XC228, type="u8", condition="eq", value=0X1A, action="WEAPON_STATE", desc="Weapons Machine Fixed" },
+        { address=0XC228, type="u8", condition="eq", value=0X1B, action="WEAPON_STATE", desc="Bubbler Weapon Room" },
+        { address=0XC228, type="u8", condition="eq", value=0X1C, action="WEAPON_STATE", desc="Euthanbeam Weapon Room" },
+        { address=0XC228, type="u8", condition="eq", value=0X1D, action="WEAPON_STATE", desc="Revolting Bolt Weapon Room" },
+      },
+    },
+  },
+}

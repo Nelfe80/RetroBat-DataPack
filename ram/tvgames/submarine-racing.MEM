@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Submarine + Racing",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "submarine-racing",
+    hashes = {
+      { hash = "fb8c205c7aa983c379068e9581364c2c", label = "Submarines & Racing (Europe) (ESS-011-E).tvc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u8", condition="eq", value=0X0, action="GAME_OVER", desc="Game" },
+        { address=0X0010, type="u8", condition="eq", value=0X40, action="GAME_OVER", desc="Game Over" },
+        { address=0X17C3, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game" },
+        { address=0X17C3, type="u8", condition="eq", value=0X02, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1758, type="u8", condition="change", action="NEW_LEVEL", desc="Submarine level progression flag 1" },
+        { address=0X1759, type="u8", condition="change", action="NEW_LEVEL", desc="Submarine level progression flag 2" },
+        { address=0X175A, type="u8", condition="change", action="NEW_LEVEL", desc="Submarine level progression flag 3" },
+        { address=0X175B, type="u8", condition="change", action="NEW_LEVEL", desc="Submarine level progression flag 4" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X175C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BE BCD] Submarine score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X171E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8-bit BCD] Submarine: Time" },
+        { address=0X1757, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="countdown", timer_unit="unknown", desc="Submarine red layer active ship" },
+        { address=0X17C8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8-bit BCD] Submarine timer (seconds)" },
+      },
+    },
+  },
+}

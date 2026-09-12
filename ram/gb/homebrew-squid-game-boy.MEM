@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Squid Game Boy",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-squid-game-boy",
+    hashes = {
+      { hash = "45e9109c358d91c9094d5ce36dd85fc0", label = "Squid Game Boy (World) (v1.1) (Aftermarket) (64 Bits Animation).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCB8B, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="False" },
+        { address=0XCB8B, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="True" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCBA2, type="u8", condition="increase", action="HEAL", desc="[8bit] Player Health (Lights Out) increased" },
+        { address=0XCBA2, type="u8", condition="decrease", action="HIT", desc="[8bit] Player Health (Lights Out) decreased" },
+        { address=0XCBC0, type="u8", condition="increase", action="HEAL", desc="[8bit] Player Health (Squid Game) increased" },
+        { address=0XCBC0, type="u8", condition="decrease", action="HIT", desc="[8bit] Player Health (Squid Game) decreased" },
+        { address=0XCC6C, type="u8", condition="increase", action="HEAL", desc="[8bit] Squid Game - Sang-Woo Health increased" },
+        { address=0XCC6C, type="u8", condition="decrease", action="HIT", desc="[8bit] Squid Game - Sang-Woo Health decreased" },
+        { address=0XCC6E, type="u8", condition="increase", action="HEAL", desc="[8bit] Squid Game - Sang-Woo Health increased" },
+        { address=0XCC6E, type="u8", condition="decrease", action="HIT", desc="[8bit] Squid Game - Sang-Woo Health decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC7EB, type="u8", condition="eq", value=0X1E, action="JUMPING", no_log=true, no_survey=true, desc="Jumping On Player" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCB94, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Red Light, Green Light Timer (Seconds)" },
+        { address=0XCBA0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Sugar Honeycombs Timer (Seconds)" },
+      },
+    },
+  },
+}

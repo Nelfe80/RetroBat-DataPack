@@ -1,0 +1,115 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Winter Festive 2020: Advent CalenDoor",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-winter-festive-2020-advent-calendoor",
+    hashes = {
+      { hash = "13c0613cddf3baecd4893b6f48f7ae73", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Link Sprite, Quick Swap Off).sfc" },
+      { hash = "20bc61206a25f775808fdd539b825340", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Link Sprite, Quick Swap On).sfc" },
+      { hash = "7c86bdf3102018562cb9b847f43391f6", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Santa Hat Link Sprite, Quick Swap Off).sfc" },
+      { hash = "c23a39a178044f7627fc68697b0b04dc", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Santa Link Sprite, Quick Swap On).sfc" },
+      { hash = "ce766058b18876578018ab979d1e2f7d", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Santa Link Sprite, Quick Swap Off).sfc" },
+      { hash = "e00a3727d30682212cd26ef094bab251", label = "~Hack~ Winter Festive 2020 - Advent CalenDoor (Santa Hat Link Sprite, Quick Swap On).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0011, type="u8", condition="eq", value=0X0B, action="CONTINUE_SCREEN", desc="continue / save and quit" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0602, type="u16le", condition="change", action="NEW_LEVEL", desc="Overworld screen ID?" },
+      },
+      zone = {
+        { address=0X0011, type="u8", condition="eq", value=0X07, action="PROGRESSION_ZONE", desc="viewing world map" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XF36D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XF36D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XF00D, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="alive" },
+        { address=0XF00D, type="u8", condition="eq", value=0X08, action="BOSS_DEFEATED", desc="dead" },
+        { address=0XF00E, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="alive" },
+        { address=0XF00E, type="u8", condition="eq", value=0X08, action="BOSS_DEFEATED", desc="dead" },
+        { address=0XF122, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="alive" },
+        { address=0XF122, type="u8", condition="eq", value=0X08, action="BOSS_DEFEATED", desc="dead" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC987, type="u8", condition="change", action="DOOR_OPENED", desc="Door 1 art tile" },
+        { address=0XC989, type="u8", condition="change", action="DOOR_OPENED", desc="Door 2 art tile" },
+        { address=0XC98B, type="u8", condition="change", action="DOOR_OPENED", desc="Door 3 art tile" },
+        { address=0XC98D, type="u8", condition="change", action="DOOR_OPENED", desc="Door 4 art tile" },
+        { address=0XC98F, type="u8", condition="change", action="DOOR_OPENED", desc="Door 5 art tile" },
+        { address=0XC991, type="u8", condition="change", action="DOOR_OPENED", desc="Door 6 art tile" },
+        { address=0XC993, type="u8", condition="change", action="DOOR_OPENED", desc="Door 7 art tile" },
+        { address=0XC995, type="u8", condition="change", action="DOOR_OPENED", desc="Door 8 art tile" },
+        { address=0XC997, type="u8", condition="change", action="DOOR_OPENED", desc="Door 9 art tile" },
+        { address=0XC999, type="u8", condition="change", action="DOOR_OPENED", desc="Door 10 art tile" },
+        { address=0XC99B, type="u8", condition="change", action="DOOR_OPENED", desc="Door 11 art tile" },
+        { address=0XC99D, type="u8", condition="change", action="DOOR_OPENED", desc="Door 12 art tile" },
+        { address=0XC99F, type="u8", condition="change", action="DOOR_OPENED", desc="Door 13 art tile" },
+        { address=0XC9A1, type="u8", condition="change", action="DOOR_OPENED", desc="Door 14 art tile" },
+        { address=0XC9A3, type="u8", condition="change", action="DOOR_OPENED", desc="Door 15 art tile" },
+        { address=0XC9A5, type="u8", condition="change", action="DOOR_OPENED", desc="Door 16 art tile" },
+        { address=0XC9A7, type="u8", condition="change", action="DOOR_OPENED", desc="Door 17 art tile" },
+        { address=0XC9A9, type="u8", condition="change", action="DOOR_OPENED", desc="Door 18 art tile" },
+        { address=0XC9AB, type="u8", condition="change", action="DOOR_OPENED", desc="Door 19 art tile" },
+        { address=0XC9AD, type="u8", condition="change", action="DOOR_OPENED", desc="Door 20 art tile" },
+        { address=0XC9AF, type="u8", condition="change", action="DOOR_OPENED", desc="Door 21 art tile" },
+        { address=0XC9B1, type="u8", condition="change", action="DOOR_OPENED", desc="Door 22 art tile" },
+        { address=0XC9B3, type="u8", condition="change", action="DOOR_OPENED", desc="Door 23 art tile" },
+        { address=0XC9B5, type="u8", condition="change", action="DOOR_OPENED", desc="Door 24 art tile" },
+        { address=0XC9B7, type="u8", condition="change", action="DOOR_OPENED", desc="Door 25 art tile" },
+        { address=0XF374, type="u8", condition="change", action="DOOR_OPENED", desc="Pendant on the current door, 0x07 : all gotten" },
+        { address=0X204F8, type="u8", condition="change", action="DOOR_OPENED", desc="Door number" },
+        { address=0X21000, type="u8", condition="change", action="DOOR_OPENED", desc="Door 1 Pendants, 0x07 : all gotten" },
+        { address=0X21001, type="u8", condition="change", action="DOOR_OPENED", desc="Door 2 Pendants, 0x07 : all gotten" },
+        { address=0X21002, type="u8", condition="change", action="DOOR_OPENED", desc="Door 3 Pendants, 0x07 : all gotten" },
+        { address=0X21003, type="u8", condition="change", action="DOOR_OPENED", desc="Door 4 Pendants, 0x07 : all gotten" },
+        { address=0X21004, type="u8", condition="change", action="DOOR_OPENED", desc="Door 5 Pendants, 0x07 : all gotten" },
+        { address=0X21005, type="u8", condition="change", action="DOOR_OPENED", desc="Door 6 Pendants, 0x07 : all gotten" },
+        { address=0X21006, type="u8", condition="change", action="DOOR_OPENED", desc="Door 7 Pendants, 0x07 : all gotten" },
+        { address=0X21007, type="u8", condition="change", action="DOOR_OPENED", desc="Door 8 Pendants, 0x07 : all gotten" },
+        { address=0X21008, type="u8", condition="change", action="DOOR_OPENED", desc="Door 9 Pendants, 0x07 : all gotten" },
+        { address=0X21009, type="u8", condition="change", action="DOOR_OPENED", desc="Door 10 Pendants, 0x07 : all gotten" },
+        { address=0X2100A, type="u8", condition="change", action="DOOR_OPENED", desc="Door 11 Pendants, 0x07 : all gotten" },
+        { address=0X2100B, type="u8", condition="change", action="DOOR_OPENED", desc="Door 12 Pendants, 0x07 : all gotten" },
+        { address=0X2100C, type="u8", condition="change", action="DOOR_OPENED", desc="Door 13 Pendants, 0x07 : all gotten" },
+        { address=0X2100D, type="u8", condition="change", action="DOOR_OPENED", desc="Door 14 Pendants, 0x07 : all gotten" },
+        { address=0X2100E, type="u8", condition="change", action="DOOR_OPENED", desc="Door 15 Pendants, 0x07 : all gotten" },
+        { address=0X2100F, type="u8", condition="change", action="DOOR_OPENED", desc="Door 16 Pendants, 0x07 : all gotten" },
+        { address=0X21010, type="u8", condition="change", action="DOOR_OPENED", desc="Door 17 Pendants, 0x07 : all gotten" },
+        { address=0X21011, type="u8", condition="change", action="DOOR_OPENED", desc="Door 18 Pendants, 0x07 : all gotten" },
+        { address=0X21012, type="u8", condition="change", action="DOOR_OPENED", desc="Door 19 Pendants, 0x07 : all gotten" },
+        { address=0X21013, type="u8", condition="change", action="DOOR_OPENED", desc="Door 20 Pendants, 0x07 : all gotten" },
+        { address=0X21014, type="u8", condition="change", action="DOOR_OPENED", desc="Door 21 Pendants, 0x07 : all gotten" },
+        { address=0X21015, type="u8", condition="change", action="DOOR_OPENED", desc="Door 22 Pendants, 0x07 : all gotten" },
+        { address=0X21016, type="u8", condition="change", action="DOOR_OPENED", desc="Door 23 Pendants, 0x07 : all gotten" },
+        { address=0X21017, type="u8", condition="change", action="DOOR_OPENED", desc="Door 24 Pendants, 0x07 : all gotten" },
+        { address=0X21018, type="u8", condition="change", action="DOOR_OPENED", desc="Door 25 Pendants, 0x07 : all gotten" },
+        { address=0X21019, type="u8", condition="change", action="DOOR_OPENED", desc="Door 26 Pendants, 0x07 : all gotten" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF42E, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time spent with transition paused" },
+      },
+    },
+  },
+}

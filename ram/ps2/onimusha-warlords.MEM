@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Onimusha: Warlords",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Horror"
+  },
+
+  rom = {
+    name = "onimusha-warlords",
+    hashes = {
+      { hash = "9ed1436eaa513f1a1cea347b1539be55", label = "Onimusha - Warlords (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2877BE, type="u8", condition="bit_true", mask=0X80, action="DEMO_MODE", desc="Und. Temple Map Room Demon (0x01, 0x0d)" },
+        { address=0X287828, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Flying Demons (0x01, 0x1a)" },
+        { address=0X287836, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Saito Castle Main Area Demons(0x02, 0x00)" },
+        { address=0X287836, type="u8", condition="bit_true", mask=0X02, action="DEMO_MODE", desc="Saito Castle Main Area Demons(0x02, 0x00)" },
+        { address=0X287836, type="u8", condition="bit_true", mask=0X20, action="DEMO_MODE", desc="Saito Castle Main Area Demons(0x02, 0x00)" },
+        { address=0X287836, type="u8", condition="bit_true", mask=0X80, action="DEMO_MODE", desc="Saito Castle Main Area Demons(0x02, 0x00)" },
+        { address=0X287856, type="u8", condition="bit_true", mask=0X08, action="DEMO_MODE", desc="Flying Demons (0x01, 0x1a)" },
+        { address=0X287856, type="u8", condition="bit_true", mask=0X80, action="DEMO_MODE", desc="Big Demons (0x01, 0x1a)" },
+        { address=0X2878D8, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Great Axe Demon" },
+        { address=0X287928, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Enryuu Room Reynaldo Demon" },
+        { address=0X287E6A, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demon" },
+        { address=0X287E74, type="u32le", condition="change", action="DEMO_MODE", desc="[32-Bits] Demons Defeated" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X287C08, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Keep Underground Map" },
+        { address=0X287C9C, type="u8", condition="change", action="NEW_LEVEL", desc="Shiden Level" },
+        { address=0X287C9D, type="u8", condition="change", action="NEW_LEVEL", desc="Kouen Level" },
+        { address=0X287C9E, type="u8", condition="change", action="NEW_LEVEL", desc="Arashi Level" },
+        { address=0X287C9F, type="u8", condition="change", action="NEW_LEVEL", desc="Raizan Level" },
+        { address=0X287CA0, type="u8", condition="change", action="NEW_LEVEL", desc="Enryuu Level" },
+        { address=0X287CA1, type="u8", condition="change", action="NEW_LEVEL", desc="Shippuu Level" },
+        { address=0X4B8E2C, type="u8", condition="change", action="NEW_LEVEL", desc="Raizan Sword Level" },
+        { address=0X4B8E2D, type="u8", condition="change", action="NEW_LEVEL", desc="Enryuu Sword Level" },
+        { address=0X4B8E2E, type="u8", condition="change", action="NEW_LEVEL", desc="Shippuu Sword Level" },
+        { address=0X4B8E2F, type="u8", condition="change", action="NEW_LEVEL", desc="Shiden Orb Level" },
+        { address=0X4B8E30, type="u8", condition="change", action="NEW_LEVEL", desc="Kouen Orb Level" },
+        { address=0X4B8E31, type="u8", condition="change", action="NEW_LEVEL", desc="Arashi Orb Level" },
+      },
+      stage = {
+        { address=0X287229, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Oni Spirits Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB3C050, type="u8", condition="increase", action="GAIN_LIFE", desc="[Temp2] Enemy Life increased" },
+        { address=0XB3C050, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Temp2] Enemy Life decreased" },
+        { address=0XB4BD40, type="u8", condition="increase", action="GAIN_LIFE", desc="[Temp3] Enemy Life increased" },
+        { address=0XB4BD40, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Temp3] Enemy Life decreased" },
+        { address=0XB5ECA0, type="u8", condition="increase", action="GAIN_LIFE", desc="[Temp] Enemy Life increased" },
+        { address=0XB5ECA0, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Temp] Enemy Life decreased" },
+      },
+      health = {
+        { address=0X28859E, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X28859E, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X2885A0, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X2885A0, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X287C05, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Gold Plate" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2876E0, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Kaede MiniBoss Defeated" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X28722A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Pots Broken by Player" },
+        { address=0X2876DC, type="u8", condition="bit_true", mask=0X40, action="OBJECT_DESTROYED", desc="Related to Wall Broken by Osric when Defeated" },
+        { address=0X2876ED, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="Saito Door Unlocked" },
+      },
+    },
+  },
+}

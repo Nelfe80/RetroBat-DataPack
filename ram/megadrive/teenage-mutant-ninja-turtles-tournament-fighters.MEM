@@ -1,0 +1,87 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Teenage Mutant Ninja Turtles: Tournament Fighters",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "teenage-mutant-ninja-turtles-tournament-fighters",
+    hashes = {
+      { hash = "4cabf79a9e4783ff4e5c1294bcb6129c", label = "Teenage Mutant Ninja Turtles - Tournament Fighters (USA).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8970, type="u8", condition="eq", value=0X03, action="CONTINUE_SCREEN", desc="3" },
+        { address=0XA210, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Demo?" },
+        { address=0XFE22, type="u8", condition="eq", value=0X03, action="CONTINUE_SCREEN", desc="3" },
+        { address=0XFE22, type="u8", condition="eq", value=0X05, action="CONTINUE_SCREEN", desc="5" },
+        { address=0XFE22, type="u8", condition="eq", value=0X07, action="CONTINUE_SCREEN", desc="7" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X8912, type="u8", condition="change", action="NEW_LEVEL", desc="Visual Indicator Rounds Won by player (Single Digit)" },
+        { address=0X8913, type="u8", condition="change", action="NEW_LEVEL", desc="Visual Indicator Round Amount (Tenth Digit)" },
+        { address=0X8914, type="u8", condition="change", action="NEW_LEVEL", desc="Visual Indicator Rounds Won By Enemy (Single Digit)" },
+        { address=0XFE10, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0XFE10, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2" },
+        { address=0XFE10, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3" },
+        { address=0XFE10, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4" },
+        { address=0XFE10, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5" },
+        { address=0XFE10, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6" },
+        { address=0XFE10, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Level 7" },
+        { address=0XFE10, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 8" },
+        { address=0XFE12, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of rounds" },
+        { address=0XFE12, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="1 round" },
+        { address=0XFE12, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="3 rounds" },
+        { address=0XFE12, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="5 rounds" },
+        { address=0XFE12, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="7 rounds" },
+      },
+      stage = {
+        { address=0XA214, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Indicator / Progression Indicator" },
+        { address=0XA214, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Futuristic City Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Jungle Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Magma Ocean Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Ice Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Mirage Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Spaceship" },
+        { address=0XA214, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Bio Planet" },
+        { address=0XA214, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Ocean Planet" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0030, type="u8", condition="increase", action="HEAL", desc="Player HP (80 : Max) increased" },
+        { address=0X0030, type="u8", condition="decrease", action="HIT", desc="Player HP (80 : Max) decreased" },
+        { address=0X0070, type="u8", condition="increase", action="HEAL", desc="Enemy HP (80 : Max) increased" },
+        { address=0X0070, type="u8", condition="decrease", action="HIT", desc="Enemy HP (80 : Max) decreased" },
+        { address=0X891A, type="u8", condition="increase", action="HEAL", desc="Visual Indicator Player HP increased" },
+        { address=0X891A, type="u8", condition="decrease", action="HIT", desc="Visual Indicator Player HP decreased" },
+        { address=0X891C, type="u8", condition="increase", action="HEAL", desc="Graphical Indicator Enemy HP increased" },
+        { address=0X891C, type="u8", condition="decrease", action="HIT", desc="Graphical Indicator Enemy HP decreased" },
+        { address=0XA204, type="u8", condition="increase", action="HEAL", desc="Visual Indicator Player HP increased" },
+        { address=0XA204, type="u8", condition="decrease", action="HIT", desc="Visual Indicator Player HP decreased" },
+        { address=0XA206, type="u8", condition="increase", action="HEAL", desc="Graphical Indicator Enemy HP increased" },
+        { address=0XA206, type="u8", condition="decrease", action="HIT", desc="Graphical Indicator Enemy HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XA214, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="Final boss" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X8940, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer (Tenths) -> Moves to FF on timeup" },
+        { address=0X8942, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer (Single digit) -> moves to 9 on timeup" },
+        { address=0XFE15, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Bit 7 active : Timer off" },
+      },
+    },
+  },
+}

@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Bad-Boon Strikes Back v4.0",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-bad-boon-strikes-back-v40",
+    hashes = {
+      { hash = "f6d1b9e43b40e5ec3ca8422f0a964b3e", label = "Super Monkey Ball 2 - Bad Boon Strikes Back (v4.0) (KartingKoopa)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X54DF84, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X54DF28, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select" },
+        { address=0X54DF28, type="u8", condition="eq", value=0X00, action="LEVEL_BEGINNER", desc="Beginner" },
+        { address=0X54DF28, type="u8", condition="eq", value=0X01, action="LEVEL_ADVANCED", desc="Advanced" },
+        { address=0X54DF28, type="u8", condition="eq", value=0X02, action="LEVEL_EXPERT_UNAVAILABLE", desc="Expert (unavailable)" },
+        { address=0X553973, type="u8", condition="change", action="LEVEL_CLEAR", desc="[Bitflags] Goal" },
+        { address=0X5539A8, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Blue Goal" },
+        { address=0X5539A8, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Green Goal" },
+        { address=0X5539A8, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Red Goal" },
+      },
+      stage = {
+        { address=0X553994, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-Bit BE] Bananas Remaining in Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5BC9A2, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X5BC9A2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X54DF22, type="u8", condition="eq", value=0X02, action="SCORE_STATE", desc="Play Points" },
+        { address=0X5BCA1C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-Bit BE] Score" },
+        { address=0X5BE7D4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-Bit BE] Challenge Mode Previous Floor Score" },
+      },
+    },
+  },
+}

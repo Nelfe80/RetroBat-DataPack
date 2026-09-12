@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Aeon Flux",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-aeon-flux",
+    hashes = {
+      { hash = "48d58e76e5479d4ffbe49bab707b93c5", label = "Aeon Flux (USA) (Proto)" },
+    }
+  },
+
+  events = {
+  },
+}

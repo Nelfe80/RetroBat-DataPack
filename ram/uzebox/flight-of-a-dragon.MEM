@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Flight of a Dragon",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "flight-of-a-dragon",
+    hashes = {
+      { hash = "2ca05192fedc542f1215928b1d0e790b", label = "Flight of a Dragon (World) (Final) (Jubatian).uze" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0006, type="u16le", condition="eq", value=0X0837, action="CONTINUE_SCREEN", desc="Continue Screen" },
+        { address=0X0006, type="u16le", condition="eq", value=0X0838, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0124, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Pause Check" },
+        { address=0X0AB0, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[8 Bit] Total Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00E7, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level ID" },
+        { address=0X00E7, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 5" },
+        { address=0X00E7, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="Level 4" },
+        { address=0X00E7, type="u8", condition="eq", value=0X34, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X00E7, type="u8", condition="eq", value=0X40, action="NEW_LEVEL", desc="Level 8" },
+        { address=0X00E7, type="u8", condition="eq", value=0X74, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X00E7, type="u8", condition="eq", value=0X7D, action="NEW_LEVEL", desc="Level 9" },
+        { address=0X00E7, type="u8", condition="eq", value=0XC6, action="NEW_LEVEL", desc="Level 7" },
+        { address=0X00E7, type="u8", condition="eq", value=0XC8, action="NEW_LEVEL", desc="Level 10" },
+        { address=0X00E7, type="u8", condition="eq", value=0XCF, action="NEW_LEVEL", desc="Level 6" },
+        { address=0X00E7, type="u8", condition="eq", value=0XD2, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X0127, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8 Bit] Level Complete Check" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X01A9, type="u8", condition="increase", action="HEAL", desc="[8 Bit] Health increased" },
+        { address=0X01A9, type="u8", condition="decrease", action="HIT", desc="[8 Bit] Health decreased" },
+        { address=0X01AA, type="u8", condition="increase", action="HEAL", desc="[8 Bit] Energy Gauge increased" },
+        { address=0X01AA, type="u8", condition="decrease", action="HIT", desc="[8 Bit] Energy Gauge decreased" },
+        { address=0X01AC, type="u8", condition="bit_true", mask=0X01, action="HEALTH_STATE", no_log=true, desc="Health Upgrade 1" },
+        { address=0X01AC, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", no_log=true, desc="Health Upgrade 2" },
+        { address=0X01AC, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", no_log=true, desc="Energy Upgrade 1" },
+        { address=0X01AC, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", no_log=true, desc="Energy Upgrade 2" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0006, type="u16le", condition="eq", value=0X083A, action="SCORE_STATE", desc="Input Score" },
+        { address=0X0128, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Score" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0050, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="Jump Startup" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0123, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8 Bit] Game Over Countdown Timer" },
+      },
+    },
+  },
+}

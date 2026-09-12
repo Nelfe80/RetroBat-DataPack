@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cricket 07",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "cricket-07",
+    hashes = {
+      { hash = "9b47acbb9ba6ca887f9e63494da19678", label = "Cricket 07 (Europe, Australia)" },
+    }
+  },
+
+  events = {
+  },
+}

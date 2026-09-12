@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Super Mystery Dungeon: Echoes of Yesterday",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-super-mystery-dungeon-echoes-of-yesterday",
+    hashes = {
+      { hash = "4ca421c52a1ffdc0c6f0559359243642", label = "PMDEoS - Pokemon Super Mystery Dungeon - Echoes of Yesterday (v1.01) (NoodleNiiue).nds" },
+    }
+  },
+
+  events = {
+  },
+}

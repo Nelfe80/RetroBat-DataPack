@@ -1,0 +1,87 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mega Man Zero [Subset - Bonus]",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "mega-man-zero-subset-bonus",
+    hashes = {
+      { hash = "24a768b22948c1da155d02692c2f11c5", label = "Mega Man Zero (USA, Europe) [Subset - Bonus].gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X108E, type="u8", condition="change", action="GAME_OVER", desc="01 if game over or escape mission ll" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2AB60, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X33734, type="u8", condition="change", action="NEW_LEVEL", desc="Buster Level (max 3)" },
+        { address=0X33735, type="u8", condition="change", action="NEW_LEVEL", desc="Saber Level" },
+        { address=0X33736, type="u8", condition="change", action="NEW_LEVEL", desc="Triple Rod Level" },
+        { address=0X33737, type="u8", condition="change", action="NEW_LEVEL", desc="Shield Level (max 2)" },
+        { address=0X33738, type="u8", condition="change", action="NEW_LEVEL", desc="Total Buster Shots (increases buster level at 0xC8)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X325D0, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X325D0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X3362C, type="u8", condition="increase", action="HEAL", desc="[byte] Current health of player - by Scootaloo and updated by clymax increased" },
+        { address=0X3362C, type="u8", condition="decrease", action="HIT", desc="[byte] Current health of player - by Scootaloo and updated by clymax decreased" },
+        { address=0X33723, type="u8", condition="increase", action="HEAL", desc="[8bit] Healthbar height increased" },
+        { address=0X33723, type="u8", condition="decrease", action="HIT", desc="[8bit] Healthbar height decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X2B728, type="u8", condition="change", action="WEAPON_STATE", desc="weapons and elements, candidate A" },
+        { address=0X33728, type="u8", condition="eq", value=0XB1, action="WEAPON_STATE", desc="Saber" },
+        { address=0X33728, type="u8", condition="eq", value=0XB2, action="WEAPON_STATE", desc="Triple Rod" },
+        { address=0X3372A, type="u8", condition="change", action="WEAPON_STATE", desc="Main Weapon Equipped" },
+        { address=0X3372B, type="u8", condition="change", action="WEAPON_STATE", desc="Sub Weapon Equipped" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2AB25, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Rank Points acquired, calculated only at the result screen (8-bit)" },
+        { address=0X2AB27, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Mission Success Points (Results Screen)" },
+        { address=0X2AB36, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Mission Result points at result screen (8-bit)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X46D4, type="u8", condition="change", action="BOSS_HIT", desc="[byte] Health, final boss, final form, instance B" },
+        { address=0X486C, type="u8", condition="change", action="BOSS_HIT", desc="Health, final boss, final form, instance A - update by clymax" },
+        { address=0XA641, type="u8", condition="change", action="BOSS_HIT", desc="Boss indicator, candidate A" },
+        { address=0XA814, type="u8", condition="change", action="BOSS_DEFEATED", desc="New indicator, final boss defeated, candidate A" },
+        { address=0X2AB3E, type="u8", condition="change", action="BOSS_DEFEATED", desc="[byte] Replacement indicator for final boss being defeated, candidate A" },
+        { address=0X2ACD4, type="u8", condition="change", action="BOSS_DEFEATED", desc="[byte] Replacement indicator for final boss being defeated, candidate B - chosen" },
+        { address=0X34A6C, type="u8", condition="change", action="BOSS_HIT", desc="Boss Golem Health?" },
+        { address=0X34B54, type="u8", condition="change", action="BOSS_HIT", desc="{Final Boss Health}" },
+        { address=0X34C3C, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X33634, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility Frames" },
+        { address=0X33728, type="u8", condition="eq", value=0XB3, action="SHIELD_GAIN", desc="Shield Boomerang" },
+        { address=0X33732, type="u16le", condition="change", action="SHIELD_GAIN", desc="Shield Boomerang Hits (XP) [16 bits]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2AB29, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[1 byte] Clear Time (Results Screen) - higher byte" },
+      },
+    },
+  },
+}

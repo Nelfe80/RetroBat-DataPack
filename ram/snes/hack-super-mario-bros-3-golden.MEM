@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros. 3: Golden",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-3-golden",
+    hashes = {
+      { hash = "92d8eec521607f78ab714203a65b440c", label = "SMW - Super Mario Bros. 3 - Golden (1339).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XA661, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X0100, type="u8", condition="eq", value=0X17, action="GAME_OVER", desc="Game Over & Time Up" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Normal" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Secret" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X16E6, type="u8", condition="increase", action="GAIN_LIFE", desc="Score/1-UP/3-UP increased" },
+        { address=0X16E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Score/1-UP/3-UP decreased" },
+        { address=0X16E6, type="u8", condition="eq", value=0X0D, action="GAIN_LIFE", desc="1-UP" },
+        { address=0X16E6, type="u8", condition="eq", value=0X0E, action="GAIN_LIFE", desc="2-UP" },
+        { address=0X16E6, type="u8", condition="eq", value=0X0F, action="GAIN_LIFE", desc="3-UP" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XBDA9, action="BOSS_HIT", desc="Castle [Boss 1 Room]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0100, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Gamestate" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cut the Rope",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "cut-the-rope",
+    hashes = {
+      { hash = "147f3580409372d0b39bb45d6bf95c41", label = "Cut the Rope (Europe, Australia)" },
+    }
+  },
+
+  events = {
+  },
+}

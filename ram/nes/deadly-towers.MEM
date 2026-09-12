@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Deadly Towers",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "deadly-towers",
+    hashes = {
+      { hash = "88e7f524dbcb89c76f1b80f40571f718", label = "Deadly Towers (USA).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0031, type="u8", condition="eq", value=0X28, action="LOSE_LIFE", desc="Death Bear" },
+      },
+      health = {
+        { address=0X0099, type="u16be", condition="increase", action="HEAL", desc="Current health [16-bit BE] increased" },
+        { address=0X0099, type="u16be", condition="decrease", action="HIT", desc="Current health [16-bit BE] decreased" },
+        { address=0X01B2, type="u16be", condition="increase", action="HEAL", desc="Max health [16-bit BE] increased" },
+        { address=0X01B2, type="u16be", condition="decrease", action="HIT", desc="Max health [16-bit BE] decreased" },
+        { address=0X0522, type="u8", condition="increase", action="HEAL", desc="Onscreen enemy 2 health increased" },
+        { address=0X0522, type="u8", condition="decrease", action="HIT", desc="Onscreen enemy 2 health decreased" },
+        { address=0X0523, type="u8", condition="increase", action="HEAL", desc="Onscreen enemy 3 health increased" },
+        { address=0X0523, type="u8", condition="decrease", action="HIT", desc="Onscreen enemy 3 health decreased" },
+        { address=0X0524, type="u8", condition="increase", action="HEAL", desc="Onscreen enemy 4 health increased" },
+        { address=0X0524, type="u8", condition="decrease", action="HIT", desc="Onscreen enemy 4 health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0170, type="u8", condition="change", action="INVENTORY_ITEM", desc="1st item in defense" },
+        { address=0X017A, type="u8", condition="change", action="INVENTORY_ITEM", desc="5th item in inventory" },
+        { address=0X017B, type="u8", condition="change", action="INVENTORY_ITEM", desc="6th item in inventory" },
+        { address=0X017C, type="u8", condition="change", action="INVENTORY_ITEM", desc="7th item in inventory" },
+        { address=0X017D, type="u8", condition="change", action="INVENTORY_ITEM", desc="8th item in inventory" },
+        { address=0X017E, type="u8", condition="change", action="INVENTORY_ITEM", desc="9th item in inventory" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0000, type="u8", condition="eq", value=0XDB, action="BOSS_HIT", desc="Boss screen or Secret room" },
+        { address=0X0084, type="u8", condition="eq", value=0X00, action="BOSS_DEFEATED", desc="Not picked up" },
+        { address=0X0084, type="u8", condition="eq", value=0X01, action="BOSS_DEFEATED", desc="Picked up" },
+        { address=0X0521, type="u8", condition="change", action="BOSS_HIT", desc="Boss health or onscreen enemy 1 health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0171, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield eqipped" },
+      },
+    },
+  },
+}

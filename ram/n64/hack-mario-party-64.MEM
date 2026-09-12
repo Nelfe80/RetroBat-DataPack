@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Party 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-party-64",
+    hashes = {
+      { hash = "b91664d1c1a5ce2e57d5c466d610ce32", label = "SM64 - Mario Party 64 (MrComit) (1.1.2).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X32DDFA, type="u16be", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen/File Select" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20771C, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 0 - Red Coins in the Sewers of the Metal Cap increased" },
+        { address=0X207723, type="u8", condition="increase", action="COIN_GAIN", desc="[Knock Block Tower] increased" },
+        { address=0X20778C, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 0 - Red Coins in the Sewers of the Metal Cap increased" },
+        { address=0X207793, type="u8", condition="increase", action="COIN_GAIN", desc="[Knock Block Tower] increased" },
+        { address=0X2077FC, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 0 - Red Coins in the Sewers of the Metal Cap increased" },
+        { address=0X207803, type="u8", condition="increase", action="COIN_GAIN", desc="[Knock Block Tower] increased" },
+        { address=0X20786C, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 0 - Red Coins in the Sewers of the Metal Cap increased" },
+        { address=0X207873, type="u8", condition="increase", action="COIN_GAIN", desc="[Knock Block Tower] increased" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coins increased" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coins - On Screen increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X32DDFA, type="u16be", condition="eq", value=0X22, action="BOSS_HIT", desc="Bowser Boss Fight" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X20771F, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Bit 0 - Hot Rope Jump Hard Mode Star" },
+        { address=0X20778F, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Bit 0 - Hot Rope Jump Hard Mode Star" },
+        { address=0X2077FF, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Bit 0 - Hot Rope Jump Hard Mode Star" },
+        { address=0X20786F, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Bit 0 - Hot Rope Jump Hard Mode Star" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X32DDFA, type="u16be", condition="eq", value=0X1D, action="OBJECT_INTERACTION", desc="Knock Block Tower" },
+      },
+    },
+  },
+}

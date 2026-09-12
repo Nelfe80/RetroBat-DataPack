@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Bugs Bunny Birthday Bash",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "prototype-bugs-bunny-birthday-bash",
+    hashes = {
+      { hash = "1b10dbd40acbdffd31b4678244dcec45", label = "Bugs Bunny Birthday Bash (USA) (Beta).nes" },
+    }
+  },
+
+  events = {
+  },
+}

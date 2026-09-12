@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Skyscraper",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "skyscraper",
+    hashes = {
+      { hash = "bb1d9dd37b149df3d1cb287dedba5914", label = "Skyscraper (Europe)" },
+      { hash = "bb5d24ad778116585ba878e5b4eeefd1", label = "Skyscraper (Europe) (50fps) (v1.0) (Souzooka)" },
+      { hash = "addd877f0fa366df4f9b904dc5a86565", label = "Skyscraper (Europe) (60fps) (v1.0) (Souzooka)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X373414, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Stage ID (for save profile 1) (Refer to note 0x3733F8)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X302B54, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="[Float] Timer (in seconds?) before player's medicine amount starts decrementing" },
+        { address=0X358BD0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[32-bit pointer]" },
+      },
+    },
+  },
+}

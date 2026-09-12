@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pocket Meat",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-pocket-meat",
+    hashes = {
+      { hash = "25cb3f0bc680ece2d1578a635e831c57", label = "Pocket Meat (World) (Proto) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0058, type="u8", condition="change", action="TITLE_SCREEN", desc="title screen music note progression" },
+        { address=0X7A6F, type="u8", condition="change", action="TITLE_SCREEN", desc="00:title screen 08:game 03:ending soft reset" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X78D2, type="u8", condition="change", action="NEW_LEVEL", desc="Can be used for Level" },
+        { address=0X7A6E, type="u8", condition="change", action="NEW_LEVEL", desc="current level" },
+      },
+    },
+  },
+}

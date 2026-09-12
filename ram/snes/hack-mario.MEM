@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ MARIO",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario",
+    hashes = {
+      { hash = "cfb0fe199ed7ce7206d00ef7b0ded8df", label = "SMW - MARIO.sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Yellow Switch Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X15, action="NEW_LEVEL", desc="Donut Plains 1" },
+        { address=0X13BF, type="u8", condition="eq", value=0X25, action="NEW_LEVEL", desc="_1 GO BACK (Castle)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X26, action="NEW_LEVEL", desc="leave now (Island 4)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X27, action="NEW_LEVEL", desc="Yoshi's Island 7 (Island 3)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Yoshi's (House)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="never come back (Island 1)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="Yoshi's House (Island 2)" },
+        { address=0X13CE, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level clear: back on world map OR showing post-castle message" },
+        { address=0X1426, type="u8", condition="change", action="NEW_LEVEL", desc="Currently open message box (1 or 2, within each level: 3 : Yoshi's dialogue)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X141A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="unknown", desc="Increases by 1 each time a different section of the level is entered" },
+      },
+    },
+  },
+}

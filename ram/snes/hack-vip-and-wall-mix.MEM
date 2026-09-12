@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VIP and Wall Mix",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vip-and-wall-mix",
+    hashes = {
+      { hash = "35142c8a59bb6bf540312ce598edd22b", label = "SMW - VIP and Wall Mix (ASCII Art Edition) (Vipper) (4.0).sfc" },
+      { hash = "7a73f2987f8b55d244732ab930abba09", label = "SMW - VIP and Wall Mix (Mario Edition) (Vipper).sfc" },
+      { hash = "7deefb54e2775b192e69a1141e7312e9", label = "SMW - VIP and Wall Mix (ASCII Art Edition) (Vipper).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0040, type="u8", condition="change", action="LEVEL_CLEAR", desc="for clear" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In level" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="cleared" },
+      },
+      zone = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u16le", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DB4, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X0DC0, type="u8", condition="increase", action="COIN_GAIN", desc="coin ? increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Big's Fishing Derby",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-bigs-fishing-derby",
+    hashes = {
+      { hash = "3309184f5a9938d01228fd431c742b55", label = "Sonic the Hedgehog 2 - Big's Fishing Derby (v1.05.021a) (Flamewing).md" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XFF50, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Single Player Mode:" },
+      },
+    },
+  },
+}

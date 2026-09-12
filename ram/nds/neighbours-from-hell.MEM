@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Neighbours from Hell",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "neighbours-from-hell",
+    hashes = {
+      { hash = "56b54a43566683909bc63baca3f528f2", label = "Neighbours from Hell (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X2E55E8, type="u32le", condition="increase", action="GAIN_LIFE", desc="Number of current lives increased" },
+        { address=0X2E55E8, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Number of current lives decreased" },
+      },
+    },
+  },
+}

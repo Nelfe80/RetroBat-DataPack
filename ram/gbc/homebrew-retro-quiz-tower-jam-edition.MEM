@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Retro Quiz Tower: JAM Edition",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-retro-quiz-tower-jam-edition",
+    hashes = {
+      { hash = "93d1eae88ac42199afa4e45a9900182d", label = "Retro Quiz Tower (World) (v1.2) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCBB3, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0XCBB3, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCBCD, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Bitflag] 2nd Room West, Switch" },
+      },
+    },
+  },
+}

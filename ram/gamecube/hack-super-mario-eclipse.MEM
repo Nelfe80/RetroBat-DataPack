@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Eclipse",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-eclipse",
+    hashes = {
+      { hash = "1938af2aee854415255e3220fc366dd1", label = "SMS - Super Mario Eclipse (v1.0.6) (Eclipse Team)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0F00, action="TITLE_SCREEN", desc="Title Screen/Credits" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4305, action="DEMO_MODE", desc="Pianta Pit - Demolition at the Shrooms" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3E9708, type="u8", condition="eq", value=0X9, action="NEW_LEVEL", desc="Level Select" },
+      },
+      zone = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4D05, action="PROGRESSION_ZONE", desc="Peach's Castle - Block World" },
+      },
+      stage = {
+        { address=0X3E9708, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0203, action="MONEY_STATE", desc="Bianco Hills - Red Coins of Windmill Village" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0207, action="MONEY_STATE", desc="Bianco Hills - The Red Coins of the Lake" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0305, action="MONEY_STATE", desc="Ricco Harbor - Red Coins on the Water" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0405, action="MONEY_STATE", desc="Gelato Beach - Red Coins in the Coral Reef" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0502, action="MONEY_STATE", desc="Pinna Beach - Red Coins of the Pirate Ships" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0607, action="MONEY_STATE", desc="Sirena Beach - Red Coins in the Hotel" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0704, action="MONEY_STATE", desc="Hotel Delfino - Red Coins in the Hotel" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0807, action="MONEY_STATE", desc="Pianta Village - Fluff Festival Coin Hunt" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0902, action="MONEY_STATE", desc="Noki Bay - Red Coins in a Bottle" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0907, action="MONEY_STATE", desc="Noki Bay - The Red Coin Fish" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0D01, action="MONEY_STATE", desc="Pinna Park - Red Coins of the Pirate Ships" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X1000, action="MONEY_STATE", desc="The Red Coin Fish" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X1700, action="MONEY_STATE", desc="Red Coin Field" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X2C00, action="MONEY_STATE", desc="Red Coins in a Bottle" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X3D02, action="MONEY_STATE", desc="Erto Rock - Red Coins on the Red Rock" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X3E02, action="MONEY_STATE", desc="Lighthouse Island - Red Coins Shining in the Sun" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X3F03, action="MONEY_STATE", desc="Warship Island - Red Coins of the Bay" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4501, action="MONEY_STATE", desc="Mario's Dream - Rolling Rainbow Rings" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4602, action="MONEY_STATE", desc="Lancia Fredda Peaks - Red Coins on the Glaciers" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4802, action="MONEY_STATE", desc="Yoshi Village - Red Coins of the Yoshis" },
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4A01, action="MONEY_STATE", desc="Red Lily City - Red Coins in the Red Lilies" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0901, action="BOSS_HIT", desc="Noki Bay - The Boss of Tricky Ruins" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X0904, action="SWIMMING", no_log=true, no_survey=true, desc="Noki Bay - Il Piantissimo's Surf Swim" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3E970E, type="u16be", condition="eq", value=0X4D19, action="OBJECT_INTERACTION", desc="Peach's Castle - False Block Nexus" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3E970E, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[16-bit BE] Current Scene (Area + Episode)" },
+      },
+    },
+  },
+}

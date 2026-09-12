@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Red Square",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-red-square",
+    hashes = {
+      { hash = "9c372321204b9fa65f9324f98aae53ff", label = "Red Square (USA) (2019 Dream Diary Jam) (Aftermarket) (Unl) (Kresna,Nyrator).vb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0076, type="u16le", condition="change", action="NEW_LEVEL", desc="{background_map_count}" },
+        { address=0X0078, type="u16le", condition="change", action="NEW_LEVEL", desc="{background_map_depth}" },
+        { address=0X007A, type="u16le", condition="change", action="NEW_LEVEL", desc="{foreground_map_count}" },
+        { address=0X007C, type="u16le", condition="change", action="NEW_LEVEL", desc="{foreground_map_depth}" },
+        { address=0X008E, type="u16le", condition="change", action="NEW_LEVEL", desc="{map_world_attributes}" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0086, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="{map_object_table}" },
+      },
+    },
+  },
+}

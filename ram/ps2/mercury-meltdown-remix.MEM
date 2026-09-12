@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mercury Meltdown: Remix",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "mercury-meltdown-remix",
+    hashes = {
+      { hash = "0cf9b9e2e7c8480b3dca0ca24900be0c", label = "Mercury Meltdown Remix (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

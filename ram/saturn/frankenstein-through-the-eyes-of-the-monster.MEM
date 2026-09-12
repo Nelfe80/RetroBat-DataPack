@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Frankenstein: Through the Eyes of the Monster",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Adventure, Horror"
+  },
+
+  rom = {
+    name = "frankenstein-through-the-eyes-of-the-monster",
+    hashes = {
+      { hash = "bb2397564aadb2244ddb52ee65a02f5e", label = "Frankenstein - Through the Eyes of the Monster (Europe)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X17F5DA, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Pause Menu Flag" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X10BFE2, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Potential Save switch" },
+      },
+    },
+  },
+}

@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario: Endless Earth",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-endless-earth",
+    hashes = {
+      { hash = "777da2eb4d8b2fdac8b87685acb2f933", label = "NSMB - Endless Earth (v1.04) MarioFanatic64.nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X85A78, type="u32le", condition="change", action="NEW_LEVEL", desc="Flag - On Worldmap [32bit]" },
+        { address=0X129220, type="u8", condition="change", action="NEW_LEVEL", desc="Related to collected Object Information in current Level [256 Bytes, 8 Bytes per Object]" },
+      },
+      zone = {
+        { address=0X88C1C, type="u32le", condition="change", action="PROGRESSION_ZONE", desc="Current World [32bit]" },
+        { address=0X88C3C, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 1" },
+        { address=0X88C3E, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 2" },
+        { address=0X88C40, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 3" },
+        { address=0X88C42, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 4" },
+        { address=0X88C44, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 5" },
+        { address=0X88C46, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 6" },
+        { address=0X88C48, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 7" },
+        { address=0X88C4A, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World 8" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8B364, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives [32bit] increased" },
+        { address=0X8B364, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives [32bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8B384, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32bit]" },
+      },
+      collectibles = {
+        { address=0X8B374, type="u32le", condition="increase", action="COIN_GAIN", desc="Star Coins collected in current Level [32bit] increased" },
+        { address=0X8B37C, type="u32le", condition="increase", action="COIN_GAIN", desc="Coins [32bit] increased" },
+      },
+    },
+  },
+}

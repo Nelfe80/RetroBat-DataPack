@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ VB Racing",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-vb-racing",
+    hashes = {
+      { hash = "819b9dccf1437c3bb126670b171d7c59", label = "VB Racing (USA) (FlashBoy Version) (PVBCC) (Aftermarket) (Unl) (M.K.).vb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFF4D, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused [Bit0]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0644, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time Left" },
+      },
+    },
+  },
+}

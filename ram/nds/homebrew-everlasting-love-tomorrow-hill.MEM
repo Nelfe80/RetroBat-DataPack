@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Everlasting Love: Tomorrow Hill",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-everlasting-love-tomorrow-hill",
+    hashes = {
+      { hash = "1962b3c8f2aeb3a032618fcb2edf418d", label = "Everlasting Love - Tomorrow Hill (World) (v0.3) (Aftermarket) (Unl) (Mia).nds" },
+    }
+  },
+
+  events = {
+    state = {
+      player = {
+        { address=0X1E6FC8, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump Count" },
+      },
+    },
+  },
+}

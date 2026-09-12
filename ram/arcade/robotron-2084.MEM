@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Robotron: 2084",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "robotron-2084",
+    hashes = {
+      { hash = "656aefb80b236d5e86412607b50e5156", label = "robotron.7z <Robotron: 2084 (Solid Blue label)>" },
+      { hash = "a7a62340c122a10a5ba73cf69cbfecf0", label = "robotronyo.7z <Robotron: 2084 (Yellow/Orange label)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDA51, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XDB02, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="round guy who shoots blue robots" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XBDEC, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0XDB15, type="u8", condition="change", action="LOSE_LIFE", desc="Entity 001 State 3f:alive, 0f : dead, 43:saved, 05 alive, ae:bot dead" },
+        { address=0XFFEC, type="u8", condition="increase", action="GAIN_LIFE", desc="Spare Lives (8-bit Hex) increased" },
+        { address=0XFFEC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Spare Lives (8-bit Hex) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XBDE2, type="u48be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

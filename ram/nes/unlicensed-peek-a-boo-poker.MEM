@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Peek-A-Boo Poker",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "unlicensed-peek-a-boo-poker",
+    hashes = {
+      { hash = "5dbe4f8550a5ed3b16a05e8f9a45a3df", label = "Peek-A-Boo Poker (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

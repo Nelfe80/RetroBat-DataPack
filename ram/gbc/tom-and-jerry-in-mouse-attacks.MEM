@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tom and Jerry in Mouse Attacks",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "tom-and-jerry-in-mouse-attacks",
+    hashes = {
+      { hash = "7a826122ccc3818dce9a8e8db6d77edb", label = "Tom and Jerry in - Mouse Attacks! (USA).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC03E, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC064, type="u8", condition="change", action="NEW_LEVEL", desc="Current level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC048, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives left - Editable increased" },
+        { address=0XC048, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives left - Editable decreased" },
+        { address=0XC09B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives left - 2 increased" },
+        { address=0XC09B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives left - 2 decreased" },
+        { address=0XC1B1, type="u8", condition="increase", action="GAIN_LIFE", desc="Jerry health increased" },
+        { address=0XC1B1, type="u8", condition="decrease", action="LOSE_LIFE", desc="Jerry health decreased" },
+      },
+      health = {
+        { address=0X10302, type="u8", condition="increase", action="HEAL", desc="Pie Panic Health increased" },
+        { address=0X10302, type="u8", condition="decrease", action="HIT", desc="Pie Panic Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC030, type="u8", condition="change", action="AMMO_STATE", desc="Item 1 ammo" },
+        { address=0XC031, type="u8", condition="change", action="AMMO_STATE", desc="Item 2 ammo" },
+        { address=0XC032, type="u8", condition="change", action="AMMO_STATE", desc="Item 3 ammo" },
+        { address=0XC033, type="u8", condition="change", action="AMMO_STATE", desc="Item 4 ammo" },
+        { address=0XC0A5, type="u8", condition="change", action="AMMO_STATE", desc="Equiped item ammo" },
+        { address=0X102BD, type="u8", condition="change", action="AMMO_STATE", desc="Pie Panic Ammo" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC1E1, type="u8", condition="change", action="BOSS_HIT", desc="Boss 2 and Boss 3 health - Eggs game eggs transported - Boss 1 trap status" },
+        { address=0XC1E2, type="u8", condition="change", action="BOSS_HIT", desc="Boss 1 health bar - Eggs game Eggs dropped" },
+        { address=0XC4F1, type="u8", condition="change", action="BOSS_HIT", desc="Final boss health bar" },
+        { address=0XD0F0, type="u8", condition="change", action="BOSS_HIT", desc="Boss 3 cat shown" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XC1D3, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Invincibility timer" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1027E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Minutes digit in Block Puzzle minigame" },
+        { address=0X1027F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Seconds two digit in Block Puzzle minigame" },
+        { address=0X10280, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Seconds one digit in Block Puzzle minigame" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X10281, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Block puzzle timer millisecond" },
+      },
+    },
+  },
+}

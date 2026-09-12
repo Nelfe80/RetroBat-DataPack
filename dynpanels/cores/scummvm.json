@@ -1,0 +1,369 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "core",
+  "core": "scummvm",
+  "display_name": "ScummVM",
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "mame_button": "P1_BUTTON1",
+        "rmp_button_by_layout": {
+          "2-Button": "b",
+          "4-Button": "b",
+          "6-Button": "b",
+          "8-Button": "b"
+        }
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "mame_button": "P1_BUTTON2",
+        "rmp_button_by_layout": {
+          "2-Button": "a",
+          "4-Button": "a",
+          "6-Button": "a",
+          "8-Button": "a"
+        }
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "mame_button": "P1_BUTTON6",
+        "rmp_button_by_layout": {
+          "6-Button": "r",
+          "8-Button": "r"
+        }
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "mame_button": "P1_BUTTON8",
+        "rmp_button_by_layout": {
+          "8-Button": "r2"
+        }
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "mame_button": "P1_BUTTON4",
+        "rmp_button_by_layout": {
+          "4-Button": "y",
+          "6-Button": "y",
+          "8-Button": "y"
+        }
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "mame_button": "P1_BUTTON3",
+        "rmp_button_by_layout": {
+          "4-Button": "x",
+          "6-Button": "x",
+          "8-Button": "x"
+        }
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "mame_button": "P1_BUTTON5",
+        "rmp_button_by_layout": {
+          "6-Button": "l",
+          "8-Button": "l"
+        }
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "mame_button": "P1_BUTTON7",
+        "rmp_button_by_layout": {
+          "8-Button": "l2"
+        }
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start"
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      }
+    },
+    "rmp_slots_by_layout": {
+      "2-Button": {
+        "1": "b",
+        "2": "a"
+      },
+      "4-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y"
+      },
+      "6-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r"
+      },
+      "8-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r",
+        "7": "l2",
+        "8": "r2"
+      }
+    },
+    "rmp_system_buttons": {
+      "start": "start",
+      "select": "select",
+      "coin": "select"
+    }
+  },
+  "core_template": {
+    "retropad": {
+      "buttons": {
+        "b": {
+          "retropad_id": 0,
+          "label": "Right Mouse Button"
+        },
+        "y": {
+          "retropad_id": 1,
+          "label": "."
+        },
+        "select": {
+          "retropad_id": 2,
+          "label": "F1"
+        },
+        "start": {
+          "retropad_id": 3,
+          "label": "ScummVM GUI"
+        },
+        "dpad_up": {
+          "retropad_id": 4,
+          "label": "Mouse Cursor Up"
+        },
+        "dpad_down": {
+          "retropad_id": 5,
+          "label": "Mouse Cursor Down"
+        },
+        "dpad_left": {
+          "retropad_id": 6,
+          "label": "Mouse Cursor Left"
+        },
+        "dpad_right": {
+          "retropad_id": 7,
+          "label": "Mouse Cursor Right"
+        },
+        "a": {
+          "retropad_id": 8,
+          "label": "Left Mouse Button"
+        },
+        "x": {
+          "retropad_id": 9,
+          "label": "Esc"
+        },
+        "l1": {
+          "retropad_id": 10,
+          "label": "Enter"
+        },
+        "r1": {
+          "retropad_id": 11,
+          "label": "Numpad 5"
+        },
+        "l2": {
+          "retropad_id": 12,
+          "label": "Backspace"
+        },
+        "r2": {
+          "retropad_id": 13,
+          "label": "Cursor Fine Control"
+        },
+        "l3": {
+          "retropad_id": 14,
+          "label": "F10"
+        },
+        "r3": {
+          "retropad_id": 15,
+          "label": "Numpad 0"
+        },
+        "left_stick": {
+          "label": "Mouse Cursor Left/Right"
+        },
+        "right_stick": {
+          "label": "Virtual Numpad"
+        }
+      }
+    },
+    "default_group": "scummvm-inputs",
+    "groups": {
+      "scummvm-inputs": {
+        "name": "ScummVM Inputs",
+        "mappings": [
+          {
+            "retropad_key": "b",
+            "retropad_id": 0,
+            "label": "Right Mouse Button",
+            "system_entry": "Right Mouse Button"
+          },
+          {
+            "retropad_key": "y",
+            "retropad_id": 1,
+            "label": ".",
+            "system_entry": ". period"
+          },
+          {
+            "retropad_key": "select",
+            "retropad_id": 2,
+            "label": "F1",
+            "system_entry": "F1"
+          },
+          {
+            "retropad_key": "start",
+            "retropad_id": 3,
+            "label": "ScummVM GUI",
+            "system_entry": "ScummVM GUI"
+          },
+          {
+            "retropad_key": "dpad_up",
+            "retropad_id": 4,
+            "label": "Mouse Cursor Up",
+            "system_entry": "Mouse Cursor Up"
+          },
+          {
+            "retropad_key": "dpad_down",
+            "retropad_id": 5,
+            "label": "Mouse Cursor Down",
+            "system_entry": "Mouse Cursor Down"
+          },
+          {
+            "retropad_key": "dpad_left",
+            "retropad_id": 6,
+            "label": "Mouse Cursor Left",
+            "system_entry": "Mouse Cursor Left"
+          },
+          {
+            "retropad_key": "dpad_right",
+            "retropad_id": 7,
+            "label": "Mouse Cursor Right",
+            "system_entry": "Mouse Cursor Right"
+          },
+          {
+            "retropad_key": "a",
+            "retropad_id": 8,
+            "label": "Left Mouse Button",
+            "system_entry": "Left Mouse Button"
+          },
+          {
+            "retropad_key": "x",
+            "retropad_id": 9,
+            "label": "Esc",
+            "system_entry": "Esc"
+          },
+          {
+            "retropad_key": "l1",
+            "retropad_id": 10,
+            "label": "Enter",
+            "system_entry": "Enter"
+          },
+          {
+            "retropad_key": "r1",
+            "retropad_id": 11,
+            "label": "Numpad 5",
+            "system_entry": "Numpad 5"
+          },
+          {
+            "retropad_key": "l2",
+            "retropad_id": 12,
+            "label": "Backspace",
+            "system_entry": "Backspace"
+          },
+          {
+            "retropad_key": "r2",
+            "retropad_id": 13,
+            "label": "Cursor Fine Control",
+            "system_entry": "Cursor Fine Control"
+          },
+          {
+            "retropad_key": "l3",
+            "retropad_id": 14,
+            "label": "F10",
+            "system_entry": "F10"
+          },
+          {
+            "retropad_key": "r3",
+            "retropad_id": 15,
+            "label": "Numpad 0",
+            "system_entry": "Numpad 0"
+          },
+          {
+            "retropad_key": "left_stick",
+            "retropad_id": null,
+            "label": "Mouse Cursor Left/Right",
+            "system_entry": "Mouse Cursor Left/Right"
+          },
+          {
+            "retropad_key": "left_stick",
+            "retropad_id": null,
+            "label": "Mouse Cursor Up/Down",
+            "system_entry": "Mouse Cursor Up/Down"
+          },
+          {
+            "retropad_key": "right_stick",
+            "retropad_id": null,
+            "label": "Virtual Numpad",
+            "system_entry": "Virtual Numpad"
+          }
+        ]
+      }
+    },
+    "content_databases": [
+      "ScummVM"
+    ]
+  },
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  }
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Chapas GP",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-chapas-gp",
+    hashes = {
+      { hash = "0b1ec73b1a3c280ba17b0671e5cf41da", label = "Chapas GP (World) (v2010) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X28D030, type="u8", condition="eq", value=0X3A60, action="TITLE_SCREEN", desc="Title and bootup" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2A7F60, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pro Cup Best Time [32-bit Float]" },
+      },
+    },
+  },
+}

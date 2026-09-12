@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Farm Frenzy: Pizza Party",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "farm-frenzy-pizza-party",
+    hashes = {
+      { hash = "2f9d0cd0f65faeadf894179c606fbfc4", label = "Farm Frenzy - Pizza Party (Europe) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X92C6B4, type="u16le", condition="eq", value=0X05, action="GAME_PLAYING", desc="Stage select" },
+        { address=0X92C6B4, type="u16le", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+  },
+}

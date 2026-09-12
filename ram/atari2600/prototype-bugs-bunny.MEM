@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Bugs Bunny",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-bugs-bunny",
+    hashes = {
+      { hash = "a3486c0b8110d9d4b1db5d8a280723c6", label = "Bugs Bunny (USA) (Proto 2).a26" },
+    }
+  },
+
+  events = {
+  },
+}

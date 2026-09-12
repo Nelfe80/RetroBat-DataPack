@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon STRIKE! Yellow Version",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-strike-yellow-version",
+    hashes = {
+      { hash = "a9d98ffd50c82ef6efc8616d0cf67ebe", label = "Pokemon STRIKE! Yellow Version (v0.4) (Drake Seawood).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD18B, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 1 Level" },
+        { address=0XD1B7, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 2 Level" },
+        { address=0XD1E3, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 3 level" },
+        { address=0XD20F, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 4 level" },
+        { address=0XD23B, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 5 level" },
+        { address=0XD267, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 6 level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCFE7, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0XCFE7, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+  },
+}

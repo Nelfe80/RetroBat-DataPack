@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Zintrick",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "zintrick",
+    hashes = {
+      { hash = "43ffb287cf1c80add8839e53593c8ccc", label = "zintrckb.7z <Zintrick / Oshidashi Zentrix (hack / bootleg)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0004, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="ingame" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0642, type="u8", condition="change", action="NEW_LEVEL", desc="0x01:round ended either win/lose" },
+        { address=0XB6BF, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC418, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Stage time left" },
+      },
+    },
+  },
+}

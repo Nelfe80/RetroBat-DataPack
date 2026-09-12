@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania Akatsuki no Rhapsody: Ikusatatsu's Castle",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-akatsuki-no-rhapsody-ikusatatsus-castle",
+    hashes = {
+      { hash = "dba58219faa9aca638e4091d4c0166b6", label = "Castlevania AoS - Akatsuki no Rhapsody - Ikusatatsu's Castle (v1.22) (ikusatatsu_ushiromiya).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8064, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Paused/Inventory" },
+        { address=0X2D553, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Soul Set" },
+        { address=0X2D553, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Equip[ment]" },
+        { address=0X2D553, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Item Use" },
+        { address=0X2D553, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Ability" },
+        { address=0X2D553, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Sleep" },
+        { address=0X2D553, type="u8", condition="eq", value=0X05, action="PAUSE_ON", desc="Config" },
+        { address=0X2D553, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Enemy (Bestiary)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1B279, type="u8", condition="change", action="NEW_LEVEL", desc="Soma's Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X84EE, type="u8", condition="eq", value=0X10, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X84EE, type="u8", condition="eq", value=0X0C, action="HIT", desc="Hurt on the ground" },
+        { address=0X84EE, type="u8", condition="eq", value=0X0D, action="HIT", desc="Hurt in the air" },
+        { address=0X1B27A, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X1B27A, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X1B27E, type="u16le", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X1B27E, type="u16le", condition="decrease", action="HIT", desc="Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X84EE, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Weapon Attack" },
+        { address=0X1B268, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="Fire Stick" },
+        { address=0X1B268, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Fire Ice Stick" },
+        { address=0X1B268, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Bolt Knife" },
+        { address=0X1B268, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", no_log=true, desc="H[oly Short] Sword" },
+        { address=0X1B268, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="T Injector" },
+        { address=0X1B268, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", no_log=true, desc="TP Whip" },
+        { address=0X1B268, type="u8", condition="eq", value=0XFF, action="WEAPON_STATE", no_log=true, desc="Nothing" },
+        { address=0X1B269, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Currently Equipped Bullet Soul/Subweapon" },
+        { address=0X1B2B4, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Number of Fire Sticks (new Starting Weapon) in Inventory" },
+        { address=0X1B2EE, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="This is the end of the weapon inventory." },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1B290, type="u32le", condition="increase", action="COIN_GAIN", desc="Current Gold increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X84EE, type="u8", condition="eq", value=0X05, action="JUMPING", no_log=true, no_survey=true, desc="High Jump" },
+        { address=0X84EE, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="High Jump Bonk" },
+      },
+    },
+  },
+}

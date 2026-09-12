@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Plant! At the End of the World",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-plant-at-the-end-of-the-world",
+    hashes = {
+      { hash = "3d0ce2e9320e57a289864dbe36137e46", label = "Plant! At the End of the World (World) (GBJam 10) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XCB9B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="8-Bit - Death Counter" },
+      },
+    },
+  },
+}

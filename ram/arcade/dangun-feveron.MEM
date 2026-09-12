@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dangun Feveron",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "dangun-feveron",
+    hashes = {
+      { hash = "3c253b5326dcad0dfc09a0bb60686108", label = "dfeveron.zip" },
+    }
+  },
+
+  events = {
+  },
+}

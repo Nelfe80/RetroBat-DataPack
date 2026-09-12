@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bridge Quest",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bridge-quest",
+    hashes = {
+      { hash = "0493453a2ed93db06e3f98225ec255d3", label = "Bridge Quest (World) (GBA Jam 2021) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X7A84, type="u8", condition="increase", action="HEAL", desc="Current health increased" },
+        { address=0X7A84, type="u8", condition="decrease", action="HIT", desc="Current health decreased" },
+        { address=0X7A85, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X7A85, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X47F10, type="u8", condition="increase", action="HEAL", desc="Enemy health increased" },
+        { address=0X47F10, type="u8", condition="decrease", action="HIT", desc="Enemy health decreased" },
+        { address=0X47F14, type="u8", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0X47F14, type="u8", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EFC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Counter of treasure opened" },
+      },
+    },
+  },
+}

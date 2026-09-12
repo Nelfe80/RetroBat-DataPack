@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Dynastic Hero",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-dynastic-hero",
+    hashes = {
+      { hash = "d120a2d1099b1101a1897b8cb3996f83", label = "Dynastic Hero, The (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X09D5, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Castle Underground Chest (big heart);" },
+        { address=0X0DC5, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Door Open after defeating Fat Toad Boss;" },
+        { address=0X0DC5, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Princess saved in castle sewers;" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X09C5, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Potion increased" },
+        { address=0X09C5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Potion decreased" },
+      },
+      health = {
+        { address=0X09A5, type="u8", condition="increase", action="HEAL", desc="Max Hearts regardless of HP increased" },
+        { address=0X09A5, type="u8", condition="decrease", action="HIT", desc="Max Hearts regardless of HP decreased" },
+        { address=0X0C55, type="u8", condition="increase", action="HEAL", desc="Start of HP Hearts; each Heart is 0x14 when full, 0x0c when half, 0x04 when empty. increased" },
+        { address=0X0C55, type="u8", condition="decrease", action="HIT", desc="Start of HP Hearts; each Heart is 0x14 when full, 0x0c when half, 0x04 when empty. decreased" },
+        { address=0X0DC3, type="u8", condition="increase", action="HEAL", desc="Dungeon Scratchpad; reused door-controls and other switches for nearly every dungeon, which are" },
+        { address=0X0DC3, type="u8", condition="decrease", action="HIT", desc="Dungeon Scratchpad; reused door-controls and other switches for nearly every dungeon, which are" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X09B0, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X09A0, type="u24le", condition="increase", action="COIN_GAIN", desc="[24-Bit] Gold increased" },
+        { address=0X09BA, type="u8", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+        { address=0X09C9, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Coin Chest in Poseidon Ocean;" },
+        { address=0X09C9, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Coin Chest Left First Ocean Path;" },
+        { address=0X09C9, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Coin Chest Middle First Ocean Path;" },
+        { address=0X09C9, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Coin Chest Right First Ocean Path;" },
+        { address=0X09D0, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Crystal Chest at Brizzard" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="FireShield;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="KnightShield;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X08, action="SHIELD_GAIN", desc="SteelShield;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="HardShield;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="ShellShield;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Buckler;" },
+        { address=0X09AE, type="u8", condition="bit_true", mask=0X80, action="SHIELD_GAIN", desc="MicroShield" },
+        { address=0X09B2, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield" },
+        { address=0X09D1, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Hard Shield Chest in Jungle Temple;" },
+        { address=0X09D5, type="u8", condition="bit_true", mask=0X80, action="SHIELD_GAIN", desc="Desert Well Shield-Magic Chest" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X09D6, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="Hidden-door Chest in Pyramid;" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Preservation Project",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-preservation-project",
+    hashes = {
+      { hash = "990df549928d08cb0a873f3a87bbd64f", label = "SM64 - The Preservation Project (Second Release) (Fluvian,MarioNova).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X207B17, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Rings" },
+      },
+    },
+  },
+}

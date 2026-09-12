@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "StarMaster",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "starmaster",
+    hashes = {
+      { hash = "d69559f9c9dc6ef528d841bf9d91b275", label = "StarMaster (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0039, type="u16le", condition="change", action="HIT", desc="Damage" },
+        { address=0X003B, type="u16le", condition="increase", action="HEAL", desc="Energy [16-bit BCD] increased" },
+        { address=0X003B, type="u16le", condition="decrease", action="HIT", desc="Energy [16-bit BCD] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0041, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [16-bit BCD]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kamen Rider Kuuga",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "kamen-rider-kuuga",
+    hashes = {
+      { hash = "e2bc486302d45fafbfdaa7f86bbe4a39", label = "Kamen Rider Kuuga (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9A1F8, type="u8", condition="change", action="NEW_LEVEL", desc="P1 Rounds Won" },
+        { address=0X9A2E0, type="u8", condition="change", action="NEW_LEVEL", desc="P2/CPU Rounds Won" },
+        { address=0XA85B7, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds" },
+        { address=0XA85B7, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+        { address=0XA85B7, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="3" },
+        { address=0XA85B7, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="5" },
+      },
+      stage = {
+        { address=0X8CB08, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0X8CB08, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Arcade Ends" },
+        { address=0X8CB08, type="u8", condition="eq", value=0X0D, action="PROGRESSION_STAGE", desc="Story Mode Ends" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X9A23E, type="u8", condition="increase", action="HEAL", desc="Player 1 HP increased" },
+        { address=0X9A23E, type="u8", condition="decrease", action="HIT", desc="Player 1 HP decreased" },
+        { address=0X9A326, type="u8", condition="increase", action="HEAL", desc="Player 2/CPU HP increased" },
+        { address=0X9A326, type="u8", condition="decrease", action="HIT", desc="Player 2/CPU HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XA8830, type="u8", condition="eq", value=0X14, action="WEAPON_STATE", no_log=true, desc="Kuuga Dragon Form (No Weapon)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XA854C, type="u16le", condition="increase", action="COIN_GAIN", desc="Coins (16-Bit) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F3814, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Main Menu Timer" },
+      },
+    },
+  },
+}

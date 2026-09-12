@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ lanayxy's landscapes",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-lanayxys-landscapes",
+    hashes = {
+      { hash = "5b2b61510edd902f200101ff4ca410e4", label = "SM64 - lanayxy's landscapes (v1.0) (lanayxy).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] same old level id you know and love" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin count increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33FF48, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[608 bytes] objects[18]" },
+        { address=0X34047E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="objects[20] bit0: active" },
+        { address=0X34054C, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[20] subtype" },
+        { address=0X340554, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="32-bit: objects[20] action" },
+        { address=0X340614, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="32-bit: objects[20] behavior script" },
+        { address=0X367814, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint x" },
+        { address=0X367818, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint y" },
+        { address=0X36781C, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint z" },
+      },
+    },
+  },
+}

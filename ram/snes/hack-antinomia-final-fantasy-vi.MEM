@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Antinomia: Final Fantasy VI",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-antinomia-final-fantasy-vi",
+    hashes = {
+      { hash = "5e4bc53a2320a3757db688f33f495bb9", label = "FFVI - Antinomia - Final Fantasy VI (v2.0) (Fast Moon).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 1 HP increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 1 HP decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 2 HP increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 2 HP decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 3 HP increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 3 HP decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 4 HP increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 4 HP decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 5 HP increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 5 HP decreased" },
+        { address=0X3C06, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy Slot 6 HP increased" },
+        { address=0X3C06, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy Slot 6 HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1EB0, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="Siegfried? treasure chest" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1860, type="u24le", condition="increase", action="COIN_GAIN", desc="[24bit] Gold increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1E9C, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="Tuned on Record Player in Jidoor" },
+      },
+    },
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sudoku",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sudoku",
+    hashes = {
+      { hash = "94476e431aca0f9590964d6797d5dee9", label = "Sudoku (World) (v1.0) (Aftermarket) (Unl).col" },
+      { hash = "e34e775b40367815197dc4086aab2f89", label = "Sudoku (World) (v2.0) (Aftermarket) (Unl).col" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X00E1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8bit] Timer Mode" },
+        { address=0X00E1, type="u8", condition="eq", value=0X0, action="GENERAL_TIMER", no_log=true, desc="Normal" },
+        { address=0X00E1, type="u8", condition="eq", value=0X1, action="GENERAL_TIMER", no_log=true, desc="Countdown" },
+        { address=0X00EE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="count down timer minutes" },
+        { address=0X00F0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Count down timer Seconds" },
+      },
+    },
+  },
+}

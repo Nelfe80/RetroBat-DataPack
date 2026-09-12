@@ -1,0 +1,139 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Flintstones: The Surprise at Dinosaur Peak!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-flintstones-the-surprise-at-dinosaur-peak",
+    hashes = {
+      { hash = "56ca85a5e49cafd91050afec60c10713", label = "Flintstones, The - The Surprise at Dinosaur Peak! (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0301, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen/Map" },
+        { address=0X0301, type="u8", condition="eq", value=0X04, action="GAME_PLAYING", desc="Starting Level" },
+        { address=0X0301, type="u8", condition="eq", value=0X05, action="GAME_PLAYING", desc="In Level" },
+        { address=0X0304, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0300, type="u8", condition="bit_true", mask=0X40, action="LEVEL_CLEAR", desc="Level Complete (Use to skip levels)" },
+        { address=0X031A, type="u8", condition="change", action="NEW_LEVEL", desc="Hockey Round" },
+        { address=0X031A, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round 1 (Fred)" },
+        { address=0X031A, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Round 2 (Barney)" },
+        { address=0X031A, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Match Over" },
+        { address=0X0340, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round Over" },
+        { address=0X0356, type="u8", condition="change", action="NEW_LEVEL", desc="Current level" },
+        { address=0X0356, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Village" },
+        { address=0X0356, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Jungle" },
+        { address=0X0356, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Mines" },
+        { address=0X0356, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Hockey" },
+        { address=0X0356, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Surfing" },
+        { address=0X0356, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Post-Surfing" },
+        { address=0X0356, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Slate Quarry" },
+        { address=0X0356, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Basketball" },
+        { address=0X0356, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Giant's House" },
+        { address=0X0356, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Witch's House" },
+        { address=0X0356, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Dinosaur Peak Climb (Updated at end of Flight)" },
+        { address=0X0356, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="Volcano (Updated at end of Climb)" },
+        { address=0X0356, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Ending" },
+        { address=0X05FB, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0X05FB, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Village" },
+        { address=0X05FB, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Jungle" },
+        { address=0X05FB, type="u8", condition="eq", value=0X18, action="NEW_LEVEL", desc="Dinosaur Peak Climb" },
+        { address=0X0743, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X0744, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X0745, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X0746, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X0749, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X074A, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X074B, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X074C, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X074E, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X074F, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X0750, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Cleared" },
+      },
+      stage = {
+        { address=0X0356, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Pterodactyl Flight" },
+        { address=0X05FB, type="u8", condition="eq", value=0X17, action="PROGRESSION_STAGE", desc="Pterodactyl Flight" },
+        { address=0X0743, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 1 (Village) Completion" },
+        { address=0X0744, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 2 (Jungle) Completion" },
+        { address=0X0745, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 3 (Mines) Completion" },
+        { address=0X0749, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 5 (Slate Quarry) Completion" },
+        { address=0X074B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 6 (Giant's House) Completion" },
+        { address=0X074C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 7 (Witch's House) Completion" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0300, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Death" },
+        { address=0X0304, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0304, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0304, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="No remaining lives" },
+        { address=0X0304, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="Initial" },
+        { address=0X030D, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0X0311, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Life increased" },
+        { address=0X0311, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Life decreased" },
+        { address=0X0311, type="u8", condition="eq", value=0X00, action="GAIN_LIFE", desc="Not Collected" },
+        { address=0X0311, type="u8", condition="eq", value=0X01, action="GAIN_LIFE", desc="Collected" },
+        { address=0X03E3, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X0320, type="u8", condition="eq", value=0X00, action="HIT", desc="1 Damage per hit (Barney Default)" },
+        { address=0X0320, type="u8", condition="eq", value=0X01, action="HIT", desc="2 Damage (Fred Default)" },
+        { address=0X0320, type="u8", condition="eq", value=0X02, action="HIT", desc="4 Damage" },
+        { address=0X0320, type="u8", condition="eq", value=0X03, action="HIT", desc="6 Damage" },
+        { address=0X0320, type="u8", condition="eq", value=0X04, action="HIT", desc="8 Damage" },
+        { address=0X03E3, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy 1 Health" },
+        { address=0X03E3, type="u8", condition="eq", value=0X18, action="HEALTH_STATE", no_log=true, desc="Volcano Baby Dino" },
+        { address=0X03E4, type="u8", condition="increase", action="HEAL", desc="Enemy 2 Health increased" },
+        { address=0X03E4, type="u8", condition="decrease", action="HIT", desc="Enemy 2 Health decreased" },
+        { address=0X03E5, type="u8", condition="increase", action="HEAL", desc="Enemy 3 Health increased" },
+        { address=0X03E5, type="u8", condition="decrease", action="HIT", desc="Enemy 3 Health decreased" },
+        { address=0X0435, type="u8", condition="eq", value=0X00, action="HIT", desc="No Damage" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0359, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="Weapon in Use" },
+        { address=0X0359, type="u8", condition="eq", value=0XFF, action="WEAPON_STATE", desc="No weapon in use" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X031B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Enemy's Score" },
+        { address=0X031B, type="u8", condition="eq", value=0X00, action="SCORE_STATE", desc="Initial" },
+        { address=0X031C, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player's Hockey Score" },
+        { address=0X031C, type="u8", condition="eq", value=0X00, action="SCORE_STATE", desc="Initial" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00EC, type="u8", condition="eq", value=0X3B, action="BOSS_HIT", desc="Boss Music" },
+        { address=0X03B2, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Turns to 0 for a single frame when resetting boss health on a reset" },
+        { address=0X03B2, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Normal" },
+        { address=0X03E3, type="u8", condition="eq", value=0X0F, action="BOSS_DEFEATED", desc="Dead Baby Dino Boss" },
+        { address=0X03E3, type="u8", condition="eq", value=0X18, action="BOSS_HIT", desc="Jungle Boss (Triceratops)" },
+        { address=0X03E3, type="u8", condition="eq", value=0X1E, action="BOSS_HIT", desc="Caves Boss (Caveman)" },
+        { address=0X03E3, type="u8", condition="eq", value=0X20, action="BOSS_HIT", desc="Quarry Boss (Monkey)" },
+        { address=0X03E3, type="u8", condition="eq", value=0X32, action="BOSS_HIT", desc="Giant's House Boss (Spider) / Witch's House Boss (Witch)" },
+        { address=0X03E3, type="u8", condition="eq", value=0X3C, action="BOSS_HIT", desc="Dinosaur Peak Boss (Baby Dino)" },
+        { address=0X0763, type="u8", condition="change", action="BOSS_HIT", desc="Song? Boss A6" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0340, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="Hockey Timer" },
+        { address=0X0340, type="u8", condition="eq", value=0X1E, action="GENERAL_TIMER", desc="30 seconds (Initial)" },
+      },
+    },
+  },
+}

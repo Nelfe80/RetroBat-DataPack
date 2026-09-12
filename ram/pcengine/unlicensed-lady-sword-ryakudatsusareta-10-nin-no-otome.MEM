@@ -1,0 +1,97 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Lady Sword: Ryakudatsusareta 10-nin no Otome",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Role-playing (RPG)"
+  },
+
+  rom = {
+    name = "unlicensed-lady-sword-ryakudatsusareta-10-nin-no-otome",
+    hashes = {
+      { hash = "71c5cffeab1cb60a04b5e77a338117ac", label = "Lady Sword - Ryakudatsu Sareta 10-nin no Otome (Japan) (Unl).pce" },
+      { hash = "6b56d548b740cdbbc2993b5a8f03ffd4", label = "Lady Sword (Japan) (En) (v1.0) (EsperKnight,filler,Grant Laughlin,Tomaitheous).pce" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X19F4, type="u8", condition="change", action="NEW_LEVEL", desc="Bits 1-2 : Ending zone" },
+        { address=0X19F7, type="u8", condition="change", action="NEW_LEVEL", desc="Bits 5-6 : Ending Zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="8th Lady (Alice)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="7th Lady (Pia)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="6th Lady (Felia)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="5th Lady (Kiyam)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="4th Lady (Maria)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="3rd Lady (Lova)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="2nd Lady (Sarah)" },
+        { address=0X17F6, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="1st Lady" },
+        { address=0X17F7, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="Alucia (10th Lady)" },
+        { address=0X17F7, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Lena (9th lady)" },
+      },
+      health = {
+        { address=0X139F, type="u8", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0X139F, type="u8", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+        { address=0X17D5, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X17D5, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X17D7, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X17D7, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X189E, type="u8", condition="eq", value=0X01, action="HIT", desc="Bit 1 : Damage trap" },
+        { address=0X18B3, type="u8", condition="change", action="HIT", desc="Bit 3 : Damage Trap" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Iron Golem defeated" },
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Earth Spirit Ge" },
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Earth Spirit Rhea Killed" },
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Tachyo-stone" },
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Beezleboule" },
+        { address=0X17DE, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Fuan Fresco" },
+        { address=0X17E0, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Kiramen" },
+        { address=0X17E0, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Kikurades Ido" },
+        { address=0X17E0, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Kikurades Bebe" },
+        { address=0X17E0, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Kikurades Oz" },
+        { address=0X17E2, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Sea Wolf" },
+        { address=0X17E2, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Water Spirit Aquodea" },
+        { address=0X17E2, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Qater Spirit Aqua" },
+        { address=0X17E2, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Water Spirit Aquo" },
+        { address=0X17E2, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Water PoPo" },
+        { address=0X17E4, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Nubian Fly" },
+        { address=0X17E4, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Isis Guard" },
+        { address=0X17E5, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Sky Master" },
+        { address=0X17E5, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Sky Chief Barda" },
+        { address=0X17E5, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Sky Chief Barth" },
+        { address=0X17E7, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Scryll" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Knight Harasho" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Sorcerer" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Knight Parameth" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Knight Donkey" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Eclarion" },
+        { address=0X17E9, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Isis Greaves" },
+        { address=0X17EC, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Magic Master" },
+        { address=0X17EC, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="White Wizard Weinstein" },
+        { address=0X17EC, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Wise Man Bidu" },
+        { address=0X17EC, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Wise Man Imu" },
+        { address=0X17F0, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Cauldron" },
+        { address=0X17F0, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Hydra" },
+        { address=0X17F0, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Black Altar Found" },
+        { address=0X17F0, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Obtained Red Altar" },
+        { address=0X17F1, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Mephistopheles" },
+        { address=0X17F5, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Demos (Final Boss)" },
+        { address=0X17F5, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Black Wizard" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X17EE, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Isis Shield" },
+      },
+    },
+  },
+}

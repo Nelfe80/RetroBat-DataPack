@@ -1,0 +1,109 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SWAT Kats: The Radical Squadron",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "swat-kats-the-radical-squadron",
+    hashes = {
+      { hash = "8e9e2d07222dcefa13adf2bab05b1776", label = "SWAT Kats - The Radical Squadron (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000A, type="u8", condition="change", action="PAUSE_ON", desc="Paused:00" },
+        { address=0X000B, type="u8", condition="change", action="PAUSE_ON", desc="Paused:00" },
+        { address=0X008B, type="u8", condition="change", action="PAUSE_ON", desc="Paused:08 'shared mem'" },
+        { address=0X1B32, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X06C9, type="u8", condition="change", action="LEVEL_CLEAR", desc="05: clear World?" },
+        { address=0X1B28, type="u8", condition="change", action="LEVEL_CLEAR", desc="Type: Cutscene (3), Stage level (4), shotting stage (5), Swat Kat Selection (2), Word Clear (1)" },
+        { address=0X1B37, type="u8", condition="change", action="LEVEL_CLEAR", desc="1st letter pwd world Clear" },
+        { address=0X1B38, type="u8", condition="change", action="LEVEL_CLEAR", desc="2nd letter pwd world Clear" },
+        { address=0X1B39, type="u8", condition="eq", value=0X2D, action="LEVEL_CLEAR", desc="-" },
+        { address=0X1B3A, type="u8", condition="change", action="LEVEL_CLEAR", desc="3rd letter pwd world Clear" },
+        { address=0X1B3C, type="u8", condition="eq", value=0X2D, action="LEVEL_CLEAR", desc="-" },
+        { address=0X1B3F, type="u8", condition="eq", value=0X2D, action="LEVEL_CLEAR", desc="-" },
+      },
+      zone = {
+        { address=0X1B2E, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Stage 'Bound b28 , b2c', World : 1-5 [1-B], Cutscene: 1[1-4] 2[1-4] 3[1-5] 4[1-3] 5[1-7], Shooti" },
+        { address=0X8D42, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 1" },
+        { address=0X8D44, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 4" },
+        { address=0X8D45, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 4" },
+        { address=0X8D48, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 1" },
+        { address=0X8D49, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 1" },
+        { address=0X8D4A, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 1" },
+        { address=0X8D84, type="u8", condition="change", action="PROGRESSION_ZONE", desc="exp flag act/world 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X19F0, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Lives increased" },
+        { address=0X19F0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Lives decreased" },
+        { address=0X1B5B, type="u8", condition="change", action="LOSE_LIFE", desc="ff: death, stage:0d, Cutscene:1c" },
+        { address=0X8D09, type="u8", condition="increase", action="GAIN_LIFE", desc="life flag act/world 1 increased" },
+        { address=0X8D09, type="u8", condition="decrease", action="LOSE_LIFE", desc="life flag act/world 1 decreased" },
+      },
+      health = {
+        { address=0X1A34, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X1A34, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X1A36, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0X1A36, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1A32, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Lvl (Max 13)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1A60, type="u8", condition="increase", action="COIN_GAIN", desc="SWAT KATS medallion (coins) increased" },
+        { address=0X8D81, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D82, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 2 increased" },
+        { address=0X8D83, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D85, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D86, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D87, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D88, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 2 increased" },
+        { address=0X8D8C, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+        { address=0X8D8D, type="u8", condition="increase", action="COIN_GAIN", desc="Coin flag act/world 1 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X06CD, type="u8", condition="change", action="BOSS_HIT", desc="Turbo Kat boss Bacteria 4 eyes? hits (20)" },
+        { address=0X07CD, type="u8", condition="change", action="BOSS_HIT", desc="switch for shooting 'final stage boss' Big eye? (04) trigger, Bound '072d9'" },
+        { address=0X07D9, type="u8", condition="change", action="BOSS_HIT", desc="Turbo Kat Boss Big Eye Bacteria hit (06?) need find the switch maybe '07cd' (04)" },
+        { address=0X080F, type="u8", condition="change", action="BOSS_HIT", desc="Bosses Heath?" },
+        { address=0X085F, type="u8", condition="change", action="BOSS_HIT", desc="The Metallikats Boss health spike ball left (! shared mem!)" },
+        { address=0X08AF, type="u8", condition="change", action="BOSS_HIT", desc="The Metallikats Boss health Rigth spike ball (!aleatory addr!)" },
+        { address=0X1D5F, type="u8", condition="change", action="BOSS_HIT", desc="Health Dark Kat boss?" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0BE0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switch to Ferris Wheel (40 : on)" },
+        { address=0X0C30, type="u8", condition="change", action="OBJECT_INTERACTION", desc="2 Switch to Ferris Wheel (40 : on)" },
+        { address=0X0C80, type="u8", condition="change", action="OBJECT_INTERACTION", desc="4 Switch to Ferris Wheel (40 : on)" },
+        { address=0X0CD0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="3 Switch to Ferris Wheel (40 : on)" },
+        { address=0X0D20, type="u8", condition="change", action="OBJECT_INTERACTION", desc="5 Switch to Ferris Wheel (40 : on)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B63, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time [Minutes]" },
+        { address=0X1B65, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time [Seconds]" },
+      },
+    },
+  },
+}

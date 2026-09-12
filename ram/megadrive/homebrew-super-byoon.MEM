@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Byoon",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-byoon",
+    hashes = {
+      { hash = "bb847c35890b4f1dc94fd15dc485968e", label = "Super Byoon (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Slideverse",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-slideverse",
+    hashes = {
+      { hash = "adae9361e00f24c8684bb750194b18cf", label = "SM64 - The Slideverse (Full Version) (JakeDower).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X33B249, type="u8", condition="change", action="NEW_LEVEL", desc="Sublevel ID" },
+        { address=0X33B249, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="First screen of all slides" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21D, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="Dead" },
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X33B21E, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="First star is grabbed and you have infinite lives now. Still ticks to 0xfe temporarily if you di" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X8, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+  },
+}

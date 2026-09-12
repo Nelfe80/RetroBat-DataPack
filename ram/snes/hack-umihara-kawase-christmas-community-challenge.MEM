@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Umihara Kawase: Christmas Community Challenge",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-umihara-kawase-christmas-community-challenge",
+    hashes = {
+      { hash = "5591e3bb07acecbbec2c3fb3294904b9", label = "Umihara Kawase - Christmas Community Challenge (1.0) (Raccoon Sam).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0205, type="u8", condition="change", action="DEMO_MODE", desc="Demo ind" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X025A, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X025A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SimCity Creator",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Construction and Management Simulation"
+  },
+
+  rom = {
+    name = "simcity-creator",
+    hashes = {
+      { hash = "ffde19eb19dacf97121cc8816b6fefad", label = "SimCity - Creator (Europe) (En,Fr,De,Es,It,Nl).nds" },
+    }
+  },
+
+  events = {
+  },
+}

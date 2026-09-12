@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Crash Nitro Kart",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "crash-nitro-kart",
+    hashes = {
+      { hash = "11f5ac984ba7e950d88e4d21638e0a55", label = "Crash Nitro Kart (USA)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X1775D2B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(8-bit) gamemode active" },
+        { address=0X1775D2B, type="u8", condition="eq", value=0X07, action="GENERAL_TIMER", desc="time trials" },
+        { address=0X1775D2B, type="u8", condition="eq", value=0X08, action="GENERAL_TIMER", desc="lap time trials" },
+      },
+    },
+  },
+}

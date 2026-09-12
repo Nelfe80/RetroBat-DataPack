@@ -1,0 +1,106 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario RPG: Armageddon",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-rpg-armageddon",
+    hashes = {
+      { hash = "21908687990827548dad727a7b91715b", label = "Super Mario RPG  - Armageddon (v10 - Normal - Hotfix 2) (DarkKefka,Doomsday31415).sfc" },
+      { hash = "d5aa8b05f9373d517f1664bf7890ded0", label = "Super Mario RPG  - Armageddon (v10 - Hard - Hotfix 2) (DarkKefka,Doomsday31415).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1FFC, type="u8", condition="eq", value=0X93, action="DEMO_MODE", desc="Demo" },
+        { address=0X1FFC, type="u8", condition="eq", value=0XCD, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X03C0, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: GFX Set 1" },
+        { address=0X03C1, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: GFX Set 2" },
+        { address=0X03C2, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: GFX Set 3" },
+        { address=0X03C3, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: GFX Set 4" },
+        { address=0X03C4, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: GFX Set 5" },
+        { address=0X03C5, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L3 GFX Set" },
+        { address=0X03C6, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L1 Tileset" },
+        { address=0X03C7, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L2 Tileset" },
+        { address=0X03C8, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L3 Tileset" },
+        { address=0X03C9, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L1 Tilemap" },
+        { address=0X03CA, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L2 Tilemap" },
+        { address=0X03CB, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: L3 Tilemap" },
+        { address=0X03CC, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: Solidity Map" },
+        { address=0X03D1, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: Palette Set" },
+        { address=0X03D2, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level: Battlefield" },
+        { address=0XFA90, type="u8", condition="change", action="NEW_LEVEL", desc="Mario: Level" },
+        { address=0X1F800, type="u8", condition="change", action="NEW_LEVEL", desc="Mario: Level" },
+        { address=0X1F814, type="u8", condition="change", action="NEW_LEVEL", desc="Peach: Level" },
+        { address=0X1F828, type="u8", condition="change", action="NEW_LEVEL", desc="Bowser: Level" },
+        { address=0X1F83C, type="u8", condition="change", action="NEW_LEVEL", desc="Geno: Level" },
+        { address=0X1F850, type="u8", condition="change", action="NEW_LEVEL", desc="Mallow: Level" },
+      },
+      zone = {
+        { address=0X1FFC, type="u8", condition="eq", value=0X98, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XFA91, type="u16le", condition="increase", action="HEAL", desc="Mario: Current Health increased" },
+        { address=0XFA91, type="u16le", condition="decrease", action="HIT", desc="Mario: Current Health decreased" },
+        { address=0XFA93, type="u16le", condition="increase", action="HEAL", desc="Mario: Max Health increased" },
+        { address=0XFA93, type="u16le", condition="decrease", action="HIT", desc="Mario: Max Health decreased" },
+        { address=0XFC11, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 1 increased" },
+        { address=0XFC11, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 1 decreased" },
+        { address=0XFC12, type="u8", condition="increase", action="HEAL", desc="(8 bit) 1st enemy - current HP 1/2 increased" },
+        { address=0XFC12, type="u8", condition="decrease", action="HIT", desc="(8 bit) 1st enemy - current HP 1/2 decreased" },
+        { address=0XFC91, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 2 increased" },
+        { address=0XFC91, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 2 decreased" },
+        { address=0XFD11, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 3 increased" },
+        { address=0XFD11, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 3 decreased" },
+        { address=0XFD91, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 4 increased" },
+        { address=0XFD91, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 4 decreased" },
+        { address=0XFE01, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 5 increased" },
+        { address=0XFE01, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 5 decreased" },
+        { address=0XFE81, type="u16le", condition="increase", action="HEAL", desc="Enemy Health 6 increased" },
+        { address=0XFE81, type="u16le", condition="decrease", action="HIT", desc="Enemy Health 6 decreased" },
+        { address=0X1F851, type="u16le", condition="increase", action="HEAL", desc="Mallow: Current HP increased" },
+        { address=0X1F851, type="u16le", condition="decrease", action="HIT", desc="Mallow: Current HP decreased" },
+        { address=0X1F853, type="u8", condition="increase", action="HEAL", desc="Mallow: Max HP increased" },
+        { address=0X1F853, type="u8", condition="decrease", action="HIT", desc="Mallow: Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XFA9C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Mario: Weapon" },
+        { address=0X1F80C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Mario: Weapon" },
+        { address=0X1F820, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Peach: Weapon" },
+        { address=0X1F834, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Bowser: Weapon" },
+        { address=0X1F848, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Geno: Weapon" },
+        { address=0X1F85C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Mallow: Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFA04, type="u8", condition="increase", action="COIN_GAIN", desc="Coins gained after winning battle increased" },
+        { address=0X1F8AF, type="u16le", condition="increase", action="COIN_GAIN", desc="Current Number of Coins Held increased" },
+        { address=0X1F8B3, type="u8", condition="increase", action="COIN_GAIN", desc="Frog Coins increased" },
+        { address=0X2302E, type="u8", condition="increase", action="COIN_GAIN", desc="Galaxy Coins - Unstable, I think increased" },
+        { address=0X23083, type="u8", condition="increase", action="COIN_GAIN", desc="b1 - Gold Blaster has been defeated increased" },
+        { address=0X23084, type="u8", condition="increase", action="COIN_GAIN", desc="b3 - Ring has been returned to Daisy increased" },
+        { address=0X230B0, type="u8", condition="increase", action="COIN_GAIN", desc="Galaxy Coins? increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X23051, type="u8", condition="change", action="BOSS_DEFEATED", desc="b2 - All tier 1 superbosses defeated" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Frog Feast",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-frog-feast",
+    hashes = {
+      { hash = "54af14494cb3b9d584adcbd2d1a5216e", label = "Frog Feast (World) (Aftermarket) (Unl).j64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4CC7, type="u8", condition="eq", value=0X90, action="CREDITS_SCREEN", desc="In Menu / Credits" },
+      },
+    },
+  },
+}

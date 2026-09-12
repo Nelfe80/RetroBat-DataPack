@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Fate of the Bombiwa",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-fate-of-the-bombiwa",
+    hashes = {
+      { hash = "c8e59cdc27809c17829ef19a1469ef8a", label = "Legend of Zelda, The - Fate of the Bombiwa (1.03) (DezZival).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X11B92C, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X11A5F0, type="u8", condition="change", action="LOSE_LIFE", desc="Death Count" },
+      },
+      health = {
+        { address=0X11A602, type="u16be", condition="increase", action="HEAL", desc="Player HP 16 bits increased" },
+        { address=0X11A602, type="u16be", condition="decrease", action="HIT", desc="Player HP 16 bits decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1D8872, type="u8", condition="eq", value=0X0205, action="WEAPON_STATE", desc="Hit another person with this weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X11A65D, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Bombs" },
+        { address=0X11A65E, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Nuts" },
+        { address=0X11A65F, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Sticks" },
+        { address=0X11A669, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Magic Beans" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Unlocked the Boss Door" },
+        { address=0X1CA1C9, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Button Puzzle - Boss Key" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X11A66E, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Deku Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Rock Destroyed" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X04, action="DOOR_OPENED", desc="Iron Door unlocked" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Switch Puzzle" },
+        { address=0X1CA1C8, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Switch" },
+      },
+    },
+  },
+}

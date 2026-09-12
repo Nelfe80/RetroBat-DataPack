@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Suffering: Ties That Bind",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-suffering-ties-that-bind",
+    hashes = {
+      { hash = "889140340ca3e871626173c4209cdb2d", label = "Suffering, The - Ties That Bind (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5A42E4, type="u32le", condition="eq", value=0X00, action="PAUSE_ON", desc="False" },
+        { address=0X5A42E4, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="True" },
+      },
+    },
+  },
+}

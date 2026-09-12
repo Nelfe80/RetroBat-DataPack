@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Flicky",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "flicky",
+    hashes = {
+      { hash = "0bb6d2a43b340f56366edabd7e21fed4", label = "Flicky (Japan) (Rev 1).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00C9, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X00C9, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+  },
+}

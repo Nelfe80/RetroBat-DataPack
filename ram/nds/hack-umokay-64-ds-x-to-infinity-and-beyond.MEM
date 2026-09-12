@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Umokay 64 DS X: To Infinity And Beyond!",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-umokay-64-ds-x-to-infinity-and-beyond",
+    hashes = {
+      { hash = "9a3bc75aacf3e9bd873c09c32749655b", label = "SM64DS - Umokay 64 X - To Infinity And Beyond (0reo).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F2C4, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X1C, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X2480, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X24C0, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9CAB5, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="The King's Ultimate Goal" },
+        { address=0X9CAB6, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="8 Red Coins Underground" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Second Overworld" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="First Overworld" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Third Overworld" },
+        { address=0X182430, type="u16le", condition="change", action="NEW_LEVEL", desc="Textmessage ID [16-bit] [For Second Overworld only]" },
+        { address=0X182704, type="u16le", condition="change", action="NEW_LEVEL", desc="Animation ID [16-bit] [For Second Overworld only]" },
+        { address=0X191740, type="u16le", condition="change", action="NEW_LEVEL", desc="Textmessage ID [16-bit] [For Overall except Second Overworld]" },
+        { address=0X191A14, type="u16le", condition="change", action="NEW_LEVEL", desc="Animation ID [16-bit] [For Overall except Second Overworld]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X1760AE, type="u8", condition="increase", action="HEAL", desc="Big Boo's HP increased" },
+        { address=0X1760AE, type="u8", condition="decrease", action="HIT", desc="Big Boo's HP decreased" },
+        { address=0X1765D4, type="u8", condition="increase", action="HEAL", desc="Blue King Bob-omb's HP increased" },
+        { address=0X1765D4, type="u8", condition="decrease", action="HIT", desc="Blue King Bob-omb's HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X9CAB6, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="5 Secret Treasures" },
+        { address=0X9CACB, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Secret Star - 5 Secret Treasures" },
+        { address=0X191AD5, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Balloon Power-Up [For overall except Second Overworld]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X9CAB5, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="1 Black Coin (like 100 Coins)" },
+        { address=0X9CAB6, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X9CAD0, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Secret Star - 8 Red Coins" },
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+        { address=0X9F358, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Hexagon Jumps" },
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jumps" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9CAA6, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="3 Star Door unlocked" },
+        { address=0X9CAA6, type="u8", condition="bit_true", mask=0X10, action="DOOR_OPENED", desc="12 Star Door unlocked" },
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X04, action="ENVIRONMENT_UNDERWATER", desc="Deep Underwater" },
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Switch Star Run!" },
+        { address=0X9CAB6, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Switch Star Sprint" },
+      },
+    },
+  },
+}

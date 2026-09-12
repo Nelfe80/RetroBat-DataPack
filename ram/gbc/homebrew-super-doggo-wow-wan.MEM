@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Doggo WOW WAN",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-doggo-wow-wan",
+    hashes = {
+      { hash = "b9032a7c44305f4fbba30891427c03fb", label = "Super Doggo WOW WAN (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCE6B, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues Used" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCE65, type="u8", condition="change", action="NEW_LEVEL", desc="Captain Weary Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCDD7, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XCDD7, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XCE8D, type="u8", condition="change", action="LOSE_LIFE", desc="Number of Deaths" },
+      },
+      health = {
+        { address=0XCDCB, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XCDCB, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0XCE5F, type="u8", condition="increase", action="HEAL", desc="Captain Weary Health (Minigame) increased" },
+        { address=0XCE5F, type="u8", condition="decrease", action="HIT", desc="Captain Weary Health (Minigame) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCE61, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Captain Weary Score" },
+        { address=0XCE67, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Captain Weary Hi-Score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC669, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health Bar Initialized" },
+        { address=0XCE3F, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0XCE7F, type="u8", condition="change", action="BOSS_HIT", desc="Boss 2 & 3 Health" },
+      },
+    },
+  },
+}

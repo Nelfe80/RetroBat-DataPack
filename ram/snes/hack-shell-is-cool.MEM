@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shell is Cool",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shell-is-cool",
+    hashes = {
+      { hash = "e7ad0f1afdbbf2b74ff2d6c048991a00", label = "SMW - Shell is Cool (v1.3) (En) (Deivid Borba).sfc" },
+      { hash = "0cefbd2ba391b62cf54d811dd6c6aa07", label = "SMW - Shell is Cool (v1.3) (Pt) (Deivid Borba).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu - State in Level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total Exits cleared" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player - Powerup" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B89, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Level - Message Box Expansion / Shrinking Timer" },
+      },
+    },
+  },
+}

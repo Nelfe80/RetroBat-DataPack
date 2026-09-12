@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Volleyball",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "super-volleyball",
+    hashes = {
+      { hash = "b2007f23346c87e12f54e04aebd55f52", label = "Super Volleyball (USA).md" },
+    }
+  },
+
+  events = {
+  },
+}

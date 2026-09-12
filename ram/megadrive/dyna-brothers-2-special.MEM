@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dyna Brothers 2 Special",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "dyna-brothers-2-special",
+    hashes = {
+      { hash = "1026ca6fd47327baa2aef68e047dfd55", label = "Dyna Brothers 2 (Japan).md" },
+      { hash = "53f0bcf292f2b7a01d11b2061abb92e7", label = "Dyna Brothers 2 Special (Japan) (Virtual Console).md" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X9C92, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player Points." },
+      },
+    },
+  },
+}

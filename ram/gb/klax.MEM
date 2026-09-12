@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Klax",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "klax",
+    hashes = {
+      { hash = "7d4f3bf92bbff701583eb74f36951bb9", label = "Klax (USA) (Mindscape).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XE92D, type="u8", condition="change", action="NEW_LEVEL", desc="Select A Level" },
+      },
+    },
+  },
+}

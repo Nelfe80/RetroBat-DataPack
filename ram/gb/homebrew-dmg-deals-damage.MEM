@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ DMG Deals Damage",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-dmg-deals-damage",
+    hashes = {
+      { hash = "f7c384e29738c21ef611d45e5d35b4b9", label = "DMG Deals Damage (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC160, type="u8", condition="change", action="PAUSE_OFF", desc="00 - Unpaused" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XC155, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Record Stage - Hex" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC0B0, type="u8", condition="increase", action="HEAL", desc="Health - 4 Max increased" },
+        { address=0XC0B0, type="u8", condition="decrease", action="HIT", desc="Health - 4 Max decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC0C8, type="u24le", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+  },
+}

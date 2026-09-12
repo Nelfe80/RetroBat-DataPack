@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Half-Life: Blue Shift",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-half-life-blue-shift",
+    hashes = {
+      { hash = "e7b820a7a2dabd33d61a0728bafe984a", label = "Half-Life - Blue Shift - Anniversary Edition (v1.20) (supadupaplex)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X308B7C, type="u32le", condition="change", action="NEW_LEVEL", desc="HUD Armor Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13E6510, type="u8", condition="change", action="LOSE_LIFE", desc="Title Card Readied (A Leap of Faith) [ASCII]" },
+      },
+      health = {
+        { address=0X308A54, type="u32le", condition="increase", action="HEAL", desc="HUD HP Value increased" },
+        { address=0X308A54, type="u32le", condition="decrease", action="HIT", desc="HUD HP Value decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3058F8, type="u32le", condition="change", action="AMMO_STATE", no_log=true, desc="Pistol Reserve Ammo" },
+        { address=0X32F0F6, type="u16le", condition="eq", value=0X3F80, action="AMMO_STATE", no_log=true, desc="Enabled" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X32F0DE, type="u16le", condition="eq", value=0X3F80, action="INVINCIBILITY_START", desc="Enabled" },
+      },
+    },
+  },
+}

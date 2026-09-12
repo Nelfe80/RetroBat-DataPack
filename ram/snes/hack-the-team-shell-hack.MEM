@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Team Shell Hack",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-team-shell-hack",
+    hashes = {
+      { hash = "ceb2ed3011bd43221a4cc38d7c05c97e", label = "SMW - The Team Shell Hack (v3.0) (Jikurein,Team Shell,xamexer).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="level beaten:" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XD169, action="BOSS_HIT", desc="Boss Room" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1426, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="first block" },
+        { address=0X1426, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="second block" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Bit0:Switch Palace Pressed" },
+      },
+    },
+  },
+}

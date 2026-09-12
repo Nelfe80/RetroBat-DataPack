@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ PokeEscape",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokeescape",
+    hashes = {
+      { hash = "dae21f7a64bd9a36720632df56bbb72e", label = "Pokemon FireRed - PokeEscape (v2023-10-06) (SmallAnt, Atsign).gba" },
+    }
+  },
+
+  events = {
+  },
+}

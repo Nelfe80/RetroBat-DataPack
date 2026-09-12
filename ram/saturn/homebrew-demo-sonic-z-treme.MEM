@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Sonic Z-Treme",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-sonic-z-treme",
+    hashes = {
+      { hash = "b267f589e0c91f23bed9ddbcbb26889f", label = "Sonic Z-Treme (NTSC) (Demo) (Aftermarket) (XL2)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1FFE00, type="u16le", condition="eq", value=0X25E4, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

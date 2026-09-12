@@ -1,0 +1,139 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Touhou Mario: Imperishable Night",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-touhou-mario-imperishable-night",
+    hashes = {
+      { hash = "4b252f47170c80252657c356002e615e", label = "SMW - TouHou Mario - Imperishable Night (2014-01-11) (Vitor Vilela, Wakana).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2010B, type="u8", condition="eq", value=0XC7, action="TITLE_SCREEN", desc="Problaby the Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X21EA3, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA6, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA7, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA8, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EA9, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21EAC, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X21F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Amount of Stages Clear" },
+      },
+      zone = {
+        { address=0X21EA6, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="Stage 5 (A Pure Cage in the Filthy World) Path Unlocked" },
+        { address=0X21EA7, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="Stage 6 (Five Impossible Requests) Path Unlocked" },
+        { address=0X21EA7, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="Stage 6 (The Orb in the night sky hiding the Princess) Path Unlocked" },
+        { address=0X21EA7, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="Stage 4 (Underneath the Soil containing the Mana) Path Unlocked" },
+        { address=0X21EA8, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="Stage 5 (A Pure Cage in the Filthy World) Path Unlocked" },
+        { address=0X21EA9, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="Stage 5 (A Pure Cage in the Filthy World) Path Unlocked" },
+      },
+      stage = {
+        { address=0X20BFE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage/Map indication" },
+        { address=0X21EA3, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Stage 2 (The Path where humans vanish) Path Unlocked" },
+        { address=0X21EA3, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Hakurei Shrine Path Unlocked" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Stage 3 (Nostalgic reminiscence of the History-Eater) Path Unlocked" },
+        { address=0X21EA4, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Stage 1 (Where the Fireflies fly) Path Unlocked" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Stage 4 (Underneath the Soil containing the Mana) Path Unlocked" },
+        { address=0X21EA5, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Stage 2 (The Path where humans vanish) Path Unlocked" },
+        { address=0X21EA6, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Stage 3 (Nostalgic reminiscence of the History-Eater) Path Unlocked" },
+        { address=0X21EA8, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Bad Ending Path Unlocked" },
+        { address=0X21EA9, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Good Ending Path Unlocked" },
+        { address=0X21EAA, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Stage 6 (Five Impossible Requests) Path Unlocked" },
+        { address=0X21EAB, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Stage 6 (The Orb in the night sky hiding the Princess) Path Unlocked" },
+        { address=0X21EAC, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="⑨ Frozen forest ⑨ Path Unlocked" },
+        { address=0X21EAC, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Hakurei Shrine Path Unlocked" },
+        { address=0X21EAE, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Stage 7 Extra (Hourai Doll) Path Unlocked" },
+        { address=0X21EBB, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Lock the Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DC4, type="u8", condition="increase", action="GAIN_LIFE", desc="Amount of Current Lifes increased" },
+        { address=0X20DC4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Amount of Current Lifes decreased" },
+        { address=0X20DC5, type="u8", condition="increase", action="GAIN_LIFE", desc="Amount of Max Lifes you can have increased" },
+        { address=0X20DC5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Amount of Max Lifes you can have decreased" },
+        { address=0X20EF8, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 1 (Star) increased" },
+        { address=0X20EF8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 1 (Star) decreased" },
+        { address=0X20EF9, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 2 (Star) increased" },
+        { address=0X20EF9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 2 (Star) decreased" },
+        { address=0X20EFA, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 3 (Star) increased" },
+        { address=0X20EFA, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 3 (Star) decreased" },
+        { address=0X20EFB, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 4 (Star) increased" },
+        { address=0X20EFB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 4 (Star) decreased" },
+        { address=0X20EFC, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 5 (Star) increased" },
+        { address=0X20EFC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 5 (Star) decreased" },
+        { address=0X20EFD, type="u8", condition="increase", action="GAIN_LIFE", desc="Life 6 (Star) increased" },
+        { address=0X20EFD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life 6 (Star) decreased" },
+        { address=0X20F44, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0X20F44, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+      },
+      health = {
+        { address=0X20D82, type="u8", condition="decrease", action="HIT", desc="Power-up decreased" },
+        { address=0X20F1A, type="u8", condition="increase", action="HEAL", desc="Energy increased" },
+        { address=0X20F1A, type="u8", condition="decrease", action="HIT", desc="Energy decreased" },
+        { address=0X20F48, type="u8", condition="increase", action="HEAL", desc="Energy increased" },
+        { address=0X20F48, type="u8", condition="decrease", action="HIT", desc="Energy decreased" },
+        { address=0X21497, type="u8", condition="eq", value=0X7F, action="HIT", desc="Damage" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20D82, type="u8", condition="eq", value=0XC8, action="DYNAMIC_INVENTORY", desc="Normal" },
+        { address=0X20D82, type="u8", condition="eq", value=0XF0, action="DYNAMIC_INVENTORY", desc="Fire Flower (B)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X20F2A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Points (Visual)" },
+        { address=0X20F34, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points [24-bits]" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X21528, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152A, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152B, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152C, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152D, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152E, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X2152F, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X21530, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X21532, type="u8", condition="change", action="BOSS_HIT", desc="Boss (Spell 1)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X20D82, type="u8", condition="eq", value=0XF0, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Flower (B)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X214AF, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switch On Off" },
+        { address=0X21EB8, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="-END OF THE GAME-/Scarlet Switch Path Unlocked" },
+        { address=0X21EBB, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="??? Path Unlocked" },
+        { address=0X21EBB, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Completed" },
+        { address=0X21F27, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Pressed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X214AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Blue P-Switch Timer" },
+        { address=0X214AE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Grey P-Switch Timer" },
+        { address=0X21531, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Boss HP" },
+      },
+    },
+  },
+}

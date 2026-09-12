@@ -1,0 +1,106 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SegaSonic the Hedgehog",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "segasonic-the-hedgehog",
+    hashes = {
+      { hash = "bb5459bf19132d4dc1340654c17331df", label = "sonic.7z <SegaSonic The Hedgehog (Japan, rev. C)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X84E5, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue countdown" },
+        { address=0XF007, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XF007, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Demo (Icy Isle)" },
+        { address=0XF007, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo (Volcanic Vault)" },
+        { address=0XF413, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X4F538, type="u8", condition="change", action="CREDITS_SCREEN", desc="Service Credits first digit?" },
+        { address=0X4F53A, type="u8", condition="change", action="CREDITS_SCREEN", desc="Service Credits second digit?" },
+        { address=0X4F5B8, type="u8", condition="change", action="CREDITS_SCREEN", desc="Total Credits first digit?" },
+        { address=0X4F5BA, type="u8", condition="change", action="CREDITS_SCREEN", desc="Total Credits second digit?" },
+        { address=0X4FF48, type="u32le", condition="change", action="DEMO_MODE", desc="In game marker (Not nesacerly a screen addr but it goes from 0x00000000 to 0x0d0c0b0a when you'r" },
+        { address=0X9030A, type="u16le", condition="eq", value=0XCD01, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X8537, type="u8", condition="change", action="NEW_LEVEL", desc="Level addr" },
+        { address=0X8537, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 1: Volcanic Vault" },
+        { address=0X8537, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 2: Icy ISle" },
+        { address=0X8537, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 3: Dusty Dodge" },
+        { address=0X8537, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 4: Trap Tower" },
+        { address=0X8537, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 5: Landslide Limbo" },
+        { address=0X8537, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Level 6: Wild Water Way" },
+        { address=0X8537, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 7 Final level: Eggaman's Tower" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X86EF, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="2P (Won't go back to zero until both players die)" },
+      },
+      health = {
+        { address=0X4E9E, type="u8", condition="increase", action="HEAL", desc="P3 Health increased" },
+        { address=0X4E9E, type="u8", condition="decrease", action="HIT", desc="P3 Health decreased" },
+        { address=0X4F3E, type="u8", condition="increase", action="HEAL", desc="P2 Health increased" },
+        { address=0X4F3E, type="u8", condition="decrease", action="HIT", desc="P2 Health decreased" },
+        { address=0X4FDE, type="u16le", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X4FDE, type="u16le", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0XF622, type="u8", condition="increase", action="HEAL", desc="Vitality (Not sure what this does and neither did ColonD as stated in the forum but he said some" },
+        { address=0XF622, type="u8", condition="decrease", action="HIT", desc="Vitality (Not sure what this does and neither did ColonD as stated in the forum but he said some" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X853A, type="u16le", condition="increase", action="COIN_GAIN", desc="Total Rings Sonic collected increased" },
+        { address=0X853C, type="u8", condition="increase", action="COIN_GAIN", desc="Rings in stage? increased" },
+        { address=0X4F1B8, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Chute _1 First digit increased" },
+        { address=0X4F1BA, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Chute _1 Second digit increased" },
+        { address=0X4F238, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Chute _2 First digit increased" },
+        { address=0X4F23A, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Chute _2 Second digit increased" },
+        { address=0X4F3B8, type="u8", condition="increase", action="COIN_GAIN", desc="Total Coins first digit increased" },
+        { address=0X4F3BA, type="u8", condition="increase", action="COIN_GAIN", desc="Total Coins second digit increased" },
+        { address=0X4F4B8, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Credits first digit? increased" },
+        { address=0X4F4BA, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Credits second digit? increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE658, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="countdown", timer_unit="unknown", desc="Final round countdown timer" },
+        { address=0XF036, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Potential level addr (It takes a long time to change value after Dusty Dunes so I'll keep lookin" },
+        { address=0XF043, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="/[16-bit] Total Time (Seconds)?" },
+        { address=0X4F7B6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Total time (Hours) second digit?" },
+        { address=0X4F7BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Total Time (Minutes) second digit" },
+        { address=0X4F7C0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Total Time (Seconds) first digit" },
+        { address=0X4F7C2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Total Time (seconds) second digit" },
+        { address=0X4F836, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Play Time (Hours) second digit" },
+        { address=0X4F83A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Game Play Time (minutes) first digit" },
+        { address=0X4F83C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game play time (Minutes) second digit" },
+        { address=0X4F840, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Play Time (Seconds) first digit" },
+        { address=0X4F842, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Play Time (Seconds) second digit" },
+        { address=0X4F8B6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Average Game Time (Hours) second digit" },
+        { address=0X4F8BA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Average Game Time (Minutes) first digit" },
+        { address=0X4F8BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Average Game Time (Minutes) second digit" },
+        { address=0X4F8C0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Average Game Time (Seconds) first digit" },
+        { address=0X4F8C2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Average Game Time (Seconds) second digit" },
+        { address=0X4F936, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Longest Game Time (Hours) second digit" },
+        { address=0X4F93A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Longest Game Time (Minutes) first digit" },
+        { address=0X4F93C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Longest Game Time (Minutes) second digit" },
+        { address=0X4F940, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Longest Game Time (Seconds) first digit" },
+        { address=0X4F942, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Longest Game Time (Seconds) second digit" },
+        { address=0X4F9B6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Shortest Game Time (Hours) second digit" },
+        { address=0X4F9BA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Shortest Game Time (Minutes) first digit" },
+        { address=0X4F9BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Shortest Game Time (Minutes) second digit" },
+        { address=0X4F9C0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Shortest Game Time (Seconds) first digit" },
+        { address=0X4F9C2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Shortest Game Time (Seconds) second digit" },
+      },
+    },
+  },
+}

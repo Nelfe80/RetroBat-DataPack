@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Run World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-run-world",
+    hashes = {
+      { hash = "863c121ca09121a8f7799ff49f17f715", label = "SMW - Super Run World (00frank).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

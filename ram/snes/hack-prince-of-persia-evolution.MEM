@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Prince of Persia: Evolution",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-prince-of-persia-evolution",
+    hashes = {
+      { hash = "b7e4af45f5ee5dabb980e712f3131493", label = "Prince Of Persia (USA) - Evolution (1.0) (salvadorc17).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0D75, type="u8", condition="eq", value=0XFF, action="DEMO_MODE", desc="demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X04C1, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Opened? (01)" },
+        { address=0X0574, type="u8", condition="change", action="LEVEL_CLEAR", desc="Controls Locked - Cutscene/Level Complete - FF" },
+      },
+      stage = {
+        { address=0X024C, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0508, type="u8", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X0508, type="u8", condition="decrease", action="HIT", desc="Current Health decreased" },
+        { address=0X050A, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X050A, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X050B, type="u8", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0X050B, type="u8", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+        { address=0X050D, type="u8", condition="increase", action="HEAL", desc="Enemy Max Health increased" },
+        { address=0X050D, type="u8", condition="decrease", action="HIT", desc="Enemy Max Health decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1EA84, type="u8", condition="change", action="DOOR_OPENED", desc="Exit Door Raised? (E0 : Fully Open. Training 1?)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X052E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Elapsed (main game)" },
+        { address=0X054C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Elapsed Current Stage" },
+      },
+    },
+  },
+}

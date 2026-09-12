@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Grand Theft Auto: Generations",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-grand-theft-auto-generations",
+    hashes = {
+      { hash = "1e9c37645a8653e7362434f22966cfee", label = "GTASA - Grand Theft Auto Generations (v5.0.4 Beta)" },
+    }
+  },
+
+  events = {
+  },
+}

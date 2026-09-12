@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rayman 3: Hoodlum Havoc",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "rayman-3-hoodlum-havoc",
+    hashes = {
+      { hash = "52a0fc49b7024da94c48f506985e8e1c", label = "Rayman 3 - Hoodlum Havoc (USA) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1907314, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="sleeping" },
+        { address=0X1907314, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="punched" },
+        { address=0X1907314, type="u8", condition="eq", value=0X41, action="LEVEL_CLEAR", desc="cawing" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X36CA60, type="u32le", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Racket Jump" },
+        { address=0X189C798, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="0" },
+        { address=0X189C798, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="15" },
+        { address=0X189C798, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="30" },
+        { address=0X189C798, type="u8", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="40" },
+        { address=0X189C79C, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="0" },
+        { address=0X189C79C, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="15" },
+        { address=0X189C79C, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="30" },
+        { address=0X189C79C, type="u8", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="40" },
+      },
+    },
+  },
+}

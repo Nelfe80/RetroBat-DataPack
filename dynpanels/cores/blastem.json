@@ -1,0 +1,176 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "core",
+  "core": "blastem",
+  "display_name": "Sega - MD/CD BlastEm",
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "mame_button": "P1_BUTTON1",
+        "rmp_button_by_layout": {
+          "2-Button": "b",
+          "4-Button": "b",
+          "6-Button": "b",
+          "8-Button": "b"
+        }
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "mame_button": "P1_BUTTON2",
+        "rmp_button_by_layout": {
+          "2-Button": "a",
+          "4-Button": "a",
+          "6-Button": "a",
+          "8-Button": "a"
+        }
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "mame_button": "P1_BUTTON6",
+        "rmp_button_by_layout": {
+          "6-Button": "r",
+          "8-Button": "r"
+        }
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "mame_button": "P1_BUTTON8",
+        "rmp_button_by_layout": {
+          "8-Button": "r2"
+        }
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "mame_button": "P1_BUTTON4",
+        "rmp_button_by_layout": {
+          "4-Button": "y",
+          "6-Button": "y",
+          "8-Button": "y"
+        }
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "mame_button": "P1_BUTTON3",
+        "rmp_button_by_layout": {
+          "4-Button": "x",
+          "6-Button": "x",
+          "8-Button": "x"
+        }
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "mame_button": "P1_BUTTON5",
+        "rmp_button_by_layout": {
+          "6-Button": "l",
+          "8-Button": "l"
+        }
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "mame_button": "P1_BUTTON7",
+        "rmp_button_by_layout": {
+          "8-Button": "l2"
+        }
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start"
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      }
+    },
+    "rmp_slots_by_layout": {
+      "2-Button": {
+        "1": "b",
+        "2": "a"
+      },
+      "4-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y"
+      },
+      "6-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r"
+      },
+      "8-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r",
+        "7": "l2",
+        "8": "r2"
+      }
+    },
+    "rmp_system_buttons": {
+      "start": "start",
+      "select": "select",
+      "coin": "select"
+    }
+  },
+  "core_template": {
+    "retropad": {
+      "buttons": {}
+    },
+    "default_group": "default",
+    "groups": {},
+    "content_databases": []
+  },
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  }
+}

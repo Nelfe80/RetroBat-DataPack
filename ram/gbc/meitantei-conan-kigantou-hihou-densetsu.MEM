@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Meitantei Conan: Kigantou Hihou Densetsu",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "meitantei-conan-kigantou-hihou-densetsu",
+    hashes = {
+      { hash = "09f6430f0847ec793ff95057fdacac1d", label = "Detective Conan - Legend of the Treasure of Strange Rock Island (Japan) (En) (v0.04) (mz).gbc" },
+      { hash = "f5325eaf1ecbf7cd6e1e561a3b5d77f7", label = "Meitantei Conan - Kigantou Hihou Densetsu (Japan) (SGB Enhanced) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC6FE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Sleuth Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC3CE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Game Time (Seconds)" },
+        { address=0XC3CF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Game Time (Minute)" },
+      },
+    },
+  },
+}

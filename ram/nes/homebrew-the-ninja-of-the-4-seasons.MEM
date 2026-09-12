@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Ninja of the 4 Seasons",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-ninja-of-the-4-seasons",
+    hashes = {
+      { hash = "d7d55c7f8d71872500f68c2a8fb21b41", label = "Ninja of the 4 Seasons, The (World) (v1.1) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X06EB, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X06EB, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X06EC, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 00X" },
+        { address=0X06ED, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 0X0" },
+        { address=0X06EE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: X00" },
+      },
+    },
+  },
+}

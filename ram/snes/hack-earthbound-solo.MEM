@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ EarthBound: Solo",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-earthbound-solo",
+    hashes = {
+      { hash = "6293c4023519e2fb995c88b97742d127", label = "EarthBound - Solo (v1.0) (ndmt).sfc" },
+    }
+  },
+
+  events = {
+    combat = {
+      enemies = {
+        { address=0XB53B, type="u8", condition="eq", value=0XB8, action="BOSS_HIT", desc="Boss Victory" },
+      },
+    },
+  },
+}

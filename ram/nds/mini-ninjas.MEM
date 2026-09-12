@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mini Ninjas",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "mini-ninjas",
+    hashes = {
+      { hash = "6e7f2a0b085af5fa9d662dad979bf802", label = "Mini Ninjas (Europe) (En,Fr,De,Es,It,Nl).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X968FC, type="u16le", condition="increase", action="HEAL", desc="Current Health (16bit) increased" },
+        { address=0X968FC, type="u16le", condition="decrease", action="HIT", desc="Current Health (16bit) decreased" },
+        { address=0X96910, type="u16le", condition="increase", action="HEAL", desc="Max Health (16bit) increased" },
+        { address=0X96910, type="u16le", condition="decrease", action="HIT", desc="Max Health (16bit) decreased" },
+        { address=0X969CC, type="u16le", condition="eq", value=0X26, action="HEALTH_STATE", desc="Supreme Health" },
+        { address=0X969CC, type="u16le", condition="eq", value=0X59, action="HEALTH_STATE", desc="Energy Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X969CC, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Inventory Item 1 - Item ID" },
+      },
+    },
+  },
+}

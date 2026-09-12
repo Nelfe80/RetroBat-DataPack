@@ -1,0 +1,91 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Goldfinger 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-goldfinger-64",
+    hashes = {
+      { hash = "a56b15faf24389dd375e7afb03a7d3c1", label = "007 - Goldfinger (Hack) (Various).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2A8F8, type="u8", condition="change", action="NEW_LEVEL", desc="level select : 8-bit" },
+        { address=0X36FB7, type="u8", condition="change", action="NEW_LEVEL", desc="Bit 0 : All Levels Unlocked" },
+        { address=0X79EF0, type="u8", condition="change", action="NEW_LEVEL", desc="shot total for level : 8-bit" },
+        { address=0X105042, type="u16be", condition="change", action="NEW_LEVEL", desc="Body armor level 1 : 16 bit" },
+        { address=0X149C3E, type="u16be", condition="change", action="NEW_LEVEL", desc="grounds health : 16-bit" },
+        { address=0X14A360, type="u8", condition="change", action="NEW_LEVEL", desc="weapon on grounds 2 : golf club - 8-bit" },
+      },
+      stage = {
+        { address=0XFEC3E, type="u16be", condition="change", action="PROGRESSION_STAGE", desc="stage 4, airplane : 3f80 full -- 16-bit" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0000, type="u16be", condition="increase", action="HEAL", desc="RANCH health : 16- bit increased" },
+        { address=0X0000, type="u16be", condition="decrease", action="HIT", desc="RANCH health : 16- bit decreased" },
+        { address=0XCCC3E, type="u16be", condition="increase", action="HEAL", desc="china health : 16-bit increased" },
+        { address=0XCCC3E, type="u16be", condition="decrease", action="HIT", desc="china health : 16-bit decreased" },
+        { address=0XD943E, type="u16be", condition="increase", action="HEAL", desc="prison health : 16-bit increased" },
+        { address=0XD943E, type="u16be", condition="decrease", action="HIT", desc="prison health : 16-bit decreased" },
+        { address=0XE5C3E, type="u16be", condition="increase", action="HEAL", desc="club health : 16-bit increased" },
+        { address=0XE5C3E, type="u16be", condition="decrease", action="HIT", desc="club health : 16-bit decreased" },
+        { address=0X10503E, type="u8", condition="increase", action="HEAL", desc="health - cartel : 3f80 full --- 8-bit increased" },
+        { address=0X10503E, type="u8", condition="decrease", action="HIT", desc="health - cartel : 3f80 full --- 8-bit decreased" },
+        { address=0X11183E, type="u16be", condition="increase", action="HEAL", desc="bodega health : 16-it increased" },
+        { address=0X11183E, type="u16be", condition="decrease", action="HIT", desc="bodega health : 16-it decreased" },
+        { address=0X11A43E, type="u16be", condition="increase", action="HEAL", desc="miami health : 16 bit increased" },
+        { address=0X11A43E, type="u16be", condition="decrease", action="HIT", desc="miami health : 16 bit decreased" },
+        { address=0X12443E, type="u16be", condition="increase", action="HEAL", desc="RANCH / forest health : 16-bit increased" },
+        { address=0X12443E, type="u16be", condition="decrease", action="HIT", desc="RANCH / forest health : 16-bit decreased" },
+        { address=0X130C3E, type="u16be", condition="increase", action="HEAL", desc="knox, crab key health : 16-bit increased" },
+        { address=0X130C3E, type="u16be", condition="decrease", action="HIT", desc="knox, crab key health : 16-bit decreased" },
+        { address=0X13D43E, type="u16be", condition="increase", action="HEAL", desc="vaults health : 16-bit increased" },
+        { address=0X13D43E, type="u16be", condition="decrease", action="HIT", desc="vaults health : 16-bit decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XE640C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="current weapon club 5:ppk/s -- 8-bit" },
+        { address=0X11200C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Bodega current weapon 5 : silence pistol -- 8-bit" },
+        { address=0X13DC0C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="vaults weapon 3: oddjob hat --- 8-bit" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X69658, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Infinite ammo unlocked in cheat menu : 01 - 8bit" },
+        { address=0X696A8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="cheat infinite ammo : 8-bit" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X696A1, type="u8", condition="change", action="INVINCIBILITY_START", desc="cheat invincible : 8-bit" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2A928, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Failed/Completed - Will be completed if all objectives are met" },
+        { address=0X75D58, type="u8", condition="change", action="OBJECT_INTERACTION", desc="2/4 mission objective complete : 01 failed 02 ---- 8-bit" },
+        { address=0X75D5C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="1/4 mission objective complete :1 failed : 2 --- 8-bit" },
+        { address=0X75D60, type="u8", condition="change", action="OBJECT_INTERACTION", desc="mission objective 5/5 : 8-bit" },
+        { address=0X75D64, type="u8", condition="change", action="OBJECT_INTERACTION", desc="3/4 mission objective complete : 01 failed : 02 -- 8-bit" },
+        { address=0X75D68, type="u8", condition="change", action="OBJECT_INTERACTION", desc="4/4 mission objective completed : 01 failed : 02 -- 8bit" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X79A20, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="time in level, goes by milliseconds total (x 60 per second) : 16-bit" },
+        { address=0X79A22, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="adds 1 to total time every 18.2 minutes that passes (total seconds passes ffff) : 16-bit" },
+        { address=0X6B2AA4, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="best time level (total seconds) : 16-bit" },
+      },
+    },
+  },
+}

@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dream Mix TV: World Fighters",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "dream-mix-tv-world-fighters",
+    hashes = {
+      { hash = "1f28c7168d32540edad1ce960dec30e1", label = "Dream Mix TV - World Fighters (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3DB914, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X300644, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="World Fighters Cutscene" },
+        { address=0X3DB914, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="World Fighters Mode" },
+      },
+      stage = {
+        { address=0X3DF894, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Story Mode Stage" },
+        { address=0X3DF894, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Ending" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X301C60, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="Life Attack" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3E4B50, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Caravan Score (32-bits)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X3DF834, type="u8", condition="eq", value=0X11, action="BOSS_HIT", desc="Final Boss (Unplayable)" },
+      },
+    },
+  },
+}

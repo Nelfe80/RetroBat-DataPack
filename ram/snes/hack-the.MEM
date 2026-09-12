@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 'the",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the",
+    hashes = {
+      { hash = "fbe56eebec5f8ff98124b676409a068f", label = "SMW - 'the (2016-01-05) (underway,Medic,Torchkas).sfc" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="mario state (powerup)" },
+      },
+    },
+  },
+}

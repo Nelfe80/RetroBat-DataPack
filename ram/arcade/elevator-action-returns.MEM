@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Elevator Action Returns",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "elevator-action-returns",
+    hashes = {
+      { hash = "3180d6cdfd39a897d6aabc818887a000", label = "elvactr.7z <Elevator Action Returns (Ver 2.2O 1995/02/20)>" },
+      { hash = "4fcdb11d546a7d1b41f12c6da7aab9af", label = "elvactrj.7z <Elevator Action Returns (Ver 2.2J 1995/02/20)>" },
+      { hash = "98ff592c4894fbaa0519683021935bc8", label = "elvact2u.7z <Elevator Action II (Ver 2.2A 1995/02/20)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0090, type="u8", condition="change", action="CREDITS_SCREEN", desc="current credits" },
+        { address=0X01FB, type="u8", condition="bit_true", mask=0X20, action="CONTINUE_SCREEN", desc="continue mode" },
+        { address=0X0308, type="u8", condition="change", action="GAME_OVER", desc="goes from 0x00 to 0x01 at first game start but does not reset on game over" },
+        { address=0X07AD, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="at demo screen (intro, demo play)" },
+        { address=0X07AD, type="u8", condition="eq", value=0X01, action="CREDITS_SCREEN", desc="credits in machine, playing or selecting char" },
+        { address=0X07AD, type="u8", condition="eq", value=0X09, action="CONTINUE_SCREEN", desc="out of lives, continue? flashing on screen" },
+        { address=0X77BE, type="u16le", condition="eq", value=0X0000, action="CONTINUE_SCREEN", desc="'Continue?' countdown, before selecting a char" },
+        { address=0X77C4, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits used" },
+        { address=0X780C, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="JAD THE TAFF" },
+        { address=0X780C, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="KART BRADFIELD" },
+        { address=0X9C18, type="u16le", condition="change", action="CONTINUE_SCREEN", desc="caution flash animation. 0xffff normally. set to 0x0012 after 0x009c16 hits zero, then counts do" },
+      },
+      events = {
+        { address=0X9BAC, type="u16le", condition="change", action="COMBO_HIT", desc="weird combo of x and y coordinates along with 0x009bae (16-bit). behaves super strangely but goo" },
+        { address=0X9BAE, type="u16le", condition="change", action="COMBO_HIT", desc="weird combo of x and y coordinates along with 0x009bac (16-bit). behaves super strangely but goo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X780C, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="EDIE BURRET" },
+        { address=0X800E, type="u8", condition="eq", value=0X28, action="LOSE_LIFE", desc="EDIE max HP" },
+        { address=0X8010, type="u8", condition="change", action="LOSE_LIFE", desc="current bombs count (less accurate - death indicator?)" },
+        { address=0XA60A, type="u8", condition="increase", action="GAIN_LIFE", desc="on-screen lives display increased" },
+        { address=0XA60A, type="u8", condition="decrease", action="LOSE_LIFE", desc="on-screen lives display decreased" },
+        { address=0XA60A, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="0 lives remaining" },
+        { address=0XA60A, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1 life remaining" },
+        { address=0XB73C, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="EDIE" },
+      },
+      health = {
+        { address=0X800E, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="current HP" },
+        { address=0X800E, type="u8", condition="eq", value=0X30, action="HEALTH_STATE", no_log=true, desc="KART max HP" },
+        { address=0X800E, type="u8", condition="eq", value=0X38, action="HEALTH_STATE", no_log=true, desc="JAD max HP" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X781E, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X8012, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="current special weapon ammo" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X01FA, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="1: normal (default)" },
+        { address=0X01FA, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1: hard" },
+        { address=0X01FA, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="game style" },
+        { address=0X0208, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="violence mode" },
+        { address=0X0209, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="1: player stock 4" },
+        { address=0X0209, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="free play" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EFC, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="goes from 0x0000 to 0xffff when starting a new game (going to char select). various values at ot" },
+        { address=0X9C16, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="countdown timer for CAUTION flash" },
+        { address=0X1AE06, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="rest time counter in a normal level" },
+      },
+    },
+  },
+}

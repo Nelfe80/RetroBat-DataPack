@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sir Ababol Remastered",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-sir-ababol-remastered",
+    hashes = {
+      { hash = "3a25fbc8982bcf8324087fb5157e64d7", label = "Sir Ababol (World) (Remastered) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

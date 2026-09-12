@@ -1,0 +1,76 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Medarot G: Kabuto Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "medarot-g-kabuto-version",
+    hashes = {
+      { hash = "6f9802a7094757a4e535f763ff9b7de4", label = "Medarot G - Kabuto (Japan).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X46B30, type="u8", condition="change", action="NEW_LEVEL", desc="Kuwagata Medal Level" },
+        { address=0X46B3C, type="u8", condition="change", action="NEW_LEVEL", desc="Kabuto Medal Level" },
+        { address=0X46B48, type="u8", condition="change", action="NEW_LEVEL", desc="Jewel Beetle Medal Level" },
+        { address=0X46B54, type="u8", condition="change", action="NEW_LEVEL", desc="Clownfish Medal Level" },
+        { address=0X46B60, type="u8", condition="change", action="NEW_LEVEL", desc="Hamster Medal Level" },
+        { address=0X46B60, type="u8", condition="eq", value=0X64, action="NEW_LEVEL", desc="Unobtained" },
+        { address=0X46B6C, type="u8", condition="change", action="NEW_LEVEL", desc="Civit Medal Level" },
+        { address=0X46B78, type="u8", condition="change", action="NEW_LEVEL", desc="Boar Medal Level" },
+        { address=0X46B84, type="u8", condition="change", action="NEW_LEVEL", desc="Gibbon Medal Level" },
+        { address=0X46B90, type="u8", condition="change", action="NEW_LEVEL", desc="Tree Frog Medal Level" },
+        { address=0X46B9C, type="u8", condition="change", action="NEW_LEVEL", desc="Gecko Medal Level" },
+        { address=0X46BA8, type="u8", condition="change", action="NEW_LEVEL", desc="Boy Medal Level" },
+        { address=0X46BB4, type="u8", condition="change", action="NEW_LEVEL", desc="Girl Medal Level" },
+        { address=0X46BC0, type="u8", condition="change", action="NEW_LEVEL", desc="kuwagata 2 medal level" },
+        { address=0X46BCC, type="u8", condition="change", action="NEW_LEVEL", desc="kabuto 2 medal level" },
+        { address=0X46BD8, type="u8", condition="change", action="NEW_LEVEL", desc="Alien medal level" },
+      },
+      stage = {
+        { address=0X0180, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0180, type="u8", condition="bit_true", mask=0X80, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_STAGE", desc="Gold Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Platinum Star" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0181, type="u8", condition="bit_true", mask=0X80, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0182, type="u8", condition="bit_true", mask=0X80, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0183, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0183, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0183, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="Blue Circle" },
+        { address=0X0183, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Red Circle" },
+        { address=0X0185, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Friend Archelogist at Frozen Stage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1803A, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Main Medabot Head Slot Current Ammo" },
+        { address=0X1803B, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Main Medabot Head Slot Max Ammo" },
+      },
+    },
+  },
+}

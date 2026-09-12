@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Seaglass",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-seaglass",
+    hashes = {
+      { hash = "fe5f3a1995ca8bb26c68b5f74360d798", label = "Pokemon Emerald - Seaglass (v3.0) (Nemo622).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X21C74, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 1#" },
+        { address=0X21CD8, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 2#" },
+        { address=0X21D3C, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 3#" },
+        { address=0X21DA0, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 4#" },
+        { address=0X21E04, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 5#" },
+        { address=0X21E68, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pokemon 6#" },
+      },
+      stage = {
+        { address=0X838C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Active Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X83EA, type="u16le", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X83EA, type="u16le", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+  },
+}

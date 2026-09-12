@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Street Fighter Alpha: Warriors' Dreams",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "street-fighter-alpha-warriors-dreams",
+    hashes = {
+      { hash = "3a7a93118b19168f25bd6b16b7259f3a", label = "Street Fighter Alpha - Warriors' Dreams (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X158B83, type="u8", condition="change", action="NEW_LEVEL", desc="Options - Rounds" },
+        { address=0X187186, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 Rounds Won (0x00-0x03)" },
+        { address=0X1871F2, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Super Meter Level (0-3)" },
+        { address=0X18744E, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 Rounds Won (0x00-0x03)" },
+        { address=0X19428E, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round (0x00-0x05, counts up from 0x00)" },
+        { address=0X19429E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Arcade Stage Cleared (0x00-0x08)" },
+      },
+      stage = {
+        { address=0X19428C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage; for values see 0x187162" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X158B84, type="u8", condition="change", action="HIT", desc="{8-bit] Options - Damage (0x00-0x03)" },
+        { address=0X18710C, type="u8", condition="increase", action="HEAL", desc="Player 1 Health (0x00-0x90, 0xff when KO'd) increased" },
+        { address=0X18710C, type="u8", condition="decrease", action="HIT", desc="Player 1 Health (0x00-0x90, 0xff when KO'd) decreased" },
+        { address=0X1873D4, type="u8", condition="increase", action="HEAL", desc="Player 2 Health (0x00-0x90, 0xff when KO'd) increased" },
+        { address=0X1873D4, type="u8", condition="decrease", action="HIT", desc="Player 2 Health (0x00-0x90, 0xff when KO'd) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X187170, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (goes up to 9999999)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X158B81, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Options - Time Limit" },
+        { address=0X194295, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[16-bit BE] Match Timer (0x0000 - 0x634f)" },
+      },
+    },
+  },
+}

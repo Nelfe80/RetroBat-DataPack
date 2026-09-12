@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Computer Intro",
+    system = "o2em",
+    system_name = "Magnavox Odyssey 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "computer-intro",
+    hashes = {
+      { hash = "1e7035584d19aaa53eb3795d92fa6215", label = "Computer Intro (USA).bin" },
+    }
+  },
+
+  events = {
+  },
+}

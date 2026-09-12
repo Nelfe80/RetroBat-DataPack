@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Drunk as I Like: Gensokyo Drinking Attitude",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-drunk-as-i-like-gensokyo-drinking-attitude",
+    hashes = {
+      { hash = "0e0c31d19894bcdcd5992ee0b9c7e62e", label = "Drunk as I Like (World) (Itch.io) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X63C3, type="u8", condition="eq", value=0X75, action="TITLE_SCREEN", desc="Title Screen + Level Transition" },
+        { address=0X63C3, type="u8", condition="eq", value=0X98, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00A8, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Life In-Game (8 Bit) increased" },
+        { address=0X00A8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Life In-Game (8 Bit) decreased" },
+        { address=0X2530, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Selected on Title Screen (8-Bit) increased" },
+        { address=0X2530, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Selected on Title Screen (8-Bit) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X001E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Second Part) (16-Bit)" },
+        { address=0X0020, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (First Part) (16-Bit)" },
+      },
+    },
+  },
+}

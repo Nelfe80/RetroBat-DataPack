@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Beat City",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "beat-city",
+    hashes = {
+      { hash = "e5f77bd1a09557f89214ed23f605a63a", label = "Beat City (Europe) (En,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE58D0, type="u8", condition="eq", value=0X20, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XE58D0, type="u8", condition="eq", value=0X24, action="PAUSE_ON", desc="Pause Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XE7BEC, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 BIT] Number of Level Upgrades (changes to scenery)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE576C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 BIT] Minigame Score Percentage (post-minigame screen)" },
+        { address=0XE5858, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 BIT] Player Running Score" },
+      },
+    },
+  },
+}

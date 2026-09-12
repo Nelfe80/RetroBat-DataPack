@@ -1,0 +1,152 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Gold Quest",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-gold-quest",
+    hashes = {
+      { hash = "104015bb08b9f6f26ce71ebd8e1c905e", label = "Legend of Zelda, The - Gold Quest (AndiiSyn).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X11BFDC, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X11AD44, type="u8", condition="change", action="NEW_LEVEL", desc="Small Keys - Gerudo Training Grounds" },
+        { address=0X11BB24, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Bottom of the Well - below ground near eye puzzle room" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X11ACA0, type="u8", condition="change", action="LOSE_LIFE", desc="Death Counts" },
+        { address=0X11BB2B, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Death Mountain Crater - Soft Soil" },
+        { address=0X11BB2B, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Death Mountain Trail - Soft Soil" },
+        { address=0X11BB2B, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Death Mountain Trail - Above Dodongo Caver (needs Hammer) - Adult" },
+        { address=0X11BB2B, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Death Mountain Trail - Near Goron City - Adult" },
+        { address=0X11BB2B, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Death Mountain Crater - near fire temple - child" },
+        { address=0X11BB2C, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Kakariko Village near death mountain in a house on wall - Child" },
+        { address=0X11BB2C, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Kakariko Village near Death Mountain Trail - Night - Child" },
+        { address=0X11BB69, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Death Mountain Crater 1st Animation" },
+        { address=0X11BBBA, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Death Mountain Trail first animation" },
+        { address=0X11BBBA, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Related with Death mountain Crater first animation?" },
+        { address=0X1C8E06, type="u32be", condition="eq", value=0X60, action="LOSE_LIFE", desc="on the Death Mountain Trail" },
+        { address=0X1C8E06, type="u32be", condition="eq", value=0X61, action="LOSE_LIFE", desc="in the Death Mountain Crater" },
+      },
+      health = {
+        { address=0X11ACB2, type="u16be", condition="increase", action="HEAL", desc="Current Health 16 bits increased" },
+        { address=0X11ACB2, type="u16be", condition="decrease", action="HIT", desc="Current Health 16 bits decreased" },
+        { address=0X1E7ABC, type="u8", condition="change", action="HEALTH_STATE", desc="Phantom Ganon HP" },
+        { address=0X1E7ABC, type="u8", condition="eq", value=0X1E, action="HEALTH_STATE", desc="Max" },
+        { address=0X1E8CCC, type="u8", condition="change", action="HEALTH_STATE", desc="Gohma HP" },
+        { address=0X1E8CCC, type="u8", condition="eq", value=0X20, action="HEALTH_STATE", desc="Max" },
+        { address=0X1EABAC, type="u8", condition="change", action="HEALTH_STATE", desc="Volvagia HP" },
+        { address=0X1EABAC, type="u8", condition="eq", value=0X28, action="HEALTH_STATE", desc="Max" },
+        { address=0X1ED436, type="u8", condition="change", action="HEALTH_STATE", desc="King Dodongo HP" },
+        { address=0X1ED436, type="u8", condition="eq", value=0X12, action="HEALTH_STATE", desc="Max" },
+        { address=0X1EF30C, type="u24be", condition="change", action="HEALTH_STATE", desc="Bongo Bongo HP" },
+        { address=0X1EF30C, type="u24be", condition="eq", value=0X24, action="HEALTH_STATE", desc="Max" },
+        { address=0X1F2DFC, type="u8", condition="change", action="HEALTH_STATE", desc="Morpha HP" },
+        { address=0X1F2DFC, type="u8", condition="eq", value=0X28, action="HEALTH_STATE", desc="Max" },
+        { address=0X1FABAC, type="u8", condition="change", action="HEALTH_STATE", desc="Ganon HP" },
+        { address=0X1FABAC, type="u8", condition="eq", value=0X1E, action="HEALTH_STATE", desc="Max" },
+        { address=0X20BE7C, type="u8", condition="change", action="HEALTH_STATE", desc="Ganondorf HP" },
+        { address=0X20BE7C, type="u8", condition="eq", value=0X28, action="HEALTH_STATE", desc="Max" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X11AD26, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Kokiri's Emerald" },
+        { address=0X1C8E06, type="u32be", condition="eq", value=0X10, action="TREASURE", desc="in the Treasure Chest Shop" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X11BB3C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Big Poe Points 16 bits" },
+        { address=0X11BB3C, type="u16be", condition="eq", value=0X384, action="SCORE_STATE", desc="9" },
+        { address=0X11BB3C, type="u16be", condition="eq", value=0X3E8, action="SCORE_STATE", desc="10" },
+      },
+      collectibles = {
+        { address=0X11ACB0, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Magic Metter" },
+        { address=0X11AD0C, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Arrows" },
+        { address=0X11AD0D, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Bombs" },
+        { address=0X11AD0E, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Nuts" },
+        { address=0X11AD0F, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Stick" },
+        { address=0X11AD11, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Slingshot Seeds" },
+        { address=0X11AD17, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Bombchu" },
+        { address=0X11AD19, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Magic Beans" },
+        { address=0X11AD26, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Skulltula Tokens Display" },
+        { address=0X11AD52, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Skulltula Tokens increased" },
+        { address=0X11BB24, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Bottom of the Well - Main room near gold chest" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X11AD28, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD29, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD2A, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD2C, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD2D, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD2E, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD2F, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X11AD31, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Key - Ganon's Tower" },
+        { address=0X11BB1E, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Jabu Jabu Belly - 1F - Before the boss Room" },
+        { address=0X11BB1F, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Forest Temple - Near Boss Door" },
+        { address=0X11BB20, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Fire Temple - Near Boss Key Room" },
+        { address=0X11BB20, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Fire Temple - Boss Key Room" },
+        { address=0X11BB20, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Fire Temple - Near Boss Key Room" },
+        { address=0X11BB23, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Shadow Temple - Near Boss Room" },
+        { address=0X11BB23, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Shadow Temple - Near Boss Room (needs longshot)" },
+        { address=0X11BB24, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Bottom of the Well - Near sub boss room" },
+        { address=0X125724, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Boss Battle" },
+        { address=0X125724, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0X1C8E06, type="u32be", condition="eq", value=0X2A, action="BOSS_HIT", desc="in Carpenter Boss' House" },
+        { address=0X1CAA88, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Opened the Face to boss room" },
+        { address=0X1CAA8A, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Opened the boss door" },
+        { address=0X1CAA98, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Boss Key" },
+        { address=0X1CAA99, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Boss Key" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X11ACF2, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Deku Shield" },
+        { address=0X11ACF2, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Hylian Shield" },
+        { address=0X11ACF2, type="u8", condition="bit_true", mask=0X80, action="SHIELD_GAIN", desc="Mirror Shield" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Kokiri Sword" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="Master Sword" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="Giant's Knife" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Deku Shield" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Hylian Shield" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Mirror Shield" },
+        { address=0X1CAA9A, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Mirror Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X11ACF2, type="u8", condition="bit_true", mask=0X08, action="OBJECT_DESTROYED", desc="Giant's Knife / Giant's Knife (Broken)" },
+        { address=0X11AD1E, type="u8", condition="bit_true", mask=0X08, action="OBJECT_DESTROYED", desc="Giant's Knife (Broken)" },
+        { address=0X11BB1D, type="u8", condition="bit_true", mask=0X10, action="DOOR_OPENED", desc="Dodongo Cavern - 1F near door with Lizalfos" },
+        { address=0X11BB1D, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="Dodongo Cavern - 2F near door with Lizalfos" },
+        { address=0X11BB55, type="u8", condition="bit_true", mask=0X20, action="OBJECT_DESTROYED", desc="Royal Tumb destroyed" },
+        { address=0X11BB5F, type="u8", condition="bit_true", mask=0X08, action="DOOR_OPENED", desc="Door of Time Opened" },
+        { address=0X1CAA8A, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Frozen Eye / Switch Rusted / Switch Normal with timer near entrance" },
+        { address=0X1CAA8B, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Shadow Temple Door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X11ACF8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Ocarina : Get 07" },
+        { address=0X1C8E06, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Map ID" },
+      },
+    },
+  },
+}

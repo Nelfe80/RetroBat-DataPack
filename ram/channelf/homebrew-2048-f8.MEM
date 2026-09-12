@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 2048-F8",
+    system = "channelf",
+    system_name = "Fairchild Channel F",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-2048-f8",
+    hashes = {
+      { hash = "88c078fe7229add65f031b601064543e", label = "2048-F8 (USA) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X305F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [56-bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X304C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Game Mode" },
+        { address=0X307A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Timer [40-bit]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ninja World 3",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ninja-world-3",
+    hashes = {
+      { hash = "a9bed25aeab5d2b9530ac10eeebad422", label = "SMW - Ninja World 3 (VLSkoot).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="beat level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

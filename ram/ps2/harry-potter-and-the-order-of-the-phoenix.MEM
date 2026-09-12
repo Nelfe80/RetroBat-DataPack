@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Harry Potter and the Order of the Phoenix",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "harry-potter-and-the-order-of-the-phoenix",
+    hashes = {
+      { hash = "71e07ee86ea39d656165f151f3baad2d", label = "Harry Potter and the Order of the Phoenix (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X65A40E, type="u8", condition="bit_true", mask=0X20, action="DEMO_MODE", desc="Voldemort Defeated" },
+        { address=0X683430, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="On" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X894E45, type="u8", condition="bit_true", mask=0X40, action="SCORE_STATE", desc="70 Pts" },
+        { address=0X894E45, type="u8", condition="bit_true", mask=0X80, action="SCORE_STATE", desc="300 Pts" },
+        { address=0X894E46, type="u8", condition="bit_true", mask=0X01, action="SCORE_STATE", desc="400 Pts" },
+      },
+    },
+  },
+}

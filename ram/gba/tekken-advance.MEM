@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tekken Advance",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "tekken-advance",
+    hashes = {
+      { hash = "541c6e3e1b506c7d719e3444f2495ab8", label = "Tekken Advance (Japan) (Pt) (v0.98) (Dark Blade).gba" },
+      { hash = "5d8788e5f864d576846c5fbf0a4c827a", label = "Tekken Advance (USA).gba" },
+      { hash = "6d9c1a92c3b43e833676e7a2fbc0c5fe", label = "Tekken Advance (Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X23B2, type="u8", condition="eq", value=0X09, action="DEMO_MODE", desc="Demo Fight, 05:Team Battle" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X23B2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Game Mode chosen, 00:Arcade, 02:Time Attack" },
+        { address=0X23B2, type="u8", condition="eq", value=0X03, action="GENERAL_TIMER", desc="Survival, 04:Practice, 07:Tag Battle" },
+      },
+    },
+  },
+}

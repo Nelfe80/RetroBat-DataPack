@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ No Place to Hide",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-no-place-to-hide",
+    hashes = {
+      { hash = "22cc400e508171132102dcb6ae9b7802", label = "No Place to Hide (World) (v20060730) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X19363C, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 7 - Breakout" },
+        { address=0X193645, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 5 - Asteroids" },
+        { address=0X193700, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 10 - Boat" },
+        { address=0X193828, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 9 - Squares & Rectangles" },
+        { address=0X1939E6, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 8 - Rain" },
+        { address=0X1939F0, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 1 - Ice FIshing" },
+        { address=0X1944B0, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 6 - Holy? DDR" },
+        { address=0X1945F2, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 4 - Ghost" },
+        { address=0X1952F8, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 2 - Spaceship" },
+        { address=0X1952FA, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Normal Gameplay" },
+        { address=0X1952FA, type="u8", condition="eq", value=0XF5, action="GAME_OVER", desc="Highest Value" },
+        { address=0X1952FC, type="u8", condition="change", action="GAME_OVER", desc="Game overed in mini game 3 - Stalfos" },
+      },
+    },
+  },
+}

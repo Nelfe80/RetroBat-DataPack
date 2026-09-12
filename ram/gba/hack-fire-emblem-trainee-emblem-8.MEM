@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Trainee Emblem 8",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-trainee-emblem-8",
+    hashes = {
+      { hash = "80c9b3220f3fc1fc1436091f08748d17", label = "FE8 - Trainee Emblem (v1.3) (ArcherBias).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Clear Flag" },
+        { address=0X33E9C, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 2 Level" },
+        { address=0X33EE4, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 3 Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Boss Death Quote" },
+      },
+    },
+  },
+}

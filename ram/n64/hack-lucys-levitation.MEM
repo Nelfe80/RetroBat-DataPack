@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Lucy's Levitation",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-lucys-levitation",
+    hashes = {
+      { hash = "1da874009671af1edce5759d9f5b2856", label = "Super Mario 64 - Lucy's Levitation (Hack) (thecozies) (v1.0.4).z64" },
+    }
+  },
+
+  events = {
+  },
+}

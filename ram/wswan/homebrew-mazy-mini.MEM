@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mazy Mini",
+    system = "wswan",
+    system_name = "WonderSwan",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mazy-mini",
+    hashes = {
+      { hash = "4ea83a19867a3e32749b1c9d898583ca", label = "Mazy (World) (v20230618) (Aftermarket) (Unl).wsc" },
+    }
+  },
+
+  events = {
+  },
+}

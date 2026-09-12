@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Invaders: Virtual Collection",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Compilation"
+  },
+
+  rom = {
+    name = "space-invaders-virtual-collection",
+    hashes = {
+      { hash = "7607f6f918615263512b17e56797c9aa", label = "Space Invaders - Virtual Collection (Japan).vb" },
+      { hash = "bb4aa9566437572802079c89452666e7", label = "Space Invaders - Virtual Collection (Japan) (En) (v1.0) (Thunderstruck).vb" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X2458, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages" },
+        { address=0X245A, type="u8", condition="change", action="PROGRESSION_STAGE", desc=":01 Current Stage Victory" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X23F2, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X23F2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2204, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="Score P1" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X24CA, type="u8", condition="eq", value=0X02, action="OBJECT_DESTROYED", desc="Spaceship not destroyed... yet" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2012, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time Attack Minutes" },
+        { address=0X2014, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Attack Seconds" },
+      },
+    },
+  },
+}

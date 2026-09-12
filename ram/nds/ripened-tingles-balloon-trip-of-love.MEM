@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ripened: Tingle's Balloon Trip of Love",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ripened-tingles-balloon-trip-of-love",
+    hashes = {
+      { hash = "c3aff3de85f5004bd3059e67b137640e", label = "Irozuki Tingle no Koi no Balloon Trip (Japan) (En) (v1.1) (Team Tingle).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA7CE0, type="u16le", condition="eq", value=0X116, action="CREDITS_SCREEN", desc="Chap14 finished, credits" },
+        { address=0XA7EB0, type="u16le", condition="eq", value=0XF, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XA7ED0, type="u16le", condition="eq", value=0X2, action="CREDITS_SCREEN", desc="Complete. Flips back to 1 right before saving after credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0XBC860, type="u8", condition="bit_true", mask=0X80, action="PROGRESSION_ZONE", desc="World Fishing Champ 6-3" },
+      },
+      stage = {
+        { address=0XBCD6C, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="DunJon stage ID" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Ludicrous Labyrinth" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Naughty Kid" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Kindergarten of War" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Strawberry in Wonderland" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Sushi Man Dun" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Rainbow Walker" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X7, action="PROGRESSION_STAGE", desc="Musroom Warrior" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X8, action="PROGRESSION_STAGE", desc="Izumi in the Noise" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0X9, action="PROGRESSION_STAGE", desc="Paradise A.K.A." },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0XA, action="PROGRESSION_STAGE", desc="Orange Fortress" },
+        { address=0XBCD6C, type="u16le", condition="eq", value=0XB, action="PROGRESSION_STAGE", desc="Super Dungeon Brothers" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XBC868, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Another Man's Treasure 12-2" },
+      },
+      weapon = {
+        { address=0X1E0D18, type="u32le", condition="eq", value=0X3, action="WEAPON_STATE", desc="Choose your weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X19D89C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Sniper score" },
+      },
+      collectibles = {
+        { address=0XBC867, type="u8", condition="bit_true", mask=0X02, action="COIN_GAIN", desc="Coin Collector 11-3" },
+        { address=0X1E0D28, type="u32le", condition="increase", action="COIN_GAIN", desc="DunJon Coins increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XA7CE0, type="u16le", condition="eq", value=0X111, action="BOSS_HIT", desc="Before and after last boss fight" },
+        { address=0XA7CE0, type="u16le", condition="eq", value=0X169, action="BOSS_HIT", desc="Last boss" },
+        { address=0X19D8B8, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="First form is up" },
+        { address=0X19D94C, type="u32le", condition="change", action="BOSS_HIT", desc="Last boss hp phase 1 and 2" },
+        { address=0X202FF0, type="u32le", condition="eq", value=0XBC0, action="BOSS_HIT", desc="No more pink HP" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA7CE0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Current sub-screen" },
+        { address=0X1E0D18, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Encounter in dunjon" },
+        { address=0X202FF0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="HP against the last boss. The displayed hp is 0x8 farther and adjusts to this hp over time" },
+      },
+    },
+  },
+}

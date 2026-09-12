@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Slip Stream",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "prototype-slip-stream",
+    hashes = {
+      { hash = "8f608974867e657d9a423ae3503569c8", label = "slipstrmh.7z <Slip Stream (Hispanic 950515)>" },
+      { hash = "bf9939aa9089ea70812face81e5715a9", label = "slipstrm.7z <Slip Stream (Brazil 950515)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8FE2, type="u8", condition="eq", value=0X02, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X3AE8, type="u8", condition="change", action="RANK_STATE", desc="Current Position (minus 1)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3A9A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Lap 1 Saved time Seconds" },
+        { address=0X8FEF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time Left" },
+      },
+    },
+  },
+}

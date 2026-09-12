@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Asteroids Deluxe",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-asteroids-deluxe",
+    hashes = {
+      { hash = "a65f79ad4a0bbdecd59d5f7eb3623fd7", label = "Asteroids Deluxe (World) (NTSC) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1B7E, type="u8", condition="increase", action="GAIN_LIFE", desc="Displayed Lives [8bit] increased" },
+        { address=0X1B7E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Displayed Lives [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2042, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32bit BE]" },
+      },
+    },
+  },
+}

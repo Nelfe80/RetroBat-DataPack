@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Surf's Up",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "surfs-up",
+    hashes = {
+      { hash = "86edf082529633decd57bf381fa701af", label = "Surf's Up (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X3096A4, type="u16le", condition="eq", value=0X0F, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+  },
+}

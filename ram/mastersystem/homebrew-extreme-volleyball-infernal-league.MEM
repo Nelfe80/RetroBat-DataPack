@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Extreme Volleyball Infernal League",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-extreme-volleyball-infernal-league",
+    hashes = {
+      { hash = "a8516e8dc290dbaf92b1c82c394db115", label = "Extreme Volleyballl Infernal League (World) (Steam) (v2.1.12) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+  },
+}

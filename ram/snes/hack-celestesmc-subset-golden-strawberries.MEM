@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Celeste.smc [Subset - "Golden Strawberries"]",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-celestesmc-subset-golden-strawberries",
+    hashes = {
+      { hash = "7d4bcb32a9fdf11c261ef87c478014ff", label = "SMW - Celeste.smc [Subset - Golden Strawberries].sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level ID of most recently entered stage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X010B, type="u24le", condition="increase", action="COIN_GAIN", desc="Most recent screen ID loaded (Does not change when entering the overworld until a new level is s" },
+        { address=0X1B403, type="u32le", condition="increase", action="COIN_GAIN", desc="Current checkpoint - Checkpoint changes to the currently selected stage while in overworld selec" },
+      },
+    },
+  },
+}

@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pepper II",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "pepper-ii",
+    hashes = {
+      { hash = "679f02b1d1a7d68af42735d67cbccaff", label = "Pepper II (USA, Europe).col" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0006, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="in title/transitioning between mazes" },
+        { address=0X0008, type="u8", condition="change", action="GAME_OVER", desc="1:game over" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0080, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit] score/10" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X023D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="invisible tracks time remaining" },
+        { address=0X0254, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="devil mode time remaining" },
+      },
+    },
+  },
+}

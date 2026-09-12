@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Spider-Man 3",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "spider-man-3",
+    hashes = {
+      { hash = "7d2c4f995b82825aa63fe224733d769b", label = "Spider-Man 3 (USA).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0FA0, type="u8", condition="change", action="NEW_LEVEL", desc="Level Complettion Flag - 02" },
+        { address=0X10CD4, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X12F28, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Search And Rescue Level Unlocked - 01" },
+        { address=0X12F3C, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Goblin Hunt Level Unlocked - 01" },
+        { address=0X12F50, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Spidey Saves Level Unlocked - 01" },
+        { address=0X12F64, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Sandstorm Level Unlocked - 01" },
+        { address=0X12F78, type="u8", condition="change", action="NEW_LEVEL", desc="Map - The Dark Side Level Unlocked - 01" },
+        { address=0X12F9C, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Subway Rumble Level Unlocked - 01" },
+        { address=0X12FB0, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Toxic Shock Level Unlocked - 01" },
+        { address=0X12FC4, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Bombs Away Level Unlocked - 01" },
+        { address=0X12FD8, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Copter Chase Level Unlocked - 01" },
+        { address=0X12FFC, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Court Disorder Level Unlocked - 01" },
+        { address=0X13010, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Follow That Limo Level Unlocked - 01" },
+        { address=0X13024, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Kingpin's Mansion Level Unlocked - 01" },
+        { address=0X13038, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Totally Amped Level Unlocked - 01" },
+        { address=0X1305C, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Sand Hassles Level Unlocked - 01" },
+        { address=0X1305D, type="u8", condition="change", action="LEVEL_CLEAR", desc="Sand Hassles Level Completed" },
+        { address=0X13070, type="u8", condition="change", action="NEW_LEVEL", desc="Map - Quick Sand Level Unlocked - 01" },
+        { address=0X30058, type="u8", condition="change", action="NEW_LEVEL", desc="Number of punches thrown in level 1 first half" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10CF0, type="u8", condition="change", action="LOSE_LIFE", desc="Level Complete or Death - 01" },
+      },
+      health = {
+        { address=0X10CFC, type="u8", condition="increase", action="HEAL", desc="Spider-Man Health increased" },
+        { address=0X10CFC, type="u8", condition="decrease", action="HIT", desc="Spider-Man Health decreased" },
+        { address=0X10D7C, type="u8", condition="change", action="HIT", desc="Damage Power-Up" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X10D10, type="u16le", condition="change", action="DYNAMIC_INVENTORY", desc="Black Suit Rage Meter (16-bit)" },
+        { address=0X10D14, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Black Suit" },
+        { address=0X10D78, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Web Power-Up" },
+        { address=0X13071, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Quick Sand Completed (Black Suit Unlocked)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD610, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Level timer (32-bit)" },
+      },
+    },
+  },
+}

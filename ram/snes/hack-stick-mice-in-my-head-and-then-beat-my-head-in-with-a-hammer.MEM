@@ -1,0 +1,127 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Stick mice in my head and then beat my head in with a hammer",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-stick-mice-in-my-head-and-then-beat-my-head-in-with-a-hammer",
+    hashes = {
+      { hash = "7ec6a3fc126e806dff6314a28579065e", label = "SMW - stick mice in my head (v1.2) (JUMP Team,idol).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="GAME_PLAYING", desc="Fade out to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="Fade in level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Indicates how current level is exited" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Secret exit" },
+        { address=0X13EF, type="u8", condition="change", action="NEW_LEVEL", desc="Player is the on the ground flag (0x01 : Layer 1, 0x02 : Layer 2, 0x03 : Both)" },
+        { address=0X1EA4, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1EA8, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1EAA, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1EC8, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1EC9, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1ECB, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1ECC, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1ECE, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Secret exit" },
+        { address=0X1ECE, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1ECE, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Midway collected" },
+        { address=0X1ECF, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1ED3, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1EE6, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1F00, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X1F01, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Normal exit" },
+      },
+      zone = {
+        { address=0X1EA6, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="Midway passed (does not update until entering world map)" },
+        { address=0X1EA7, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="Midway passed (does not update until entering world map)" },
+        { address=0X1EA9, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="Midway passed (does not update until entering world map)" },
+        { address=0X1EC7, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="Midway passed (does not update until entering world map)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Death animation" },
+        { address=0X16E5, type="u8", condition="eq", value=0X0D, action="GAIN_LIFE", desc="1-up collected" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="Current power-up decreased" },
+        { address=0X0071, type="u8", condition="eq", value=0X01, action="HIT", desc="Taking damage" },
+        { address=0X010B, type="u16le", condition="decrease", action="HIT", desc="Screen ID decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Fire Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Boomerang Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Tanooki Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Frog Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Superball Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Rocket Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="Mini Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X0E, action="DYNAMIC_INVENTORY", desc="Propeller Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X0F, action="DYNAMIC_INVENTORY", desc="Shell Mario" },
+        { address=0X010B, type="u16le", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="you think you're big kid? first screen" },
+        { address=0X010B, type="u16le", condition="eq", value=0X104, action="DYNAMIC_INVENTORY", desc="credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X108, action="DYNAMIC_INVENTORY", desc="Mario hides inside a husk of a Koopa first screen" },
+        { address=0X010B, type="u16le", condition="eq", value=0X10E, action="DYNAMIC_INVENTORY", desc="princess and the frog 1st powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X10F, action="DYNAMIC_INVENTORY", desc="princess and the frog 2nd powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X110, action="DYNAMIC_INVENTORY", desc="princess and the frog 3rd powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X1C7, action="DYNAMIC_INVENTORY", desc="bowser/initial credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X1E2, action="DYNAMIC_INVENTORY", desc="Mario hides inside a husk of a Koopa secret exit route" },
+        { address=0X010B, type="u16le", condition="eq", value=0XC5, action="DYNAMIC_INVENTORY", desc="intro screen after new game select" },
+        { address=0X010B, type="u16le", condition="eq", value=0XFE, action="DYNAMIC_INVENTORY", desc="princess and the frog outside Bowser room" },
+        { address=0X2009, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Not in the air" },
+        { address=0X2009, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Rising" },
+        { address=0X2009, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Descending" },
+        { address=0X2009, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Spinning with descending" },
+        { address=0X2009, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Tornado" },
+        { address=0X2009, type="u8", condition="eq", value=0X80, action="DYNAMIC_INVENTORY", desc="Spinning off a saw" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X07, action="TRANSFORMATION_TANOOKI", desc="Transformed into Tanooki Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X08, action="TRANSFORMATION_FROG", desc="Transformed into Frog Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X09, action="TRANSFORMATION_SUPER", desc="Transformed into Superball Mario" },
+        { address=0X010B, type="u16le", condition="eq", value=0X05, action="TRANSFORMATION_SUPER", desc="Transformed into you think you're big kid? first screen" },
+        { address=0X010B, type="u16le", condition="eq", value=0X10E, action="TRANSFORMATION_FROG", desc="Transformed into princess and the frog 1st powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X10F, action="TRANSFORMATION_FROG", desc="Transformed into princess and the frog 2nd powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X110, action="TRANSFORMATION_FROG", desc="Transformed into princess and the frog 3rd powerup room" },
+        { address=0X010B, type="u16le", condition="eq", value=0XFE, action="TRANSFORMATION_FROG", desc="Transformed into princess and the frog outside Bowser room" },
+      },
+      player = {
+        { address=0X140D, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Spinjump flag (0x01 : Spinjumping)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="eq", value=0X0D, action="DOOR_OPENED", desc="Entering a door" },
+        { address=0X13CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway flag (0x01 : Midway collected in current attempt)" },
+        { address=0X13CF, type="u8", condition="eq", value=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Entered level from checkpoint" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow switch palace flag (0x01 : Activated)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Combo kill counter" },
+      },
+    },
+  },
+}

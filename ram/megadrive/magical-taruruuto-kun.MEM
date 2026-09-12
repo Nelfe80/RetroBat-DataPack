@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Magical Taruruuto-kun",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "magical-taruruuto-kun",
+    hashes = {
+      { hash = "f676dfdd836199352f105465905c25de", label = "Magical Taruruuto-kun (Japan).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF824, type="u8", condition="eq", value=0X20, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XF022, type="u8", condition="eq", value=0X7D1C, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+  },
+}

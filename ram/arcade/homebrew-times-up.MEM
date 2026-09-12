@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Time's Up",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-times-up",
+    hashes = {
+      { hash = "9e193f1b4a825cf02ff4fa11e2037fb3", label = "arcade\timesup.zip" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XE46C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8-bit) stages" },
+        { address=0XE46C, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="stage 1" },
+        { address=0XE46C, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="stage 2" },
+        { address=0XE46C, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="stage 3" },
+        { address=0XE46C, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="stage 4" },
+        { address=0XE46C, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="stage 5" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XF276, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="(8-bit) player 1 health" },
+        { address=0XF276, type="u8", condition="eq", value=0X06, action="HEALTH_STATE", no_log=true, desc="max" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XE7AB, type="u8", condition="eq", value=0XD1, action="SHIELD_GAIN", desc="shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XE7AB, type="u8", condition="eq", value=0XD7, action="OBJECT_INTERACTION", desc="no blocks" },
+      },
+    },
+  },
+}

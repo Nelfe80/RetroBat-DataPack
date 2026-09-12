@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Arkanoid",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Ball & Paddle"
+  },
+
+  rom = {
+    name = "arkanoid",
+    hashes = {
+      { hash = "c7feb023a2a07070acc912e39f336cec", label = "arkanoid.7z <Arkanoid (World, oldest rev)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Not demo" },
+        { address=0X0001, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo" },
+        { address=0X000A, type="u8", condition="eq", value=0X2A, action="GAME_OVER", desc="Load into game/Game over" },
+        { address=0X0026, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="Have been used" },
+        { address=0X0026, type="u8", condition="eq", value=0X20, action="CONTINUE_SCREEN", desc="Have not been used" },
+        { address=0X0432, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X04AF, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Not game over" },
+        { address=0X04AF, type="u8", condition="eq", value=0X01, action="GAME_OVER", desc="Game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X15F2, type="u8", condition="change", action="NEW_LEVEL", desc="Round" },
+        { address=0X15F2, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round 1" },
+        { address=0X15F2, type="u8", condition="eq", value=0X1F, action="NEW_LEVEL", desc="Round 32" },
+        { address=0X15F2, type="u8", condition="eq", value=0X20, action="NEW_LEVEL", desc="Doh" },
+        { address=0X1603, type="u8", condition="change", action="NEW_LEVEL", desc="Bricks remaining on current level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000A, type="u8", condition="eq", value=0X1E, action="LIVES_STATE", desc="Transitory after last life lost" },
+        { address=0X000A, type="u8", condition="eq", value=0X26, action="LIVES_STATE", desc="Transitory after last life lost" },
+        { address=0X0659, type="u8", condition="eq", value=0X07, action="GAIN_LIFE", desc="Player (1-up)" },
+        { address=0XD76, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0X15EB, type="u8", condition="eq", value=0X10, action="LOSE_LIFE", desc="Doh dies" },
+        { address=0X15F1, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X15F1, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XC4D7, type="u24be", condition="change", action="TREASURE", color="white", min=10000, max=10000, desc="Score delta 10000-10000: Violet capsule" },
+        { address=0XC4D7, type="u24be", condition="change", action="TREASURE", color="yellow", min=20000, max=20000, desc="Score delta 20000-20000: Extra live at 20000" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC4D7, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0XC432, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00A4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Changes value each time a block is destroyed by a laser beam" },
+        { address=0X15EB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Number of times Doh hit" },
+      },
+    },
+  },
+}

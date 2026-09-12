@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Arcade Classics",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Compilation, Action"
+  },
+
+  rom = {
+    name = "arcade-classics",
+    hashes = {
+      { hash = "1c0b65d3cc82f56f7ad05ce63dc4d097", label = "Arcade Classics (USA, Europe).md" },
+    }
+  },
+
+  events = {
+  },
+}

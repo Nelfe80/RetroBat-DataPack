@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pinky and the Brain: The Master Plan",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "pinky-and-the-brain-the-master-plan",
+    hashes = {
+      { hash = "e7c65f9930b6e7580565ad3713c303b1", label = "Pinky and the Brain - The Master Plan (Europe) (En,Fr,De,Es,It).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0E48, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0E40, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0E40, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0B8E, type="u16le", condition="change", action="SPEED_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="(16bit) Speed Shoes Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Minesweeper",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-minesweeper",
+    hashes = {
+      { hash = "9df8bd94865204e67a5f308fafa09da6", label = "Minesweeper (2024) (v1.03) (Under4Mhz).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0002, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen / Game over" },
+      },
+    },
+  },
+}

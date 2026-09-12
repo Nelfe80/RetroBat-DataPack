@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Black ICE\White Noise",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-black-icewhite-noise",
+    hashes = {
+      { hash = "13e85825fdebfde50ae795c2ec1c4a6b", label = "Black ICE - White Noise (USA) (Proto)" },
+    }
+  },
+
+  events = {
+  },
+}

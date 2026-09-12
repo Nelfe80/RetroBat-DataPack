@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Where in the World is Carmen Sandiego?",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Education"
+  },
+
+  rom = {
+    name = "where-in-the-world-is-carmen-sandiego",
+    hashes = {
+      { hash = "29dcfcf773ceb9ef29b524183ad89d8c", label = "Where in the World is Carmen Sandiego (USA).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X006D, type="u8", condition="change", action="TITLE_SCREEN", desc="[8 Bit] Title Screen Status" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X004C, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] Stolen Treasure ID increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0054, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8 Bit BCD] Time | Hour" },
+        { address=0X008E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8 Bit] Injury Countdown Timer" },
+      },
+    },
+  },
+}

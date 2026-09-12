@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Mystery of the Crystal Portal",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-mystery-of-the-crystal-portal",
+    hashes = {
+      { hash = "0dacd6cfc7702bac3c46037c270debd7", label = "Mystery of the Crystal Portal, The (Europe) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+  },
+}

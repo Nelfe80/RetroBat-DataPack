@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ MiedoW | Cheril's Nightmares",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "homebrew-miedow-cherils-nightmares",
+    hashes = {
+      { hash = "a9f1b1f6af56df50877c4fd973707961", label = "MiedoW (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X07C4, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of continues" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0710, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0710, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

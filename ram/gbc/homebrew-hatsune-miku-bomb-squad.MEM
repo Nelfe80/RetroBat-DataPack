@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Hatsune Miku Bomb Squad",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-hatsune-miku-bomb-squad",
+    hashes = {
+      { hash = "6364d4ca7ea0f83981e97c12fd08ea97", label = "Hatsune Miku Bomb Squad (World) (v1.3) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCBA7, type="u8", condition="eq", value=0X26, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+  },
+}

@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mr. Do!",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "mr-do",
+    hashes = {
+      { hash = "0164f26f6b38a34208cd4a2d0212afc3", label = "Mr. Do! (USA).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X006B, type="u8", condition="change", action="GAME_OVER", desc="Game over Screen and menue : 39" },
+        { address=0X0077, type="u8", condition="change", action="GAME_OVER", desc="Game Over Screen / Logo Screen / Game Mode Selection : 3c" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0046, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X003C, type="u8", condition="increase", action="GAIN_LIFE", desc="Dying and losing a life : 04 increased" },
+        { address=0X003C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dying and losing a life : 04 decreased" },
+        { address=0X005B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X005B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0002, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16 Bit BCD] Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X006A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Value Switching betwen 66 & 88 in EXTRA-Screen, after collection al letters." },
+      },
+    },
+  },
+}

@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Night Driver",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "night-driver",
+    hashes = {
+      { hash = "6c17368701d21efc2766f56a1c8c6ea6", label = "nitedrvr.7z <Night Driver>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0048, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits (each credit +/-2)" },
+        { address=0X00C0, type="u8", condition="eq", value=0X1E, action="DEMO_MODE", desc="Ingame, 50s dipswitch" },
+        { address=0X00C0, type="u8", condition="eq", value=0X2D, action="DEMO_MODE", desc="Ingame, 75s dipswitch" },
+        { address=0X00C0, type="u8", condition="eq", value=0X3C, action="DEMO_MODE", desc="Ingame, 100s dipswitch" },
+        { address=0X00C4, type="u8", condition="change", action="DEMO_MODE", desc="0x00:demo" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X193, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00D6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Counts from 0x00 to 0x3b, each completed counts a second is substracted from timer" },
+        { address=0X00DA, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="(16-bit) time left * 10" },
+        { address=0X0185, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="time left - tens" },
+        { address=0X0186, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="time left - seconds" },
+      },
+    },
+  },
+}

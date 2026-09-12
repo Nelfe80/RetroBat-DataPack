@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Yu-Gi-Oh! GX Forbidden Memories",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-yu-gi-oh-gx-forbidden-memories",
+    hashes = {
+      { hash = "ea80b6a82333caf3d5fca7efb21444db", label = "Yu-Gi-Oh! GX Forbidden Memories (v2018 Remaster) (Victor Bless)" },
+    }
+  },
+
+  events = {
+  },
+}

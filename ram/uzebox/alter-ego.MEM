@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alter Ego",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "alter-ego",
+    hashes = {
+      { hash = "234bc85bddf914b28f662323540afd89", label = "Alter Ego (World) (D3thAdd3r).uze" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0EDC, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="No demo" },
+        { address=0X0EDC, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo playing" },
+        { address=0X0EDC, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title screen transition to demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0EB2, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X0EB2, type="u8", condition="eq", value=0X19, action="LEVEL_CLEAR", desc="All Levels Clear" },
+      },
+    },
+  },
+}

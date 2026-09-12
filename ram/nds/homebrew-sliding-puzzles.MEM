@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sliding Puzzles",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sliding-puzzles",
+    hashes = {
+      { hash = "44401d4fca6646cdbcb02b9c29258ff5", label = "Sliding Puzzles - New Puzzle (World) (v3.1) (Aftermarket) (Unl) (Neumann).nds" },
+      { hash = "6aa053cb058816af3808a78b2172c0c7", label = "Sliding Puzzles - 15-16 (World) (r1) (Aftermarket) (Unl) (Dustin).nds" },
+      { hash = "b989fee12f208a84c0bc788fe9aa7bbb", label = "Sliding Puzzles - Migraine (World) (v2009) (Aftermarket) (Unl) (roronoa).nds" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rayman Arena",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Party, Racing"
+  },
+
+  rom = {
+    name = "rayman-arena",
+    hashes = {
+      { hash = "0ab6c94436a54fae673dcb86c8bcc2e1", label = "Rayman Arena (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X201639, type="u32be", condition="change", action="NEW_LEVEL", desc="[32 Bit BE] Level ID ASCII" },
+        { address=0X20169C, type="u32be", condition="change", action="NEW_LEVEL", desc="[32-bit BE] Frame counter: Time spent in level / screen" },
+        { address=0X20169C, type="u32be", condition="eq", value=0X70, action="NEW_LEVEL", desc="Victory screen on podium" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XAA5A64, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32 Bit BE] Completion Status | Cup 2 Beginner Time Attack" },
+      },
+    },
+  },
+}

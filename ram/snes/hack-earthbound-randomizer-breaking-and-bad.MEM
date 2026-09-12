@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Earthbound Randomizer: Breaking And Bad",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-earthbound-randomizer-breaking-and-bad",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X99D3, type="u8", condition="change", action="NEW_LEVEL", desc="Walt's Level" },
+      },
+    },
+  },
+}

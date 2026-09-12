@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Starlight Remix",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-starlight-remix",
+    hashes = {
+      { hash = "57394e53476a769f5682069d7c203c78", label = "SMW - Super Mario Starlight Remix (v2.1) (Gamma V).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld (Fully Loaded)" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Level (Fully Loaded)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small" },
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big" },
+        { address=0X0019, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Cape" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Fire" },
+        { address=0X13BF, type="u8", condition="eq", value=0X42, action="TREASURE", desc="Emerald Forest 1" },
+        { address=0X13BF, type="u8", condition="eq", value=0X43, action="TREASURE", desc="Emerald Forest 4" },
+        { address=0X13BF, type="u8", condition="eq", value=0X44, action="TREASURE", desc="Emerald Forest 2" },
+        { address=0X13BF, type="u8", condition="eq", value=0X47, action="TREASURE", desc="Emerald Forest 3" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="TRANSFORMATION_FIRE", desc="Transformed into Fire" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="OBJECT_INTERACTION", desc="Green Switch Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="OBJECT_INTERACTION", desc="Yellow Switch Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X31, action="DOOR_OPENED", desc="Front Door" },
+        { address=0X13BF, type="u8", condition="eq", value=0X32, action="DOOR_OPENED", desc="Back Door" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3F, action="OBJECT_INTERACTION", desc="Red Switch Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X45, action="OBJECT_INTERACTION", desc="Blue Switch Palace" },
+        { address=0X1EC4, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway Activated" },
+      },
+    },
+  },
+}

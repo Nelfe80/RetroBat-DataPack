@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario RPG: Master Quest",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-rpg-master-quest",
+    hashes = {
+      { hash = "0e45cd82de4114af89b8cee79db4d195", label = "Super Mario RPG - Master Quest (v1.02) (Sephalos).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1FFC, type="u8", condition="eq", value=0X93, action="DEMO_MODE", desc="Demo" },
+        { address=0X1FFC, type="u8", condition="eq", value=0XCD, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X1FFC, type="u8", condition="eq", value=0X98, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+  },
+}

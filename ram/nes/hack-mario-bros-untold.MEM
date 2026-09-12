@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Bros. Untold",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-bros-untold",
+    hashes = {
+      { hash = "04cb9cb0df052531120d1be9154a9cf4", label = "SMB1 - Mario Bros. Untold (v1.0) (Dark_Lord05).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X075F, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World (starts with 0x00)" },
+      },
+      stage = {
+        { address=0X075C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage (starts with 0x00)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X075A, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X075A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X0756, type="u8", condition="decrease", action="HIT", desc="Powerup decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0756, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small" },
+        { address=0X0756, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big" },
+        { address=0X0756, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Flower" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X075E, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0756, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big" },
+        { address=0X0756, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Flower" },
+      },
+    },
+  },
+}

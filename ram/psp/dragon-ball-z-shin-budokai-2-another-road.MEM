@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Ball Z: Shin Budokai 2 - Another Road",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "dragon-ball-z-shin-budokai-2-another-road",
+    hashes = {
+      { hash = "f968173f7992b0b173af77ddd94d3fb6", label = "Dragon Ball Z - Shin Budokai 2 (Europe) (En,Fr,De,Es,It).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XAC673C, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XAC673C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Another Road/Training/Title Screen" },
+        { address=0XB2C1E4, type="u8", condition="change", action="TITLE_SCREEN", desc="Titles (bitflags)" },
+        { address=0XB314B8, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XAC1830, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 Rounds Won" },
+        { address=0XAC1834, type="u8", condition="change", action="NEW_LEVEL", desc="CPU Rounds Won" },
+        { address=0XAC183C, type="u8", condition="eq", value=0X0A, action="LEVEL_CLEAR", desc="Finished" },
+        { address=0XB314C8, type="u8", condition="change", action="NEW_LEVEL", desc="Arcade Mode Rounds" },
+      },
+      stage = {
+        { address=0X9B6484, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Another Road - Stage Select" },
+        { address=0X9B6484, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+        { address=0XAC183C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Arcade Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XAC1E04, type="u8", condition="increase", action="HEAL", desc="Current HP Boosts increased" },
+        { address=0XAC1E04, type="u8", condition="decrease", action="HIT", desc="Current HP Boosts decreased" },
+        { address=0XAC1E18, type="u8", condition="increase", action="HEAL", desc="Current Energy Blasts Boosts increased" },
+        { address=0XAC1E18, type="u8", condition="decrease", action="HIT", desc="Current Energy Blasts Boosts decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB2BE0A, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Unlocked" },
+        { address=0XB2BE0A, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Boss Defeated" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="D" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="C" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="B" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="A" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="S" },
+        { address=0XB2BE0B, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Z" },
+        { address=0XB2BFCE, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Unlocked" },
+        { address=0XB2BFCE, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Boss Defeated" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="D" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="C" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="B" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="A" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="S" },
+        { address=0XB2BFCF, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Z" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XAC2E74, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time Attack Rank" },
+        { address=0XB314CA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time Attack Course" },
+        { address=0XB314CC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Time Attack" },
+      },
+    },
+  },
+}

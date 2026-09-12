@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Wario's Hint Art",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-warios-hint-art",
+    hashes = {
+      { hash = "39cb0e6c0ae932ed5de2f5f0b1b7f787", label = "WariosHintArt.z64" },
+    }
+  },
+
+  events = {
+  },
+}

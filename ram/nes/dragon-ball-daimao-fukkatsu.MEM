@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Ball: Daimao Fukkatsu",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing, Strategy"
+  },
+
+  rom = {
+    name = "dragon-ball-daimao-fukkatsu",
+    hashes = {
+      { hash = "44815abfadc2acf1546e1ff5b1c5cf56", label = "Dragon Ball - Dai Maou Fukkatsu (Japan) (En) (v1.0) (Stardust Crusaders).nes" },
+      { hash = "603e5da6c292c5885ebc70e11c4cf5f4", label = "Dragon Ball - Daimaou Fukkatsu (Japan).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X009C, type="u8", condition="change", action="NEW_LEVEL", desc="Zone" },
+        { address=0X009C, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Roshi's House" },
+        { address=0X009C, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="West Capital" },
+        { address=0X009C, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Henshin Kindergarten" },
+        { address=0X009C, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Jingle Village" },
+        { address=0X009C, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Baba's House" },
+        { address=0X009C, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Undersea Cavern" },
+        { address=0X009C, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Pilaf's Castle" },
+        { address=0X009C, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Korin's Tower" },
+        { address=0X009C, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Penguin Village" },
+        { address=0X009C, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Piccolo's Mansion" },
+        { address=0X009C, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Dark Castle" },
+        { address=0X009C, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Konpei Region" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Found Krillin's body and confirmed dead" },
+        { address=0X00BA, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="Died in mansion" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="Told to get a treasure for fortune telling" },
+        { address=0X00B9, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Learned of where pirate's treasure is" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Jumped over spear trap" },
+        { address=0X00B9, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Felt could jump over chasm" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Muscle Tower door opened" },
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Pushed switch" },
+        { address=0X00B8, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Oolong finds a switch" },
+        { address=0X00B9, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Discovered switch on wall" },
+        { address=0X00B9, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Pressed switch" },
+      },
+    },
+  },
+}

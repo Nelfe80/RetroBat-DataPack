@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWF WrestleMania 2000",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "wwf-wrestlemania-2000",
+    hashes = {
+      { hash = "7fa5a6dde384652120b46475b193dff9", label = "WWF WrestleMania 2000 (USA, Europe) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

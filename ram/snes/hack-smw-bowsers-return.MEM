@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SMW: Bowser's Return",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-smw-bowsers-return",
+    hashes = {
+      { hash = "3648183d46c288f7e56499841b50a04f", label = "SMW - Bowser's Return (Ice Man) (2.2).sfc" },
+      { hash = "5295a7481c96be8fb0d2c487ef91dc0f", label = "SMW - Bowser's Return (Ice Man).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="change", action="TITLE_SCREEN", desc="Game mode. Anything 00 to 0a is title screen; 0e is Overworld" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages Cleared" },
+      },
+      stage = {
+        { address=0X13CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="If : 40 player is enterting stage from mid point" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="Mario's Animation: 09:Death, 1:shrink, d:enter a door" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="life number - real -- 62 : 99 lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="life number - real -- 62 : 99 lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario Power-Up 00:Small, 01:Super, 02:Cape, 03:Flower" },
+        { address=0X0DC2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario's Inventory Power-up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins, value 63 : 99 increased" },
+      },
+    },
+  },
+}

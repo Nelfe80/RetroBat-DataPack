@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Too Many Types",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-too-many-types",
+    hashes = {
+      { hash = "e7ec28748911cf3895f930d59d6d0120", label = "Pokemon Emerald - Too Many Types (v1.6) (Kobazco).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7437, type="u8", condition="bit_true", mask=0X80, action="PAUSE_ON", desc="(used to play short fanfares for obtaining items)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0F4A, type="u16le", condition="change", action="NEW_LEVEL", desc="[16bit] Next Music ID (For Changing in Overworld)" },
+        { address=0X2B698, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 1 Level" },
+        { address=0X2B6FC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 2 Level" },
+        { address=0X2B760, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 3 Level" },
+        { address=0X2B7C4, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 4 Level" },
+        { address=0X2B828, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 5 Level" },
+        { address=0X2B88C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon 6 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2B122, type="u8", condition="increase", action="HEAL", desc="Battle - Pokemon HP increased" },
+        { address=0X2B122, type="u8", condition="decrease", action="HIT", desc="Battle - Pokemon HP decreased" },
+        { address=0X2B69A, type="u8", condition="increase", action="HEAL", desc="Party - 1st Pokemon HP increased" },
+        { address=0X2B69A, type="u8", condition="decrease", action="HIT", desc="Party - 1st Pokemon HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X2B11A, type="u8", condition="eq", value=0X30, action="TREASURE", desc="Emerald" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5D9C, type="u24le", condition="change", action="OBJECT_INTERACTION", desc="[24-bit] gSaveBlock1Pointer" },
+      },
+    },
+  },
+}

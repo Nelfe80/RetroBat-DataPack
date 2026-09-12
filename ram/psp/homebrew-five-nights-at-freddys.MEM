@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Five Nights at Freddy's",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-five-nights-at-freddys",
+    hashes = {
+      { hash = "fdfca64df08f378ccdf04383ef19a8ae", label = "Five Nights at Freddy's 1 (v1.5.5) (BasDEV)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X99A570, type="u8", condition="change", action="NEW_LEVEL", desc="Foxy AI Level (Float)" },
+        { address=0X99A58C, type="u8", condition="change", action="NEW_LEVEL", desc="Chica AI Level (Float)" },
+        { address=0X99A5A8, type="u8", condition="change", action="NEW_LEVEL", desc="Bonnie AI Level (Float)" },
+        { address=0X99A5C0, type="u8", condition="change", action="NEW_LEVEL", desc="Freddy Fastbear AI Level (Float)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X99A337, type="u8", condition="change", action="LOSE_LIFE", desc="Death Screen Flag (8-bit)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X99A4F8, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Golden Freddy Jumpscare Flag (8-bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X99A004, type="u16le", condition="eq", value=0X04, action="DOOR_OPENED", desc="At Office Door" },
+        { address=0X99A44D, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="Open" },
+        { address=0X99A44D, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Closed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X99A5F0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Time (32-bit)" },
+      },
+    },
+  },
+}

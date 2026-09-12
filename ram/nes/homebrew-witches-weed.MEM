@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Witches Weed",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-witches-weed",
+    hashes = {
+      { hash = "eedd35f72bc65bd5a818afa74bb07cb3", label = "Witches Weed (USA) (Demo 3) (Aftermarket) (Unl) (T-bone#1).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X067C, type="u8", condition="change", action="LOSE_LIFE", desc="death count" },
+        { address=0X073F, type="u8", condition="change", action="LOSE_LIFE", desc="death count units" },
+        { address=0X0740, type="u8", condition="change", action="LOSE_LIFE", desc="death count tens" },
+        { address=0X0741, type="u8", condition="change", action="LOSE_LIFE", desc="death count hundreds" },
+        { address=0X0742, type="u8", condition="change", action="LOSE_LIFE", desc="death count thousands" },
+        { address=0X0743, type="u8", condition="change", action="LOSE_LIFE", desc="death count tens of thousands" },
+        { address=0X0744, type="u8", condition="change", action="LOSE_LIFE", desc="death count hundreds of thousands" },
+      },
+    },
+  },
+}

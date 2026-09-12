@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gold and Glory: The Road to El Dorado",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "gold-and-glory-the-road-to-el-dorado",
+    hashes = {
+      { hash = "3c49bf7386d2c16dc13e04fd87324c20", label = "Gold and Glory - The Road to El Dorado (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9E9F8, type="u8", condition="change", action="TITLE_SCREEN", desc="Subtitles on/off (US)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9FDFC, type="u8", condition="change", action="LOSE_LIFE", desc="Dice: 1st die's number (US)" },
+        { address=0X9FE00, type="u8", condition="change", action="LOSE_LIFE", desc="Dice: 2nd die's number (US)" },
+        { address=0X9FE31, type="u8", condition="change", action="LOSE_LIFE", desc="Wurfel: Für die Karte spielen (De)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9FE0C, type="u8", condition="increase", action="COIN_GAIN", desc="Dice: Zaragoza's money left (US) increased" },
+        { address=0X9FE10, type="u8", condition="increase", action="COIN_GAIN", desc="Dice: Tulio's money left (US) increased" },
+        { address=0X9FE14, type="u8", condition="increase", action="COIN_GAIN", desc="Dice: money bet (US) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B3D84, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left to finish current dialogue line (US)" },
+      },
+    },
+  },
+}

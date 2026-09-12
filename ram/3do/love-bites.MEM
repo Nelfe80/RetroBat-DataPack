@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Love Bites",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "love-bites",
+    hashes = {
+      { hash = "4c99bf2fd1a15ad24b8238fd292f0a93", label = "Love Bites (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

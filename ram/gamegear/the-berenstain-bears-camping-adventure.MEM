@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Berenstain Bears' Camping Adventure",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-berenstain-bears-camping-adventure",
+    hashes = {
+      { hash = "0063255819682649ed682a50a0e8a440", label = "Berenstain Bears' Camping Adventure, The (USA).gg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00E0, type="u8", condition="change", action="PAUSE_ON", desc="80 : pause?" },
+        { address=0X031A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X18DF, type="u8", condition="change", action="NEW_LEVEL", desc="Use for level ID: 00 : Cave; 01 : River; 02 : Spooky Forest; 03 : Honey Forest; 04 Level Select." },
+      },
+      stage = {
+        { address=0X1B9B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage in current level?" },
+        { address=0X1CF6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Gems in current Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0319, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0X0319, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1B7A, type="u8", condition="increase", action="COIN_GAIN", desc="01 while entering a level increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X146C, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health Skunk and Eagle" },
+        { address=0X14B5, type="u8", condition="change", action="BOSS_HIT", desc="Beaver Boss HP" },
+      },
+    },
+  },
+}

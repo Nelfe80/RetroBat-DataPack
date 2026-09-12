@@ -1,0 +1,101 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tekken 6 [Subset - Tekken God]",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "tekken-6-subset-tekken-god",
+    hashes = {
+      { hash = "e02ba6f0c8f27c8e137f2129dbfe0233", label = "Tekken 6 [Subset - Tekken God]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10EABE8, type="u8", condition="change", action="PAUSE_ON", desc="Pause [2]" },
+        { address=0X10EFF34, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue [1]" },
+        { address=0X10F8C74, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue [2]" },
+        { address=0X10F98A8, type="u8", condition="change", action="PAUSE_ON", desc="Pause [1]" },
+      },
+      events = {
+        { address=0XC13F88, type="u8", condition="change", action="COMBO_HIT", desc="P1 - Combo (8-bit)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XBE6530, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Difficulty Level" },
+        { address=0XBE6530, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Rounds" },
+        { address=0XBE6530, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Round time" },
+        { address=0XBE6590, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Difficulty level" },
+        { address=0XBE6590, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Easy" },
+        { address=0XBE6590, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Medium" },
+        { address=0XBE6590, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Hard" },
+        { address=0XBE6590, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Very Hard" },
+        { address=0XBE6590, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Ultra Hard" },
+        { address=0XBE67D0, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Rounds" },
+        { address=0XBE67D0, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="2" },
+        { address=0XBE67D0, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="3" },
+        { address=0XBE67D0, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="4" },
+        { address=0XBE67D0, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="5" },
+        { address=0XBE6A10, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Round Time" },
+        { address=0XBE6A10, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="30''" },
+        { address=0XBE6A10, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="40''" },
+        { address=0XBE6A10, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="60''" },
+        { address=0XBE6A10, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="80''" },
+        { address=0XBE6A10, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="99''" },
+        { address=0XC078D0, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds (8-bit)" },
+        { address=0X106707D, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds (8-bit)" },
+        { address=0X106707D, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+        { address=0X106707D, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="2" },
+        { address=0X106707D, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="3" },
+        { address=0X106707D, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="4" },
+        { address=0X106707D, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="5" },
+        { address=0X106707E, type="u8", condition="change", action="NEW_LEVEL", desc="Round Time (8-bit)" },
+        { address=0X106707E, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="30" },
+        { address=0X106707E, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="40" },
+        { address=0X106707E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="60" },
+        { address=0X106707E, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="80" },
+        { address=0X106707E, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="99" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XBE6530, type="u8", condition="eq", value=0X03, action="HIT", desc="Guard Damage" },
+        { address=0XBE6C50, type="u8", condition="eq", value=0X01, action="HIT", desc="On" },
+        { address=0XC078C2, type="u8", condition="increase", action="HEAL", desc="[8bit] Health (Left Side) increased" },
+        { address=0XC078C2, type="u8", condition="decrease", action="HIT", desc="[8bit] Health (Left Side) decreased" },
+        { address=0XC078C6, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Health (Left Side) increased" },
+        { address=0XC078C6, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Health (Left Side) decreased" },
+        { address=0XC081F2, type="u8", condition="increase", action="HEAL", desc="[8bit] Health (Right Side) increased" },
+        { address=0XC081F2, type="u8", condition="decrease", action="HIT", desc="[8bit] Health (Right Side) decreased" },
+        { address=0XC081F6, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Health (Right Side) increased" },
+        { address=0XC081F6, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Health (Right Side) decreased" },
+        { address=0X106707F, type="u8", condition="eq", value=0X01, action="HIT", desc="On" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XBE5E10, type="u8", condition="eq", value=0X02, action="MONEY_STATE", desc="Gold Rush" },
+        { address=0XC19B10, type="u32le", condition="increase", action="COIN_GAIN", desc="Gold Rush (32-bit) increased" },
+        { address=0X1BDFD6C, type="u32le", condition="increase", action="COIN_GAIN", desc="[32bit] Gold increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1BE135F, type="u8", condition="eq", value=0X19, action="OBJECT_DESTROYED", desc="Destroyer" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XBE6530, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[8bit) Game Options" },
+        { address=0X10D868C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round Time (16-bit) [2]" },
+        { address=0X10E990C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round Time (16-bit) [1]" },
+      },
+    },
+  },
+}

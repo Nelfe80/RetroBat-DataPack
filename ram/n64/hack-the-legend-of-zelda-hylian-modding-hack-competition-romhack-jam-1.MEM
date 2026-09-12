@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Hylian Modding Hack Competition - Romhack Jam 1",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-hylian-modding-hack-competition-romhack-jam-1",
+    hashes = {
+      { hash = "04deca5e128eeef38a8cf100d8cdbb79", label = "Legend of Zelda, The - Romhack Jam 1 - Barjack's Merda (Barjack).z64" },
+      { hash = "e5c3c8477abb0901915f52a3f41eaf3d", label = "Legend of Zelda, The - Romhack Jam 1 - Reality Estate (v1.1) (Jinnosuke, Corrhaid, Chadlight).z64" },
+      { hash = "e01e7afe6e6edc60bdc755ad4dfb717e", label = "Legend of Zelda, The - Romhack Jam 1 - Halflight Shrine (PlushimaTitania).z64" },
+      { hash = "680480a85e2985ed609d6dde913a2506", label = "Legend of Zelda, The - Romhack Jam 1 - Return To Stone Tower (v1.3) (Nokaubure).z64" },
+      { hash = "4e76858409fe32bca0e9fccc4f7bd4e1", label = "Legend of Zelda, The - Romhack Jam 1 - Mechanical Shrine (v1.3) (arthurc).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XF11EC, type="u16be", condition="increase", action="HEAL", desc="[Mechanical Shrine] [16-bit] Max HP increased" },
+        { address=0XF11EC, type="u16be", condition="decrease", action="HIT", desc="[Mechanical Shrine] [16-bit] Max HP decreased" },
+        { address=0XF11F2, type="u16be", condition="increase", action="HEAL", desc="[Mechanical Shrine] [16-bit] Current HP increased" },
+        { address=0XF11F2, type="u16be", condition="decrease", action="HIT", desc="[Mechanical Shrine] [16-bit] Current HP decreased" },
+        { address=0X12AEDC, type="u16be", condition="increase", action="HEAL", desc="[Barjack's Merda] [16-bit] Max HP increased" },
+        { address=0X12AEDC, type="u16be", condition="decrease", action="HIT", desc="[Barjack's Merda] [16-bit] Max HP decreased" },
+        { address=0X12AEE2, type="u16be", condition="increase", action="HEAL", desc="[Barjack's Merda] [16-bit] Current HP increased" },
+        { address=0X12AEE2, type="u16be", condition="decrease", action="HIT", desc="[Barjack's Merda] [16-bit] Current HP decreased" },
+        { address=0X15BF1C, type="u16be", condition="increase", action="HEAL", desc="[Halflight Shrine] [16-bit] Max HP increased" },
+        { address=0X15BF1C, type="u16be", condition="decrease", action="HIT", desc="[Halflight Shrine] [16-bit] Max HP decreased" },
+        { address=0X15BF22, type="u16be", condition="increase", action="HEAL", desc="[Halflight Shrine] [16-bit] Current HP increased" },
+        { address=0X15BF22, type="u16be", condition="decrease", action="HIT", desc="[Halflight Shrine] [16-bit] Current HP decreased" },
+        { address=0X15E68C, type="u16be", condition="increase", action="HEAL", desc="[Reality Estate, Return To Stone Tower] [16-bit] Max HP increased" },
+        { address=0X15E68C, type="u16be", condition="decrease", action="HIT", desc="[Reality Estate, Return To Stone Tower] [16-bit] Max HP decreased" },
+        { address=0X15E692, type="u16be", condition="increase", action="HEAL", desc="[Reality Estate, Return To Stone Tower] [16-bit] Current HP increased" },
+        { address=0X15E692, type="u16be", condition="decrease", action="HIT", desc="[Reality Estate, Return To Stone Tower] [16-bit] Current HP decreased" },
+      },
+    },
+  },
+}

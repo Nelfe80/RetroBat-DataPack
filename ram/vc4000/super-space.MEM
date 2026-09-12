@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super-Space",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "super-space",
+    hashes = {
+      { hash = "d26cbea2b3e9cdd124c0ceea57a4cb9c", label = "Super-Space (Europe).BIN" },
+    }
+  },
+
+  events = {
+    state = {
+      temporary = {
+        { address=0X05A3, type="u8", condition="change", action="SHIELD_GAIN", desc="Current Shield [Bit-Count]" },
+        { address=0X05C2, type="u8", condition="change", action="SHIELD_GAIN", desc="Current Shield (Related) [Bit-Count]" },
+      },
+    },
+  },
+}

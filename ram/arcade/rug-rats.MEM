@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rug Rats",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "rug-rats",
+    hashes = {
+      { hash = "e4e5ed999b644efc2ff46b7c7c6a76ab", label = "rugrats.7z <Rug Rats>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X145D, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

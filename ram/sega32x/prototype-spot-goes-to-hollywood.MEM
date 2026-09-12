@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Spot Goes to Hollywood",
+    system = "sega32x",
+    system_name = "32X",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "prototype-spot-goes-to-hollywood",
+    hashes = {
+      { hash = "11caaeaa76ac810400e9a08985e0eb29", label = "Spot Goes to Hollywood (USA) (Proto).32x" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Beebris",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-beebris",
+    hashes = {
+      { hash = "c90b48d51cf9381ef00c24696bccc1de", label = "Beebris (World) (Aftermarket) (Unl).j64" },
+    }
+  },
+
+  events = {
+  },
+}

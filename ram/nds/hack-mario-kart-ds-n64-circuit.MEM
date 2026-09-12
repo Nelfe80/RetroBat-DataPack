@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Kart DS: N64 Circuit",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-kart-ds-n64-circuit",
+    hashes = {
+      { hash = "39b5db6411cd834f1e986a00a815c5fb", label = "MKDS - N64 Circuit (v1.51) (Arctus 64).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X3D994C, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Gold" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3CDCE0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Race ID" },
+      },
+    },
+  },
+}

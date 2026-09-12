@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Santa Claus Junior",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "santa-claus-junior",
+    hashes = {
+      { hash = "5df6d1ec0e9241e1ed8a8ee7ff318631", label = "Santa Claus Junior (Europe).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC11E, type="u8", condition="eq", value=0XF3, action="LIVES_STATE", desc="life collected" },
+        { address=0XCC76, type="u8", condition="increase", action="GAIN_LIFE", desc="Unlimited Lives & Invincibility increased" },
+        { address=0XCC76, type="u8", condition="decrease", action="LOSE_LIFE", desc="Unlimited Lives & Invincibility decreased" },
+        { address=0XCC76, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="On" },
+      },
+    },
+  },
+}

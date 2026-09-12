@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Killzone",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "killzone",
+    hashes = {
+      { hash = "20b538d9c53c3e76d20119e1b25e98fc", label = "Killzone (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X514024, type="u8", condition="change", action="NEW_LEVEL", desc="Win Current Level" },
+        { address=0X7C4C78, type="u8", condition="change", action="NEW_LEVEL", desc="[ASCII] Level Script" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X514020, type="u8", condition="change", action="WEAPON_STATE", desc="More Powerful Weapons Alt" },
+      },
+    },
+  },
+}

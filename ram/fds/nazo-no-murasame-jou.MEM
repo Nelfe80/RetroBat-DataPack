@@ -1,0 +1,69 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Nazo no Murasame Jou",
+    system = "fds",
+    system_name = "Famicom Disk System",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "nazo-no-murasame-jou",
+    hashes = {
+      { hash = "58377b2babdf06d8cf5557064f32ad92", label = "Nazo no Murasame Jou (Japan) (En) (Spinner8) (1.0).fds" },
+      { hash = "e8558b356bb077213b255367c9c5be16", label = "Nazo no Murasame Jou (Japan) (En) (Spinner8) (1.1).fds" },
+      { hash = "fa04b0b2d99d560e7076198ab72a15d3", label = "Nazo no Murasamejou (Japan).fds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X004D, type="u8", condition="eq", value=0X0D, action="GAME_OVER", desc="game over" },
+        { address=0X004D, type="u8", condition="eq", value=0X11, action="CREDITS_SCREEN", desc="credits" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X004D, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="stage intro" },
+        { address=0X004D, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="during a stage" },
+        { address=0X005A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage theme [00 : town; 01 : castle; 02 : murasame castle; 03 : inside the statue]" },
+        { address=0X005B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04D2, type="u8", condition="increase", action="GAIN_LIFE", desc="Princess was saved (01 when you get a 1-up from a princess; resets upon leaving the room) increa" },
+        { address=0X04D2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Princess was saved (01 when you get a 1-up from a princess; resets upon leaving the room) decrea" },
+        { address=0X0700, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives x10 increased" },
+        { address=0X0700, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives x10 decreased" },
+        { address=0X0701, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives x1 increased" },
+        { address=0X0701, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives x1 decreased" },
+      },
+      health = {
+        { address=0X0702, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0702, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0704, type="u8", condition="change", action="WEAPON_STATE", desc="Current weapon [00 : knives; 01 : flame; 02 : double-edge sword]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0707, type="u8", condition="change", action="AMMO_STATE", desc="Scrolls (ammo for the weapon; 8-bit unsigned)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X004D, type="u8", condition="eq", value=0X0F, action="BOSS_DEFEATED", desc="final boss defeated" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0059, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Game clear count (increments by 1 each time the final boss is defeated)" },
+      },
+    },
+  },
+}

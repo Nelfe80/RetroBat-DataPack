@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Who Wants to Be a Millionaire",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Quiz"
+  },
+
+  rom = {
+    name = "who-wants-to-be-a-millionaire",
+    hashes = {
+      { hash = "f5d5948793840335717da4b0c9d32328", label = "Who Wants to Be a Millionaire (Europe)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alien Hominid",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "alien-hominid",
+    hashes = {
+      { hash = "183ef83a4d51a22852cbd2c4a8ccb280", label = "Alien Hominid (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

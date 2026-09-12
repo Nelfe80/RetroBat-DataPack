@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Five Nights at Freddy's 2",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-five-nights-at-freddys-2",
+    hashes = {
+      { hash = "515f831d9bdde77de58c2ac4b089c7d6", label = "Five Nights At Freddy's 2 (v3.5) (AlexDev2).iso" },
+    }
+  },
+
+  events = {
+  },
+}

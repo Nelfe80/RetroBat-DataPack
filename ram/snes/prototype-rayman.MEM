@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Rayman",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prototype-rayman",
+    hashes = {
+      { hash = "d613e071ddd175a39d674c07579dcd4d", label = "Rayman (USA) (Proto).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

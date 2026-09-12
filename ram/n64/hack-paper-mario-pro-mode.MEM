@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Paper Mario: Pro Mode",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-paper-mario-pro-mode",
+    hashes = {
+      { hash = "705c25c41897a6e544835411ba62961f", label = "Paper Mario - Pro Mode (Clover) (0.1.6).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X31AF58, type="u8", condition="change", action="NEW_LEVEL", desc="Boo Challenge currend round?" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X3DE56B, type="u8", condition="increase", action="HEAL", desc="Jr Troopa HP increased" },
+        { address=0X3DE56B, type="u8", condition="decrease", action="HIT", desc="Jr Troopa HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X10F5C0, type="u16be", condition="increase", action="COIN_GAIN", desc="Jump Attack Total Coins Won 16bits increased" },
+        { address=0X10F5C8, type="u16be", condition="increase", action="COIN_GAIN", desc="Smash Attack Total Coins Won 16bits increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X10F5C6, type="u16be", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump Attack Highest amount won in a single game 16bits" },
+      },
+    },
+  },
+}

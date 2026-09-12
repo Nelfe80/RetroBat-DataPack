@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Killer Bees",
+    system = "o2em",
+    system_name = "Magnavox Odyssey 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "killer-bees",
+    hashes = {
+      { hash = "5e7a037e1aa1f59ad2be80452f81cc38", label = "Killer Bees (USA).bin" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002F, type="u8", condition="change", action="DEMO_MODE", desc="bit7 - demo (0x80)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X002D, type="u8", condition="bit_true", mask=0X04, action="INVINCIBILITY_START", desc="Invincibility cheat?" },
+      },
+    },
+  },
+}

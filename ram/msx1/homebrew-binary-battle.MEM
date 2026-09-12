@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Binary Battle",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-binary-battle",
+    hashes = {
+      { hash = "b5efcd7124009068b63f8b144baa3a89", label = "Binary Battle (2024) (v1.1) (Haplo).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0310, type="u8", condition="eq", value=0XC0, action="TITLE_SCREEN", desc="Top part (its also c0 on the title screen)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0012, type="u8", condition="change", action="NEW_LEVEL", desc="[ASCII] Level Major" },
+        { address=0X0014, type="u8", condition="change", action="NEW_LEVEL", desc="[ASCII] Level Minor" },
+        { address=0X0315, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Minor" },
+        { address=0X0316, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Major" },
+        { address=0X0343, type="u8", condition="change", action="NEW_LEVEL", desc="Antivirus Upgrade Buff Level" },
+        { address=0X0344, type="u8", condition="change", action="NEW_LEVEL", desc="First Strike Buff Level" },
+        { address=0X0345, type="u8", condition="change", action="NEW_LEVEL", desc="Vampiric Buff Level" },
+        { address=0X0346, type="u8", condition="change", action="NEW_LEVEL", desc="Endothermic Buff Level" },
+        { address=0X0347, type="u8", condition="change", action="NEW_LEVEL", desc="Defrag Buff Level" },
+        { address=0X0348, type="u8", condition="change", action="NEW_LEVEL", desc="Deep Clean Buff Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0317, type="u8", condition="increase", action="HEAL", desc="[BCD] Current Health increased" },
+        { address=0X0317, type="u8", condition="decrease", action="HIT", desc="[BCD] Current Health decreased" },
+        { address=0X031E, type="u8", condition="increase", action="HEAL", desc="[BCD] Health Max increased" },
+        { address=0X031E, type="u8", condition="decrease", action="HIT", desc="[BCD] Health Max decreased" },
+        { address=0X032F, type="u16le", condition="change", action="HIT", desc="[BCD] Damage Dealt" },
+        { address=0X0331, type="u16le", condition="change", action="HIT", desc="[BCD] Damage Taken" },
+      },
+    },
+  },
+}

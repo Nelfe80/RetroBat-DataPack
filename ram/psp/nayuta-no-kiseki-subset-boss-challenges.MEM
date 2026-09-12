@@ -1,0 +1,102 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Nayuta no Kiseki [Subset - Boss Challenges]",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "nayuta-no-kiseki-subset-boss-challenges",
+    hashes = {
+      { hash = "b079f140baf6c592dff8b53385955861", label = "Nayuta no Kiseki (Japan) (En) (Flame) (4.15) [Subset - Bonus].iso" },
+      { hash = "f6e123671e85305561e771a996f72262", label = "Nayuta no Kiseki (Japan) (En) (dackst) (1.08) [Subset - Bonus].iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB952A2, type="u32be", condition="eq", value=0X6C6F676F, action="TITLE_SCREEN", desc="logo" },
+        { address=0XB952A2, type="u32be", condition="eq", value=0X7469746C, action="TITLE_SCREEN", desc="title" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X133B353, type="u32be", condition="eq", value=0X30313032, action="PROGRESSION_ZONE", desc="Terra, The Other World (map)" },
+        { address=0X133B353, type="u32be", condition="eq", value=0X38313030, action="PROGRESSION_ZONE", desc="The Core of the Inner World" },
+      },
+      stage = {
+        { address=0X107FBC4, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Both - Stage Stat Tracking - Highest Chain" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X134178C, type="u16le", condition="eq", value=0X03, action="LOSE_LIFE", desc="Lower Difficulty and Retry available)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA0, action="DYNAMIC_INVENTORY", desc="Fairy Clothes (1)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA1, action="DYNAMIC_INVENTORY", desc="Tight Suit (2)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA2, action="DYNAMIC_INVENTORY", desc="Slit Mini (3)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA3, action="DYNAMIC_INVENTORY", desc="Crimson Dress (4)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA4, action="DYNAMIC_INVENTORY", desc="Dance Costume (5)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA5, action="DYNAMIC_INVENTORY", desc="Witch's Robe (6)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA6, action="DYNAMIC_INVENTORY", desc="Gothic Dress (7)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA7, action="DYNAMIC_INVENTORY", desc="Formal Sailor (8)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA8, action="DYNAMIC_INVENTORY", desc="Ethereal Clothes (9)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XA9, action="DYNAMIC_INVENTORY", desc="Maid Dress (10)" },
+        { address=0X133AB08, type="u16le", condition="eq", value=0XFFFF, action="DYNAMIC_INVENTORY", desc="Nothing" },
+      },
+      weapon = {
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X00, action="WEAPON_STATE", desc="Wooden Sword (1)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X01, action="WEAPON_STATE", desc="Short Sword (2)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X02, action="WEAPON_STATE", desc="Legion Knife (3)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X03, action="WEAPON_STATE", desc="Crescent Sword (4)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X04, action="WEAPON_STATE", desc="Crystal Edge (5)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X05, action="WEAPON_STATE", desc="Durandal (6)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X06, action="WEAPON_STATE", desc="Executor (7)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X07, action="WEAPON_STATE", desc="Seventh Heaven (8)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X08, action="WEAPON_STATE", desc="Chrono Blade (9)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X14, action="WEAPON_STATE", desc="Woodcutter Axe (1)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X15, action="WEAPON_STATE", desc="Spiked Mace (2)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X16, action="WEAPON_STATE", desc="Sacerdos (3)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X17, action="WEAPON_STATE", desc="Rune Axe (4)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X18, action="WEAPON_STATE", desc="Sledgehammer (5)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X19, action="WEAPON_STATE", desc="Luna Rossa (6)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X1A, action="WEAPON_STATE", desc="Crimson Sword (7)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X1B, action="WEAPON_STATE", desc="Lost Dragon (8)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X1C, action="WEAPON_STATE", desc="Caladbolg (9)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0X1D, action="WEAPON_STATE", desc="Meteor Buster(10)" },
+        { address=0X133A9BC, type="u16le", condition="eq", value=0XFFFF, action="WEAPON_STATE", desc="Nothing" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X133AB0A, type="u16le", condition="eq", value=0XB1, action="MONEY_STATE", desc="Halo Ring (8)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X133B353, type="u32be", condition="eq", value=0X35303939, action="BOSS_HIT", desc="Heliograd/Upper Stratum (Boss)" },
+        { address=0X133B353, type="u32be", condition="eq", value=0X35313031, action="BOSS_HIT", desc="Heliograd/Upper Stratum (Before Boss)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X107FB28, type="u32le", condition="change", action="SHIELD_GAIN", desc="Both - Gear Craft - Gear Shield (0x01 if unlocked)" },
+        { address=0X133A9C2, type="u16le", condition="eq", value=0X6B, action="SHIELD_GAIN", desc="Altair Shield (8)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF857C4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Both - Stage time when starting boss fight" },
+        { address=0X10714D0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Both - Currently Playing Music" },
+        { address=0X107FBC0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Both - Stage Stat Tracking - Time (max is 0x2BF1F)" },
+        { address=0X107FBC8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Both - Stage Stat Tracking - Number of Times You Took Damage" },
+      },
+    },
+  },
+}

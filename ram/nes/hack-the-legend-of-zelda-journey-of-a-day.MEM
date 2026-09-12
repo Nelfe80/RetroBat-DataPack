@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Journey of a Day",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-journey-of-a-day",
+    hashes = {
+      { hash = "88803efa4b92bb7abc3c49d0807ebadf", label = "Zelda II - Journey of a Day (Hard) (v1.4) (the_icepenguin).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X076E, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title/File Select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0706, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Map ID" },
+        { address=0X0706, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Regular overworld" },
+        { address=0X0706, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="East Hyrule" },
+        { address=0X076E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Overworld and some caves" },
+        { address=0X0771, type="u8", condition="change", action="NEW_LEVEL", desc="XP to next level" },
+        { address=0X0777, type="u8", condition="change", action="NEW_LEVEL", desc="Current Attack Level" },
+        { address=0X0778, type="u8", condition="change", action="NEW_LEVEL", desc="Current Magic Level" },
+        { address=0X0779, type="u8", condition="change", action="NEW_LEVEL", desc="Current Defense Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0616, type="u8", condition="increase", action="GAIN_LIFE", desc="bit 0 - Water of Life (0x2d) increased" },
+        { address=0X0616, type="u8", condition="decrease", action="LOSE_LIFE", desc="bit 0 - Water of Life (0x2d) decreased" },
+        { address=0X0700, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0700, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0706, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Death Mountain and Maze Island" },
+        { address=0X077D, type="u8", condition="increase", action="GAIN_LIFE", desc="Have life spell increased" },
+        { address=0X077D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Have life spell decreased" },
+      },
+      health = {
+        { address=0X00C2, type="u8", condition="increase", action="HEAL", desc="Dark Link's HP increased" },
+        { address=0X00C2, type="u8", condition="decrease", action="HIT", desc="Dark Link's HP decreased" },
+        { address=0X00C5, type="u8", condition="increase", action="HEAL", desc="Health for second part of both Rebonack fights increased" },
+        { address=0X00C5, type="u8", condition="decrease", action="HIT", desc="Health for second part of both Rebonack fights decreased" },
+        { address=0X00C6, type="u8", condition="increase", action="HEAL", desc="Health for first part of second Rebonack fight increased" },
+        { address=0X00C6, type="u8", condition="decrease", action="HIT", desc="Health for first part of second Rebonack fight decreased" },
+        { address=0X00C7, type="u8", condition="increase", action="HEAL", desc="Health for first part of first Rebonack fight increased" },
+        { address=0X00C7, type="u8", condition="decrease", action="HIT", desc="Health for first part of first Rebonack fight decreased" },
+        { address=0X0774, type="u8", condition="increase", action="HEAL", desc="Link's HP increased" },
+        { address=0X0774, type="u8", condition="decrease", action="HIT", desc="Link's HP decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X076F, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Shield" },
+        { address=0X077B, type="u8", condition="change", action="SHIELD_GAIN", desc="Has shield spell" },
+      },
+      player = {
+        { address=0X076F, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+        { address=0X077C, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Have Jump spell" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0680, type="u8", condition="change", action="DOOR_OPENED", desc="bit 0 - door in 0x01" },
+        { address=0X0682, type="u8", condition="change", action="DOOR_OPENED", desc="bit 5 - Door in 0x04 unlocked" },
+        { address=0X068C, type="u8", condition="change", action="DOOR_OPENED", desc="bit 3 - door unlocked" },
+        { address=0X0692, type="u24le", condition="change", action="DOOR_OPENED", desc="bit 2 - Door unlocked (0x25)" },
+        { address=0X0694, type="u8", condition="change", action="DOOR_OPENED", desc="bit 1 - second Gooma door unlocked" },
+        { address=0X0696, type="u8", condition="change", action="DOOR_OPENED", desc="bit 5 - door unlocked (0x2c)" },
+        { address=0X06A7, type="u8", condition="change", action="DOOR_OPENED", desc="bit 5 - door past first Rebonack unlocked" },
+        { address=0X06B0, type="u8", condition="change", action="DOOR_OPENED", desc="bit 1 - Door unlocked (0x21)" },
+      },
+    },
+  },
+}

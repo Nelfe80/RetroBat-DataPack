@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Streemerz",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-streemerz",
+    hashes = {
+      { hash = "31115a66085f2ec11ef7d49ae2ac3666", label = "Streemerz (World) (v02) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X005E, type="u16le", condition="eq", value=0XDFCC, action="TITLE_SCREEN", desc="title screen (but not main menu)" },
+        { address=0X005E, type="u16le", condition="eq", value=0XE2B0, action="CREDITS_SCREEN", desc="end game credits" },
+        { address=0X04DA, type="u8", condition="eq", value=0X15, action="TITLE_SCREEN", desc="title screen & main menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X04F7, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="dead on ground" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04F7, type="u8", condition="eq", value=0X0C, action="LOSE_LIFE", desc="dead in air (angled)" },
+        { address=0X04F7, type="u8", condition="eq", value=0X0D, action="LOSE_LIFE", desc="dead in air (flat)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X004E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time (minutes) (BCD)" },
+        { address=0X004E, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="XY:00:00" },
+        { address=0X004F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time (seconds) (BCD)" },
+        { address=0X004F, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="00:XY:00" },
+        { address=0X0050, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Time (fractional seconds) (BCD)" },
+        { address=0X031A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Game Mode" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Desert Bus",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-desert-bus",
+    hashes = {
+      { hash = "bf7b19aa220369ffb2284ad667d522b9", label = "Pokemon FireRed - Desert Bus.gba" },
+    }
+  },
+
+  events = {
+  },
+}

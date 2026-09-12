@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dawn Will Come",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-dawn-will-come",
+    hashes = {
+      { hash = "d4ecb934836df8e3f26af4c976cae730", label = "Dawn Will Come (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCCF9, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 1 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCCFC, type="u8", condition="increase", action="HEAL", desc="[8bit] Slot 1 HP increased" },
+        { address=0XCCFC, type="u8", condition="decrease", action="HIT", desc="[8bit] Slot 1 HP decreased" },
+      },
+    },
+  },
+}

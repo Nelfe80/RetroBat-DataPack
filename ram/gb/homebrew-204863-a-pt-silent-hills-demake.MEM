@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 204863: A P.T. Silent Hills Demake",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-204863-a-pt-silent-hills-demake",
+    hashes = {
+      { hash = "28d77a7797b018be49c31f139912aba8", label = "204863 - A P.T. Silent Hills Demake (World) (Aftermarket) (GB Studio) (Jonshaw01).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCB44, type="u16le", condition="increase", action="HEAL", desc="Loop 9 - Telehpone Numbers Pressed Correctly [16bit] increased" },
+        { address=0XCB44, type="u16le", condition="decrease", action="HIT", desc="Loop 9 - Telehpone Numbers Pressed Correctly [16bit] decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCB1E, type="u16le", condition="change", action="DOOR_OPENED", desc="Loop 2 - Door Slam [16bit]" },
+        { address=0XCB20, type="u16le", condition="change", action="DOOR_OPENED", desc="Loop 2 - Door Closed [16bit]" },
+        { address=0XCB22, type="u24le", condition="change", action="DOOR_OPENED", desc="Loop 3 - Door Cracked Open [16bit]" },
+        { address=0XCB24, type="u16le", condition="change", action="DOOR_OPENED", desc="Loop 3 - Door Grotesque Woman [16bit]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Bingo 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-bingo-64",
+    hashes = {
+      { hash = "80cb71de75039d0f57284e0182d426a4", label = "SM64 - Bingo64 (v0.10a) (Quate).z64" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X3229C4, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="Bingo Field 1 - Amount of Objectives needed (32bit)" },
+        { address=0X3229C8, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="Bingo Field 1 - Amount of Objectives done (32bit)" },
+      },
+    },
+  },
+}

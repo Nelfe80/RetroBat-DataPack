@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Speed Coin",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Miscellaneous"
+  },
+
+  rom = {
+    name = "prototype-speed-coin",
+    hashes = {
+      { hash = "8285bdd5bf47635a7a484c6f72971bbc", label = "spdcoin.7z <>" },
+    }
+  },
+
+  events = {
+  },
+}

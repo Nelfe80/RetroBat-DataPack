@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Cuter Kaizo World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-cuter-kaizo-world",
+    hashes = {
+      { hash = "fd4c67e16c3cdfd03ee03633318081cc", label = "SMW - Cuter Kaizo (v1.0) (slopcore).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X11F, action="BOSS_HIT", desc="outiisde Cambridge Castle (before Boss)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X121, action="BOSS_HIT", desc="Feller Boss fight" },
+        { address=0X14C1, type="u8", condition="change", action="BOSS_HIT", desc="8bit Final boss health" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Switch In The Sky" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Goal Timer" },
+      },
+    },
+  },
+}

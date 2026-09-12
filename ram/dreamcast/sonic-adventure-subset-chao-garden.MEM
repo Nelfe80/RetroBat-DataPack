@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sonic Adventure [Subset - Chao Garden]",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "sonic-adventure-subset-chao-garden",
+    hashes = {
+      { hash = "dc085dd35498961b1cc165ae3b3b5bd1", label = "Sonic Adventure [Subset - Chao Garden]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7493B4, type="u8", condition="eq", value=0X10, action="PAUSE_ON", desc="paused" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X6B7886, type="u16le", condition="change", action="LOSE_LIFE", desc="chao 1 adult age - counts down to 0, then dies/reincarnates" },
+        { address=0X6B7A86, type="u16le", condition="change", action="LOSE_LIFE", desc="Chao 2 chao age - counts up as a baby, then down to 0 until its death as an adult" },
+      },
+      health = {
+        { address=0X6B786C, type="u16le", condition="increase", action="HEAL", desc="Chao 1 HP increased" },
+        { address=0X6B786C, type="u16le", condition="decrease", action="HIT", desc="Chao 1 HP decreased" },
+        { address=0X6B786E, type="u16le", condition="increase", action="HEAL", desc="Chao 1 max HP increased" },
+        { address=0X6B786E, type="u16le", condition="decrease", action="HIT", desc="Chao 1 max HP decreased" },
+        { address=0X6B7A6C, type="u16le", condition="increase", action="HEAL", desc="Chao 2 HP increased" },
+        { address=0X6B7A6C, type="u16le", condition="decrease", action="HIT", desc="Chao 2 HP decreased" },
+        { address=0X6B7A6E, type="u16le", condition="increase", action="HEAL", desc="Chao 2 Max HP increased" },
+        { address=0X6B7A6E, type="u16le", condition="decrease", action="HIT", desc="Chao 2 Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X6B7864, type="u16le", condition="increase", action="COIN_GAIN", desc="Chao 1 swim stat increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X6B7A64, type="u16le", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Chao 2 swim stat" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X6B76EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] name storage for pearl course second best time" },
+        { address=0X6B7704, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] name storage for amethyst course second best time" },
+        { address=0X6B771C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] name storage for sapphire course second best time" },
+        { address=0X6B7734, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] name storage for ruby course second best time" },
+        { address=0X6B7744, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[64-bit] name storage for emerald course best time" },
+        { address=0X6B774C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[64-bit] name storage for emerald course second best time" },
+        { address=0X6B775C, type="u24le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[24-bit] pearl course 1st place time" },
+        { address=0X6B7780, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[24-bit] emerald course 1st place time" },
+        { address=0X6B7783, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[24-bit] emerald course 2nd place time" },
+        { address=0X6B7786, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[24-bit] emerald course 3rd place time" },
+        { address=0X6B79E2, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[24-bit] chao 1 best time set on emerald course" },
+      },
+    },
+  },
+}

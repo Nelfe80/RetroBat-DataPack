@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Noble Blood",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-noble-blood",
+    hashes = {
+      { hash = "aaafb103c5c85e50a024b61e14f30497", label = "Noble Blood (World) (Shacknews Jam Fall 2023) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XC92D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Stats Block] ASCII Data" },
+      },
+    },
+  },
+}

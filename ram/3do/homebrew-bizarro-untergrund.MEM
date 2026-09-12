@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bizarro Untergrund",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bizarro-untergrund",
+    hashes = {
+      { hash = "484d1f761aaa95d34df9d7beec789ae0", label = "Bizarro Untergrund (USA) (v1.0.1) (Aftermarket) (Optimus6128)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X81868, type="u32le", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X81868, type="u32le", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

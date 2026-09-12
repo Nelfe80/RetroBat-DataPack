@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Warp Coin Catastrophe",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-warp-coin-catastrophe",
+    hashes = {
+      { hash = "2295f4ef94f9b9a21dfc04259ab6d7bf", label = "Warp Coin Catastrophe, The (World) (v1.1) (GB Compatible) (Aftermarket) (Unl).gbc" },
+      { hash = "c1ef769ab7525ca2b2c3b0eb88b1c49c", label = "Warp Coin Catastrophe, The (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+      { hash = "d5aef2fb975eebf3b66ea89c469d0d7c", label = "Warp Coin Catastrophe, The (World) (v1.1.2) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Abduction of Oscar Z",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-abduction-of-oscar-z",
+    hashes = {
+      { hash = "8260045bbcbf9edbfe6de05061d555df", label = "Abduction of Oszar Z, The (UK) (2020) (Dreamin' Bits).dsk" },
+      { hash = "872679c033a45500fffda573fa3a5d4f", label = "Abduction of Oszar Z, The (UK) (2020) (CPCRetroDev 2017) (Dreamin'bits).dsk" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X21A9, type="u8", condition="change", action="DEMO_MODE", desc="bit 0 : demo mode" },
+        { address=0XBFF6, type="u8", condition="eq", value=0X66, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XBFF6, type="u8", condition="change", action="NEW_LEVEL", desc="<8-bit> Level" },
+        { address=0XBFF6, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="First (Rescue Mizzie)" },
+        { address=0XBFF6, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Second (Rescue Donald)" },
+        { address=0XBFF6, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Third (Rescue Gunter)" },
+      },
+      stage = {
+        { address=0X21D5, type="u8", condition="change", action="RANK_STATE", desc="<8-bit> Player position on line bar" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X21D3, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="standstill (used on death and cutscenes)" },
+        { address=0X21D4, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="activates on animal rescue cutscene (i.e. you won the race) or on death." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2219, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="<8-bit> Countdown timer for sprinting mode" },
+      },
+    },
+  },
+}

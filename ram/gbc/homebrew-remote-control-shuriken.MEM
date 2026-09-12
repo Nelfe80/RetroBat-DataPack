@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Remote Control Shuriken",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-remote-control-shuriken",
+    hashes = {
+      { hash = "09ec8f62034f0219e0a82e3f01f48ba7", label = "Remote Control Shuriken (World) (GBCompo2021) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XC0A4, type="u8", condition="increase", action="HEAL", desc="Eyesore's remaining HP increased" },
+        { address=0XC0A4, type="u8", condition="decrease", action="HIT", desc="Eyesore's remaining HP decreased" },
+        { address=0XC104, type="u8", condition="increase", action="HEAL", desc="Robert and Sir Galahad's remaining HP increased" },
+        { address=0XC104, type="u8", condition="decrease", action="HIT", desc="Robert and Sir Galahad's remaining HP decreased" },
+        { address=0XC2EB, type="u8", condition="increase", action="HEAL", desc="Monty the Python's Remaining HP increased" },
+        { address=0XC2EB, type="u8", condition="decrease", action="HIT", desc="Monty the Python's Remaining HP decreased" },
+      },
+    },
+  },
+}

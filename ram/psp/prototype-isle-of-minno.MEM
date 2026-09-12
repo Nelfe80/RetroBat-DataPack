@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Isle of Minno",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-isle-of-minno",
+    hashes = {
+      { hash = "4f698c3104fb4f146d0743fdba91682f", label = "Isle of Minno (Europe) (0.01) (Beta).iso" },
+    }
+  },
+
+  events = {
+  },
+}

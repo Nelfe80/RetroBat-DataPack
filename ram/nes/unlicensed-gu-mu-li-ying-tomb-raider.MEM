@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Gu Mu Li Ying | Tomb Raider",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-gu-mu-li-ying-tomb-raider",
+    hashes = {
+      { hash = "cabf7cbcf2afcf0397e5a2896137934a", label = "Tomb Raider (Asia) (En) (v1.0) (pacnsacdave) (Bootleg) (Unl).nes" },
+      { hash = "f6f20b42049e48927ab1857cb76736a8", label = "Gu Mu Li Ying (China) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0569, type="u8", condition="change", action="NEW_LEVEL", desc="Lara's level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0426, type="u8", condition="increase", action="HEAL", desc="health increased" },
+        { address=0X0426, type="u8", condition="decrease", action="HIT", desc="health decreased" },
+        { address=0X056D, type="u8", condition="increase", action="HEAL", desc="medium health pack increased" },
+        { address=0X056D, type="u8", condition="decrease", action="HIT", desc="medium health pack decreased" },
+        { address=0X0570, type="u8", condition="increase", action="HEAL", desc="large health pack increased" },
+        { address=0X0570, type="u8", condition="decrease", action="HIT", desc="large health pack decreased" },
+      },
+    },
+  },
+}

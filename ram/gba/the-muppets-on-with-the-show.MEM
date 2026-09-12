@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Muppets: On With the Show!",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Casual Game"
+  },
+
+  rom = {
+    name = "the-muppets-on-with-the-show",
+    hashes = {
+      { hash = "8cc1dd1718b63c9675a5e5d28c14936b", label = "Muppets, The - On with the Show! (USA, Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

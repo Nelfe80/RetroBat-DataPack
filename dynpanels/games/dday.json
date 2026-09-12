@@ -1,0 +1,448 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "dday",
+  "game_name": "dday",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "dday",
+            "tag": "BUTTONS",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":BUTTONS",
+            "cfg_tag": ":BUTTONS",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":BUTTONS",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":BUTTONS",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "dday",
+            "tag": "BUTTONS",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":BUTTONS",
+            "cfg_tag": ":BUTTONS",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":BUTTONS",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":BUTTONS",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "fire button",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "fire button",
+            "function": "fire_button",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "dday",
+            "tag": "BUTTONS",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "fire button",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":BUTTONS",
+            "cfg_tag": ":BUTTONS",
+            "input_label": "fire button",
+            "input_function": "fire_button",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":BUTTONS",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":BUTTONS",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Button 1",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_PADDLE",
+          "input": "PADDLE",
+          "label": "Paddle",
+          "function": "paddle",
+          "short": "PDL",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "PADDLE",
+            "input_id": "P1_PADDLE",
+            "label": "Paddle",
+            "function": "paddle",
+            "control_type": "paddle",
+            "joystick_way": "",
+            "port_block": "dday",
+            "tag": "PADDLE",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x60",
+            "defvalue_int": 96,
+            "default_raw": "96",
+            "ipt": "IPT_PADDLE",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": 0,
+            "max": 191,
+            "sensitivity": 20,
+            "keydelta": 10,
+            "centerdelta": 0,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Paddle",
+            "mame_type": "151",
+            "mame_tag": ":PADDLE",
+            "cfg_tag": ":PADDLE",
+            "input_label": "Paddle",
+            "input_function": "paddle",
+            "type": "PADDLE",
+            "normalized_type": "PADDLE",
+            "tag_raw": ":PADDLE",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 96,
+            "defvalue_hex": "0x0060",
+            "runtime_tag": ":PADDLE",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:13:46.7686765Z",
+      "matched_by_name": 0,
+      "matched_by_order": 1
+    }
+  }
+}

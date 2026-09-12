@@ -1,0 +1,2052 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "neckneck",
+  "game_name": "Neck-n-Neck (v1.2)",
+  "meta": {
+    "players": 6,
+    "alternating": 0,
+    "mirrored": 1,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": "Even though this game allows 6 players, it is wired to a single player layout in mame, due to the odd layout.  Each numbered button represents a horse a player can control.  it also doubles as a start button for that player.  All the button does is jump.  There is also a global start button that starts the race without giving others time to join.  This is mapped to player 1 start in mame."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x10",
+            "mask_int": 16,
+            "defvalue": "0x10",
+            "defvalue_int": 16,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":60",
+            "mask_dec": 16,
+            "mask_hex": "0x0010",
+            "defvalue_dec": 16,
+            "defvalue_hex": "0x0010",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":60",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "Horse 1",
+            "function": "horse_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 1",
+            "mame_type": "60",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "Horse 1",
+            "input_function": "horse_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":60",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P1_BUTTON2",
+            "label": "Horse 2",
+            "function": "horse_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 2",
+            "mame_type": "61",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "Horse 2",
+            "input_function": "horse_2",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":60",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON3",
+            "input_id": "P1_BUTTON3",
+            "label": "Horse 3",
+            "function": "horse_3",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x4",
+            "defvalue_int": 4,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON3",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 3",
+            "mame_type": "62",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "Horse 3",
+            "input_function": "horse_3",
+            "type": "BUTTON3",
+            "normalized_type": "BUTTON3",
+            "tag_raw": ":60",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 4,
+            "defvalue_hex": "0x0004",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON4",
+            "input_id": "P1_BUTTON4",
+            "label": "Horse 4",
+            "function": "horse_4",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "80",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON4",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 4",
+            "mame_type": "63",
+            "mame_tag": ":80",
+            "cfg_tag": ":80",
+            "input_label": "Horse 4",
+            "input_function": "horse_4",
+            "type": "BUTTON4",
+            "normalized_type": "BUTTON4",
+            "tag_raw": ":80",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":80",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON5",
+            "input_id": "P1_BUTTON5",
+            "label": "Horse 5",
+            "function": "horse_5",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "80",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON5",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 5",
+            "mame_type": "64",
+            "mame_tag": ":80",
+            "cfg_tag": ":80",
+            "input_label": "Horse 5",
+            "input_function": "horse_5",
+            "type": "BUTTON5",
+            "normalized_type": "BUTTON5",
+            "tag_raw": ":80",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":80",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON6",
+            "input_id": "P1_BUTTON6",
+            "label": "Horse 6",
+            "function": "horse_6",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "80",
+            "mask": "0x10",
+            "mask_int": 16,
+            "defvalue": "0x10",
+            "defvalue_int": 16,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON6",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Horse 6",
+            "mame_type": "65",
+            "mame_tag": ":80",
+            "cfg_tag": ":80",
+            "input_label": "Horse 6",
+            "input_function": "horse_6",
+            "type": "BUTTON6",
+            "normalized_type": "BUTTON6",
+            "tag_raw": ":80",
+            "mask_dec": 16,
+            "mask_hex": "0x0010",
+            "defvalue_dec": 16,
+            "defvalue_hex": "0x0010",
+            "runtime_tag": ":80",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "COIN2",
+            "input_id": "COIN2",
+            "label": "Coin 2",
+            "function": "coin_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "80",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 2",
+            "mame_type": "18",
+            "mame_tag": ":80",
+            "cfg_tag": ":80",
+            "input_label": "Coin 2",
+            "input_function": "coin_2",
+            "type": "COIN2",
+            "normalized_type": "COIN2",
+            "tag_raw": ":80",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":80",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "3": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "COIN3",
+            "input_id": "COIN3",
+            "label": "Coin 3",
+            "function": "coin_3",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "60",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN3",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 3",
+            "mame_type": "19",
+            "mame_tag": ":60",
+            "cfg_tag": ":60",
+            "input_label": "Coin 3",
+            "input_function": "coin_3",
+            "type": "COIN3",
+            "normalized_type": "COIN3",
+            "tag_raw": ":60",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":60",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "4": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "COIN4",
+            "input_id": "COIN4",
+            "label": "Coin 4",
+            "function": "coin_4",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "neckneck",
+            "tag": "80",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN4",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 4",
+            "mame_type": "20",
+            "mame_tag": ":80",
+            "cfg_tag": ":80",
+            "input_label": "Coin 4",
+            "input_function": "coin_4",
+            "type": "COIN4",
+            "normalized_type": "COIN4",
+            "tag_raw": ":80",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":80",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "5": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "6": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc\u002Bother\u002BP1_BUTTON1",
+          "codes": [
+            "other",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Misc Buttons",
+          "type": "unknown",
+          "raw": "Misc Buttons\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3\u0026P1_BUTTON4\u0026P1_BUTTON5\u0026P1_BUTTON6"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "1",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Horse 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "2",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Horse 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "3",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Horse 3",
+              "matched_by": "order"
+            }
+          }
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "4",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 9,
+              "retropad_button": "x",
+              "descriptor": "Horse 4",
+              "matched_by": "order"
+            }
+          }
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "5",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 11,
+              "retropad_button": "r",
+              "descriptor": "Horse 5",
+              "matched_by": "order"
+            }
+          }
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "6",
+          "color": "",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 10,
+              "retropad_button": "l",
+              "descriptor": "Horse 6",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "capcom_6_straight",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 4
+            },
+            "2": {
+              "panel_slot": 3
+            },
+            "3": {
+              "panel_slot": 5
+            },
+            "4": {
+              "panel_slot": 1
+            },
+            "5": {
+              "panel_slot": 2
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:21:29.5752663Z",
+      "matched_by_name": 0,
+      "matched_by_order": 36
+    }
+  }
+}

@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Quad Desert Fury",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "quad-desert-fury",
+    hashes = {
+      { hash = "e003f4c06ad7f01d50dcdada5075a234", label = "Quad Desert Fury (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X001C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="paused or outside of a race" },
+        { address=0X7F6C, type="u8", condition="eq", value=0X21, action="TITLE_SCREEN", desc="title card" },
+        { address=0X7F7C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Continue" },
+        { address=0X7F7C, type="u8", condition="eq", value=0X01, action="PAUSE_OFF", desc="Music On/Off" },
+        { address=0X7F7C, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Quit" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0020, type="u8", condition="change", action="NEW_LEVEL", desc="00 : (in a race) accelerating while on the ground. 01 everywhere else." },
+      },
+      stage = {
+        { address=0X28C3, type="u8", condition="change", action="RANK_STATE", desc="Current position in the race (00..03)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E44, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="in game timer (X:00.0)" },
+        { address=0X1E4C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="in game timer (0:0X.0)" },
+        { address=0X1E50, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="in game timer (0:X0.0)" },
+        { address=0X1E54, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="in game timer (0:00.X)" },
+      },
+    },
+  },
+}

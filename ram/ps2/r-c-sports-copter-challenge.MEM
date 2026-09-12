@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "R/C Sports Copter Challenge",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "r-c-sports-copter-challenge",
+    hashes = {
+      { hash = "8ef108f59d5cb48d95dca3fb88219348", label = "R-C Sports Copter Challenge (Europe)" },
+    }
+  },
+
+  events = {
+  },
+}

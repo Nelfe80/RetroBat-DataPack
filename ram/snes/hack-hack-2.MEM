@@ -1,0 +1,100 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Hack 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-hack-2",
+    hashes = {
+      { hash = "b37f2dead6d4c13756bacab8bd0dcbbe", label = "SMW - Hack 2 (Golden Yoshi).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_OFF", desc="Pause flag for levels, and 'look around the map' flag for the overworld. 00 : off; 01 : on." },
+        { address=0X1DEA, type="u8", condition="eq", value=0XFF, action="DEMO_MODE", desc="la grand finalle/ and demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X005A, type="u8", condition="change", action="NEW_LEVEL", desc="level coding" },
+        { address=0X005D, type="u8", condition="change", action="NEW_LEVEL", desc="level data" },
+        { address=0X005D, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="carn" },
+        { address=0X005E, type="u8", condition="change", action="NEW_LEVEL", desc="level data" },
+        { address=0X0906, type="u8", condition="change", action="LEVEL_CLEAR", desc="8-bit - Set to 1 when level is complete" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="8-bit Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="da bomb" },
+        { address=0X13BF, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="cool beans" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="right on" },
+        { address=0X13BF, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="aces" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="bangin'" },
+        { address=0X13BF, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="spiffy" },
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="dope" },
+        { address=0X13BF, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="tight" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="fly" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="la grand finalle" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="info" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="carnival" },
+        { address=0X13BF, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="luigi fin?" },
+        { address=0X13C7, type="u8", condition="change", action="NEW_LEVEL", desc="Yoshi color. 0x04:yellow; 0x06:blue; 0x08:red; 0x0A:green. Refreshes on level change, and yoshi" },
+        { address=0X13EF, type="u8", condition="change", action="NEW_LEVEL", desc="player on ground flag" },
+        { address=0X1421, type="u8", condition="change", action="NEW_LEVEL", desc="level data" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages Cleared exits" },
+      },
+      stage = {
+        { address=0X13CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="if : 40 player is enterting stage from mid point" },
+        { address=0X1DEA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage number (indicator)" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="da bomb" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="cool beans" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="right on" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="aces" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="bangin'" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="spiffy" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X0E, action="PROGRESSION_STAGE", desc="dope" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="tight" },
+        { address=0X1DEA, type="u8", condition="eq", value=0X12, action="PROGRESSION_STAGE", desc="fly" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="Player's animation trigger: 09:Death, 1:shrink, d:enter a door" },
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario Lives increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario Lives decreased" },
+        { address=0X0DB5, type="u8", condition="increase", action="GAIN_LIFE", desc="luigi lives. ff:1 player game. 0 during title screen increased" },
+        { address=0X0DB5, type="u8", condition="decrease", action="LOSE_LIFE", desc="luigi lives. ff:1 player game. 0 during title screen decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="life number - real -- 62 : 99 lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="life number - real -- 62 : 99 lives decreased" },
+        { address=0X0E03, type="u8", condition="increase", action="GAIN_LIFE", desc="life increased" },
+        { address=0X0E03, type="u8", condition="decrease", action="LOSE_LIFE", desc="life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0061, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="on" },
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins, value 63 : 99 increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Current Number of Dragon Coins increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X13E4, type="u8", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X13E4, type="u8", condition="change", action="SPEED_TIMER", no_log=true, desc="0x70 : Can Fly (like the P-Meter in SMB3)" },
+        { address=0X13E4, type="u8", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+      },
+      player = {
+        { address=0X0085, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="over 00 to swim" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CB, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Light Switch" },
+      },
+    },
+  },
+}

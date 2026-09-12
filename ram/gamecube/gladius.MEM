@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gladius",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Role-Playing, Strategy"
+  },
+
+  rom = {
+    name = "gladius",
+    hashes = {
+      { hash = "0e0dda077a0ce26a4ec95f083f02f77d", label = "Gladius (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3C44A5, type="u8", condition="change", action="TITLE_SCREEN", desc="[8bit Boolean] [Options] Subtitles" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3AD1A4, type="u32be", condition="eq", value=0X07, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X487D7C, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8bit] [Progress] Cleared fight?" },
+        { address=0X488014, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bitBE Bitflag] Cheat - Manipulate Enemy Levels" },
+        { address=0X488014, type="u32be", condition="eq", value=0X1, action="NEW_LEVEL", desc="Lowered Enemy Level" },
+        { address=0X488014, type="u32be", condition="eq", value=0X2, action="NEW_LEVEL", desc="Increased Enemy Level" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X354188, type="u32be", condition="eq", value=0X01, action="MONEY_STATE", desc="Cheats enabled (Money)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X354188, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[32bitBE Biflag] Cheats" },
+        { address=0X487960, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[32bitBE] Town ID" },
+      },
+    },
+  },
+}

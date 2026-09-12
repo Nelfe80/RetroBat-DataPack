@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Super Robin Hood",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Adventure, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-super-robin-hood",
+    hashes = {
+      { hash = "78b620c48a32e1b7184147a5d8bdd1d9", label = "Super Robin Hood (Asia) (En) (Unl).nes" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X032E, type="u8", condition="change", action="TREASURE", desc="Treasure Loot" },
+      },
+    },
+  },
+}

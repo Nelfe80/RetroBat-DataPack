@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Brave Battle Saga: Legend of the Magic Warrior",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "unlicensed-brave-battle-saga-legend-of-the-magic-warrior",
+    hashes = {
+      { hash = "7e0add665a16ce7d9965d8858c4c0ec4", label = "Taikong Zhanshi - Mofa Zhanshi (Barver Battle Saga) (Taiwan) (Unl).md" },
+      { hash = "565b679dc66df1980927279dc20c435c", label = "Brave Battle Saga - Legend of the Magic Warrior (USA, Europe) (Unl).md" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XE10C, type="u8", condition="increase", action="HEAL", desc="HP Tim increased" },
+        { address=0XE10C, type="u8", condition="decrease", action="HIT", desc="HP Tim decreased" },
+        { address=0XE10E, type="u8", condition="increase", action="HEAL", desc="MAX HP Tim increased" },
+        { address=0XE10E, type="u8", condition="decrease", action="HIT", desc="MAX HP Tim decreased" },
+        { address=0XE10F, type="u8", condition="increase", action="HEAL", desc="MAX HP Tim increased" },
+        { address=0XE10F, type="u8", condition="decrease", action="HIT", desc="MAX HP Tim decreased" },
+      },
+    },
+  },
+}

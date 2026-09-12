@@ -1,0 +1,1241 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "seawolf2",
+  "game_name": "Seawolf II",
+  "meta": {
+    "players": 2,
+    "alternating": 0,
+    "mirrored": 1,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": "The 'paddle' is actually a periscope you look through and turn. The field of view you have when looking through the scope helps you aim. Mame displays a cross hair to help you aim, you can turn it off with the F1 key."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc+other",
+          "codes": [
+            "other"
+          ],
+          "color": "Cyan",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Paddle (Horizontal)",
+          "type": "paddle",
+          "raw": "Paddle (Horizontal)+paddle+P1_BUTTON1",
+          "codes": [
+            "paddle",
+            "P1_BUTTON1"
+          ],
+          "color": "Cyan",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "seawolf2",
+            "tag": "P3HANDLE",
+            "mask": "0x2",
+            "mask_int": 2,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":P3HANDLE",
+            "cfg_tag": ":P3HANDLE",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":P3HANDLE",
+            "mask_dec": 2,
+            "mask_hex": "0x0002",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":P3HANDLE",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "seawolf2",
+            "tag": "P3HANDLE",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":P3HANDLE",
+            "cfg_tag": ":P3HANDLE",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":P3HANDLE",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":P3HANDLE",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "lamp0",
+          "label": "Right Player Explosion Hit",
+          "function": "right_player_explosion_hit",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Orange",
+          "side": "right",
+          "id": "lamp0#1",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            }
+          }
+        },
+        {
+          "name": "lamp2",
+          "label": "Right Player Ready",
+          "function": "right_player_ready",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 2,
+          "panel_index": 3,
+          "color": "Green",
+          "side": "right",
+          "id": "lamp2#6",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            }
+          }
+        },
+        {
+          "name": "lamp3",
+          "label": "Right Player Torpedo 1 Available",
+          "function": "right_player_torpedo_1_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 3,
+          "panel_index": 4,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp3#7",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 1
+            }
+          }
+        },
+        {
+          "name": "lamp4",
+          "label": "Right Player Torpedo 2 Available",
+          "function": "right_player_torpedo_2_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 4,
+          "panel_index": 5,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp4#8",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 2
+            }
+          }
+        },
+        {
+          "name": "lamp5",
+          "label": "Right Player Torpedo 3 Available",
+          "function": "right_player_torpedo_3_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 5,
+          "panel_index": 6,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp5#9",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 6
+            }
+          }
+        },
+        {
+          "name": "lamp6",
+          "label": "Right Player Torpedo 4 Available",
+          "function": "right_player_torpedo_4_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 6,
+          "panel_index": 7,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp6#10",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 8
+            }
+          }
+        },
+        {
+          "name": "lamp7",
+          "label": "Left Player Explosion Hit",
+          "function": "left_player_explosion_hit",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 7,
+          "panel_index": 8,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp7#11",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp8",
+          "label": "Left Player Reload",
+          "function": "left_player_reload",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 8,
+          "panel_index": 9,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp8#12",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp9",
+          "label": "Left Player Ready",
+          "function": "left_player_ready",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 9,
+          "panel_index": 10,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp9#13",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp10",
+          "label": "Left Player Torpedo 1 Available",
+          "function": "left_player_torpedo_1_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 10,
+          "panel_index": 11,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp10#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp11",
+          "label": "Left Player Torpedo 2 Available",
+          "function": "left_player_torpedo_2_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 11,
+          "panel_index": 12,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp11#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp12",
+          "label": "Left Player Torpedo 3 Available",
+          "function": "left_player_torpedo_3_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 12,
+          "panel_index": 13,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp12#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp13",
+          "label": "Left Player Torpedo 4 Available",
+          "function": "left_player_torpedo_4_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 13,
+          "panel_index": 14,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp13#5",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Fire Torpedo",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "P1 Button 1",
+            "function": "p1_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "seawolf2",
+            "tag": "P2HANDLE",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":P2HANDLE",
+            "cfg_tag": ":P2HANDLE",
+            "input_label": "P1 Button 1",
+            "input_function": "p1_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":P2HANDLE",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":P2HANDLE",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_device_mapping": {
+        "joycode": "JOYCODE_1",
+        "label": "Generic USB Joystick",
+        "device": "product_00060079",
+        "raw_device_id": "Generic   USB  Joystick   product_00060079-0000-0000-0000-504944564944 instance_27cc81c0-3c45-11f1-8001-444553540000",
+        "source": ""
+      },
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {
+            "lamp0#1": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            },
+            "lamp2#6": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            },
+            "lamp3#7": {
+              "panel_slot": 1
+            },
+            "lamp4#8": {
+              "panel_slot": 2
+            },
+            "lamp5#9": {
+              "panel_slot": 6
+            },
+            "lamp6#10": {
+              "panel_slot": 8
+            }
+          },
+          "buttons": {},
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Misc",
+          "type": "unknown",
+          "raw": "Misc+other",
+          "codes": [
+            "other"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "Paddle (Horizontal)",
+          "type": "paddle",
+          "raw": "Paddle (Horizontal)+paddle+P1_BUTTON1",
+          "codes": [
+            "paddle",
+            "P1_BUTTON1"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "START2",
+            "input_id": "START2",
+            "label": "2 Players Start",
+            "function": "2_players_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "seawolf2",
+            "tag": "P3HANDLE",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "2 Players Start",
+            "mame_type": "8",
+            "mame_tag": ":P3HANDLE",
+            "cfg_tag": ":P3HANDLE",
+            "input_label": "2 Players Start",
+            "input_function": "2_players_start",
+            "type": "START2",
+            "normalized_type": "START2",
+            "tag_raw": ":P3HANDLE",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":P3HANDLE",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Red",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "lamp0",
+          "label": "Right Player Explosion Hit",
+          "function": "right_player_explosion_hit",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Orange",
+          "side": "right",
+          "id": "lamp0#1",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            }
+          }
+        },
+        {
+          "name": "lamp2",
+          "label": "Right Player Ready",
+          "function": "right_player_ready",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 2,
+          "panel_index": 3,
+          "color": "Green",
+          "side": "right",
+          "id": "lamp2#6",
+          "input_ref": "",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            }
+          }
+        },
+        {
+          "name": "lamp3",
+          "label": "Right Player Torpedo 1 Available",
+          "function": "right_player_torpedo_1_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 3,
+          "panel_index": 4,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp3#7",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 1
+            }
+          }
+        },
+        {
+          "name": "lamp4",
+          "label": "Right Player Torpedo 2 Available",
+          "function": "right_player_torpedo_2_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 4,
+          "panel_index": 5,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp4#8",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 2
+            }
+          }
+        },
+        {
+          "name": "lamp5",
+          "label": "Right Player Torpedo 3 Available",
+          "function": "right_player_torpedo_3_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 5,
+          "panel_index": 6,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp5#9",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 6
+            }
+          }
+        },
+        {
+          "name": "lamp6",
+          "label": "Right Player Torpedo 4 Available",
+          "function": "right_player_torpedo_4_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 6,
+          "panel_index": 7,
+          "color": "Red",
+          "side": "right",
+          "id": "lamp6#10",
+          "input_ref": "B1 | Fire Torpedo",
+          "panel_joystick": null,
+          "layouts": {
+            "8-Button": {
+              "panel_slot": 8
+            }
+          }
+        },
+        {
+          "name": "lamp7",
+          "label": "Left Player Explosion Hit",
+          "function": "left_player_explosion_hit",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 7,
+          "panel_index": 8,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp7#11",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp8",
+          "label": "Left Player Reload",
+          "function": "left_player_reload",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 8,
+          "panel_index": 9,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp8#12",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp9",
+          "label": "Left Player Ready",
+          "function": "left_player_ready",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 9,
+          "panel_index": 10,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp9#13",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp10",
+          "label": "Left Player Torpedo 1 Available",
+          "function": "left_player_torpedo_1_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 10,
+          "panel_index": 11,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp10#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp11",
+          "label": "Left Player Torpedo 2 Available",
+          "function": "left_player_torpedo_2_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 11,
+          "panel_index": 12,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp11#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp12",
+          "label": "Left Player Torpedo 3 Available",
+          "function": "left_player_torpedo_3_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 12,
+          "panel_index": 13,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp12#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "lamp13",
+          "label": "Left Player Torpedo 4 Available",
+          "function": "left_player_torpedo_4_available",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "seawolf2_outputs",
+          "usage": "",
+          "player": null,
+          "index": 13,
+          "panel_index": 14,
+          "color": "Gray",
+          "side": "left",
+          "id": "lamp13#5",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Fire Torpedo",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P2_BUTTON1",
+            "label": "P2 Button 1",
+            "function": "p2_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "seawolf2",
+            "tag": "P1HANDLE",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P2 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":P1HANDLE",
+            "cfg_tag": ":P1HANDLE",
+            "input_label": "P2 Button 1",
+            "input_function": "p2_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":P1HANDLE",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":P1HANDLE",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_device_mapping": {
+        "joycode": "",
+        "label": "No hardware mapping",
+        "device": ""
+      },
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {
+            "lamp0#1": {
+              "panel_slots": [
+                5,
+                7
+              ]
+            },
+            "lamp2#6": {
+              "panel_slots": [
+                4,
+                3
+              ]
+            },
+            "lamp3#7": {
+              "panel_slot": 1
+            },
+            "lamp4#8": {
+              "panel_slot": 2
+            },
+            "lamp5#9": {
+              "panel_slot": 6
+            },
+            "lamp6#10": {
+              "panel_slot": 8
+            }
+          },
+          "buttons": {},
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

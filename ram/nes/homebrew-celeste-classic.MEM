@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Celeste Classic",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-celeste-classic",
+    hashes = {
+      { hash = "05e8cce2efa8d05dfa739d03221dcf7e", label = "Celeste (USA) (PICO-8 Port) (Aftermarket) (iProgramInCpp).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X008F, type="u8", condition="change", action="NEW_LEVEL", desc="[Lower4] Level ID" },
+        { address=0X008F, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X008F, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X008F, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X008F, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Level 4" },
+        { address=0X008F, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Level 5" },
+        { address=0X008F, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Level 6" },
+        { address=0X008F, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="Level 7" },
+        { address=0X008F, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="Level 8" },
+        { address=0X0090, type="u8", condition="change", action="NEW_LEVEL", desc="[256-bytes] Level Tileset" },
+      },
+    },
+  },
+}

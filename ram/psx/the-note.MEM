@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Note",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-note",
+    hashes = {
+      { hash = "1d1746ca5524f0e5bc54026ef709dc8f", label = "Note, The (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X16ECE8, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="::: Mansion :::" },
+      },
+    },
+  },
+}

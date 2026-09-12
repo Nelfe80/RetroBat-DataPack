@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Adventures of Panzer",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-the-adventures-of-panzer",
+    hashes = {
+      { hash = "bbe584521e781e8a402087c1928c8c99", label = "Adventures of Panzer, The (World) (v1.6) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X009E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X009E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X009F, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X009F, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

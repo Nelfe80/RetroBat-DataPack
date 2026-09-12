@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Yume Nikki PS",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-yume-nikki-ps",
+    hashes = {
+      { hash = "e89c75117d54a7f4ce97a0cc22d0cc0f", label = "Yume Nikki PS (USA) (v0.00.2) (Aftermarket) (Elias Daler)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10D061, type="u8", condition="change", action="DEMO_MODE", desc="Demo Complete" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X10D4BC, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Level (hash)" },
+      },
+      zone = {
+        { address=0X110F6C, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Is In Dream World" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X110E28, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Nasu - Current Score" },
+        { address=0X110E2C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Nasu - High Score" },
+      },
+    },
+  },
+}

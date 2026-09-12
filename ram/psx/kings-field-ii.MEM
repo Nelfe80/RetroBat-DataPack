@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King's Field II",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Adventure, Role-Playing"
+  },
+
+  rom = {
+    name = "kings-field-ii",
+    hashes = {
+      { hash = "54e0368be5fdb392d6fd0c39cf8489d3", label = "King's Field (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1994DD, type="u8", condition="change", action="HEALTH_STATE", desc="HUD MP/HP Visibility" },
+        { address=0X1994DD, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Hidden" },
+        { address=0X1994DD, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", desc="Visible" },
+      },
+    },
+  },
+}

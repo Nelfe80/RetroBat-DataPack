@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mensch ärgere Dich nicht",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Board Game, cards"
+  },
+
+  rom = {
+    name = "mensch-argere-dich-nicht",
+    hashes = {
+      { hash = "af6479db059440a022f189e30dfbad07", label = "Mensch Aergere Dich Nicht - Das Beliebte Original (Europe) (En,Fr,De).nds" },
+    }
+  },
+
+  events = {
+  },
+}

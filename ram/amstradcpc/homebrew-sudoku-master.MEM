@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sudoku Master",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sudoku-master",
+    hashes = {
+      { hash = "8cda26df9d06013a54af59e1b7013e20", label = "Sudoku Master (2009) (Binary Sciences).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

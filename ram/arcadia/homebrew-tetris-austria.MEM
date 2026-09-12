@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tetris (Austria)",
+    system = "arcadia",
+    system_name = "Arcadia 2001",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tetris-austria",
+    hashes = {
+      { hash = "69cf3728f7db96c311bc8b3b8917baff", label = "Tetris (Austria) (2003) (Peter Trauner).bin" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X02E0, type="u16be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="Score P1 (16-bit BE)" },
+        { address=0X02E2, type="u16be", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="Score P2 (16-bit BE)" },
+      },
+    },
+  },
+}

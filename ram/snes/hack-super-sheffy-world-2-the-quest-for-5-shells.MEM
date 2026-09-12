@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Sheffy World 2: The Quest for 5 Shells",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-sheffy-world-2-the-quest-for-5-shells",
+    hashes = {
+      { hash = "e0ff5e64db4c7ec54e0e7cec0fbc3567", label = "SMW - Super Sheffy World 2 - The Quest for 5 Shells (westslasher2).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="beat a level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X16E4, type="u8", condition="increase", action="GAIN_LIFE", desc="3rd pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up increased" },
+        { address=0X16E4, type="u8", condition="decrease", action="LOSE_LIFE", desc="3rd pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up decreased" },
+        { address=0X16E5, type="u8", condition="increase", action="GAIN_LIFE", desc="2nd pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up increased" },
+        { address=0X16E5, type="u8", condition="decrease", action="LOSE_LIFE", desc="2nd pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up decreased" },
+        { address=0X16E6, type="u8", condition="increase", action="GAIN_LIFE", desc="1st pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up increased" },
+        { address=0X16E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="1st pop-up, displays the point or 1-up, 6 is 200 points, d is 1-up decreased" },
+      },
+    },
+  },
+}

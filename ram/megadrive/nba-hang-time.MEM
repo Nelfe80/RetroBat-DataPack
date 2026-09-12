@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "NBA Hang Time",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "nba-hang-time",
+    hashes = {
+      { hash = "a2dddb13539df45f45ff4061cd6caacd", label = "NBA Hang Time (USA).md" },
+    }
+  },
+
+  events = {
+  },
+}

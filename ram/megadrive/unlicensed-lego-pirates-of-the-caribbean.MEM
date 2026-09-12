@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ LEGO Pirates of the Caribbean",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-lego-pirates-of-the-caribbean",
+    hashes = {
+      { hash = "3e3e9fa0fc86ed9c98fe9d40de8ad145", label = "Lego Pirates of the Caribbean (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0002, type="u8", condition="change", action="NEW_LEVEL", desc="this tells what level you are on" },
+        { address=0X5CE6, type="u8", condition="change", action="NEW_LEVEL", desc="This tells what room in the level you are in" },
+      },
+    },
+  },
+}

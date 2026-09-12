@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Blockage",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-demo-blockage",
+    hashes = {
+      { hash = "2be825e0a20b52a3895dc9d7e5f56b5d", label = "Blockage (World) (v0.3.4) (Demo) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0300, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 0" },
+        { address=0X0301, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 1" },
+        { address=0X0302, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 2" },
+        { address=0X0303, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 3" },
+        { address=0X0304, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 4" },
+        { address=0X0305, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 5" },
+        { address=0X0306, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 6" },
+        { address=0X0307, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 7" },
+        { address=0X0308, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 8" },
+        { address=0X0309, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 9" },
+        { address=0X030A, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 10" },
+        { address=0X030B, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 11" },
+        { address=0X030C, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 12" },
+        { address=0X030D, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 13" },
+        { address=0X030E, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 14" },
+        { address=0X030F, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 15" },
+        { address=0X0310, type="u16le", condition="change", action="NEW_LEVEL", desc="Total moves - level 16" },
+        { address=0X0311, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 17" },
+        { address=0X0312, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 18" },
+        { address=0X0313, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 19" },
+        { address=0X0314, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 20" },
+        { address=0X0315, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 21" },
+        { address=0X0316, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 22" },
+        { address=0X0317, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 23" },
+        { address=0X0318, type="u24le", condition="change", action="NEW_LEVEL", desc="Total moves - level 24" },
+        { address=0X0319, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 25" },
+        { address=0X031A, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 26" },
+        { address=0X031B, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 27" },
+        { address=0X031C, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 28" },
+        { address=0X031D, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 29" },
+        { address=0X031E, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 30" },
+        { address=0X031F, type="u8", condition="change", action="NEW_LEVEL", desc="Total moves - level 31" },
+        { address=0X0369, type="u8", condition="change", action="NEW_LEVEL", desc="Current level" },
+        { address=0X036A, type="u8", condition="change", action="LEVEL_CLEAR", desc="All levels finished" },
+        { address=0X04CC, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level finished" },
+      },
+    },
+  },
+}

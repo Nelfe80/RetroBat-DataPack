@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Blue Marlin",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Hunting and Fishing"
+  },
+
+  rom = {
+    name = "the-blue-marlin",
+    hashes = {
+      { hash = "5ecc65025d3c21a001c13775e839caea", label = "Blue Marlin, The (Japan).nes" },
+      { hash = "66cdb9c9ba8b2f609ce396195ef1c881", label = "Blue Marlin, The (USA).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0497, type="u8", condition="change", action="LEVEL_CLEAR", desc="The current weather. | 0 : Fine, 1 : Clear, 2 : Cloudy" },
+        { address=0X05B4, type="u8", condition="change", action="NEW_LEVEL", desc="Fish Exhaustion: Dropping below 56 puts the fish in crisis level 1 (1 sweat), below 2b puts the" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X076A, type="u8", condition="increase", action="GAIN_LIFE", desc="Largest marlin caught (lifetime). (0-255) | Note: Marlin caught must be weighed before this valu" },
+        { address=0X076A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Largest marlin caught (lifetime). (0-255) | Note: Marlin caught must be weighed before this valu" },
+        { address=0X076B, type="u8", condition="increase", action="GAIN_LIFE", desc="Largest marlin caught (lifetime). (*256) | Note: Marlin caught must be weighed before this value" },
+        { address=0X076B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Largest marlin caught (lifetime). (*256) | Note: Marlin caught must be weighed before this value" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0755, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time (second) | Increments time (minute) by 1 when this hits 3c" },
+        { address=0X0756, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time (minute) | Increments time (hour) by 1 when this hits 3c" },
+      },
+    },
+  },
+}

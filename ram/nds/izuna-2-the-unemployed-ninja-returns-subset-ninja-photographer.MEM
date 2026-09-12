@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Izuna 2: The Unemployed Ninja Returns [Subset - Ninja Photographer]",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "izuna-2-the-unemployed-ninja-returns-subset-ninja-photographer",
+    hashes = {
+      { hash = "793ea5ababa58f2c6475c6d63dadbd24", label = "Izuna 2 - The Unemployed Ninja Returns [Bonus - Ninja Photographer].nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1F38A6, type="u8", condition="change", action="DEMO_MODE", desc="Demon Claw Photo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1E5060, type="u8", condition="change", action="NEW_LEVEL", desc="Fuuka level" },
+        { address=0X1E66F8, type="u8", condition="change", action="NEW_LEVEL", desc="Kagen level" },
+        { address=0X1E7D90, type="u8", condition="change", action="NEW_LEVEL", desc="Suiren level" },
+        { address=0X1E9428, type="u8", condition="change", action="NEW_LEVEL", desc="Utsuho level" },
+        { address=0X1EAAC0, type="u8", condition="change", action="NEW_LEVEL", desc="Takushiki level" },
+        { address=0X1EC158, type="u8", condition="change", action="NEW_LEVEL", desc="Hinagiku level" },
+        { address=0X1ED7F0, type="u8", condition="change", action="NEW_LEVEL", desc="Ichika level" },
+        { address=0X1EEE88, type="u8", condition="change", action="NEW_LEVEL", desc="Gen-an level" },
+        { address=0X1F0520, type="u8", condition="change", action="NEW_LEVEL", desc="Suzuri level" },
+        { address=0X1F1BB8, type="u8", condition="change", action="NEW_LEVEL", desc="Himiko level" },
+        { address=0X1F3351, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+        { address=0X1F3352, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Cleared" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1F385D, type="u8", condition="change", action="LOSE_LIFE", desc="Soldier (Male) Photo" },
+        { address=0X1F385E, type="u8", condition="change", action="LOSE_LIFE", desc="Soldier (female) Photo" },
+        { address=0X1F38B1, type="u8", condition="change", action="LOSE_LIFE", desc="Red-Eye Soldier Photo" },
+        { address=0X1F392B, type="u8", condition="change", action="LOSE_LIFE", desc="Death Photo" },
+      },
+      health = {
+        { address=0X1DDF48, type="u32le", condition="increase", action="HEAL", desc="Izuna Current HP increased" },
+        { address=0X1DDF48, type="u32le", condition="decrease", action="HIT", desc="Izuna Current HP decreased" },
+        { address=0X1DF5E0, type="u32le", condition="increase", action="HEAL", desc="Shino HP increased" },
+        { address=0X1DF5E0, type="u32le", condition="decrease", action="HIT", desc="Shino HP decreased" },
+        { address=0X1E2310, type="u32le", condition="increase", action="HEAL", desc="Mitsumoto current HP increased" },
+        { address=0X1E2310, type="u32le", condition="decrease", action="HIT", desc="Mitsumoto current HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1F38A5, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Breaker Photo" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F314C, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1F3906, type="u8", condition="change", action="BOSS_HIT", desc="Mouse Boss Photo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F3300, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Baldur Mugen chasm flag" },
+        { address=0X1F3303, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Twins Mugen chasm flag" },
+        { address=0X1F3305, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Anima Mugen chasm flag" },
+        { address=0X1F3306, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Corona Mugen chasm flag" },
+        { address=0X1F3307, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Grimla Mugen chasm flag" },
+        { address=0X1F3308, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Abyss Mugen chasm flag" },
+      },
+    },
+  },
+}

@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ King of Kings",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Educational"
+  },
+
+  rom = {
+    name = "unlicensed-king-of-kings",
+    hashes = {
+      { hash = "9e69416e83561930300252d526a18ad5", label = "King of Kings, The - The Early Years (USA) (v5.0) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="change", action="GAME_OVER", desc="Level ID: 0a : Game Over Screen" },
+        { address=0X00D4, type="u16le", condition="change", action="GAME_OVER", desc="Use for Level ID? 00 - The Wise Men; 08 - Flight to Egypt; 10 - Jesus and the Temple 16 - Game o" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0513, type="u8", condition="change", action="NEW_LEVEL", desc="Health in the snowy level of Flight to egypt (Stuid if you ask me)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0498, type="u8", condition="change", action="LOSE_LIFE", desc="Music ID: 1c: 'Rejoce the Lord is King'; 7c : 'We Three Kings;' ea : 'Go Tell it on the Mountain" },
+      },
+      health = {
+        { address=0X0166, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0166, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X0512, type="u8", condition="increase", action="HEAL", desc="Health, can be edited increased" },
+        { address=0X0512, type="u8", condition="decrease", action="HIT", desc="Health, can be edited decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Music on/off Switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0124, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time left" },
+      },
+    },
+  },
+}

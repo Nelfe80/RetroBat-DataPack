@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Airforce Delta Strike",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Flight Simulator, Shooter"
+  },
+
+  rom = {
+    name = "airforce-delta-strike",
+    hashes = {
+      { hash = "dcfdf64dce845ef760a3010edc693acb", label = "AirForce Delta Strike (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

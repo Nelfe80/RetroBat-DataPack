@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Radirgy Noa Wii",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "radirgy-noa-wii",
+    hashes = {
+      { hash = "85f56f0fbc95acf404fad483e2de9096", label = "Radirgy Noa Wii (Japan)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XD89A20, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Score [32-bit BE]" },
+        { address=0XD89B00, type="u32be", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="P2 Score [32-bit BE]" },
+      },
+    },
+  },
+}

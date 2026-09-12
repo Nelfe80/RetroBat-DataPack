@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Guilty Gear XX Slash",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "guilty-gear-xx-slash",
+    hashes = {
+      { hash = "68b0bed3c2f17037f60d61ff4c4b1a8b", label = "Guilty Gear XX Slash (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2A1048, type="u16le", condition="change", action="NEW_LEVEL", desc="Survival Mode - Level (16-bit)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1ECC816, type="u16le", condition="increase", action="HEAL", desc="1P HP (16-bit) increased" },
+        { address=0X1ECC816, type="u16le", condition="decrease", action="HIT", desc="1P HP (16-bit) decreased" },
+        { address=0X1ECC91A, type="u16le", condition="increase", action="HEAL", desc="2P HP (16-bit) increased" },
+        { address=0X1ECC91A, type="u16le", condition="decrease", action="HIT", desc="2P HP (16-bit) decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X35868C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Round Timer (32-bit)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Submarine Commander",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Strategy"
+  },
+
+  rom = {
+    name = "submarine-commander",
+    hashes = {
+      { hash = "683f75a116df606ad8d4d8f535a3e705", label = "Submarine Commander (Europe)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X5932C, type="u8", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+  },
+}

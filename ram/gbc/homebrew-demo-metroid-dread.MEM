@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Metroid Dread",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-metroid-dread",
+    hashes = {
+      { hash = "b694cf3747aea6ac213cf2401f0ad421", label = "Metroid Dread Demake (World) (v1.0) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC198, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Left ring life increased" },
+        { address=0XC198, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Left ring life decreased" },
+        { address=0XCCF6, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Samus Life increased" },
+        { address=0XCCF6, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Samus Life decreased" },
+        { address=0XCD50, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Boss life increased" },
+        { address=0XCD50, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Boss life decreased" },
+        { address=0XCD67, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Kladia n°1 life increased" },
+        { address=0XCD67, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Kladia n°1 life decreased" },
+        { address=0XCD68, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Kladia n°2 life increased" },
+        { address=0XCD68, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Kladia n°2 life decreased" },
+        { address=0XCD6B, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°1 life increased" },
+        { address=0XCD6B, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°1 life decreased" },
+        { address=0XCD80, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°2 life increased" },
+        { address=0XCD80, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°2 life decreased" },
+        { address=0XCD81, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°3 life increased" },
+        { address=0XCD81, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°3 life decreased" },
+        { address=0XCD8C, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Muzby life increased" },
+        { address=0XCD8C, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Muzby life decreased" },
+        { address=0XCD8D, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Fliying enemy n°1 life increased" },
+        { address=0XCD8D, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Fliying enemy n°1 life decreased" },
+        { address=0XCD8E, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Fliying enemy n°2 life increased" },
+        { address=0XCD8E, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Fliying enemy n°2 life decreased" },
+        { address=0XCD8F, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Klaida n°3 life increased" },
+        { address=0XCD8F, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Klaida n°3 life decreased" },
+        { address=0XCD90, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°4 life increased" },
+        { address=0XCD90, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°4 life decreased" },
+        { address=0XCD91, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Fliying enemy n°3 life increased" },
+        { address=0XCD91, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Fliying enemy n°3 life decreased" },
+        { address=0XCD92, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°5 life increased" },
+        { address=0XCD92, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°5 life decreased" },
+        { address=0XCD93, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 bits] Slime n°6 life increased" },
+        { address=0XCD93, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 bits] Slime n°6 life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC908, type="u8", condition="eq", value=0X50, action="AMMO_STATE", no_log=true, desc="Max missile ammo message" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC6AE, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Boss room" },
+        { address=0XC6AE, type="u8", condition="eq", value=0X0D, action="BOSS_HIT", desc="Room before Boss" },
+        { address=0XCD01, type="u8", condition="change", action="BOSS_DEFEATED", desc="[bit 0] Boss defeated" },
+      },
+    },
+  },
+}

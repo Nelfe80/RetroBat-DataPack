@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hell: A Cyberpunk Thriller",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "hell-a-cyberpunk-thriller",
+    hashes = {
+      { hash = "08caedb4a8fba5f3584fcd45b5eb5189", label = "Hell - A Cyberpunk Thriller (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

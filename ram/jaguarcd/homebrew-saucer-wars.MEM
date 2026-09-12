@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Saucer Wars",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-saucer-wars",
+    hashes = {
+      { hash = "d19987d55d2b0aa6d0ff82ef9d859341", label = "Saucer Wars (USA) (Unl)" },
+      { hash = "4467172d5871d7974a655518a73df6ea", label = "Saucer Wars (USA) (Unl)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X19A41C, type="u32be", condition="increase", action="GAIN_LIFE", desc="[32-bit BE] Alien Queen life increased" },
+        { address=0X19A41C, type="u32be", condition="decrease", action="LOSE_LIFE", desc="[32-bit BE] Alien Queen life decreased" },
+      },
+      health = {
+        { address=0X19A440, type="u32be", condition="change", action="HEALTH_STATE", no_log=true, desc="[32-bit BE] Energy (will underflow)" },
+        { address=0X19A440, type="u32be", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Depleted" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X19A468, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X19A448, type="u32be", condition="eq", value=0X64, action="SHIELD_GAIN", desc="Full" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X19A270, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[32-bit BE] Time remaining in wave" },
+        { address=0X19A476, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[16-bit BE] Game over timer seconds" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario /v/orld",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-vorld",
+    hashes = {
+      { hash = "ba66f6bf845444a8ed623700d5ba202e", label = "SMW - Super Mario vorld (v1.33) (Remastered) (4chan).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

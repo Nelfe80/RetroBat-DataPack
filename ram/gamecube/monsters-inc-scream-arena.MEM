@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Monsters, Inc. Scream Arena",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "monsters-inc-scream-arena",
+    hashes = {
+      { hash = "5307de287b94db337e223e843f28b252", label = "Disney-Pixar Monsters, Inc. - Scream Arena (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

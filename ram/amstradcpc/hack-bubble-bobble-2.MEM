@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Bubble Bobble 2",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "hack-bubble-bobble-2",
+    hashes = {
+      { hash = "9c945178adba832ac07a0a6424f38133", label = "Bubble Bobble 2 (1988)(Saturn-Soft)[h Ulf W.].dsk" },
+      { hash = "f6c4f54d9dbdc957ca7f24b69d8cf7c4", label = "Bubble Bobble 2 (1988)(Saturn-Soft)(Hack)[cr].dsk" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0398, type="u16le", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5C59, type="u16le", condition="change", action="NEW_LEVEL", desc="Round" },
+        { address=0X5C59, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7011, type="u8", condition="eq", value=0X00, action="HIT", desc="00" },
+        { address=0X7011, type="u8", condition="eq", value=0X0F, action="HIT", desc="death" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X5C59, type="u16le", condition="eq", value=0X20, action="JUMPING", no_log=true, no_survey=true, desc="bonus then jumps to 22" },
+        { address=0X5C59, type="u16le", condition="eq", value=0X30, action="JUMPING", no_log=true, no_survey=true, desc="bonus then jumps to 32" },
+        { address=0X5C59, type="u16le", condition="eq", value=0X40, action="JUMPING", no_log=true, no_survey=true, desc="bonus then jumps to 42" },
+      },
+    },
+  },
+}

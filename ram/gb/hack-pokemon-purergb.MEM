@@ -1,0 +1,93 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon PureRGB",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-purergb",
+    hashes = {
+      { hash = "0ee583a9be10502141e07d214f84f6ba", label = "Pokemon Red - PureRed (v2.6.2) (Vortyne).gb" },
+      { hash = "3ab51f5f32df9ace20e3f469a4a09c23", label = "Pokemon Blue - PureBlue (v2.6.2) (Vortyne).gb" },
+      { hash = "0b5c445d36c2e6125917a6071656c1e4", label = "Pokemon Blue - PureGreen (v2.6.2) (Vortyne).gb" },
+      { hash = "5d180f1df08f71ebc64f31721b95d201", label = "Pokemon Blue - PureGreen (v2.6.3) (Vortiene).gb" },
+      { hash = "d0b7052c5440dc7c63e81b55b1782ba5", label = "Pokemon Red - PureRed (v2.6.3) (Vortiene).gb" },
+      { hash = "bd69d9c06fe77707c5b3ad1fe6f26041", label = "Pokemon Blue - PureBlue (v2.6.3) (Vortiene).gb" },
+      { hash = "3abfdb86bde17c9cc50d1b1b295de8e7", label = "Pokemon Red - PureRed (v2.6.4) (Vortiene).gb" },
+      { hash = "fb81050af0248b3f451944eb52fb9a14", label = "Pokemon Blue - PureGreen (v2.6.4) (Vortiene).gb" },
+      { hash = "3d78ba61d68f59bd23727fc2c402fa7b", label = "Pokemon Blue - PureBlue (v2.6.4) (Vortyne).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD5B1, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="TM33 [Route 2]" },
+        { address=0XD5B1, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="TM03 [Route 4]" },
+        { address=0XD5B1, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Hyper Ball [Route 4]" },
+        { address=0XD5B3, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Rival [Route 22]" },
+        { address=0XD5B3, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Potion x3 [Route 22]" },
+        { address=0XD5B4, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="TM 45 [Route 24]" },
+        { address=0XD5BD, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Poke Ball x3 [Viridian Forest]" },
+        { address=0XD5BD, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Potion x2 [Viridan Forest]" },
+        { address=0XD5BD, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Antidote x5 [Viridian Forest]" },
+        { address=0XD5BD, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Potion x3 [Mt. Moon]" },
+        { address=0XD5BE, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Moon Stone [Mt. Moon]" },
+        { address=0XD5BE, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Rare Candy [Mt. Moon]" },
+        { address=0XD5BE, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Carbos [Mt. Moon]" },
+        { address=0XD5BE, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Potion x3 [Mt. Moon]" },
+        { address=0XD5BE, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="TM 12 [Mt. Moon]" },
+        { address=0XD5BF, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="TM 40 [Mt. Moon]" },
+        { address=0XD5BF, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Rival [S.S Anne]" },
+        { address=0XD5C1, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Silph Scope [Rocket HQ]" },
+        { address=0XD6F8, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Calcium [Viridian Forest]" },
+        { address=0XD6F8, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Old Coin [Viridian Forest]" },
+        { address=0XD6F8, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Moon Stone [Mt. Moon]" },
+        { address=0XD6FE, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Iron [Mt. Moon]" },
+        { address=0XD6FF, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Great Ball [Route 4]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD031, type="u8", condition="eq", value=0X33, action="LOSE_LIFE", desc="Soldier" },
+        { address=0XD16C, type="u8", condition="eq", value=0X1F, action="LOSE_LIFE", desc="Dead Pokemon" },
+        { address=0XD16C, type="u8", condition="eq", value=0X32, action="LOSE_LIFE", desc="Dead Pokemon" },
+        { address=0XD16C, type="u8", condition="eq", value=0X56, action="LOSE_LIFE", desc="Dead Pokemon" },
+        { address=0XD16C, type="u8", condition="eq", value=0X73, action="LOSE_LIFE", desc="Dead Pokemon" },
+        { address=0XD16C, type="u8", condition="eq", value=0X86, action="LOSE_LIFE", desc="Dead Pokemon" },
+        { address=0XD17B, type="u8", condition="eq", value=0X8D, action="LIVES_STATE", desc="Leech Life" },
+      },
+      health = {
+        { address=0XCFE4, type="u8", condition="increase", action="HEAL", desc="[Enemy Pokemon HP] [Part 2] [8-Bits] increased" },
+        { address=0XCFE4, type="u8", condition="decrease", action="HIT", desc="[Enemy Pokemon HP] [Part 2] [8-Bits] decreased" },
+        { address=0XCFE5, type="u8", condition="increase", action="HEAL", desc="[Enemy Pokemon HP] [Part 1] [8-Bits] increased" },
+        { address=0XCFE5, type="u8", condition="decrease", action="HIT", desc="[Enemy Pokemon HP] [Part 1] [8-Bits] decreased" },
+        { address=0XD17B, type="u8", condition="eq", value=0X74, action="HEALTH_STATE", desc="Focus Energy" },
+        { address=0XD196, type="u8", condition="increase", action="HEAL", desc="[Pokemon 1 Actual HP Stat] [8-BIts] increased" },
+        { address=0XD196, type="u8", condition="decrease", action="HIT", desc="[Pokemon 1 Actual HP Stat] [8-BIts] decreased" },
+        { address=0XD543, type="u8", condition="eq", value=0X23, action="HEALTH_STATE", desc="HP Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD543, type="u8", condition="eq", value=0X17, action="MONEY_STATE", desc="Old Coin" },
+        { address=0XD543, type="u8", condition="eq", value=0X3B, action="MONEY_STATE", desc="Coin" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XD031, type="u8", condition="eq", value=0X0E, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer" },
+        { address=0XD543, type="u8", condition="eq", value=0XD9, action="JUMPING", no_log=true, no_survey=true, desc="TM17 [Hi Jump Kick]" },
+        { address=0XD766, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer [Cerulean City]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD17B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Pokemon 1 First Attack ID] [8-BIts]" },
+      },
+    },
+  },
+}

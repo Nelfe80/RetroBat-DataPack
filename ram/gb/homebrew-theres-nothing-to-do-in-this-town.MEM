@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ There's Nothing to Do in This Town",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Role-Playing, Visual Novel"
+  },
+
+  rom = {
+    name = "homebrew-theres-nothing-to-do-in-this-town",
+    hashes = {
+      { hash = "d44041e733ffa73dea5613f62f8e064b", label = "There's Nothing To Do In This Town (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC263, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title" },
+        { address=0XC263, type="u8", condition="eq", value=0X1E, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC569, type="u8", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+  },
+}

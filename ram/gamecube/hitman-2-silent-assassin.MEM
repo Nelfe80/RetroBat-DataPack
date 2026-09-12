@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hitman 2: Silent Assassin",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Shooter, Stealth"
+  },
+
+  rom = {
+    name = "hitman-2-silent-assassin",
+    hashes = {
+      { hash = "38f5337e8e9efd7e11c43f8f7a0411a5", label = "Hitman 2 - Silent Assassin (USA)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X169CCB4, type="u32be", condition="change", action="AMMO_STATE", desc="[32-bitBE] 9mm Pistol SD total ammo" },
+      },
+    },
+  },
+}

@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Skinner & The Superintendent",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-skinner-the-superintendent",
+    hashes = {
+      { hash = "df2e5192e40caf52dd514895255fd5e5", label = "Skinner & the Superintendent (World) (En) (v1.0) (Aftermarket) (Unl).gbc" },
+      { hash = "ea90aa4b07d6e1e43434b1ed1b471f4e", label = "Skinner & the Superintendent (World) (Pt) (v1.0) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCBBF, type="u16le", condition="increase", action="GAIN_LIFE", desc="Save loaded / Minigame lives increased" },
+        { address=0XCBBF, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Save loaded / Minigame lives decreased" },
+      },
+    },
+  },
+}

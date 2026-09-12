@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Superman",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-superman",
+    hashes = {
+      { hash = "41d47080d3797cb5dd0669b3bb1422f8", label = "Superman (USA) (Prototype) (2000-06-22) (Titus Software)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7E73C, type="u8", condition="change", action="TITLE_SCREEN", desc="In-Game/Title Screen:FF" },
+        { address=0X7E74F, type="u8", condition="change", action="DEMO_MODE", desc="Demo : 02" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7CA28, type="u8", condition="change", action="NEW_LEVEL", desc="On-Ground:00" },
+        { address=0X7E73E, type="u8", condition="change", action="NEW_LEVEL", desc="Level Progress" },
+      },
+      stage = {
+        { address=0X1422DE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Garage - Total Hostages" },
+        { address=0X1422E2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Garage - Hostages Saved" },
+        { address=0X1422FA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="North Mine - Total Hostages" },
+        { address=0X1422FE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="North Mine - Hostages Saved" },
+        { address=0X142308, type="u8", condition="change", action="PROGRESSION_STAGE", desc="South Mine - Total Hostages" },
+        { address=0X14230C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="South Mine - Hostages Saved" },
+        { address=0X142324, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Dam - Total Hostages" },
+        { address=0X142328, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Dam - Hostages Saved" },
+        { address=0X142340, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Subway - Total Hostages" },
+        { address=0X142344, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Subway - Hostages Saved" },
+        { address=0X14236A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Office - Total Hostages" },
+        { address=0X14236E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Office - Hostages Saved" },
+        { address=0X142386, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Space - Total Hostages" },
+        { address=0X14238A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Space - Hostages Saved" },
+        { address=0X1423A2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Fuel Facility - Total Hostages" },
+        { address=0X1423A6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Fuel Facility - Hostages Saved" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7CA27, type="u8", condition="eq", value=0X12, action="HIT", desc="Taking Damage" },
+        { address=0X7CA2E, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X7CA2E, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X14369E, type="u8", condition="increase", action="HEAL", desc="Metallo Health (Dynamic?) increased" },
+        { address=0X14369E, type="u8", condition="decrease", action="HIT", desc="Metallo Health (Dynamic?) decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X7CA20, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility Frames" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7F038, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Bombs Destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1423B2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Metallo Bombs Timer (In Seconds)" },
+      },
+    },
+  },
+}

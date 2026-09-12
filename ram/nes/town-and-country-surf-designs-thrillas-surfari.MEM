@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Town and Country Surf Designs: Thrilla's Surfari",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "town-and-country-surf-designs-thrillas-surfari",
+    hashes = {
+      { hash = "1da4f3fa8f3041c441c04ccadbee7ea0", label = "Town & Country Surf Designs - Thrilla's Surfari (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000D, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000C, type="u8", condition="increase", action="GAIN_LIFE", desc="Cheat code (infinite lives) increased" },
+        { address=0X000C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Cheat code (infinite lives) decreased" },
+        { address=0X000C, type="u8", condition="eq", value=0XFF, action="LIVES_STATE", desc="on" },
+        { address=0X0016, type="u8", condition="increase", action="GAIN_LIFE", desc="- Lives increased" },
+        { address=0X0016, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Lives decreased" },
+      },
+      health = {
+        { address=0X0003, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0003, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X0006, type="u8", condition="increase", action="HEAL", desc="- Maximum Health increased" },
+        { address=0X0006, type="u8", condition="decrease", action="HIT", desc="- Maximum Health decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X043F, type="u8", condition="change", action="BOSS_HIT", desc="- Boss fight player energy" },
+        { address=0X0440, type="u8", condition="change", action="BOSS_HIT", desc="- Boss Energy" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0092, type="u8", condition="eq", value=0X93, action="INVINCIBILITY_START", desc="invincible" },
+        { address=0X039A, type="u8", condition="eq", value=0X0F, action="INVINCIBILITY_START", desc="Invincibility" },
+      },
+    },
+  },
+}

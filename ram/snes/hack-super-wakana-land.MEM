@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Wakana Land",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-wakana-land",
+    hashes = {
+      { hash = "837ea6928a948cf0c0bdb358ff11e09d", label = "SMW - Super Wakana Land (v2.1.1) (Wakana).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X005D, type="u8", condition="change", action="NEW_LEVEL", desc="Number of screens in level" },
+        { address=0X1EFD, type="u8", condition="change", action="NEW_LEVEL", desc="To Main Overworld" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X152F, type="u8", condition="increase", action="HEAL", desc="Sicari Hp increased" },
+        { address=0X152F, type="u8", condition="decrease", action="HIT", desc="Sicari Hp decreased" },
+        { address=0X1530, type="u8", condition="increase", action="HEAL", desc="K-16 Hp increased" },
+        { address=0X1530, type="u8", condition="decrease", action="HIT", desc="K-16 Hp decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0F34, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit] Score * 10" },
+      },
+      collectibles = {
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Coins (Actual value) increased" },
+        { address=0X1422, type="u8", condition="increase", action="COIN_GAIN", desc="Coins (Graphical value) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1531, type="u8", condition="change", action="BOSS_HIT", desc="1st Boss & Harumi Hp" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0DC3, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Air jumps available" },
+      },
+    },
+  },
+}

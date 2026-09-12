@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ UzeMaze RA",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-uzemaze-ra",
+    hashes = {
+      { hash = "ae053a9a71680a22a59518544ab7c70b", label = "UzeMaze - UzeMaze RA (pinguupinguu).uze" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0383, type="u8", condition="eq", value=0X2A, action="TITLE_SCREEN", desc="star" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X03AC, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8bit] Star UI - Level Completed" },
+        { address=0X042C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] UI Graphic - Star Left Piece of Select Level Box" },
+        { address=0X042C, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="Star" },
+        { address=0X0F1F, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+        { address=0X0F4F, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+      },
+    },
+  },
+}

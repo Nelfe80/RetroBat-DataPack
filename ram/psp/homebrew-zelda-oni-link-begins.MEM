@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Zelda Oni Link Begins",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-zelda-oni-link-begins",
+    hashes = {
+      { hash = "c1c4a560d4dc1a3d7565230a7ec01fce", label = "Zelda - Oni Link Begins (v1.0) (Randall Spychalla)" },
+    }
+  },
+
+  events = {
+  },
+}

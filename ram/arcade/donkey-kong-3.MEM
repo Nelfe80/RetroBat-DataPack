@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Donkey Kong 3",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "donkey-kong-3",
+    hashes = {
+      { hash = "0011e5155daaed1ab4bc73e24bd5ab8c", label = "dkong3.7z <Donkey Kong 3 (US)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0004, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0005, type="u8", condition="change", action="DEMO_MODE", desc="Gamestate 00 : demo mode 01 : in game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0019, type="u8", condition="change", action="NEW_LEVEL", desc="round" },
+        { address=0X001B, type="u8", condition="change", action="NEW_LEVEL", desc="Level 0 : blue 1 : gray 2 : yellow" },
+        { address=0X001F, type="u8", condition="change", action="LEVEL_CLEAR", desc="Round Complete : 01" },
+        { address=0X06E4, type="u8", condition="change", action="NEW_LEVEL", desc="Plant 5 Vert pos f8 : ground" },
+        { address=0X06EA, type="u8", condition="change", action="NEW_LEVEL", desc="Plant 4 Vert pos f8 : ground" },
+        { address=0X06F0, type="u8", condition="change", action="NEW_LEVEL", desc="Plant 3 Vert pos f8 : ground" },
+        { address=0X06F6, type="u8", condition="change", action="NEW_LEVEL", desc="Plant 2 Vert pos f8 : ground" },
+        { address=0X06FC, type="u8", condition="change", action="NEW_LEVEL", desc="Plant 1 Vert pos f8 : ground" },
+      },
+      stage = {
+        { address=0X02C0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Worm5 blue or grey stage" },
+        { address=0X02E0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Worm4 blue or grey stage" },
+        { address=0X0300, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Worm1 blue or grey stage" },
+        { address=0X0320, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Worm2 blue or grey stage" },
+        { address=0X0340, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Worm3 blue or grey stage" },
+        { address=0X0480, type="u8", condition="change", action="PROGRESSION_STAGE", desc="worm1 yellow stage" },
+        { address=0X04C0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="worm2 yellow stage" },
+        { address=0X0500, type="u8", condition="change", action="PROGRESSION_STAGE", desc="worm3 yellow stage" },
+        { address=0X0540, type="u8", condition="change", action="PROGRESSION_STAGE", desc="worm4 yellow stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X001A, type="u8", condition="increase", action="GAIN_LIFE", desc="Initial Lives Left increased" },
+        { address=0X001A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Initial Lives Left decreased" },
+        { address=0X0037, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipsetting for Lives 03 is default increased" },
+        { address=0X0037, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipsetting for Lives 03 is default decreased" },
+        { address=0X1F18, type="u8", condition="change", action="LOSE_LIFE", desc="Beespy death animation" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X68F0, type="u24be", condition="change", action="TREASURE", color="blue", min=1100, max=5000, desc="Score delta 1100-5000: Bonus" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X68F0, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X6BF1, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X06E2, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Plant5 state 0 : destroyed 1 : seed 2 : sprout 3 : bloom" },
+        { address=0X06E8, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Plant4 state 0 : destroyed 1 : seed 2 : sprout 3 : bloom" },
+        { address=0X06EE, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Plant3 state 0 : destroyed 1 : seed 2 : sprout 3 : bloom" },
+        { address=0X06F4, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Plant2 state 0 : destroyed 1 : seed 2 : sprout 3 : bloom" },
+        { address=0X06FA, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Plant1 state 0 : destroyed 1 : seed 2 : sprout 3 : bloom" },
+      },
+    },
+  },
+}

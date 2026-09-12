@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Plutonium Mario 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-plutonium-mario-64",
+    hashes = {
+      { hash = "a268fa501b2630672eda5cae3ec707a6", label = "SM64 - Plutonium Mario 64 (usernamesarespiders) (1.2).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20769B, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld reds (bit0)" },
+        { address=0X32DDFA, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level ID (updates immediately after file select)" },
+        { address=0X33B249, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] sub-level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] lives decreased" },
+      },
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] Coin counter increased" },
+        { address=0X33B260, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] HUD coin count increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] gRedCoinsCollected - used to render _ of red coins on pause menu increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207698, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="wing cap switch" },
+        { address=0X207698, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="metal cap switch" },
+        { address=0X207698, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="vanish cap switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B221, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8bit] HP decrement counter" },
+      },
+    },
+  },
+}

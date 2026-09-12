@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Hair Boy",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-hair-boy",
+    hashes = {
+      { hash = "38a391a4e1c3e958ad8f173b86d641e9", label = "Hair Boy (2016)(cpcretrodev.byterealms)[cr].dsk" },
+      { hash = "a4b63c729643affd4db27cbdfc025324", label = "Hair Boy (2016) (Carlos Sevila).dsk" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X86E2, type="u8", condition="change", action="NEW_LEVEL", desc="LevelID" },
+        { address=0X8768, type="u8", condition="change", action="NEW_LEVEL", desc="Level Win Flag" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8767, type="u8", condition="change", action="LOSE_LIFE", desc="Death Flag" },
+        { address=0X8769, type="u16le", condition="change", action="LOSE_LIFE", desc="Deaths [1/2]" },
+        { address=0X876A, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths 2/2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X876C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer 2/4 seconds" },
+        { address=0X876E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Timer 4/4" },
+      },
+    },
+  },
+}

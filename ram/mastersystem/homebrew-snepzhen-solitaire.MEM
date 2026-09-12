@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Snepzhen Solitaire",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-snepzhen-solitaire",
+    hashes = {
+      { hash = "579651894466cdb1f89174021d57ed47", label = "Snepzhen Solitaire (USA, Europe) (v24.05) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+  },
+}

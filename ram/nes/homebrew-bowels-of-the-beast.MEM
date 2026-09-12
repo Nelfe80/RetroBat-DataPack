@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bowels of the Beast",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-bowels-of-the-beast",
+    hashes = {
+      { hash = "e7186b64f31e92b40dca88e67b2c60f9", label = "Bowels of the Beast (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002B, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0053, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0054, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0068, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0069, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0172, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0173, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X0175, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X069F, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+        { address=0X06CC, type="u8", condition="change", action="NEW_LEVEL", desc="level info" },
+      },
+      stage = {
+        { address=0X0342, type="u8", condition="change", action="PROGRESSION_STAGE", desc="cross used stage 1" },
+        { address=0X0342, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="hit" },
+        { address=0X0369, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage 2 cross" },
+        { address=0X0369, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="on" },
+        { address=0X03D5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage 2 second cross" },
+        { address=0X03D5, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="on" },
+        { address=0X03D9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage 3 cross" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X009E, type="u8", condition="increase", action="HEAL", desc="player health increased" },
+        { address=0X009E, type="u8", condition="decrease", action="HIT", desc="player health decreased" },
+      },
+    },
+  },
+}

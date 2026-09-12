@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Baldy Kart",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-baldy-kart",
+    hashes = {
+      { hash = "b03b5ac8afc986a691db08725bdbde7c", label = "Super Mario Kart - Super Baldy Kart (1.0) (Dirtbag).sfc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X0D70, type="u16le", condition="eq", value=0XC007, action="MONEY_STATE", desc="coins" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X10A0, type="u8", condition="eq", value=0X6, action="JUMPING", no_log=true, no_survey=true, desc="InLava, 8:InDeepWater, 0c;0e:Lakitu" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X002E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(8-bit) 2 Players check-" },
+        { address=0X0E32, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(16-bit) Allow Player Input?" },
+      },
+    },
+  },
+}

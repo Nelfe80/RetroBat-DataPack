@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Sudoku",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-super-sudoku",
+    hashes = {
+      { hash = "12c29b9324082d273250826b16f5b512", label = "Super Sudoku (World) (v1.0) (Aftermarket) (Unl).sfc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0490, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Time in Seconds - Ones" },
+        { address=0X0491, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Time in Seconds - Tens" },
+        { address=0X0492, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Time in Minutes - Ones" },
+        { address=0X0493, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Time in Minutes - Tens" },
+        { address=0X0494, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Time in Hours - Ones" },
+        { address=0X0495, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Time in Hours - Tens" },
+        { address=0X0497, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Timer Enabled Flag" },
+        { address=0X0497, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="On" },
+      },
+    },
+  },
+}

@@ -1,0 +1,103 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Killer7",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Adventure, Shooter"
+  },
+
+  rom = {
+    name = "killer7",
+    hashes = {
+      { hash = "ca3de8aabeb4f204b09087ae8d533564", label = "Killer7 (USA) (Disc 1) (Rev 1)" },
+      { hash = "63baf5c3e0222fafae2ba2bdc42ac2ce", label = "Killer7 (USA) (Disc 2) (Rev 1)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2B7580, type="u32be", condition="eq", value=0X0D, action="PAUSE_ON", desc="Pause Menu" },
+        { address=0X2B7A98, type="u32be", condition="eq", value=0X208, action="CREDITS_SCREEN", desc="5-2 End Cutscene/Credits" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X25800, action="CREDITS_SCREEN", desc="Target 06 - Post Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2D7788, type="u8", condition="change", action="NEW_LEVEL", desc="Dan - Power Level" },
+        { address=0X2D7798, type="u8", condition="change", action="NEW_LEVEL", desc="Con - Power Level" },
+        { address=0X2D77B8, type="u8", condition="change", action="NEW_LEVEL", desc="Coyote - Power Level" },
+        { address=0X2D77C0, type="u8", condition="change", action="NEW_LEVEL", desc="KAEDE - Power Level" },
+        { address=0X2D77C8, type="u8", condition="change", action="NEW_LEVEL", desc="Kevin - Power Level" },
+        { address=0X2D77D0, type="u8", condition="change", action="NEW_LEVEL", desc="Mask - Power Level" },
+        { address=0X2D77D8, type="u8", condition="change", action="NEW_LEVEL", desc="Dan - Speed Level" },
+        { address=0X2D77E8, type="u8", condition="change", action="NEW_LEVEL", desc="Con - Speed Level" },
+        { address=0X2D7808, type="u8", condition="change", action="NEW_LEVEL", desc="Coyote - Speed Level" },
+        { address=0X2D7810, type="u8", condition="change", action="NEW_LEVEL", desc="KAEDE - Speed Level" },
+        { address=0X2D7818, type="u8", condition="change", action="NEW_LEVEL", desc="Kevin - Speed Level" },
+        { address=0X2D7820, type="u8", condition="change", action="NEW_LEVEL", desc="Mask - Speed Level" },
+        { address=0X2D7828, type="u8", condition="change", action="NEW_LEVEL", desc="Dan - Waver Level" },
+        { address=0X2D7838, type="u8", condition="change", action="NEW_LEVEL", desc="Con - Waver Level" },
+        { address=0X2D7858, type="u8", condition="change", action="NEW_LEVEL", desc="Coyote - Waver Level" },
+        { address=0X2D7860, type="u8", condition="change", action="NEW_LEVEL", desc="KAEDE - Waver Level" },
+        { address=0X2D7868, type="u8", condition="change", action="NEW_LEVEL", desc="Kevin - Invisibility Level" },
+        { address=0X2D7870, type="u8", condition="change", action="NEW_LEVEL", desc="Mask - Waver Level" },
+        { address=0X2D7878, type="u8", condition="change", action="NEW_LEVEL", desc="Dan - Criticals Level" },
+        { address=0X2D7888, type="u8", condition="change", action="NEW_LEVEL", desc="Con - Criticals Level" },
+        { address=0X2D78A8, type="u8", condition="change", action="NEW_LEVEL", desc="Coyote - Criticals Level" },
+        { address=0X2D78B0, type="u8", condition="change", action="NEW_LEVEL", desc="KAEDE - Criticals Level" },
+        { address=0X2D78B8, type="u8", condition="change", action="NEW_LEVEL", desc="Kevin - Criticals Level" },
+        { address=0X2D78C0, type="u8", condition="change", action="NEW_LEVEL", desc="Mask - Criticals Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2B7580, type="u32be", condition="eq", value=0X0E, action="LOSE_LIFE", desc="Death Scene?" },
+        { address=0X2D2510, type="u32be", condition="eq", value=0X0, action="LOSE_LIFE", desc="No Dead Characters" },
+      },
+      health = {
+        { address=0X71B640, type="u16be", condition="increase", action="HEAL", desc="[16-bit BE] Current Character Health (Disc 1 and 2) increased" },
+        { address=0X71B640, type="u16be", condition="decrease", action="HIT", desc="[16-bit BE] Current Character Health (Disc 1 and 2) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Fire Ring Acquired" },
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Water Ring Acquired" },
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Time Ring Acquired" },
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Wind Ring Acquired" },
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Stamina Ring Acquired" },
+        { address=0X2B7A6E, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Power Ring Acquired" },
+        { address=0X2B7A75, type="u8", condition="bit_true", mask=0X40, action="COIN_GAIN", desc="Rubber Ring" },
+        { address=0X2B7A7F, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Stamina Ring" },
+        { address=0X2B7A8A, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="Target 00 - Fire Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X06501, action="COIN_GAIN", desc="Target 01 Part 01 - Water Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X09300, action="COIN_GAIN", desc="Target 01 Part 02 - Wind Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X0C900, action="COIN_GAIN", desc="Target 02 - Stamina Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X14503, action="COIN_GAIN", desc="Target 03 Part 01 - Time Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X16100, action="COIN_GAIN", desc="Target 03 Part 02 - Power Ring" },
+        { address=0X30A510, type="u32be", condition="eq", value=0X30504, action="COIN_GAIN", desc="Target 00 - Fire Ring" },
+        { address=0X71B642, type="u16be", condition="change", action="AMMO_STATE", desc="[16-bit BE] Current Character Ammo Capacity (Disc 1 and 2)" },
+        { address=0X71B668, type="u16be", condition="change", action="AMMO_STATE", desc="[16-bit BE] Current Character Ammo (Disc 1 and 2)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X2B7A7E, type="u8", condition="bit_true", mask=0X04, action="INVINCIBILITY_START", desc="Target 05 Part 02 - Greg Nightmare Invincible Smiles" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2CD83C, type="u8", condition="eq", value=0X04, action="OBJECT_DESTROYED", desc="Broken" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2D21EC, type="u32be", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="[32-bit BE] Target Combo Count (Disc 1 and 2)" },
+        { address=0X30A510, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[32-bit BE] Room Index (Disc 1 and 2)" },
+        { address=0X7556C4, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[32-bit BE] Target 01 Part 01 - Julia Kisugi - Fight State (Disc 1)" },
+      },
+    },
+  },
+}

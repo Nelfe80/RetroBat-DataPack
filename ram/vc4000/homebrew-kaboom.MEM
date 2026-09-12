@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Kaboom",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-kaboom",
+    hashes = {
+      { hash = "8df1aef8d3c258f06e3d811b67a249ad", label = "Kaboom (World) (Homebrew) (Simon Augustin).bin" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0561, type="u16le", condition="increase", action="GAIN_LIFE", desc="[Upper3] Lives Remaining; these 3 bits count lives remaining in binary. The game never seems to" },
+        { address=0X0561, type="u16le", condition="decrease", action="LOSE_LIFE", desc="[Upper3] Lives Remaining; these 3 bits count lives remaining in binary. The game never seems to" },
+        { address=0X0561, type="u16le", condition="eq", value=0XB5, action="LIVES_STATE", desc="1; 2 lives remaining (display: 1)" },
+        { address=0X0561, type="u16le", condition="eq", value=0XB6, action="LIVES_STATE", desc="1; 3 lives remaining (display: 2)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X051E, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BE BCD] High Score (does not save between sessions)" },
+        { address=0X05C8, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BE BCD] Score" },
+      },
+    },
+  },
+}

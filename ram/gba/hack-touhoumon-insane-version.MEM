@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Touhoumon Insane Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-touhoumon-insane-version",
+    hashes = {
+      { hash = "b8456c4709024938b2fd6ed46791e0b0", label = "Pokemon FireRed - Touhoumon Insane (Complete) (Draquaza).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Current opponent puppet level" },
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="1st party puppet's level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="2nd party puppet level" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="3rd party puppet's level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="4th party puppet's level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="5th party puppet's level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="6th party puppet's level" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Active puppet level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="Current active puppet's current health increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="Current active puppet's current health decreased" },
+        { address=0X2BC10, type="u8", condition="increase", action="HEAL", desc="Current active puppet's max health increased" },
+        { address=0X2BC10, type="u8", condition="decrease", action="HIT", desc="Current active puppet's max health decreased" },
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="Current opponent puppet's current hp increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="Current opponent puppet's current hp decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X8014, type="u8", condition="eq", value=0X10, action="OBJECT_INTERACTION", desc="Options closed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0FC0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Music ID (16-bit)" },
+      },
+    },
+  },
+}

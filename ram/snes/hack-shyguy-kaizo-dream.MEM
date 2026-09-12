@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ShyGuy Kaizo Dream",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shyguy-kaizo-dream",
+    hashes = {
+      { hash = "7646230f35bbfec422c8060dbba02119", label = "SMW - ShyGuy Kaizo Dream (P1JDS) (1.2 Final).sfc" },
+      { hash = "ecc1b2f750c9deb1e8ce890d7d57a57b", label = "SMW - ShyGuy Kaizo Dream (Mario Version) (P1JDS) (1.2 Final).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="09 - Titlescreen Stuff" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="0d - loads overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="13 - loads level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID:" },
+        { address=0X13BF, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Ninjis Realm" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Boyoyong Fantasy" },
+      },
+      stage = {
+        { address=0X13CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Midway is activated when entered from overworld - 40" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Current lives minus 1 increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current lives minus 1 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="00 - No Power up;" },
+      },
+    },
+  },
+}

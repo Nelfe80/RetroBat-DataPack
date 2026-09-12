@@ -1,0 +1,116 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rockman 3: The Last of Mushroom Kingdom?!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rockman-3-the-last-of-mushroom-kingdom",
+    hashes = {
+      { hash = "cbc4647b0b2268dbfc435d774c91abe4", label = "Rockman 3 - The Last of Mushroom Kingdom (1.0) (Rock5easily,ensis rock).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0078, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not Paused" },
+        { address=0X0078, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X00B2, type="u8", condition="eq", value=0X80, action="PAUSE_ON", desc="Controllable: In a Stage, on pause screen, etc." },
+        { address=0X00D9, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Theme" },
+        { address=0X00D9, type="u8", condition="eq", value=0X0F, action="CREDITS_SCREEN", desc="MM3 Credits Theme" },
+        { address=0X00D9, type="u8", condition="eq", value=0X39, action="GAME_OVER", desc="SMB1 Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0030, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="On the Ground" },
+        { address=0X0380, type="u32le", condition="change", action="NEW_LEVEL", desc="X Screen (Level Screen)" },
+        { address=0X04C0, type="u32le", condition="change", action="NEW_LEVEL", desc="Enemy Number in Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0030, type="u8", condition="eq", value=0X0E, action="LOSE_LIFE", desc="Dead" },
+        { address=0X003F, type="u8", condition="increase", action="GAIN_LIFE", desc="Death Timer increased" },
+        { address=0X003F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Death Timer decreased" },
+        { address=0X00AE, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Extra Lives increased" },
+        { address=0X00AE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Extra Lives decreased" },
+      },
+      health = {
+        { address=0X000F, type="u8", condition="increase", action="HEAL", desc="Energy To Fill increased" },
+        { address=0X000F, type="u8", condition="decrease", action="HIT", desc="Energy To Fill decreased" },
+        { address=0X0030, type="u8", condition="eq", value=0X06, action="HIT", desc="Damaged" },
+        { address=0X00A1, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Energy Tanks" },
+        { address=0X00A2, type="u8", condition="increase", action="HEAL", desc="Mega Man HP Bar (AKA P Ammo) increased" },
+        { address=0X00A2, type="u8", condition="decrease", action="HIT", desc="Mega Man HP Bar (AKA P Ammo) decreased" },
+        { address=0X04E0, type="u32le", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X04E0, type="u32le", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X00A0, type="u8", condition="eq", value=0X0, action="WEAPON_STATE", no_log=true, desc="Arm Cannon" },
+        { address=0X00A0, type="u8", condition="eq", value=0X1, action="WEAPON_STATE", no_log=true, desc="Gemini Laser" },
+        { address=0X00A0, type="u8", condition="eq", value=0X10, action="WEAPON_STATE", no_log=true, desc="Shadow Blade" },
+        { address=0X00A0, type="u8", condition="eq", value=0X11, action="WEAPON_STATE", no_log=true, desc="Rush Jet" },
+        { address=0X00A0, type="u8", condition="eq", value=0X2, action="WEAPON_STATE", no_log=true, desc="Needle Arm" },
+        { address=0X00A0, type="u8", condition="eq", value=0X3, action="WEAPON_STATE", no_log=true, desc="Hard Knuckle" },
+        { address=0X00A0, type="u8", condition="eq", value=0X4, action="WEAPON_STATE", no_log=true, desc="Magnet Missile" },
+        { address=0X00A0, type="u8", condition="eq", value=0X5, action="WEAPON_STATE", no_log=true, desc="Top Spin" },
+        { address=0X00A0, type="u8", condition="eq", value=0X6, action="WEAPON_STATE", no_log=true, desc="Search Snake" },
+        { address=0X00A0, type="u8", condition="eq", value=0X7, action="WEAPON_STATE", no_log=true, desc="Rush Coil" },
+        { address=0X00A0, type="u8", condition="eq", value=0X8, action="WEAPON_STATE", no_log=true, desc="Spark Shot" },
+        { address=0X00A0, type="u8", condition="eq", value=0X9, action="WEAPON_STATE", no_log=true, desc="Rush Marine" },
+        { address=0X00A1, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="Top Left Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Top Right Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Middle Left Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", no_log=true, desc="Middle Right Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="Bottom Left Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", no_log=true, desc="Bottom Right Option" },
+        { address=0X00A1, type="u8", condition="eq", value=0X80, action="WEAPON_STATE", no_log=true, desc="Next Page Option" },
+        { address=0X00B4, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="Top Row is Arm Cannon" },
+        { address=0X00B4, type="u8", condition="eq", value=0X06, action="WEAPON_STATE", no_log=true, desc="Top Row is Search Snake" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00A3, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for GE (Gemini Laser)" },
+        { address=0X00A4, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for NE (Needle Cannon)" },
+        { address=0X00A5, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for HA (Hard Knuckle)" },
+        { address=0X00A6, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for MA (Magnet Missile)" },
+        { address=0X00A7, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for TO (Top Spin)" },
+        { address=0X00A8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for SN (Search Snake)" },
+        { address=0X00A9, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for RC (Rush Coil)" },
+        { address=0X00AA, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for SP (Spark Shock)" },
+        { address=0X00AB, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for RM (Rush Marine)" },
+        { address=0X00AC, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for SH (Shadow Blade)" },
+        { address=0X00AD, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo for RJ (Rush Jet)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0030, type="u8", condition="eq", value=0X09, action="BOSS_HIT", desc="Boss Spawning (No Control)" },
+        { address=0X0030, type="u8", condition="eq", value=0X0C, action="BOSS_DEFEATED", desc="Boss Defeated (No Control)" },
+        { address=0X0099, type="u8", condition="eq", value=0X40, action="BOSS_HIT", desc="Cannot control Mega Man. This includes the title screen, the READY message, and boss door transi" },
+        { address=0X00B0, type="u8", condition="change", action="BOSS_HIT", desc="Backup Boss Health Bar" },
+        { address=0X00B3, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Disabled" },
+        { address=0X00B3, type="u8", condition="eq", value=0X8E, action="BOSS_HIT", desc="Enabled" },
+        { address=0X04FE, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP Wily Stage 4 Part 1)" },
+        { address=0X04FF, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP (When Applicable)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0300, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object Base State Table" },
+        { address=0X0500, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object ASM Private Memory 1" },
+        { address=0X0520, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object ASM Private Memory 2" },
+        { address=0X0540, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object ASM Private Memory 3" },
+        { address=0X0560, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object ASM Private Memory 4" },
+      },
+    },
+  },
+}

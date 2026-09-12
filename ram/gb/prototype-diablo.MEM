@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Diablo",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "prototype-diablo",
+    hashes = {
+      { hash = "28e1605572aec89f7d210775e51cb8da", label = "Diablo (USA) (Proto).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC107, type="u8", condition="change", action="TITLE_SCREEN", desc="Animation Frame ID of the Titlescreen Flames [8bit]" },
+      },
+    },
+  },
+}

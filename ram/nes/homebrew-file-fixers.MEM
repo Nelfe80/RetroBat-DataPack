@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ File Fixers",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-file-fixers",
+    hashes = {
+      { hash = "2aa7930efc6bf1c7e5b41b66acc9a4bd", label = "File Fixers (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X60B4, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 1 Level" },
+        { address=0X60B5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 2 Level" },
+        { address=0X60B6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 3 Level" },
+        { address=0X60B7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 4 Level" },
+      },
+    },
+  },
+}

@@ -1,0 +1,102 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Snoopy vs. The Red Baron",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Flight Simulator"
+  },
+
+  rom = {
+    name = "snoopy-vs-the-red-baron",
+    hashes = {
+      { hash = "8954f8b253fd0ef41122492872e2321a", label = "Snoopy vs. The Red Baron (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X28F250, type="u16le", condition="eq", value=0X0B, action="DEMO_MODE", desc="Demo Mode" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X0D, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X28F250, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="[32 Bit] World ID" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Flight School" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Aerodrome Island" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Woods of Montsec" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Front Lines of Verdun" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="Mines of the Matterhorn" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Verdon Gorge" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X07, action="PROGRESSION_ZONE", desc="Flying Fortress" },
+        { address=0X28F250, type="u16le", condition="eq", value=0X08, action="PROGRESSION_ZONE", desc="Dog Fight" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2906CC, type="u32le", condition="increase", action="HEAL", desc="[32 Bit] [Slot 1] Sopwith Upgrades - Health increased" },
+        { address=0X2906CC, type="u32le", condition="decrease", action="HIT", desc="[32 Bit] [Slot 1] Sopwith Upgrades - Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X2906E4, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Potato Gun" },
+        { address=0X2906E4, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="The Stinger" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="Balloon Launcher" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Snow Blower" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Flame Boomerang" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="Lightning Rod" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Roman Candles" },
+        { address=0X2906E5, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="10 Gauge Pumpkin" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X290940, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X290940, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X290940, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X290940, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X290940, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X290990, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X290990, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X290990, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X290990, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X290990, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X2909E0, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X2909E0, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X2909E0, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X2909E0, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X2909E0, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X290A30, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X290A30, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X290A30, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X290A30, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X290A30, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X290A80, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X290A80, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X290A80, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X290A80, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X290A80, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X290DA0, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Haystack" },
+        { address=0X290DA0, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Barrel" },
+        { address=0X290DA0, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Geyser" },
+        { address=0X290DA0, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pumpkin" },
+        { address=0X290DA0, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Battery" },
+        { address=0X290FD0, type="u8", condition="increase", action="COIN_GAIN", desc="[Bitflags] [Slot 1] Surprise Attack 100 Coins increased" },
+        { address=0X291250, type="u8", condition="increase", action="COIN_GAIN", desc="[Bitflags] [Slot 1] Destroy Circus City 100 Coins increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X290531, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bit] Invert Boss" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X29123C, type="u32le", condition="change", action="OBJECT_DESTROYED", desc="[32 Bit] Destroy Circus City Balloons (from save state?)" },
+      },
+    },
+  },
+}

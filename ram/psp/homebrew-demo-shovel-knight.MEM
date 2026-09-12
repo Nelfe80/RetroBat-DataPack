@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Shovel Knight",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-shovel-knight",
+    hashes = {
+      { hash = "eae2c30852ee23d74bbead7e446c70f8", label = "Shovel Knight Portable (v0.2.0) (Yerson Games).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X98FE00, type="u8", condition="eq", value=0X2B, action="DEMO_MODE", desc="treasure chest room in pridemoor keep" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X197820C, type="u8", condition="increase", action="HEAL", desc="[Float] Health increased" },
+        { address=0X197820C, type="u8", condition="decrease", action="HIT", desc="[Float] Health decreased" },
+        { address=0X197828C, type="u8", condition="increase", action="HEAL", desc="[Float] Black Knight Health increased" },
+        { address=0X197828C, type="u8", condition="decrease", action="HIT", desc="[Float] Black Knight Health decreased" },
+        { address=0X19782CC, type="u8", condition="increase", action="HEAL", desc="[Float] King Knight Health increased" },
+        { address=0X19782CC, type="u8", condition="decrease", action="HIT", desc="[Float] King Knight Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X98FE00, type="u8", condition="eq", value=0X18, action="TREASURE", desc="third (with treasure chest)" },
+        { address=0X1FFA64C, type="u8", condition="change", action="TREASURE", desc="[Lower-4] treasure thousands place" },
+        { address=0X1FFA64D, type="u8", condition="change", action="TREASURE", desc="[Lower-4] treasure hundreds place" },
+        { address=0X1FFA64E, type="u8", condition="change", action="TREASURE", desc="[Lower-4] treasure tens place" },
+        { address=0X1FFA64F, type="u8", condition="change", action="TREASURE", desc="[Lower-4] treasure ones place" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X98FE00, type="u8", condition="eq", value=0X1B, action="SHIELD_GAIN", desc="shield knight falling" },
+      },
+      player = {
+        { address=0X16D5F80, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="npc is jumping" },
+        { address=0X16D5F80, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="npc is not jumping" },
+      },
+    },
+  },
+}

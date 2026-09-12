@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Riders: Chronicles of Pern",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "dragon-riders-chronicles-of-pern",
+    hashes = {
+      { hash = "1c760639ffc2b26ca2bf7fd701974c8c", label = "Dragon Riders - Chronicles of Pern (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

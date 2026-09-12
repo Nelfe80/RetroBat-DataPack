@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tenchu: Shadow Assassins",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Action, Adventure, Stealth"
+  },
+
+  rom = {
+    name = "tenchu-shadow-assassins",
+    hashes = {
+      { hash = "26901ddd4c7d46280b6398bd7192875a", label = "Tenchu - Shadow Assassins (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XB1FACC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Results Screen Score [32-Bit BE]" },
+        { address=0XB1FACC, type="u32be", condition="eq", value=0XB4, action="SCORE_STATE", desc="Perfect Score (Three S's)" },
+      },
+    },
+  },
+}

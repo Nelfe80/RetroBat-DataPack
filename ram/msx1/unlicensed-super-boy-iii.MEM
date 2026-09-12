@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Super Boy III",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-super-boy-iii",
+    hashes = {
+      { hash = "ca1e0e7bdd2a0be70129b1de97746e40", label = "Super Boy III (Korea) (En) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2293, type="u8", condition="change", action="DEMO_MODE", desc="1 if demo mode is active, 0 otherwise" },
+        { address=0X2299, type="u8", condition="change", action="TITLE_SCREEN", desc="1 if Super Boy is winking on title screen, 0 otherwise" },
+        { address=0X3D9A, type="u8", condition="change", action="DEMO_MODE", desc="Bit1 : 1 when playing a stage (including in demo), 0 otherwise" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X226C, type="u8", condition="change", action="NEW_LEVEL", desc="Current round" },
+        { address=0X2307, type="u8", condition="change", action="NEW_LEVEL", desc="0 when Round X text is displayed, 1 otherwise" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X226B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X226B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X225D, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [24-bit BCD]" },
+      },
+      collectibles = {
+        { address=0X218A, type="u8", condition="increase", action="COIN_GAIN", desc="Seahorse coins collected increased" },
+        { address=0X218B, type="u8", condition="increase", action="COIN_GAIN", desc="Coins [8-bit BCD] increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X2192, type="u8", condition="change", action="INVINCIBILITY_START", desc="1 if invincible, 0 otherwise" },
+        { address=0X2193, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Countdown timer when invincible" },
+      },
+    },
+  },
+}

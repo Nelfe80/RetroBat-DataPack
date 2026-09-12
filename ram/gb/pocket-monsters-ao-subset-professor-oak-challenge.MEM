@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pocket Monsters Ao [Subset - Professor Oak Challenge]",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "pocket-monsters-ao-subset-professor-oak-challenge",
+    hashes = {
+      { hash = "fa37cdb33108b88ade1a3d4a53a039e8", label = "Pocket Monsters Ao [Subset - Professor Oak Challenge].gb" },
+    }
+  },
+
+  events = {
+  },
+}

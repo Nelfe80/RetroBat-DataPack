@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Google Dino Advance",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-google-dino-advance",
+    hashes = {
+      { hash = "0f8ed17d661f50fd1c09d07e54f88f31", label = "Google Dino Advance (World) (v1.0.1) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X15FC, type="u16le", condition="eq", value=0X198, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8C10, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X15F4, type="u16le", condition="eq", value=0X110, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X8C24, type="u32le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Passed" },
+      },
+    },
+  },
+}

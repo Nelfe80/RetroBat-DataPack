@@ -1,0 +1,90 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man X: Cadê o Chão, Sharivan?",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-x-cade-o-chao-sharivan",
+    hashes = {
+      { hash = "350175292906e0fbfba5ae93ab6f7fb7", label = "Mega Man X - Sharivan e o Chao (v1.0) (AlexHylian).sfc" },
+      { hash = "75e4977f13b47a5d2a1f9ef59fcfe61e", label = "Mega Man X - Sharivan e o Chao (v1.1) (AlexHylian).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0C03, type="u8", condition="change", action="NEW_LEVEL", desc="Buster charged level:" },
+        { address=0X0C03, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Max" },
+        { address=0X0C03, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Med" },
+        { address=0X0C03, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Low" },
+      },
+      stage = {
+        { address=0X1F7A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Central Highway" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Octopus" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Chameleon" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Armadillo" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Mammoth" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Eagle" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Mandrill" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Kuwanger" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Penguin" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Sigma 1" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Sigma 2" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Sigma 3" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Sigma 4" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0BAA, type="u8", condition="eq", value=0X0C, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X0BCF, type="u8", condition="increase", action="HEAL", desc="X - Current Health increased" },
+        { address=0X0BCF, type="u8", condition="decrease", action="HIT", desc="X - Current Health decreased" },
+        { address=0X0E8F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0E8F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0ECF, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0ECF, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0F0F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0F0F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0F4F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0F4F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0F8F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0F8F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0FCF, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0FCF, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0E72, type="u8", condition="eq", value=0X0C, action="AMMO_STATE", no_log=true, desc="Flame Mammoth" },
+        { address=0X1F9C, type="u8", condition="bit_true", mask=0X10, action="AMMO_STATE", no_log=true, desc="<ammoth" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0E68, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="Boss Explosion" },
+        { address=0X0E72, type="u8", condition="eq", value=0X5D, action="BOSS_HIT", desc="Rangda Bangda - Complete Boss" },
+        { address=0XFFFD, type="u8", condition="eq", value=0X1E, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0XFFFD, type="u8", condition="eq", value=0X2E, action="BOSS_HIT", desc="Boss Preparation" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1232, type="u16le", condition="eq", value=0X09, action="SHIELD_GAIN", desc="Rolling Shield" },
+        { address=0X1232, type="u16le", condition="eq", value=0X12, action="SHIELD_GAIN", desc="R. Shield Charged" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0BAA, type="u8", condition="eq", value=0X1C, action="DOOR_OPENED", desc="Door Transition" },
+      },
+    },
+  },
+}

@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bentley Bear's Crystal Quest",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bentley-bears-crystal-quest",
+    hashes = {
+      { hash = "34483432b92f565f4ced82a141119164", label = "Bentley Bear's Crystal Quest (World) (NTSC) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2071, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X206F, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X206F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0075, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power Up" },
+      },
+    },
+  },
+}

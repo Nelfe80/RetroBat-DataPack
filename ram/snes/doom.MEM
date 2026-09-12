@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Doom",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "doom",
+    hashes = {
+      { hash = "97503ea48f51d65399fe8235155acd7f", label = "Doom (Japan) (En).sfc" },
+      { hash = "e218531fe541b05cf44c2667e101d117", label = "Doom (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X201E8, type="u8", condition="change", action="TITLE_SCREEN", desc="Title/results screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X06B4, type="u8", condition="change", action="NEW_LEVEL", desc="0x04 - while in level" },
+        { address=0X06D1, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X0717, type="u8", condition="change", action="NEW_LEVEL", desc="Set to 0xb when advancing to next level [8bit]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X06EE, type="u8", condition="eq", value=0X01, action="HIT", desc="Difficulty: 0:I'm too young to die, 1:Hey, not too rough, 2:Hurt me plenty, 3:Ultra-Violence, 4:" },
+        { address=0X0700, type="u8", condition="increase", action="HEAL", desc="(Display) Health increased" },
+        { address=0X0700, type="u8", condition="decrease", action="HIT", desc="(Display) Health decreased" },
+        { address=0X25AAE, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X25AAE, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0712, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Equipped: 00:Hand, 02:Gun, 04:Shotgun, 06:Chain Saw, 08:Gatling Gun, 0A:Rocket Launcher," },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X06FE, type="u8", condition="change", action="AMMO_STATE", desc="(Display) Ammo - Pistol" },
+        { address=0X2005E, type="u8", condition="change", action="AMMO_STATE", desc="[2 Byte] Ammo - Pistol/Gatling Gun" },
+        { address=0X20060, type="u8", condition="change", action="AMMO_STATE", desc="[2 Byte] Ammo - Shotgun" },
+        { address=0X20062, type="u8", condition="change", action="AMMO_STATE", desc="[2 Byte] Ammo - Rocket Launcher" },
+        { address=0X20064, type="u8", condition="change", action="AMMO_STATE", desc="[2 Byte] Ammo - Plasma Gun/BFG 9000" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X06EA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[2 Byte] Time - Seconds" },
+        { address=0X0738, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Times reset/finished (4 : credits)" },
+      },
+    },
+  },
+}

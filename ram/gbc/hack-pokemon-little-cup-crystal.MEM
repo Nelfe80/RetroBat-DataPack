@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Little Cup Crystal",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-little-cup-crystal",
+    hashes = {
+      { hash = "5598dc4201e5e63b6a8a0183fcfc81d8", label = "Pokemon Crystal - Little Cup (GreenAndACat).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ DuckTales 2 Deluxe 2013",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ducktales-2-deluxe-2013",
+    hashes = {
+      { hash = "c1e923982d8c537e75c2b3bc2c42b18f", label = "DuckTales 2 - Deluxe 2013 (v1.0) (Ti).nes" },
+    }
+  },
+
+  events = {
+  },
+}

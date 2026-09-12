@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Smile",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-smile",
+    hashes = {
+      { hash = "332056a1cab3a89364ac5cec08c78c74", label = "Pokemon FireRed - Smile (Beta) (Notrisky).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="1st party pokemon's level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="(16 bit) 1st slot's current health increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="(16 bit) 1st slot's current health decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="(16 bit) 1st slot's max health increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="(16 bit) 1st slot's max health decreased" },
+      },
+    },
+  },
+}

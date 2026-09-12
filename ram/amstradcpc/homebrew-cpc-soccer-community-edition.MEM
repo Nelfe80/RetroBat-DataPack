@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ CPC Soccer Community Edition",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cpc-soccer-community-edition",
+    hashes = {
+      { hash = "ab5a2801391d9fc1c279d95b0c2d40a0", label = "CPC Soccer - Community Edition (World) (Aftermarket) (Voxel Tower).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

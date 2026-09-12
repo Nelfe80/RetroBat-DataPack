@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Of Jumps and Platforms",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-of-jumps-and-platforms",
+    hashes = {
+      { hash = "360ccb6b72c5f3b79087fb4b4065df72", label = "SMW - Of Jumps and Platforms (Darolac) (2020-07-04).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

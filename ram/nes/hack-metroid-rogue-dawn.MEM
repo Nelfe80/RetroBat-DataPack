@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: Rogue Dawn",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-rogue-dawn",
+    hashes = {
+      { hash = "ae5e7ca617fb34c435cb9157b37c1e7c", label = "Metroid - Rogue Dawn (Grimlock, Optomon, snarfblam) (1.21).nes" },
+      { hash = "b3caf22250200c953adc3387df303b23", label = "Metroid - Rogue Dawn (Grimlock, Optomon, snarfblam) (1.21) (Zero Suit Only).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0031, type="u8", condition="change", action="PAUSE_ON", desc="Pause/Map" },
+        { address=0X0033, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Moving (05 moving | 06 stopped)" },
+        { address=0X007C, type="u8", condition="change", action="CREDITS_SCREEN", desc="Ending Scenes (Credits at 0x33)" },
+        { address=0X00B9, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Item Percentage" },
+        { address=0X6881, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0074, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level (Lower 4)" },
+        { address=0X0074, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Pirate Ship/Bone Yard" },
+        { address=0X0074, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Desolate Surface" },
+        { address=0X0074, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Chozo Jungle" },
+        { address=0X0074, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Metroid Hive" },
+        { address=0X0074, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Federation Science Ship" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0099, type="u8", condition="change", action="LOSE_LIFE", desc="Mother Brain no. of hits. (dies at 0x20)" },
+      },
+      health = {
+        { address=0X0106, type="u16le", condition="increase", action="HEAL", desc="Health (16-bit) increased" },
+        { address=0X0106, type="u16le", condition="decrease", action="HIT", desc="Health (16-bit) decreased" },
+        { address=0X6877, type="u8", condition="increase", action="HEAL", desc="Energy Tanks increased" },
+        { address=0X6877, type="u8", condition="decrease", action="HIT", desc="Energy Tanks decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X03DF, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Fired Weapon" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0406, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+        { address=0X040B, type="u8", condition="change", action="BOSS_HIT", desc="Chozo Boss Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X69B2, type="u8", condition="change", action="INVINCIBILITY_START", desc="'NARPASSWORD' enabled (invincible, inifinite missiles)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X03D0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Memory" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X05C7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Block Timer" },
+        { address=0X687E, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer in seconds (16-bit)" },
+        { address=0X687F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer minutes" },
+      },
+    },
+  },
+}

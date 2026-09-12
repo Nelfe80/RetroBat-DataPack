@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mickey's Safari in Letterland",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Education, Platform"
+  },
+
+  rom = {
+    name = "mickeys-safari-in-letterland",
+    hashes = {
+      { hash = "0afb69ecca89adbb0e648d0df7eba4f7", label = "Mickey's Safari in Letterland (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0203, type="u8", condition="change", action="DEMO_MODE", desc="demo mode (00 : playing, 01 : demo)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0218, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+        { address=0X021B, type="u8", condition="change", action="LEVEL_CLEAR", desc="clear condition;" },
+      },
+      stage = {
+        { address=0X0219, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="stage id" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0066, type="u8", condition="change", action="HIT", desc="mickey condition (sliding, hurt, falling, etc)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X029B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="letter block amount (00-03)" },
+      },
+    },
+  },
+}

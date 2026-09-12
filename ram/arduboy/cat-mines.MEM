@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cat Mines",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "cat-mines",
+    hashes = {
+      { hash = "5c49a9f8bd8eb721d1195399e160d7d4", label = "Cat Mines (World).hex" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0588, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Game Timer in seconds" },
+        { address=0X0590, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time elapsed since game was launched in milliseconds" },
+      },
+    },
+  },
+}

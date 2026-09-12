@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sauna Mario World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sauna-mario-world",
+    hashes = {
+      { hash = "4d1ade06c28978d50dce3664409e1294", label = "SMW - Sauna Mario World (v1.5) (pnaha).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

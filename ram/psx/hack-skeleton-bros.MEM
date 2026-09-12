@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Skeleton Bros",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-skeleton-bros",
+    hashes = {
+      { hash = "7c5fde505da8ae5ac58ce8442f5ef793", label = "PSXFunkin' - Skeleton Bros (UNSTOP4BLE, IgorSou30000)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1C9470, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1C9470, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1C9471, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1C9471, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1C97D8, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Rip" },
+      },
+      health = {
+        { address=0X1C9718, type="u16le", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X1C9718, type="u16le", condition="decrease", action="HIT", desc="Current Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1C9720, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

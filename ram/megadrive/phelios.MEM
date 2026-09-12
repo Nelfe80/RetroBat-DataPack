@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Phelios",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "phelios",
+    hashes = {
+      { hash = "ab720f3ec45423c794403e9830a00032", label = "Phelios (USA).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF46A, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen," },
+        { address=0XF46A, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Ch. 1 [Also used in Demo Mode]," },
+        { address=0XF46A, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Ch. 2 [2nd part] [Also used in Demo Mode]," },
+        { address=0XF46A, type="u8", condition="eq", value=0X06, action="DEMO_MODE", desc="Ch. 3 [Also used in Demo Mode]," },
+        { address=0XF46E, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo Mode," },
+        { address=0XF46E, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Can control Apollo." },
+      },
+    },
+  },
+}

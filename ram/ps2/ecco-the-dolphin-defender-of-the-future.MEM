@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ecco the Dolphin: Defender of the Future",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "ecco-the-dolphin-defender-of-the-future",
+    hashes = {
+      { hash = "3c6834c5ea3a0c1dbabe2897cedfeae3", label = "Ecco the Dolphin - Defender of the Future (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3F9A58, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="up n down - 0a : also title" },
+        { address=0X4861B8, type="u8", condition="change", action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3F9A26, type="u16le", condition="change", action="NEW_LEVEL", desc="Level ?" },
+        { address=0X3FBD9C, type="u8", condition="change", action="NEW_LEVEL", desc="01 : little cutscene playing before the level" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="prologue" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="aquamarine bay" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="perils of the coral reef" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="trial without error" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="4ways of mystery" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="passage from genesis" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="pathways from nowhere" },
+        { address=0X486150, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="up n down" },
+        { address=0X587604, type="u24le", condition="change", action="NEW_LEVEL", desc="other possible level id ?" },
+        { address=0X777C44, type="u16le", condition="change", action="NEW_LEVEL", desc="(16b) inside level, value : ae74" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X76AE5A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="remaining time on power of air (76 max, f8 when depleted)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,95 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Guilty Gear XX Slash",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "guilty-gear-xx-slash",
+    hashes = {
+      { hash = "0ea411de0cbf2bc11a1b781860bd1d0a", label = "ggxxsla.zip" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1844D0, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="'Continue?'" },
+        { address=0X18450C, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="'Continue?'" },
+        { address=0X18773A, type="u8", condition="eq", value=0X0A, action="CREDITS_SCREEN", desc="Credits" },
+      },
+      events = {
+        { address=0X18D78E, type="u8", condition="change", action="COMBO_HIT", desc="P2 Last Combo Count" },
+        { address=0X18D87A, type="u8", condition="change", action="COMBO_HIT", desc="P1 Last Combo Count" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X184F78, type="u16le", condition="change", action="NEW_LEVEL", desc="Round Timer" },
+        { address=0X184F78, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="0 Seconds Remaining!" },
+        { address=0X184F78, type="u16le", condition="eq", value=0X1734, action="NEW_LEVEL", desc="99 Seconds Remaining!" },
+        { address=0X184F98, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 Round Wins [8-bit)" },
+        { address=0X184F98, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="None won" },
+        { address=0X184F99, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 Round Wins [8-bit)" },
+        { address=0X184F99, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="None won" },
+        { address=0X189050, type="u8", condition="change", action="NEW_LEVEL", desc="CPU Rounds In-Game" },
+        { address=0X189050, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Best of One" },
+        { address=0X189050, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Best of Three" },
+        { address=0X189050, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Best of Five" },
+        { address=0X189050, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Best of Seven" },
+      },
+      stage = {
+        { address=0X18773A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="P1 Arcade Stage Count" },
+        { address=0X18773A, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="VS. I-No!" },
+        { address=0X18773A, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="VS. Order Sol" },
+        { address=0X18773B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="P2 Arcade Stage Count" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X18D700, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Dead" },
+        { address=0X18D7EC, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Dead" },
+        { address=0X18F65C, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="Eddie" },
+        { address=0X1688034, type="u24le", condition="eq", value=0X6A, action="LOSE_LIFE", desc="Amorphous (Eddie)" },
+        { address=0X1688034, type="u24le", condition="eq", value=0X9D, action="LOSE_LIFE", desc="Megalith Head (Eddie)" },
+        { address=0X1688034, type="u24le", condition="eq", value=0XB5, action="LOSE_LIFE", desc="Shadow Summon (Eddie)" },
+        { address=0X1688034, type="u24le", condition="eq", value=0XBF, action="LOSE_LIFE", desc="Eddie" },
+      },
+      health = {
+        { address=0X1876C1, type="u8", condition="eq", value=0X00, action="HIT", desc="1 (Min)" },
+        { address=0X1876C1, type="u8", condition="eq", value=0X01, action="HIT", desc="2" },
+        { address=0X1876C1, type="u8", condition="eq", value=0X02, action="HIT", desc="3" },
+        { address=0X1876C1, type="u8", condition="eq", value=0X03, action="HIT", desc="4 (Max)" },
+        { address=0X18D700, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Player 1 Health" },
+        { address=0X18D700, type="u16le", condition="eq", value=0X01A4, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X18D7EC, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Player 2 Health" },
+        { address=0X18D7EC, type="u16le", condition="eq", value=0X01A4, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X220025, type="u8", condition="eq", value=0X60, action="HIT", desc="Damage Setting 1" },
+        { address=0X220025, type="u8", condition="eq", value=0X62, action="HIT", desc="Damage Setting 2 (Default)" },
+        { address=0X220025, type="u8", condition="eq", value=0X64, action="HIT", desc="Damage Setting 3" },
+        { address=0X220025, type="u8", condition="eq", value=0X66, action="HIT", desc="Damage Setting 4 (Max)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1688034, type="u24le", condition="eq", value=0XA6, action="TREASURE", desc="Emerald Rain (Millia)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X187718, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="hex", desc="Arcade Score Player 1" },
+        { address=0X18771C, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="hex", desc="Arcade Score Player 2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1876C2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Timer Speed In-Game" },
+        { address=0X220024, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Game Assignments (Difficulty, CPU Round, VS Round, and Time)" },
+        { address=0X1688034, type="u24le", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P1 Animation ID" },
+      },
+    },
+  },
+}

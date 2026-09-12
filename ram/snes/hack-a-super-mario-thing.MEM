@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ A Super Mario Thing",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-a-super-mario-thing",
+    hashes = {
+      { hash = "70335439c67ffa17b7257c757fc2062d", label = "SMW - Super Mario Thing, A (v1.2) (Talkhaus).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

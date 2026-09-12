@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Wordyl",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-wordyl",
+    hashes = {
+      { hash = "702bee919d1c9a67069213d6d286af51", label = "Wordyl (World) (v1.0.3) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDA27, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Ingame" },
+        { address=0XDA27, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Crash Advance IV",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-crash-advance-iv",
+    hashes = {
+      { hash = "b8dbbb2938a8dbf2b434ba4963e2b35e", label = "Crash Advance IV (USA) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00AC, type="u8", condition="bit_true", mask=0X10, action="PAUSE_ON", desc="Gameplay Active" },
+        { address=0X601C, type="u16le", condition="eq", value=0X0B, action="PAUSE_ON", desc="Pause" },
+        { address=0X6020, type="u16le", condition="change", action="CONTINUE_SCREEN", desc="[16 Bit] Continue Screen Progress" },
+        { address=0X7EFC, type="u16le", condition="eq", value=0X154, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X7EFC, type="u16le", condition="eq", value=0X2D4, action="CONTINUE_SCREEN", desc="Continue Screen" },
+        { address=0X7EFC, type="u16le", condition="eq", value=0X2F0, action="GAME_OVER", desc="Game Over Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0092, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8 Bit] Level Complete Check" },
+        { address=0X7EA0, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit] Frames before Loading Level" },
+        { address=0X7EB0, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit] Frames before Loading Level" },
+      },
+      stage = {
+        { address=0X7EFC, type="u16le", condition="eq", value=0X15C, action="PROGRESSION_STAGE", desc="Stage Name Display" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0094, type="u8", condition="change", action="LOSE_LIFE", desc="[8 Bit] Death Check" },
+        { address=0X601C, type="u16le", condition="eq", value=0X02, action="GAIN_LIFE", desc="1UP" },
+        { address=0X62A0, type="u16le", condition="eq", value=0X1A, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X601C, type="u16le", condition="eq", value=0X03, action="HEALTH_STATE", no_log=true, desc="Small Health" },
+        { address=0X601C, type="u16le", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="Big Health" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X510C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X62C0, type="u16le", condition="change", action="INVINCIBILITY_START", desc="[16bit] Invincibility Frames" },
+      },
+      player = {
+        { address=0X62A0, type="u16le", condition="eq", value=0X0C, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X601C, type="u16le", condition="eq", value=0X3B, action="OBJECT_INTERACTION", desc="Falling Object?" },
+      },
+    },
+  },
+}

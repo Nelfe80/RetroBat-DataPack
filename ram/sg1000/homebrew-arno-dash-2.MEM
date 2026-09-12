@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Arno Dash 2",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-arno-dash-2",
+    hashes = {
+      { hash = "579bd664e64f02ec1bf5085bffc0d7e0", label = "Arno Dash 2 (World) (v1.03) (Aftermarket) (under4mhz).sg" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X031B, type="u8", condition="increase", action="GAIN_LIFE", desc="[Upper-4] Lives Remaining increased" },
+        { address=0X031B, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Upper-4] Lives Remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X000C, type="u8", condition="eq", value=0X14, action="SCORE_STATE", desc="Score Gem" },
+        { address=0X0314, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0316, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Time Remaining" },
+      },
+    },
+  },
+}

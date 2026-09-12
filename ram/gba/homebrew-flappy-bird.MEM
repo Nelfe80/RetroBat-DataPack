@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Flappy Bird",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-flappy-bird",
+    hashes = {
+      { hash = "38f78ab97bbbb9bd210d8c96497f788a", label = "Flappy Bird (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

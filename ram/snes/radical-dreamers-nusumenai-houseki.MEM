@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Radical Dreamers: Nusumenai Houseki",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "radical-dreamers-nusumenai-houseki",
+    hashes = {
+      { hash = "55c5baaedffcf4fd022361c531c72178", label = "Radical Dreamers - Nusume Nai Houseki (Japan) (2-24) (En) (v1.4) (Demiforce).sfc" },
+      { hash = "1489ae44423b19793dd6baf779b4884a", label = "Radical Dreamers - Nusume Nai Houseki (Japan) (2-24) (En) (v1.4) (Demiforce) (MSU-1) (Cubear).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0940, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="The Shadow Realm and the Goddess of Death" },
+      },
+      health = {
+        { address=0X0901, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Serge's Health" },
+        { address=0X0901, type="u8", condition="eq", value=0X78, action="HEALTH_STATE", no_log=true, desc="Max Health" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0940, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="The Enigmatic Gigaweapon: Paradise X" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0979, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Played - Seconds" },
+        { address=0X097A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time Played - Minutes" },
+        { address=0X0996, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Text/Scene ID" },
+      },
+    },
+  },
+}

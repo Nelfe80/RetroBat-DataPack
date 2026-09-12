@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "DJ Boy",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "dj-boy",
+    hashes = {
+      { hash = "6aef0333e2b1a495c867577ccf037493", label = "DJ Boy (USA).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XF010, type="u8", condition="change", action="NEW_LEVEL", desc="ROUND" },
+      },
+      stage = {
+        { address=0XA301, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE PART" },
+        { address=0XE112, type="u8", condition="change", action="PROGRESSION_STAGE", desc="USE WITH STAGE" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XA188, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0XA188, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XE1A6, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+  },
+}

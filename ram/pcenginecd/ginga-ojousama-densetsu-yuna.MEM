@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ginga Ojousama Densetsu Yuna",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ginga-ojousama-densetsu-yuna",
+    hashes = {
+      { hash = "12888594bfafea9afa707ce6c2eb75db", label = "Ginga Ojousama Densetsu Yuna (Japan) (FABT, FACT)" },
+      { hash = "87c94b395f18fa2bc467c8c6d1c9688d", label = "Ginga Ojousama Densetsu Yuna (Japan) (En) (v1.3) (Supper)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000A, type="u8", condition="eq", value=0XFF, action="CREDITS_SCREEN", desc="Credits and cutscenes" },
+        { address=0X0019, type="u16le", condition="eq", value=0X020C, action="CREDITS_SCREEN", desc="Transition scene" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1413, action="CREDITS_SCREEN", desc="Yuna's regains dignity" },
+        { address=0X0019, type="u16le", condition="eq", value=0X141C, action="CREDITS_SCREEN", desc="Yuna's success at defending an attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1605, action="CREDITS_SCREEN", desc="Normal enemy attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1608, action="CREDITS_SCREEN", desc="'Kiss my foot' special attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1610, action="CREDITS_SCREEN", desc="'Kneel before my beauty' special attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1616, action="CREDITS_SCREEN", desc="'Omae' special attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0X1617, action="CREDITS_SCREEN", desc="'Hehe' special attack" },
+        { address=0X0019, type="u16le", condition="eq", value=0XF13, action="CREDITS_SCREEN", desc="Translation last ending scene" },
+        { address=0X0019, type="u16le", condition="eq", value=0XF15, action="CREDITS_SCREEN", desc="Japanese last ending scene" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1800, type="u16le", condition="increase", action="HEAL", desc="Yuna's max HP increased" },
+        { address=0X1800, type="u16le", condition="decrease", action="HIT", desc="Yuna's max HP decreased" },
+        { address=0X1802, type="u16le", condition="increase", action="HEAL", desc="Yuna's current HP increased" },
+        { address=0X1802, type="u16le", condition="decrease", action="HIT", desc="Yuna's current HP decreased" },
+        { address=0X1A00, type="u32le", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy max HP" },
+        { address=0X1A00, type="u32le", condition="eq", value=0X1F4, action="HEALTH_STATE", no_log=true, desc="Queen Max HP" },
+        { address=0X1A00, type="u32le", condition="eq", value=0X28, action="HEALTH_STATE", no_log=true, desc="Princess Max HP" },
+        { address=0X1A00, type="u32le", condition="eq", value=0X32, action="HEALTH_STATE", no_log=true, desc="Mai Max HP" },
+        { address=0X1A00, type="u32le", condition="eq", value=0X78, action="HEALTH_STATE", no_log=true, desc="Lia Max HP" },
+        { address=0X1A02, type="u32le", condition="increase", action="HEAL", desc="Enemy current HP increased" },
+        { address=0X1A02, type="u32le", condition="decrease", action="HIT", desc="Enemy current HP decreased" },
+      },
+    },
+  },
+}

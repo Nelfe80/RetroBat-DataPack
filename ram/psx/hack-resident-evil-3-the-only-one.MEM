@@ -1,0 +1,99 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Resident Evil 3: The Only One",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-resident-evil-3-the-only-one",
+    hashes = {
+      { hash = "065d972a245399a7e4e460c6529841b5", label = "Resident Evil 3 - The Only One (v1.1) (BiohazardEsp)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDCDB4, type="u8", condition="eq", value=0X0C, action="TITLE_SCREEN", desc="First Cutscene - before the title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD2025, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Flame Rounds - 5th Nemesis Case Drop" },
+        { address=0XD2025, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="M.T. Rounds - 4th Nemesis Case Drop" },
+        { address=0XD2028, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="M. T. Rounds - Cog Room" },
+        { address=0XD202D, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Grenades Rounds - Secret Communications Room" },
+        { address=0XD202D, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Grenade Rounds - Spider Corridor" },
+        { address=0XD202F, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="M.T. Rounds - Clock Room" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD202E, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Gun Powder B - Resting Room - Dead Factory 2F" },
+        { address=0XD202E, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Gun Powder B - Resting Room - Dead Factory 2F" },
+        { address=0XD2032, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="F Aid Spray - Resting Room - Dead Catory 2F" },
+        { address=0XD2033, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Green Herb - Entry Corridor - Dead Factory 2F" },
+        { address=0XD2033, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Green Herb - Entry Corridor - Dead Factory 2F" },
+        { address=0XD2044, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Dead Factory Map" },
+        { address=0XD20CC, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Unlocked Door - Graveyard - Park" },
+        { address=0XD20CC, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Unlocked Door - Business Main Street" },
+        { address=0XD20CC, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Unlocked Door - Sales Office" },
+        { address=0XD20CC, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Unlocked Door - Balcony" },
+        { address=0XD20CC, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Unlocked Door - Spider Corridor" },
+      },
+      health = {
+        { address=0XCCC90, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0XCCC90, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XD200B, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Random Weapon - Stars Office" },
+        { address=0XD202D, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Weapon - Room 402" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD1F32, type="u8", condition="bit_true", mask=0X40, action="AMMO_STATE", no_log=true, desc="Infinite Ammo for all" },
+        { address=0XD1F33, type="u8", condition="bit_true", mask=0X01, action="AMMO_STATE", no_log=true, desc="Infinite Ammo Gatling Gun" },
+        { address=0XD1F33, type="u8", condition="bit_true", mask=0X02, action="AMMO_STATE", no_log=true, desc="Infinite Ammo Rocket Launcher" },
+        { address=0XD200A, type="u8", condition="bit_true", mask=0X04, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Dark Room" },
+        { address=0XD200A, type="u8", condition="bit_true", mask=0X10, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Black Jack's Bar" },
+        { address=0XD200E, type="u8", condition="bit_true", mask=0X08, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Garage Office" },
+        { address=0XD200E, type="u8", condition="bit_true", mask=0X10, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Restaurant" },
+        { address=0XD2012, type="u8", condition="bit_true", mask=0X80, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Evidence Room" },
+        { address=0XD2014, type="u8", condition="bit_true", mask=0X04, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Sub Station Entrance" },
+        { address=0XD2014, type="u8", condition="bit_true", mask=0X40, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Maintenance Area" },
+        { address=0XD2016, type="u8", condition="bit_true", mask=0X04, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Restaurant" },
+        { address=0XD2016, type="u8", condition="bit_true", mask=0X40, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - City Hall Gate" },
+        { address=0XD2032, type="u8", condition="bit_true", mask=0X10, action="AMMO_STATE", no_log=true, desc="Handgun Ammo - Fountain - Park" },
+        { address=0XD25EC, type="u32le", condition="increase", action="COIN_GAIN", desc="Total Money - The Mercenaries 32 bits increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XD2025, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="? Broken PNG - 8th Nemesis Case Drop - Same nemy as 5th - Infinite Respawn" },
+        { address=0XD202A, type="u8", condition="bit_true", mask=0X10, action="OBJECT_DESTROYED", desc="Water Sample - Monitoring Room" },
+        { address=0XD202B, type="u8", condition="bit_true", mask=0X80, action="OBJECT_DESTROYED", desc="File - Monitoring Room" },
+        { address=0XD2035, type="u8", condition="bit_true", mask=0X80, action="OBJECT_DESTROYED", desc="Ink Ribbon - Monitoring Room" },
+        { address=0XD20CE, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Unlocked Door - Park" },
+        { address=0XD20CE, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="Unlocked Door - Sales Patio" },
+        { address=0XD20CE, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Unlocked Door - Park Alleyway" },
+        { address=0XD20CF, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="Unlocked Door - Residential Street" },
+        { address=0XD20CF, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="Unlocked Door - Book Shop Street" },
+        { address=0XD20D3, type="u8", condition="change", action="DOOR_OPENED", desc="Bit7 : Unlocked Door - Forest Path - Park" },
+        { address=0XD212E, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="Door with 4 Locks" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD1F98, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Clock - Countdown 16 bits" },
+        { address=0XD2260, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Times Created Ammo - Handgun" },
+        { address=0XDCDB4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Last Cutscene ID" },
+      },
+    },
+  },
+}

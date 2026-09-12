@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Final Combat",
+    system = "supervision",
+    system_name = "Watara Supervision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "final-combat",
+    hashes = {
+      { hash = "9f3af1177933d8ba8a9f5f0514edaebc", label = "Final Combat (USA, Europe).sv" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0054, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X005D, type="u8", condition="increase", action="HEAL", desc="Command Post Health increased" },
+        { address=0X005D, type="u8", condition="decrease", action="HIT", desc="Command Post Health decreased" },
+        { address=0X07E1, type="u8", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X07E1, type="u8", condition="decrease", action="HIT", desc="Current Health decreased" },
+        { address=0X07E2, type="u8", condition="increase", action="HEAL", desc="Old Health increased" },
+        { address=0X07E2, type="u8", condition="decrease", action="HIT", desc="Old Health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X07DE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time left" },
+        { address=0X07DF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time left (old)" },
+      },
+    },
+  },
+}

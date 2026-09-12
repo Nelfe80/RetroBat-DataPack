@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Block Jump",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-block-jump",
+    hashes = {
+      { hash = "344c07ad6b714e91b25c908a5e3c61dc", label = "Super Block Jump (World) (v1.13a) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X14CC, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Splash & Title Screens" },
+        { address=0X14F4, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="In-Game" },
+        { address=0X14F4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X14CC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X14CC, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X14CC, type="u8", condition="eq", value=0X92, action="PROGRESSION_STAGE", desc="Last Stage" },
+        { address=0X2840, type="u8", condition="change", action="RANK_STATE", desc="Player Position (Y-Axis)" },
+        { address=0X2842, type="u8", condition="change", action="RANK_STATE", desc="Player Position (X-Axis)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X14E4, type="u32le", condition="change", action="LOSE_LIFE", desc="Deaths" },
+        { address=0X14F0, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="No Deaths" },
+        { address=0X14F0, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Killed by Creeper" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X14B7, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Not Earned" },
+        { address=0X14B7, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Earned" },
+      },
+    },
+  },
+}

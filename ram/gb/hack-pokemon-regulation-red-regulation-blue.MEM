@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Regulation Red | Regulation Blue",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Role-playing (RPG)"
+  },
+
+  rom = {
+    name = "hack-pokemon-regulation-red-regulation-blue",
+    hashes = {
+      { hash = "7c10e851328433609444bc3e571b6748", label = "Pokemon - Red Version (USA, Europe) (SGB Enhanced) (Regulation) (v8.0) (Rubicate).gb" },
+      { hash = "fb65ff217fb8245f194d7e984772d800", label = "Pokemon - Blue Version (USA, Europe) (SGB Enhanced) (Regulation) (v8.0) (Rubicate).gb" },
+      { hash = "67338fd0327587195b91814439ed914c", label = "Pokemon - Blue Version (USA, Europe) (SGB Enhanced) (Regulation) (v9.0) (Rubicate).gb" },
+      { hash = "153c9a6fc72bc55f86a7d2c55bd7e50c", label = "Pokemon - Red Version (USA, Europe) (SGB Enhanced) (Regulation) (v9.0) (Rubicate).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XD720, type="u8", condition="change", action="HIT", desc="[3 bytes] Total damage taken" },
+      },
+    },
+  },
+}

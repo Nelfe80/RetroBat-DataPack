@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Lights!",
+    system = "ngp",
+    system_name = "Neo Geo Pocket",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-lights",
+    hashes = {
+      { hash = "1715311acd6bf2717a3b1bf70321d195", label = "Lights! (World) (v1.1) (Aftermarket) (Unl).ngc" },
+    }
+  },
+
+  events = {
+  },
+}

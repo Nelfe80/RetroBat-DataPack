@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dream TV",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "dream-tv",
+    hashes = {
+      { hash = "a33cd61e05671df8529fbfa70da007d1", label = "Dream T.V. (USA).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X023E, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Lives Counter increased" },
+        { address=0X023E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Lives Counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X060D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score - Tens" },
+        { address=0X060E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score - Thousands,Hundreds" },
+      },
+    },
+  },
+}

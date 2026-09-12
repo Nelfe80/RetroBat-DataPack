@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ridge Racer 2",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ridge-racer-2",
+    hashes = {
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA523, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X9FBD, type="u8", condition="change", action="RANK_STATE", desc="Current Position" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X08FB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Track" },
+        { address=0X6004, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8-Bit BCD] Total Time - Minutes" },
+        { address=0X6005, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8-Bit BCD] Total Time - Seconds" },
+        { address=0X6006, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[16-Bit BE BCD] Total Time - Miliseconds" },
+        { address=0X9864, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8-Bit BCD] Total Time - Minutes (These trigger later)" },
+        { address=0X9865, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8-Bit BCD] Total Time - Seconds" },
+        { address=0X9866, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[16-Bit BE BCD] Total Time - Miliseconds" },
+        { address=0X9FC3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8-Bit BCD] Sub-Timer" },
+        { address=0X9FC5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8-Bit BCD] Timer" },
+      },
+    },
+  },
+}

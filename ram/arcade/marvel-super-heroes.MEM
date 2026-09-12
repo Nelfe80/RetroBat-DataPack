@@ -1,0 +1,102 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Marvel Super Heroes",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "marvel-super-heroes",
+    hashes = {
+      { hash = "1c90c082845e4b6a52ef8b5f2a0050a0", label = "mshh.7z <Marvel Super Heroes (951117 Hispanic)>" },
+      { hash = "86a7de326868fc46d5bb46f724a17792", label = "msh.7z <Marvel Super Heroes (951024 Euro)>" },
+      { hash = "b5e869fdadfee117203293faa33eab00", label = "msha.7z <Marvel Super Heroes (951024 Asia)>" },
+      { hash = "cae38c7d868c8630293449f74f711a4c", label = "mshu.7z <Marvel Super Heroes (951024 USA)>" },
+      { hash = "d674fa80556700a504bf94674a8461b6", label = "mshj.7z <Marvel Super Heroes (951117 Japan)>" },
+      { hash = "ed65c4fe38d520f0033858a2847a6060", label = "mshb.7z <Marvel Super Heroes (951117 Brazil)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X4112, type="u8", condition="eq", value=0X00, action="COMBO_HIT", desc="Normal (must be checked if combos > 0)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X4199, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Infinity Gauge Level [8 bits]" },
+        { address=0X41D9, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Consecutive Round Wins [8 bits]" },
+        { address=0X41DA, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds Passed (consecutive)? [8 bits]" },
+        { address=0X4599, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Infinity Gauge Level [8 bits]" },
+        { address=0X45D9, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Consecutive Round Wins [8 bits]" },
+        { address=0X45DA, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Rounds Passed (consecutive)? [8 bits]" },
+        { address=0X4802, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Rounds Won (Match) [8 bits]" },
+        { address=0X4803, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds Won (Match) [8 bits]" },
+        { address=0X480E, type="u8", condition="change", action="NEW_LEVEL", desc="Match - Round State [8 bits]" },
+        { address=0X480E, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Fighting" },
+        { address=0X480E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Round End" },
+        { address=0X480E, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Round Start" },
+        { address=0X480E, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Round Comemoration" },
+        { address=0XFB47, type="u8", condition="change", action="NEW_LEVEL", desc="Settings - Max Rounds [8 bits]" },
+        { address=0XFB47, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="3 rounds (default)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X4190, type="u8", condition="increase", action="HEAL", desc="P1 - HP [8 bits] increased" },
+        { address=0X4190, type="u8", condition="decrease", action="HIT", desc="P1 - HP [8 bits] decreased" },
+        { address=0X4198, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="HK, HP" },
+        { address=0X42F0, type="u16le", condition="change", action="HIT", desc="P1 [Match: Damage Dealt] - Total Damage [16 bits]" },
+        { address=0X42F2, type="u16le", condition="change", action="HIT", desc="P1 [Match: Damage Dealt] - Normal Attacks[16 bits]" },
+        { address=0X42F4, type="u16le", condition="change", action="HIT", desc="P1 [Match: Damage Dealt] - Special Moves [16 bits]" },
+        { address=0X42F6, type="u16le", condition="change", action="HIT", desc="P1 [Match: Damage Dealt] - Infinity [16 bits]" },
+        { address=0X4590, type="u8", condition="increase", action="HEAL", desc="P2 - HP [8 bits] increased" },
+        { address=0X4590, type="u8", condition="decrease", action="HIT", desc="P2 - HP [8 bits] decreased" },
+        { address=0X4598, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="HK, HP" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X4184, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X4050, type="u8", condition="eq", value=0X00, action="CHARACTER_SELECTED", player=1, desc="Spider-Man" },
+        { address=0X4050, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=1, desc="Captain America" },
+        { address=0X4050, type="u8", condition="eq", value=0X04, action="CHARACTER_SELECTED", player=1, desc="Hulk" },
+        { address=0X4050, type="u8", condition="eq", value=0X06, action="CHARACTER_SELECTED", player=1, desc="Iron Man" },
+        { address=0X4050, type="u8", condition="eq", value=0X08, action="CHARACTER_SELECTED", player=1, desc="Wolverine" },
+        { address=0X4050, type="u8", condition="eq", value=0X0A, action="CHARACTER_SELECTED", player=1, desc="Psylocke" },
+        { address=0X4050, type="u8", condition="eq", value=0X0C, action="CHARACTER_SELECTED", player=1, desc="Blackheart" },
+        { address=0X4050, type="u8", condition="eq", value=0X0E, action="CHARACTER_SELECTED", player=1, desc="Shuma Gorath" },
+        { address=0X4050, type="u8", condition="eq", value=0X10, action="CHARACTER_SELECTED", player=1, desc="Juggernaut" },
+        { address=0X4050, type="u8", condition="eq", value=0X12, action="CHARACTER_SELECTED", player=1, desc="Magneto" },
+        { address=0X4050, type="u8", condition="eq", value=0X14, action="CHARACTER_SELECTED", player=1, desc="Dr. Doom" },
+        { address=0X4050, type="u8", condition="eq", value=0X16, action="CHARACTER_SELECTED", player=1, desc="Thanos" },
+        { address=0X4050, type="u8", condition="eq", value=0X18, action="CHARACTER_SELECTED", player=1, desc="Anita" },
+        { address=0X4450, type="u8", condition="eq", value=0X00, action="CHARACTER_SELECTED", player=2, desc="Spider Man" },
+        { address=0X4450, type="u8", condition="eq", value=0X02, action="CHARACTER_SELECTED", player=2, desc="Captain America" },
+        { address=0X4450, type="u8", condition="eq", value=0X04, action="CHARACTER_SELECTED", player=2, desc="Hulk" },
+        { address=0X4450, type="u8", condition="eq", value=0X06, action="CHARACTER_SELECTED", player=2, desc="Iron Man" },
+        { address=0X4450, type="u8", condition="eq", value=0X08, action="CHARACTER_SELECTED", player=2, desc="Wolverine" },
+        { address=0X4450, type="u8", condition="eq", value=0X0A, action="CHARACTER_SELECTED", player=2, desc="Psylocke" },
+        { address=0X4450, type="u8", condition="eq", value=0X0C, action="CHARACTER_SELECTED", player=2, desc="Blackheart" },
+        { address=0X4450, type="u8", condition="eq", value=0X0E, action="CHARACTER_SELECTED", player=2, desc="Shuma Gorath" },
+        { address=0X4450, type="u8", condition="eq", value=0X10, action="CHARACTER_SELECTED", player=2, desc="Juggernaut" },
+        { address=0X4450, type="u8", condition="eq", value=0X12, action="CHARACTER_SELECTED", player=2, desc="Magneto" },
+        { address=0X4450, type="u8", condition="eq", value=0X16, action="CHARACTER_SELECTED", player=2, desc="Thanos" },
+        { address=0X4450, type="u8", condition="eq", value=0X18, action="CHARACTER_SELECTED", player=2, desc="Anita" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X4151, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P1 - Infinity Gem Remaining Time [8 bits]" },
+        { address=0X41B6, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P1 - Infinity Gem Equipped (Slot 0 X 0 0 0 0) [8 bits]" },
+      },
+    },
+  },
+}

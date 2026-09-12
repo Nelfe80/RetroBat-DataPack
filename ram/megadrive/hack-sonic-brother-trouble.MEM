@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic: Brother Trouble",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-brother-trouble",
+    hashes = {
+      { hash = "8e97a03cfb31917b7c2120405440f820", label = "Sonic the Hedgehog - Brother Trouble (v1.5) (MarkeyJester).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF602, type="u8", condition="change", action="PAUSE_ON", desc="This value corresponds to whether the game is in a paused state or not, with 0 being false and 8" },
+        { address=0XF62D, type="u8", condition="change", action="TITLE_SCREEN", desc="This value corresponds to the screen where the player is, such as title screen, or save file sel" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XF7CD, type="u8", condition="change", action="LEVEL_CLEAR", desc="This value corresponds to when the player reaches the goal and the results screen is displayed" },
+        { address=0XF7D2, type="u8", condition="change", action="LEVEL_CLEAR", desc="This value corresponds to how much bonus the player will be given depending on how fast the leve" },
+        { address=0XFE10, type="u8", condition="change", action="NEW_LEVEL", desc="This value corresponds to the level where the player is right now, each phase has a different va" },
+        { address=0XFE11, type="u8", condition="change", action="NEW_LEVEL", desc="Zone hub ID. Usually is 0 because normal gameplay only occurs in Emerald Island Zone due to beta" },
+      },
+      zone = {
+        { address=0X0000, type="u8", condition="change", action="PROGRESSION_ZONE", desc="(8 bit) - 00 ingame / 02 - on the world map" },
+      },
+      stage = {
+        { address=0XFFE0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Checks if the player is accessing a stage via Level Select or not. Values: 1 (True) or 0 (False)" },
+        { address=0XFFF6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character selection between Sonic (0), Maniac (1) or Both (2). It can be set indirectly if playe" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFE20, type="u8", condition="increase", action="COIN_GAIN", desc="This value corresponds to the number of rings that the player owns, although the value will not" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XFE2C, type="u8", condition="change", action="INVINCIBILITY_START", desc="This value corresponds to the state of the player regarding the invincibility state, 0 false or" },
+        { address=0XFE2D, type="u8", condition="change", action="SHIELD_GAIN", desc="This value corresponds to the player's status regarding whether he has a shield or not, with 0 b" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="(8 bit) - Number of minutes on the timer inside level" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(8 bit) - Number of seconds on the timer inside level (after every minute goes to 00 again)" },
+      },
+    },
+  },
+}

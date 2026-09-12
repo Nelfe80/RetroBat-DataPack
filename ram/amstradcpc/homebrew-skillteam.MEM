@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SkillTeam",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-skillteam",
+    hashes = {
+      { hash = "d694fef4164d95ff3a373b4a97d3336c", label = "SkillTeam (2025) (v1.0) (David Programa).dsk" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9756, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level ID" },
+        { address=0X9757, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Levels Passed" },
+        { address=0X9758, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Skipped Level (1)" },
+        { address=0X9759, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Skipped Level (2)" },
+        { address=0X975A, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Skipped Level (3)" },
+      },
+      stage = {
+        { address=0X9777, type="u8", condition="change", action="RANK_STATE", desc="[4 Bit] Current Position" },
+      },
+    },
+  },
+}

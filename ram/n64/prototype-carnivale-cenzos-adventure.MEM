@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Carnivale: Cenzo's Adventure",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-carnivale-cenzos-adventure",
+    hashes = {
+      { hash = "5ec878062e04855176526444fcaca602", label = "Carnivale - Cenzo's Adventure (USA) (Proto).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XA2E78, type="u32be", condition="change", action="AMMO_STATE", no_log=true, desc="Blowgun Ammo [32bit]" },
+        { address=0XA2E7C, type="u32be", condition="increase", action="COIN_GAIN", desc="Silver Coins [32bit] increased" },
+        { address=0XA2E80, type="u32be", condition="increase", action="COIN_GAIN", desc="Gold Coins [32bit] increased" },
+      },
+    },
+  },
+}

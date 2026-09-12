@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Rumble: Weekend Edition",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-rumble-weekend-edition",
+    hashes = {
+      { hash = "527679a6745f4151d750d5740de3d6a5", label = "Pokemon Rumble - Weekend Edition (v1.5) (WindyPrairie).wad" },
+    }
+  },
+
+  events = {
+  },
+}

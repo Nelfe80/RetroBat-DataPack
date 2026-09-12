@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pokémon Stadium",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "pokemon-stadium",
+    hashes = {
+      { hash = "ed1378bc12115f71209a77844965ba50", label = "Pokemon Stadium (USA).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0000, type="u32be", condition="eq", value=0X8D, action="LIVES_STATE", desc="Leech Life" },
+      },
+      health = {
+        { address=0X0000, type="u32be", condition="eq", value=0X74, action="HEALTH_STATE", no_log=true, desc="Focus Energy" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0000, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Move List" },
+      },
+    },
+  },
+}

@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Moo World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-moo-world",
+    hashes = {
+      { hash = "6cb5d91ad179815cf736a90e4fc14cd3", label = "SMW - Super Moo World (Jenboo).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XDDD6, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XE4D5, action="TITLE_SCREEN", desc="Welcome titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="fade to the overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="level loaded, normal play mode, playing the level" },
+        { address=0X010B, type="u16le", condition="change", action="NEW_LEVEL", desc="(16-bit) Current Level / Room ID" },
+        { address=0X1493, type="u8", condition="change", action="LEVEL_CLEAR", desc="01 : Cleared Exit, good for no checkpoint cheevos" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="(8-bit) Number of Levels Cleared" },
+        { address=0X1FEE, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="1 (got)" },
+        { address=0X1FF5, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="1 (got)" },
+        { address=0X1FF5, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="1 (got)" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8-Bit) Stage Indicator" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="Player's animation trigger: 09:Death, 01:shrink, d:enter a door" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="dead transition, retry" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario Powerup States:" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Current Number of Dragon Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION_CHECKPOINT", desc="No Checkpoint" },
+        { address=0X13CE, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint (bit0 : 1)" },
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="40 : Checkpoint after dying (back to overview map then start at checkpoint right now)" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch Palace (00 : Not Actived / 01 : Actived)" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch Palace (00 : Not Actived / 01 : Actived)" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch Palace (00 : Not Actived / 01 : Actived)" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch Palace (00 : Not Actived / 01 : Actived)" },
+      },
+    },
+  },
+}

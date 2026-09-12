@@ -1,0 +1,111 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rockman 5: Double Jumper",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rockman-5-double-jumper",
+    hashes = {
+      { hash = "22dd6ccaf1146d6c36fa18314632816d", label = "Rockman 5 - Double Jumper (v2.0) (Rock5easily).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0030, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Grounded" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Dark Man 1" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Dark Man 2" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Dark Man 3" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X08, action="LEVEL_CLEAR", desc="Dark Man 4" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X10, action="LEVEL_CLEAR", desc="Wily 1" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X20, action="LEVEL_CLEAR", desc="Wily 2" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X40, action="LEVEL_CLEAR", desc="Wily 3" },
+        { address=0X006F, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Wily 4 (Game Beaten)" },
+        { address=0X7F0E, type="u8", condition="change", action="LEVEL_CLEAR", desc="SRAM: Robot Master Stages Cleared" },
+        { address=0X7F0F, type="u8", condition="change", action="LEVEL_CLEAR", desc="SRAM: Castle Stages Cleared" },
+      },
+      stage = {
+        { address=0X0029, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Area in Current Stage" },
+        { address=0X0069, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Screen on Current Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00BF, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0X00BF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X20, action="GAIN_LIFE", desc="Gyro Man, 1-up hidden in the clouds in Area 5." },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X40, action="GAIN_LIFE", desc="Wave Man, 1-Up on Area 1" },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X80, action="GAIN_LIFE", desc="Dark Man 1, 1-Up on Area 5." },
+        { address=0X0105, type="u8", condition="bit_true", mask=0X40, action="GAIN_LIFE", desc="Star Man, Extra Life in Area 6." },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X02, action="GAIN_LIFE", desc="Wave Man, 1-Up on Area 6" },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X10, action="GAIN_LIFE", desc="Charge Man, 1-Up in Area 5." },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X40, action="GAIN_LIFE", desc="Stone Man, 1-Up in Area 9." },
+        { address=0X0450, type="u24le", condition="increase", action="GAIN_LIFE", desc="Life Total of Individual Sprites increased" },
+        { address=0X0450, type="u24le", condition="decrease", action="LOSE_LIFE", desc="Life Total of Individual Sprites decreased" },
+        { address=0X7F1F, type="u8", condition="increase", action="GAIN_LIFE", desc="SRAM: Number of Lives increased" },
+        { address=0X7F1F, type="u8", condition="decrease", action="LOSE_LIFE", desc="SRAM: Number of Lives decreased" },
+      },
+      health = {
+        { address=0X002D, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="Enabled" },
+        { address=0X0061, type="u8", condition="change", action="HEALTH_STATE", desc="Energy Balancer Found?" },
+        { address=0X0061, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", desc="Yes" },
+        { address=0X0062, type="u8", condition="change", action="HEALTH_STATE", desc="Energy Exchanger Found?" },
+        { address=0X0062, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", desc="Yes" },
+        { address=0X00B0, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="Is it enabled?" },
+        { address=0X0458, type="u8", condition="increase", action="HEAL", desc="Sprite 1's HP increased" },
+        { address=0X0458, type="u8", condition="decrease", action="HIT", desc="Sprite 1's HP decreased" },
+        { address=0X7F21, type="u8", condition="increase", action="HEAL", desc="SRAM: Energy Balancer increased" },
+        { address=0X7F21, type="u8", condition="decrease", action="HIT", desc="SRAM: Energy Balancer decreased" },
+        { address=0X7F22, type="u8", condition="increase", action="HEAL", desc="SRAM: Energy Exchanger increased" },
+        { address=0X7F22, type="u8", condition="decrease", action="HIT", desc="SRAM: Energy Exchanger decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0101, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Napalm Man, E-Tank in Area 3." },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Wily 4, Large Weapon Energy in Area 2." },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Wave Man, Dash Can" },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Wave Man, Large Health above Dash Can" },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X20, action="DYNAMIC_INVENTORY", desc="Wily 2, E-Tank in Area 1" },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X40, action="DYNAMIC_INVENTORY", desc="Stone Man, Dash Can in Area 2" },
+        { address=0X0101, type="u8", condition="bit_true", mask=0X80, action="DYNAMIC_INVENTORY", desc="Gyro Man, Dash Can" },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Star Man, Large Energy in huge vertical climb section" },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Napalm Man, Large Energy in Area 4." },
+        { address=0X0102, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Dark Man 1, Large Energy on Area 3." },
+        { address=0X0105, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Dark Man 1, Large Weapon Energy in Area 8." },
+        { address=0X0105, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Napalm Man, Large Energy in Area 9." },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Gyro Man, Large Energy in Area 0x0a." },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X20, action="DYNAMIC_INVENTORY", desc="Wily 2, Large Energy in Area 0x0a." },
+        { address=0X0108, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Wave Man, E-Tank on Area 7" },
+        { address=0X0108, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Charge Man, E-Tank on Area 0x0b." },
+        { address=0X0109, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Wave Man, Large Weapon Energy in Area 0xb." },
+      },
+      weapon = {
+        { address=0X002E, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Special Weapon Equipped" },
+        { address=0X0034, type="u8", condition="change", action="WEAPON_STATE", desc="Shooting Flag (was a weapon shot out?)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X002F, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Enabled" },
+        { address=0X0106, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Dark Man 2, Large Energy before boss in Area 9." },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0105, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Wily 1, 1-Up in Area 0x0a (needs double jump)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0010, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage Select Decision Time: Rows" },
+        { address=0X0011, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage Select Decision Time: Columns" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Angry Birds Star Wars",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-angry-birds-star-wars",
+    hashes = {
+      { hash = "eb3ebd839b251a73d774f0d34d394af7", label = "Angry Birds - Star Wars (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6566, type="u16be", condition="eq", value=0X2C6D, action="NEW_LEVEL", desc="Level Selection" },
+        { address=0XFFAA, type="u8", condition="eq", value=0XE4, action="NEW_LEVEL", desc="Level Select" },
+      },
+    },
+  },
+}

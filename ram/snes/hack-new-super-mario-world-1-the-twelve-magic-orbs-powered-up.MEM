@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ New Super Mario World 1: The Twelve Magic Orbs Powered-Up",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-new-super-mario-world-1-the-twelve-magic-orbs-powered-up",
+    hashes = {
+      { hash = "cc785b9b3dfb5e8742c7ddb115733207", label = "SMW - New Super Mario World 1 - The Twelve Magic Orbs Powered-Up (v1.1) (Pink Gold Peach).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X213D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause [8bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X213C3, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld - Submap [8bit]" },
+        { address=0X21434, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear Stage Keyhole [8bit]" },
+        { address=0X21F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total | Exits Cleared [8bit]" },
+      },
+      stage = {
+        { address=0X20DD5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Map | Trigger Unlock Stage [8bit]" },
+        { address=0X213BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="// Stage ID [8bit]" },
+        { address=0X21EA1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="// Map | Stages Flags >>>" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8bit] increased" },
+        { address=0X20DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8bit] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20DB8, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up (Mario) [8bit]" },
+        { address=0X20DB9, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up (Luigi) [8bit]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2010B, type="u16le", condition="increase", action="COIN_GAIN", desc="/ Stage ID Map [16bit] increased" },
+        { address=0X20DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins [8bit] increased" },
+        { address=0X218F6, type="u8", condition="increase", action="COIN_GAIN", desc="Get 100 Purple Coins [8bit] increased" },
+        { address=0X21F10, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="1-0 [Secret 3 - Purple Coins]" },
+        { address=0X39C00, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins - Colected in Stage [8bit] increased" },
+        { address=0X39C04, type="u8", condition="increase", action="COIN_GAIN", desc="Entering in Door [8bit] increased" },
+        { address=0X39C06, type="u16le", condition="increase", action="COIN_GAIN", desc="Total | Dragon Coins [16bit] increased" },
+        { address=0X39C08, type="u8", condition="increase", action="COIN_GAIN", desc="// Dragon Coins Per Stage >>> increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X213CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Got [8bit]" },
+        { address=0X213CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Start [8bit]" },
+        { address=0X21F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch [8bit]" },
+        { address=0X21F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch [8bit]" },
+        { address=0X21F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch [8bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X21493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Clear Stage by Goal Tape [8bit]" },
+      },
+    },
+  },
+}

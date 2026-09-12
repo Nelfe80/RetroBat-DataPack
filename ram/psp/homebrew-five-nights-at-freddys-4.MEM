@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Five Nights at Freddy's 4",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-five-nights-at-freddys-4",
+    hashes = {
+      { hash = "60af4ef75aec6b7b4bcf3883ab6ed2cc", label = "Five Nights At Freddy's 4 (v0.3.2) (AlexDev2).iso" },
+    }
+  },
+
+  events = {
+    state = {
+      player = {
+        { address=0X1A202EE, type="u16le", condition="eq", value=0X402A, action="JUMPING", no_log=true, no_survey=true, desc="Jumpscaring Player" },
+      },
+    },
+  },
+}

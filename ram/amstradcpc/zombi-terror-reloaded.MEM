@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Zombi Terror Reloaded",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Adventure, Horror"
+  },
+
+  rom = {
+    name = "zombi-terror-reloaded",
+    hashes = {
+      { hash = "642e8006c69daddb08e0168975d170a7", label = "Zombi Terror Reloaded (2016)(Bitzarro Games).dsk" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X4EFE, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X4EFE, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

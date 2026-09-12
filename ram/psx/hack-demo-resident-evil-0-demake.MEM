@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Resident Evil 0: Demake",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-resident-evil-0-demake",
+    hashes = {
+      { hash = "19d93a59c7a972bd2962006567a4558e", label = "Resident Evil 0 Demake (v0.1) (Biohazard Espana)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCFD4E, type="u16le", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XCFD4E, type="u16le", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X11BEEE, type="u16le", condition="increase", action="HEAL", desc="Bar Lounge 1st Zombie HP increased" },
+        { address=0X11BEEE, type="u16le", condition="decrease", action="HIT", desc="Bar Lounge 1st Zombie HP decreased" },
+        { address=0X11C376, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 1 1st Zombie HP increased" },
+        { address=0X11C376, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 1 1st Zombie HP decreased" },
+        { address=0X11C6E6, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 2 1st Zombie HP increased" },
+        { address=0X11C6E6, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 2 1st Zombie HP decreased" },
+        { address=0X11C83A, type="u16le", condition="increase", action="HEAL", desc="Stinger HP increased" },
+        { address=0X11C83A, type="u16le", condition="decrease", action="HIT", desc="Stinger HP decreased" },
+        { address=0X11FA12, type="u16le", condition="increase", action="HEAL", desc="Mimicry Marcus HP increased" },
+        { address=0X11FA12, type="u16le", condition="decrease", action="HIT", desc="Mimicry Marcus HP decreased" },
+        { address=0X12375A, type="u16le", condition="increase", action="HEAL", desc="Officer's Car 1st Dog HP increased" },
+        { address=0X12375A, type="u16le", condition="decrease", action="HIT", desc="Officer's Car 1st Dog HP decreased" },
+        { address=0X128922, type="u16le", condition="increase", action="HEAL", desc="Dining Car 2nd Zombie HP increased" },
+        { address=0X128922, type="u16le", condition="decrease", action="HIT", desc="Dining Car 2nd Zombie HP decreased" },
+        { address=0X144F12, type="u16le", condition="increase", action="HEAL", desc="Bar Lounge 2nd Zombie HP increased" },
+        { address=0X144F12, type="u16le", condition="decrease", action="HIT", desc="Bar Lounge 2nd Zombie HP decreased" },
+        { address=0X14539A, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 1 2nd Zombie HP increased" },
+        { address=0X14539A, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 1 2nd Zombie HP decreased" },
+        { address=0X146C86, type="u16le", condition="increase", action="HEAL", desc="Passenger Wagon 2 4rd Zombie HP increased" },
+        { address=0X146C86, type="u16le", condition="decrease", action="HIT", desc="Passenger Wagon 2 4rd Zombie HP decreased" },
+        { address=0X14B93A, type="u16le", condition="increase", action="HEAL", desc="Officer's Car 2nd Zombie HP increased" },
+        { address=0X14B93A, type="u16le", condition="decrease", action="HIT", desc="Officer's Car 2nd Zombie HP decreased" },
+        { address=0X14CA06, type="u16le", condition="increase", action="HEAL", desc="Bar Lounge 3rd Zombie HP increased" },
+        { address=0X14CA06, type="u16le", condition="decrease", action="HIT", desc="Bar Lounge 3rd Zombie HP decreased" },
+        { address=0X14CE8E, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 1 3rd Zombie HP increased" },
+        { address=0X14CE8E, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 1 3rd Zombie HP decreased" },
+        { address=0X14F902, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 2 2nd Zombie HP increased" },
+        { address=0X14F902, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 2 2nd Zombie HP decreased" },
+        { address=0X153AF6, type="u16le", condition="increase", action="HEAL", desc="Dining Car 1st Zombie HP increased" },
+        { address=0X153AF6, type="u16le", condition="decrease", action="HIT", desc="Dining Car 1st Zombie HP decreased" },
+        { address=0X1544FA, type="u16le", condition="increase", action="HEAL", desc="Bar Lounge 4th Zombie HP increased" },
+        { address=0X1544FA, type="u16le", condition="decrease", action="HIT", desc="Bar Lounge 4th Zombie HP decreased" },
+        { address=0X157D96, type="u16le", condition="increase", action="HEAL", desc="Officer's Car 3rd Dog HP increased" },
+        { address=0X157D96, type="u16le", condition="decrease", action="HIT", desc="Officer's Car 3rd Dog HP decreased" },
+        { address=0X15857E, type="u16le", condition="increase", action="HEAL", desc="Passenger Car 2 3rd Zombie HP increased" },
+        { address=0X15857E, type="u16le", condition="decrease", action="HIT", desc="Passenger Car 2 3rd Zombie HP decreased" },
+        { address=0X15CF92, type="u16le", condition="increase", action="HEAL", desc="Dining Car 3rd Zombie HP increased" },
+        { address=0X15CF92, type="u16le", condition="decrease", action="HIT", desc="Dining Car 3rd Zombie HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC3BD9, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="Equipped Weapon Ammo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD4832, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer (Minutes and Seconds)" },
+        { address=0X125293, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Endgame Timer Text (Minutes Tenths)" },
+        { address=0X125294, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Endgame Timer Text (Minutes Ones)" },
+        { address=0X125296, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Endgame Timer Text (Seconds Tenths)" },
+        { address=0X125297, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Endgame Timer Text (Seconds Ones)" },
+      },
+    },
+  },
+}

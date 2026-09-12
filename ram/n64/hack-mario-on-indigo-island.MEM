@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario on Indigo Island",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-on-indigo-island",
+    hashes = {
+      { hash = "2007203d27eb59214d8aa3ef0f30ca74", label = "Super Mario 64 - Mario on Indigo Island [Hard] (Hack) (usernamesarentimportant) (1.3c).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused (bit1)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X207718, type="u8", condition="change", action="NEW_LEVEL", desc="Silky Underground Stars (-7788 / -77f8 / -7868 for File B / C / D)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario's Lives (8-bit) increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario's Lives (8-bit) decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Mario's Health (8-bit) increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Mario's Health (8-bit) decreased" },
+        { address=0X3440EC, type="u8", condition="increase", action="HEAL", desc="Big Boo HP (8-bit) increased" },
+        { address=0X3440EC, type="u8", condition="decrease", action="HIT", desc="Big Boo HP (8-bit) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="current Coins collected (8-bit) increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins collected (8-bit) increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X014C, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="Object State (32-bit)" },
+        { address=0X207708, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switches activated (-7778 / -77e8 / -7858 for File B / C / D)" },
+      },
+    },
+  },
+}

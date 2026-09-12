@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Polyphony",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-polyphony",
+    hashes = {
+      { hash = "4054ef350628ab9743425c0f3bd499a9", label = "SMW - Polyphony (v1.1.1) (TomatoPhalanges).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X010B, type="u32le", condition="change", action="NEW_LEVEL", desc="Sub-Level" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage Clear" },
+        { address=0X1FF0, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF1, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF2, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF3, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF4, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF5, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF6, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF7, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF8, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+        { address=0X1FF9, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit flag] Moon collected in level" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0071, type="u8", condition="change", action="HIT", desc="Damage state" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0F34, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit] Score counter" },
+      },
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0075, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="swim state" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1FCF, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow switch pressed" },
+        { address=0X1FD1, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red switch pressed" },
+        { address=0X1B403, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Sublevel for checkpoint" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P-switch timer" },
+      },
+    },
+  },
+}

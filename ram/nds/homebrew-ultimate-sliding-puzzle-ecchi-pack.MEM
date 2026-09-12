@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ultimate Sliding Puzzle: Ecchi Pack",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-ultimate-sliding-puzzle-ecchi-pack",
+    hashes = {
+      { hash = "483d2cde5544dd146afa0077356b384f", label = "Ultimate Sliding Puzzle - Pack Ecchi (World) (Aftermarket) (Unl) (Kukulcan).nds" },
+    }
+  },
+
+  events = {
+  },
+}

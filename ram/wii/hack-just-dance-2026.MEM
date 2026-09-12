@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Just Dance 2026",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-just-dance-2026",
+    hashes = {
+      { hash = "a8b4aa514adfa3c253c93f96141ef070", label = "Just Dance 2020 - Just Dance 2026 (v2026-01-20) (Explicit) (Sofie)" },
+      { hash = "8cdc60a5886e478bbe040febc17adbce", label = "Just Dance 2020 - Just Dance 2026 (v2026-01-20) (Clean) (Sofie)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10672298, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X10601968, type="u8", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[Float BE] P1 Score Bar Percentage" },
+        { address=0X106019F8, type="u8", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="[Float BE] P2 Score Bar Percentage" },
+        { address=0X10601A88, type="u8", condition="change", action="SCORE_STATE", player=3, score_kind="game", desc="[Float BE] P3 Score Bar Percentage" },
+        { address=0X10601B18, type="u8", condition="change", action="SCORE_STATE", player=4, score_kind="game", desc="[Float BE] P4 Score Bar Percentage" },
+      },
+    },
+  },
+}

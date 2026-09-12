@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Castle of Doom",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-castle-of-doom",
+    hashes = {
+      { hash = "fcfbeeca4bb33af756b025136c8b2549", label = "Castle of Doom (USA) (Aftermarket) (Unl) (VirtualChris).vb" },
+    }
+  },
+
+  events = {
+  },
+}

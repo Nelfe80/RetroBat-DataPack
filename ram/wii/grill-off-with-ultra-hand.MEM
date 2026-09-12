@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Grill-Off with Ultra Hand!",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "grill-off-with-ultra-hand",
+    hashes = {
+      { hash = "8dd6b5b0ba7444ddc15a7734ab34690c", label = "Grill-Off with Ultra Hand! (USA) (Club Nintendo) (WiiWare)" },
+    }
+  },
+
+  events = {
+  },
+}

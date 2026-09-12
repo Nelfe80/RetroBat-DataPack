@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "World Heroes Perfect",
+    system = "neogeocd",
+    system_name = "Neo Geo CD",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "world-heroes-perfect",
+    hashes = {
+      { hash = "c132d10f1f95f6d22b30e537130667a4", label = "World Heroes Perfect (Export) (En,Ja) (Rev 1)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XE216, type="u8", condition="change", action="NEW_LEVEL", desc="Arcade Mode Round/Level" },
+        { address=0XE216, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="First Round" },
+        { address=0XE216, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Versus Zeus" },
+        { address=0XE216, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Final Round: Versus Neo Dio" },
+        { address=0XE216, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="End of Arcade Mode Cutscene" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X600C, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Dead" },
+        { address=0X610C, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X600C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Left Side Actual Health" },
+        { address=0X600C, type="u8", condition="eq", value=0XC0, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X600D, type="u8", condition="increase", action="HEAL", desc="Player 1 Displayed Health increased" },
+        { address=0X600D, type="u8", condition="decrease", action="HIT", desc="Player 1 Displayed Health decreased" },
+        { address=0X610C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Right Side Actual Health" },
+        { address=0X610C, type="u8", condition="eq", value=0XC0, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X610D, type="u8", condition="increase", action="HEAL", desc="Opponent Displayed Health increased" },
+        { address=0X610D, type="u8", condition="decrease", action="HIT", desc="Opponent Displayed Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X6800, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Score [32-bit BE]" },
+        { address=0X6900, type="u32be", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="P2 Score [32-bit BE]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE081, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Setting" },
+        { address=0XE081, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="99 seconds" },
+        { address=0XE081, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Unlimited" },
+      },
+    },
+  },
+}

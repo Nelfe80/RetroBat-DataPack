@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fushigi no Dungeon: Fuurai no Shiren 2 - Oni Shuurai! Shiren Jou!",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Role-playing (RPG)"
+  },
+
+  rom = {
+    name = "fushigi-no-dungeon-fuurai-no-shiren-2-oni-shuurai-shiren-jou",
+    hashes = {
+      { hash = "44f606a31bbdc529d2f5863ae4307499", label = "Fushigi no Dungeon - Fuurai no Shiren 2 - Oni Shuurai! Shiren Jou! (Japan) (En) (v1.02) (ozidual).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1C3608, type="u16be", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X1C3608, type="u16be", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X1C360A, type="u16be", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X1C360A, type="u16be", condition="decrease", action="HIT", desc="Current HP decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1C56D1, type="u8", condition="change", action="SHIELD_GAIN", desc="Equip state of 1st shield item (in this case, 2nd inventory slot, leather shield)" },
+      },
+    },
+  },
+}

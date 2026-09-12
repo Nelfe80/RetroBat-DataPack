@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ The New Adventures of Sonic the Hedgehog",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-the-new-adventures-of-sonic-the-hedgehog",
+    hashes = {
+      { hash = "ebb4915a6897804a2cbf72cd7f60d4f5", label = "New Adventures of Sonic the Hedgehog, The (World) (v1.0) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0134, type="u8", condition="change", action="TITLE_SCREEN", desc="[15 bytes] Header - Title" },
+        { address=0XC0BE, type="u8", condition="eq", value=0X0, action="CREDITS_SCREEN", desc="Usually used during transitions and on the credits screen." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC58F, type="u8", condition="change", action="NEW_LEVEL", desc="Current Screen/Level" },
+        { address=0XC984, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Act 1: intro text, Act 2: goal text" },
+        { address=0XC984, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Act 1: goal text" },
+        { address=0XD982, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Goal post touched; not cleared when entering next Act." },
+        { address=0XD982, type="u8", condition="eq", value=0X10, action="LEVEL_CLEAR", desc="Set during transitions when a Zone is cleared." },
+      },
+      stage = {
+        { address=0XC984, type="u8", condition="eq", value=0XFF, action="PROGRESSION_STAGE", desc="Player is not colliding with any trigger or is not in an Act." },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD982, type="u8", condition="eq", value=0X00, action="COIN_GAIN", desc="Ring collected... usually." },
+        { address=0XD982, type="u8", condition="eq", value=0X02, action="COIN_GAIN", desc="Ring collected, sometimes and only if in Zone 2." },
+        { address=0XD984, type="u16le", condition="increase", action="COIN_GAIN", desc="Ring Collection? increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC0C5, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, Left" },
+        { address=0XC0C5, type="u8", condition="eq", value=0X05, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, Right" },
+        { address=0XC0C6, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, Left" },
+        { address=0XC0C6, type="u8", condition="eq", value=0X09, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, Right" },
+        { address=0XC0C9, type="u8", condition="eq", value=0X0, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, left" },
+        { address=0XC0C9, type="u8", condition="eq", value=0X2, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump, right" },
+      },
+    },
+  },
+}

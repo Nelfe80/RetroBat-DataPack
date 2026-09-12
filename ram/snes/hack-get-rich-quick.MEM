@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Get Rich Quick",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-get-rich-quick",
+    hashes = {
+      { hash = "163b7326b86ab086419286782fe0d5b8", label = "SMW - Get Rich Quick (v1.0.3) (Selicre).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="title screen, profile select" },
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="GAME_PLAYING", desc="level loading" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="GAME_PLAYING", desc="level complete" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="loading hint message from level select" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="CREDITS_SCREEN", desc="credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="LEVEL_CLEAR", desc="level complete" },
+        { address=0X1041, type="u16le", condition="change", action="NEW_LEVEL", desc="Level ID [16 bit]" },
+        { address=0X1041, type="u16le", condition="eq", value=0X0020, action="NEW_LEVEL", desc="2-1 secret room (p-wing mode)" },
+        { address=0X1041, type="u16le", condition="eq", value=0X0021, action="NEW_LEVEL", desc="3-3 secret room (dash mode)" },
+        { address=0X1041, type="u16le", condition="eq", value=0X0022, action="NEW_LEVEL", desc="4-2 secret room (small only mode)" },
+        { address=0X1041, type="u16le", condition="eq", value=0X0023, action="NEW_LEVEL", desc="4-4 secret room (greedy mode)" },
+      },
+      zone = {
+        { address=0X0100, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="world select" },
+        { address=0X103B, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="Current World [16 bit]" },
+      },
+      stage = {
+        { address=0X103D, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Stage [16 bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="death" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X102E, type="u16le", condition="increase", action="COIN_GAIN", desc="Current Coins [16 bit] increased" },
+        { address=0X1030, type="u16le", condition="increase", action="COIN_GAIN", desc="Target Coins [16 bit] increased" },
+        { address=0X2700, type="u32le", condition="increase", action="COIN_GAIN", desc="Total Coins Collected [32 bit] increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Grand Poo World 3",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-grand-poo-world-3",
+    hashes = {
+      { hash = "43e3b61a655b4ac5ca9af3995c49b121", label = "SMW - Grand Poo World 3 (Barbarian).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+      },
+      zone = {
+        { address=0X13C3, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="main openworld (after world 3)" },
+        { address=0X13C3, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Forest World" },
+        { address=0X13C3, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Volcano World" },
+        { address=0X13C3, type="u8", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="Snow World" },
+        { address=0X13C3, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Volcano World" },
+      },
+      stage = {
+        { address=0X0DD5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Exit a stage" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="main exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="secret exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="PROGRESSION_STAGE", desc="start + select" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X0E, action="BOSS_HIT", desc="boss" },
+        { address=0X010B, type="u16le", condition="eq", value=0X126, action="BOSS_HIT", desc="boss" },
+        { address=0X010B, type="u16le", condition="eq", value=0X134, action="BOSS_HIT", desc="Dreadnough boss" },
+        { address=0X010B, type="u16le", condition="eq", value=0X14B, action="BOSS_HIT", desc="Tempo Temple boss" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0071, type="u8", condition="eq", value=0X01, action="INVINCIBILITY_START", desc="Invincibility Frames" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="eq", value=0X0C, action="OBJECT_DESTROYED", desc="Destroying Castle" },
+        { address=0X0071, type="u8", condition="eq", value=0X0D, action="DOOR_OPENED", desc="Entering a Door" },
+        { address=0X010B, type="u16le", condition="eq", value=0X07, action="OBJECT_INTERACTION_CHECKPOINT", desc="porpoise midway" },
+        { address=0X010B, type="u16le", condition="eq", value=0X15B, action="OBJECT_INTERACTION_CHECKPOINT", desc="midway" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="goal timer animation" },
+      },
+    },
+  },
+}

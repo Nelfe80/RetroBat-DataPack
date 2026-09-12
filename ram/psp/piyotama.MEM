@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Piyotama",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "piyotama",
+    hashes = {
+      { hash = "1483cbd51f7d777c615be72c4e6a9951", label = "Piyotama (USA) (PSP) (PSN).iso" },
+    }
+  },
+
+  events = {
+  },
+}

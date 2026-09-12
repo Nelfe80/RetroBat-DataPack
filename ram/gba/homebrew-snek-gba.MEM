@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Snek GBA",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-snek-gba",
+    hashes = {
+      { hash = "e4f9de53202eab5dc56798fc706fb538", label = "Snek GBA (World) (v1.1) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Zook Hero Z",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-zook-hero-z",
+    hashes = {
+      { hash = "e0de3c983ef60c8dffea04248c9e6ba9", label = "Zook Hero Z (Luke Yingxiong Z) (Taiwan) (Unl) (Fix).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFFBF, type="u8", condition="eq", value=0X0, action="PAUSE_ON", desc="false" },
+        { address=0XFFBF, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="true" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFF9B, type="u8", condition="change", action="NEW_LEVEL", desc="level" },
+      },
+      stage = {
+        { address=0XFFE9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Select" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="bottom right" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="bottom left" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="top right" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="middle left" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="middle bottom" },
+        { address=0XFFE9, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="top left" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFFD2, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0XFFD2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XFFB7, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", desc="Plant Monster" },
+        { address=0XFFB7, type="u8", condition="eq", value=0X06, action="WEAPON_STATE", desc="Armored Robot" },
+      },
+    },
+  },
+}

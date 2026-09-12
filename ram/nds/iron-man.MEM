@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Iron Man",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "iron-man",
+    hashes = {
+      { hash = "9bf6a037e7493667d11019b024770e4b", label = "Iron Man (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

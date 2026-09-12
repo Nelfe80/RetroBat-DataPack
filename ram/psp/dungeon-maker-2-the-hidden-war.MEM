@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dungeon Maker 2: The Hidden War",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "dungeon-maker-2-the-hidden-war",
+    hashes = {
+      { hash = "7afc2b8aa79c64f2e0717f4b14b8f6d8", label = "Dungeon Maker II - The Hidden War (USA).iso" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XD11E32, type="u8", condition="eq", value=0XB0, action="LOSE_LIFE", desc="Have the dungeon walls become a dead-end?!" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD11E32, type="u8", condition="eq", value=0XB5, action="SCORE_STATE", desc="Convenient floor movement points!" },
+      },
+      collectibles = {
+        { address=0XCFDC28, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Holy Ring" },
+        { address=0XCFE7B4, type="u32le", condition="increase", action="COIN_GAIN", desc="(32 bit) Gold increased" },
+        { address=0XD11B2F, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Gold Bracelet" },
+        { address=0XD11B39, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Moon Ring" },
+        { address=0XD11B39, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Sun Ring" },
+        { address=0XD11B39, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="Specter Ring" },
+        { address=0XD11B39, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="Folded Ring" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XD11B10, type="u8", condition="eq", value=0XB4, action="SHIELD_GAIN", desc="Oaken Shield" },
+        { address=0XD11B10, type="u8", condition="eq", value=0XB5, action="SHIELD_GAIN", desc="Stone Shield" },
+        { address=0XD11B10, type="u8", condition="eq", value=0XB6, action="SHIELD_GAIN", desc="Lava Shield" },
+        { address=0XD11B10, type="u8", condition="eq", value=0XB7, action="SHIELD_GAIN", desc="Ice Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XD11E30, type="u8", condition="eq", value=0XB4, action="DOOR_OPENED", desc="Town/Outdoor Market" },
+        { address=0XD11E32, type="u8", condition="eq", value=0XB1, action="DOOR_OPENED", desc="Target a door!" },
+        { address=0XD11E34, type="u8", condition="eq", value=0XB2, action="OBJECT_INTERACTION", desc="Block Placement Menu" },
+      },
+    },
+  },
+}

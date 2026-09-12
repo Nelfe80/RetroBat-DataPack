@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Princess Poffin and the Spider Invasion",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-princess-poffin-and-the-spider-invasion",
+    hashes = {
+      { hash = "a9847d8a5683cbcacd7e45e2762c365c", label = "Princess Poffin and the Spider Invasion! (World) (2023-06-06) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD929, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of spiderwebs cleared" },
+      },
+    },
+  },
+}

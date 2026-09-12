@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ FF2us Impossible",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ff2us-impossible",
+    hashes = {
+      { hash = "4d1f40a7e696bf7888defb8f98a82ee3", label = "Final Fantasy II - FF2us Impossible (JCE3000GT) (v3.0b).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1002, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 1 Level" },
+        { address=0X1042, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 2 Level" },
+        { address=0X1082, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 3 Level" },
+        { address=0X10C2, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 4 Level" },
+        { address=0X1102, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 5 Level" },
+        { address=0X2002, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 1 Level" },
+        { address=0X2082, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 2 Level" },
+        { address=0X2102, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 3 Level" },
+        { address=0X2182, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 4 Level" },
+        { address=0X2202, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Slot 5 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2007, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 1 Current HP increased" },
+        { address=0X2007, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 1 Current HP decreased" },
+        { address=0X2087, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 2 Current HP increased" },
+        { address=0X2087, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 2 Current HP decreased" },
+        { address=0X2107, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 3 Current HP increased" },
+        { address=0X2107, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 3 Current HP decreased" },
+        { address=0X2187, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 4 Current HP increased" },
+        { address=0X2187, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 4 Current HP decreased" },
+        { address=0X2207, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 5 Current HP increased" },
+        { address=0X2207, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 5 Current HP decreased" },
+        { address=0X2287, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 1 Current Health increased" },
+        { address=0X2287, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 1 Current Health decreased" },
+        { address=0X2307, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 2 Current Health increased" },
+        { address=0X2307, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 2 Current Health decreased" },
+        { address=0X2387, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 3 Current Health increased" },
+        { address=0X2387, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 3 Current Health decreased" },
+        { address=0X2407, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 4 Health increased" },
+        { address=0X2407, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 4 Health decreased" },
+        { address=0X2487, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 5 Health increased" },
+        { address=0X2487, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 5 Health decreased" },
+        { address=0X2507, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 6 Health increased" },
+        { address=0X2507, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 6 Health decreased" },
+        { address=0X2587, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 7 Health increased" },
+        { address=0X2587, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 7 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X12A0, type="u8", condition="change", action="TREASURE", desc="[Bitflags] Treasures" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1281, type="u8", condition="bit_true", mask=0X40, action="OBJECT_DESTROYED", desc="Mist destroyed" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Miss Snake",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "miss-snake",
+    hashes = {
+      { hash = "ba7203d8193692e27e3ae316fd0b9d86", label = "Miss Snake (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X014A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

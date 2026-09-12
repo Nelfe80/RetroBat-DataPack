@@ -1,0 +1,103 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Valkyrie Profile: Covenant of the Plume",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing, Strategy"
+  },
+
+  rom = {
+    name = "valkyrie-profile-covenant-of-the-plume",
+    hashes = {
+      { hash = "63726fd1f24b249238a21eb6bc1a8450", label = "Valkyrie Profile - Covenant of the Plume (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XBCC00, type="u24le", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen / Prologue - Intro text" },
+        { address=0XBCC00, type="u24le", condition="eq", value=0X188, action="CREDITS_SCREEN", desc="Chapter 6(A) - End Credits" },
+        { address=0XBCC00, type="u24le", condition="eq", value=0X19A, action="CREDITS_SCREEN", desc="Chapter 6(B) - End Credits" },
+        { address=0XBCC00, type="u24le", condition="eq", value=0X1A7, action="CREDITS_SCREEN", desc="Chapter 6(C) - End Credits" },
+        { address=0XBCC00, type="u24le", condition="eq", value=0XB7, action="TITLE_SCREEN", desc="Chapter 4(C) - Pre Chapter title dialogue" },
+        { address=0XBCC00, type="u24le", condition="eq", value=0XB8, action="TITLE_SCREEN", desc="Chapter 4(C) - Post Chapter title dialogue" },
+        { address=0XBCC04, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Save Data / Deployment / Title Screen" },
+        { address=0XBCC28, type="u8", condition="eq", value=0X7, action="CREDITS_SCREEN", desc="End Credits / Post Credits" },
+        { address=0XBD664, type="u8", condition="eq", value=0X6, action="TITLE_SCREEN", desc="In Battle - System Menu / Title Screen" },
+        { address=0XF4A98, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Intro / Title Screen" },
+        { address=0XFDD74, type="u16le", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Logo Screen" },
+        { address=0XFDD74, type="u16le", condition="eq", value=0X4, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XBCC04, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Screen mode?" },
+        { address=0XBCC04, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Field Dialogue" },
+        { address=0XBCC04, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="In Battle" },
+        { address=0XBCC04, type="u8", condition="eq", value=0X9, action="NEW_LEVEL", desc="In Battle?" },
+        { address=0XBCC04, type="u8", condition="eq", value=0XA, action="NEW_LEVEL", desc="Inventory Menu" },
+        { address=0XBCC04, type="u8", condition="eq", value=0XB, action="NEW_LEVEL", desc="Map" },
+        { address=0XBCC04, type="u8", condition="eq", value=0XE, action="NEW_LEVEL", desc="Area Entrance Menu" },
+        { address=0XBD000, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Sin Goal Met - CH2A - Battle 3" },
+      },
+      zone = {
+        { address=0XBCC00, type="u24le", condition="eq", value=0X8, action="PROGRESSION_ZONE", desc="Prologue - Player on world map / SG: Kristoff battle" },
+        { address=0XBCC70, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Map Marker Current Location" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X0, action="PROGRESSION_ZONE", desc="The Dark Horizon" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X1, action="PROGRESSION_ZONE", desc="Aullewyn Keep" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X10, action="PROGRESSION_ZONE", desc="Aidelrave" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="Veissheit" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X12, action="PROGRESSION_ZONE", desc="The Sylvanglade" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X14, action="PROGRESSION_ZONE", desc="The Crown City" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X16, action="PROGRESSION_ZONE", desc="The Artolian Mountains" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X19, action="PROGRESSION_ZONE", desc="Tourque" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X2, action="PROGRESSION_ZONE", desc="Market Marteigh" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X3, action="PROGRESSION_ZONE", desc="Kirche Crossing" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X4, action="PROGRESSION_ZONE", desc="Iatallagh Weald" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X5, action="PROGRESSION_ZONE", desc="Hroethe Walk" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X6, action="PROGRESSION_ZONE", desc="Camille" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X7, action="PROGRESSION_ZONE", desc="Camille Highlands" },
+        { address=0XBCC70, type="u8", condition="eq", value=0X9, action="PROGRESSION_ZONE", desc="The Ruins" },
+        { address=0XBCC70, type="u8", condition="eq", value=0XA, action="PROGRESSION_ZONE", desc="The Lotus Marsh" },
+        { address=0XBCC70, type="u8", condition="eq", value=0XB, action="PROGRESSION_ZONE", desc="Grenssen Citadel" },
+        { address=0XBCC70, type="u8", condition="eq", value=0XE, action="PROGRESSION_ZONE", desc="Liellahan Lowlands" },
+        { address=0XBCC70, type="u8", condition="eq", value=0XF, action="PROGRESSION_ZONE", desc="Eusiria Crossing" },
+        { address=0XBD664, type="u8", condition="eq", value=0X7, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XBCC00, type="u24le", condition="eq", value=0X4, action="LOSE_LIFE", desc="Prologue - End of first battle & Wylfred's death" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XB8C7A, type="u8", condition="eq", value=0XB6, action="TREASURE", desc="Treasure Hunter" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XB8D06, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Rush" },
+        { address=0XB8D07, type="u8", condition="eq", value=0X18, action="MONEY_STATE", desc="Gold Rush" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XB8D02, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Biflindi's Shield" },
+        { address=0XB8D06, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Shield Wall" },
+        { address=0XB8D07, type="u8", condition="eq", value=0X11, action="SHIELD_GAIN", desc="Shield Wall" },
+        { address=0XBB005, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="Biflindi's Shield" },
+        { address=0XBB14D, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="Biflindi's Shield" },
+        { address=0XBB295, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="Biflindi's Shield" },
+        { address=0XBB3DD, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="Biflindi's Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XB8D07, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Wylfred - Skills - Technique Equipped - Slot 1" },
+      },
+    },
+  },
+}

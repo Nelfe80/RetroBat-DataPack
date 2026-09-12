@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Virtual Bart",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "virtual-bart",
+    hashes = {
+      { hash = "924a6a1beaa3c4eaf419f8c4ac53dde7", label = "Virtual Bart (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X06DC, type="u8", condition="eq", value=0X0C, action="TITLE_SCREEN", desc="Title Screen / Practice Menu" },
+        { address=0X06DC, type="u8", condition="eq", value=0X0E, action="GAME_OVER", desc="Game Over" },
+        { address=0X06DC, type="u8", condition="eq", value=0X0F, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X06DC, type="u8", condition="eq", value=0X3C, action="CREDITS_SCREEN", desc="Boot Credits" },
+        { address=0X1EA1, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="paused" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1D7A, type="u8", condition="decrease", action="HIT", desc="8-Bit: decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1D7A, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="no power up" },
+        { address=0X1D7A, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="power up available" },
+      },
+    },
+  },
+}

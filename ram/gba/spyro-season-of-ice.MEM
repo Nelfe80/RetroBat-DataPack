@@ -1,0 +1,117 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Spyro: Season of Ice",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "spyro-season-of-ice",
+    hashes = {
+      { hash = "02ca69d4ca90bc8da7ca48d59bb0035d", label = "Spyro - Season of Ice (Europe) (En,Fr,De,Es,It).gba" },
+      { hash = "76aad0726be3ac24f3c5a7a8e64379d3", label = "Spyro - Season of Ice (USA).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X47434, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="Paused, 2:Active" },
+        { address=0X47464, type="u8", condition="change", action="DEMO_MODE", desc="Dragonfly X - Demo Mode Flag (decides who's in control) 1:Demo, else 0" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X53F6, type="u8", condition="change", action="NEW_LEVEL", desc="Health - Sparx levels (EU)" },
+      },
+      stage = {
+        { address=0X7778, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID when NOT in Fairy Homes [8-bit] [US at least]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1494, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives - Spyro (Only updates visually when changing areas or losing or gaining a life) increased" },
+        { address=0X1494, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives - Spyro (Only updates visually when changing areas or losing or gaining a life) decreased" },
+        { address=0X14A4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (EU) increased" },
+        { address=0X14A4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (EU) decreased" },
+        { address=0X1C90, type="u8", condition="change", action="LOSE_LIFE", desc="Health - Spyro - 4:GoldSparx, 3:BlueSparx, 2:GreenSparx, 1:DeadSparx, 0:DeadSpyro (US)" },
+        { address=0X1CA0, type="u8", condition="change", action="LOSE_LIFE", desc="Health - Spyro - 4:GoldSparx, 3:BlueSparx, 2:GreenSparx, 1:DeadSparx, 0:DeadSpyro (EU)" },
+        { address=0X2254, type="u8", condition="increase", action="GAIN_LIFE", desc="Cheats(Resets on reset) - bit0:WarpAbility, bit1:WarpUnlockAllLvls, bit2:DragonflyX, bit3:99Live" },
+        { address=0X2254, type="u8", condition="decrease", action="LOSE_LIFE", desc="Cheats(Resets on reset) - bit0:WarpAbility, bit1:WarpUnlockAllLvls, bit2:DragonflyX, bit3:99Live" },
+        { address=0X46982, type="u8", condition="change", action="LOSE_LIFE", desc="DragonflyX - Health (full:0, dead:3)" },
+        { address=0X47438, type="u8", condition="change", action="LOSE_LIFE", desc="Dragonfly X Sparx Level Transition, Death, GO Flag (Also removes Sparx's hitbox as well as the s" },
+        { address=0X4746C, type="u8", condition="increase", action="GAIN_LIFE", desc="DragonflyX - Lives (1:0) increased" },
+        { address=0X4746C, type="u8", condition="decrease", action="LOSE_LIFE", desc="DragonflyX - Lives (1:0) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X47470, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="DragonflyX - Score" },
+        { address=0X47474, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="DragonflyX - High Score 1" },
+        { address=0X47474, type="u8", condition="eq", value=0X1, action="SCORE_STATE", desc="1" },
+        { address=0X47475, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="DragonflyX - High Score 2" },
+        { address=0X47475, type="u8", condition="eq", value=0X1, action="SCORE_STATE", desc="256" },
+        { address=0X47476, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="DragonflyX - High Score 3" },
+        { address=0X47476, type="u8", condition="eq", value=0X1, action="SCORE_STATE", desc="65536" },
+        { address=0X47477, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="DragonflyX - High Score 4" },
+        { address=0X47477, type="u8", condition="eq", value=0X1, action="SCORE_STATE", desc="Not used. The score is too high." },
+      },
+      collectibles = {
+        { address=0X1263, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1263, type="u8", condition="bit_true", mask=0X08, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1263, type="u8", condition="bit_true", mask=0X10, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1263, type="u8", condition="bit_true", mask=0X20, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1263, type="u8", condition="bit_true", mask=0X40, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1263, type="u8", condition="bit_true", mask=0X80, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X01, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X02, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X08, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X10, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X20, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X40, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1264, type="u8", condition="bit_true", mask=0X80, action="COIN_GAIN", desc="Purple, Ring" },
+        { address=0X1361, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Gold Gem (above Dragonfly X)" },
+        { address=0X1361, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Gold Gem" },
+        { address=0X1366, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Gold Gem" },
+        { address=0X1366, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Gold Gem" },
+        { address=0X1366, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Gem" },
+        { address=0X1367, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Gold Gem" },
+        { address=0X136C, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Gold Gem South of Moneybags" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1267, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Yellow, Boss" },
+        { address=0X1267, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Yellow, Boss" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X46984, type="u8", condition="eq", value=0X1, action="SHIELD_GAIN", desc="YellowShield, 2:PurpleCoin" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1366, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="Red Gem in Jar Closest to Spring Fairy Home Door" },
+        { address=0X136B, type="u8", condition="bit_true", mask=0X04, action="DOOR_OPENED", desc="Red Gem North of Spring Fairy Home Door" },
+        { address=0X1370, type="u8", condition="bit_true", mask=0X80, action="DOOR_OPENED", desc="Red Gem Closest to Spring Fairy Home Door" },
+        { address=0X1371, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Green Gem to the Right of Spring Fairy Home Door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X4CF5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Speedway minute timer" },
+        { address=0X4CF6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Speedway 10 seconds timer" },
+        { address=0X4CF7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Speedway second timer" },
+        { address=0X4CF8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Speedway tenths of a second timer" },
+        { address=0X4CF9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Speedway Hundreds of a second timer" },
+        { address=0X43200, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", desc="Speedway state" },
+        { address=0X46978, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="16bit Timer - Shield time remaining on DragonflyX" },
+        { address=0X47440, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Dragonfly X timer for level intro cinematic (spider spawning webs)" },
+      },
+    },
+  },
+}

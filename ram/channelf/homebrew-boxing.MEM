@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Boxing",
+    system = "channelf",
+    system_name = "Fairchild Channel F",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-boxing",
+    hashes = {
+      { hash = "65a71a450cae1e60589efcf9b1a10456", label = "Boxing (USA) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+  },
+}

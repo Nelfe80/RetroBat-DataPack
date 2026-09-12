@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Green Star Revenge 3: Back to the Safe Sear Temples",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-green-star-revenge-3-back-to-the-safe-sear-temples",
+    hashes = {
+      { hash = "5631f237d925c255d4301be072cde507", label = "SM64 - Green Star Revenge 3 - Back to the Safe Sear Temples (v2.0) (Lugmillord).z64" },
+    }
+  },
+
+  events = {
+  },
+}

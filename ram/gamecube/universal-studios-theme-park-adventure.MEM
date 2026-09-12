@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Universal Studios Theme Park Adventure",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "universal-studios-theme-park-adventure",
+    hashes = {
+      { hash = "1aed17b500a4ad86cb222620a2ecae34", label = "Universal Studios Theme Park Adventure (USA)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X22D300, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Points [32-bit BE]" },
+      },
+    },
+  },
+}

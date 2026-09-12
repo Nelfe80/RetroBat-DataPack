@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Fishin' for Average Caucasian Boyfriends",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-fishin-for-average-caucasian-boyfriends",
+    hashes = {
+      { hash = "e9403147da4e45805a37b840269ab79d", label = "Fishin' for Average Caucasian Boyfriends (World) (v20240307) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCB95, type="u8", condition="eq", value=0X08, action="TITLE_SCREEN", desc="Title Screen | Panning Up" },
+      },
+    },
+  },
+}

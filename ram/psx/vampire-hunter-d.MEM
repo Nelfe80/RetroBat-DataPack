@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Vampire Hunter D",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Adventure, Horror, Puzzle"
+  },
+
+  rom = {
+    name = "vampire-hunter-d",
+    hashes = {
+      { hash = "d54c6a25846c4796ec8089cee8dc29e9", label = "Vampire Hunter D (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8B140, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X8B140, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X9E93C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="On" },
+        { address=0XA27E8, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Not in demo" },
+        { address=0XA27E8, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="In demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X95BE4, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level 2 Map" },
+        { address=0X95D88, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level 4 Map" },
+      },
+      stage = {
+        { address=0XAA06C, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Main Hall Stage" },
+        { address=0XAA06E, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Main Hall Stage Rm-L" },
+        { address=0XAA06E, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="Main Hall Stage Rm-R" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA2904, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="dead" },
+      },
+      health = {
+        { address=0XA28B3, type="u8", condition="bit_true", mask=0X04, action="HIT", desc="Taking damage" },
+        { address=0XA2904, type="u8", condition="change", action="HEALTH_STATE", desc="D's Health" },
+        { address=0XA2914, type="u8", condition="eq", value=0X09, action="HIT", desc="Taking damage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9E9EF, type="u8", condition="eq", value=0X02, action="MONEY_STATE", desc="Gold Plate inserted" },
+        { address=0XA2D3B, type="u8", condition="increase", action="COIN_GAIN", desc="[Bit flag] Bit0: Gold Plate acquired increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X95EE8, type="u8", condition="eq", value=0X01, action="BOSS_DEFEATED", desc="Borgoff defeated in Morgue" },
+        { address=0X9E9C8, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="In boss fight or other mandatory battle" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XA2914, type="u8", condition="eq", value=0X07, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9E9D0, type="u8", condition="eq", value=0X0A, action="OBJECT_DESTROYED", desc="Broken elevator scene in Main Hall" },
+        { address=0X9E9D4, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="West staircase door unlocked" },
+        { address=0X9E9FB, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Blue Door unlocked" },
+        { address=0X9E9FC, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Red door unlocked" },
+        { address=0X9E9FF, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Unlocked" },
+        { address=0XA2914, type="u8", condition="eq", value=0X0E, action="OBJECT_INTERACTION", desc="Blocking" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X9EA0B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Progression Flag" },
+      },
+    },
+  },
+}

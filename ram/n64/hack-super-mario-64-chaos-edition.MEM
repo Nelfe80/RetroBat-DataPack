@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Chaos Edition",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-chaos-edition",
+    hashes = {
+      { hash = "85350c5c06832eb5d6be40e6e4dd4422", label = "Super Mario 64 - Chaos Edition (Hack) (Kaze Emanuar) (4.0).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X305573, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World of the collected Star {v3.0}" },
+        { address=0X305577, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Collected Star in the World {v3.0}" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X312D4E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives {v3.0} increased" },
+        { address=0X312D4E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives {v3.0} decreased" },
+        { address=0X31401E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives {v4.0} increased" },
+        { address=0X31401E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives {v4.0} decreased" },
+      },
+      health = {
+        { address=0X312D4D, type="u8", condition="increase", action="HEAL", desc="Health {v3.0} increased" },
+        { address=0X312D4D, type="u8", condition="decrease", action="HIT", desc="Health {v3.0} decreased" },
+        { address=0X31401D, type="u8", condition="increase", action="HEAL", desc="Health {v4.0} increased" },
+        { address=0X31401D, type="u8", condition="decrease", action="HIT", desc="Health {v4.0} decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X312D4A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins [16bit] {v3.0} increased" },
+        { address=0X31401A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins [16bit] {v4.0} increased" },
+      },
+    },
+  },
+}

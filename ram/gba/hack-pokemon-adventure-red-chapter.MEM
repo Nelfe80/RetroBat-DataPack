@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Adventure: Red Chapter",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-adventure-red-chapter",
+    hashes = {
+      { hash = "4b866d832fbc58a1575de9475c6003c4", label = "Pokemon - FireRed Version - Pokemon Adventure - Red Chapter (Beta 15) (Expansion Fix) (Aethestode).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3EE10, type="u24le", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X44549, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Magnezone" },
+        { address=0X44588, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Silvally G (Ground)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X4454F, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Herdier" },
+        { address=0X44562, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Frogadier" },
+      },
+      health = {
+        { address=0X4459D, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="OddishP" },
+        { address=0X445B7, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="NotchPichu" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X445A0, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Ho-Oh Gold" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X44543, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="Shieldon" },
+      },
+      player = {
+        { address=0X44527, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+        { address=0X4457F, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff O" },
+      },
+    },
+  },
+}

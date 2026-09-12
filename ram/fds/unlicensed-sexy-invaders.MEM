@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Sexy Invaders",
+    system = "fds",
+    system_name = "Famicom Disk System",
+    genre = "Adult"
+  },
+
+  rom = {
+    name = "unlicensed-sexy-invaders",
+    hashes = {
+      { hash = "9124bdf0e1116e649b5daed14853e92b", label = "Sexy Invaders (1990) (Unl) (Super PIG).fds" },
+      { hash = "ff65350d6e949a28b83c65943ecb27a3", label = "Sexy Invaders (Japan) (Unl).fds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0092, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level (Displayed on Map)" },
+      },
+      stage = {
+        { address=0X0093, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Level (Actual?)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X05AD, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X05AD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X05B2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="player ship speed (S power-up)" },
+        { address=0X05C9, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="R (Rapid Fire) power-up" },
+        { address=0X05CA, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="P (Power) power-up" },
+        { address=0X05CC, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="V (Invincible) power up" },
+        { address=0X05D3, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="power-up falling y-pos" },
+        { address=0X05D4, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="power-up falling type" },
+        { address=0X05D6, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="power-up falling x-pos" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X05CD, type="u8", condition="change", action="SHIELD_GAIN", desc="M (Shots go through shields)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ PSXFunkin: B Sides",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-psxfunkin-b-sides",
+    hashes = {
+      { hash = "c8d6103bb37a0336c466a4299649c6d6", label = "PSXFunkin' - B Sides (zeriben)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E4070, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E4070, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1E4071, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E4071, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1FDD00, type="u16le", condition="increase", action="GAIN_LIFE", desc="Current Life increased" },
+        { address=0X1FDD00, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Current Life decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1FDD04, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong RNDMZR",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-rndmzr",
+    hashes = {
+      { hash = "2521bed58d6d83d01b6e947d2cc2d665", label = "dkrndmzr.7z <Donkey Kong RNDMZR>" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0229, type="u8", condition="change", action="NEW_LEVEL", desc="Level number" },
+        { address=0X022A, type="u8", condition="change", action="NEW_LEVEL", desc="addr for tabel with screens/levels" },
+        { address=0X1BA3, type="u8", condition="change", action="NEW_LEVEL", desc="Alternative Level number" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0020, type="u8", condition="increase", action="GAIN_LIFE", desc="Initial number of lives as set by the dip switches increased" },
+        { address=0X0020, type="u8", condition="decrease", action="LOSE_LIFE", desc="Initial number of lives as set by the dip switches decreased" },
+        { address=0X0228, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of lives remaining increased" },
+        { address=0X0228, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of lives remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00B3, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX00", desc="Score 00xx00" },
+        { address=0X00B4, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX0000", desc="Score xx0000" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0060, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="ItemsJumped: Number of items jumped" },
+        { address=0X0210, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump direction: 00 : right, FF : left" },
+        { address=0X0211, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump type: 00 : straight up, 80 : sideways" },
+        { address=0X0220, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jumpman Falling Indicator: 0 : jumpman is not falling, 1 : jumpman is falling" },
+        { address=0X094D, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jumpman sprite: sprite number" },
+        { address=0X094E, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jumpman sprite: color" },
+      },
+    },
+  },
+}

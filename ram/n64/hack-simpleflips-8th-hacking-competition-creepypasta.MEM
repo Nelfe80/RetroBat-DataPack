@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 8th Hacking Competition: Creepypasta",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-8th-hacking-competition-creepypasta",
+    hashes = {
+      { hash = "12361cf2e1c3a3d0c754c26734974403", label = "09 - Please Come to the Castle.z64" },
+      { hash = "326d77a82a7cbb1bd524a02b0fb3acfd", label = "03 - BUP 64.z64" },
+      { hash = "354aa4a45fa4237330c240e878faa998", label = "18 - [MARIOEXE].z64" },
+      { hash = "35d600ca4e4b998b670515bf5e7df269", label = "11 - Shitfilled Creepypasta.z64" },
+      { hash = "366a34ede2531a2f228f85db425a2583", label = "07 - Paradise64.z64" },
+      { hash = "3e68c58f89e33cd33c46cfd289e3ce82", label = "13 - The Star's Shadow.z64" },
+      { hash = "51245f9dc0c4b43705f04b269c91f7ae", label = "16 - My First ROM Hack.z64" },
+      { hash = "6105028474aea251a50ac523e2477406", label = "02 - Bup.EXE 64.z64" },
+      { hash = "73f58f49a9cc1eda16ff3af5fd1d6dac", label = "10 - Regular Pasta.z64" },
+      { hash = "7c43b4e849128bf1478894ac89d8a513", label = "17 - The Secret Yellow Switch.z64" },
+      { hash = "91a75d0d0108b6c29f5db3176e939749", label = "12 - Spoopy 64.z64" },
+      { hash = "9729128f20c0fbf88cee43bc35be75da", label = "01 - Acquiring Pets 64.z64" },
+      { hash = "c3299e1f0c41975fea66970031bb3abd", label = "15 - Super Mario 64 (modded 8019C828).z64" },
+      { hash = "c93875b06c5f3436d77416ab70b2158e", label = "05 - Nataniel Bendi Ground-Pounds the Sign.z64" },
+      { hash = "d8fc198ac97da8b2a042e37d4547abab", label = "08 - PIPLUP.z64" },
+      { hash = "e5a536310ef9d25a343616168275ba3c", label = "14 - The Picture of Bob-Omb Battlefield.z64" },
+      { hash = "f58431c29651f3e8bfdefb3792398e34", label = "06 - p e r m a n e n t l o o p.z64" },
+      { hash = "fd2242679f01015cdc9e6d3c3e678578", label = "04 - My First Hack X3.z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X33B262, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B262, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X34706D, type="u8", condition="increase", action="HEAL", desc="Peach Health increased" },
+        { address=0X34706D, type="u8", condition="decrease", action="HIT", desc="Peach Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Amount Red Coins increased" },
+      },
+    },
+  },
+}

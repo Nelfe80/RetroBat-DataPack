@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Puffy Pink",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-puffy-pink",
+    hashes = {
+      { hash = "48a851befb72015a231733a86677290c", label = "Pokemon FireRed - Pokemon Puffy Pink (v1.3) (TheUltraNerd).gba" },
+    }
+  },
+
+  events = {
+  },
+}

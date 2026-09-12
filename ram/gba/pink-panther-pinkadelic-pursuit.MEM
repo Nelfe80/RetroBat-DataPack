@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pink Panther: Pinkadelic Pursuit",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "pink-panther-pinkadelic-pursuit",
+    hashes = {
+      { hash = "ba7746952e87a2c85927fa691e7230dd", label = "Pink Panther - Pinkadelic Pursuit (USA).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X52B9, type="u8", condition="change", action="NEW_LEVEL", desc="level id?!" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X528C, type="u8", condition="increase", action="GAIN_LIFE", desc="00 : Continue after losing an extra life or start new game on any difficulty?!?! increased" },
+        { address=0X528C, type="u8", condition="decrease", action="LOSE_LIFE", desc="00 : Continue after losing an extra life or start new game on any difficulty?!?! decreased" },
+        { address=0X528C, type="u8", condition="eq", value=0X01, action="GAIN_LIFE", desc="Gameplay" },
+        { address=0X528D, type="u8", condition="increase", action="GAIN_LIFE", desc="03 : 3 Extra Lives increased" },
+        { address=0X528D, type="u8", condition="decrease", action="LOSE_LIFE", desc="03 : 3 Extra Lives decreased" },
+        { address=0X528D, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1 Extra Live" },
+        { address=0X528D, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="2 Extra Lives" },
+      },
+      health = {
+        { address=0X52EE, type="u8", condition="increase", action="HEAL", desc="Bowling ball, hammer, firethrower energy?! increased" },
+        { address=0X52EE, type="u8", condition="decrease", action="HIT", desc="Bowling ball, hammer, firethrower energy?! decreased" },
+        { address=0X52F4, type="u8", condition="increase", action="HEAL", desc="Magnet energy?! increased" },
+        { address=0X52F4, type="u8", condition="decrease", action="HIT", desc="Magnet energy?! decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X5295, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Idle : don't move" },
+      },
+    },
+  },
+}

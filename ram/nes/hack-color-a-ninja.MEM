@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Color a Ninja",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-color-a-ninja",
+    hashes = {
+      { hash = "9a50840fee49809749e2eb2e09ca039f", label = "Color a Ninja (Slush.Filter) (1.0).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0205, type="u8", condition="eq", value=0XF8, action="TITLE_SCREEN", desc="Titlescreen or Main Menu" },
+      },
+    },
+  },
+}

@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: Gruntylvania",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-gruntylvania",
+    hashes = {
+      { hash = "b5c48dfa34ddf8323a3f9a3219fea41c", label = "Banjo-Kazooie - Gruntylvania (v0.4) (Markus Kurko).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X37E8F4, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X37E8F6, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level ID" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X1A, action="NEW_LEVEL", desc="Stranger Hill" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X1B, action="NEW_LEVEL", desc="Main Area" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X25, action="NEW_LEVEL", desc="Swamp Hut" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X26, action="NEW_LEVEL", desc="Inside Strangers Tree" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X2E, action="NEW_LEVEL", desc="Creepy Castle" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X2F, action="NEW_LEVEL", desc="In the Well" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="Mumbo's Hut" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X6F, action="NEW_LEVEL", desc="Outside the Castle" },
+        { address=0X37E8F6, type="u8", condition="eq", value=0X8D, action="NEW_LEVEL", desc="Swamp" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X385F70, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Feathers increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3832C0, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Timed Switch in Swamp" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Chessmaster 2000",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "chessmaster-2000",
+    hashes = {
+      { hash = "7a3b8067e389197b315e9c09005df270", label = "Chessmaster 2000, The (1990)(Ubi Soft).dsk" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X879F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Computer Difficulty Level: (30 + actual difficulty level of 1-8)" },
+      },
+    },
+  },
+}

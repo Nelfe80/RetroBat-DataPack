@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Huangjin Taiyang | Golden Sun",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-huangjin-taiyang-golden-sun",
+    hashes = {
+      { hash = "987e6769cbef4960e681f3113a4a18ff", label = "Huangjin Taiyang (China) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+  },
+}

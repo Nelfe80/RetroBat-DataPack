@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ilusiyellow?",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ilusiyellow",
+    hashes = {
+      { hash = "9dcaf7d5f66abef86b39f67f73907c40", label = "SMW - Ilusiyellow (v1.0) (Leo137).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

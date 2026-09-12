@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Micro Knight IV",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-micro-knight-iv",
+    hashes = {
+      { hash = "cf0d68bb92dcbb3927904ffdf6c4684f", label = "Micro Knight IV (World) (v1.02) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

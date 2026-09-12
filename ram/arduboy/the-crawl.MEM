@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Crawl",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-crawl",
+    hashes = {
+      { hash = "cdd759fc287232a1633cf75702ab6ac8", label = "Crawl, The (World) (v1.01).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X02D0, type="u8", condition="change", action="PAUSE_ON", desc="bit0 : 'B' input (pause)" },
+        { address=0X02D2, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="title" },
+        { address=0X02D2, type="u8", condition="eq", value=0X02, action="GAME_OVER", desc="game over" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X02D1, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="bit0 : 'A' input (jump)" },
+      },
+    },
+  },
+}

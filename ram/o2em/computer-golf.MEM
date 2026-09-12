@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Computer Golf",
+    system = "o2em",
+    system_name = "Magnavox Odyssey 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "computer-golf",
+    hashes = {
+      { hash = "8b1b91361f92725b7587ed41fac6d3e0", label = "Computer Golf (USA).bin" },
+      { hash = "a251791690a6f2efdd26f924dcf45928", label = "Golf (Europe).bin" },
+    }
+  },
+
+  events = {
+  },
+}

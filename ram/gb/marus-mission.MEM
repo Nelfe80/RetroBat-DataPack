@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Maru's Mission",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "marus-mission",
+    hashes = {
+      { hash = "7f26dd90f8e80b52ead8fc0e3609d4f2", label = "Maru's Mission (USA).gb" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0XC435, type="u32le", condition="eq", value=0X33, action="DYNAMIC_INVENTORY", desc="balls (also comets?) (balls seem to be unlimited) (comets : ammo) (also 33 when getting tp power" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC435, type="u32le", condition="eq", value=0X35, action="AMMO_STATE", desc="maru circle (ammo)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC435, type="u32le", condition="eq", value=0X2E, action="BOSS_HIT", desc="when flying to the boss" },
+        { address=0XC435, type="u32le", condition="eq", value=0X31, action="BOSS_HIT", desc="special attack (for bosses)" },
+        { address=0XC66B, type="u8", condition="eq", value=0XC0, action="BOSS_HIT", desc="boss enemy" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XC435, type="u32le", condition="eq", value=0X32, action="INVINCIBILITY_START", desc="invincibility (38 possible while 32)" },
+      },
+    },
+  },
+}

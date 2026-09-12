@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Quest for the Golden Chalice",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-quest-for-the-golden-chalice",
+    hashes = {
+      { hash = "eabcb4a9a1eac2c6f8a7d002987d9e55", label = "Quest for the Golden Chalice (World) (Aftermarket) (Unl).col" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X017F, type="u8", condition="change", action="TITLE_SCREEN", desc="Last byte of a block of memory that is always 0x00 when in game and not 0x00 on the title screen" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X02F9, type="u8", condition="change", action="DOOR_OPENED", desc="bit 0 - Castle door opened" },
+      },
+    },
+  },
+}

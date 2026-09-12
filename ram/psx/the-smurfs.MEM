@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Smurfs",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-smurfs",
+    hashes = {
+      { hash = "da67f8face9020d87e7dace4ac1ef767", label = "Smurfs, The (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9C6F4, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of levels completed (US)" },
+        { address=0X9C8B0, type="u8", condition="change", action="NEW_LEVEL", desc="Current level (EU)" },
+        { address=0X9CD48, type="u8", condition="change", action="NEW_LEVEL", desc="Current level (US)" },
+        { address=0X1D2D6C, type="u8", condition="change", action="NEW_LEVEL", desc="Health (underground exploration) (US)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA2C9A, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (US) increased" },
+        { address=0XA2C9A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (US) decreased" },
+      },
+      health = {
+        { address=0XA2800, type="u8", condition="increase", action="HEAL", desc="Health (not editable) (EU) increased" },
+        { address=0XA2800, type="u8", condition="decrease", action="HIT", desc="Health (not editable) (EU) decreased" },
+        { address=0XA2C98, type="u8", condition="increase", action="HEAL", desc="Health (not editable) (US) increased" },
+        { address=0XA2C98, type="u8", condition="decrease", action="HIT", desc="Health (not editable) (US) decreased" },
+        { address=0XA2CA0, type="u8", condition="increase", action="HEAL", desc="Health shown in screen (US) increased" },
+        { address=0XA2CA0, type="u8", condition="decrease", action="HIT", desc="Health shown in screen (US) decreased" },
+        { address=0XC90BA, type="u8", condition="change", action="HIT", desc="Damage done to Gargamel (US)" },
+        { address=0X195CB0, type="u8", condition="increase", action="HEAL", desc="Health (Night Ride) (US) increased" },
+        { address=0X195CB0, type="u8", condition="decrease", action="HIT", desc="Health (Night Ride) (US) decreased" },
+        { address=0X1DDAA0, type="u8", condition="increase", action="HEAL", desc="Health (Gargamel's Castle, before fight) (US) increased" },
+        { address=0X1DDAA0, type="u8", condition="decrease", action="HIT", desc="Health (Gargamel's Castle, before fight) (US) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1837BC, type="u8", condition="increase", action="COIN_GAIN", desc="Health (Gargamel's castle, during fight) (US) increased" },
+      },
+    },
+  },
+}

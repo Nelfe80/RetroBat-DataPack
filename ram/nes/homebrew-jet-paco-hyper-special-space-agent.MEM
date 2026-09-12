@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Jet-Paco: Hyper Special Space Agent!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Adventure, Platform"
+  },
+
+  rom = {
+    name = "homebrew-jet-paco-hyper-special-space-agent",
+    hashes = {
+      { hash = "0646cdcf743ba3ca71ee2be6da95f2d3", label = "Jet-Paco - Hyper Special Space Agent!! (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0015, type="u8", condition="eq", value=0X96, action="TITLE_SCREEN", desc="ingame" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0089, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="on ground" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X003B, type="u8", condition="increase", action="HEAL", desc="Current HP (hud) increased" },
+        { address=0X003B, type="u8", condition="decrease", action="HIT", desc="Current HP (hud) decreased" },
+        { address=0X008B, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X008B, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+      },
+    },
+  },
+}

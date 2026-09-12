@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Block Kuzushi",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "block-kuzushi",
+    hashes = {
+      { hash = "55ef8421492242c2726e355c41aef000", label = "Block Kuzushi GB (Japan) (SGB Enhanced).gb" },
+      { hash = "b4c3e1ecce45d316a60e54f379f6acb1", label = "Block Kuzushi GB (Japan) (En) (v1.0) (PentarouZero).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC304, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC2D5, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="In level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC1A1, type="u8", condition="decrease", action="HIT", desc="Powerup collected decreased" },
+        { address=0XC55D, type="u8", condition="decrease", action="HIT", desc="b1:Passthrough powerup decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XC1A1, type="u8", condition="eq", value=0X0, action="DYNAMIC_INVENTORY", desc="D" },
+        { address=0XC1A1, type="u8", condition="eq", value=0X3, action="DYNAMIC_INVENTORY", desc="E" },
+        { address=0XC1A1, type="u8", condition="eq", value=0X5, action="DYNAMIC_INVENTORY", desc="L" },
+        { address=0XC55D, type="u8", condition="eq", value=0XB3, action="DYNAMIC_INVENTORY", desc="Multiball powerup" },
+        { address=0XC55D, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Ball held" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XDF10, type="u24le", condition="eq", value=0X1D, action="BOSS_DEFEATED", desc="defeat boss" },
+        { address=0XDF10, type="u24le", condition="eq", value=0X24, action="BOSS_HIT", desc="hit boss" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XDF10, type="u24le", condition="eq", value=0X20, action="OBJECT_DESTROYED", desc="paddle destroyed" },
+      },
+    },
+  },
+}

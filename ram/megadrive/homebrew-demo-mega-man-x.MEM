@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Mega Man X",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-mega-man-x",
+    hashes = {
+      { hash = "5e0d3f824f0c1f60908580b264ef9e2b", label = "Mega Man X (World) (Demo) (ROM 1) (Aftermarket) (Unl).md" },
+      { hash = "ea71a1b7017bdd5f994e21581b34ed3f", label = "Mega Man X (World) (Demo) (ROM 3) (Aftermarket) (Unl).md" },
+      { hash = "efc66e1c3c0b80eb35de931d34bfba9c", label = "Mega Man X (World) (2019-07-28) (Demo) (ROM 2) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XAEA8, type="u24be", condition="eq", value=0X29, action="PROGRESSION_STAGE", desc="Teleport Stage" },
+        { address=0XB342, type="u16be", condition="eq", value=0X0902, action="PROGRESSION_STAGE", desc="Bunny (Penguin Stage)" },
+        { address=0XB342, type="u16be", condition="eq", value=0X1402, action="PROGRESSION_STAGE", desc="Wheel (Intro Stage)" },
+        { address=0XB342, type="u16be", condition="eq", value=0X280E, action="PROGRESSION_STAGE", desc="Vehicle (Intro Stage)" },
+        { address=0XB343, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Bunny (Penguin Stage)" },
+        { address=0XB343, type="u8", condition="eq", value=0X14, action="PROGRESSION_STAGE", desc="Wheel (Intro Stage)" },
+        { address=0XB343, type="u8", condition="eq", value=0X28, action="PROGRESSION_STAGE", desc="Vehicle (Intro Stage)" },
+        { address=0XB366, type="u8", condition="eq", value=0X6D20, action="PROGRESSION_STAGE", desc="Bunny (Penguin Stage)" },
+        { address=0XB366, type="u8", condition="eq", value=0XB546, action="PROGRESSION_STAGE", desc="Vehicle (Intro Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XAE8F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0XAEA8, type="u24be", condition="eq", value=0X23, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0XAF79, type="u8", condition="increase", action="HEAL", desc="Enemy HP - Chill Penguin increased" },
+        { address=0XAF79, type="u8", condition="decrease", action="HIT", desc="Enemy HP - Chill Penguin decreased" },
+        { address=0XB37B, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0XB37B, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0XCB43, type="u8", condition="increase", action="HEAL", desc="X HP increased" },
+        { address=0XCB43, type="u8", condition="decrease", action="HIT", desc="X HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB343, type="u8", condition="eq", value=0X39, action="BOSS_HIT", desc="Penguin Boss" },
+        { address=0XB380, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Knocked out" },
+        { address=0XB380, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Open the Mouth / Ice cube" },
+        { address=0XB380, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="slide" },
+        { address=0XB380, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Falling down" },
+        { address=0XB380, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Ice copy" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB380, type="u8", condition="eq", value=0X0A, action="JUMPING", no_log=true, no_survey=true, desc="Jump to nevasca" },
+      },
+    },
+  },
+}

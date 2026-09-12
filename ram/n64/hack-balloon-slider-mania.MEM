@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Balloon Slider Mania",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-balloon-slider-mania",
+    hashes = {
+      { hash = "26b5e7e58817c661ba0758e3b0a7ae29", label = "SM64 - Balloon Slider Mania (v1.0) (Mel,ArcticJaguar725).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X219F20, type="u32be", condition="change", action="NEW_LEVEL", desc="set on menu to open menu or enter level [32bit] {gSelectionShown}" },
+        { address=0X21DE2C, type="u32be", condition="change", action="NEW_LEVEL", desc="Previous Track [32bit] {gBSMLastLevel}" },
+        { address=0X21DE54, type="u32be", condition="change", action="NEW_LEVEL", desc="Current Level - Num of Red Balloons collected [32bit] {gBSMRedBalloonsPopped}" },
+        { address=0X21DE58, type="u32be", condition="change", action="NEW_LEVEL", desc="Current Level - Key collected [32bit] {gBSMKeyCollected}" },
+        { address=0X21DE5C, type="u32be", condition="change", action="NEW_LEVEL", desc="Current Level - Cornersoft Token collected [32bit] {gBSMTCSTokenCollected}" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X73EB2, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Snowy Peak - High Score [16bit]" },
+        { address=0X73EB6, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Aqueduct Flow - High Score [16bit]" },
+        { address=0X73EBA, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Fungi Canyon - High Score [16bit]" },
+        { address=0X73EBE, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Starlight Fest - High Score [16bit]" },
+        { address=0X73EC2, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Holiday Peak - High Score [16bit]" },
+        { address=0X73EC6, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Dragon Flow - High Score [16bit]" },
+        { address=0X73ECA, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Twilight Canyon - High Score [16bit]" },
+        { address=0X73ECE, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Cyber Fest - High Score [16bit]" },
+        { address=0X73ED2, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Stats - Mania - Cornersoft Parade - High Score [16bit]" },
+        { address=0X21DE40, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Last Balloon picked up (controls number that appears on screen, not score increase) {gBSMLastBal" },
+        { address=0X21DE4C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Level - Score [32bit] {gBSMScoreCount}" },
+      },
+      collectibles = {
+        { address=0X219F15, type="u8", condition="increase", action="COIN_GAIN", desc="Display Gold Mario Unlock Message {gDisplayGoldMarioMessage} increased" },
+      },
+    },
+  },
+}

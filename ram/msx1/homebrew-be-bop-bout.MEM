@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Be-Bop Bout",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-be-bop-bout",
+    hashes = {
+      { hash = "5a01bbeb3673bbdc020ab8e8e4ebd5da", label = "Be-Bop Bout (En) (1994) (64K) (Mar'z Project).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

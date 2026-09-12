@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pea Shootin' Pete",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "pea-shootin-pete",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X196AC, type="u8", condition="change", action="NEW_LEVEL", desc="Round Number" },
+        { address=0X196BA, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of balls on the screen (0x00 for stage clear)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X196B6, type="u8", condition="change", action="SHIELD_GAIN", desc="0x01 - Shield Active" },
+      },
+    },
+  },
+}

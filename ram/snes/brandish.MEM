@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Brandish",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "brandish",
+    hashes = {
+      { hash = "90bb70c75f0000492f99725de54c264f", label = "Brandish (USA).sfc" },
+      { hash = "e42a54f0b0457c2234271b241c2b7fb9", label = "Brandish (USA) (Pt) (v1.0) (GreenGoblin,Odin).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0595, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0589, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X0589, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X058A, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X058A, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X05E8, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X05E8, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X075F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X075F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0760, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0760, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X08D7, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X08D7, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X08D8, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X08D8, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X0A4F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0A4F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0A50, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0A50, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X0B0B, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0B0B, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0B0C, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0B0C, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X0B69, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0B69, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0BC7, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0BC7, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0BC8, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0BC8, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X0C25, type="u8", condition="increase", action="HEAL", desc="enemy HP increased" },
+        { address=0X0C25, type="u8", condition="decrease", action="HIT", desc="enemy HP decreased" },
+        { address=0X0C83, type="u8", condition="increase", action="HEAL", desc="enemy hp increased" },
+        { address=0X0C83, type="u8", condition="decrease", action="HIT", desc="enemy hp decreased" },
+        { address=0X0C84, type="u8", condition="increase", action="HEAL", desc="enemy max hp increased" },
+        { address=0X0C84, type="u8", condition="decrease", action="HIT", desc="enemy max hp decreased" },
+        { address=0X0CE1, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0CE1, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0CE2, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0CE2, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X0D3F, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0D3F, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X0D40, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X0D40, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X43C2, type="u8", condition="increase", action="COIN_GAIN", desc="Gold x10 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X05E7, type="u8", condition="change", action="BOSS_HIT", desc="Boss/enemy HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XDDC2, type="u8", condition="change", action="SHIELD_GAIN", desc="Equipped Shield" },
+      },
+    },
+  },
+}

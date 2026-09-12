@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "TaleSpin",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "talespin",
+    hashes = {
+      { hash = "729f10adbf2b8b90d62ce79a7e48c8d1", label = "TaleSpin (USA).pce" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X162E, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+  },
+}

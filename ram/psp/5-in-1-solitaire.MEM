@@ -1,0 +1,62 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "5-in-1 Solitaire",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "5-in-1-solitaire",
+    hashes = {
+      { hash = "0eed6c075c85318e9ae85f1df130ee15", label = "5-in-1 Solitaire (Europe) (minis) (PSN).iso" },
+      { hash = "69f525ee1a1faf67c46e2f65b3321b38", label = "5-in-1 Solitaire (USA) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X866C38, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X866C38, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X866CB8, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X866CB8, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X866F50, type="u32le", condition="eq", value=0X00, action="GAME_OVER", desc="Game On" },
+        { address=0X866F50, type="u32le", condition="eq", value=0X01, action="GAME_OVER", desc="Game Over" },
+        { address=0X867788, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X867788, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X8679E0, type="u32le", condition="eq", value=0X00, action="GAME_OVER", desc="Game On" },
+        { address=0X8679E0, type="u32le", condition="eq", value=0X01, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X865654, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Spider Best Score (US)" },
+        { address=0X865780, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Spider Current Score (US)" },
+        { address=0X86578C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Golf Current Score (US)" },
+        { address=0X865FD4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Klondike Best Score (EU)" },
+        { address=0X867CF4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Game Current Score (US)" },
+        { address=0X868784, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Game Current Score (EU)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X865808, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Klondike Timed Game (US)" },
+        { address=0X865818, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Freecell Timed Game (US)" },
+        { address=0X865828, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Spider Timed Game (US)" },
+        { address=0X865838, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Golf Timed Game (US)" },
+        { address=0X865848, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Gaps Timed Game (US)" },
+        { address=0X865950, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Game Time in Minutes (US)" },
+        { address=0X865954, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Game Time in Seconds (US)" },
+        { address=0X866248, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Klondike Timed Game (EU)" },
+        { address=0X866258, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Freecell Timed Game (EU)" },
+        { address=0X866268, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Spider Timed Game (EU)" },
+        { address=0X866278, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Golf Timed Game (EU)" },
+        { address=0X866288, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Gaps Timed Game (EU)" },
+        { address=0X866390, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Game Time in Minutes (EU)" },
+        { address=0X866394, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Game Time in Seconds (EU)" },
+      },
+    },
+  },
+}

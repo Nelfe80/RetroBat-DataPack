@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ultimate Fighting Championship",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "ultimate-fighting-championship",
+    hashes = {
+      { hash = "8268ae026f73e834f52ee8291bb125b8", label = "Ultimate Fighting Championship (USA).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC2CD, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Rounds" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC2DE, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8 Bit] Timer before KO" },
+      },
+    },
+  },
+}

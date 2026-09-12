@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Immortal Desire",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Visual Novel"
+  },
+
+  rom = {
+    name = "immortal-desire",
+    hashes = {
+      { hash = "ceef67751644f25514333eb3a642448b", label = "Immortal Desire (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

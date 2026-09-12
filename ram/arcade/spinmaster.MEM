@@ -1,0 +1,109 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Spinmaster",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "spinmaster",
+    hashes = {
+      { hash = "44d6eb63bfac741a7f3c987f75b85bbe", label = "spinmast.7z <Spin Master / Miracle Adventure>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002F, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits" },
+        { address=0X0052, type="u8", condition="change", action="PAUSE_ON", desc="ffff: paused" },
+        { address=0XD039, type="u8", condition="change", action="GAME_OVER", desc="7f game over" },
+        { address=0XE418, type="u8", condition="eq", value=0X0, action="DEMO_MODE", desc="control" },
+        { address=0XF2C9, type="u8", condition="change", action="PAUSE_ON", desc="10: paused" },
+        { address=0XFD8A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - toggle continues" },
+        { address=0XFD8F, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - toggle demo sound" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00BB, type="u8", condition="change", action="NEW_LEVEL", desc="used to indicate level select screen and how to play" },
+        { address=0XD2A1, type="u8", condition="change", action="LEVEL_CLEAR", desc="Scene clear flag" },
+        { address=0XFD93, type="u8", condition="change", action="NEW_LEVEL", desc="Soft Dip Setup - toggle level indicator" },
+      },
+      stage = {
+        { address=0XCF1C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Progress program (reset on every substage, advances by hex 20)" },
+        { address=0XCF8F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="sub-sub stage" },
+        { address=0XCF8F, type="u8", condition="eq", value=0X1E, action="PROGRESSION_STAGE", desc="1-2" },
+        { address=0XCF8F, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="2-1" },
+        { address=0XCF8F, type="u8", condition="eq", value=0X9, action="PROGRESSION_STAGE", desc="1-1" },
+        { address=0XD01E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Substage" },
+        { address=0XD020, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Substage secondary program" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5014, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0X5014, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0XD04E, type="u8", condition="increase", action="GAIN_LIFE", desc="p1 lives increased" },
+        { address=0XD04E, type="u8", condition="decrease", action="LOSE_LIFE", desc="p1 lives decreased" },
+        { address=0XFD89, type="u8", condition="increase", action="GAIN_LIFE", desc="Soft Dip Setup - lives on start increased" },
+        { address=0XFD89, type="u8", condition="decrease", action="LOSE_LIFE", desc="Soft Dip Setup - lives on start decreased" },
+        { address=0XFD89, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1(min)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3(default)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X63, action="LIVES_STATE", desc="99(max)" },
+      },
+      health = {
+        { address=0X5F63, type="u8", condition="increase", action="HEAL", desc="P1 HP increased" },
+        { address=0X5F63, type="u8", condition="decrease", action="HIT", desc="P1 HP decreased" },
+        { address=0XD053, type="u8", condition="increase", action="HEAL", desc="p1 hp increased" },
+        { address=0XD053, type="u8", condition="decrease", action="HIT", desc="p1 hp decreased" },
+        { address=0XFD8D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Soft Dip Setup - health" },
+        { address=0XFD8D, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="1(lowest)" },
+        { address=0XFD8D, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="2(default)" },
+        { address=0XFD8D, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="5(highest)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X7456, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0X7516, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0X75D6, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0X7696, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0X7756, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0X7816, type="u8", condition="change", action="TREASURE", desc="Hidden treasure status" },
+        { address=0XE51A, type="u8", condition="change", action="TREASURE", desc="Treasure choice" },
+      },
+      weapon = {
+        { address=0X5F54, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", desc="yo-yo" },
+        { address=0X5F54, type="u8", condition="eq", value=0X08, action="WEAPON_STATE", desc="fire" },
+        { address=0X5F54, type="u8", condition="eq", value=0X0C, action="WEAPON_STATE", desc="ice" },
+        { address=0X5F54, type="u8", condition="eq", value=0X10, action="WEAPON_STATE", desc="bomb" },
+        { address=0X5F54, type="u8", condition="eq", value=0X14, action="WEAPON_STATE", desc="glove" },
+        { address=0X5F54, type="u8", condition="eq", value=0X18, action="WEAPON_STATE", desc="thunder" },
+        { address=0X5F54, type="u8", condition="eq", value=0X1C, action="WEAPON_STATE", desc="double" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X500C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XD02D, type="u8", condition="change", action="BOSS_HIT", desc="boss hp" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X5FFE, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="jump bounce combo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFE8A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="runtime clock. Does not reset or pause" },
+      },
+    },
+  },
+}

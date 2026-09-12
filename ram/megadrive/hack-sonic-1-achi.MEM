@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic 1 Achi",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-1-achi",
+    hashes = {
+      { hash = "6c52ab545f7c9596041d35f46842bbd3", label = "Sonic the Hedgehog - Achi (SHC2017) (Natsumi).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XCCD9, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="26-Found Secret Act" },
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Act." },
+        { address=0XFE10, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Act 1" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X10, action="SCORE_STATE", desc="Hidden Points 1" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X20, action="SCORE_STATE", desc="Hidden Points 2" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X40, action="SCORE_STATE", desc="Hidden Points 3" },
+      },
+      collectibles = {
+        { address=0XCCD4, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="12-You're the Ring Star" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="15-Red Coins 1" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="16-Red Coins 2" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="17-Red Coins 3" },
+        { address=0XCCD5, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="18-Red Coins 4" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="06-Ouch" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="03-Walking on air" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="21-Left" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="07-Badnik" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="02-Spin attack" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="09-1 Ring" },
+        { address=0XCCD6, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="10-10 Rings" },
+        { address=0XCCD9, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="14-Found Red Ring" },
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="Rings increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCCD9, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="25-Boss" },
+        { address=0XCCD9, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Secret boss" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCCD8, type="u8", condition="bit_true", mask=0X04, action="INVINCIBILITY_TIMER", no_log=true, desc="29-blank invincibility" },
+      },
+    },
+  },
+}

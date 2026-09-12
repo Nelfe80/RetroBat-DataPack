@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pang",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "pang",
+    hashes = {
+      { hash = "df95e5552728076f4097e0dfccca5cac", label = "Pang (1990)(Schneider Magazin)[cr].dsk" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1B3E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Overall stage number" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Princess Maker: Legend of Another World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Life Simulation, Role-Playing"
+  },
+
+  rom = {
+    name = "princess-maker-legend-of-another-world",
+    hashes = {
+      { hash = "135ad0c718e88aaa9de9ce848b47753a", label = "Princess Maker - Legend of Another World (Japan).sfc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X94CA, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold (16-bit) increased" },
+      },
+    },
+  },
+}

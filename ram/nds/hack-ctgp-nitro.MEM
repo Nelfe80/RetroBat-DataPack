@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ CTGP: Nitro",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ctgp-nitro",
+    hashes = {
+      { hash = "7648c0e3f28ddedc5e268acfecc7a217", label = "MKDS - CTGP - Nitro (v1.1.0) (CTGP Nitro Team).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1DD1B8, type="u32le", condition="eq", value=0X04, action="GAIN_LIFE", desc="From 1-UP to Feather Cups" },
+        { address=0X3CF6FC, type="u32le", condition="eq", value=0X00, action="GAIN_LIFE", desc="Mushroom/1-UP/Acorn Cup" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3D9D78, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ending score of cup [1.1]" },
+        { address=0X3DB398, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ending Score of Cup [1.0]" },
+      },
+      collectibles = {
+        { address=0X3CF6FC, type="u32le", condition="eq", value=0X05, action="MONEY_STATE", desc="Banana/Boo/Coin Cup" },
+        { address=0X3DB36C, type="u32le", condition="eq", value=0X00, action="MONEY_STATE", desc="Gold" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3CE260, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="minute", desc="Track ID [1.1]" },
+        { address=0X3CF6F8, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="minute", desc="Track ID [1.0]" },
+        { address=0X3CF700, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Mode [1.0]" },
+      },
+    },
+  },
+}

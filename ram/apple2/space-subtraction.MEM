@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Subtraction",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "space-subtraction",
+    hashes = {
+      { hash = "4b24f3c661a58a466930abb4f60c44e6", label = "Mastering Math - Space Subtraction v1.0 (1985)(MECC)(US).do" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X005E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points to lots of things (16-bit)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X03A8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Shuttle Trip Review Time Seconds (8-bit)" },
+      },
+    },
+  },
+}

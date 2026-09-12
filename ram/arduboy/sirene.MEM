@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sirene",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sirene",
+    hashes = {
+      { hash = "52aaf42affe980549f64183865486e17", label = "Sirene (World) (No QR Code).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0263, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0263, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title Screen -> Help" },
+        { address=0X0263, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title Screen -> Play" },
+        { address=0X0263, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen -> Info" },
+        { address=0X0263, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title Screen -> Conf" },
+        { address=0X0263, type="u8", condition="eq", value=0X06, action="GAME_PLAYING", desc="Stage Transition" },
+        { address=0X0263, type="u8", condition="eq", value=0X08, action="PAUSE_ON", desc="Paused" },
+        { address=0X0263, type="u8", condition="eq", value=0X09, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X023B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage." },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0235, type="u8", condition="increase", action="HEAL", desc="Nina's health. increased" },
+        { address=0X0235, type="u8", condition="decrease", action="HIT", desc="Nina's health. decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X022F, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Trident" },
+        { address=0X022F, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", desc="Bubble" },
+        { address=0X022F, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="Shell" },
+        { address=0X022F, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", desc="Magic" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X020D, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-Bit] Score." },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X023A, type="u8", condition="change", action="BOSS_DEFEATED", desc="Stage section (bosses are section 0x16, and changes to 0x17 when you defeat them)" },
+        { address=0X0245, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0232, type="u8", condition="change", action="SHIELD_GAIN", desc="Active shield flag." },
+        { address=0X0234, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Invulnerability and shield timer." },
+      },
+    },
+  },
+}

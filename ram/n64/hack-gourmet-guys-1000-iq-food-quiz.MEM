@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Gourmet Guy's 1000 IQ Food Quiz",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-gourmet-guys-1000-iq-food-quiz",
+    hashes = {
+      { hash = "2e09303b4811141c962fbf9f093efac3", label = "Paper Mario - Gourmet Guy's 1000IQ Quiz (v1.0) (Wrymouth).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X74097, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Game Paused" },
+        { address=0XA094A, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="In game" },
+        { address=0XA094A, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Game Booting" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X74097, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X357003, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Meat Shield" },
+      },
+    },
+  },
+}

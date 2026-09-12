@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Soul Void Redux",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-soul-void-redux",
+    hashes = {
+      { hash = "ce14afb9b396a74a1e0e2ece9747ea9c", label = "Soul Void Redux (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XCB30, type="u8", condition="increase", action="COIN_GAIN", desc="bit0 - Return the Silver Ring increased" },
+        { address=0XCB32, type="u8", condition="increase", action="COIN_GAIN", desc="bit0 - Rusty Coin Found increased" },
+        { address=0XCB34, type="u8", condition="increase", action="COIN_GAIN", desc="bit0 - Silver Ring Found increased" },
+        { address=0XCB90, type="u8", condition="increase", action="COIN_GAIN", desc="bit0 - Assure James about the Silver Ring increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XCB7A, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="bit0 - Get taken out of the pit after the first jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCB6A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit0 - Broken Frame collected" },
+        { address=0XCBD2, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit0 - Cut through blood cave blockage with knife" },
+        { address=0XCC06, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit0 - Broken Frame placed" },
+        { address=0XCC0A, type="u8", condition="change", action="DOOR_OPENED", desc="bit0 - Open the door to see The Grim" },
+        { address=0XCC32, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit0 - Factory panel #1 broken" },
+        { address=0XCC34, type="u8", condition="change", action="DOOR_OPENED", desc="bit0 - Talked to soul who unlocks the Factory doors early" },
+        { address=0XCC36, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit0 - Factory panel #2 broken" },
+        { address=0XCCBC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit0 - Null Void Objects Cheat Activated" },
+        { address=0XCCE6, type="u8", condition="change", action="DOOR_OPENED", desc="bit0 - Factory doors unlocked" },
+      },
+    },
+  },
+}

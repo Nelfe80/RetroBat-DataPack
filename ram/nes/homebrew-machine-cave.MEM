@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Machine Cave",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-machine-cave",
+    hashes = {
+      { hash = "7c58cac007b29a3df31dca6c5c779f81", label = "Machine Cave (World) (v1.19) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X004F, type="u8", condition="increase", action="HEAL", desc="- Ship Health increased" },
+        { address=0X004F, type="u8", condition="decrease", action="HIT", desc="- Ship Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0054, type="u8", condition="change", action="AMMO_STATE", desc="- Ammo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0051, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="- Thrust Boost Time Remaining" },
+      },
+    },
+  },
+}

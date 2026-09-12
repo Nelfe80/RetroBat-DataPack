@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SD Gundam G Generation Overworld",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sd-gundam-g-generation-overworld",
+    hashes = {
+      { hash = "1a25eff0674f265a8f52ba64675585b6", label = "SD Gundam G Generation Over World (Japan) (En) (v1.1) (Izzul95).iso" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC5A058, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit] Level ID" },
+        { address=0X1999D90, type="u8", condition="change", action="LEVEL_CLEAR", desc="pin nb level clear (it's weird)" },
+      },
+      stage = {
+        { address=0XC5A428, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[256 Bit] ASCII Data Current Stage loaded" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XD46234, type="u32le", condition="increase", action="HEAL", desc="[32 Bit] Unit 3(?) Current HP increased" },
+        { address=0XD46234, type="u32le", condition="decrease", action="HIT", desc="[32 Bit] Unit 3(?) Current HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC56AE2, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="[256 Bit] Nickname data block" },
+      },
+    },
+  },
+}

@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Magnet World 2",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "magnet-world-2",
+    hashes = {
+      { hash = "69513f2ea19b19dabc1727b819d8d059", label = "Magnet World 2.d88" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9FFC, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0X9FFC, type="u8", condition="eq", value=0X05, action="GAME_OVER", desc="Game Over/Give Up/Stage Ckear" },
+        { address=0XAED0, type="u8", condition="eq", value=0XC0, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XAED0, type="u8", condition="eq", value=0XD6, action="TITLE_SCREEN", desc="For one frame Between Title and Stage select" },
+        { address=0XAED0, type="u8", condition="eq", value=0XD9, action="TITLE_SCREEN", desc="Black Screen/returned to Title Screen from game over..." },
+        { address=0XAED1, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0XAED2, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0XAED4, type="u8", condition="change", action="TITLE_SCREEN", desc="Are we on the title screen?" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA003, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Yes" },
+      },
+      stage = {
+        { address=0X8611, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Current Stage [MBF32 LE]" },
+        { address=0X8635, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Max Stage Reached [MBF32 LE]" },
+        { address=0XA002, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage (Display)" },
+        { address=0XA002, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0XA002, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Stage 12" },
+        { address=0XA666, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of Magnets remaining in stage" },
+        { address=0XAED0, type="u8", condition="eq", value=0XC7, action="PROGRESSION_STAGE", desc="Stage Screen" },
+        { address=0XAED0, type="u8", condition="eq", value=0XD4, action="PROGRESSION_STAGE", desc="For one frame Between Black Screen (including Stage Select) and Stage Screen" },
+        { address=0XAED0, type="u8", condition="eq", value=0XDC, action="PROGRESSION_STAGE", desc="Stage Select" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8619, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives [MBF32 LE] increased" },
+        { address=0X8619, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives [MBF32 LE] decreased" },
+      },
+    },
+  },
+}

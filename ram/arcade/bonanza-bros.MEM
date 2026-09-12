@@ -1,0 +1,101 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bonanza Bros.",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "bonanza-bros",
+    hashes = {
+      { hash = "0c36bd624045dd4055b005c08aa97a2c", label = "bnzabros.7z <Bonanza Bros (US, Floppy DS3-5000-07d? Based)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X05AC, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo/Start-Up" },
+        { address=0X062C, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo/Start-Up" },
+        { address=0X0800, type="u8", condition="change", action="DEMO_MODE", desc="In-Game Demo" },
+        { address=0X3CA0, type="u8", condition="eq", value=0X90, action="GAME_PLAYING", desc="Up/Active" },
+        { address=0X78010, type="u8", condition="change", action="CREDITS_SCREEN", desc="Number of Credits Inputs 1" },
+        { address=0X78016, type="u8", condition="change", action="CREDITS_SCREEN", desc="Number of Credits Inputs 2" },
+        { address=0X78429, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Count" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0C48, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Bonus Stage Failed" },
+        { address=0X0C49, type="u8", condition="change", action="LEVEL_CLEAR", desc="Bonus Stage Completed Flag" },
+        { address=0X3CA0, type="u8", condition="change", action="NEW_LEVEL", desc="Rake Related Value - In-Level 4 Object" },
+        { address=0X3CA0, type="u8", condition="eq", value=0XA0, action="NEW_LEVEL", desc="Laying" },
+        { address=0X3CB0, type="u8", condition="change", action="NEW_LEVEL", desc="Rake Value - In-Level 4 Object" },
+        { address=0X3CB0, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Stepped on rake" },
+        { address=0X4581, type="u8", condition="eq", value=0X0E, action="LEVEL_CLEAR", desc="Boot-Up/Test Menus" },
+        { address=0X4597, type="u8", condition="eq", value=0X80, action="LEVEL_CLEAR", desc="Stage Clear" },
+        { address=0X45A0, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Part of the Stage Clear Value" },
+        { address=0X78493, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Done" },
+      },
+      stage = {
+        { address=0X0C59, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of Items Collected in Bonus Stage" },
+        { address=0X78480, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X78480, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Tutorial" },
+        { address=0X78480, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Bank" },
+        { address=0X78480, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Mansion" },
+        { address=0X78480, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Casino" },
+        { address=0X78480, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Mint" },
+        { address=0X78480, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Department Store" },
+        { address=0X78480, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Underground Gold Bars" },
+        { address=0X78480, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Jewelry Store" },
+        { address=0X78480, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Laboratory" },
+        { address=0X78480, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Deluxe Liner" },
+        { address=0X78480, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Antique Shop" },
+        { address=0X78480, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Art Museum" },
+        { address=0X78480, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Pyramid" },
+        { address=0X78480, type="u8", condition="eq", value=0X40, action="PROGRESSION_STAGE", desc="Boot-Up/Test Menus" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X059B, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1 Lives increased" },
+        { address=0X059B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1 Lives decreased" },
+        { address=0X061B, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2 Lives increased" },
+        { address=0X061B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2 Lives decreased" },
+        { address=0X78400, type="u8", condition="increase", action="GAIN_LIFE", desc="[Bitflags] Dip Switch Settings - General increased" },
+        { address=0X78400, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Bitflags] Dip Switch Settings - General decreased" },
+        { address=0XF0059A, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XF005A4, type="u24be", condition="change", action="TREASURE", color="white", min=100, max=100, desc="Score delta 100-100: Bonus, gold waiter" },
+        { address=0XF005A4, type="u24be", condition="change", action="TREASURE", color="white", min=10000, max=10000, desc="Score delta 10000-10000: Bonus stage perfect" },
+        { address=0XF005A4, type="u24be", condition="change", action="TREASURE", color="white", min=2000, max=2000, desc="Score delta 2000-2000: Smash grey armored guard, gold bonus" },
+        { address=0XF005A4, type="u24be", condition="change", action="TREASURE", color="white", min=3000, max=3000, desc="Score delta 3000-3000: Bonus treasure coffin" },
+        { address=0XF005A4, type="u24be", condition="change", action="TREASURE", color="white", min=5000, max=5000, desc="Score delta 5000-5000: Treasure loot" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XF005A4, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X78401, type="u8", condition="increase", action="COIN_GAIN", desc="[Bitflags] Dip Switch Settings - Coin A + B increased" },
+        { address=0XFF8428, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X07F6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Demo Timer - Milliseconds" },
+        { address=0X07F7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Demo Timer - Seconds" },
+        { address=0X3CC2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Rake Timer Level 4" },
+        { address=0X7849A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[BCD] Timer Value - Seconds" },
+        { address=0X7849B, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[BCD] Timer Value - Minutes" },
+        { address=0X7849D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[BCD] Timer Value - Microseconds" },
+      },
+    },
+  },
+}

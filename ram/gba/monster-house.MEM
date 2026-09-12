@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Monster House",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "monster-house",
+    hashes = {
+      { hash = "1949b8e4a2f30f28be71e97b4d824b22", label = "Monster House (Europe) (En,Fr,De,Es).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XBDB7, type="u8", condition="change", action="NEW_LEVEL", desc="Level in Thou Art Dead" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X931C, type="u8", condition="change", action="LOSE_LIFE", desc="0x01:Playing Thou Art Dead" },
+        { address=0XBDB6, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives in Thou Art Dead increased" },
+        { address=0XBDB6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives in Thou Art Dead decreased" },
+      },
+      health = {
+        { address=0XBE9E, type="u8", condition="change", action="HIT", desc="HP-damage against DJ" },
+        { address=0XBE9F, type="u8", condition="change", action="HIT", desc="HP-damage against Chowder" },
+        { address=0XBEA0, type="u8", condition="change", action="HIT", desc="HP-damage against Jenny" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA410, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score in Thou Art Dead;" },
+      },
+      collectibles = {
+        { address=0XBE0A, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Slingshot Ammo" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC747, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="bit0 : Soda on Attic jump-corner" },
+        { address=0XC751, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="bit6 : Soda Jump-off Area Floor 4" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC773, type="u8", condition="change", action="DOOR_OPENED", desc="bit6 : Opens door after final Nebbercracker Doll defeated" },
+      },
+    },
+  },
+}

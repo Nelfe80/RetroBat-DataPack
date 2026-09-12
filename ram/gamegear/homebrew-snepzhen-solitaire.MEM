@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Snepzhen Solitaire",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Board Game"
+  },
+
+  rom = {
+    name = "homebrew-snepzhen-solitaire",
+    hashes = {
+      { hash = "aca63448b5d887239fc8821760d36efb", label = "Snepzhen Solitaire (World) (Aftermarket) (Unl).gg" },
+    }
+  },
+
+  events = {
+  },
+}

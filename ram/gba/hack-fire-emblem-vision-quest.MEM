@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Vision Quest",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-vision-quest",
+    hashes = {
+      { hash = "39050bd4b968b5cb1cd3067e9290cea2", label = "Fire Emblem - The Sacred Stones - Vision Quest (v3) (Pandan and Friends).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Clear Flag" },
+        { address=0X33D05, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Clear" },
+        { address=0X33E54, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 1 Level" },
+        { address=0X33E9C, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 2 Level" },
+        { address=0X42574, type="u8", condition="change", action="NEW_LEVEL", desc="BACKUP - Defending Unit Level" },
+        { address=0X425DC, type="u8", condition="change", action="NEW_LEVEL", desc="Defending Unit Level" },
+      },
+      stage = {
+        { address=0X424F4, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Character Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Boss Death Quote" },
+      },
+      health = {
+        { address=0X33E5E, type="u8", condition="increase", action="HEAL", desc="Slot 1 Max HP increased" },
+        { address=0X33E5E, type="u8", condition="decrease", action="HIT", desc="Slot 1 Max HP decreased" },
+        { address=0X33E5F, type="u8", condition="increase", action="HEAL", desc="Slot 1 Current HP increased" },
+        { address=0X33E5F, type="u8", condition="decrease", action="HIT", desc="Slot 1 Current HP decreased" },
+        { address=0X33EA6, type="u8", condition="increase", action="HEAL", desc="Slot 2 Max HP increased" },
+        { address=0X33EA6, type="u8", condition="decrease", action="HIT", desc="Slot 2 Max HP decreased" },
+        { address=0X33EA7, type="u8", condition="increase", action="HEAL", desc="Slot 2 Current HP increased" },
+        { address=0X33EA7, type="u8", condition="decrease", action="HIT", desc="Slot 2 Current HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Recruit Larisa (Ch1-3) - Dewi/Sri (Ch1-6) - Hollace/Zoya (Ch1-10) - Kir (Ch3-1) - Erasmus 4-1" },
+      },
+    },
+  },
+}

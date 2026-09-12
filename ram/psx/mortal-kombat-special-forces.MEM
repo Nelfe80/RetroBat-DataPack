@@ -1,0 +1,91 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mortal Kombat: Special Forces",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "mortal-kombat-special-forces",
+    hashes = {
+      { hash = "c1ade5468b238380c981bc5a0f618609", label = "Mortal Kombat - Special Forces (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB4450, type="u8", condition="change", action="DEMO_MODE", desc="Demo (01)" },
+        { address=0XB4F70, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused (01)" },
+      },
+      events = {
+        { address=0X1185B0, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 1" },
+        { address=0X1185B2, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 2" },
+        { address=0X1185B4, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 3" },
+        { address=0X1185B6, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 4" },
+        { address=0X1185B8, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 5" },
+        { address=0X1185BA, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 6" },
+        { address=0X1185BC, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 7" },
+        { address=0X1185BE, type="u8", condition="change", action="COMBO_HIT", desc="Combo Button 8" },
+        { address=0X16F01C, type="u8", condition="change", action="COMBO_HIT", desc="Combo Hits (Dynamic?)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9E218, type="u8", condition="change", action="NEW_LEVEL", desc="Number of Enemies Remaining On Level?" },
+        { address=0XB5430, type="u8", condition="change", action="NEW_LEVEL", desc="Next Level Exp" },
+        { address=0XB5438, type="u8", condition="change", action="NEW_LEVEL", desc="Player Level" },
+        { address=0XB5488, type="u8", condition="change", action="NEW_LEVEL", desc="Changes on level completion?" },
+        { address=0XB5489, type="u8", condition="change", action="NEW_LEVEL", desc="Changes on level completion?" },
+        { address=0X1195D0, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB5478, type="u8", condition="change", action="LOSE_LIFE", desc="01 on death?" },
+        { address=0XB547C, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XB547C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X114CE8, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy Related. Counts down when dead" },
+      },
+      health = {
+        { address=0XAB25C, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0XAB25C, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0XB458C, type="u8", condition="increase", action="HEAL", desc="Number of Health Bars On Screen? increased" },
+        { address=0XB458C, type="u8", condition="decrease", action="HIT", desc="Number of Health Bars On Screen? decreased" },
+        { address=0XB4718, type="u8", condition="increase", action="HEAL", desc="Special Move Energy increased" },
+        { address=0XB4718, type="u8", condition="decrease", action="HIT", desc="Special Move Energy decreased" },
+        { address=0XB471C, type="u8", condition="increase", action="HEAL", desc="Special Move Energy Displayed increased" },
+        { address=0XB471C, type="u8", condition="decrease", action="HIT", desc="Special Move Energy Displayed decreased" },
+        { address=0XB4758, type="u8", condition="increase", action="HEAL", desc="Health Displayed increased" },
+        { address=0XB4758, type="u8", condition="decrease", action="HIT", desc="Health Displayed decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X118378, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Machinegun Ammo" },
+        { address=0X11837A, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Shotgun Ammo" },
+        { address=0X11837C, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Rocket Launcher Ammo" },
+        { address=0X11837E, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Grenade Launcher Ammo" },
+        { address=0X118380, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Sniper Rifle Ammo" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB4F60, type="u8", condition="change", action="BOSS_HIT", desc="Related to Boss Music Playout" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1196B0, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Coordinates X" },
+        { address=0X1196B8, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Coordinates Y" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XB53D0, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Combo Timer" },
+      },
+    },
+  },
+}

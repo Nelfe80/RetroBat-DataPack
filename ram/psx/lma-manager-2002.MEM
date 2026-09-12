@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "LMA Manager 2002",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Construction and Management Simulation, Sports"
+  },
+
+  rom = {
+    name = "lma-manager-2002",
+    hashes = {
+      { hash = "fcebc3a1767c74febce28cbfccf63275", label = "LMA Manager 2002 (Europe)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC9D64, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Game is Paused / In Menu" },
+        { address=0XD1C00, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Game is Paused / In Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X14D7F4, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Home Team Goals" },
+        { address=0X15016C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total Goals in match" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE9C64, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Generical Game Timer" },
+      },
+    },
+  },
+}

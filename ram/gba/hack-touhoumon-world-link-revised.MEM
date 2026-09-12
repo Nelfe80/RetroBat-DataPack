@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Touhoumon: World Link Revised",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-touhoumon-world-link-revised",
+    hashes = {
+      { hash = "4cf38083c0e613f824b7eca66d286851", label = "Pokemon Emerald - Touhoumon - World Link Revised (v1.8.2) (Aichiya Sanae).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7427, type="u8", condition="change", action="PAUSE_ON", desc="Pause music flag : bit7 (used to play short fanfares for obtaining items)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2BE92, type="u8", condition="change", action="NEW_LEVEL", desc="Secondary Enemy Boneka Level (8-bit)" },
+        { address=0X2C0AE, type="u8", condition="change", action="NEW_LEVEL", desc="Main Boneka Level" },
+        { address=0X2C106, type="u8", condition="change", action="NEW_LEVEL", desc="Main Enemy Boneka Level (8-bit)" },
+        { address=0X2C15E, type="u8", condition="change", action="NEW_LEVEL", desc="Secondary Boneka Level" },
+        { address=0X2C540, type="u8", condition="change", action="NEW_LEVEL", desc="Boneka 1 Level (8-bit)" },
+        { address=0X2C5A4, type="u8", condition="change", action="NEW_LEVEL", desc="Boneka 2 Level (8-bit)" },
+        { address=0X2C608, type="u8", condition="change", action="NEW_LEVEL", desc="Boneka 3 Level (8-bit)" },
+      },
+      stage = {
+        { address=0X5D60, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Battle Stage (16-bit)" },
+        { address=0X5D60, type="u16le", condition="eq", value=0X7589, action="PROGRESSION_STAGE", desc="Boneka out, choose between Fight, Bag, Boneka and Run." },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C542, type="u16le", condition="increase", action="HEAL", desc="Boneka 1 Current HP (16-bit) increased" },
+        { address=0X2C542, type="u16le", condition="decrease", action="HIT", desc="Boneka 1 Current HP (16-bit) decreased" },
+        { address=0X2C544, type="u16le", condition="increase", action="HEAL", desc="Boneka 1 Max HP (16-bit) increased" },
+        { address=0X2C544, type="u16le", condition="decrease", action="HIT", desc="Boneka 1 Max HP (16-bit) decreased" },
+        { address=0X2C5A6, type="u16le", condition="increase", action="HEAL", desc="Boneka 2 Current HP (16-bit) increased" },
+        { address=0X2C5A6, type="u16le", condition="decrease", action="HIT", desc="Boneka 2 Current HP (16-bit) decreased" },
+        { address=0X2C5A8, type="u16le", condition="increase", action="HEAL", desc="Boneka 2 Max HP (16-bit) increased" },
+        { address=0X2C5A8, type="u16le", condition="decrease", action="HIT", desc="Boneka 2 Max HP (16-bit) decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2C208, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Last Pokeball Type Used (8-bit)" },
+      },
+    },
+  },
+}

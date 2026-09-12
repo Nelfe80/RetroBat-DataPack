@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mega Casanova 2",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Visual Novel"
+  },
+
+  rom = {
+    name = "homebrew-mega-casanova-2",
+    hashes = {
+      { hash = "b56dff2b8b3fa9d877ec0d50ea2c87ab", label = "Mega Casanova 2 (World) (En,De,Ru) (Digital) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

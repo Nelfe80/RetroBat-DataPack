@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Changeable Guardian Estique",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-changeable-guardian-estique",
+    hashes = {
+      { hash = "605ac6db67294f960672abbc578a1426", label = "Changeable Guardian Estique (USA) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

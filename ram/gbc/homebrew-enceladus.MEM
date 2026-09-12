@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Enceladus",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-enceladus",
+    hashes = {
+      { hash = "70b4c73e34c53ac818d15daa6682c396", label = "Enceladus (World) (v3.0) (GBCompo2023) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC52A, type="u16le", condition="eq", value=0X4938, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X4DB6, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X5040, action="CREDITS_SCREEN", desc="Opening Credits/Thank You For Playing" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCBA9, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:Third Door Opened" },
+        { address=0XCBAB, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:First Door Opened" },
+        { address=0XCBAF, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:Second Door Opened" },
+        { address=0XCBB1, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:Fourth Door Opened" },
+        { address=0XCBB3, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:Fifth Door Opened" },
+        { address=0XCBCD, type="u8", condition="change", action="OBJECT_DESTROYED", desc="[8bit] 4:Broken Tube" },
+      },
+    },
+  },
+}

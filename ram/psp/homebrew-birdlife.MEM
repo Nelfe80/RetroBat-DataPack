@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ BirdLife",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-birdlife",
+    hashes = {
+      { hash = "97034313765dcf317ec77dec1700cb5a", label = "BirdLife (v0.2) (bu-nyan).iso" },
+      { hash = "e06c35f25727b6198b6cecd9d1eea299", label = "BirdLife (v0.2) (bu-nyan) [EBOOT]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9F259C, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F259C, type="u8", condition="eq", value=0X1E, action="LOSE_LIFE", desc="Dead Bird" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9F263C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

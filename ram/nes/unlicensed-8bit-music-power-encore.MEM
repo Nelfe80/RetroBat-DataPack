@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ 8Bit Music Power Encore",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "unlicensed-8bit-music-power-encore",
+    hashes = {
+      { hash = "b0a199a22703a1e259c36cc302198a15", label = "8Bit Music Power Encore (Japan) (En) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

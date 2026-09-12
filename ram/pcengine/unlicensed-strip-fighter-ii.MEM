@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Strip Fighter II",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "unlicensed-strip-fighter-ii",
+    hashes = {
+      { hash = "cff035e7d00159ad0879df71e9aa25ca", label = "Strip Fighter II (Japan) (Unl).pce" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1000, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="Ranking Screen" },
+        { address=0X1000, type="u8", condition="eq", value=0X06, action="DEMO_MODE", desc="Demo Mode/Ending" },
+        { address=0X1001, type="u8", condition="eq", value=0X05, action="GAME_OVER", desc="Game Over Screen" },
+        { address=0X1002, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo Mode not running/ Normal Gameplay" },
+        { address=0X1002, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo/Gameplay/Multiplayer Check (Happens at the very start of the fight). Stays 0x01 when 2P is" },
+        { address=0X1002, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Demo is Running" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X037E, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Rounds Won - Player 1" },
+        { address=0X037E, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="1 Round Won" },
+        { address=0X037E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="2 Rounds Won" },
+        { address=0X037F, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Rounds Won - Player 2/CPU" },
+        { address=0X037F, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="1 Round Won" },
+        { address=0X037F, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="2 Rounds Won" },
+        { address=0X1065, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Options - BGM (Background Music)" },
+      },
+      stage = {
+        { address=0X0350, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Stage" },
+        { address=0X0350, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Ranch" },
+        { address=0X0350, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Under a bridge" },
+        { address=0X0350, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Athens" },
+        { address=0X0350, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Bridge (Maybe London)" },
+        { address=0X0350, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Japan" },
+        { address=0X0350, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Waterfall" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0F39, type="u8", condition="eq", value=0X00, action="HIT", desc="No danage" },
+        { address=0X0F39, type="u8", condition="eq", value=0X60, action="HIT", desc="KO'ed" },
+        { address=0X0F3A, type="u8", condition="eq", value=0X00, action="HIT", desc="No danage" },
+        { address=0X0F3A, type="u8", condition="eq", value=0X60, action="HIT", desc="KO'ed" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0300, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16Bit] P1 Score" },
+        { address=0X0302, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="[16bit] P2 Score" },
+        { address=0X1001, type="u8", condition="eq", value=0X07, action="SCORE_STATE", desc="High Score Screen" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X037C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="[8bit] Timer - In Match" },
+        { address=0X037C, type="u8", condition="eq", value=0X63, action="GENERAL_TIMER", desc="Full Timer/99 Seconds" },
+      },
+    },
+  },
+}

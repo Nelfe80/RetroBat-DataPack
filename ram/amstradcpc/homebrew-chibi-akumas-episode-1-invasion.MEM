@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Chibi Akuma's Episode 1: Invasion!",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-chibi-akumas-episode-1-invasion",
+    hashes = {
+      { hash = "363c12bca4b13c55824e5e3c88505237", label = "Chibi Akuma's Episode 1 Invasion (2018)(Keith Sear)(v1.666)(Side A).dsk" },
+      { hash = "86143c5822123310b13e41bfef9ec045", label = "Chibi Akuma's Episode 1 Invasion (2018)(Keith Sear)(v1.666)(Side B).dsk" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0546, type="u8", condition="change", action="CONTINUE_SCREEN", desc="2p continue mode" },
+        { address=0X0548, type="u8", condition="change", action="CONTINUE_SCREEN", desc="starting continues" },
+        { address=0X0559, type="u8", condition="change", action="CONTINUE_SCREEN", desc="continues available" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X055D, type="u8", condition="increase", action="GAIN_LIFE", desc="lives remaining (chihiko) increased" },
+        { address=0X055D, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives remaining (chihiko) decreased" },
+        { address=0X056D, type="u8", condition="increase", action="GAIN_LIFE", desc="lives remaining (bochan) increased" },
+        { address=0X056D, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives remaining (bochan) decreased" },
+      },
+      health = {
+        { address=0X5ABA, type="u32le", condition="increase", action="HEAL", desc="submarine health (starts at 32, ends at 1) increased" },
+        { address=0X5ABA, type="u32le", condition="decrease", action="HIT", desc="submarine health (starts at 32, ends at 1) decreased" },
+        { address=0X6C23, type="u8", condition="increase", action="HEAL", desc="spill/skullder health(starts at 64, ends at 1) increased" },
+        { address=0X6C23, type="u8", condition="decrease", action="HIT", desc="spill/skullder health(starts at 64, ends at 1) decreased" },
+        { address=0X6E4D, type="u8", condition="increase", action="HEAL", desc="zombichu health(starts at 96, ends at 1) increased" },
+        { address=0X6E4D, type="u8", condition="decrease", action="HIT", desc="zombichu health(starts at 96, ends at 1) decreased" },
+        { address=0X7041, type="u8", condition="increase", action="HEAL", desc="secondary health bar for necromancer - starts at 7 and with each hit is reduced by 1. when it re" },
+        { address=0X7041, type="u8", condition="decrease", action="HIT", desc="secondary health bar for necromancer - starts at 7 and with each hit is reduced by 1. when it re" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X055F, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="tracks powerup state(chihiko)" },
+        { address=0X056F, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="tracks powerup state(bochan)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X05A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="latter 4 digits of score (there is space between each onscreen digit - i.e. 555 is rendered as 5" },
+        { address=0X05A4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="first 4 digits of score(chihiko)" },
+        { address=0X05A8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="latter 4 digits of score (bochan)" },
+        { address=0X05AC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="former 4 digits of score (bochan)" },
+        { address=0X05B0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="latter 4 digits of high score" },
+        { address=0X05B4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="first 4 digits of high score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X7040, type="u32le", condition="change", action="BOSS_HIT", desc="final boss health(starts at 60)" },
+      },
+    },
+  },
+}

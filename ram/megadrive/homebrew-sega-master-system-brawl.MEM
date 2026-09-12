@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SEGA Master System Brawl",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "homebrew-sega-master-system-brawl",
+    hashes = {
+      { hash = "448a6fdb763c6f28db480ec8ee4801e9", label = "SEGA Master System Brawl (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X017C, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="Demo" },
+        { address=0X017C, type="u8", condition="eq", value=0X06, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X0366, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Alex Kidd In The Miracle World" },
+        { address=0X0366, type="u8", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="Alex Kidd In Shinobi World" },
+      },
+      stage = {
+        { address=0X01D0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0320, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Life increased" },
+        { address=0X0320, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Life decreased" },
+        { address=0X0338, type="u8", condition="increase", action="GAIN_LIFE", desc="Comp Or P2 Life increased" },
+        { address=0X0338, type="u8", condition="decrease", action="LOSE_LIFE", desc="Comp Or P2 Life decreased" },
+      },
+      health = {
+        { address=0X0154, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Energy Rate" },
+        { address=0X0154, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="No Energy" },
+        { address=0X0154, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="Low" },
+        { address=0X0154, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", no_log=true, desc="Medium" },
+        { address=0X0154, type="u8", condition="eq", value=0X03, action="HEALTH_STATE", no_log=true, desc="High" },
+        { address=0X0154, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="Very High" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X017C, type="u8", condition="eq", value=0X05, action="SCORE_STATE", desc="High Scores" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X014E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer Options" },
+      },
+    },
+  },
+}

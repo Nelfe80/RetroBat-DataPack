@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mega Man X2 [Subset - Bonus]",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Platform, Action"
+  },
+
+  rom = {
+    name = "mega-man-x2-subset-bonus",
+    hashes = {
+      { hash = "e53bac43ed9049ed28751477e4cc844d", label = "Mega Man X2 (USA) [Subset - Bonus].sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00C4, type="u8", condition="eq", value=0X80, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1FAD, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID?" },
+      },
+      stage = {
+        { address=0X1E7B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X09DA, type="u8", condition="eq", value=0X0C, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X0D3F, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X0D3F, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0X0D7F, type="u8", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0X0D7F, type="u8", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0X0DBF, type="u8", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0X0DBF, type="u8", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+        { address=0X0DFF, type="u8", condition="increase", action="HEAL", desc="Enemy 4 HP increased" },
+        { address=0X0DFF, type="u8", condition="decrease", action="HIT", desc="Enemy 4 HP decreased" },
+        { address=0X0E3F, type="u8", condition="increase", action="HEAL", desc="Enemy 5 HP increased" },
+        { address=0X0E3F, type="u8", condition="decrease", action="HIT", desc="Enemy 5 HP decreased" },
+        { address=0X0EFF, type="u8", condition="increase", action="HEAL", desc="Enemy 6 HP? increased" },
+        { address=0X0EFF, type="u8", condition="decrease", action="HIT", desc="Enemy 6 HP? decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0A0B, type="u8", condition="eq", value=0X0C, action="WEAPON_STATE", desc="Wire Sponge Weapon" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X09DA, type="u8", condition="eq", value=0X18, action="BOSS_HIT", desc="Boss Door Down" },
+        { address=0X09DA, type="u8", condition="eq", value=0X1C, action="BOSS_HIT", desc="Boss Door" },
+        { address=0X0D2F, type="u8", condition="change", action="BOSS_HIT", desc="Boss Animation?" },
+        { address=0X0D6F, type="u8", condition="change", action="BOSS_HIT", desc="Boss Animation?" },
+        { address=0X1FAE, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Boss Rush Beaten" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X24, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X27, action="BOSS_HIT", desc="Boss Battle" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1FB4, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="> Boss Rush Screen ID? < Previous name added by matheus but this memory is checkpoint id" },
+      },
+    },
+  },
+}

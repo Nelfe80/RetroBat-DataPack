@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Xevious",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "xevious",
+    hashes = {
+      { hash = "2df5fd76b70b23808a3ff4c9f680f57c", label = "xevious.7z <Xevious (Namco)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0983, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0983, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X980, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X0818, type="u8", condition="increase", action="COIN_GAIN", desc="Inserted Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0816, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dip Switches" },
+        { address=0X0817, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dip Switches" },
+        { address=0X4E85, type="u8", condition="eq", value=0X04, action="OBJECT_DESTROYED", desc="Destroyed" },
+      },
+    },
+  },
+}

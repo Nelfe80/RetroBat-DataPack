@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Twitch Plays Pokémon: Anniversary Crystal",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-twitch-plays-pokemon-anniversary-crystal",
+    hashes = {
+      { hash = "cecc9739e0104af85179cba65ed9638d", label = "Pokemon Crystal - Twitch Plays Pokemon - Anniversary Crystal (v1.2.3) (TPPDevs).gbc" },
+    }
+  },
+
+  events = {
+    state = {
+      player = {
+        { address=0XDA9D, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Male Parker" },
+        { address=0XDA9D, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Girl Diana" },
+        { address=0XDEB0, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+        { address=0XDED0, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD98A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Event Johto] [8 Bit]" },
+      },
+    },
+  },
+}

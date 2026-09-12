@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Pit Fighter",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "prototype-pit-fighter",
+    hashes = {
+      { hash = "05f43244465943ce819780a71a5b572a", label = "Pit Fighter (USA) (Proto).a78" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X2183, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Blue Enemy HP [8bit]" },
+        { address=0X2183, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Defeated" },
+        { address=0X2184, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Green Enemy HP [8bit]" },
+        { address=0X2184, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Defeated" },
+        { address=0X2185, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Gray Enemy HP [8bit]" },
+        { address=0X2185, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Defeated" },
+        { address=0X2186, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Purple Enemy HP [8bit]" },
+        { address=0X2186, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Defeated" },
+        { address=0X2187, type="u8", condition="increase", action="HEAL", desc="Player's HP [8bit] increased" },
+        { address=0X2187, type="u8", condition="decrease", action="HIT", desc="Player's HP [8bit] decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X215A, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Glitch Jump" },
+      },
+    },
+  },
+}

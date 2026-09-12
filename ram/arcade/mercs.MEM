@@ -1,0 +1,61 @@
+-- ecrit a la main (2026-08-14) -- sources : cheats MAME + gamelist RetroBat
+-- Aucune note RetroAchievements n'existe pour ce jeu : les adresses viennent des
+-- cheats, ou l'espacement regulier de 0xB0 entre les trois joueurs confirme la
+-- structure. A verifier en jeu.
+return {
+  game = {
+    title = "Mercs",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "mercs",
+    hashes = {
+      { hash = "80299aca7b3fde94579a0b806dfd2b75", label = "mercs.zip <Mercs>" },
+      { hash = "22c4897056f816bab7a01a4353b05a80", label = "mercs.zip <Mercs>" },
+      { hash = "5505e049ba6220a69170ac0b0f39c0c1", label = "mercsj.zip <Senjou no Ookami II>" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0B83, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Mission 1" },
+        { address=0X0B83, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Mission 2" },
+        { address=0X0B83, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Mission 3" },
+        { address=0X0B83, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Mission 4" },
+        { address=0X0B83, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Mission 5" },
+        { address=0X0B83, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Mission 6" },
+        { address=0X0B83, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Mission 7" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1175, type="u8", condition="decrease", action="HEALTH_STATE", player=1, desc="P1 energy" },
+        { address=0X1225, type="u8", condition="decrease", action="HEALTH_STATE", player=2, desc="P2 energy" },
+        { address=0X12D5, type="u8", condition="decrease", action="HEALTH_STATE", player=3, desc="P3 energy" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X117C, type="u8", condition="change", action="WEAPON_STATE", player=1, desc="P1 missiles" },
+        { address=0X122C, type="u8", condition="change", action="WEAPON_STATE", player=2, desc="P2 missiles" },
+        { address=0X12DC, type="u8", condition="change", action="WEAPON_STATE", player=3, desc="P3 missiles" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X1190, type="u8", condition="change", action="INVINCIBILITY_START", player=1, no_log=true, desc="P1 invincibility" },
+        { address=0X1240, type="u8", condition="change", action="INVINCIBILITY_START", player=2, no_log=true, desc="P2 invincibility" },
+        { address=0X12F0, type="u8", condition="change", action="INVINCIBILITY_START", player=3, no_log=true, desc="P3 invincibility" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0ECD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Mission timer" },
+      },
+    },
+  },
+}

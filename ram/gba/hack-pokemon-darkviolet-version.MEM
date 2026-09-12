@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon DarkViolet Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-darkviolet-version",
+    hashes = {
+      { hash = "47f9eeb51ffe48a8c28636f25a9543e8", label = "Pokemon FireRed - DarkViolet Version (2019) (Chaos Rush).gba" },
+      { hash = "a0f3b1a33c7a781297d5d2a6ec0a7b39", label = "Pokemon FireRed - DarkViolet Version (v20220907) (ChaosRush).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Current Enemy Pokemon Level" },
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 1 Level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 2 Level" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 3 Level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 4 Level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 5 Level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 6 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="Pokemon Slot 1 - Current Health - 16-bit increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="Pokemon Slot 1 - Current Health - 16-bit decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="Pokemon Slot 1 - Max Health - 16-Bit increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="Pokemon Slot 1 - Max Health - 16-Bit decreased" },
+      },
+    },
+  },
+}

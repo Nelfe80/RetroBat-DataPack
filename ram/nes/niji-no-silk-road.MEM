@@ -1,0 +1,131 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Niji no Silk Road",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "niji-no-silk-road",
+    hashes = {
+      { hash = "c2daeadbe7f8213b4c5b931dd2d953ab", label = "Niji no Silk Road (Japan).nes" },
+      { hash = "9df77482ba203cd51cdfae119bf3d37c", label = "Niji no Silk Road (Japan) (En) (v1.0) (Stardust Crusaders).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0106, type="u8", condition="change", action="DEMO_MODE", desc="[8bit] b0:bull demon king defeated" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0417, type="u8", condition="increase", action="HEAL", desc="[8bit] Current HP increased" },
+        { address=0X0417, type="u8", condition="decrease", action="HIT", desc="[8bit] Current HP decreased" },
+        { address=0X0418, type="u8", condition="increase", action="HEAL", desc="[8bit] Party 2 HP increased" },
+        { address=0X0418, type="u8", condition="decrease", action="HIT", desc="[8bit] Party 2 HP decreased" },
+        { address=0X0419, type="u8", condition="increase", action="HEAL", desc="[8bit] Party 3 HP increased" },
+        { address=0X0419, type="u8", condition="decrease", action="HIT", desc="[8bit] Party 3 HP decreased" },
+        { address=0X041A, type="u8", condition="increase", action="HEAL", desc="[8bit] Party 4 HP increased" },
+        { address=0X041A, type="u8", condition="decrease", action="HIT", desc="[8bit] Party 4 HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X042F, type="u8", condition="eq", value=0X1B, action="TREASURE", desc="Cham - Pirate's Treasure Shack" },
+        { address=0X049E, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="Pirate's Treasure Shack - Wonder Balm" },
+        { address=0X049F, type="u8", condition="eq", value=0XB1, action="TREASURE", desc="Pirate's Treasure Shack - Prison Key" },
+      },
+      weapon = {
+        { address=0X041B, type="u8", condition="eq", value=0X80, action="WEAPON_STATE", desc="Knife" },
+        { address=0X041B, type="u8", condition="eq", value=0X81, action="WEAPON_STATE", desc="Spear" },
+        { address=0X041B, type="u8", condition="eq", value=0X82, action="WEAPON_STATE", desc="Axe" },
+        { address=0X041B, type="u8", condition="eq", value=0X83, action="WEAPON_STATE", desc="Copper Sword" },
+        { address=0X041B, type="u8", condition="eq", value=0X84, action="WEAPON_STATE", desc="Iron Sword" },
+        { address=0X041B, type="u8", condition="eq", value=0X85, action="WEAPON_STATE", desc="Steel Sword" },
+        { address=0X041B, type="u8", condition="eq", value=0X86, action="WEAPON_STATE", desc="Rainbow Sword" },
+        { address=0X041C, type="u8", condition="change", action="WEAPON_STATE", desc="[8bit] Party 2 Equipped Weapon" },
+        { address=0X041D, type="u8", condition="change", action="WEAPON_STATE", desc="[8bit] Party 3 Equipped Weapon" },
+        { address=0X041E, type="u8", condition="change", action="WEAPON_STATE", desc="[8bit] Party 4 Equipped Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0100, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Baghdad Sultan quest to retrieve Pelmah accepted" },
+        { address=0X011C, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="wing ring obtained" },
+        { address=0X03F8, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Gold increased" },
+        { address=0X03F9, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Gold #*256 increased" },
+        { address=0X03FA, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Gold #*65536 increased" },
+        { address=0X0493, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="Baghdad - 100 Gold" },
+        { address=0X0493, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="Baghdad Palace - 1000 Gold" },
+        { address=0X0493, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Aden - 300 Gold" },
+        { address=0X0494, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Bandit's Cave - 100 Gold" },
+        { address=0X0494, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="Bandit's Cave - 300 Gold" },
+        { address=0X0494, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Bandit's Cave - 100 Gold" },
+        { address=0X0495, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Pyramid - 300 Gold" },
+        { address=0X0495, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Desert Ruins - 1000 Gold" },
+        { address=0X0496, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Balel's Mansion - 300 Gold" },
+        { address=0X0496, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Mirage City - 1000 Gold" },
+        { address=0X0497, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="Instanbul Cave - 300 Gold" },
+        { address=0X0497, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Instanbul Cave - 300 Gold" },
+        { address=0X0499, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Urumqi Palace - 300 Gold" },
+        { address=0X0499, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="Urumqi Palace - 1000 Gold" },
+        { address=0X049A, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Cursed Place - 1000 Gold" },
+        { address=0X049A, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Angel Shrine - 300 Gold" },
+        { address=0X049A, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="Angel Shrine - 300 Gold" },
+        { address=0X049A, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="Magic Lake - 1000 Gold" },
+        { address=0X049B, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Magic Lake - 100 Gold" },
+        { address=0X049C, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Relic Isle Cave - 1000 Gold" },
+        { address=0X049D, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Devil Cave - Wing Ring" },
+        { address=0X049D, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Devil Cave - 1000 Gold" },
+        { address=0X049E, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Devil Cave - 1000 Gold" },
+        { address=0X049E, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Singapore - 1000 Gold" },
+        { address=0X049E, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Pirate's Hideout - 1000 Gold" },
+        { address=0X049F, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Pirate's Treasure Shack - 1000 Gold" },
+        { address=0X049F, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="Angkor Tower - 1000 Gold" },
+        { address=0X04A1, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="Sea Palace - 1000 Gold" },
+        { address=0X04A1, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Sea Palace - 1000 Gold" },
+        { address=0X04A2, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="Angkor Retreat - 1000 Gold" },
+        { address=0X04A2, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Dalian - 1000 Gold" },
+        { address=0X04A2, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Dalian - 300 Gold" },
+        { address=0X04A4, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Linkuei's Cave - Wing Ring" },
+        { address=0X04A4, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Linkuei's Cave - 1000 Gold" },
+        { address=0X04A5, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Orochi's Cave - Wing Ring" },
+        { address=0X04A8, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Ice Castle - 300 Gold" },
+        { address=0X04A9, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Angkor Tower - 1000 Gold" },
+        { address=0X04A9, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="Great Wall - 1000 Gold" },
+        { address=0X04AA, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="Tibet Cave - 1000 Gold" },
+        { address=0X04AC, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="Cursed Place - 1000 Gold" },
+        { address=0X04AC, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Dragon's Cave - Wing Ring" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0109, type="u8", condition="eq", value=0XB6, action="BOSS_DEFEATED", desc="Bandit Boss Defeated" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0423, type="u8", condition="eq", value=0XA0, action="SHIELD_GAIN", desc="Leather Shield" },
+        { address=0X0423, type="u8", condition="eq", value=0XA1, action="SHIELD_GAIN", desc="Copper Shield" },
+        { address=0X0424, type="u8", condition="change", action="SHIELD_GAIN", desc="[8bit] Party 2 Equipped Shield" },
+        { address=0X0425, type="u8", condition="change", action="SHIELD_GAIN", desc="[8bit] Party 3 Equipped Shield" },
+        { address=0X0426, type="u8", condition="change", action="SHIELD_GAIN", desc="[8bit] Party 4 Equipped Shield" },
+        { address=0X0497, type="u8", condition="eq", value=0XB2, action="SHIELD_GAIN", desc="Instanbul Cave - Leather Shield" },
+        { address=0X049C, type="u8", condition="eq", value=0XB7, action="SHIELD_GAIN", desc="Devil Cave - Copper Shield" },
+        { address=0X049E, type="u8", condition="eq", value=0XB2, action="SHIELD_GAIN", desc="Singapore - Iron Shield" },
+        { address=0X04A2, type="u8", condition="eq", value=0XB5, action="SHIELD_GAIN", desc="Dalian - Iron Shield" },
+        { address=0X04A5, type="u8", condition="eq", value=0XB0, action="SHIELD_GAIN", desc="Nara - Iron Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0101, type="u8", condition="change", action="DOOR_OPENED", desc="[8bit] b0:Baghdad palace doors unlocked" },
+        { address=0X0104, type="u8", condition="change", action="OBJECT_DESTROYED", desc="[8bit] b2:village curse broken" },
+      },
+    },
+  },
+}

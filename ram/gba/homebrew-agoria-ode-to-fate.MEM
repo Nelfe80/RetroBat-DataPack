@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Agoria - Ode to Fate",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-agoria-ode-to-fate",
+    hashes = {
+      { hash = "02f233e3ae37bb9a9517291872720a1f", label = "Agoria - Ode to Fate (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00D8, type="u8", condition="change", action="CREDITS_SCREEN", desc="Select Menu [8-bit] 0x01 : Jouer, 0x02 : Options, 0x03 : Credits" },
+        { address=0X6B55, type="u8", condition="change", action="TITLE_SCREEN", desc="0x00 : Titlescreen? 0x01 Menu?!" },
+      },
+    },
+  },
+}

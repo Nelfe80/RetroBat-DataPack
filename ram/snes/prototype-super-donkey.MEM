@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Super Donkey",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prototype-super-donkey",
+    hashes = {
+      { hash = "86735a7846fe06cd39df9c91f615427f", label = "Super Donkey (Japan) (En) (Proto 2).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

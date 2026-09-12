@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ P-Type",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-p-type",
+    hashes = {
+      { hash = "389dc3409fe795b18a0894548dd7bed6", label = "P-Type (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

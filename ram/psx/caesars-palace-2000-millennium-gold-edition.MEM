@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Caesars Palace 2000: Millennium Gold Edition",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "caesars-palace-2000-millennium-gold-edition",
+    hashes = {
+      { hash = "12889c82ed9fb6481c2a767e676c4aed", label = "Caesars Palace 2000 - Millennium Gold Edition (Europe)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VI: T-Edition +EX",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-vi-t-edition-ex",
+    hashes = {
+      { hash = "506f08c8731da25e85d6e7035a518ebf", label = "Final Fantasy VI - T-Edition EX (En) (v1.1) (Tomato).sfc" },
+      { hash = "be1ebdac62b18db0e119ae63e27663b5", label = "Final Fantasy VI - T-Edition (En) (v1.1) (Tomato).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X11E2, type="u16le", condition="change", action="NEW_LEVEL", desc="Battle Background" },
+      },
+      zone = {
+        { address=0X1E94, type="u8", condition="eq", value=0XB4, action="PROGRESSION_ZONE", desc="World of Ruin Started" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0014, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] Enemy Dies" },
+        { address=0X1E98, type="u8", condition="eq", value=0XB0, action="LOSE_LIFE", desc="Owzer visited after deathgaze" },
+        { address=0X1EA3, type="u8", condition="eq", value=0XB2, action="LOSE_LIFE", desc="Albrook Pub - Ingredient Hunt (Complete)" },
+        { address=0X1EA3, type="u8", condition="eq", value=0XB3, action="LOSE_LIFE", desc="Albrook Pub - Ingredient Hunt (Active)" },
+        { address=0X1EBD, type="u8", condition="eq", value=0XB5, action="LOSE_LIFE", desc="Deathgaze's Claw" },
+        { address=0X1FC2, type="u8", condition="eq", value=0X2C, action="LOSE_LIFE", desc="Soldiers talked to" },
+      },
+      health = {
+        { address=0X3BF4, type="u16le", condition="increase", action="HEAL", desc="Character 1 Health increased" },
+        { address=0X3BF4, type="u16le", condition="decrease", action="HIT", desc="Character 1 Health decreased" },
+        { address=0X3BF6, type="u16le", condition="increase", action="HEAL", desc="Character 2 Health increased" },
+        { address=0X3BF6, type="u16le", condition="decrease", action="HIT", desc="Character 2 Health decreased" },
+        { address=0X3BF8, type="u16le", condition="increase", action="HEAL", desc="Character 3 Health increased" },
+        { address=0X3BF8, type="u16le", condition="decrease", action="HIT", desc="Character 3 Health decreased" },
+        { address=0X3BFA, type="u16le", condition="increase", action="HEAL", desc="Character 4 Health increased" },
+        { address=0X3BFA, type="u16le", condition="decrease", action="HIT", desc="Character 4 Health decreased" },
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 Health increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1E40, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="Narshe Clock - Elixir" },
+        { address=0X1E41, type="u8", condition="eq", value=0XB3, action="TREASURE", desc="Narshe Mines - Phoenix Down" },
+        { address=0X1E41, type="u8", condition="eq", value=0XB4, action="TREASURE", desc="Narshe Mines - Tent" },
+        { address=0X1E41, type="u8", condition="eq", value=0XB6, action="TREASURE", desc="Figaro Castle- Potion" },
+        { address=0X1E41, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="Figaro Castle- Antidote" },
+        { address=0X1E42, type="u8", condition="eq", value=0XB1, action="TREASURE", desc="Figaro Castle- Phoenix Down" },
+        { address=0X1E51, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="Noob House - Monster Box" },
+        { address=0X1E51, type="u8", condition="eq", value=0XB3, action="TREASURE", desc="Noob House - Tent" },
+        { address=0X1E51, type="u8", condition="eq", value=0XB4, action="TREASURE", desc="Noob House - Potion" },
+        { address=0X1E51, type="u8", condition="eq", value=0XB5, action="TREASURE", desc="Noob House - Ether" },
+      },
+      weapon = {
+        { address=0X1F3B, type="u8", condition="eq", value=0XB1, action="WEAPON_STATE", desc="Omega Weapon Obtained" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1EA6, type="u8", condition="eq", value=0XB3, action="SCORE_STATE", desc="Taught About Save Points" },
+      },
+      collectibles = {
+        { address=0X1E42, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="Figaro Castle- Gold Needle" },
+        { address=0X1E8D, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="Umaro Makes Rage Ring" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1DD5, type="u8", condition="change", action="SHIELD_GAIN", desc="[8bit] Cursed Shield Wins" },
+        { address=0X1E97, type="u8", condition="eq", value=0XB0, action="SHIELD_GAIN", desc="Cursed Shield Obtained" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1EA0, type="u8", condition="eq", value=0XB0, action="OBJECT_INTERACTION", desc="Sabin Cabin Objects Found Before Leaving" },
+        { address=0X1EA5, type="u8", condition="eq", value=0XB4, action="OBJECT_DESTROYED", desc="Narshe Mines Gate Broken Down" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E40, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Treasure" },
+        { address=0X1EBA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Key Items Room" },
+      },
+    },
+  },
+}

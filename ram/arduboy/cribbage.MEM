@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cribbage",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "cribbage",
+    hashes = {
+      { hash = "79e22c663acf649ff3c4e3ce6af765c3", label = "Cribbage (World) (v1.02).hex" },
+    }
+  },
+
+  events = {
+  },
+}

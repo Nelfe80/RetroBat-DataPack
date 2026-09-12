@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "20Q",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "20q",
+    hashes = {
+      { hash = "44f66514dd16fed5eb8a8520d559b573", label = "20Q (Europe) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+  },
+}

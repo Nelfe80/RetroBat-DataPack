@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ My QLDC Level",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-my-qldc-level",
+    hashes = {
+      { hash = "6e4b118fc95ad63f5fbe13f21c4458de", label = "SMW - My QLDC Level (Faro, MM102).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1957, type="u8", condition="change", action="NEW_LEVEL", desc="Mario's Status (only relevant on 'overworld')" },
+      },
+      stage = {
+        { address=0X213BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level ID of most recently entered stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="1 Player Lives; starts at 0x00 for 1 life left increased" },
+        { address=0X20DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="1 Player Lives; starts at 0x00 for 1 life left decreased" },
+        { address=0X2A405, type="u8", condition="change", action="LOSE_LIFE", desc="Mario death status ('overworld' only)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3CB05, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block #1" },
+        { address=0X3CB06, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block #2" },
+        { address=0X3CB07, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block #3" },
+        { address=0X3CB08, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block #4" },
+      },
+    },
+  },
+}

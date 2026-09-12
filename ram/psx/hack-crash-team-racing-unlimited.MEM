@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Crash Team Racing: Unlimited",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-crash-team-racing-unlimited",
+    hashes = {
+      { hash = "44b819a30e23a1b4a3b7b8627c0cf00a", label = "CTR - Crash Team Racing - Unlimited (v1.0) (Custom Team Racing)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8D8A4, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X8D8A4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+        { address=0X8D908, type="u32le", condition="eq", value=0X800B4388, action="PAUSE_ON", desc="Adventure World Pause Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X96846, type="u8", condition="change", action="NEW_LEVEL", desc="Touching Ground" },
+        { address=0X96846, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="On Air" },
+        { address=0X96846, type="u8", condition="eq", value=0X27, action="NEW_LEVEL", desc="On Ground" },
+        { address=0X96846, type="u8", condition="eq", value=0XF0, action="NEW_LEVEL", desc="On Ground - Turning" },
+      },
+      stage = {
+        { address=0X862B8, type="u16le", condition="change", action="RANK_STATE", desc="Player's Current Position" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8D52D, type="u8", condition="eq", value=0X02, action="SCORE_STATE", desc="High Score Screen" },
+        { address=0X8D908, type="u32le", condition="eq", value=0X800B4784, action="SCORE_STATE", desc="High Score Menu" },
+      },
+      collectibles = {
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X01, action="COIN_GAIN", desc="Dingo Canyon - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X02, action="COIN_GAIN", desc="Dragon Mines - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="Blizzard Bluff - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X08, action="COIN_GAIN", desc="Crash Cove - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X10, action="COIN_GAIN", desc="Tiger Temple - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X40, action="COIN_GAIN", desc="Roo's Tubes - Gold Relic" },
+        { address=0X8FBA9, type="u8", condition="bit_true", mask=0X80, action="COIN_GAIN", desc="Hot Air Skyway - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X01, action="COIN_GAIN", desc="Sewer Speedway - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X02, action="COIN_GAIN", desc="Mystery Caves - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="Cortex Castle - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X08, action="COIN_GAIN", desc="N. Gin Labs - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X10, action="COIN_GAIN", desc="Polar Pass - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X20, action="COIN_GAIN", desc="Oxide Station - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X40, action="COIN_GAIN", desc="Coco Park - Gold Relic" },
+        { address=0X8FBAA, type="u8", condition="bit_true", mask=0X80, action="COIN_GAIN", desc="Tiny Arena - Gold Relic" },
+        { address=0X8FBAB, type="u8", condition="bit_true", mask=0X01, action="COIN_GAIN", desc="Slide Coliseum - Gold Relic" },
+        { address=0X8FBAB, type="u8", condition="bit_true", mask=0X02, action="COIN_GAIN", desc="Turbo Track - Gold Relic" },
+        { address=0X98980, type="u32le", condition="increase", action="COIN_GAIN", desc="Player's Points During a Cup increased" },
+        { address=0X98984, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #1 Points During a Cup increased" },
+        { address=0X98988, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #2 Points During a Cup increased" },
+        { address=0X9898C, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #3 Points During a Cup increased" },
+        { address=0X98990, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #4 Points During a Cup increased" },
+        { address=0X98994, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #5 Points During a Cup increased" },
+        { address=0X98998, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #6 Points During a Cup increased" },
+        { address=0X9899C, type="u32le", condition="increase", action="COIN_GAIN", desc="CPU #7 Points During a Cup increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X96B27, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Relic Race Active" },
+        { address=0X96B27, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Crystal Challenge Active" },
+        { address=0X96B27, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Gem Cup" },
+        { address=0X96B27, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Boss Race Active" },
+        { address=0XB2F60, type="u16le", condition="eq", value=0X2F68, action="BOSS_HIT", desc="Active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X8D504, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[Lower4] Time Trial Timer - Minutes (0:xx:xx)" },
+        { address=0X8D506, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Lower4] Time Trial Timer - Seconds (Tens) (x:0x:xx)" },
+        { address=0X8D507, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Lower4] Time Trial Timer - Seconds (Ones) (x:x0:xx)" },
+        { address=0X8D74C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(16-bit) N-Verted mode -time trial mode-" },
+        { address=0X96364, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", desc="Current Track" },
+        { address=0X96BA8, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Clock Item Active" },
+      },
+    },
+  },
+}

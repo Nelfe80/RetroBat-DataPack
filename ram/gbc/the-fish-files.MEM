@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Fish Files",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "the-fish-files",
+    hashes = {
+      { hash = "edf021b521a496fe7afc5e15949f5c80", label = "Fish Files, The (Europe) (En,Fr,De,Es,It).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFF4A, type="u8", condition="change", action="PAUSE_ON", desc="90:paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC000, type="u8", condition="change", action="NEW_LEVEL", desc="(C000-C08B) : inventory foreground tiles" },
+        { address=0XC15A, type="u8", condition="change", action="NEW_LEVEL", desc="(C15A-C2C1) : inventory background sprites" },
+      },
+    },
+  },
+}

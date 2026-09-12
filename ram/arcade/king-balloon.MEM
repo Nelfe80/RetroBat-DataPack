@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King & Balloon",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "king-balloon",
+    hashes = {
+      { hash = "345142d7013b717a72d6402855c81a44", label = "kingball.7z <King & Balloon (US)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X02D0, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="men are alive" },
+        { address=0X02D0, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="king is off screen" },
+        { address=0X02E3, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X1194, type="u8", condition="eq", value=0X24, action="GAME_OVER", desc="It is not" },
+        { address=0X1822, type="u8", condition="change", action="CREDITS_SCREEN", desc="Corresponds to credits, lowest is 0x01" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000A, type="u8", condition="increase", action="GAIN_LIFE", desc="Life counter increased" },
+        { address=0X000A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0009, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Level counter" },
+      },
+    },
+  },
+}

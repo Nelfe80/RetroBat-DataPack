@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pachinko",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "pachinko",
+    hashes = {
+      { hash = "37f5e516d9fbce05052204b67379a6da", label = "Pachinko (Japan).sg" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X006E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[8 Bit] BCD Timer Seconds" },
+        { address=0X006F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[8 Bit] BCD Timer Minutes" },
+        { address=0X0070, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[8 Bit] BCD Timer Hours" },
+      },
+    },
+  },
+}

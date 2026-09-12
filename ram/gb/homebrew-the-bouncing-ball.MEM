@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Bouncing Ball",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-bouncing-ball",
+    hashes = {
+      { hash = "3cf985dde797f178b8446aefedf5cd20", label = "Bouncing Ball, The (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0C9, type="u8", condition="eq", value=0X05, action="GAME_PLAYING", desc="Stage Clear" },
+        { address=0XC0C9, type="u8", condition="eq", value=0X06, action="GAME_PLAYING", desc="Going to Next Stage" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC0C9, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="Stage Clear" },
+      },
+      stage = {
+        { address=0XC0B5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Stage Number" },
+        { address=0XC0B5, type="u8", condition="eq", value=0X33, action="PROGRESSION_STAGE", desc="Endgame Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC0C9, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Death" },
+      },
+    },
+  },
+}

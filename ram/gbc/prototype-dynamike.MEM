@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ DynaMike",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "prototype-dynamike",
+    hashes = {
+      { hash = "699e1a69e9579545958f60106bb23a19", label = "DynaMike (Europe) (Proto).gbc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC4EC, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0XC4ED, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x256" },
+      },
+    },
+  },
+}

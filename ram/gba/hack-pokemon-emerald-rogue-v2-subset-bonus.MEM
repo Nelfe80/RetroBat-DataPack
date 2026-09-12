@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Rogue V2 [Subset - Bonus]",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-rogue-v2-subset-bonus",
+    hashes = {
+      { hash = "c544bd31b7b7f81622ed0c516d788f6d", label = "Pokémon Emerald Rogue V2 [Subset - Bonus].gba" },
+    }
+  },
+
+  events = {
+  },
+}

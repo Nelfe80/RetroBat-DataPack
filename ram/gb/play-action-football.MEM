@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Play Action Football",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "play-action-football",
+    hashes = {
+      { hash = "4cee4e93651d9468e7ef47975b71aca2", label = "Play Action Football (USA).gb" },
+    }
+  },
+
+  events = {
+  },
+}

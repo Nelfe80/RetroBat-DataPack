@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Crystal Beans From Dungeon Explorer",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "crystal-beans-from-dungeon-explorer",
+    hashes = {
+      { hash = "74f34335137db3e374974c72c704d369", label = "Crystal Beans (Japan) (En) (v1.1) (Neige,Hiei).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00E8, type="u32le", condition="change", action="CREDITS_SCREEN", desc="Intro / End Credits" },
+        { address=0X04B1, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+        { address=0X0566, type="u8", condition="change", action="DEMO_MODE", desc="In trap room at Demon Intenstines" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X04D2, type="u8", condition="change", action="NEW_LEVEL", desc="Level Up" },
+      },
+      zone = {
+        { address=0X0400, type="u32le", condition="change", action="PROGRESSION_ZONE", desc="World Map" },
+        { address=0X0576, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="In World Map this goes to 0xa000" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0470, type="u16le", condition="increase", action="GAIN_LIFE", desc="Act : increased" },
+        { address=0X0470, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Act : decreased" },
+        { address=0X0543, type="u8", condition="change", action="LOSE_LIFE", desc="Character Dies" },
+      },
+      health = {
+        { address=0X0C7B, type="u16le", condition="increase", action="HEAL", desc="Character's HP increased" },
+        { address=0X0C7B, type="u16le", condition="decrease", action="HIT", desc="Character's HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1342, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power Ups Obtained" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0568, type="u8", condition="change", action="BOSS_HIT", desc="Boss Room" },
+        { address=0X0C84, type="u16le", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+  },
+}

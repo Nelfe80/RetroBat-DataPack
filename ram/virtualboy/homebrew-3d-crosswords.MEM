@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 3D Crosswords",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-3d-crosswords",
+    hashes = {
+      { hash = "cef10df7728f4398af46d51efc89d3d0", label = "3D Crosswords (World) (Emulator Version) (Aftermarket) (Unl).vb" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,104 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ultimate Goomboss Challenge",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ultimate-goomboss-challenge",
+    hashes = {
+      { hash = "d9926a49e4f6a261bb963b694d2a07a5", label = "Paper Mario - Ultimate Goomboss Challenge (v1) (nine).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X74097, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Game Paused" },
+        { address=0XA094A, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo mode/Main Menu" },
+        { address=0X159B00, type="u8", condition="eq", value=0X6A, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X159B00, type="u8", condition="eq", value=0X87, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X74097, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X154C38, type="u8", condition="eq", value=0XA1, action="NEW_LEVEL", desc="Goomba Tattle (on overworld)" },
+        { address=0X154C38, type="u8", condition="eq", value=0XA2, action="NEW_LEVEL", desc="Overworld Tattle" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XDC1F2, type="u8", condition="change", action="HIT", desc="[PM Copy] Damage Amount from the Damage Indicator shown in Battle (Is used between all Actors)" },
+        { address=0X10F290, type="u8", condition="increase", action="HEAL", desc="Mario Max HP increased" },
+        { address=0X10F290, type="u8", condition="decrease", action="HIT", desc="Mario Max HP decreased" },
+        { address=0X10F291, type="u8", condition="increase", action="HEAL", desc="Mario HP increased" },
+        { address=0X10F291, type="u8", condition="decrease", action="HIT", desc="Mario HP decreased" },
+        { address=0X7451CA, type="u8", condition="increase", action="HEAL", desc="Left Chain Atlas Max HP increased" },
+        { address=0X7451CA, type="u8", condition="decrease", action="HIT", desc="Left Chain Atlas Max HP decreased" },
+        { address=0X7451CB, type="u8", condition="increase", action="HEAL", desc="Left Chain Atlas HP increased" },
+        { address=0X7451CB, type="u8", condition="decrease", action="HIT", desc="Left Chain Atlas HP decreased" },
+        { address=0X74625A, type="u8", condition="increase", action="HEAL", desc="Atlas Max HP increased" },
+        { address=0X74625A, type="u8", condition="decrease", action="HIT", desc="Atlas Max HP decreased" },
+        { address=0X74625B, type="u8", condition="increase", action="HEAL", desc="Atlas HP increased" },
+        { address=0X74625B, type="u8", condition="decrease", action="HIT", desc="Atlas HP decreased" },
+        { address=0X74754A, type="u8", condition="increase", action="HEAL", desc="Right Chain Atlas Max HP increased" },
+        { address=0X74754A, type="u8", condition="decrease", action="HIT", desc="Right Chain Atlas Max HP decreased" },
+        { address=0X74754B, type="u8", condition="increase", action="HEAL", desc="Right Chain Atlas HP increased" },
+        { address=0X74754B, type="u8", condition="decrease", action="HIT", desc="Right Chain Atlas HP decreased" },
+        { address=0X7486BA, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Phlegmat (Green) Max HP increased" },
+        { address=0X7486BA, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Phlegmat (Green) Max HP decreased" },
+        { address=0X7486BB, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Phlegmat (Green) HP increased" },
+        { address=0X7486BB, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Phlegmat (Green) HP decreased" },
+        { address=0X74A2AA, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Sanguin (Red) Max HP increased" },
+        { address=0X74A2AA, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Sanguin (Red) Max HP decreased" },
+        { address=0X74A2AB, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Sanguin (Red) HP increased" },
+        { address=0X74A2AB, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Sanguin (Red) HP decreased" },
+        { address=0X74B41A, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Coleric (Brown) Max HP increased" },
+        { address=0X74B41A, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Coleric (Brown) Max HP decreased" },
+        { address=0X74B41B, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Coleric (Brown) HP increased" },
+        { address=0X74B41B, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Coleric (Brown) HP decreased" },
+        { address=0X74C58A, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Melanc (Blue) Max HP increased" },
+        { address=0X74C58A, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Melanc (Blue) Max HP decreased" },
+        { address=0X74C58B, type="u8", condition="increase", action="HEAL", desc="Eukrasia - Melanc (Blue) HP increased" },
+        { address=0X74C58B, type="u8", condition="decrease", action="HIT", desc="Eukrasia - Melanc (Blue) HP decreased" },
+        { address=0X74E86A, type="u8", condition="increase", action="HEAL", desc="Justice Max HP increased" },
+        { address=0X74E86A, type="u8", condition="decrease", action="HIT", desc="Justice Max HP decreased" },
+        { address=0X74E86B, type="u8", condition="increase", action="HEAL", desc="Justice HP increased" },
+        { address=0X74E86B, type="u8", condition="decrease", action="HIT", desc="Justice HP decreased" },
+        { address=0X74F9DA, type="u8", condition="increase", action="HEAL", desc="Innocence Max HP increased" },
+        { address=0X74F9DA, type="u8", condition="decrease", action="HIT", desc="Innocence Max HP decreased" },
+        { address=0X74F9DB, type="u8", condition="increase", action="HEAL", desc="Innocence HP increased" },
+        { address=0X74F9DB, type="u8", condition="decrease", action="HIT", desc="Innocence HP decreased" },
+        { address=0X750B4A, type="u8", condition="increase", action="HEAL", desc="The Overgoom Max HP increased" },
+        { address=0X750B4A, type="u8", condition="decrease", action="HIT", desc="The Overgoom Max HP decreased" },
+        { address=0X750B4B, type="u8", condition="increase", action="HEAL", desc="The Overgoom HP increased" },
+        { address=0X750B4B, type="u8", condition="decrease", action="HIT", desc="The Overgoom HP decreased" },
+        { address=0X75273A, type="u8", condition="increase", action="HEAL", desc="Goomblivion Max HP increased" },
+        { address=0X75273A, type="u8", condition="decrease", action="HIT", desc="Goomblivion Max HP decreased" },
+        { address=0X75273B, type="u8", condition="increase", action="HEAL", desc="Goomblivion HP increased" },
+        { address=0X75273B, type="u8", condition="decrease", action="HIT", desc="Goomblivion HP decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X10F522, type="u16be", condition="eq", value=0X600, action="SPEED_TIMER", no_log=true, desc="6 points" },
+        { address=0X10F522, type="u16be", condition="eq", value=0X700, action="SPEED_TIMER", no_log=true, desc="7 points" },
+      },
+      player = {
+        { address=0XDC1EE, type="u8", condition="eq", value=0X1C, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+        { address=0XDC1EE, type="u8", condition="eq", value=0X27, action="JUMPING", no_log=true, no_survey=true, desc="Super Charge (Jump)" },
+        { address=0XDC1EE, type="u8", condition="eq", value=0X2D, action="JUMPING", no_log=true, no_survey=true, desc="Mega Jump" },
+        { address=0XDC1EE, type="u8", condition="eq", value=0X2E, action="JUMPING", no_log=true, no_survey=true, desc="D-Down Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XDC1EE, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Start Value & used after switching to Goombario" },
+      },
+    },
+  },
+}

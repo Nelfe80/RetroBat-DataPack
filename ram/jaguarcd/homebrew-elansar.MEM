@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Elansar",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-elansar",
+    hashes = {
+      { hash = "87a5b4eecd0b5ebd56a44d924fa54077", label = "Elansar (World) (Aftermarket) (Unl) (OrionSoft).cdi" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X499A4, type="u8", condition="eq", value=0X11, action="DOOR_OPENED", desc="Door" },
+        { address=0X499A4, type="u8", condition="eq", value=0X13, action="DOOR_OPENED", desc="Beyond the door" },
+        { address=0X532DC, type="u8", condition="change", action="DOOR_OPENED", desc="Door unlocked" },
+      },
+    },
+  },
+}

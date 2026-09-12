@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ ~Homebrew~ Joe Biden for the PS2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-homebrew-joe-biden-for-the-ps2",
+    hashes = {
+      { hash = "50f64d824859fdbc86d270448068199c", label = "Joe Biden for the PS2 (GBA Port).gba" },
+    }
+  },
+
+  events = {
+  },
+}

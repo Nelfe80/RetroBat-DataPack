@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ELISE",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-elise",
+    hashes = {
+      { hash = "193c195a5c5b28acd0d7346f050deea5", label = "SM64 - ELISE (v1.1.1) (Mel,ArcticJaguar725).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X68653, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Screen Check" },
+        { address=0X221A08, type="u8", condition="change", action="PAUSE_ON", desc="{1.1} bit1 : paused" },
+        { address=0X222160, type="u8", condition="change", action="PAUSE_ON", desc="{1.1.1} bit1 : paused" },
+      },
+    },
+  },
+}

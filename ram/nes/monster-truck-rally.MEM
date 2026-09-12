@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Monster Truck Rally",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "monster-truck-rally",
+    hashes = {
+      { hash = "1309fa33e953ae709985320af74070ec", label = "Monster Truck Rally (USA).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X00AF, type="u8", condition="change", action="NEW_LEVEL", desc="Difficulty level 1-5" },
+      },
+    },
+  },
+}

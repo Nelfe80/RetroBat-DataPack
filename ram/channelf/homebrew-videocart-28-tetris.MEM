@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Videocart-28: Tetris",
+    system = "channelf",
+    system_name = "Fairchild Channel F",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-videocart-28-tetris",
+    hashes = {
+      { hash = "2aebeda05478e8b7f5c1eca037ac6c2f", label = "Tetris (2004) (Trauner, Peter) (USA) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+  },
+}

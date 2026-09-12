@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Party Legacy: Custom Boards - Mario Party 1",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-party-legacy-custom-boards-mario-party-1",
+    hashes = {
+      { hash = "054c021d0eb1354365721c225fde2e51", label = "MarioPartyLegacy1 Vol.5.z64" },
+      { hash = "067592afc77731306c83338687ab6fd4", label = "MarioPartyLegacy1 Vol.11.z64" },
+      { hash = "0988b1a4eb50264d2d9736f91f1c38e8", label = "MarioPartyLegacy1 Vol.16.z64" },
+      { hash = "4d7979f71e148c21cf284a9a815b12d8", label = "MarioPartyLegacy1 Vol.2.z64" },
+      { hash = "5080ab7e6870e0713ebf7ef1e2f39046", label = "MarioPartyLegacy1 Vol.18.z64" },
+      { hash = "561fafe063055d55d5cf8419880ebbc1", label = "MarioPartyLegacy1 Vol.10.z64" },
+      { hash = "691fdf37b2edf9ce9c8dc10388f5e471", label = "MarioPartyLegacy1 Vol.15.z64" },
+      { hash = "6e138febe6c3c49b1635260cd2479a34", label = "MarioPartyLegacy1 Vol.13.z64" },
+      { hash = "6f7a5011c6de734c942ba3210ef7e7d4", label = "MarioPartyLegacy1 Vol.6.z64" },
+      { hash = "80a3b9009eb51f89a07ce68afce84ec1", label = "MarioPartyLegacy1 Vol.14.z64" },
+      { hash = "85c37de09201aba97543954fd65f4699", label = "MarioPartyLegacy1 Vol.12.z64" },
+      { hash = "8c13c6d705a684f1e886c26ef9bc70d9", label = "MarioPartyLegacy1 Vol.19.z64" },
+      { hash = "9155264a12e9bb5bcfc42d4479834db8", label = "MarioPartyLegacy1 Vol.7.z64" },
+      { hash = "9988f4ce177820fbded3ec7a488b3436", label = "MarioPartyLegacy1 Vol.3.z64" },
+      { hash = "9e2497d9f3b551b2ff7a8b35e223eb49", label = "MarioPartyLegacy1 Vol.1.z64" },
+      { hash = "ccaa04586d8c8f54a89866982f4fc06e", label = "MarioPartyLegacy1 Vol.8.z64" },
+      { hash = "cd646958898e0872fba97a83d9e23702", label = "MarioPartyLegacy1 Vol.9.z64" },
+      { hash = "d8206a0bbb2cfa51b9accea23c0cd48f", label = "MarioPartyLegacy1 Vol.4.z64" },
+      { hash = "e969bb3594e923454ce99f3a4313d9c1", label = "MarioPartyLegacy1 Vol.17.z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XF0154, type="u8", condition="increase", action="COIN_GAIN", desc="Blargg's Fire Rivers - Koopa Bank Coins increased" },
+        { address=0XF32BA, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 1 - Coins (16bit) increased" },
+        { address=0XF32D4, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 1 - Coin Record (16bit) increased" },
+        { address=0XF32D6, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 1 - Coins from Mini-Games (16bit) increased" },
+        { address=0XF32EA, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 2 - Coins (16bit) increased" },
+        { address=0XF3304, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 2 - Coin Record (16bit) increased" },
+        { address=0XF3306, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 2 - Coins from Mini-Games (16bit) increased" },
+        { address=0XF331A, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 2 - Coins (16bit) increased" },
+        { address=0XF3334, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 3 - Coin Record (16bit) increased" },
+        { address=0XF3336, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 3 - Coins from Mini-Games (16bit) increased" },
+        { address=0XF334A, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 4 - Coins (16bit) increased" },
+        { address=0XF3364, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 4 - Coin Record (16bit) increased" },
+        { address=0XF3366, type="u16be", condition="increase", action="COIN_GAIN", desc="Player 4 - Coins from Mini-Games (16bit) increased" },
+      },
+    },
+  },
+}

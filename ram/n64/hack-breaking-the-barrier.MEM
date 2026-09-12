@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Breaking the Barrier",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-breaking-the-barrier",
+    hashes = {
+      { hash = "8b473fe01d0450fe5d74a318ecf01f14", label = "Super Mario 64 - Breaking the Barrier (Hack) (Mario Build) (Marionova64).z64" },
+      { hash = "ce841337fefb5f7bd85d21435cd97b57", label = "Super Mario 64 - Breaking the Barrier (Hack) (Luigi Build) (Marionova64).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5C032, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Screen : 00" },
+        { address=0X32D603, type="u8", condition="change", action="PAUSE_ON", desc="Paused : 01" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X331486, type="u16be", condition="eq", value=0X77, action="LOSE_LIFE", desc="bowser dead" },
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (8-bit) increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (8-bit) decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Mario's Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Mario's Health decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch [Bit3]" },
+        { address=0X32DA93, type="u8", condition="change", action="DOOR_OPENED", desc="Text Box on Screen (Star Doors) : 01" },
+        { address=0X331486, type="u16be", condition="eq", value=0X0C, action="OBJECT_INTERACTION", desc="blue switch" },
+        { address=0X331486, type="u16be", condition="eq", value=0X16, action="DOOR_OPENED", desc="unopened door" },
+        { address=0X33B214, type="u8", condition="change", action="DOOR_OPENED", desc="Door Type (8-bit)" },
+        { address=0X33B215, type="u8", condition="change", action="DOOR_OPENED", desc="Door Type (8-bit)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X36711C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer 'Milli' (60 Hits : 1 Second)" },
+        { address=0X36711D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer 'Seconds' (1 Hit : ~2 Seconds)" },
+        { address=0X36711E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer 'Minutes'" },
+      },
+    },
+  },
+}

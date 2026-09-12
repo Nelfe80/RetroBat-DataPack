@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Moorhuhn 2: Die Jagd Geht Weiter",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "moorhuhn-2-die-jagd-geht-weiter",
+    hashes = {
+      { hash = "c27324b9c35c705a967e3e725d363b7b", label = "Moorhuhn 2 - Die Jagd Geht Weiter (Germany)" },
+      { hash = "e0d2431402da98deaf39aff243992e96", label = "Moorhuhn 2 (Germany) (En) (v1.1) (John Osborne)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X43AEC, type="u16le", condition="eq", value=0X00, action="GAME_OVER", desc="Game over" },
+        { address=0XC5FE4, type="u16le", condition="eq", value=0X00, action="TITLE_SCREEN", desc="On Title or has not yet reached title" },
+        { address=0XC5FE4, type="u16le", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Reached title at least once -> main menu or gameplay" },
+        { address=0XDEB00, type="u16le", condition="eq", value=0X01, action="DEMO_MODE", desc="In demo mode" },
+        { address=0X11063C, type="u16le", condition="eq", value=0X0F, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1107E8, type="u16le", condition="eq", value=0X00, action="GAME_OVER", desc="Game over" },
+      },
+      events = {
+        { address=0XEC0EC, type="u16le", condition="change", action="COMBO_HIT", desc="Left house combo bonus" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X43D3C, type="u16le", condition="change", action="NEW_LEVEL", desc="Spider minigame: Round" },
+        { address=0X43D3C, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Round 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X43AEC, type="u16le", condition="increase", action="GAIN_LIFE", desc="Memory minigame: Lives remaining increased" },
+        { address=0X43AEC, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Memory minigame: Lives remaining decreased" },
+        { address=0XEBC1A, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="After being shot, dead" },
+        { address=0X11063C, type="u16le", condition="eq", value=0X01, action="LOSE_LIFE", desc="Spider (Die spinnen, die Spinnen)" },
+        { address=0X1107E8, type="u16le", condition="increase", action="GAIN_LIFE", desc="Spiders minigame: Lives remaining increased" },
+        { address=0X1107E8, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Spiders minigame: Lives remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC5FE8, type="u16le", condition="eq", value=0X03, action="SCORE_STATE", desc="Reached highscore screen" },
+        { address=0XCAA48, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0X11063C, type="u16le", condition="eq", value=0X10, action="SCORE_STATE", desc="Highscores (when accessed from main menu)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XEB30E, type="u16le", condition="eq", value=0X12, action="OBJECT_DESTROYED", desc="Ladder broken (requires two shots) and afterwards perch broken (if status is : 0x03)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X10F9F4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Scarecrow counter" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X01, action="GENERAL_TIMER", no_log=true, desc="Left arm" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X02, action="GENERAL_TIMER", no_log=true, desc="Right arm" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X03, action="GENERAL_TIMER", no_log=true, desc="Left leg" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X04, action="GENERAL_TIMER", no_log=true, desc="Right leg" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X05, action="GENERAL_TIMER", no_log=true, desc="Body" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X06, action="GENERAL_TIMER", no_log=true, desc="Face" },
+        { address=0X10F9F4, type="u32le", condition="eq", value=0X07, action="GENERAL_TIMER", no_log=true, desc="Hat" },
+        { address=0X10FA08, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Scarecrow minigame: Parts remaining" },
+        { address=0X11063C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Game mode" },
+        { address=0X110894, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Balloon mode: Time limit" },
+        { address=0X110BCC, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Weidmannshuhn minigame: Time limit" },
+      },
+    },
+  },
+}

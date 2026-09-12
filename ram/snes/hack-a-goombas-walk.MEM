@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ A Goomba's Walk",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-a-goombas-walk",
+    hashes = {
+      { hash = "4548f36373f15633dd20e842f8ee815a", label = "SMW - Goomba's Walk, A (v1.0) (Luks).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13BF, type="u8", condition="eq", value=0X27, action="CREDITS_SCREEN", desc="Credits cave" },
+        { address=0X13D4, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Playing" },
+        { address=0X13D4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Pause" },
+        { address=0X1DFB, type="u8", condition="eq", value=0X28, action="CREDITS_SCREEN", desc="Credits cave Music" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In a level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Intro" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="info cave" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="basic Training" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="koopa cavern" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2B, action="NEW_LEVEL", desc="neon bridge" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2C, action="NEW_LEVEL", desc="big boo's mine" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2D, action="NEW_LEVEL", desc="autumn mountain" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2E, action="NEW_LEVEL", desc="freezy arches" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2F, action="NEW_LEVEL", desc="kinshi castle" },
+        { address=0X1FD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exit Clear Count" },
+      },
+      stage = {
+        { address=0X0DD5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Exit Method" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Normal Exit." },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Secret Exit." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives decreased" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="Dies or used Start+Select" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coin Total increased" },
+        { address=0X13CF, type="u8", condition="increase", action="COIN_GAIN", desc="Entering Stage from Midpoint (0x40) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1DFB, type="u8", condition="eq", value=0X32, action="BOSS_HIT", desc="Boss Music" },
+        { address=0X1DFB, type="u8", condition="eq", value=0X33, action="BOSS_HIT", desc="Boss Cutscene Music" },
+      },
+    },
+  },
+}

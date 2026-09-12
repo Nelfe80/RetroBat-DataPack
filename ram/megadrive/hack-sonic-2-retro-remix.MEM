@@ -1,0 +1,100 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic 2: Retro Remix",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-2-retro-remix",
+    hashes = {
+      { hash = "ef0b21eed2f02a821e4c4e8277ccf062", label = "Sonic the Hedgehog 2 - Retro Remix (Thorn and DNXDelta).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF601, type="u8", condition="bit_true", mask=0X10, action="TITLE_SCREEN", desc="In Special Stage?" },
+        { address=0XF601, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="Non-interactive : 01" },
+        { address=0XF63A, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XED83, type="u8", condition="change", action="NEW_LEVEL", desc="Bit 0 : Mystic Woods Secret Zone Emerald Collected" },
+        { address=0XEDA6, type="u8", condition="change", action="NEW_LEVEL", desc="Bit 0 : Frosty Peak Secret Zone Emerald Collected" },
+        { address=0XEDAB, type="u8", condition="change", action="NEW_LEVEL", desc="Bit 0 : Casino Night Secret Zone Emerald Collected" },
+        { address=0XFE11, type="u8", condition="eq", value=0X00, action="LEVEL_CASCADE_VALLEY", desc="Cascade Valley" },
+        { address=0XFE11, type="u8", condition="eq", value=0X02, action="LEVEL_MYSTIC_WOODS", desc="Mystic Woods" },
+        { address=0XFE11, type="u8", condition="eq", value=0X04, action="LEVEL_METROPOLIS", desc="Metropolis" },
+        { address=0XFE11, type="u8", condition="eq", value=0X07, action="LEVEL_FROSTY_PEAK", desc="Frosty Peak" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0B, action="LEVEL_FROSTY_PEAK_SECRET_ZONE", desc="Frosty Peak Secret Zone" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0C, action="LEVEL_CASINO_NIGHT", desc="Casino Night" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0D, action="LEVEL_CHEMICAL_PLANT", desc="Chemical Plant" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0E, action="LEVEL_DEATH_EGG", desc="Death Egg" },
+      },
+      zone = {
+        { address=0XFE11, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },
+      },
+      stage = {
+        { address=0XED78, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Cascade Valley Act 1 [Bits]" },
+        { address=0XED7A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Cascade Valley Act 3 [Bits]" },
+        { address=0XED7B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Cascade Valley Act 2 [Bits]" },
+        { address=0XED80, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Mystic Woods Act 1 [Bits]" },
+        { address=0XED81, type="u8", condition="bit_true", mask=0X80, action="STAGE_SELECT", desc="Mystic Woods Lobby Special Stage Emerald Collected" },
+        { address=0XED82, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Mystic Woods Act 2 [Bits]" },
+        { address=0XED94, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Frosty Peak Act 1 [Bits]" },
+        { address=0XED96, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Frosty Peak Act 3 [Bits]" },
+        { address=0XED97, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Frosty Peak Act 2 [Bits]" },
+        { address=0XEDA8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Casino Night Act 1 [Bits]" },
+        { address=0XEDAA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Casino Night Act 2 [Bits]" },
+        { address=0XEDAC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Chemical Plant Act 1 [Bits]" },
+        { address=0XEDAE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Chemical Plant Act 3 [Bits]" },
+        { address=0XEDAF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Emeralds Collected in Chemical Plant Act 2 [Bits]" },
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XEDB0, type="u8", condition="change", action="LOSE_LIFE", desc="Bit 0 : Death Egg Emerald Collected" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XED79, type="u8", condition="change", action="TREASURE", desc="Bit 0 : Cascade Valley Lobby Emerald Collected" },
+        { address=0XED89, type="u8", condition="change", action="TREASURE", desc="Emeralds Collected in Metropolis [Bits]" },
+        { address=0XED95, type="u8", condition="change", action="TREASURE", desc="Bit 0 : Frosty Peak Lobby Emerald Collected" },
+        { address=0XEDAD, type="u8", condition="change", action="TREASURE", desc="Bit 0 : Chemical Plant Lobby Emerald Collected" },
+        { address=0XF821, type="u8", condition="change", action="TREASURE", desc="Emeralds Hub Hidden Flag?" },
+        { address=0XFE13, type="u8", condition="change", action="TREASURE", desc="Number of Emeralds" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="16-bits - Current Ring Count increased" },
+        { address=0XFE28, type="u32be", condition="increase", action="COIN_GAIN", desc="Score. 32 bit. increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XB02A, type="u8", condition="change", action="SHIELD_GAIN", desc="bit 0 - has shield" },
+      },
+      player = {
+        { address=0XB023, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="In ball - jumping/rolling" },
+        { address=0XB023, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="rolling jump?" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB023, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="standing on object - not solid ground" },
+        { address=0XB023, type="u8", condition="bit_true", mask=0X40, action="ENVIRONMENT_UNDERWATER", desc="underwater" },
+        { address=0XED11, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Number of Emerald Monitors Collected" },
+        { address=0XEDA9, type="u8", condition="bit_true", mask=0X20, action="OBJECT_DESTROYED", desc="Casino Night Lobby Emerald Monitors Collected" },
+        { address=0XFE31, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="8-bit - Last Checkpoint" },
+      },
+    },
+  },
+}

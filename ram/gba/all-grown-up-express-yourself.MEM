@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "All Grown Up! Express Yourself",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "all-grown-up-express-yourself",
+    hashes = {
+      { hash = "d429899cfd9a4858592f34ce9527a159", label = "All Grown Up! - Express Yourself (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X73EA, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1F10, type="u16le", condition="change", action="INVINCIBILITY_START", desc="Angelica's Invincibility frames" },
+      },
+    },
+  },
+}

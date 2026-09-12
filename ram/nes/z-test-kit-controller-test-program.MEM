@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ ~Test Kit~ Controller Test Program",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-test-kit-controller-test-program",
+    hashes = {
+      { hash = "ed6ccc2b244c42e748475bab1d207822", label = "Controller Test Program (Japan) (En) (Test Program).nes" },
+    }
+  },
+
+  events = {
+  },
+}

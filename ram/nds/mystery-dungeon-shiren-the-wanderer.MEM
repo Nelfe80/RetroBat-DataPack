@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mystery Dungeon: Shiren the Wanderer",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "mystery-dungeon-shiren-the-wanderer",
+    hashes = {
+      { hash = "03bb331c0cc2185d73ee94bf2ba8c0e4", label = "Mystery Dungeon - Shiren the Wanderer (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X19CDF1, type="u8", condition="change", action="PAUSE_ON", desc="If game is paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1A184E, type="u16le", condition="change", action="NEW_LEVEL", desc="Current overworld:" },
+        { address=0X1BFCC2, type="u16le", condition="change", action="NEW_LEVEL", desc="Shiren's Current Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1A1168, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X1A1168, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X1A116A, type="u16le", condition="increase", action="HEAL", desc="Maximum HP increased" },
+        { address=0X1A116A, type="u16le", condition="decrease", action="HIT", desc="Maximum HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1BFA40, type="u32le", condition="increase", action="COIN_GAIN", desc="Current Coins/Gitans increased" },
+        { address=0X1C5450, type="u32le", condition="increase", action="COIN_GAIN", desc="(maybe) Total accumulated Coins/Gitans increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1BFA4E, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield Strength" },
+      },
+    },
+  },
+}

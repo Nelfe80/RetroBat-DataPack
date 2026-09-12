@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pac-Man 4K",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-pac-man-4k",
+    hashes = {
+      { hash = "6e88da2b704916eb04a998fed9e23a3e", label = "Pac-Man 4K (NTSC) (v2008-05-24) (Aftermarket) (Unl) (Dennis Debro).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X004B, type="u8", condition="eq", value=0X0, action="DEMO_MODE", desc="play mode" },
+        { address=0X004B, type="u8", condition="eq", value=0X4, action="DEMO_MODE", desc="attract/demo mode" },
+        { address=0X004B, type="u8", condition="eq", value=0X8, action="DEMO_MODE", desc="left" },
+        { address=0X007E, type="u8", condition="eq", value=0XAE, action="DEMO_MODE", desc="when game changes from 'player active' mode to attract mode. Also when attract mode loses a life" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X007E, type="u8", condition="eq", value=0X59, action="OBJECT_INTERACTION", desc="game reset switch pressed/held" },
+      },
+    },
+  },
+}

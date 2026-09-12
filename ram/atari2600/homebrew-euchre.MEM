@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Euchre",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-euchre",
+    hashes = {
+      { hash = "6205855cc848d1f6c4551391b9bfa279", label = "Euchre (USA) (Aftermarket) (Unl).a26" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X0036, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Hearts" },
+        { address=0X0036, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Diamonds" },
+        { address=0X0036, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Clubs" },
+        { address=0X0036, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="Spades" },
+        { address=0X0037, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Diamonds" },
+        { address=0X0037, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Hearts" },
+        { address=0X0037, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Spades" },
+        { address=0X0037, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="Clubs" },
+      },
+    },
+  },
+}

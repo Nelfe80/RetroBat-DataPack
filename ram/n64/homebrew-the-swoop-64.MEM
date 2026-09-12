@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Swoop 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-swoop-64",
+    hashes = {
+      { hash = "57405fe8571f2a0abf1a081e18f9ca4d", label = "Swoop 64, The (World) (Aftermarket) (Unl) (Team Zenden).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X22CC80, type="u32be", condition="eq", value=0XE7000000, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9D353, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of Goals Collected" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X22CC80, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X22CB38, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer [Float]" },
+      },
+    },
+  },
+}

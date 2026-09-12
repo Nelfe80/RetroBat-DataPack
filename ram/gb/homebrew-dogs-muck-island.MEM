@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dog's Muck Island",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-dogs-muck-island",
+    hashes = {
+      { hash = "9155b2da7a68a39742ed1c80f1b007a8", label = "Dog's Muck Island (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

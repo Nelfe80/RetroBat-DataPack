@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Waterworld",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-waterworld",
+    hashes = {
+      { hash = "c216626a7e4896e81f49a4b1f5f760ca", label = "SMW - Waterworld (v1.0) (BabaYegha).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X12C, action="CREDITS_SCREEN", desc="credits 2" },
+        { address=0X010B, type="u16le", condition="eq", value=0X2A, action="CREDITS_SCREEN", desc="Credits screen" },
+        { address=0X010B, type="u16le", condition="eq", value=0X70, action="CONTINUE_SCREEN", desc="to be continued screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X128, action="BOSS_HIT", desc="4th midway, before boss fights" },
+        { address=0X010B, type="u16le", condition="eq", value=0X23, action="BOSS_HIT", desc="last boss" },
+        { address=0X010B, type="u16le", condition="eq", value=0X76, action="BOSS_HIT", desc="hidden boss" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X010B, type="u16le", condition="eq", value=0X120, action="OBJECT_INTERACTION_CHECKPOINT", desc="2nd midway in a new end" },
+        { address=0X010B, type="u16le", condition="eq", value=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="first midway in a new end" },
+        { address=0X010B, type="u16le", condition="eq", value=0X41, action="OBJECT_INTERACTION_CHECKPOINT", desc="3rd midway in a new end" },
+      },
+    },
+  },
+}

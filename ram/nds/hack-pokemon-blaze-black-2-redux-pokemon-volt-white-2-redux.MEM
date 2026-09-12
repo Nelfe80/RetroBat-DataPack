@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Blaze Black 2 Redux | Pokémon Volt White 2 Redux",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-blaze-black-2-redux-pokemon-volt-white-2-redux",
+    hashes = {
+      { hash = "0f15ce3eba2735203446beffd3654de6", label = "Pokemon - White Volt 2 Redux (v1.3.0) (AphexCubed,Drayano) (Wii Cheat Removal) (Bryan1150).nds" },
+      { hash = "ee5d1d00704c52a1a4f27003aa1fae43", label = "Pokemon - Blaze Black 2 Redux (v1.3.0) (AphexCubed,Drayano) (Wii Cheat Removal) (Bryan1150).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X25B1FC, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 1 Pokemon - Level/Displayed" },
+        { address=0X25B420, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 2 Pokemon - Level/Displayed" },
+        { address=0X25B644, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 3 Pokemon - Level/Displayed" },
+        { address=0X25B868, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 4 Pokemon - Level" },
+        { address=0X25BA8C, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 5 Pokemon - Level" },
+        { address=0X25BCB0, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Slot 6 Pokemon - Level" },
+        { address=0X2A84C0, type="u8", condition="change", action="NEW_LEVEL", desc="In Battle/Current Pokemon - Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X25B1F4, type="u8", condition="increase", action="HEAL", desc="In Battle/Slot 1 Pokemon - Current Health/Displayed increased" },
+        { address=0X25B1F4, type="u8", condition="decrease", action="HIT", desc="In Battle/Slot 1 Pokemon - Current Health/Displayed decreased" },
+        { address=0X25B418, type="u8", condition="increase", action="HEAL", desc="In Battle/Slot 2 Pokemon - Current Health/Displayed increased" },
+        { address=0X25B418, type="u8", condition="decrease", action="HIT", desc="In Battle/Slot 2 Pokemon - Current Health/Displayed decreased" },
+        { address=0X25B860, type="u8", condition="increase", action="HEAL", desc="In Battle/Slot 4 Pokemon - Current Health increased" },
+        { address=0X25B860, type="u8", condition="decrease", action="HIT", desc="In Battle/Slot 4 Pokemon - Current Health decreased" },
+        { address=0X25BA84, type="u8", condition="increase", action="HEAL", desc="In Battle/Slot 5 Pokemon - Current Health increased" },
+        { address=0X25BA84, type="u8", condition="decrease", action="HIT", desc="In Battle/Slot 5 Pokemon - Current Health decreased" },
+        { address=0X25BECC, type="u8", condition="increase", action="HEAL", desc="Opponent/Slot 1 Pokemon - Current Health/Displayed increased" },
+        { address=0X25BECC, type="u8", condition="decrease", action="HIT", desc="Opponent/Slot 1 Pokemon - Current Health/Displayed decreased" },
+        { address=0X29EF98, type="u8", condition="increase", action="HEAL", desc="Roxie+Burgh/Gym Leader's Current Pokemon - Current Health increased" },
+        { address=0X29EF98, type="u8", condition="decrease", action="HIT", desc="Roxie+Burgh/Gym Leader's Current Pokemon - Current Health decreased" },
+        { address=0X2A3778, type="u8", condition="increase", action="HEAL", desc="Cheren Gym/Cheren's Current Pokemon - Current Health increased" },
+        { address=0X2A3778, type="u8", condition="decrease", action="HIT", desc="Cheren Gym/Cheren's Current Pokemon - Current Health decreased" },
+        { address=0X2A849C, type="u8", condition="increase", action="HEAL", desc="In Battle/Current Pokemon - Current Health increased" },
+        { address=0X2A849C, type="u8", condition="decrease", action="HIT", desc="In Battle/Current Pokemon - Current Health decreased" },
+        { address=0X2A84A0, type="u8", condition="increase", action="HEAL", desc="In battle/Current Pokemon - Max Health increased" },
+        { address=0X2A84A0, type="u8", condition="decrease", action="HIT", desc="In battle/Current Pokemon - Max Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2266E4, type="u16le", condition="increase", action="COIN_GAIN", desc="Player - Money/16-bit increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1418E8, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Minute" },
+        { address=0X1418EC, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time - Second" },
+        { address=0X141A84, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Load counter (Includes title screen load)" },
+      },
+    },
+  },
+}

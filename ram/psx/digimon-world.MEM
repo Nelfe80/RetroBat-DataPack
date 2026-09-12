@@ -1,0 +1,101 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Digimon World",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "digimon-world",
+    hashes = {
+      { hash = "8bc2620ebf5b44d0cc96ae1e5b2dc66a", label = "Digimon World (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1BDFDB, type="u8", condition="eq", value=0X6, action="DEMO_MODE", desc="Vademon Strange Circle First time" },
+        { address=0X1BDFE9, type="u8", condition="eq", value=0X4, action="DEMO_MODE", desc="Vademon Recruited" },
+        { address=0X1BE010, type="u8", condition="eq", value=0X4, action="DEMO_MODE", desc="Vademon" },
+        { address=0X1BE018, type="u8", condition="eq", value=0X0, action="DEMO_MODE", desc="Jijimon saying about Vademon on City" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X138460, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Flower (Butterfly arround)" },
+        { address=0X1557A4, type="u8", condition="change", action="NEW_LEVEL", desc="Tamer level 8-bit" },
+        { address=0X1BDFF2, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="ClearAgumon" },
+      },
+      stage = {
+        { address=0X134D55, type="u8", condition="change", action="RANK_STATE", desc="Current Position on Map Y 8-bit" },
+        { address=0X134D56, type="u8", condition="change", action="RANK_STATE", desc="Current Position on Map X 8-bit" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1384A8, type="u32le", condition="increase", action="GAIN_LIFE", desc="Digimon Lifetime to Reborn 32-bit increased" },
+        { address=0X1384A8, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Digimon Lifetime to Reborn 32-bit decreased" },
+        { address=0X1384A8, type="u32le", condition="eq", value=0X0, action="LOSE_LIFE", desc="Die" },
+      },
+      health = {
+        { address=0X1557F0, type="u16le", condition="increase", action="HEAL", desc="Digimon Status HP 16-bit HEX increased" },
+        { address=0X1557F0, type="u16le", condition="decrease", action="HIT", desc="Digimon Status HP 16-bit HEX decreased" },
+        { address=0X1557F4, type="u16le", condition="increase", action="HEAL", desc="Digimon Current HP 16-bit HEX increased" },
+        { address=0X1557F4, type="u16le", condition="decrease", action="HIT", desc="Digimon Current HP 16-bit HEX decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X134FC4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="ShogunGekomon Merit points 16-bit" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X155874, type="u16le", condition="change", action="BOSS_HIT", desc="Bosses: 16-bit" },
+        { address=0X1558DC, type="u16le", condition="eq", value=0X384, action="BOSS_HIT", desc="Kunemon HP default" },
+        { address=0X155944, type="u16le", condition="eq", value=0X190, action="BOSS_HIT", desc="Agumon HP default" },
+        { address=0X155944, type="u16le", condition="eq", value=0X384, action="BOSS_HIT", desc="Palmon HP default" },
+        { address=0X1559AC, type="u16le", condition="change", action="BOSS_HIT", desc="Bosses: 16-bit (Hex)" },
+        { address=0X155A14, type="u16le", condition="change", action="BOSS_HIT", desc="Bosses: 16-bit" },
+        { address=0X155A7C, type="u16le", condition="change", action="BOSS_HIT", desc="Bosses: 16-bit" },
+        { address=0X155AE4, type="u16le", condition="change", action="BOSS_HIT", desc="Bosses: 16-bit (Hex)" },
+        { address=0X1BDFCD, type="u8", condition="eq", value=0X1, action="BOSS_HIT", desc="Boss Battle Fight (No Run)" },
+        { address=0X1BDFF3, type="u8", condition="eq", value=0X5, action="BOSS_DEFEATED", desc="Otamamon Defeated (BOSS)" },
+        { address=0X1BDFF5, type="u8", condition="eq", value=0X1, action="BOSS_DEFEATED", desc="Devimon Defeated (BOSS)" },
+        { address=0X1BDFF5, type="u8", condition="eq", value=0X6, action="BOSS_HIT", desc="MetalGreymon Defetead (BOSS)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1BDFF8, type="u8", condition="eq", value=0X5, action="DOOR_OPENED", desc="Tinmon open Toy Mansion door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X138464, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Sleep Timer 8-bit" },
+        { address=0X138478, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Poop Timer" },
+        { address=0X155805, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Tech: Battle 8-bit (Bits)" },
+        { address=0X1BDFD3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFD6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFD9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFDF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFE4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFE5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFEB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFF5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFF7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFF9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+        { address=0X1BDFFB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Medals Chart 8-bit (Bits flag)" },
+        { address=0X1BE001, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Story 8-bit (Bits)" },
+      },
+    },
+  },
+}

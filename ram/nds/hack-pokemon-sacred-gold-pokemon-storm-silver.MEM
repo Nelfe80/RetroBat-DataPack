@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Sacred Gold | Pokémon Storm Silver",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-sacred-gold-pokemon-storm-silver",
+    hashes = {
+      { hash = "de1997078ab5102b2888afb947e926a1", label = "Pokemon SoulSilver - Storm Silver (v1.1) (Drayano).nds" },
+      { hash = "1f7d0284883b8adbc00082e31aa21c7c", label = "Pokemon HeartGold - Sacred Gold (v1.05) (Drayano).nds" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Battle Picross",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-battle-picross",
+    hashes = {
+      { hash = "9307c9034ab5e6effa2323297e493363", label = "Battle Picross (World) (Unl).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X3A7A0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Puzzle - Timer [32bit]" },
+        { address=0X3A7BC, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Puzzle - State Timer [16bit]" },
+      },
+    },
+  },
+}

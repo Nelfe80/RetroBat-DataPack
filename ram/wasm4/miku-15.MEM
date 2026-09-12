@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "MIKU-15",
+    system = "wasm4",
+    system_name = "WASM-4",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "miku-15",
+    hashes = {
+      { hash = "04afe658b3c9e2e61dbef7897d604adc", label = "MIKU-15 (World) (Mr.Rafael).wasm" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00C8, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+  },
+}

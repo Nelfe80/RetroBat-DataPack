@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Halloween: October 31st Demake",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Horror"
+  },
+
+  rom = {
+    name = "homebrew-halloween-october-31st-demake",
+    hashes = {
+      { hash = "cffaf275c2296bd297053e39ed8fa43b", label = "Halloween - October 31st (World) (v0.02) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X003F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+        { address=0X0040, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+        { address=0X0427, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+        { address=0X0674, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+        { address=0X067A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+        { address=0X068D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="screen./stage data" },
+      },
+    },
+  },
+}

@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ All Bosses",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-all-bosses",
+    hashes = {
+      { hash = "1465d473402533e81cfda566255b2327", label = "Super Mario 64 - All Bosses (Hack) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1D62DD, type="u8", condition="increase", action="HEAL", desc="Mario - Health [8bit] increased" },
+        { address=0X1D62DD, type="u8", condition="decrease", action="HIT", desc="Mario - Health [8bit] decreased" },
+        { address=0X1D874C, type="u8", condition="increase", action="HEAL", desc="Wiggler Health increased" },
+        { address=0X1D874C, type="u8", condition="decrease", action="HIT", desc="Wiggler Health decreased" },
+        { address=0X1D89AC, type="u8", condition="increase", action="HEAL", desc="Whomp King Health increased" },
+        { address=0X1D89AC, type="u8", condition="decrease", action="HIT", desc="Whomp King Health decreased" },
+        { address=0X1D8C7C, type="u8", condition="increase", action="HEAL", desc="Mr. I Health increased" },
+        { address=0X1D8C7C, type="u8", condition="decrease", action="HIT", desc="Mr. I Health decreased" },
+        { address=0X1D8E6C, type="u8", condition="increase", action="HEAL", desc="King Bob-Omb Health increased" },
+        { address=0X1D8E6C, type="u8", condition="decrease", action="HIT", desc="King Bob-Omb Health decreased" },
+        { address=0X1D9040, type="u8", condition="increase", action="HEAL", desc="Eyerock Health increased" },
+        { address=0X1D9040, type="u8", condition="decrease", action="HIT", desc="Eyerock Health decreased" },
+        { address=0X1D92EC, type="u8", condition="increase", action="HEAL", desc="Chill Bully Health increased" },
+        { address=0X1D92EC, type="u8", condition="decrease", action="HIT", desc="Chill Bully Health decreased" },
+        { address=0X1D954C, type="u8", condition="increase", action="HEAL", desc="Big Bully Health increased" },
+        { address=0X1D954C, type="u8", condition="decrease", action="HIT", desc="Big Bully Health decreased" },
+        { address=0X1D97EC, type="u8", condition="increase", action="HEAL", desc="Bowser's Health increased" },
+        { address=0X1D97EC, type="u8", condition="decrease", action="HIT", desc="Bowser's Health decreased" },
+        { address=0X1D9CAC, type="u8", condition="increase", action="HEAL", desc="Boo Health increased" },
+        { address=0X1D9CAC, type="u8", condition="decrease", action="HIT", desc="Boo Health decreased" },
+        { address=0X1FC582, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X1FC582, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1D62E1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Mario - Damage Counter [8bit]" },
+      },
+    },
+  },
+}

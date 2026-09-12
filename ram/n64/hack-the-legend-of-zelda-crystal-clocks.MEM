@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Crystal Clocks",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-crystal-clocks",
+    hashes = {
+      { hash = "d7816ed415b4780f22654ec1d5d1e4a4", label = "Legend of Zelda, The - OoT - Crystal Clocks (v2.0) (SuperZambezi).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X12EED1, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Dragshots Seeds" },
+      },
+    },
+  },
+}

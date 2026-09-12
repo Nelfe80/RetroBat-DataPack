@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ BS The Legend of Zelda: Ancient Stone Tablets - Chapter 4",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-bs-the-legend-of-zelda-ancient-stone-tablets-chapter-4",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X040A, type="u8", condition="change", action="NEW_LEVEL", desc="link's overworld location" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0E50, type="u8", condition="increase", action="HEAL", desc="Ganon's health (FF-> 0) increased" },
+        { address=0X0E50, type="u8", condition="decrease", action="HIT", desc="Ganon's health (FF-> 0) decreased" },
+        { address=0XF36F, type="u8", condition="increase", action="HEAL", desc="remaining health increased" },
+        { address=0XF36F, type="u8", condition="decrease", action="HIT", desc="remaining health decreased" },
+      },
+    },
+  },
+}

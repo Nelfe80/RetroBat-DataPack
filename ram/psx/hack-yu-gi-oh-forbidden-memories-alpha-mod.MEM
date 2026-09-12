@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Yu-Gi-Oh! Forbidden Memories: Alpha Mod",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-yu-gi-oh-forbidden-memories-alpha-mod",
+    hashes = {
+      { hash = "74a0aa4e80c058fcccad4b7ba130da0a", label = "Yu-Gi-Oh! Forbidden Memories - Alpha Mod (Drop x15) (Alpha Team)" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XEAED4, type="u16le", condition="eq", value=0X14, action="OBJECT_DESTROYED", desc="Simon's destroyed room" },
+      },
+    },
+  },
+}

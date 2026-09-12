@@ -1,0 +1,95 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Star Force",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "star-force",
+    hashes = {
+      { hash = "9b5b43270f713f5a751e40dfc906b972", label = "starforc.7z <Star Force>" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0183, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 - Ending Level Control" },
+        { address=0X01B5, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 - Ending Level Control" },
+        { address=0X0282, type="u16le", condition="change", action="NEW_LEVEL", desc="Player 1 - Background 1 - Screen Half-Row Table" },
+        { address=0X0288, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 - Background 1 - Current row being drawn" },
+        { address=0X02CD, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 - Background 1 Management Control" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0015, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip Switch 1 increased" },
+        { address=0X0015, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip Switch 1 decreased" },
+        { address=0X0166, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1 - Lives increased" },
+        { address=0X0166, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1 - Lives decreased" },
+        { address=0X0198, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2 - Lives increased" },
+        { address=0X0198, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2 - Lives decreased" },
+        { address=0X8166, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", color="blue", min=100, max=100, desc="Score delta 100-100: ####################################SHIPS BONUS AND ENEMIES################" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=10000, max=10000, desc="Score delta 10000-10000: killing" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=1000000, max=1000000, desc="Score delta 1000000-1000000: killing to CLEOPATRA YOU ARE THE ONE!! with no mercy and earning MI" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=2000, max=2000, desc="Score delta 2000-2000: bonus" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=20000, max=20000, desc="Score delta 20000-20000: BONUS SCORE CHALLENGE PERFECT 20.000 points" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=25000, max=25000, desc="Score delta 25000-25000: killing" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=500, max=500, desc="Score delta 500-500: killing to BONUS" },
+        { address=0X8174, type="u32be", condition="change", action="TREASURE", min=50000, max=50000, desc="Score delta 50000-50000: killing to MINI CLEOPATRA FLYER with no mercy and earning 50.000 points" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8174, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0183, type="u8", condition="eq", value=0X5F, action="BOSS_HIT", desc="Boss fighting state" },
+        { address=0X01B5, type="u8", condition="eq", value=0X5F, action="BOSS_HIT", desc="Boss fighting state" },
+        { address=0X0417, type="u8", condition="eq", value=0XFE, action="BOSS_HIT", desc="Boss Explosion Sprite 9" },
+        { address=0X0417, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="Boss Explosion Sprite 10 and last" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0016, type="u8", condition="eq", value=0X000, action="OBJECT_INTERACTION", desc="50k, 200k and 500k" },
+        { address=0X0016, type="u8", condition="eq", value=0X001, action="OBJECT_INTERACTION", desc="100k, 300k and 800k" },
+        { address=0X0016, type="u8", condition="eq", value=0X010, action="OBJECT_INTERACTION", desc="50k and 200k" },
+        { address=0X0016, type="u8", condition="eq", value=0X011, action="OBJECT_INTERACTION", desc="100k and 300k" },
+        { address=0X0016, type="u8", condition="eq", value=0X100, action="OBJECT_INTERACTION", desc="50k only" },
+        { address=0X0016, type="u8", condition="eq", value=0X101, action="OBJECT_INTERACTION", desc="100k only" },
+        { address=0X0016, type="u8", condition="eq", value=0X110, action="OBJECT_INTERACTION", desc="200k only" },
+        { address=0X01C9, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="Enemy loading in process. Activation pending (next enemy blocked due to enemy type 0x12 not yet" },
+        { address=0X01C9, type="u8", condition="eq", value=0X07, action="OBJECT_INTERACTION", desc="Next enemy loading unblocked." },
+        { address=0X0322, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Player 1 - Capital Betas Destroyed" },
+        { address=0X0324, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Player 1 - Non-Capital Betas Destroyed" },
+        { address=0X0326, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Player 2 - Capital Betas Destroyed" },
+        { address=0X0328, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Player 2 - Non-Capital Betas Destroyed" },
+        { address=0X0561, type="u16le", condition="change", action="OBJECT_DESTROYED", desc="Video RAM addr of last green arrow destroyed" },
+        { address=0X0572, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X0578, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X057E, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X0584, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X058A, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X0590, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X0596, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1:Prized [chance] object" },
+        { address=0X8174, type="u32be", condition="change", action="OBJECT_DESTROYED", color="orange", min=300, max=300, desc="Score delta 300-300: destroy building KILL ORANGE AND RED DUST" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0563, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Number of green arrows destroyed (Great Bonus Counter)" },
+      },
+    },
+  },
+}

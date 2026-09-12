@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Yetisports Deluxe",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Sports"
+  },
+
+  rom = {
+    name = "yetisports-deluxe",
+    hashes = {
+      { hash = "e6c208761247aca99ac0652f6ccf66f2", label = "Yetisports Deluxe (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+  },
+}

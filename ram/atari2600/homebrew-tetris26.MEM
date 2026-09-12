@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tetris26",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tetris26",
+    hashes = {
+      { hash = "0279a63d922163da5a4fde76397f3fe0", label = "Tetris26 (NTSC) (Aftermarket) (Unl) (Colin Hughes).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0073, type="u8", condition="change", action="GAME_OVER", desc="Seems to : FF at Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0000, type="u8", condition="change", action="LEVEL_CLEAR", desc="Left 1 Line Clear" },
+        { address=0X0016, type="u8", condition="change", action="LEVEL_CLEAR", desc="Right Line 1 Clear" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X006B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Upper : Block" },
+      },
+    },
+  },
+}

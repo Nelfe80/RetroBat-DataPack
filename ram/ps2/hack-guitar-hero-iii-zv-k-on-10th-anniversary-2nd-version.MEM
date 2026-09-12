@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Guitar Hero III: ZV K-ON! 10th Anniversary (2nd Version)",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-guitar-hero-iii-zv-k-on-10th-anniversary-2nd-version",
+    hashes = {
+      { hash = "a35d7b1965a92c759a7da079d72b1f48", label = "Guitar Hero III - ZV K-ON! 10th Anniversary (v2.0) (ztruck1) (RA Hash Fix)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X369A64, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+      events = {
+        { address=0X373180, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] Current P1 Combo (On Display?)" },
+        { address=0XA6A9F0, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] Player 1 Current Combo" },
+        { address=0XA6ABF4, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] P1 Highest Combo Achieved in Current Song (Streak)" },
+        { address=0XA6B264, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] P2 Highest Combo Achieved in Current Song (Streak)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X373168, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32 BIT] Player 1 Current Score" },
+        { address=0X37316C, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="[32 BIT] Player 2 Current Score" },
+        { address=0X373188, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 BIT] Current Score Multiplier" },
+      },
+    },
+  },
+}

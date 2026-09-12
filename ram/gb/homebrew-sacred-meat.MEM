@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sacred Meat",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-sacred-meat",
+    hashes = {
+      { hash = "3ba766a3d32b765bb038d2ef6b49ead4", label = "Sacred Meat (World) (v1.3) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

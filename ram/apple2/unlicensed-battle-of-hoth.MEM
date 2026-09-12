@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Battle of Hoth",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-battle-of-hoth",
+    hashes = {
+      { hash = "01fa5ae0a155665e31421491e03d7c2e", label = "Battle of Hoth (1980)(Tukumo).do" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0C06, type="u16le", condition="eq", value=0XFFFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X0C08, type="u16le", condition="eq", value=0XFFFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X0C0A, type="u16le", condition="eq", value=0XFFFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X0C9F, type="u16le", condition="eq", value=0X0000, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0C9F, type="u16le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0C9F, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0C9F, type="u16le", condition="eq", value=0X0007, action="LIVES_STATE", desc="Initial" },
+        { address=0X0C9F, type="u16le", condition="eq", value=0X0C0C, action="LIVES_STATE", desc="Reset via Ctrl+C" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0C8D, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score" },
+        { address=0X0C8D, type="u16le", condition="eq", value=0X00, action="SCORE_STATE", desc="Intial" },
+        { address=0X0C93, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+        { address=0X0C93, type="u16le", condition="eq", value=0X00, action="SCORE_STATE", desc="Initial" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0C35, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Time" },
+      },
+    },
+  },
+}

@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ DOOM 64: Complete Edition",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-doom-64-complete-edition",
+    hashes = {
+      { hash = "fe63f970bb7f1d6798878d5835e1026c", label = "Doom 64 - Complete Edition (v1.0) (sylandro).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X50760, type="u8", condition="change", action="PAUSE_ON", desc="[8bit] Pause flag" },
+        { address=0X62C94, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Active Demo" },
+        { address=0X62E24, type="u32be", condition="eq", value=0X07, action="GAME_PLAYING", desc="Restart Level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X62E18, type="u8", condition="change", action="NEW_LEVEL", desc="[Upper4] Looks related to level exit?" },
+        { address=0X62E20, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bit] Skill Level" },
+        { address=0X62E20, type="u32be", condition="eq", value=0X00, action="NEW_LEVEL", desc="Be Gentle!" },
+        { address=0X62E20, type="u32be", condition="eq", value=0X01, action="NEW_LEVEL", desc="Bring It On!" },
+        { address=0X62E20, type="u32be", condition="eq", value=0X02, action="NEW_LEVEL", desc="I Own Doom!" },
+        { address=0X62E20, type="u32be", condition="eq", value=0X04, action="NEW_LEVEL", desc="Hardcore!" },
+        { address=0XA7000, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bit] Skill Level Alt" },
+        { address=0XA7000, type="u32be", condition="eq", value=0X00, action="NEW_LEVEL", desc="Be Gentle!" },
+        { address=0XA7000, type="u32be", condition="eq", value=0X01, action="NEW_LEVEL", desc="Bring It On!" },
+        { address=0XA7000, type="u32be", condition="eq", value=0X02, action="NEW_LEVEL", desc="I Own Doom!" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X62E20, type="u32be", condition="eq", value=0X03, action="LOSE_LIFE", desc="Watch Me Die!" },
+        { address=0XA7000, type="u32be", condition="eq", value=0X03, action="LOSE_LIFE", desc="Watch Me Die!" },
+      },
+      health = {
+        { address=0X62CD8, type="u8", condition="increase", action="HEAL", desc="[8bit] Player Health increased" },
+        { address=0X62CD8, type="u8", condition="decrease", action="HIT", desc="[8bit] Player Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X62D20, type="u32be", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Fist" },
+        { address=0X62D20, type="u32be", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Pistol" },
+        { address=0X62D20, type="u32be", condition="eq", value=0X03, action="WEAPON_STATE", no_log=true, desc="Shotgun" },
+        { address=0X62D78, type="u8", condition="eq", value=0X2000, action="WEAPON_STATE", no_log=true, desc="Weapons" },
+        { address=0X62D78, type="u8", condition="eq", value=0X6000, action="WEAPON_STATE", no_log=true, desc="Weapons & Heath Boost" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X62D50, type="u32be", condition="change", action="AMMO_STATE", no_log=true, desc="[32bit] Pistol and Chaingun Ammo" },
+        { address=0X62D54, type="u32be", condition="change", action="AMMO_STATE", no_log=true, desc="[32bit] Shotgun Ammo" },
+        { address=0X62D58, type="u32be", condition="change", action="AMMO_STATE", no_log=true, desc="[32bit] Cell Ammo" },
+        { address=0X62D5C, type="u32be", condition="change", action="AMMO_STATE", no_log=true, desc="[32bit] RPG Ammo" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X62CE4, type="u32be", condition="change", action="INVINCIBILITY_START", desc="[32bit] Invincibility Active" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X62E24, type="u32be", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Exit Switch" },
+      },
+    },
+  },
+}

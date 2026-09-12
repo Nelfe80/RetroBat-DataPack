@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "NHL 98",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "nhl-98",
+    hashes = {
+      { hash = "2b4a2f7722ca9c2c305f72d4a9d4e83e", label = "NHL 98 (USA).sfc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X112A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Period Time, On Screen" },
+        { address=0X112E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Period Time, In Memory" },
+      },
+    },
+  },
+}

@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: A Star Wars Story",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-a-star-wars-story",
+    hashes = {
+      { hash = "bc92054bf11d9ac87257741ea466a291", label = "FE8 - A Star Wars Story (v1.0) (Augenis).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33D30, type="u8", condition="eq", value=0X20, action="TITLE_SCREEN", desc="Title/In-Game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5270, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Chapter Cleared" },
+        { address=0X33E54, type="u8", condition="change", action="NEW_LEVEL", desc="- Current Level - Arica" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33E5E, type="u8", condition="increase", action="HEAL", desc="- Max HP - Arica increased" },
+        { address=0X33E5E, type="u8", condition="decrease", action="HIT", desc="- Max HP - Arica decreased" },
+        { address=0X33E5F, type="u8", condition="increase", action="HEAL", desc="- Current HP - Arica increased" },
+        { address=0X33E5F, type="u8", condition="decrease", action="HIT", desc="- Current HP - Arica decreased" },
+        { address=0X33EEF, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-62251 (Sergeant) increased" },
+        { address=0X33EEF, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-62251 (Sergeant) decreased" },
+        { address=0X33F37, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-63090 (Medic) increased" },
+        { address=0X33F37, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-63090 (Medic) decreased" },
+        { address=0X33F7F, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-64111 increased" },
+        { address=0X33F7F, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-64111 decreased" },
+        { address=0X33FC7, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-65659 increased" },
+        { address=0X33FC7, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-65659 decreased" },
+        { address=0X3400F, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-66006 (Heavy Gunner) increased" },
+        { address=0X3400F, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-66006 (Heavy Gunner) decreased" },
+        { address=0X34057, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-67621 (Sniper) increased" },
+        { address=0X34057, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-67621 (Sniper) decreased" },
+        { address=0X3409F, type="u8", condition="increase", action="HEAL", desc="- Current HP - CT-68992 (Support) increased" },
+        { address=0X3409F, type="u8", condition="decrease", action="HIT", desc="- Current HP - CT-68992 (Support) decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5271, type="u8", condition="bit_true", mask=0X80, action="OBJECT_DESTROYED", desc="West Factory Destroyed" },
+        { address=0X5272, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="East Factory Destroyed" },
+      },
+    },
+  },
+}

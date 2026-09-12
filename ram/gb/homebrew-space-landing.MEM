@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Space Landing",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-space-landing",
+    hashes = {
+      { hash = "08e447a6164cefd3e56212cd36e11e6f", label = "Space Landing (World) (Steam) (Aftermarket) (Maurizio).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC528, type="u32le", condition="eq", value=0X53161167, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0XC528, type="u32le", condition="eq", value=0X64CD105F, action="PAUSE_ON", desc="Pause menu" },
+      },
+    },
+  },
+}

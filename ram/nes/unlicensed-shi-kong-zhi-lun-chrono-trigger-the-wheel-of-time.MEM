@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Shi Kong Zhi Lun | Chrono Trigger: The Wheel of Time",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-shi-kong-zhi-lun-chrono-trigger-the-wheel-of-time",
+    hashes = {
+      { hash = "27fd3ba457290496e95de79760cb4f5c", label = "Chrono Trigger - Shikong Zhi Lun (China) (Pirate).nes" },
+      { hash = "0d4c23f2663ec2118cc5ae2d44daaac9", label = "Chrono Trigger - Shi Kong Zhi Lun (China) (En + Extras) (v1.1) (pacnsnac, Cubear).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X6001, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Lucca demonstrates teleporter" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X600C, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Learned about world history" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X600A, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="Found dead husband" },
+        { address=0X6015, type="u8", condition="eq", value=0X23, action="LOSE_LIFE", desc="Defeated Ozzie's undead" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X600A, type="u8", condition="eq", value=0X0E, action="DOOR_OPENED", desc="Opened locked door with password" },
+        { address=0X600B, type="u8", condition="eq", value=0X0E, action="DOOR_OPENED", desc="Got password to door" },
+        { address=0X600B, type="u8", condition="eq", value=0X96, action="DOOR_OPENED", desc="Got key to locked door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X6006, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Progression" },
+        { address=0X6009, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="[8bit] Progression" },
+        { address=0X6021, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Random Encounter Possibility" },
+      },
+    },
+  },
+}

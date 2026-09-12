@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Waffle Painter",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-waffle-painter",
+    hashes = {
+      { hash = "54af86a45014f0e436bdc5fc6dd03389", label = "Waffle Painter (USA) (v1.3.1) (Aftermarket) (Vivian Video).a78" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00FB, type="u8", condition="change", action="GAME_OVER", desc="1 on game over, 0 otherwise" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00F4, type="u8", condition="change", action="NEW_LEVEL", desc="Level [8-bit BCD]" },
+        { address=0X00FA, type="u8", condition="change", action="NEW_LEVEL", desc="Correct tiles in current level" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X01A6, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [24-bit BE BCD]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00F5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="Timer [8-bit BCD]" },
+      },
+    },
+  },
+}

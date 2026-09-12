@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ultimate Sliding Puzzle: Sci-Fi Pack",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-ultimate-sliding-puzzle-sci-fi-pack",
+    hashes = {
+      { hash = "48f25e6aa3d44ce9cc718462fdffaf0b", label = "Ultimate Sliding Puzzle - Pack Sci-Fi (World) (Aftermarket) (Unl) (Kukulcan).nds" },
+    }
+  },
+
+  events = {
+  },
+}

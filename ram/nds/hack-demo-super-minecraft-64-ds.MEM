@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Super Minecraft 64 DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-super-minecraft-64-ds",
+    hashes = {
+      { hash = "a47e5cd9ad59c7b1aeb426089b7b01ea", label = "SM64DS - Super Minecraft 64 DS (RatonGuerrier).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F2C4, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X1AE0, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9CAB4, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="100 coins star" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X292524, type="u8", condition="eq", value=0X05, action="SCORE_STATE", desc="Scores" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X8E430, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Special Music ID" },
+        { address=0X9F5BA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Minigames ID" },
+        { address=0X9F5C0, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Touchscreen ID" },
+      },
+    },
+  },
+}

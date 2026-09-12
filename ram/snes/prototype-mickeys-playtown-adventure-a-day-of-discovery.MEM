@@ -1,0 +1,80 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Mickey's Playtown Adventure: A Day of Discovery!",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "prototype-mickeys-playtown-adventure-a-day-of-discovery",
+    hashes = {
+      { hash = "67e33db27253c90fe9edb9c5cfec9de9", label = "Mickey's Playtown Adventure - A Day of Discovery! (USA) (Proto).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002D, type="u8", condition="bit_true", mask=0X10, action="PAUSE_OFF", desc="Start (unpause only)" },
+        { address=0X006B, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0D38, type="u8", condition="change", action="NEW_LEVEL", desc="Sky Zone Star Candidate" },
+        { address=0X0D38, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Star is purple" },
+        { address=0X0D38, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Star is yellow" },
+        { address=0X1582, type="u8", condition="change", action="NEW_LEVEL", desc="Ground state" },
+        { address=0X1582, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="on ground" },
+        { address=0X1582, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="on anything else or in air" },
+        { address=0X1603, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Animation from entering a door to building in background (on streets) that leads to an animation" },
+        { address=0X163D, type="u8", condition="change", action="NEW_LEVEL", desc="Decimal of Height Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0FE0, type="u8", condition="eq", value=0X18, action="LOSE_LIFE", desc="Milk" },
+        { address=0X0FE0, type="u8", condition="eq", value=0X8A, action="LOSE_LIFE", desc="Flour" },
+        { address=0X0FE0, type="u8", condition="eq", value=0XA6, action="LOSE_LIFE", desc="Cherry" },
+        { address=0X0FE0, type="u8", condition="eq", value=0XFA, action="LOSE_LIFE", desc="Nothing" },
+        { address=0X0FE0, type="u8", condition="eq", value=0XFC, action="LOSE_LIFE", desc="Unbaked Pie" },
+        { address=0XD838, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Flour needed" },
+        { address=0XD838, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Milk needed" },
+        { address=0XD838, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Cherry needed" },
+        { address=0XD838, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="Need to grab pie" },
+        { address=0XD838, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Need to put in oven" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X002C, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="A (jump)" },
+        { address=0X002D, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="B (jump)" },
+        { address=0X1603, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumping from rest" },
+        { address=0X1648, type="u16le", condition="eq", value=0X00FF, action="JUMPING", no_log=true, no_survey=true, desc="feet on ground/platform" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA10E, type="u8", condition="eq", value=0X08, action="OBJECT_INTERACTION", desc="Struck by falling object in Gag Factory" },
+        { address=0XD2DC, type="u8", condition="eq", value=0X0F, action="OBJECT_INTERACTION", desc="Cannot move, in stun when object dropped on him" },
+        { address=0XD2DE, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="1 if carrying, 0 if not" },
+        { address=0XD68A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Number of Pipes Broken" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Radio" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Phone" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Purple clock" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Lamp" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Lower painting (landscape)" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Bird" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Upper painting (building)" },
+        { address=0XD88E, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Swordfish" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X163F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="unknown", desc="Ground Impact - number of times hit the ground" },
+      },
+    },
+  },
+}

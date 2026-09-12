@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario: Oiram's Invasion",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-oirams-invasion",
+    hashes = {
+      { hash = "23b5746ec0758a59ef975fad1b4efc8c", label = "SMW - Super Mario - Oiram's Invasion (Gamma V).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0X926D, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Clearwater Cave" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Grassland Groove" },
+        { address=0X13BF, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Volcanic Vestiges" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Starlight Strut" },
+        { address=0X13BF, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Fortress Frenzy" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Highway Hijinx" },
+        { address=0X13BF, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Ghoulish Graveyard" },
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Miner Mischief" },
+        { address=0X13BF, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Frosty Fortress" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Refinery Rush" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Final Frontier?" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Demented Dimension" },
+      },
+    },
+  },
+}

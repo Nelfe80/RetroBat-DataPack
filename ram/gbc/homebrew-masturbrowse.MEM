@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Masturbrowse",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-masturbrowse",
+    hashes = {
+      { hash = "fefb4d5e54d2bf6419a12638b1bef7e7", label = "Masturbrowse (World) (Aftermarket) (GB Studio) (Jonotastic).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XC521, type="u24le", condition="eq", value=0X5504, action="HIT", desc="HURT HER" },
+        { address=0XC521, type="u24le", condition="eq", value=0X566C, action="HIT", desc="Boobs (Hurt)" },
+        { address=0XC521, type="u24le", condition="eq", value=0X56E2, action="HIT", desc="Chest (Hurt)" },
+        { address=0XC521, type="u24le", condition="eq", value=0X5793, action="HIT", desc="Pussy (Hurt)" },
+        { address=0XC521, type="u24le", condition="eq", value=0X596B, action="HIT", desc="Boobs (Hurt)" },
+        { address=0XC521, type="u24le", condition="eq", value=0X59A6, action="HIT", desc="Chest (Hurt)" },
+        { address=0XC521, type="u24le", condition="eq", value=0X5A6E, action="HIT", desc="Pussy (Hurt)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC521, type="u24le", condition="eq", value=0X5844, action="DOOR_OPENED", desc="'When is a door not a door?' Scene" },
+      },
+    },
+  },
+}

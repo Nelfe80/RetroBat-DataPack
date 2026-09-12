@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Flappy Bird",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-flappy-bird",
+    hashes = {
+      { hash = "613cb77ff503f8fd374727526b6a1581", label = "Flappy Bird (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0312, type="u8", condition="eq", value=0X05, action="GAME_OVER", desc="Game Over" },
+        { address=0X0312, type="u8", condition="eq", value=0X1C, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0312, type="u8", condition="eq", value=0X0D, action="SCORE_STATE", desc="Your Score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: New Horizons",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-new-horizons",
+    hashes = {
+      { hash = "d6bfe8baf97dc7663158e4c2daec78ed", label = "Banjo-Kazooie - New Horizons (v1.0) (Bynine Studio).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X1D, action="NEW_LEVEL", desc="Underground" },
+      },
+      zone = {
+        { address=0X383302, type="u16be", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+      },
+      stage = {
+        { address=0X280700, type="u32be", condition="change", action="RANK_STATE", desc="Player Position - Z" },
+        { address=0X37E8F7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Loading Zone Activated" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X385F88, type="u32be", condition="increase", action="GAIN_LIFE", desc="Current Lives increased" },
+        { address=0X385F88, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Current Lives decreased" },
+      },
+      health = {
+        { address=0X385F80, type="u32be", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X385F80, type="u32be", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X385F84, type="u32be", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X385F84, type="u32be", condition="decrease", action="HIT", desc="Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X385F70, type="u32be", condition="increase", action="COIN_GAIN", desc="Current Gold Feathers increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3831AC, type="u8", condition="change", action="DOOR_OPENED", desc="Note Doors Opened [Bitflags]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X385F30, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Switch Timer" },
+        { address=0X385F48, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Switch Timer Activated" },
+        { address=0X386028, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Playtime (seconds) [Float]" },
+      },
+    },
+  },
+}

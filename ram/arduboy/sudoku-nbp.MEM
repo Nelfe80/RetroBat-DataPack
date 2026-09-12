@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sudoku-NBP",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sudoku-nbp",
+    hashes = {
+      { hash = "e732ecc69f205751c8aa69d10aefdcf0", label = "Sudoku-NBP (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0288, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[32bit] Timer (Seconds)" },
+      },
+    },
+  },
+}

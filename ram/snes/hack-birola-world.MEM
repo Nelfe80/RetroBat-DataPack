@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Birola World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-birola-world",
+    hashes = {
+      { hash = "ee40ecd5e3321bf89d3f6288674161b2", label = "SMW - Birola World (v2.0) (TheMURAmatsu).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu - State in Level [8bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00D2, type="u8", condition="change", action="NEW_LEVEL", desc="Level Part ID (X-Coord)" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID [8bit]" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total Exits cleared [8bit]" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player - Powerup [8bit]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway Point Check [8bit]" },
+        { address=0X1ABA6, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Tega no Flau Checkpoint check ID[16bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X010B, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Level / Room ID" },
+        { address=0X039A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timeline Retrogames Checkpoint check ID[16bit]" },
+        { address=0X13BF, type="u8", condition="change", action="LEVEL_TIMER", player=1, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Level ID [8bit]" },
+      },
+    },
+  },
+}

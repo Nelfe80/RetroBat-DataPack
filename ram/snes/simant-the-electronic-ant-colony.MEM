@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SimAnt: The Electronic Ant Colony",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Life Simulation"
+  },
+
+  rom = {
+    name = "simant-the-electronic-ant-colony",
+    hashes = {
+      { hash = "330f18b975341a10ee1d36f7a626330c", label = "SimAnt - The Electronic Ant Colony (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0002, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Paused" },
+        { address=0X0002, type="u8", condition="eq", value=0X06, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X0026, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Paused" },
+        { address=0X0026, type="u8", condition="eq", value=0X01, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X0032, type="u8", condition="eq", value=0X0B, action="CREDITS_SCREEN", desc="end game credits (full game & scenario)" },
+        { address=0X003A, type="u8", condition="eq", value=0X30, action="PAUSE_ON", desc="The Yellow Ant has regained its strength and pause sound" },
+        { address=0X0665, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Not Present" },
+        { address=0X0665, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Walking" },
+        { address=0X0665, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Sitting (motion)" },
+        { address=0X0665, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Sitting (idle)" },
+        { address=0X0665, type="u8", condition="eq", value=0X05, action="PAUSE_ON", desc="Rising" },
+        { address=0X0665, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Eyes Bulging" },
+        { address=0X0665, type="u8", condition="eq", value=0X07, action="PAUSE_ON", desc="Flipping" },
+        { address=0X066B, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Right" },
+        { address=0X066B, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Left" },
+        { address=0X066C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Right" },
+        { address=0X066C, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Left" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1E776, type="u8", condition="change", action="NEW_LEVEL", desc="Black colony energy level" },
+        { address=0X1E776, type="u8", condition="eq", value=0X64, action="NEW_LEVEL", desc="Full" },
+        { address=0X1E778, type="u8", condition="change", action="NEW_LEVEL", desc="Red colony energy level" },
+        { address=0X1E778, type="u8", condition="eq", value=0X64, action="NEW_LEVEL", desc="Full" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0037, type="u8", condition="eq", value=0X4C, action="LOSE_LIFE", desc="Death message with picture" },
+        { address=0X004E, type="u8", condition="eq", value=0X0D, action="LOSE_LIFE", desc="The Yellow Ant starved to death" },
+        { address=0X0250, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead and/or chosing a caste" },
+        { address=0X0250, type="u8", condition="eq", value=0X30, action="LOSE_LIFE", desc="Soldier" },
+        { address=0X0250, type="u8", condition="eq", value=0X38, action="LOSE_LIFE", desc="Soldier with food in its mandibles" },
+        { address=0X0250, type="u8", condition="eq", value=0X48, action="LOSE_LIFE", desc="Soldier with a stone in its mandibles" },
+        { address=0X02BF, type="u8", condition="eq", value=0X4D, action="LOSE_LIFE", desc="The Yellow Ant starved to death" },
+      },
+      health = {
+        { address=0X1E940, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Yellow Ant Health" },
+        { address=0X1E940, type="u8", condition="eq", value=0X64, action="HEALTH_STATE", no_log=true, desc="Full" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X004E, type="u8", condition="eq", value=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Oooop! Ants can't swim! The Yellow Ant just drowned" },
+        { address=0X02BF, type="u8", condition="eq", value=0X44, action="SWIMMING", no_log=true, no_survey=true, desc="Oooop! Ants can't swim! The Yellow Ant just drowned" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X02BF, type="u8", condition="eq", value=0X2B, action="OBJECT_DESTROYED", desc="The Red ppueen has been destroyed. Black ants rule this area!" },
+      },
+    },
+  },
+}

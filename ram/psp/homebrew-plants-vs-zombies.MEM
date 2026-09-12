@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Plants vs. Zombies",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-plants-vs-zombies",
+    hashes = {
+      { hash = "5ec54356670363445837b0ff4644fcd3", label = "Plants vs. Zombies (World) (v1.0) (Aftermarket) (AlexDev2).iso" },
+    }
+  },
+
+  events = {
+  },
+}

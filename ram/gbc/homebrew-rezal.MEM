@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Rezal",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-rezal",
+    hashes = {
+      { hash = "9a5ca9da453a74e3e6745eecea8a009d", label = "Rezal (World) (GBA Jam 2024) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCB18, type="u16le", condition="change", action="NEW_LEVEL", desc="[16bit] Could be used as level ID?" },
+      },
+      stage = {
+        { address=0XCB18, type="u16le", condition="eq", value=0X00B5, action="PROGRESSION_STAGE", desc="Final stage" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC67D, type="u8", condition="change", action="DOOR_OPENED", desc="Related to if door is opened" },
+      },
+    },
+  },
+}

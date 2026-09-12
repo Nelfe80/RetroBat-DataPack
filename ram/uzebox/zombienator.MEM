@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Zombienator",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "zombienator",
+    hashes = {
+      { hash = "931e4c2e417a305aaabb1d11551c25d9", label = "Zombienator (World) (v1.1b) (Phog).uze" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X00A3, type="u8", condition="eq", value=0X98, action="COMBO_HIT", desc="Double" },
+        { address=0X00A3, type="u8", condition="eq", value=0X9D, action="COMBO_HIT", desc="Insane" },
+        { address=0X00A3, type="u8", condition="eq", value=0XA1, action="COMBO_HIT", desc="Multi" },
+        { address=0X0F51, type="u8", condition="change", action="COMBO_HIT", desc="Zombie's killed in a combo" },
+        { address=0X0FAF, type="u8", condition="change", action="COMBO_HIT", desc="Combo names" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0F48, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0F48, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0F4C, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Shotgun" },
+        { address=0X0F4C, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", desc="Flamethrower" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0F52, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="(16bit) score" },
+      },
+      collectibles = {
+        { address=0X0F94, type="u8", condition="change", action="AMMO_STATE", desc="Flamethrower ammo" },
+      },
+    },
+  },
+}

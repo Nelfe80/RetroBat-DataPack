@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Samus Goes to the Fridge to Get a Glass of Milk 3D",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-samus-goes-to-the-fridge-to-get-a-glass-of-milk-3d",
+    hashes = {
+      { hash = "cca9386acfe7d54071ec2c21e158761f", label = "Metroid Prime - Samus Goes to the Fridge to Get a Glass of Milk 3D (v1.00) (kkzero)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X45AAAC, type="u32be", condition="eq", value=0X01, action="PAUSE_ON", desc="Soft Paused" },
+        { address=0X45AAAC, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused" },
+        { address=0X45B138, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Pause Game" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X45AA74, type="u32be", condition="eq", value=0X15, action="OBJECT_DESTROYED", desc="Deck Gamma Monitor Hall" },
+      },
+    },
+  },
+}

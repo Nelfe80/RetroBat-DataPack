@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dream Chronicles",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "dream-chronicles",
+    hashes = {
+      { hash = "1d0bb23b40ebc0b01c6ce2c03b3b7c2d", label = "Dream Chronicles (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB65DE, type="u8", condition="eq", value=0X2, action="PAUSE_ON", desc="Pause Menu" },
+        { address=0X2646EA, type="u16le", condition="eq", value=0X0228, action="GAME_PLAYING", desc="Level Loaded" },
+        { address=0X264A3A, type="u16le", condition="eq", value=0X0222, action="GAME_PLAYING", desc="Level Loaded" },
+      },
+    },
+  },
+}

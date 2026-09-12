@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Dassalo Land",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-super-dassalo-land",
+    hashes = {
+      { hash = "41c1911a80b9138f89868540723c2cdd", label = "Super Dassalo Land (World) (v1.1) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC917, type="u8", condition="change", action="NEW_LEVEL", desc="Location on current overworld map; value is between 0x00 and 0x05 when moving around the map and" },
+        { address=0XC91B, type="u8", condition="change", action="NEW_LEVEL", desc="Height of text box (default in level 0x88); lower is higher" },
+        { address=0XCBBD, type="u8", condition="change", action="LEVEL_CLEAR", desc="Goal completion (star) pt. 2" },
+        { address=0XCBC0, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages completed pt. 1" },
+        { address=0XCBC1, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages completed pt. 2" },
+        { address=0XCBE4, type="u16le", condition="change", action="NEW_LEVEL", desc="Number of shots fired in SHMUP levels" },
+        { address=0XCBE6, type="u16le", condition="change", action="NEW_LEVEL", desc="Number of shots that hit enemies in SHMUP levels" },
+      },
+      stage = {
+        { address=0XCB9C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[bitflags] Fish cakes pt. 1; these bits flip to 1 when a collectible is picked up and resets whe" },
+        { address=0XCBA0, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Number of collectibles found in current stage" },
+        { address=0XCBA2, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Number of total collectibles in current stage" },
+        { address=0XCBB2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCBCC, type="u8", condition="change", action="HIT", desc="Taking damage; flips to 0x01 when hit" },
+        { address=0XCBD0, type="u8", condition="change", action="HIT", desc="Damage frames; goes to 0x00 when hit and counts up to 0x0b in normal stages and 0x06 in SHMUP bo" },
+        { address=0XCC28, type="u8", condition="change", action="HIT", desc="Damage frames active; flips to 0x01 when invulnerable" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC535, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="In-level state" },
+        { address=0XCBA6, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score in current stage; multiply by 100 (dec)" },
+        { address=0XCBA8, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Time remaining in stage" },
+        { address=0XCBBC, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Goal completion (star) pt. 1; Kewpie gets a crown on the scorecard when all are collected" },
+        { address=0XCC0C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ramen Springs 1-1 high score; multiply by 100 (dec)" },
+        { address=0XCC0E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ramen Springs 1-2 high score; multiply by 100 (dec)" },
+        { address=0XCC10, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ramen Springs 1-3 high score; multiply by 100 (dec)" },
+        { address=0XCC12, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ramen Springs 1-Boss high score; multiply by 100 (dec)" },
+        { address=0XCC14, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Scrolling Skies 2-1 high score; multiply by 100 (dec)" },
+        { address=0XCC16, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Scrolling Skies 2-2 high score; multiply by 100 (dec)" },
+        { address=0XCC18, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Scrolling Skies 2-Boss high score; multiply by 100 (dec)" },
+        { address=0XCC1A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Blackout HQ 3-1 high score; multiply by 100 (dec)" },
+        { address=0XCC1C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Blackout HQ 3-2 high score; multiply by 100 (dec)" },
+        { address=0XCC1E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Blackout HQ 3-3 high score; multiply by 100 (dec)" },
+        { address=0XCC20, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Blackout HQ 3-Boss high score; multiply by 100 (dec)" },
+        { address=0XCC22, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Total game time (seconds); only accumulates when in a stage" },
+      },
+      collectibles = {
+        { address=0XCBCE, type="u8", condition="increase", action="COIN_GAIN", desc="Rank - Ramen Springs 1-Boss increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCBD2, type="u8", condition="change", action="BOSS_HIT", desc="Rank - Scrolling Skies 2-Boss" },
+        { address=0XCBF6, type="u8", condition="change", action="BOSS_HIT", desc="Rank - Blackout HQ 3-Boss" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCB8E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Timer status (when in level); can happen when getting hit briefly, in text, level finished" },
+        { address=0XCBD4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Number of times hit in world 1 and 2 boss fights" },
+      },
+    },
+  },
+}

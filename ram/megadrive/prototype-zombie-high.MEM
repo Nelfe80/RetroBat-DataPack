@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Zombie High",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Horror, Shooter"
+  },
+
+  rom = {
+    name = "prototype-zombie-high",
+    hashes = {
+      { hash = "9937c7698d62672f7ab46d3fc09f0f2b", label = "Zombie High (USA) (Proto) (1992-08-11).md" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XA5DD, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0XA5DD, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+        { address=0XA5F1, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0XA5F1, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+      health = {
+        { address=0XA5CB, type="u8", condition="increase", action="HEAL", desc="Player health 17-hits increased" },
+        { address=0XA5CB, type="u8", condition="decrease", action="HIT", desc="Player health 17-hits decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X8BBE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Weapon upgrade counter" },
+      },
+    },
+  },
+}

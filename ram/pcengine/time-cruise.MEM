@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Time Cruise",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Flipper"
+  },
+
+  rom = {
+    name = "time-cruise",
+    hashes = {
+      { hash = "28efe8b957a43facba53afe2aec38a69", label = "Time Cruise (USA).pce" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X005D, type="u8", condition="eq", value=0X15, action="TITLE_SCREEN", desc="title" },
+        { address=0X005D, type="u8", condition="eq", value=0X19, action="TITLE_SCREEN", desc="credits from title" },
+        { address=0X005D, type="u8", condition="eq", value=0X1A, action="DEMO_MODE", desc="transition to demo" },
+        { address=0X005D, type="u8", condition="eq", value=0X1B, action="DEMO_MODE", desc="demo" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X005D, type="u8", condition="eq", value=0X1C, action="SCORE_STATE", desc="score ranking" },
+      },
+    },
+  },
+}

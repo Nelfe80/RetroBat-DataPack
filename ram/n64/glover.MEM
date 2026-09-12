@@ -1,0 +1,138 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Glover",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "glover",
+    hashes = {
+      { hash = "87aa5740dff79291ee97832da1f86205", label = "Glover (USA).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E7533, type="u8", condition="eq", value=0X7, action="GAME_PLAYING", desc="Results Screen (Regular Level)" },
+        { address=0X1E7533, type="u8", condition="eq", value=0X8, action="GAME_PLAYING", desc="Loading Level" },
+        { address=0X1E7533, type="u8", condition="eq", value=0X9, action="GAME_PLAYING", desc="Results Screen (Boss Level)" },
+        { address=0X1ED40B, type="u8", condition="change", action="DEMO_MODE", desc="[Bit0] Demo Mode" },
+        { address=0X1F2198, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Down" },
+        { address=0X1F2198, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Up" },
+        { address=0X1F2198, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Left" },
+        { address=0X1F2198, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Right" },
+        { address=0X1F2199, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219A, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219B, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219C, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219D, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219E, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F219F, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+        { address=0X1F21A2, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu Cheat" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X10EA64, type="u8", condition="change", action="NEW_LEVEL", desc="instruction for level init" },
+        { address=0X1E753C, type="u8", condition="change", action="NEW_LEVEL", desc="brightness level" },
+        { address=0X1EAA48, type="u8", condition="eq", value=0XB0, action="LEVEL_CLEAR", desc="Atlantis 1 Cleared" },
+        { address=0X1EAA48, type="u8", condition="eq", value=0XB1, action="LEVEL_CLEAR", desc="Atlantis 2 Cleared" },
+        { address=0X1EAA48, type="u8", condition="eq", value=0XB2, action="LEVEL_CLEAR", desc="Atlantis 3 Cleared" },
+        { address=0X297BEE, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Level Select" },
+        { address=0X29F487, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit/bool] Ball Grounded" },
+        { address=0X339DBA, type="u8", condition="change", action="NEW_LEVEL", desc="CARD tier 1 LEVEL ! ends at 30" },
+        { address=0X339DBB, type="u8", condition="change", action="NEW_LEVEL", desc="CARD tier 2 LEVEL 1 ends at 35" },
+        { address=0X339E9D, type="u8", condition="change", action="NEW_LEVEL", desc="Cards collected. 17 : 38, 18 : 39, 19 : 30, 20 : 31. at 50/50 its 38 level 1" },
+      },
+      stage = {
+        { address=0X1088F8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[Float] Spawn Ball Size - Stage 1" },
+        { address=0X10892C, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[Double32] Spawn Ball Size - Stage 2" },
+        { address=0X1E7531, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Previous Stage ID" },
+        { address=0X1E7587, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="quit stage or game" },
+        { address=0X1E7587, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage won on results screen" },
+        { address=0X1E7587, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="stage exit" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X290190, type="u32be", condition="increase", action="GAIN_LIFE", desc="32-bit lives increased" },
+        { address=0X290190, type="u32be", condition="decrease", action="LOSE_LIFE", desc="32-bit lives decreased" },
+        { address=0X2901E0, type="u32be", condition="eq", value=0X1, action="LOSE_LIFE", desc="death spell" },
+        { address=0X297BEC, type="u8", condition="bit_true", mask=0X08, action="LIVES_STATE", desc="Infinite Lives" },
+        { address=0X299709, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="the bull in Atlantis 1 is not dead" },
+      },
+      health = {
+        { address=0X297BEC, type="u8", condition="bit_true", mask=0X40, action="HEALTH_STATE", no_log=true, desc="Infinite Energy" },
+        { address=0X29F5CA, type="u8", condition="change", action="HIT", desc="Amount of ball damage (0-3)" },
+        { address=0X33B6F0, type="u24be", condition="eq", value=0X29, action="HIT", desc="oof! (taking damage)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1EA9E4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 1 (32 Bit)" },
+        { address=0X1EA9EC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 2 (32 Bit)" },
+        { address=0X1EA9F4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 3 (32 Bit)" },
+        { address=0X1EA9FC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 4 (32 Bit)" },
+        { address=0X1EAA04, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 5 (32 Bit)" },
+        { address=0X1EAA0C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscore 6 (32 Bit)" },
+        { address=0X290188, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+      collectibles = {
+        { address=0X1FAB7A, type="u8", condition="increase", action="COIN_GAIN", desc="Equals 1 when the star animation upon entering a level is shown increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X310393, type="u8", condition="change", action="BOSS_HIT", desc="Second boss health" },
+        { address=0X314543, type="u8", condition="change", action="BOSS_HIT", desc="Final Boss health" },
+        { address=0X316283, type="u8", condition="change", action="BOSS_HIT", desc="Third boss health" },
+        { address=0X3206A3, type="u8", condition="change", action="BOSS_HIT", desc="First boss health" },
+        { address=0X323123, type="u8", condition="change", action="BOSS_HIT", desc="Fourth boss health" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X33B656, type="u16be", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="jumping" },
+        { address=0X33B6F0, type="u24be", condition="eq", value=0X2C, action="JUMPING", no_log=true, no_survey=true, desc="jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X297BEC, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION_CHECKPOINT", desc="All Checkpoints Open" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E6792, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Atlantis 1 Best Time (Seconds)" },
+        { address=0X1E6794, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Atlantis 2 Best Time (Seconds)" },
+        { address=0X1E679E, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Atlantis 3 Best Time (Seconds)" },
+        { address=0X1E67A0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Atlantis Boss best time" },
+        { address=0X1E67AC, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Carnival 1 Best Time (Seconds)" },
+        { address=0X1E67B6, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Carnival 2 Best Time (Seconds)" },
+        { address=0X1E67B8, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Carnival 3 Best Time (Seconds)" },
+        { address=0X1E67C2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Carnival Boss best time" },
+        { address=0X1E67CE, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Pirates 1 Best Time (Seconds)" },
+        { address=0X1E67D0, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Pirates 2 Best Time (Seconds)" },
+        { address=0X1E67DA, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Pirates 3 Best Time (Seconds)" },
+        { address=0X1E67DC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pirates Boss best time" },
+        { address=0X1E67E8, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Prehistoric 1 Best Time (Seconds)" },
+        { address=0X1E67F2, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Prehistoric 2 Best Time (Seconds)" },
+        { address=0X1E67F4, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Prehistoric 3 Best Time (Seconds)" },
+        { address=0X1E67FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Prehistoric Boss best time" },
+        { address=0X1E680A, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Fear 1 Best Time (Seconds)" },
+        { address=0X1E680C, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Fear 2 Best Time (Seconds)" },
+        { address=0X1E6816, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Fear 3 Best Time (Seconds)" },
+        { address=0X1E6818, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Fortress of Fear Boss best time" },
+        { address=0X1E6824, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Space 1 Best Time (Seconds)" },
+        { address=0X1E682E, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Space 2 Best Time (Seconds)" },
+        { address=0X1E6830, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Space 3 Best Time (Seconds)" },
+        { address=0X1E683A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Out of This World Boss best time" },
+        { address=0X1E683C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Out of This World Bonus best time" },
+      },
+    },
+  },
+}

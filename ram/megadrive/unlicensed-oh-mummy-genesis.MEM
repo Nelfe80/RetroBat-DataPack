@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Oh Mummy Genesis",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "unlicensed-oh-mummy-genesis",
+    hashes = {
+      { hash = "c97812258bbfa2567e58dcb2073e1f4a", label = "Oh Mummy Genesis (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    state = {
+      temporary = {
+        { address=0X94DB, type="u8", condition="eq", value=0X00, action="INVINCIBILITY_START", desc="Disabled" },
+        { address=0X94DB, type="u8", condition="eq", value=0X01, action="INVINCIBILITY_START", desc="Enabled" },
+      },
+    },
+  },
+}

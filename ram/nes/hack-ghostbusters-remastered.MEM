@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ghostbusters Remastered",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ghostbusters-remastered",
+    hashes = {
+      { hash = "31c090206a82aedb083b5b20e9e5866f", label = "Ghostbusters Remastered (Nesrocks) (1.1).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0070, type="u8", condition="change", action="GAME_OVER", desc="FF on Ending, 00 on Game Over?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X054F, type="u8", condition="change", action="LOSE_LIFE", desc="Health - Gozer Battle (Die at 0x15)" },
+        { address=0X065C, type="u8", condition="change", action="LOSE_LIFE", desc="Gozer Hits (Dies at 0x10)" },
+      },
+      health = {
+        { address=0X0056, type="u8", condition="increase", action="HEAL", desc="PK Energy (Ones) increased" },
+        { address=0X0056, type="u8", condition="decrease", action="HIT", desc="PK Energy (Ones) decreased" },
+        { address=0X0057, type="u8", condition="increase", action="HEAL", desc="PK Energy (Tens) increased" },
+        { address=0X0057, type="u8", condition="decrease", action="HIT", desc="PK Energy (Tens) decreased" },
+        { address=0X0058, type="u8", condition="increase", action="HEAL", desc="PK Energy (Hundreds) increased" },
+        { address=0X0058, type="u8", condition="decrease", action="HIT", desc="PK Energy (Hundreds) decreased" },
+        { address=0X0059, type="u8", condition="increase", action="HEAL", desc="PK Energy (Thousands) increased" },
+        { address=0X0059, type="u8", condition="decrease", action="HIT", desc="PK Energy (Thousands) decreased" },
+        { address=0X00DC, type="u8", condition="increase", action="HEAL", desc="Stairway Health (Decimal) increased" },
+        { address=0X00DC, type="u8", condition="decrease", action="HIT", desc="Stairway Health (Decimal) decreased" },
+        { address=0X00DD, type="u8", condition="increase", action="HEAL", desc="Stairway Health (Whole) increased" },
+        { address=0X00DD, type="u8", condition="decrease", action="HIT", desc="Stairway Health (Whole) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X005A, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Ones) increased" },
+        { address=0X005B, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Tens) increased" },
+        { address=0X005C, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Hundreds) increased" },
+        { address=0X005D, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Thousands) increased" },
+        { address=0X005E, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Ten Thousands) increased" },
+        { address=0X005F, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Hundred Thousands) increased" },
+        { address=0X0060, type="u8", condition="increase", action="COIN_GAIN", desc="Money (Millions) increased" },
+      },
+    },
+  },
+}

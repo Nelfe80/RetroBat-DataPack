@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sonic Adventure Tournament Disk",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sonic-adventure-tournament-disk",
+    hashes = {
+      { hash = "34308d525dfa540eaefae81f4a517556", label = "Sonic Adventure Tournament Disk (1999-08-10) (Prototype)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X74D71C, type="u8", condition="eq", value=0X10, action="PAUSE_ON", desc="Paused" },
+        { address=0X74D71C, type="u8", condition="eq", value=0X15, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X1A298D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X756F48, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X756F48, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X756F5C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Total Score (32-bit)" },
+        { address=0X756F60, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Enemy Score (32-bit)" },
+      },
+      collectibles = {
+        { address=0X756F4C, type="u16le", condition="increase", action="COIN_GAIN", desc="Rings Collected (16-bit) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X756F49, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Stage Timer - Minutes" },
+        { address=0X756F4A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Stage Timer - Seconds" },
+        { address=0X756F4B, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Stage Timer - Milliseconds" },
+      },
+    },
+  },
+}

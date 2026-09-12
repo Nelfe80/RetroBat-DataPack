@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ D-Pad Hero 2",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Music, Dancing"
+  },
+
+  rom = {
+    name = "homebrew-d-pad-hero-2",
+    hashes = {
+      { hash = "f86ae8bf771b96bc1d6493c387a5fc9b", label = "D+Pad Hero II (USA) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0042, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="Life Man" },
+        { address=0X030D, type="u8", condition="bit_true", mask=0X01, action="LIVES_STATE", desc="Completion" },
+      },
+    },
+  },
+}

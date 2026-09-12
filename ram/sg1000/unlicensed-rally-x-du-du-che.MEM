@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Rally-X | Du Du Che",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "unlicensed-rally-x-du-du-che",
+    hashes = {
+      { hash = "3071f939aaa0911fc0907aae5daaa160", label = "Rally-X (Taiwan) (Chinese Logo) (Unl).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u8", condition="eq", value=0X1C, action="TITLE_SCREEN", desc="From Splash Screen to Title Screen" },
+        { address=0X0005, type="u8", condition="eq", value=0X8A, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X2000, type="u8", condition="eq", value=0X1C, action="TITLE_SCREEN", desc="From Splash Screen to Title Screen" },
+        { address=0X2005, type="u8", condition="eq", value=0X8A, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0030, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages 8bit" },
+        { address=0X2030, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages (Genesis Plus GX)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0035, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives 8bit increased" },
+        { address=0X0035, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives 8bit decreased" },
+        { address=0X2035, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (Genesis Plus GX) increased" },
+        { address=0X2035, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (Genesis Plus GX) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0031, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX000000", desc="Score [XX000000] 8bit" },
+        { address=0X0032, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX0000", desc="Score [00XX0000] 8bit" },
+        { address=0X0033, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0000XX00", desc="Score [0000XX00] 8bit" },
+        { address=0X0034, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="000000XX", desc="Score [000000XX] 8bit" },
+        { address=0X2031, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX000000", score_encoding="bcd", desc="Score [XX000000] BCD (Genesis Plus GX)" },
+        { address=0X2032, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX0000", score_encoding="bcd", desc="Score [00XX0000] BCD (Genesis Plus GX)" },
+        { address=0X2033, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0000XX00", score_encoding="bcd", desc="Score [0000XX00] BCD (Genesis Plus GX)" },
+        { address=0X2034, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="000000XX", score_encoding="bcd", desc="Score [000000XX] BCD (Genesis Plus GX)" },
+      },
+    },
+  },
+}

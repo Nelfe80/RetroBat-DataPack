@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Robo Tito",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-robo-tito",
+    hashes = {
+      { hash = "20bb15cbf61f85684d88c348a121fc1a", label = "Robo Tito (NTSC) (Aftermarket) (VHZC).a26" },
+      { hash = "e2bd71a61584da41ac7c55b90deab543", label = "Robo Tito (PAL60) (Aftermarket) (VHZC).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X006B, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="On title screen/resetting game" },
+        { address=0X006B, type="u8", condition="eq", value=0X1F, action="TITLE_SCREEN", desc="In-game" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0072, type="u8", condition="bit_true", mask=0X01, action="HEALTH_STATE", no_log=true, desc="1" },
+        { address=0X0072, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", no_log=true, desc="2" },
+        { address=0X0072, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", no_log=true, desc="3" },
+        { address=0X0072, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", no_log=true, desc="4" },
+        { address=0X0072, type="u8", condition="bit_true", mask=0X10, action="HEALTH_STATE", no_log=true, desc="5, starting amount" },
+        { address=0X0072, type="u8", condition="bit_true", mask=0X20, action="HEALTH_STATE", no_log=true, desc="6, battery healing" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0058, type="u8", condition="eq", value=0X1C, action="JUMPING", no_log=true, no_survey=true, desc="Jumping zombie room" },
+        { address=0X0058, type="u8", condition="eq", value=0X20, action="JUMPING", no_log=true, no_survey=true, desc="Jumping skull room" },
+        { address=0X0064, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumping skull button pressed" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0064, type="u8", condition="bit_true", mask=0X20, action="OBJECT_DESTROYED", desc="Bricks broken" },
+      },
+    },
+  },
+}

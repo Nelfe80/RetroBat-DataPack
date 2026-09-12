@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Chocobo Kwehst",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-chocobo-kwehst",
+    hashes = {
+      { hash = "50811428a9c36bd7c52185f2a3ecafe3", label = "Chocobo Kwehst (Maeson) (v1.0).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0018, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0018, type="u8", condition="eq", value=0X1, action="DEMO_MODE", desc="Demo" },
+        { address=0X0021, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Start" },
+        { address=0X0021, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Password" },
+        { address=0X0030, type="u8", condition="eq", value=0XC, action="GAME_PLAYING", desc="In Stage" },
+        { address=0X0030, type="u8", condition="eq", value=0XD, action="GAME_PLAYING", desc="Complete Stage" },
+        { address=0X0030, type="u8", condition="eq", value=0XF, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0032, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="Paused" },
+        { address=0X003C, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X003C, type="u8", condition="eq", value=0X45, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0030, type="u8", condition="eq", value=0XD, action="LEVEL_CLEAR", desc="Complete Stage" },
+      },
+      stage = {
+        { address=0X0018, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X002F, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="In Stage" },
+        { address=0X003C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0030, type="u8", condition="eq", value=0XE, action="LOSE_LIFE", desc="Death" },
+        { address=0X0046, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (1UPS) increased" },
+        { address=0X0046, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (1UPS) decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X006E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="HUD" },
+      },
+    },
+  },
+}

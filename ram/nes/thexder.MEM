@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Thexder",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "thexder",
+    hashes = {
+      { hash = "da5ab2d850eb161477e4ceb2507a269f", label = "Thexder (Japan).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X00D8, type="u8", condition="increase", action="GAIN_LIFE", desc="life bar increased" },
+        { address=0X00D8, type="u8", condition="decrease", action="LOSE_LIFE", desc="life bar decreased" },
+        { address=0X00DA, type="u8", condition="increase", action="GAIN_LIFE", desc="life bar increased" },
+        { address=0X00DA, type="u8", condition="decrease", action="LOSE_LIFE", desc="life bar decreased" },
+      },
+    },
+  },
+}

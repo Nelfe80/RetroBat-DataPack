@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Umokay 64 DS 4: The IceFire War",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-umokay-64-ds-4-the-icefire-war",
+    hashes = {
+      { hash = "bcd30ce82a0c73c57ea1a22d5b0eaa72", label = "SM64DS - Umokay 64 4 - The IceFire War (0reo).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F2C4, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X23C0, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X2400, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9F2F8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="First Overworld" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Second Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X9CACF, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Secret Star - 5 Hidden Treasures" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9CAD0, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Secret Star - 8 Red Coins" },
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+        { address=0X9F358, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+  },
+}

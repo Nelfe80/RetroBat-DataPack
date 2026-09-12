@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Virtua Hamster",
+    system = "sega32x",
+    system_name = "32X",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "prototype-virtua-hamster",
+    hashes = {
+      { hash = "b3a4929fcb61bc9ecdfd9ac453860fc1", label = "Virtua Hamster (USA) (Proto).32x" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0028, type="u8", condition="change", action="DEMO_MODE", desc="Becomes A0 if you let the demo play or go to options" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00FE, type="u16be", condition="change", action="NEW_LEVEL", desc="Zoom level" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0052, type="u16be", condition="change", action="DYNAMIC_INVENTORY", desc="Current power-up" },
+        { address=0X0C0C, type="u16be", condition="change", action="DYNAMIC_INVENTORY", desc="Current power-up" },
+      },
+    },
+  },
+}

@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Hyper Metroid",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-hyper-metroid",
+    hashes = {
+      { hash = "51c91e0372d47207a325e8eca40e0587", label = "Super Metroid - Hyper Metroid (RealRed) (1.0).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCD65, type="u8", condition="change", action="DEMO_MODE", desc="Set to 0x10 when game is active, 0x00 when demo is active, entire beginning space ship is 0x00 a" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X09C4, type="u8", condition="increase", action="HEAL", desc="Max Health. increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="HIT", desc="Max Health. decreased" },
+        { address=0X09C5, type="u8", condition="increase", action="HEAL", desc="Max Health Part 2 increased" },
+        { address=0X09C5, type="u8", condition="decrease", action="HIT", desc="Max Health Part 2 decreased" },
+        { address=0X09D4, type="u8", condition="increase", action="HEAL", desc="Reserve Tank current maximum stored energy count, increased" },
+        { address=0X09D4, type="u8", condition="decrease", action="HIT", desc="Reserve Tank current maximum stored energy count, decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XD828, type="u8", condition="change", action="BOSS_HIT", desc="Bomb Torizo Boss Data, 0x00 : Not Killed, 0x04 : Killed" },
+        { address=0XD829, type="u8", condition="change", action="BOSS_HIT", desc="Boss Data, 0x00 : Not Killed, 0x02 : Spore Spawn Killed, 0x03 : Kraid Killed( 1 from Spore Spawn" },
+        { address=0XD82A, type="u8", condition="change", action="BOSS_DEFEATED", desc="Boss Data - 0x00:Not Killed, 0x02:Crocomire Killed, 0x06( 4):Golden Torizo Killed, 0x07( 1):Ridl" },
+        { address=0XD82B, type="u8", condition="change", action="BOSS_HIT", desc="Phantoon Boss Data - 0x00:Not Killed, 0x01:Killed, bit0:1:PhantoonKilled" },
+        { address=0XD82C, type="u8", condition="change", action="BOSS_DEFEATED", desc="Botwoon and Draygon Boss Data, 0x00:Not Killed, 0x02:Botwoon Killed, 0x03:Draygon Killed(plus 1)" },
+        { address=0XD82D, type="u8", condition="change", action="BOSS_DEFEATED", desc="Tourian boss data: Mother Brain dead : 0x2" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09A5, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Unlocked Equips - bit6:1:GrappleBeam, bit4:1:Bomb, bit0:1:HiJumpBoots, bit5:1:SpeedBooster, bit7" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1FFA, type="u8", condition="eq", value=0XE2, action="DOOR_OPENED", desc="Door Transitions, 0x71 appears when going DOWN an elevator, 0x11 : Cutscene?" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X09E0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Game Time Elapsed, Hours" },
+      },
+    },
+  },
+}

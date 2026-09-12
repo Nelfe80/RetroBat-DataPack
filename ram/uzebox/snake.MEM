@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Snake",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "snake",
+    hashes = {
+      { hash = "391be3f5c01fb319773fe88872c19ca3", label = "Snake (World) (v1.0) (Bytesquid).uze" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X097F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="(8 bit) - score" },
+      },
+    },
+  },
+}

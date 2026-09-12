@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Touhou Emblem",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-touhou-emblem",
+    hashes = {
+      { hash = "56ceb82a9637114274f34bef3eacb469", label = "FE8 - Touhou Emblem (v1.0.3) (Rye on Speed).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0000, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="Life Lost" },
+        { address=0X0000, type="u8", condition="eq", value=0X0E, action="LIVES_STATE", desc="Life in the Mines" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0000, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Bad Boss Boogie" },
+      },
+    },
+  },
+}

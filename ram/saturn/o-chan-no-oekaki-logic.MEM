@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "O-chan no Oekaki Logic",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "o-chan-no-oekaki-logic",
+    hashes = {
+      { hash = "e4a549f204b9ed27abf063438f8d7939", label = "Oh-chan no Oekaki Logic (Japan)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X186256, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="VS: Current Player: Time Left" },
+      },
+    },
+  },
+}

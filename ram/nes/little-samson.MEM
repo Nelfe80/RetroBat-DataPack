@@ -1,0 +1,91 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Little Samson",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "little-samson",
+    hashes = {
+      { hash = "011e234c598b282a34a378aa01f871f5", label = "Seirei Densetsu Lickle (Japan).nes" },
+      { hash = "89dc61628d31e48497cf2eb72bde44d8", label = "Little Samson (USA).nes" },
+      { hash = "fc6b21f908a817a51740e4d07045f80f", label = "Little Samson (Europe).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0017, type="u8", condition="change", action="PAUSE_ON", desc="0x14 - paused" },
+        { address=0X003F, type="u8", condition="eq", value=0X24, action="TITLE_SCREEN", desc="Attract Mode : Title Screen" },
+        { address=0X003F, type="u8", condition="eq", value=0X26, action="DEMO_MODE", desc="Attract Mode : Outside Castle" },
+        { address=0X003F, type="u8", condition="eq", value=0X2A, action="DEMO_MODE", desc="Attract Mode : King Room" },
+        { address=0X003F, type="u8", condition="eq", value=0X2C, action="GAME_OVER", desc="Game Over Screen" },
+        { address=0X003F, type="u8", condition="eq", value=0X2E, action="DEMO_MODE", desc="Attract Mode : Mountain" },
+        { address=0X003F, type="u8", condition="eq", value=0X34, action="DEMO_MODE", desc="Attract Mode : Letter Receive for Little Samson" },
+        { address=0X003F, type="u8", condition="eq", value=0X35, action="DEMO_MODE", desc="Attract Mode : Letter Receive for Kikira The Dragon" },
+        { address=0X003F, type="u8", condition="eq", value=0X36, action="DEMO_MODE", desc="Attract Mode : Letter Receive for Gamm The Rock" },
+        { address=0X003F, type="u8", condition="eq", value=0X37, action="DEMO_MODE", desc="Attract Mode : Letter Receive for K.O. The Enchanted Beast" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0002, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Dragon Intro Stage" },
+        { address=0X002E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression" },
+        { address=0X002F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0091, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0091, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X055F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X0093, type="u8", condition="increase", action="HEAL", desc="Max Health - Little Samson increased" },
+        { address=0X0093, type="u8", condition="decrease", action="HIT", desc="Max Health - Little Samson decreased" },
+        { address=0X0094, type="u8", condition="increase", action="HEAL", desc="Max Health - Kikira the Dragon Lord increased" },
+        { address=0X0094, type="u8", condition="decrease", action="HIT", desc="Max Health - Kikira the Dragon Lord decreased" },
+        { address=0X0095, type="u8", condition="increase", action="HEAL", desc="Max Health - Gamm the Rock Lord increased" },
+        { address=0X0095, type="u8", condition="decrease", action="HIT", desc="Max Health - Gamm the Rock Lord decreased" },
+        { address=0X0096, type="u8", condition="increase", action="HEAL", desc="Max Health - K.O. the Enchanted Beast (mouse) increased" },
+        { address=0X0096, type="u8", condition="decrease", action="HIT", desc="Max Health - K.O. the Enchanted Beast (mouse) decreased" },
+        { address=0X0097, type="u8", condition="increase", action="HEAL", desc="Current Health - Little Samson increased" },
+        { address=0X0097, type="u8", condition="decrease", action="HIT", desc="Current Health - Little Samson decreased" },
+        { address=0X0098, type="u8", condition="increase", action="HEAL", desc="Current Health - Kikira the Dragon Lord increased" },
+        { address=0X0098, type="u8", condition="decrease", action="HIT", desc="Current Health - Kikira the Dragon Lord decreased" },
+        { address=0X0099, type="u8", condition="increase", action="HEAL", desc="Current Health - Gamm the Rock Lord increased" },
+        { address=0X0099, type="u8", condition="decrease", action="HIT", desc="Current Health - Gamm the Rock Lord decreased" },
+        { address=0X009A, type="u8", condition="increase", action="HEAL", desc="Current Health - K.O. the Enchanted Beast (mouse) increased" },
+        { address=0X009A, type="u8", condition="decrease", action="HIT", desc="Current Health - K.O. the Enchanted Beast (mouse) decreased" },
+        { address=0X055F, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy 1 Health" },
+        { address=0X055F, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X003F, type="u8", condition="eq", value=0X16, action="BOSS_HIT", desc="Stage 01 Boss : Green Mage & Cyclops" },
+        { address=0X003F, type="u8", condition="eq", value=0X17, action="BOSS_HIT", desc="Stage 10 Boss : Blue Mage & Knight" },
+        { address=0X003F, type="u8", condition="eq", value=0X18, action="BOSS_HIT", desc="Stage 11 Boss : Breath Dragon" },
+        { address=0X003F, type="u8", condition="eq", value=0X19, action="BOSS_HIT", desc="Stage 12 Boss : Grim Reaper" },
+        { address=0X003F, type="u8", condition="eq", value=0X1A, action="BOSS_HIT", desc="Stage 13 Boss : Gold Dragon Head" },
+        { address=0X003F, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Stage 14 Boss : First 2 Bosses" },
+        { address=0X003F, type="u8", condition="eq", value=0X1C, action="BOSS_HIT", desc="Stage 14 Boss : Final Boss (Ta-Keed)" },
+        { address=0X003F, type="u8", condition="eq", value=0X1D, action="BOSS_HIT", desc="Stage 09 Boss : Skeleton Knight (Horseman)" },
+        { address=0X003F, type="u8", condition="eq", value=0X1E, action="BOSS_HIT", desc="Stage 04B Boss : ??" },
+        { address=0X003F, type="u8", condition="eq", value=0X1F, action="BOSS_HIT", desc="Stage 07 Boss : Green Skull" },
+        { address=0X003F, type="u8", condition="eq", value=0X20, action="BOSS_HIT", desc="Stage 03 Boss : Water Deamon" },
+        { address=0X003F, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Stage 06 Boss : Giant Worm" },
+        { address=0X003F, type="u8", condition="eq", value=0X22, action="BOSS_HIT", desc="Stage 14 Boss : Seconds 2 Bosses" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0090, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Available characters to switch between - bit0:Samson, bit1:Dragon, bit2:Gamm, bit3:Mouse, 0F:all" },
+      },
+    },
+  },
+}

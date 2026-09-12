@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Star Fox 64: Survival",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-star-fox-64-survival",
+    hashes = {
+      { hash = "37ae2c921335e9e791f8af548fd58670", label = "Legend of Zelda, The - Ocarina of Time - Star Fox 64 - Survival (v1.4) (Zel, Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X11A5FC, type="u16be", condition="increase", action="HEAL", desc="Max HP (16-Bit) increased" },
+        { address=0X11A5FC, type="u16be", condition="decrease", action="HIT", desc="Max HP (16-Bit) decreased" },
+        { address=0X11A602, type="u16be", condition="increase", action="HEAL", desc="Current HP (16-Bit) increased" },
+        { address=0X11A602, type="u16be", condition="decrease", action="HIT", desc="Current HP (16-Bit) decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X11A642, type="u32be", condition="change", action="SHIELD_GAIN", desc="Equiped Sword and Shield" },
+        { address=0X11A66E, type="u8", condition="change", action="SHIELD_GAIN", desc="Swords and Shields (Bits)" },
+      },
+    },
+  },
+}

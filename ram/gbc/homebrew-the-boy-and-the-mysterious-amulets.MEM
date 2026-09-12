@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Boy and the Mysterious Amulets",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-boy-and-the-mysterious-amulets",
+    hashes = {
+      { hash = "de6bafbf23389d72a4bab17b83e479d3", label = "Boy and the Mysterious Amulets, The (World) (GBJAM 12) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

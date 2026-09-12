@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "MC Groovz Dance Craze",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "mc-groovz-dance-craze",
+    hashes = {
+      { hash = "fd55625417ed1f366fcbdefeff27a3e9", label = "MC Groovz Dance Craze (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

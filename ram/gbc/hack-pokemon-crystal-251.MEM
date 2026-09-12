@@ -1,0 +1,62 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Crystal 251",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-crystal-251",
+    hashes = {
+      { hash = "4214afe860956c27c05699b2388694c5", label = "Pokemon Crystal - Crystal 251 (v2.3) (Razormime).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC101, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC639, type="u8", condition="change", action="NEW_LEVEL", desc="Player Pokemon Level" },
+        { address=0XD8D8, type="u8", condition="eq", value=0X9F, action="NEW_LEVEL", desc="Level" },
+        { address=0XDD03, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 1 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC63C, type="u16be", condition="increase", action="HEAL", desc="[16-Bit BE] Player Pokemon Current HP increased" },
+        { address=0XC63C, type="u16be", condition="decrease", action="HIT", desc="[16-Bit BE] Player Pokemon Current HP decreased" },
+        { address=0XC63E, type="u16be", condition="increase", action="HEAL", desc="[16-Bit BE] Player Pokemon Max HP increased" },
+        { address=0XC63E, type="u16be", condition="decrease", action="HIT", desc="[16-Bit BE] Player Pokemon Max HP decreased" },
+        { address=0XDD06, type="u16be", condition="increase", action="HEAL", desc="[16-Bit BE] Party Pokemon 1 Current HP increased" },
+        { address=0XDD06, type="u16be", condition="decrease", action="HIT", desc="[16-Bit BE] Party Pokemon 1 Current HP decreased" },
+        { address=0XDD08, type="u16be", condition="increase", action="HEAL", desc="[16-Bit BE] Party Pokemon 1 Max HP increased" },
+        { address=0XDD08, type="u16be", condition="decrease", action="HIT", desc="[16-Bit BE] Party Pokemon 1 Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD84E, type="u24be", condition="increase", action="COIN_GAIN", desc="[24-Bit BE] Money increased" },
+        { address=0XD851, type="u24be", condition="increase", action="COIN_GAIN", desc="[24-Bit BE] Saved Money increased" },
+        { address=0XD854, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Mom is Saving Money" },
+        { address=0XDACB, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Gold Trophy" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XDEB5, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFF96, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Real-Time Clock - Minutes" },
+        { address=0XFF98, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Real-Time Clock - Seconds" },
+      },
+    },
+  },
+}

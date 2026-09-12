@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ The Holy Bible: World English Bible",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-the-holy-bible-world-english-bible",
+    hashes = {
+      { hash = "f5d654479e0298694b9479cef798494c", label = "Holy Bible, The - World English Bible (USA) (Proto).gba" },
+    }
+  },
+
+  events = {
+  },
+}

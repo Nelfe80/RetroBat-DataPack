@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Funny Bird Game 2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-funny-bird-game-2",
+    hashes = {
+      { hash = "609b56cf77e11f798f2913efbef0d94f", label = "Funny Bird Game 2 (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X22DD, type="u8", condition="change", action="LOSE_LIFE", desc="00:dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X19F0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0X19F0, type="u16le", condition="eq", value=0X0999, action="SCORE_STATE", desc="Last Normal Pipe" },
+      },
+    },
+  },
+}

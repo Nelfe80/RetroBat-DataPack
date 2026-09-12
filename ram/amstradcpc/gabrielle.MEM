@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gabrielle",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "gabrielle",
+    hashes = {
+      { hash = "fe270b865db6ae7e5e6754a97a9bb919", label = "Gabrielle (1987)(Ubisoft)(fr).dsk" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X9CDA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score 1 Name 1" },
+        { address=0X9CDA, type="u8", condition="eq", value=0X3A, action="SCORE_STATE", desc="Null" },
+        { address=0X9CDA, type="u8", condition="eq", value=0X5B, action="SCORE_STATE", desc="A" },
+      },
+    },
+  },
+}

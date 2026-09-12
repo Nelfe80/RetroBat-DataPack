@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mortal Konsole: Pong Edition",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mortal-konsole-pong-edition",
+    hashes = {
+      { hash = "902d7519ae193778bbd83eebb90820f8", label = "Mortal Konsole - Pong Edition (World) (v20040928) (Unl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X612A, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round" },
+        { address=0X612A, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Winner" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Speed Star Adventure",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-speed-star-adventure",
+    hashes = {
+      { hash = "06d86eb307223a1fb4466d36a26f89fb", label = "SM64 - Speed Star Adventure (jesusyoshi54) (1.1).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] current Mario HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] current Mario HP decreased" },
+        { address=0X33D68C, type="u32be", condition="increase", action="HEAL", desc="objects[1] HP (32bit) increased" },
+        { address=0X33D68C, type="u32be", condition="decrease", action="HIT", desc="objects[1] HP (32bit) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] internal coin count increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207698, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit1: wing cap switch" },
+      },
+    },
+  },
+}

@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Combo Fishing",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-combo-fishing",
+    hashes = {
+      { hash = "029cd8ae6b130b91918597239464cc35", label = "Combo Fishing (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0EE, type="u16le", condition="eq", value=0X0480, action="TITLE_SCREEN", desc="Game Title / Lethal Runner - Title / Game Over" },
+        { address=0XC527, type="u16le", condition="eq", value=0X57FE, action="GAME_OVER", desc="Lethal Runner - game over" },
+        { address=0XC527, type="u16le", condition="eq", value=0X5CDC, action="TITLE_SCREEN", desc="Title" },
+        { address=0XC527, type="u16le", condition="eq", value=0X5E6E, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC527, type="u16le", condition="eq", value=0X5F21, action="CREDITS_SCREEN", desc="Lethal Runner - Credits" },
+        { address=0XC527, type="u16le", condition="eq", value=0X6409, action="TITLE_SCREEN", desc="Lethal Runner - Title" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC0EE, type="u16le", condition="eq", value=0X0300, action="LOSE_LIFE", desc="Credits / Lethal Runner - Credits / Lethal Runner - Death" },
+        { address=0XC527, type="u16le", condition="eq", value=0X5875, action="LOSE_LIFE", desc="Lethal Runner - death" },
+      },
+      health = {
+        { address=0XCBBB, type="u16le", condition="change", action="HIT", desc="Lethal Runner - Damage Taken [16bit]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCBCD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Lethal Runner - Highscore [16bit]" },
+      },
+    },
+  },
+}

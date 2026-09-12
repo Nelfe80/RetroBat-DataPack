@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Puzzling",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-puzzling",
+    hashes = {
+      { hash = "429f5628eea9557417494a1bf5634adc", label = "Legend of Zelda, The - Puzzling (DezZival) (1.1.2).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X11B92C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X11A602, type="u16be", condition="increase", action="HEAL", desc="Link's Health [16bits] increased" },
+        { address=0X11A602, type="u16be", condition="decrease", action="HIT", desc="Link's Health [16bits] decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X11A66F, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="KokSw" },
+        { address=0X11A66F, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="MasterSw" },
+        { address=0X11A66F, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="DekuSh" },
+        { address=0X11A66F, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="HySh" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X11B9DF, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Hold Targeting" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X11A5F0, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Death Counter [16 bits]" },
+      },
+    },
+  },
+}

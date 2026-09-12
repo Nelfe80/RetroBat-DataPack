@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Smurfs Travel the World",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-smurfs-travel-the-world",
+    hashes = {
+      { hash = "348ca8eaa37d5f468915b0cb5a558d21", label = "Smurfs Travel the World, The (Europe) (En,Fr,De,Es).gg" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X183F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Music on/off Switch.. 00:on; ff:off" },
+      },
+    },
+  },
+}

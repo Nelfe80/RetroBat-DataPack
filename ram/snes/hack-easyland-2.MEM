@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Easyland 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-easyland-2",
+    hashes = {
+      { hash = "5d78e41bb0995e0e3cb9184331295986", label = "SMW - Easyland 2 (v1.0) (RicardoDeMelo).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X1FF6, type="u8", condition="change", action="CREDITS_SCREEN", desc="bit4:moon in credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X1FF3, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="moon in intro level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0071, type="u8", condition="eq", value=0X01, action="INVINCIBILITY_START", desc="Invincibility Frames" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="eq", value=0X0C, action="OBJECT_DESTROYED", desc="Destroying Castle" },
+        { address=0X0071, type="u8", condition="eq", value=0X0D, action="DOOR_OPENED", desc="Entering a Door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="combo bouncing counter" },
+      },
+    },
+  },
+}

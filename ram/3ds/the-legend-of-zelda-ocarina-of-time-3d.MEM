@@ -1,0 +1,23 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Legend of Zelda: Ocarina of Time 3D",
+    system = "3ds",
+    system_name = "Nintendo 3DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-legend-of-zelda-ocarina-of-time-3d",
+    hashes = {
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X77C69EB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Inventory" },
+      },
+    },
+  },
+}

@@ -1,0 +1,114 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Vs. Airman",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vs-airman",
+    hashes = {
+      { hash = "6a10f094e33996ead6e228bc80bd5f7f", label = "SMB - Mario Vs. Airman (v1.0 - Mushroom Kingdom Added) (ATA).nes" },
+      { hash = "920bd71d5d31e32e92e38f7a6597f59d", label = "SMB - Mario Vs. Airman (v1.0) (ATA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000E, type="u8", condition="eq", value=0X6, action="GAME_OVER", desc="Game Over" },
+        { address=0X0770, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0X0776, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Normal" },
+        { address=0X0776, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X0776, type="u8", condition="eq", value=0X80, action="PAUSE_ON", desc="Unpausing" },
+        { address=0X0776, type="u8", condition="eq", value=0X81, action="PAUSE_ON", desc="Pausing" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X000B, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Ground" },
+        { address=0X0770, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level" },
+      },
+      stage = {
+        { address=0X00E7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Layout:" },
+        { address=0X00E7, type="u8", condition="eq", value=0X20, action="PROGRESSION_STAGE", desc="[d] Second Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0X3F, action="PROGRESSION_STAGE", desc="[d] Third Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0X62, action="PROGRESSION_STAGE", desc="[d] Fifth Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0X87, action="PROGRESSION_STAGE", desc="[d] Sixth Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0XCD, action="PROGRESSION_STAGE", desc="[d] Fourth Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0XD6, action="PROGRESSION_STAGE", desc="[1.01] Second Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0XD8, action="PROGRESSION_STAGE", desc="First Screen" },
+        { address=0X00E7, type="u8", condition="eq", value=0XDB, action="PROGRESSION_STAGE", desc="[1.01] Third Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000E, type="u8", condition="eq", value=0X0, action="LIVES_STATE", desc="lives screen/loading" },
+        { address=0X075A, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lifes increased" },
+        { address=0X075A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lifes decreased" },
+      },
+      health = {
+        { address=0X0034, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X0034, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0X0035, type="u8", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0X0035, type="u8", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0X0036, type="u8", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0X0036, type="u8", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+        { address=0X0039, type="u8", condition="decrease", action="HIT", desc="Power Up on Screen: decreased" },
+        { address=0X0115, type="u8", condition="decrease", action="HIT", desc="Picking up: decreased" },
+        { address=0X0756, type="u8", condition="decrease", action="HIT", desc="Powerup: decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0039, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Mushroom" },
+        { address=0X0039, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Flower" },
+        { address=0X0039, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Star" },
+        { address=0X0039, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="1UP" },
+        { address=0X0115, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Powerup" },
+        { address=0X0115, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="1UP" },
+        { address=0X0756, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small" },
+        { address=0X0756, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Super Mushroom" },
+        { address=0X0756, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Flower" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X07D7, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Million)" },
+        { address=0X07D8, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Hundred Thousand)" },
+        { address=0X07D9, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Ten Thousand)" },
+        { address=0X07DA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Thousand)" },
+        { address=0X07DB, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Hundred)" },
+        { address=0X07DC, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (Ten)" },
+        { address=0X07DD, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Million)" },
+        { address=0X07DE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Hundred Thousand)" },
+        { address=0X07DF, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Ten Thousand)" },
+        { address=0X07E0, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Thousand)" },
+        { address=0X07E1, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Hundred)" },
+        { address=0X07E2, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Ten)" },
+      },
+      collectibles = {
+        { address=0X0748, type="u8", condition="increase", action="COIN_GAIN", desc="Collected Coins in the Stage increased" },
+        { address=0X07ED, type="u8", condition="increase", action="COIN_GAIN", desc="Coin (Decimal) increased" },
+        { address=0X07EE, type="u8", condition="increase", action="COIN_GAIN", desc="Coin (Unit) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0483, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0039, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_FIRE", desc="Transformed into Flower" },
+        { address=0X0756, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Super Mushroom" },
+        { address=0X0756, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Flower" },
+      },
+      player = {
+        { address=0X000B, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+      },
+    },
+  },
+}

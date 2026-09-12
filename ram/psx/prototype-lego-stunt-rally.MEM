@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ LEGO Stunt Rally",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-lego-stunt-rally",
+    hashes = {
+      { hash = "b147aff5bece56e9f4644dd65a92a530", label = "Lego Stunt Rally (USA) (Proto)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X799A5, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="gold" },
+      },
+    },
+  },
+}

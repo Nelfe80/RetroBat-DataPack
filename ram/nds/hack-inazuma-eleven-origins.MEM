@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Inazuma Eleven Origins",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-inazuma-eleven-origins",
+    hashes = {
+      { hash = "1ceb2f3da7635f96890580b053b0c94c", label = "Inazuma Eleven - Inazuma Eleven Origins (Es) (v1.0) (AdriSylver 23).nds" },
+    }
+  },
+
+  events = {
+  },
+}

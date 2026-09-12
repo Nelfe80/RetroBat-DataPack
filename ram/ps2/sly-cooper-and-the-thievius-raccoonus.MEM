@@ -1,0 +1,130 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sly Cooper and the Thievius Raccoonus",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Platform, Stealth"
+  },
+
+  rom = {
+    name = "sly-cooper-and-the-thievius-raccoonus",
+    hashes = {
+      { hash = "b806be6fac7827bc8989b33f8da72720", label = "Sly Cooper and the Thievius Raccoonus (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X262C6C, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X262C6C, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X26184C, type="u32le", condition="change", action="NEW_LEVEL", desc="[US] [32-bit] Skip Level Intro Flag" },
+        { address=0X26CBA8, type="u32le", condition="change", action="NEW_LEVEL", desc="Clue Bottles Collected in Current Level" },
+        { address=0X27C9C4, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+        { address=0X27CAC8, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+        { address=0X27CB40, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+        { address=0X27CC30, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+        { address=0X27CF8C, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+        { address=0X27D3D8, type="u32le", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Level Entered" },
+      },
+      zone = {
+        { address=0X27C674, type="u32le", condition="change", action="PROGRESSION_ZONE", desc="(Float) Seconds spent in Police HQ and World Select combined" },
+        { address=0X27DBF8, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World ID: Part 1 of Level ID" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Police Headquarters" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Episode 1: Tide of Terror" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Episode 2: Sunset Snake Eyes" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Episode 3: Vicious Voodoo" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Episode 4: Fire in the Sky" },
+        { address=0X27DBF8, type="u16le", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="Episode 5: The Cold Heart of Hate" },
+        { address=0X109B840, type="u32le", condition="change", action="PROGRESSION_ZONE", desc="World Selected in HQ" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X27DC00, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives. increased" },
+        { address=0X27DC00, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives. decreased" },
+        { address=0X14E6700, type="u32le", condition="change", action="LOSE_LIFE", desc="[32 Bit] Death Check | Two to Tango" },
+        { address=0X16040B0, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X26E228, type="u32be", condition="increase", action="HEAL", desc="Bentley's Health in 'Bentley Comes Through' increased" },
+        { address=0X26E228, type="u32be", condition="decrease", action="HIT", desc="Bentley's Health in 'Bentley Comes Through' decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X26D328, type="u32le", condition="change", action="TREASURE", desc="Chests collected in 'Treasure in the Depths'" },
+        { address=0X27C94C, type="u32le", condition="bit_true", mask=0X02, action="TREASURE", desc="Key" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X27DC08, type="u32le", condition="increase", action="COIN_GAIN", desc="Coins (found by Infernox) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X26E4BC, type="u32le", condition="change", action="BOSS_HIT", desc="(float) Boss Health Display" },
+        { address=0X26E4C0, type="u32le", condition="change", action="BOSS_HIT", desc="(Float) Boss Health" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X261848, type="u32le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[US] [32-bit] Somehow related to checkpoint IDs but unsure how" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X262C18, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Unlock All Worlds Counter" },
+        { address=0X26E9C0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32 Bit] Master Thief Sprint Time Status" },
+        { address=0X26E9D0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[US] [32-bit] Seconds display for sprint timer (changes to 0xFFFFFFFF when sprint is restarted)" },
+        { address=0X272420, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Flag for Clockwerk Defeat in 'A Strange Reunion'" },
+        { address=0X27C684, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Best time for the Master Thief Sprint for 'A Stealthy Approach' in Seconds" },
+        { address=0X27C6F8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="(Float) Time Spent in 'Prowling the Grounds' in seconds" },
+        { address=0X27C770, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Total Time Spent in 'High Class Heist' in Seconds" },
+        { address=0X27C774, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Best time for the Master Thief Sprint for 'High Class Heist' in Seconds" },
+        { address=0X27C7E8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'Into the Machine' in seconds" },
+        { address=0X27C860, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'A Cunning Disguise' in seconds" },
+        { address=0X27C8D8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'The Fire Down Below' in seconds" },
+        { address=0X27C950, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'Treasure in the Depths' in Seconds" },
+        { address=0X27C9C8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'The Gunboat Graveyard' in Seconds" },
+        { address=0X27CA40, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(float) Time Spent in 'Eye of the Storm' (World 1 Boss) in Seconds" },
+        { address=0X27CAC0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Total time spent in Tide of Terror in total in Seconds" },
+        { address=0X27CB44, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Amount of time spent in 'Muggshot's Turf' in Seconds" },
+        { address=0X27CBBC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Boneyard Casino' in Seconds" },
+        { address=0X27CC34, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Murray's Big Gamble' in Seconds" },
+        { address=0X27CCAC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'At the Dog Track' in seconds" },
+        { address=0X27CD24, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Two to Tango' in Seconds" },
+        { address=0X27CD9C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Straight to the Top' in seconds" },
+        { address=0X27CE14, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Back Alley Heist' in Seconds" },
+        { address=0X27CE8C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Last Call' overall in Seconds" },
+        { address=0X27CF0C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Total Time spent in 'Sunset Snake Eyes' overall in Seconds" },
+        { address=0X27CF18, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Total time spent in 'The Dread Swamp Path' in Seconds" },
+        { address=0X27CF90, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'The Swamp's Dark Center' in Seconds" },
+        { address=0X27D008, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'The Lair of the Beast' in seconds" },
+        { address=0X27D080, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'A Grave Undertaking' in seconds" },
+        { address=0X27D0F8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Piranha Lake' in Seconds" },
+        { address=0X27D170, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Descent into Danger' in seconds" },
+        { address=0X27D1E8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'A Ghastly Voyage' in seconds" },
+        { address=0X27D260, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Down Home Cooking' in seconds" },
+        { address=0X27D358, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Total Time Spent in 'Vicious Voodoo' overall in Seconds" },
+        { address=0X27D364, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'A Perilous Ascent' in seconds" },
+        { address=0X27D3DC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time Spent in 'Inside the Stronghold' in Seconds" },
+        { address=0X27D454, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Flaming Temple of Flame' in Seconds" },
+        { address=0X27D4CC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'The Unseen Foe' in Seconds" },
+        { address=0X27D544, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'The King of the Hill' in Seconds" },
+        { address=0X27D5BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Rapid Fire Assault' in seconds" },
+        { address=0X27D634, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'Duel by the Dragon' in seconds" },
+        { address=0X27D6AC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'A Desperate Race' in seconds" },
+        { address=0X27D7A4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Total Time spent in 'Fire in the Sky' in Seconds" },
+        { address=0X27D7B0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float] Time spent in 'A Hazardous Path' in Seconds" },
+        { address=0X27DBF0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Float) Time spent in 'The Cold Heart of Hate' in Seconds" },
+      },
+    },
+  },
+}

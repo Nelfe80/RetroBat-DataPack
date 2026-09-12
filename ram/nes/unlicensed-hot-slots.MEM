@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Hot Slots",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "unlicensed-hot-slots",
+    hashes = {
+      { hash = "0efb45f773a13796c39aacfe753cfac9", label = "Hot Slots (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

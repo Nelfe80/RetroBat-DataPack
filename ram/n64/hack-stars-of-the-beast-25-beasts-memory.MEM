@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Stars of the Beast 2.5: Beast's Memory",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-stars-of-the-beast-25-beasts-memory",
+    hashes = {
+      { hash = "4f593170cda57c33adacd5e7bb4aca4f", label = "SM64 - Stars of the Beast 2.5 - Beast's Memory (Milgram355).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B171, type="u8", condition="bit_true", mask=0X01, action="CONTINUE_SCREEN", desc="in toxic gas" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+  },
+}

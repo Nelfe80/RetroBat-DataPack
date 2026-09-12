@@ -1,0 +1,512 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "spitboss",
+  "game_name": "spitboss",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "meritm_crt250",
+            "tag": "PIO1_PORTB",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": 2,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":PIO1_PORTB",
+            "cfg_tag": ":PIO1_PORTB",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":PIO1_PORTB",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":PIO1_PORTB",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "p1_cancel_lamp",
+          "label": "cancel",
+          "function": "p1_cancel_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_cancel_lamp#1",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_disc_1_lamp",
+          "label": "Disc 1",
+          "function": "p1_disc_1_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_disc_1_lamp#2",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_disc_2_lamp",
+          "label": "Disc 2",
+          "function": "p1_disc_2_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_disc_2_lamp#3",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_disc_3_lamp",
+          "label": "Disc 3",
+          "function": "p1_disc_3_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_disc_3_lamp#4",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_disc_4_lamp",
+          "label": "Disc 4",
+          "function": "p1_disc_4_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_disc_4_lamp#5",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_disc_5_lamp",
+          "label": "Disc 5",
+          "function": "p1_disc_5_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_disc_5_lamp#6",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "p1_play_lamp",
+          "label": "play",
+          "function": "p1_play_lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "merit_panel_lamps",
+          "usage": "",
+          "player": 1,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "p1_play_lamp#7",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Button 2",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "Button 3",
+          "color": "Green",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "4": {
+          "game_button": 4,
+          "logical_name": "4",
+          "function": "Button 4",
+          "color": "Blue",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "5": {
+          "game_button": 5,
+          "logical_name": "5",
+          "function": "Button 5",
+          "color": "White",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "6": {
+          "game_button": 6,
+          "logical_name": "6",
+          "function": "Button 6",
+          "color": "Orange",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        },
+        "7": {
+          "game_button": 7,
+          "logical_name": "7",
+          "function": "Button 7",
+          "color": "Violet",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {}
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "full_8",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "full_8",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 3
+            },
+            "4": {
+              "panel_slot": 4
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "full_8",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 3
+            },
+            "4": {
+              "panel_slot": 4
+            },
+            "5": {
+              "panel_slot": 5
+            },
+            "6": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "full_8",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 3
+            },
+            "4": {
+              "panel_slot": 4
+            },
+            "5": {
+              "panel_slot": 5
+            },
+            "6": {
+              "panel_slot": 6
+            },
+            "7": {
+              "panel_slot": 7
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

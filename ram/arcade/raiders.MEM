@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "raiders",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "raiders",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1C6A, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1F19, type="u32be", condition="change", action="SCORE_STATE", color="green", min=1100, max=2000, desc="Score delta 1100-2000: Score delta 1100-2000" },
+        { address=0X1F19, type="u32be", condition="change", action="SCORE_STATE", color="blue", min=2100, max=10000, desc="Score delta 2100-10000: Score delta 2100-10000" },
+        { address=0X1F19, type="u32be", condition="change", action="SCORE_STATE", color="orange", min=300, max=600, desc="Score delta 300-600: Score delta 300-600" },
+        { address=0X1F19, type="u32be", condition="change", action="SCORE_STATE", min=50, max=250, desc="Score delta 50-250: Score delta 50-250" },
+        { address=0X1F19, type="u32be", condition="change", action="SCORE_STATE", color="cyan", min=650, max=1000, desc="Score delta 650-1000: Score delta 650-1000" },
+      },
+      collectibles = {
+        { address=0X1E6A, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

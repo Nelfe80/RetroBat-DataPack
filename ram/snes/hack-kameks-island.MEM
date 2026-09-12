@@ -1,0 +1,120 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Kamek's Island",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-kameks-island",
+    hashes = {
+      { hash = "78aa741d2c0158bfea43924e3915f6e2", label = "SMW - Kamek's Island (Gamma V) (1.7).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XF67D, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X1F02, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Flags" },
+        { address=0X1F04, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Flags" },
+        { address=0X1F07, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Flags" },
+        { address=0X1F09, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit Flags" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X20, action="LIVES_STATE", desc="Larger Than Life" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Cave Calamity" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="The Full Monty" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Springtime Scamper" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Pleasant Plains" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Serene Stream" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Creepy Cabin" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Spider Swamp" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Ninjis' Night" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Forest Frolic" },
+        { address=0X1F30, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="On the Line" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Crabby Coast" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Ocean Commotion" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Lakitu's Island" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Pier Pressure" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Chaotic Canopy" },
+        { address=0X1F31, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Bubble Trouble" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Moai Madness" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Pokey Pokey Panic" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Piledriver Peril" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Ghastly Galleon" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Sunset Shoreline" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Chomp Romp" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Sunny Daze" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Kalahari Kaboom!" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Poltergeist Pyramid" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Quicksand Chaos" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Rolling Rock Road" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Mystery Manor" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="A Miner Problem" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Dino-Rhino Ridge" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Bullet Bluffs" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="That Snow Fun" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Bounce With Me" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Slipslide Summit" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Mmm... Donuts...." },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Plumber Season!" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Flurry in a Hurry" },
+        { address=0X1F37, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Stormcloud Strut" },
+        { address=0X1F37, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Crush Cavern" },
+        { address=0X1F37, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Big Boo Theory" },
+        { address=0X1F37, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Poison Pool" },
+        { address=0X1F37, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Big Bad Boneyard" },
+        { address=0X1F38, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Pyro Plateau" },
+        { address=0X1F38, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Igneous Impasse" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Boss Bass Beach" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Jumpin' Jumpin'" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X8594, action="OBJECT_INTERACTION", desc="Red Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0X8AD0, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0X8E8C, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XA211, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XA52C, action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XD45D, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XD49C, action="OBJECT_INTERACTION", desc="Red Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XE780, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XECC4, action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch activate" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch activate" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch activate" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch activate" },
+      },
+    },
+  },
+}

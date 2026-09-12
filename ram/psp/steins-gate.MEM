@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Steins;Gate",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "steins-gate",
+    hashes = {
+      { hash = "3efc62aed9f371b909ceee93697770db", label = "Steins;Gate (Japan) (En) (v1.0.1) (HaselLoyance).iso" },
+      { hash = "ac40ad2eea2395c38e0514fb7665aabb", label = "Steins;Gate (Japan) (v1.01).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF26B56, type="u8", condition="eq", value=0X08, action="TITLE_SCREEN", desc="Return Title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X957988, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear List - Endings (8-bit)" },
+        { address=0X957994, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear List - CGs (8-bit)" },
+        { address=0X9579A0, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear List - Tips (8-bit)" },
+        { address=0XF1E32E, type="u16le", condition="eq", value=0X6165, action="LEVEL_CLEAR", desc="Clear List" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCF812A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Left D-pad - Time Pressed (16-bit)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "R?MJ: The Mystery Hospital",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "r-mj-the-mystery-hospital",
+    hashes = {
+      { hash = "8f23ce8731602f6d21704f53ae6070fd", label = "RMJ - The Mystery Hospital (Japan) (Disc 2) (Fears Behind) (En) (v1.0) (SnowyAria)" },
+      { hash = "ca180596fedf9f983c1cd01b2791d055", label = "RMJ - The Mystery Hospital (Japan) (Disc 1) (What's Going On) (En) (v1.0) (SnowyAria)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X95D1C, type="u16le", condition="increase", action="HEAL", desc="HP minor. increased" },
+        { address=0X95D1C, type="u16le", condition="decrease", action="HIT", desc="HP minor. decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X14CC90, type="u16le", condition="eq", value=0X0000, action="OBJECT_DESTROYED", desc="x1." },
+        { address=0X14CC90, type="u16le", condition="eq", value=0X0001, action="OBJECT_DESTROYED", desc="x2." },
+        { address=0X14CC90, type="u16le", condition="eq", value=0XFFFF, action="OBJECT_DESTROYED", desc="None." },
+        { address=0X14CCB4, type="u16le", condition="eq", value=0X0000, action="OBJECT_DESTROYED", desc="x1." },
+        { address=0X14CCB4, type="u16le", condition="eq", value=0X0001, action="OBJECT_DESTROYED", desc="x2." },
+        { address=0X14CCB4, type="u16le", condition="eq", value=0XFFFF, action="OBJECT_DESTROYED", desc="None." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X95D64, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="HP major." },
+      },
+    },
+  },
+}

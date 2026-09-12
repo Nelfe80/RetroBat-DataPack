@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Koneko Monogatari: The Adventures of Chatran",
+    system = "fds",
+    system_name = "Famicom Disk System",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "koneko-monogatari-the-adventures-of-chatran",
+    hashes = {
+      { hash = "af8a32bc2eeca242a12b23c46c305f06", label = "Koneko Monogatari - The Adventures of Chatran (Japan).fds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0704, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0704, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

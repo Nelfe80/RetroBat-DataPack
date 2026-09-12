@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ A Grand Day Out",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-a-grand-day-out",
+    hashes = {
+      { hash = "45487c50d750d30f4f465f6ed3fb6d31", label = "Pokemon LeafGreen - A Grand Day Out (Cutlerine).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="1st pokemon level" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="active pokemon level:" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u8", condition="increase", action="HEAL", desc="1st pokemon current hp increased" },
+        { address=0X2C2DA, type="u8", condition="decrease", action="HIT", desc="1st pokemon current hp decreased" },
+        { address=0X2C2DC, type="u8", condition="increase", action="HEAL", desc="1st pokemon max hp increased" },
+        { address=0X2C2DC, type="u8", condition="decrease", action="HIT", desc="1st pokemon max hp decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pop 'T' Balls",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "pop-t-balls",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XE27C, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of lives increased" },
+        { address=0XE27C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of lives decreased" },
+      },
+    },
+  },
+}

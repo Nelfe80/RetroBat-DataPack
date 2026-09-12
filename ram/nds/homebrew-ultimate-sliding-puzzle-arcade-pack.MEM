@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ultimate Sliding Puzzle: Arcade Pack",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-ultimate-sliding-puzzle-arcade-pack",
+    hashes = {
+      { hash = "64a8f664c93bcef5f5487d8e7f59682a", label = "Ultimate Sliding Puzzle - Pack Arcade (World) (Aftermarket) (Unl) (Kukulcan).nds" },
+    }
+  },
+
+  events = {
+  },
+}

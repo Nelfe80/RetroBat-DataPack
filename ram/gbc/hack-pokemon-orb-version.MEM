@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Orb Version",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-orb-version",
+    hashes = {
+      { hash = "e3de09f287b5e8b60c32b69b76f0cd83", label = "Pokemon Gold - Pokemon Orb Version (Hacker) (Fixed).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD0FC, type="u8", condition="change", action="NEW_LEVEL", desc="Opponent Pokemon's level" },
+        { address=0XD6E7, type="u8", condition="change", action="LEVEL_CLEAR", desc="02 : Vice is cleared out from hideout (battle with female executive is done)" },
+        { address=0XDA49, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 1 level" },
+        { address=0XDA79, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 2 level" },
+        { address=0XDAA9, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 3 level" },
+        { address=0XDAD9, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 4 level" },
+        { address=0XDB09, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 5 level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCB1C, type="u8", condition="increase", action="HEAL", desc="Active Pokemon's current HP (reverse order...) increased" },
+        { address=0XCB1C, type="u8", condition="decrease", action="HIT", desc="Active Pokemon's current HP (reverse order...) decreased" },
+        { address=0XD100, type="u16le", condition="increase", action="HEAL", desc="(16 bit) Opponent Pokemon's Current HP increased" },
+        { address=0XD100, type="u16le", condition="decrease", action="HIT", desc="(16 bit) Opponent Pokemon's Current HP decreased" },
+        { address=0XD8A7, type="u8", condition="increase", action="HEAL", desc="Bit7 : HP Up from Cerulean on the mountain increased" },
+        { address=0XD8A7, type="u8", condition="decrease", action="HIT", desc="Bit7 : HP Up from Cerulean on the mountain decreased" },
+        { address=0XDA4C, type="u16le", condition="increase", action="HEAL", desc="(16 bit) Party 1 Pokemon's current Health increased" },
+        { address=0XDA4C, type="u16le", condition="decrease", action="HIT", desc="(16 bit) Party 1 Pokemon's current Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD573, type="u24le", condition="increase", action="COIN_GAIN", desc="Money (uppest) increased" },
+        { address=0XD574, type="u8", condition="increase", action="COIN_GAIN", desc="Money (upper) increased" },
+        { address=0XD575, type="u8", condition="increase", action="COIN_GAIN", desc="Money (lower) increased" },
+      },
+    },
+  },
+}

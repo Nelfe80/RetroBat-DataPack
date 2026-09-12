@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "UzeMaze",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "uzemaze",
+    hashes = {
+      { hash = "72e308aa4225abece89211b4234da519", label = "UzeMaze (World) (JimmyDansbo).uze" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X039C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] UI Graphic - Star Left Piece of Select Level Box" },
+        { address=0X039C, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="Star" },
+        { address=0X0EBF, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+      },
+    },
+  },
+}

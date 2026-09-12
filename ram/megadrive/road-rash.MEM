@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Road Rash",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Racing"
+  },
+
+  rom = {
+    name = "road-rash",
+    hashes = {
+      { hash = "543b64ccb26c18edc6c98c12b1302dc0", label = "Road Rash (USA, Europe).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3692, type="u8", condition="change", action="DEMO_MODE", desc="Demo >00" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X050C, type="u8", condition="change", action="NEW_LEVEL", desc="Level 1 -5" },
+      },
+      stage = {
+        { address=0X14BA, type="u8", condition="change", action="RANK_STATE", desc="Player - Race Position" },
+        { address=0X1B40, type="u8", condition="change", action="RANK_STATE", desc="Race Position" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0CD2, type="u8", condition="increase", action="COIN_GAIN", desc="Prize Money? increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EA4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Race Time - Seconds - Player" },
+        { address=0X1EA5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Race Time - Minutes - Player" },
+      },
+    },
+  },
+}

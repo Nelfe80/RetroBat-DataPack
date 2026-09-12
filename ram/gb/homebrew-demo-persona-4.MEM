@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Persona 4",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-persona-4",
+    hashes = {
+      { hash = "f6332c87ab33177b3b8650a9d9500851", label = "Persona 4 (World) (Aftermarket) (Unl) (Demo).gb" },
+    }
+  },
+
+  events = {
+  },
+}

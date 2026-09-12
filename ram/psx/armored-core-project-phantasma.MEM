@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Armored Core: Project Phantasma",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "armored-core-project-phantasma",
+    hashes = {
+      { hash = "c8532b090b3255edce77b1c0598e9865", label = "Armored Core - Project Phantasma (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X4314B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Sortie Selected" },
+        { address=0X4314B, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Completed" },
+        { address=0X4314B, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Leaved/Failure" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X43108, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="Search and Destroy" },
+        { address=0X43108, type="u8", condition="eq", value=0X07, action="OBJECT_DESTROYED", desc="Destroy Main Facility" },
+        { address=0X43108, type="u8", condition="eq", value=0X0D, action="OBJECT_DESTROYED", desc="Destroy Receiving Base" },
+        { address=0X43108, type="u8", condition="eq", value=0X0E, action="OBJECT_DESTROYED", desc="Destroy the Detachment" },
+        { address=0X43108, type="u8", condition="eq", value=0X10, action="OBJECT_DESTROYED", desc="Destroy Secret Base" },
+        { address=0X43141, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Sortie Selected" },
+        { address=0X43141, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Completed" },
+        { address=0X43141, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Leaved/Failure" },
+        { address=0X43147, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Sortie Selected" },
+        { address=0X43147, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Completed" },
+        { address=0X43147, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Leaved/Failure" },
+        { address=0X4314D, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Sortie Selected" },
+        { address=0X4314D, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Completed" },
+        { address=0X4314D, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Leaved/Failure" },
+        { address=0X4314E, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Sortie Selected" },
+        { address=0X4314E, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Completed" },
+        { address=0X4314E, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Leaved/Failure" },
+        { address=0X43150, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Sortie Selected" },
+        { address=0X43150, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Completed" },
+        { address=0X43150, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Leaved/Failure" },
+      },
+    },
+  },
+}

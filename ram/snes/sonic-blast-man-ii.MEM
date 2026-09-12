@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sonic Blast Man II",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "sonic-blast-man-ii",
+    hashes = {
+      { hash = "c955c2388aff8d1b888aaff9567b8d04", label = "Sonic Blast Man II (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0D83, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X004E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1D01, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1D01, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0DB3, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (16-bit)" },
+        { address=0X0DB4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (16-bit) - Millions" },
+      },
+    },
+  },
+}

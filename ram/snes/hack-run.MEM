@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Run!",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-run",
+    hashes = {
+      { hash = "b087746a9dc24b0250fb471f2c24e311", label = "SMW - Run! (v1.01) (AllexGG).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+  },
+}

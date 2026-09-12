@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Christmas",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-christmas",
+    hashes = {
+      { hash = "a1ad086453d4aeb0c375c9757c57318d", label = "Pokemon Gold - Christmas 2014 - Johto + Elite Four (Mateo).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

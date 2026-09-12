@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ FIGHTER on the Path of GLORY",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-fighter-on-the-path-of-glory",
+    hashes = {
+      { hash = "5be268f2761c76de1a0f86efc0f6bd50", label = "Fighter on the Path of Glory (World) (En,Ja) (v1.00) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC530, type="u16le", condition="eq", value=0X6A69, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC530, type="u16le", condition="eq", value=0X6BD1, action="GAME_OVER", desc="Game Over" },
+        { address=0XC530, type="u16le", condition="eq", value=0X7002, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCBA3, type="u16le", condition="change", action="NEW_LEVEL", desc="Current level." },
+        { address=0XCBA3, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Dojo of Beginning" },
+        { address=0XCBA3, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Dark Green Jungle" },
+        { address=0XCBA3, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Thunder Shugyōba" },
+        { address=0XCBB9, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Event-Completed The Underworld." },
+      },
+      zone = {
+        { address=0XC530, type="u16le", condition="eq", value=0X65F8, action="PROGRESSION_ZONE", desc="Level ? - Top of the World" },
+        { address=0XCB9D, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="Event-Unlocked Top of the World." },
+        { address=0XCBA3, type="u16le", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Top of the World" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCB9F, type="u16le", condition="increase", action="HEAL", desc="Player health. increased" },
+        { address=0XCB9F, type="u16le", condition="decrease", action="HIT", desc="Player health. decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCBC3, type="u16le", condition="increase", action="COIN_GAIN", desc="Number of coins collected. Value doesn't reset until another platforming level is loaded. increa" },
+        { address=0XCBCF, type="u16le", condition="increase", action="COIN_GAIN", desc="Event-Collected all coins in Mountain of Oni. increased" },
+        { address=0XCBD1, type="u16le", condition="increase", action="COIN_GAIN", desc="Event-Collected all coins in The Island. increased" },
+        { address=0XCBD3, type="u16le", condition="increase", action="COIN_GAIN", desc="Event-Collected all coins in The Underworld. increased" },
+      },
+    },
+  },
+}

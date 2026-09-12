@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Ball Z: Budokai 2 [Subset - World Tournament]",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "dragon-ball-z-budokai-2-subset-world-tournament",
+    hashes = {
+      { hash = "94e6534230a5a2d60f140759e6b712ed", label = "Dragon Ball Z - Budokai 2 (USA) [Subset - World Tournament]" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X5458EB, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Tournament - Character ID - Slot 1 (8-bit)" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Goku" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Teen Gohan" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Vegeta" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Krillin" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="Trunks" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Piccolo" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X07, action="PROGRESSION_ZONE", desc="Tien" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X08, action="PROGRESSION_ZONE", desc="Yamcha" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X09, action="PROGRESSION_ZONE", desc="Raditz" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X0A, action="PROGRESSION_ZONE", desc="Nappa" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="Captain Ginyu" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X0C, action="PROGRESSION_ZONE", desc="Recoome" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X0F, action="PROGRESSION_ZONE", desc="Frieza" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X10, action="PROGRESSION_ZONE", desc="Android 16" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="Android 17" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X12, action="PROGRESSION_ZONE", desc="Android 18" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X14, action="PROGRESSION_ZONE", desc="Cell" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X15, action="PROGRESSION_ZONE", desc="Hercule" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X18, action="PROGRESSION_ZONE", desc="Great Saiyaman" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X19, action="PROGRESSION_ZONE", desc="Android 20" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1A, action="PROGRESSION_ZONE", desc="Goten" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1B, action="PROGRESSION_ZONE", desc="Kid Trunks" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1C, action="PROGRESSION_ZONE", desc="Gohan" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1D, action="PROGRESSION_ZONE", desc="Majin Buu" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1E, action="PROGRESSION_ZONE", desc="Super Buu" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X1F, action="PROGRESSION_ZONE", desc="Kid Buu" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X20, action="PROGRESSION_ZONE", desc="Dabura" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X21, action="PROGRESSION_ZONE", desc="Videl" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X23, action="PROGRESSION_ZONE", desc="Supreme Kai" },
+        { address=0X5458EB, type="u8", condition="eq", value=0X2F, action="PROGRESSION_ZONE", desc="Super Buu [Gotenks Absorbed]" },
+        { address=0X660C63, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Tournament - Number of Players (8-bit)" },
+      },
+    },
+  },
+}

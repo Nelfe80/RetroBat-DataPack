@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Orion_'s Jaguar Collection",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-orion-s-jaguar-collection",
+    hashes = {
+      { hash = "59e267f9a8946b6c61c133a9bda9d88a", label = "Orion_'s Jaguar Collection (World) (Aftermarket) (Unl).j64" },
+    }
+  },
+
+  events = {
+  },
+}

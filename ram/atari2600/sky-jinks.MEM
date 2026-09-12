@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sky Jinks",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action, Racing, Driving"
+  },
+
+  rom = {
+    name = "sky-jinks",
+    hashes = {
+      { hash = "2a0ba55e56e7a596146fa729acf0e109", label = "Sky Jinks (USA).a26" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X001D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="(8-bit) Game Mode & Pylon Counter" },
+        { address=0X001D, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Game 1" },
+        { address=0X001D, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="Game 2" },
+        { address=0X001D, type="u8", condition="eq", value=0X03, action="GENERAL_TIMER", desc="Game 3" },
+        { address=0X001D, type="u8", condition="eq", value=0X04, action="GENERAL_TIMER", desc="Game 4" },
+        { address=0X001D, type="u8", condition="eq", value=0X05, action="GENERAL_TIMER", desc="Game 5" },
+      },
+    },
+  },
+}

@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cube Droid Holiday Special",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cube-droid-holiday-special",
+    hashes = {
+      { hash = "f763bb7ac109f205c1484348c676422b", label = "Cube Droid Holiday Special (2024) (MSX2) (bitsofbas).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0016, type="u8", condition="eq", value=0X07, action="GAME_PLAYING", desc="in-level, moving" },
+        { address=0X0016, type="u8", condition="eq", value=0X10, action="GAME_PLAYING", desc="in-level, stopped" },
+        { address=0X0016, type="u8", condition="eq", value=0X22, action="GAME_PLAYING", desc="select starting level" },
+        { address=0X001D, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Title Card" },
+        { address=0X001D, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="Story" },
+        { address=0X001D, type="u8", condition="eq", value=0X3, action="TITLE_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X01F0, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level [8 bit]" },
+        { address=0X01F4, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Level Ended" },
+      },
+      stage = {
+        { address=0X035A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Round Active [8 bit]" },
+        { address=0X035A, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Round Starting" },
+        { address=0X035A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="In Game" },
+        { address=0X035A, type="u8", condition="eq", value=0XFF, action="PROGRESSION_STAGE", desc="Out of Game (victory, loading)" },
+      },
+    },
+  },
+}

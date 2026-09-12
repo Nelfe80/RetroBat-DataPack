@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: X-Fusion",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-x-fusion",
+    hashes = {
+      { hash = "9868727818a1717d034befdcd14f8cd7", label = "Super Metroid - X-Fusion (v1.3) (En,Ja,Fr,De,Es,It,Pt,Zh,Ru) (Metaquarius).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X09C2, type="u16le", condition="increase", action="HEAL", desc="Current Quantity of Health (HP) increased" },
+        { address=0X09C2, type="u16le", condition="decrease", action="HIT", desc="Current Quantity of Health (HP) decreased" },
+        { address=0X09C4, type="u16le", condition="increase", action="HEAL", desc="Maximum Quantity of Health (HP) increased" },
+        { address=0X09C4, type="u16le", condition="decrease", action="HIT", desc="Maximum Quantity of Health (HP) decreased" },
+        { address=0X0F8C, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy0 HP" },
+        { address=0XD872, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", no_log=true, desc="Energy Tank 1-1" },
+        { address=0XD874, type="u8", condition="bit_true", mask=0X10, action="HEALTH_STATE", no_log=true, desc="Energy Tank 2-1" },
+        { address=0XD877, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", no_log=true, desc="Energy Tank 3-1" },
+        { address=0XD878, type="u8", condition="bit_true", mask=0X20, action="HEALTH_STATE", no_log=true, desc="Energy Tank 4-1" },
+        { address=0XD87A, type="u8", condition="bit_true", mask=0X20, action="HEALTH_STATE", no_log=true, desc="Energy Tank 5-1" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X099E, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="inactive" },
+        { address=0X099E, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="active" },
+        { address=0X09FC, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Zero Suit active" },
+        { address=0XD82E, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Varia Suit collected" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X09C6, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Current Ammount of Missiles" },
+        { address=0X09C8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Maximum Ammount of Missiles" },
+        { address=0X09D4, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Reserve Tanks?" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0FAA, type="u16le", condition="eq", value=0X00, action="BOSS_HIT", desc="boss inactive" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09A3, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Super Jump" },
+        { address=0X09A3, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Space Jump" },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Super Jump collected" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0F8C, type="u16le", condition="eq", value=0XFFFF, action="OBJECT_DESTROYED", desc="when destroying an core-x" },
+        { address=0X0F92, type="u16le", condition="eq", value=0X8E45, action="OBJECT_INTERACTION", desc="start form" },
+        { address=0X0F92, type="u16le", condition="eq", value=0X8FB5, action="OBJECT_INTERACTION", desc="2nd form" },
+        { address=0X0F92, type="u16le", condition="eq", value=0X9011, action="OBJECT_INTERACTION", desc="core" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0945, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Displayed Timer [BCD] - Milliseconds" },
+        { address=0X0946, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Displayed Timer [BCD] - Seconds" },
+        { address=0X0947, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Displayed Timer [BCD] - Minutes" },
+        { address=0X09DC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Ingame Timer - Seconds" },
+        { address=0X09DE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Ingame Timer - Minutes" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Loopover",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-loopover",
+    hashes = {
+      { hash = "9c30e805df83892f57d3a6f85bed7867", label = "Loopover (World) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X5109C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[32 Bit] Timer" },
+      },
+    },
+  },
+}

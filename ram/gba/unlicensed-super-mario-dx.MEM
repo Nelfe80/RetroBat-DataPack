@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Super Mario DX",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-super-mario-dx",
+    hashes = {
+      { hash = "a6e8aa4c79ad8c68922c749ab7de7829", label = "Chaoji Maliou DX (Taiwan) (Unl).gba" },
+      { hash = "b32cb8feed35b03fd6a49d50dc9223c7", label = "Mario DX (USA) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7ECC, type="u32le", condition="eq", value=0X04000000, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X5000, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X5000, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Deep In Dark City" },
+        { address=0X5000, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Blue Gorge" },
+        { address=0X5000, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Green Hillside" },
+        { address=0X5000, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Riddle of Happy Gorge" },
+        { address=0X5000, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="The End" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X5000, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Blue Gorge boss" },
+        { address=0X5000, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Riddle of Happy Gorge boss" },
+      },
+    },
+  },
+}

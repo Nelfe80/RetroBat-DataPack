@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Westen House",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-westen-house",
+    hashes = {
+      { hash = "391911b3d3303431c6eb244dc009d88e", label = "Westen House (World) (v1.3.1) (Aftermarket) (Unl).rom" },
+      { hash = "92dbc61b396804f24f6ac230a81fc57c", label = "Westen House (World) (Es) (v1.3.1) (Aftermarket) (Unl).rom" },
+      { hash = "f7c02d92ac0045270f42cdca5c196332", label = "Westen House (World) (Pt) (v1.3.1) (Aftermarket) (Unl).rom" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X2EC9, type="u16le", condition="eq", value=0X02, action="MONEY_STATE", desc="gold key" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2EEF, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="closed" },
+        { address=0X2EEF, type="u8", condition="bit_true", mask=0X02, action="DOOR_OPENED", desc="open" },
+        { address=0X2F0C, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="pentagram door seen but closed" },
+        { address=0X2F0C, type="u8", condition="eq", value=0X02, action="DOOR_OPENED", desc="pentagram door open" },
+        { address=0X2F15, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="door closed" },
+        { address=0X2F15, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="door open" },
+        { address=0X2F16, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="door closed" },
+        { address=0X2F16, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="door open" },
+        { address=0X2F17, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="door closed" },
+        { address=0X2F17, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="door open" },
+      },
+    },
+  },
+}

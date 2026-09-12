@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Nakoruru: Ano Hito kara no Okurimono",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "nakoruru-ano-hito-kara-no-okurimono",
+    hashes = {
+      { hash = "710963461fcb3c5ca76cdd758e097744", label = "Nakoruru - Ano Hito kara no Okurimono (Japan) (En) (v1.2) (Derek Pascarella)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8B5F4, type="u8", condition="change", action="NEW_LEVEL", desc="Minigame level" },
+      },
+    },
+  },
+}

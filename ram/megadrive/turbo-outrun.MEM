@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Turbo OutRun",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "turbo-outrun",
+    hashes = {
+      { hash = "32fb1f12205e350cfe2bb66616043b59", label = "Turbo OutRun (Japan, Europe) (En).md" },
+    }
+  },
+
+  events = {
+  },
+}

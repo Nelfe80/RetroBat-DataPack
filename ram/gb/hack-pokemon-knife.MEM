@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Knife",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-knife",
+    hashes = {
+      { hash = "6f24694fa92a41bbe22d385b322ca1a1", label = "Pokemon Red - Knife (v1.0) (Z80a).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XD16C, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 Current HP increased" },
+        { address=0XD16C, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 Current HP decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Worms 4: Mayhem",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "worms-4-mayhem",
+    hashes = {
+      { hash = "d476cb861d1d4127b3940695061dc1b8", label = "Worms 4 - Mayhem (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XF3B624, type="u32le", condition="change", action="HIT", desc="Silver Damage" },
+        { address=0XF3B638, type="u32le", condition="change", action="HIT", desc="Bronze Damage" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XF3B634, type="u32le", condition="change", action="WEAPON_STATE", desc="Weapon Specialist" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XF09AEC, type="u32le", condition="increase", action="COIN_GAIN", desc="[32-bits] Item Shop - Coins increased" },
+      },
+    },
+  },
+}

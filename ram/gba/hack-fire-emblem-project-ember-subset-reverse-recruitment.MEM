@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Project Ember [Subset - Reverse Recruitment]",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-project-ember-subset-reverse-recruitment",
+    hashes = {
+      { hash = "5c8332940eba2d9ccf36a1ed4b0800dc", label = "FE6 - Project Ember (MM) (v1.85) (Brunhilda)[Subset - Reverse Recruitment].gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X32B89, type="u8", condition="increase", action="HEAL", desc="[8 Bit] - Current HP - Character 1 increased" },
+        { address=0X32B89, type="u8", condition="decrease", action="HIT", desc="[8 Bit] - Current HP - Character 1 decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X32A50, type="u16le", condition="increase", action="COIN_GAIN", desc="[16 Bit] Gold increased" },
+      },
+    },
+  },
+}

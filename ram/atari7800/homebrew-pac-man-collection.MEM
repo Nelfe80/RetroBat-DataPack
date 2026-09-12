@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pac-Man Collection",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-pac-man-collection",
+    hashes = {
+      { hash = "8338eca612eedf6ddec57d54942863e7", label = "Pac-Man 7800 (USA) (v1.0a) (Bob DeCrescenzo).a78" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,468 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "kchamp",
+  "game_name": "Karate Champ (US)",
+  "meta": {
+    "players": 2,
+    "alternating": 0,
+    "mirrored": 1,
+    "tilt": 0,
+    "cocktail": 1,
+    "uses_service": 0,
+    "misc_details": "This game is the very first \\'street fighter\\' style game.  The controls on it are a tad odd.  Instead of a joystick and an array of buttons, you have two joysticks.  These joysticks don\\'t have any labels and merely have arrow directions printed on the overlay.  The left joystick controls movement while the right determines the type of attack.  Different attack directions while in different positions perform different moves.  Luckily, the game tutors you on moves during the first round.    It should be noted that this game comes in one and two player versions."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Dual 4-way Joysticks",
+          "type": "double_joystick_4way",
+          "raw": "Dual 4-way Joysticks+doublejoy4way",
+          "codes": [
+            "doublejoy4way"
+          ],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "kchamp",
+            "tag": "SYSTEM",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x4",
+            "defvalue_int": 4,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":SYSTEM",
+            "cfg_tag": ":SYSTEM",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":SYSTEM",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 4,
+            "defvalue_hex": "0x0004",
+            "runtime_tag": ":SYSTEM",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "kchamp",
+            "tag": "SYSTEM",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":SYSTEM",
+            "cfg_tag": ":SYSTEM",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":SYSTEM",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":SYSTEM",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {},
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Dual 4-way Joysticks",
+          "type": "double_joystick_4way",
+          "raw": "Dual 4-way Joysticks+doublejoy4way",
+          "codes": [
+            "doublejoy4way"
+          ],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "START2",
+            "input_id": "START2",
+            "label": "2 Players Start",
+            "function": "2_players_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "kchamp",
+            "tag": "SYSTEM",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "2 Players Start",
+            "mame_type": "8",
+            "mame_tag": ":SYSTEM",
+            "cfg_tag": ":SYSTEM",
+            "input_label": "2 Players Start",
+            "input_function": "2_players_start",
+            "type": "START2",
+            "normalized_type": "START2",
+            "tag_raw": ":SYSTEM",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":SYSTEM",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN2",
+            "input_id": "COIN2",
+            "label": "Coin 2",
+            "function": "coin_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "kchamp",
+            "tag": "SYSTEM",
+            "mask": "0x2",
+            "mask_int": 2,
+            "defvalue": "0x2",
+            "defvalue_int": 2,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 2",
+            "mame_type": "18",
+            "mame_tag": ":SYSTEM",
+            "cfg_tag": ":SYSTEM",
+            "input_label": "Coin 2",
+            "input_function": "coin_2",
+            "type": "COIN2",
+            "normalized_type": "COIN2",
+            "tag_raw": ":SYSTEM",
+            "mask_dec": 2,
+            "mask_hex": "0x0002",
+            "defvalue_dec": 2,
+            "defvalue_hex": "0x0002",
+            "runtime_tag": ":SYSTEM",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {},
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Keep the Balance",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "keep-the-balance",
+    hashes = {
+      { hash = "d5161ed7380af488b22302691c9a33cd", label = "Keep the Balance (Europe) (En,Fr,De,Es,It).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

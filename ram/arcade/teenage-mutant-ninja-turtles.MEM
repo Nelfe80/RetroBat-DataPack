@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Teenage Mutant Ninja Turtles",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "teenage-mutant-ninja-turtles",
+    hashes = {
+      { hash = "344f706dd7fa89df2b38166b5f300c48", label = "tmnt.7z <Teenage Mutant Ninja Turtles (World 4 Players, version X)>" },
+      { hash = "d77085d7b7027441353a78779dd69c17", label = "tmnt2pj.7z <Teenage Mutant Ninja Turtles (Japan 2 Players, version 1)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0002, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="GamePlay" },
+        { address=0X0002, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="RAM-Check Off / Starting Menu" },
+        { address=0X0002, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Song Intro" },
+        { address=0X0002, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0002, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="DEMO MODE" },
+        { address=0X0002, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Turtle Info(any)" },
+        { address=0X0002, type="u8", condition="eq", value=0X06, action="DEMO_MODE", desc="High Score Screen" },
+        { address=0X0002, type="u8", condition="eq", value=0X07, action="DEMO_MODE", desc="Not seen" },
+        { address=0X0002, type="u8", condition="eq", value=0X08, action="DEMO_MODE", desc="National Warning Screen" },
+        { address=0X0004, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title / Turtle Select" },
+        { address=0X0004, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Stage-Title-Text" },
+        { address=0X0004, type="u8", condition="eq", value=0X07, action="GAME_OVER", desc="Game Over Countdown" },
+        { address=0X00B2, type="u8", condition="change", action="GAME_OVER", desc="Usually 00, becomes 01 when GAME OVER" },
+        { address=0X0129, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Leonardo" },
+        { address=0X0129, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Michelangelo" },
+        { address=0X0129, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Donatello" },
+        { address=0X0129, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="Raphael" },
+        { address=0X0129, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Splinter" },
+        { address=0X0129, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="April" },
+        { address=0X0321, type="u8", condition="change", action="CREDITS_SCREEN", desc="Current amount of credits added." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0121, type="u8", condition="change", action="LEVEL_CLEAR", desc="Duplicate of 0x120, but it clears back to 0 on Turtle-Select Screen" },
+      },
+      stage = {
+        { address=0X0004, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage Gameplay" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0091, type="u8", condition="increase", action="GAIN_LIFE", desc="Core-Setting Max Lives, Verbatim, increased" },
+        { address=0X0091, type="u8", condition="decrease", action="LOSE_LIFE", desc="Core-Setting Max Lives, Verbatim, decreased" },
+        { address=0X0100, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0100, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X2009, type="u8", condition="change", action="LOSE_LIFE", desc="Player 1 HP, starts at 0x0a, dies at 0x00," },
+        { address=0X60101, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+      health = {
+        { address=0X62008, type="u8", condition="decrease", action="HIT", desc="player1_die: energy" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X60104, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X0302, type="u8", condition="increase", action="COIN_GAIN", desc="Core-Settings Coins Slot A: increased" },
+        { address=0X0305, type="u8", condition="increase", action="COIN_GAIN", desc="Core-Settings Credits Slot A: increased" },
+        { address=0X030A, type="u8", condition="increase", action="COIN_GAIN", desc="Core-Settings Coins Slot B: increased" },
+        { address=0X030D, type="u8", condition="increase", action="COIN_GAIN", desc="Core-Settings Credits Slot B: increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0004, type="u8", condition="eq", value=0X05, action="BOSS_DEFEATED", desc="Boss Defeated or Move to next Room" },
+        { address=0X2435, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP - Krang" },
+        { address=0X2468, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP - Real Shredder" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0007, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Game Over countdown timer, Hex" },
+        { address=0X34A5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Countdown Timer on Turtle Select" },
+      },
+    },
+  },
+}

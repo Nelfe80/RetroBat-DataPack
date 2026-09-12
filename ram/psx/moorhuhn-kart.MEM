@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Moorhuhn Kart",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "moorhuhn-kart",
+    hashes = {
+      { hash = "4d41bcfa3996c1813e109f31e32e543c", label = "Moorhuhn Kart (Germany)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7B958, type="u16le", condition="eq", value=0X10, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X7BABC, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Pausing" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X7BBF4, type="u16le", condition="change", action="RANK_STATE", desc="[16 Bit] Current Position" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X7B958, type="u16le", condition="eq", value=0X07, action="SCORE_STATE", desc="High Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7BA98, type="u16le", condition="eq", value=0X00, action="DOOR_OPENED", desc="Outdoor" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7BE1C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[16 Bit] Main Menu Modes Highlighted" },
+        { address=0X7BE1C, type="u16le", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Kart Duel (Ghost Times)" },
+        { address=0X7BE20, type="u16le", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[16 Bit] Game Mode Highlighted" },
+        { address=0X7BE20, type="u16le", condition="eq", value=0X00, action="GENERAL_TIMER", desc="Time Trial" },
+        { address=0X832FC, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32 Bit] Current Lap Time" },
+        { address=0X83304, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32 Bit] Total Time" },
+      },
+    },
+  },
+}

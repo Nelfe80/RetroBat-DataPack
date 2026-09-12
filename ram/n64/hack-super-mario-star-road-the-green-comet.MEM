@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Star Road: The Green Comet",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-star-road-the-green-comet",
+    hashes = {
+      { hash = "8b3e4a4924215fea7394e840d9ddc055", label = "SM64 - Super Mario Star Road - The Green Comet (v1.3) (English) (biobak).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20770B, type="u8", condition="change", action="NEW_LEVEL", desc="File A - Overworld Progression" },
+        { address=0X20770B, type="u8", condition="eq", value=0X3F, action="NEW_LEVEL", desc="All Overworld Stars Collected (6 total)" },
+        { address=0X20777B, type="u8", condition="change", action="NEW_LEVEL", desc="File B - Overworld Progression" },
+        { address=0X20777B, type="u8", condition="eq", value=0X3F, action="NEW_LEVEL", desc="All Overworld Stars Collected (6 total)" },
+        { address=0X2077EB, type="u8", condition="change", action="NEW_LEVEL", desc="File C - Overworld Progression" },
+        { address=0X20785B, type="u8", condition="change", action="NEW_LEVEL", desc="File D - Overworld Progression" },
+      },
+      stage = {
+        { address=0X20771C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File A - Creepy Cave (Metal Cap Stage)" },
+        { address=0X207722, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File A - Abandoned Factory (Vanish Cap Stage)" },
+        { address=0X207723, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File A - Windy Docks (Wing Cap Stage)" },
+        { address=0X207792, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File B - Abandoned Factory (Vanish Cap Stage)" },
+        { address=0X207793, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File B - Windy Docks (Wing Cap Stage)" },
+        { address=0X2077FC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File C - Creepy Cave (Metal Cap Stage)" },
+        { address=0X207802, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File C - Abandoned Factory (Vanish Cap Stage)" },
+        { address=0X207803, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File C - Windy Docks (Wing Cap Stage)" },
+        { address=0X207873, type="u8", condition="change", action="PROGRESSION_STAGE", desc="File D - Windy Docs (Wing Cap Stage)" },
+        { address=0X32DD87, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Collected Star in a Stage" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X1303, action="PROGRESSION_STAGE", desc="Star Collected (in Stage)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0211, action="LOSE_LIFE", desc="Death Animation (0 Health)" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0267, action="LOSE_LIFE", desc="Respawning (Death)" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death" },
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="'Comet' Coins (Lives Count) increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="'Comet' Coins (Lives Count) decreased" },
+      },
+      health = {
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0260, action="HIT", desc="Massive Fall Damage" },
+        { address=0X33B21D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health left" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X08, action="HEALTH_STATE", no_log=true, desc="Full" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X22333C, type="u8", condition="eq", value=0X95, action="COIN_GAIN", desc="Comet Coin Collected" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+        { address=0X33CEB4, type="u8", condition="eq", value=0XA8, action="COIN_GAIN", desc="Comet Coin Collected (River)" },
+        { address=0X342550, type="u8", condition="eq", value=0X68, action="COIN_GAIN", desc="Both Comet Coins collected (OoB Coins excluded)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0270, action="JUMPING", no_log=true, no_survey=true, desc="Landing from a Jump" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0280, action="JUMPING", no_log=true, no_survey=true, desc="Single Jump" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0281, action="JUMPING", no_log=true, no_survey=true, desc="Double Jump" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0282, action="JUMPING", no_log=true, no_survey=true, desc="Triple Jump" },
+      },
+    },
+  },
+}

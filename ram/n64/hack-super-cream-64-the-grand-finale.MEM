@@ -1,0 +1,93 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Cream 64: The Grand Finale",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-cream-64-the-grand-finale",
+    hashes = {
+      { hash = "32c9ecaf28df905e7ac68c8041620d49", label = "SM64 - Super Cream 64 - The Grand Finale (SAGE 2022) (Gamebun).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X391D4, type="u8", condition="eq", value=0X60, action="PAUSE_ON", desc="pause" },
+        { address=0X67A37, type="u8", condition="eq", value=0X0, action="PAUSE_ON", desc="continue" },
+        { address=0X67A37, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="exit course" },
+        { address=0X88915, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Everything else" },
+        { address=0X88915, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo (End Credits)" },
+        { address=0X1A63CE, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="pause" },
+        { address=0X1A89DE, type="u8", condition="eq", value=0XA7, action="CREDITS_SCREEN", desc="Welcome/credits" },
+        { address=0X1A89DE, type="u8", condition="eq", value=0XF0, action="CREDITS_SCREEN", desc="Texture credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X593B49, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X593B49, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Mission Street" },
+        { address=0X593B49, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Snow level" },
+        { address=0X593B49, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Golf Course" },
+        { address=0X593B4A, type="u8", condition="change", action="NEW_LEVEL", desc="This can apply to all levels but I'm going to use it for the final level" },
+        { address=0X593B4A, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="End game" },
+        { address=0X593B4A, type="u8", condition="eq", value=0XC3, action="NEW_LEVEL", desc="Final Encounter" },
+      },
+      stage = {
+        { address=0X391D4, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="In stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFA490, type="u8", condition="change", action="LOSE_LIFE", desc="Star Get Flag that doesn't go to 1 at death" },
+        { address=0X1D8962, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1D8962, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X1D8A1E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives in code increased" },
+        { address=0X1D8A1E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives in code decreased" },
+      },
+      health = {
+        { address=0X1B3ABC, type="u8", condition="increase", action="HEAL", desc="Eggmans health increased" },
+        { address=0X1B3ABC, type="u8", condition="decrease", action="HIT", desc="Eggmans health decreased" },
+        { address=0X1D8964, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X1D8964, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X1D8A1D, type="u8", condition="increase", action="HEAL", desc="Health in code increased" },
+        { address=0X1D8A1D, type="u8", condition="decrease", action="HIT", desc="Health in code decreased" },
+        { address=0X1D8A25, type="u8", condition="decrease", action="HIT", desc="Creams Powerup flag decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1A89DE, type="u8", condition="eq", value=0XD2, action="TREASURE", desc="Emerald Theater Lady" },
+        { address=0X1A89DE, type="u8", condition="eq", value=0XD4, action="TREASURE", desc="Emerald Theater Chao" },
+        { address=0X1D8A25, type="u8", condition="eq", value=0X2, action="DYNAMIC_INVENTORY", desc="Vanish cap" },
+        { address=0X1D8A25, type="u8", condition="eq", value=0X6, action="DYNAMIC_INVENTORY", desc="Wing cap" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1BA76C, type="u8", condition="increase", action="COIN_GAIN", desc="Winter Park Carnival Blue Rings increased" },
+        { address=0X1BAE8C, type="u8", condition="increase", action="COIN_GAIN", desc="Mission Street Blue Rings increased" },
+        { address=0X1BCD6C, type="u8", condition="increase", action="COIN_GAIN", desc="Golf Course Blue Rings increased" },
+        { address=0X1D8960, type="u16be", condition="increase", action="COIN_GAIN", desc="Rings increased" },
+        { address=0X1D8966, type="u8", condition="increase", action="COIN_GAIN", desc="Red Rings (Stars) increased" },
+        { address=0X1D8A18, type="u8", condition="increase", action="COIN_GAIN", desc="Red rings (stars) in code increased" },
+        { address=0X1D8A1A, type="u8", condition="increase", action="COIN_GAIN", desc="Rings in code increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7FED80, type="u8", condition="eq", value=0X50, action="OBJECT_INTERACTION", desc="Blue switch pressed" },
+        { address=0X7FED80, type="u8", condition="eq", value=0X90, action="OBJECT_INTERACTION", desc="Red switch pressed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1A89DE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="What CPU you're talking to and their dialouge" },
+      },
+    },
+  },
+}

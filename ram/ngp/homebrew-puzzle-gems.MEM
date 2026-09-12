@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Puzzle Gems",
+    system = "ngp",
+    system_name = "Neo Geo Pocket",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-puzzle-gems",
+    hashes = {
+      { hash = "04a35a8f274479a061b88bdeee8ee6d4", label = "Puzzle Gems (World) (v1.1) (Aftermarket) (Unl).ngc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u16le", condition="eq", value=0X994, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

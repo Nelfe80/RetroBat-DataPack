@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wirehead",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "wirehead",
+    hashes = {
+      { hash = "e7dee36b4e4a518cc8fc7a5348c4f777", label = "WireHead (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X5ADA, type="u8", condition="increase", action="GAIN_LIFE", desc="Remaining life display increased" },
+        { address=0X5ADA, type="u8", condition="decrease", action="LOSE_LIFE", desc="Remaining life display decreased" },
+      },
+    },
+  },
+}

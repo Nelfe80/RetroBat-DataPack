@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Niñoid",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-ninoid",
+    hashes = {
+      { hash = "57b46220d280a9fb225abacc9e1a592f", label = "Niñoid (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

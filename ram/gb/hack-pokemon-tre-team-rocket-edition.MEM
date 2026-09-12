@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon TRE: Team Rocket Edition",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-tre-team-rocket-edition",
+    hashes = {
+      { hash = "efe1fffe2bc6d4bc792a7f963d5738dd", label = "Pokemon Red - Pokemon TRE - Team Rocket Edition (v1.0) (PokeGlitch).gb" },
+    }
+  },
+
+  events = {
+  },
+}

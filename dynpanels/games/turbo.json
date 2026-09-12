@@ -1,0 +1,599 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "turbo",
+  "game_name": "Turbo",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": "The shifter doesn\u0027t appear to work properly.  The lo button seems to act more like a brake than anything else even though the game doesn\u0027t have a brake.  The hi button toggles gears."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "360 Steering Wheel",
+          "type": "dial",
+          "raw": "360 Steering Wheel\u002Bdial",
+          "codes": [
+            "dial"
+          ],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D2",
+          "label": "High-Low Shifter",
+          "type": "shifter",
+          "raw": "High-Low Shifter\u002Bbutton\u002BP1_BUTTON2\u0026P1_BUTTON3",
+          "codes": [
+            "button",
+            "P1_BUTTON2\u0026P1_BUTTON3"
+          ],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        },
+        {
+          "id": "D3",
+          "label": "Pedal (Microswitch)",
+          "type": "pedal",
+          "raw": "Pedal (Microswitch)\u002Bbutton\u002BP1_BUTTON1",
+          "codes": [
+            "button",
+            "P1_BUTTON1"
+          ],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "turbo",
+            "tag": "IN0",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN0",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "turbo",
+            "tag": "IN0",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN0",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "lamp",
+          "label": "Lamp",
+          "function": "lamp",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp"
+          ],
+          "group": "",
+          "usage": "",
+          "player": null,
+          "index": null,
+          "panel_index": null,
+          "color": "Gray",
+          "side": "",
+          "id": "lamp#1",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Accelerate",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Button 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Lo",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {},
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Button 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "Hi",
+          "color": "Green",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON3",
+            "input_id": "P1_BUTTON3",
+            "label": "Gear Shift",
+            "function": "gear_shift",
+            "control_type": "shifter",
+            "joystick_way": "",
+            "port_block": "turbo",
+            "tag": "IN0",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_BUTTON3",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": true,
+            "condition": "",
+            "mame_label": "Gear Shift",
+            "mame_type": "62",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "Gear Shift",
+            "input_function": "gear_shift",
+            "type": "BUTTON3",
+            "normalized_type": "BUTTON3",
+            "tag_raw": ":IN0",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Button 3",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_DIAL",
+          "input": "DIAL",
+          "label": "Dial",
+          "function": "dial",
+          "short": "DIAL",
+          "color": "Blue",
+          "output": "",
+          "mame": {
+            "input": "DIAL",
+            "input_id": "P1_DIAL",
+            "label": "Dial",
+            "function": "dial",
+            "control_type": "dial",
+            "joystick_way": "",
+            "port_block": "turbo",
+            "tag": "DIAL",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0",
+            "ipt": "IPT_DIAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 50,
+            "keydelta": 10,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Dial",
+            "mame_type": "161",
+            "mame_tag": ":DIAL",
+            "cfg_tag": ":DIAL",
+            "input_label": "Dial",
+            "input_function": "dial",
+            "type": "DIAL",
+            "normalized_type": "DIAL",
+            "tag_raw": ":DIAL",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":DIAL",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_PEDAL",
+          "input": "PEDAL",
+          "label": "P1 Pedal 1",
+          "function": "p1_pedal_1",
+          "short": "P1 ",
+          "color": "Blue",
+          "output": "",
+          "mame": {
+            "input": "PEDAL",
+            "input_id": "P1_PEDAL",
+            "label": "P1 Pedal 1",
+            "function": "p1_pedal_1",
+            "control_type": "pedal",
+            "joystick_way": "",
+            "port_block": "turbo",
+            "tag": "PEDAL",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0",
+            "ipt": "IPT_PEDAL",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 100,
+            "keydelta": 20,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Pedal 1",
+            "mame_type": "153",
+            "mame_tag": ":PEDAL",
+            "cfg_tag": ":PEDAL",
+            "input_label": "P1 Pedal 1",
+            "input_function": "p1_pedal_1",
+            "type": "PEDAL",
+            "normalized_type": "PEDAL",
+            "tag_raw": ":PEDAL",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":PEDAL",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:28:49.7989835Z",
+      "matched_by_name": 0,
+      "matched_by_order": 3
+    }
+  }
+}

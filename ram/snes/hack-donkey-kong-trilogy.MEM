@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong Trilogy",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-trilogy",
+    hashes = {
+      { hash = "3bdb608264394d5a687201b9926bdeaa", label = "SMW - Donkey Kong 2 - The Rise of Jumpman! (v1.0) (Big Brawler).sfc" },
+      { hash = "cad75863d22d9eb3078e9917db0d69e4", label = "SMW - Donkey Kong 1 - Jumpman Returns (v1.0) (Big Brawler).sfc" },
+      { hash = "f1b1e3536c00d1b81531c6fbc83c70bf", label = "SMW - Donkey Kong 3 - Another Rise! (v1.3) (Big Brawler).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

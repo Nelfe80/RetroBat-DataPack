@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Jeff's No. 1 Bass Fishing",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-jeffs-no-1-bass-fishing",
+    hashes = {
+      { hash = "724ce2b5833dd0cabd37b7a071e6573e", label = "EarthBound (USA) - Jeff's #1 Bass Fishing (v2.0) (Reg, Starmen.net).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X99D3, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X99D8, type="u16le", condition="increase", action="HEAL", desc="16 Bit - Max HP increased" },
+        { address=0X99D8, type="u16le", condition="decrease", action="HIT", desc="16 Bit - Max HP decreased" },
+        { address=0X9A13, type="u8", condition="increase", action="HEAL", desc="rolling HP increased" },
+        { address=0X9A13, type="u8", condition="decrease", action="HIT", desc="rolling HP decreased" },
+        { address=0X9A15, type="u16le", condition="increase", action="HEAL", desc="16 Bit - Current HP increased" },
+        { address=0X9A15, type="u16le", condition="decrease", action="HIT", desc="16 Bit - Current HP decreased" },
+        { address=0X9A96, type="u8", condition="increase", action="HEAL", desc="Jeff's HP increased" },
+        { address=0X9A96, type="u8", condition="decrease", action="HIT", desc="Jeff's HP decreased" },
+        { address=0XA22F, type="u8", condition="increase", action="HEAL", desc="Enemy 1 Health increased" },
+        { address=0XA22F, type="u8", condition="decrease", action="HIT", desc="Enemy 1 Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X99D4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="32 Bit - Amound of Exp Points" },
+      },
+    },
+  },
+}

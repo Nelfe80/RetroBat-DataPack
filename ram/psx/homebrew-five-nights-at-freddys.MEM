@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Five Nights at Freddy's",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-five-nights-at-freddys",
+    hashes = {
+      { hash = "095fb925d59be46a03d3230bcdc5d7d7", label = "Five Nights at Freddy's (World) (v1.3.0a) (Aftermarket) (Soeiz)" },
+      { hash = "35dd60741748f817094cdd5792452660", label = "Five Nights at Freddy's (World) (v1.3.0b) (Aftermarket) (Soeiz)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1A32B0, type="u32le", condition="change", action="NEW_LEVEL", desc="AI Level: Foxy" },
+        { address=0X1A32C0, type="u32le", condition="change", action="NEW_LEVEL", desc="AI Level: Chica" },
+        { address=0X1A32CC, type="u32le", condition="change", action="NEW_LEVEL", desc="AI Level: Bonnie" },
+        { address=0X1A32E4, type="u32le", condition="change", action="NEW_LEVEL", desc="AI Level: Freddy" },
+      },
+    },
+  },
+}

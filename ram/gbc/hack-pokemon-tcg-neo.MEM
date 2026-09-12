@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon TCG Neo",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-tcg-neo",
+    hashes = {
+      { hash = "f41d48344cea1846a014820aae02d73f", label = "Pokemon Trading Card Game - TCG Neo (v1.11) (Cataclyptic).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0XD32E, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Map Building ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XA101, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="1 when not obtained" },
+        { address=0XA102, type="u8", condition="increase", action="HEAL", desc="E02 - Fire Energy increased" },
+        { address=0XA102, type="u8", condition="decrease", action="HIT", desc="E02 - Fire Energy decreased" },
+        { address=0XA103, type="u8", condition="increase", action="HEAL", desc="E03 - Water Energy increased" },
+        { address=0XA103, type="u8", condition="decrease", action="HIT", desc="E03 - Water Energy decreased" },
+        { address=0XA104, type="u8", condition="increase", action="HEAL", desc="E04 - Lightning Energy increased" },
+        { address=0XA104, type="u8", condition="decrease", action="HIT", desc="E04 - Lightning Energy decreased" },
+        { address=0XA105, type="u8", condition="increase", action="HEAL", desc="E05 - Fighting Energy increased" },
+        { address=0XA105, type="u8", condition="decrease", action="HIT", desc="E05 - Fighting Energy decreased" },
+        { address=0XA106, type="u8", condition="increase", action="HEAL", desc="E06 - Physic Energy increased" },
+        { address=0XA106, type="u8", condition="decrease", action="HIT", desc="E06 - Physic Energy decreased" },
+        { address=0XA107, type="u8", condition="increase", action="HEAL", desc="E07 - Double Colorless Energy increased" },
+        { address=0XA107, type="u8", condition="decrease", action="HIT", desc="E07 - Double Colorless Energy decreased" },
+        { address=0XA1CD, type="u8", condition="increase", action="HEAL", desc="A51 - Energy Retrieval increased" },
+        { address=0XA1CD, type="u8", condition="decrease", action="HIT", desc="A51 - Energy Retrieval decreased" },
+        { address=0XA1CE, type="u8", condition="increase", action="HEAL", desc="B45 - Super Energy Retrieval increased" },
+        { address=0XA1CE, type="u8", condition="decrease", action="HIT", desc="B45 - Super Energy Retrieval decreased" },
+        { address=0XA1CF, type="u8", condition="increase", action="HEAL", desc="A52 - Energy Search increased" },
+        { address=0XA1CF, type="u8", condition="decrease", action="HIT", desc="A52 - Energy Search decreased" },
+        { address=0XA1D0, type="u8", condition="increase", action="HEAL", desc="A53 - Energy Removal increased" },
+        { address=0XA1D0, type="u8", condition="decrease", action="HIT", desc="A53 - Energy Removal decreased" },
+        { address=0XC242, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", desc="Fire Energy" },
+        { address=0XC2C8, type="u8", condition="increase", action="HEAL", desc="Player - Active Pokemon HP increased" },
+        { address=0XC2C8, type="u8", condition="decrease", action="HIT", desc="Player - Active Pokemon HP decreased" },
+        { address=0XC3C8, type="u8", condition="increase", action="HEAL", desc="Opponent - Active Pokemon HP increased" },
+        { address=0XC3C8, type="u8", condition="decrease", action="HIT", desc="Opponent - Active Pokemon HP decreased" },
+        { address=0XCC0B, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", desc="Placed Energy Card This Turn" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XA11B, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="D08 - Jumpluff LV30" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA1D2, type="u8", condition="change", action="OBJECT_INTERACTION", desc="D48 - Switch" },
+      },
+    },
+  },
+}

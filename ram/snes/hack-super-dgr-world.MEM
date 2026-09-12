@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super DGR World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-dgr-world",
+    hashes = {
+      { hash = "29e276190dc921f1a13907ffb00212bb", label = "SMW - Super DGR World (Sweetdude).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage" },
+        { address=0X13C3, type="u8", condition="change", action="NEW_LEVEL", desc="overworld map id" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage id" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="death" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+        { address=0X1870, type="u8", condition="change", action="LOSE_LIFE", desc="Yoshi died? 1 active" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power Up" },
+        { address=0X1490, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Star Powerup" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="eq", value=0XE0, action="COIN_GAIN", desc="Pac Dots collected" },
+      },
+    },
+  },
+}

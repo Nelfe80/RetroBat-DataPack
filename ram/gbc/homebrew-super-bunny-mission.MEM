@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Bunny Mission",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-bunny-mission",
+    hashes = {
+      { hash = "2384dde5403894419de9c14648491da8", label = "Super Bunny Mission (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFE0E, type="u8", condition="change", action="TITLE_SCREEN", desc="02 when A button pressed on the title. Always bigger than 02 outside title, 00 on title." },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC0CB, type="u8", condition="change", action="HIT", desc="Getting hurt : 1f" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rockman: Deus Ex Machina - Hard",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rockman-deus-ex-machina-hard",
+    hashes = {
+      { hash = "c5bcd5040195cc71625082087f38ae8d", label = "Rockman 2 - Deus Ex Machina - Hard (v1.0) (Misty).nes" },
+    }
+  },
+
+  events = {
+  },
+}

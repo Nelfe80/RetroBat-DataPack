@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros. 5 Reborn",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-5-reborn",
+    hashes = {
+      { hash = "7b11cfe4c1426daf1aa428a88ef3e456", label = "SMW - Super Mario Bros. 5 Reborn (Gamma V).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XA52B, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0DBE, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+  },
+}

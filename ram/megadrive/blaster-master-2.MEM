@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Blaster Master 2",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "blaster-master-2",
+    hashes = {
+      { hash = "dd38021ff9cb67cfc24a1ad7447e4e3e", label = "Blaster Master 2 (USA).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0098, type="u8", condition="change", action="CREDITS_SCREEN", desc="Row selected in Menu - 00:Start, 01:Credits, 02:SideViewControl, 03:OverheadControl, 04:SoundTes" },
+        { address=0X00B0, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues / Credits" },
+        { address=0X00B2, type="u8", condition="change", action="DEMO_MODE", desc="Demo Number? Unknown" },
+        { address=0X00F0, type="u16be", condition="eq", value=0XFFFF, action="DEMO_MODE", desc="Demo as well" },
+        { address=0X0192, type="u16be", condition="change", action="DEMO_MODE", desc="Menu Demo Countdown - Demo Starts at 0000" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X053D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Main Map ID - a9:Stage1, aa:S2 and S3.1, ab:S3.2-4[Totem1]" },
+        { address=0X053D, type="u8", condition="eq", value=0XAC, action="PROGRESSION_STAGE", desc="4[Totem2]-5[Fish2], ad:S6.1-7.1, ae:7[Tank2]-EndGame" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00BA, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X00BA, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X00B4, type="u8", condition="increase", action="HEAL", desc="Health - 0c:Default Max increased" },
+        { address=0X00B4, type="u8", condition="decrease", action="HIT", desc="Health - 0c:Default Max decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X00C6, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Have Lava Suit Upgrade : 01" },
+      },
+      weapon = {
+        { address=0X00BE, type="u8", condition="change", action="WEAPON_STATE", desc="Unknown Weapon Modifier - 00:Default, 01:FirstUpgrade" },
+        { address=0X00DC, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Default, can't shoot down walls, 01:Can" },
+        { address=0X00DE, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Sprite or Type - 00:Default, 01:FirstUpgrade" },
+        { address=0X00E0, type="u8", condition="change", action="WEAPON_STATE", desc="Unkown Weapon Modifier - 00:Default, 01:FirstUpgrade" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00D6, type="u8", condition="increase", action="COIN_GAIN", desc="Have Big Gold Key : 01 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X04FA, type="u8", condition="change", action="BOSS_HIT", desc="Controlled Character - 00:Vehicle, 01:Man, 02:BossRoom" },
+        { address=0X0534, type="u8", condition="change", action="BOSS_HIT", desc="Map ID - 00:Stage 1.1, 1b:After Final Boss" },
+        { address=0X053C, type="u8", condition="change", action="BOSS_HIT", desc="Sub Map ID - 2e:Stage 1.1, e0:After Final Boss" },
+        { address=0X1FBB, type="u8", condition="change", action="BOSS_HIT", desc="Boss 1 Reward Status - 01:Unclaimed, 00:Claimed" },
+        { address=0X1FBC, type="u8", condition="change", action="BOSS_HIT", desc="Boss 1 Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X00D4, type="u8", condition="change", action="SHIELD_GAIN", desc="Have Shield Upgrade For Gun : 01" },
+        { address=0X00E8, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield Count" },
+        { address=0X00F2, type="u8", condition="change", action="SHIELD_GAIN", desc="Selected Power, 00:HomingMissile, 01:MultiWarheads, 02:ThunderBreak, 04:Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X01BC, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Current Screen Countdown Timer 16bit" },
+        { address=0X04B2, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Active Shield Time Remaining - 16bit" },
+      },
+    },
+  },
+}

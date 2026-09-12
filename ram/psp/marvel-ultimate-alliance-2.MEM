@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Marvel Ultimate Alliance 2",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "marvel-ultimate-alliance-2",
+    hashes = {
+      { hash = "58a460555b0ffc6a33417be00b3a0e33", label = "Marvel - Ultimate Alliance 2 (USA).iso" },
+    }
+  },
+
+  events = {
+    state = {
+      temporary = {
+        { address=0XFCAFF9, type="u24le", condition="eq", value=0X010000, action="SHIELD_GAIN", desc="Active" },
+        { address=0XFCAFF9, type="u24le", condition="eq", value=0XFFFF3F, action="SHIELD_GAIN", desc="Inactive" },
+        { address=0X1078A9C, type="u16le", condition="eq", value=0X0000, action="SHIELD_GAIN", desc="Inactive" },
+        { address=0X1078A9C, type="u16le", condition="eq", value=0X1000, action="SHIELD_GAIN", desc="Transition (roll; bounce) - only Active -> Inactive" },
+        { address=0X1078A9C, type="u16le", condition="eq", value=0X1010, action="SHIELD_GAIN", desc="Active" },
+      },
+    },
+  },
+}

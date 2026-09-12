@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Test Kit~ SNES Burn-in Test Cartridge",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "test-kit-snes-burn-in-test-cartridge",
+    hashes = {
+      { hash = "0e5f788550ca1fad8d4e5034d9964307", label = "Burn-in - Test Cartridge (USA) (Rev D).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0081, type="u8", condition="bit_true", mask=0X10, action="PAUSE_ON", desc="pause" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00D4, type="u8", condition="eq", value=0X000B, action="GENERAL_TIMER", no_log=true, desc="Test End" },
+      },
+    },
+  },
+}

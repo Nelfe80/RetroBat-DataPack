@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VIP and Wall Mix 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vip-and-wall-mix-2",
+    hashes = {
+      { hash = "7b1e4990fc3d9c90690262cdb682d22d", label = "SMW - VIP and Wall Mix 2 (ASCII Art Edition) (Vipper).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0040, type="u8", condition="change", action="LEVEL_CLEAR", desc="lvl clear" },
+        { address=0X0042, type="u8", condition="change", action="LEVEL_CLEAR", desc="goal clear" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In level" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="cleared" },
+      },
+      zone = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u16le", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DB4, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch" },
+      },
+    },
+  },
+}

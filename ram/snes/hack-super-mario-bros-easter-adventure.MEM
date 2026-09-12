@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros. Easter Adventure",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-easter-adventure",
+    hashes = {
+      { hash = "112bdb2d2713f06a5de5a718b83862df", label = "SMW - Super Mario Bros. Easter Adventure (2015-07-23) (Demonsul).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

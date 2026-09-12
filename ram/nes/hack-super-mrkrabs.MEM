@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mr.Krabs",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mrkrabs",
+    hashes = {
+      { hash = "8a08fd3eb396bd3014e62fee2da20d7e", label = "SMB1 - Super Mr. Krabs (v1.0) (TESTMACARONI).nes" },
+    }
+  },
+
+  events = {
+    state = {
+      player = {
+        { address=0X001D, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+  },
+}

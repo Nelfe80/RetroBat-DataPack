@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Evolution: Eternal Dungeons",
+    system = "ngp",
+    system_name = "Neo Geo Pocket",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "evolution-eternal-dungeons",
+    hashes = {
+      { hash = "9c9c2d533be340600ef9f92ed1253dd9", label = "Evolution - Eternal Dungeons (Europe) (vA1).ngc" },
+    }
+  },
+
+  events = {
+  },
+}

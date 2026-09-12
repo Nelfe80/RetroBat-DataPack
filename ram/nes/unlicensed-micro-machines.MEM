@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Micro Machines",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "unlicensed-micro-machines",
+    hashes = {
+      { hash = "46a92436a4899fd3adc2f5097cdaa5dd", label = "Micro Machines (USA) (Rev 1) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0308, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0320, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0320, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

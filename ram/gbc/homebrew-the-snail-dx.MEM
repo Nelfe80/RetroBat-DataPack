@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Snail DX",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-snail-dx",
+    hashes = {
+      { hash = "1c2cb80c83747edf5988b1b0c782ecf0", label = "Snail DX, The (World) (v1.2) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCB1E, type="u16le", condition="change", action="NEW_LEVEL", desc="Current Run - Level [16bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCBF2, type="u16le", condition="change", action="LOSE_LIFE", desc="Savedata - Total Deaths [16bit]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCBB2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Savedata - Highscore [16bit]" },
+        { address=0XCBFE, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Savedata - Entered Highscore Room [16bit]" },
+      },
+      collectibles = {
+        { address=0XCBF0, type="u16le", condition="increase", action="COIN_GAIN", desc="Savedata - Total Coins collected [16bit] increased" },
+        { address=0XCBFC, type="u16le", condition="increase", action="COIN_GAIN", desc="Current Run - Coins [16bit] increased" },
+      },
+    },
+  },
+}

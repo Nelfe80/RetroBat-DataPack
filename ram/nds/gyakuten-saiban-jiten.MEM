@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gyakuten Saiban Jiten",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "gyakuten-saiban-jiten",
+    hashes = {
+      { hash = "6a54cdd7baf565d67aa8ffd1afdd5938", label = "Gyakuten Saiban Jiten (Japan).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X22649C, type="u32le", condition="change", action="NEW_LEVEL", desc="Flags - Background seen" },
+        { address=0X2264F2, type="u16le", condition="change", action="NEW_LEVEL", desc="Background selected [16bit]" },
+      },
+    },
+  },
+}

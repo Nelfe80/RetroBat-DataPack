@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cross Bomber",
+    system = "supervision",
+    system_name = "Watara Supervision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cross-bomber",
+    hashes = {
+      { hash = "7a905b02571bfd0a7fdbb03b0637af4f", label = "Cross Bomber (World) (Aftermarket) (Unl).sv" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Turkey Hero",
+    system = "vectrex",
+    system_name = "Vectrex",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-turkey-hero",
+    hashes = {
+      { hash = "af799d55b39593eaa844df3235a51fd6", label = "Turkey Hero (World) (v0.97) (Aftermarket) (Unl).vec" },
+    }
+  },
+
+  events = {
+  },
+}

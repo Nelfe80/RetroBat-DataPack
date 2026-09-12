@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The 3 Lost Challenges",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-3-lost-challenges",
+    hashes = {
+      { hash = "bec8b1d71a26493f37062e2503fcc290", label = "SMW - 3 Lost Challenges, The (v1.0) (SuperMudkip1).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Deadly Revenge" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="The Underestimated" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5F, action="NEW_LEVEL", desc="Lightning Sourcer" },
+      },
+    },
+  },
+}

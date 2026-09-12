@@ -1,0 +1,102 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man Star Force DX",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-star-force-dx",
+    hashes = {
+      { hash = "8c252df719b8c462bf69736a02600eb6", label = "Mega Man Star Force DX (v1.2.3) (Prof.9).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13678F, type="u8", condition="change", action="DEMO_MODE", desc="[Demon Eyes/Weapon] [8-Bits]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X13112C, type="u16le", condition="increase", action="HEAL", desc="[Geo Actual HP out of action] [16 Bits] increased" },
+        { address=0X13112C, type="u16le", condition="decrease", action="HIT", desc="[Geo Actual HP out of action] [16 Bits] decreased" },
+        { address=0X13112E, type="u16le", condition="increase", action="HEAL", desc="[Geo Max HP out of action] [16 Bits] increased" },
+        { address=0X13112E, type="u16le", condition="decrease", action="HIT", desc="[Geo Max HP out of action] [16 Bits] decreased" },
+        { address=0X1367E8, type="u8", condition="increase", action="HEAL", desc="[HP Memory 10 Quantity] [8-Bits] increased" },
+        { address=0X1367E8, type="u8", condition="decrease", action="HIT", desc="[HP Memory 10 Quantity] [8-Bits] decreased" },
+        { address=0X1367E9, type="u8", condition="increase", action="HEAL", desc="[HP Memory 20 Quantity] [8-Bits] increased" },
+        { address=0X1367E9, type="u8", condition="decrease", action="HIT", desc="[HP Memory 20 Quantity] [8-Bits] decreased" },
+        { address=0X1AF114, type="u16le", condition="change", action="HIT", desc="[Damage of the first card chosen] [16-Bits]" },
+        { address=0X1AF118, type="u16le", condition="change", action="HIT", desc="[Damage of the second card chosen] [16-Bits]" },
+        { address=0X1AF11C, type="u16le", condition="change", action="HIT", desc="[Damage of the third card chosen] [16-Bits]" },
+        { address=0X1C2554, type="u16le", condition="increase", action="HEAL", desc="[Mega Man Starforce HP In Combat] [16 Bits] increased" },
+        { address=0X1C2554, type="u16le", condition="decrease", action="HIT", desc="[Mega Man Starforce HP In Combat] [16 Bits] decreased" },
+        { address=0X1C2556, type="u16le", condition="increase", action="HEAL", desc="[Mega Man Starforce Max HP In Combat] [16 Bits] increased" },
+        { address=0X1C2556, type="u16le", condition="decrease", action="HIT", desc="[Mega Man Starforce Max HP In Combat] [16 Bits] decreased" },
+        { address=0X1C2724, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16 bits] increased" },
+        { address=0X1C2724, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16 bits] decreased" },
+        { address=0X1C28F4, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16 bits] increased" },
+        { address=0X1C28F4, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16 bits] decreased" },
+        { address=0X1C2AC4, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16 bits] increased" },
+        { address=0X1C2AC4, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16 bits] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X13BB57, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up] [8-Bits]" },
+      },
+      weapon = {
+        { address=0X136788, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Slash Claws/Weapon] [8-Bits]" },
+        { address=0X136789, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[PorcuNeedle/Weapon] [8-Bits]" },
+        { address=0X13678B, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Cobra Fangs/Weapon] [8-Bits]" },
+        { address=0X13678C, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Blinding Eye/Weapon] [8-Bits]" },
+        { address=0X13678D, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Thief Armband/Weapon] [8-Bits]" },
+        { address=0X136790, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[R-F Claw/Weapon] [8-Bits]" },
+        { address=0X136791, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Paralyzer/Weapon] [8-Bits]" },
+        { address=0X136792, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Bubble Fist/Weapon] [8-Bits]" },
+        { address=0X136793, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Hammer Glove/Weapon] [8-Bits]" },
+        { address=0X136794, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Zenny Finder/Weapon] [8-Bits]" },
+        { address=0X136795, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Card Finder/Weapon] [8-Bits]" },
+        { address=0X136796, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Sweet Mirage/Weapon] [8-Bits]" },
+        { address=0X136797, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Kaiser Knuckle/Weapon] [8-Bits]" },
+        { address=0X136798, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Magic Breath/Weapon] [8-Bits]" },
+        { address=0X136799, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[FM Bracalet/Weapon] [8-Bits]" },
+        { address=0X13679A, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[SF Power/Weapon] [8-Bits]" },
+        { address=0X13679B, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[BN Blaster/Weapon] [8-Bits]" },
+        { address=0X13BB58, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Weapon Attack LV] [8-Bits]" },
+        { address=0X13BB59, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Weapon Rapid LV] [8-Bits]" },
+        { address=0X13BB5A, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[Weapon Charge LV] [8-Bits]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X13678A, type="u8", condition="increase", action="COIN_GAIN", desc="[Bear Ring/Weapon] [8-Bits] increased" },
+        { address=0X13678E, type="u8", condition="increase", action="COIN_GAIN", desc="[Power Ring/Weapon] [8-Bits] increased" },
+        { address=0X13BB60, type="u8", condition="increase", action="COIN_GAIN", desc="[Mega Equiped Weapon] [8-Bits] increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X136424, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses Database]" },
+        { address=0X13642E, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses Database] [Bitflags]" },
+        { address=0X13642F, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses Database] [Bitflags]" },
+        { address=0X136769, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses Database] [Bitflags]" },
+        { address=0X13676A, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses Database] [Bitflags]" },
+        { address=0X136BE7, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Rush] [Bitflags]" },
+        { address=0X136C37, type="u8", condition="change", action="BOSS_HIT", desc="[Bosses DX] [Bitflags]" },
+        { address=0X136C47, type="u8", condition="change", action="BOSS_HIT", desc="[DX Bosses] [Bitflags]" },
+        { address=0X136C57, type="u8", condition="change", action="BOSS_HIT", desc="[DX Bosses] [Bitflags]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B05D1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Delete Time Seconds] [8 Bits]" },
+        { address=0X1B05D2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[Delete Time Minutes] [8 Bits]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Color Cross",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "color-cross",
+    hashes = {
+      { hash = "b2d210cf5ff98186fef74367bc1a2aed", label = "Colour Cross (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

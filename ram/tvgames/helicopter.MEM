@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Helicopter",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "helicopter",
+    hashes = {
+      { hash = "d59524e3efae862b9a42196e30da6c4f", label = "Helicopter (Europe) (ESS-010-3).tvc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X17C8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="Timer xx00 [BCD]" },
+        { address=0X17C9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="Timer 00xx [BCD]" },
+      },
+    },
+  },
+}

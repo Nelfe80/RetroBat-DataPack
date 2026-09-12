@@ -1,0 +1,128 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dungeons & DoomKnights",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-dungeons-doomknights",
+    hashes = {
+      { hash = "e997f5654b70c1ca1cb4623e7142285d", label = "Dungeons & Doomknights (World) (Aftermarket) (Unl).nes" },
+      { hash = "1ecad59e34c6298219a4573c326fe216", label = "Dungeons & Doomknights (World) (Digital) (Aftermarket) (Unl).nes" },
+      { hash = "716f5425bb4205cea26067e0384d37d0", label = "Dungeons & Doomknights (World) (Black and White) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X061A, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X06E3, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="New Game" },
+        { address=0X06E3, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X061A, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X06DC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Artix Current Level (Ones)" },
+        { address=0X06DD, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Artix Current Level (Tens)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0691, type="u8", condition="eq", value=0XB2, action="LOSE_LIFE", desc="Undead Slaying Pomeranian (1, 0x82)" },
+        { address=0X069C, type="u8", condition="eq", value=0XB6, action="LOSE_LIFE", desc="Book of the dead" },
+      },
+      health = {
+        { address=0X04E9, type="u8", condition="increase", action="HEAL", desc="Entity health increased" },
+        { address=0X04E9, type="u8", condition="decrease", action="HIT", desc="Entity health decreased" },
+        { address=0X04EA, type="u8", condition="increase", action="HEAL", desc="Entity health 2 increased" },
+        { address=0X04EA, type="u8", condition="decrease", action="HIT", desc="Entity health 2 decreased" },
+        { address=0X0693, type="u8", condition="decrease", action="HIT", desc="b2 : R.I.P. Death - You Killed Death! (2, 0x47) decreased" },
+        { address=0X0694, type="u8", condition="decrease", action="HIT", desc="b0 : Health Power Up (hydra) decreased" },
+        { address=0X0695, type="u8", condition="decrease", action="HIT", desc="b0 : Skull Power Up (chaos well) decreased" },
+        { address=0X06D4, type="u8", condition="increase", action="HEAL", desc="[8bit] Health display increased" },
+        { address=0X06D4, type="u8", condition="decrease", action="HIT", desc="[8bit] Health display decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0693, type="u8", condition="eq", value=0XB1, action="DYNAMIC_INVENTORY", desc="Champion Drakath defeated (2, 0x38)" },
+        { address=0X0693, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Second Health Power Up (outside cemetary) (1, 0xa2)" },
+        { address=0X0693, type="u8", condition="eq", value=0XB5, action="DYNAMIC_INVENTORY", desc="First Health Power Up (1, 0x66)" },
+        { address=0X0693, type="u8", condition="eq", value=0XB6, action="DYNAMIC_INVENTORY", desc="Health Power Up (backyard)" },
+        { address=0X0693, type="u8", condition="eq", value=0XB7, action="DYNAMIC_INVENTORY", desc="Health Power Up (below Twig)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB1, action="DYNAMIC_INVENTORY", desc="Health Power Up (red locked crypt heart bosses)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB2, action="DYNAMIC_INVENTORY", desc="Treasure (tutorial cave) (2, 0x70)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB3, action="DYNAMIC_INVENTORY", desc="Treasure (northlands west entrance)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Treasure (northlands ice moglin)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB5, action="DYNAMIC_INVENTORY", desc="Treasure! - You Are Get 10 Golds (Need Upgraded Axe) (1, 0x9a)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB6, action="DYNAMIC_INVENTORY", desc="Second Skull Power Up (Lonks house) (2, 0xc2)" },
+        { address=0X0694, type="u8", condition="eq", value=0XB7, action="DYNAMIC_INVENTORY", desc="First Skull Power Up (cemetary) (2, 0x84)" },
+        { address=0X0695, type="u8", condition="eq", value=0XB2, action="DYNAMIC_INVENTORY", desc="Skull Power Up (outhouse) (2, 0xd2)" },
+        { address=0X0695, type="u8", condition="eq", value=0XB3, action="DYNAMIC_INVENTORY", desc="Treasure (frozen island)" },
+        { address=0X0695, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Skull Power Up (lich boss, south sneevil, west brutalcorn) (2, 0xe4)" },
+        { address=0X0695, type="u8", condition="eq", value=0XB5, action="DYNAMIC_INVENTORY", desc="First pyramid completed" },
+        { address=0X0695, type="u8", condition="eq", value=0XB6, action="DYNAMIC_INVENTORY", desc="Second pyramid completed" },
+        { address=0X0695, type="u8", condition="eq", value=0XB7, action="DYNAMIC_INVENTORY", desc="Ghost Speak (2, 0x83)" },
+        { address=0X069D, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="Treasure (grey/mud/rock area) (1, 0x34)" },
+        { address=0X06A0, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="treasure (sandsea behind sarcophagus)" },
+        { address=0X06A0, type="u8", condition="eq", value=0XB6, action="TREASURE", desc="treasure (right of right pyramid)" },
+        { address=0X06A0, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="treasure (sandsea zorbak)" },
+        { address=0X06A1, type="u8", condition="change", action="TREASURE", desc="b1 : treasure (below bat form)" },
+        { address=0X06A3, type="u8", condition="eq", value=0XB5, action="TREASURE", desc="treasure (red dragon lair) (2, 0xa8)" },
+        { address=0X06A5, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="treasure (right after unlocking boat)" },
+        { address=0X06A5, type="u8", condition="eq", value=0XB4, action="TREASURE", desc="Treasure (top left of chaos dungeon)" },
+        { address=0X06A7, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="treasure (darkovia crypt, needs bat form)" },
+        { address=0X06A7, type="u8", condition="eq", value=0XB4, action="TREASURE", desc="treasure (boat west of battleon)" },
+        { address=0X06A7, type="u8", condition="eq", value=0XB5, action="TREASURE", desc="treasure (trapped by ice)" },
+        { address=0X06A7, type="u8", condition="eq", value=0XB6, action="TREASURE", desc="4th wall awareness (2, 0xe2)" },
+        { address=0X06A8, type="u8", condition="eq", value=0XB3, action="TREASURE", desc="Treasure (ocean)" },
+        { address=0X06A8, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="Treasure goldenaire (right of doomwood, left of hydra)" },
+        { address=0X06AA, type="u8", condition="eq", value=0XB3, action="TREASURE", desc="key (bone dragon)" },
+        { address=0X06AA, type="u8", condition="eq", value=0XB5, action="TREASURE", desc="treasure (mountain, right of bone dragon)" },
+        { address=0X06AA, type="u8", condition="eq", value=0XB7, action="TREASURE", desc="treasure (northlands top right, yellow snowman)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X06DA, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Number of Coins (Ones) increased" },
+        { address=0X06DB, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Number of Coins (Tens) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X069B, type="u8", condition="eq", value=0XB1, action="BOSS_DEFEATED", desc="Shadow Vision Boss Defeated (2, 0xa6)" },
+        { address=0X06A4, type="u8", condition="eq", value=0XB7, action="BOSS_DEFEATED", desc="Boss Defeated (2, 0x33)" },
+        { address=0X06A8, type="u8", condition="eq", value=0XB2, action="BOSS_DEFEATED", desc="Lonk Cave Boss Defeated (2, 0xb2)" },
+        { address=0X06A8, type="u8", condition="eq", value=0XB5, action="BOSS_HIT", desc="Chaos crypt boss (2, 0xcf)" },
+        { address=0X06A9, type="u8", condition="eq", value=0XB3, action="BOSS_DEFEATED", desc="Gate Opened (2, 0xe6)" },
+        { address=0X06A9, type="u8", condition="eq", value=0XB4, action="BOSS_DEFEATED", desc="Goldenaire! 99 Gold (Aria moglins) (2, 0xb5)" },
+        { address=0X06AC, type="u8", condition="eq", value=0XB2, action="BOSS_DEFEATED", desc="Game completed (2, 0xeb)" },
+        { address=0X06AC, type="u8", condition="eq", value=0XB3, action="BOSS_DEFEATED", desc="Gate Opened (1, 0x93)" },
+        { address=0X06AC, type="u8", condition="eq", value=0XB7, action="BOSS_DEFEATED", desc="Dage the Evil defeated (2, 0xa4)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0557, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Old Man Invincibility Timer" },
+        { address=0X0691, type="u8", condition="eq", value=0XB4, action="SHIELD_GAIN", desc="Magic Reflect Shield (xan) (2, 0x86)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X069B, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="Heart Destroyed (2, 0x61)" },
+        { address=0X06A6, type="u8", condition="eq", value=0XB6, action="DOOR_OPENED", desc="Locked Door Opened (2, 0xc1)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00F3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Times walked around King Alteon statue" },
+        { address=0X0691, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Save file bitflags (many found by timenoe/pinguu)" },
+      },
+    },
+  },
+}

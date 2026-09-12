@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Videocart-27: Pac-Man",
+    system = "channelf",
+    system_name = "Fairchild Channel F",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-videocart-27-pac-man",
+    hashes = {
+      { hash = "1ae3fb8784c395c07bbd37bb44476871", label = "Pac-Man (USA) (v2006-02-20,b28) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+  },
+}

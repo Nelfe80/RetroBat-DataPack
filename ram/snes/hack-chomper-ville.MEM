@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Chomper Ville",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-chomper-ville",
+    hashes = {
+      { hash = "4c7828aa9798ef21a740692b5c1c4669", label = "SMW - Chomper Ville (v2011-04-20) (SMWFanatic).sfc" },
+      { hash = "e0db3f6076f2d54f1de885b82c3794f0", label = "SMW - Chomper Ville (v2011-04-20) (Inf. Lives) (SMWFanatic).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch Bitflag" },
+      },
+    },
+  },
+}

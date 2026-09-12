@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Quest IX: Sentinels of the Starry Skies [Subset - Lv. 99 Legacy Lunacy]",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "dragon-quest-ix-sentinels-of-the-starry-skies-subset-lv-99-legacy-lunacy",
+    hashes = {
+      { hash = "198ea990721c0fb42df166e7037fc528", label = "Dragon Quest IX - Sentinels of the Starry Skies [Subset - Level 99 Legacy Lunacy].nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XF9840, type="u16le", condition="change", action="NEW_LEVEL", desc="Level of Current Treasure Map Tracked" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2A4638, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 Current HP increased" },
+        { address=0X2A4638, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 Current HP decreased" },
+        { address=0X2A463C, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 Max HP increased" },
+        { address=0X2A463C, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 Max HP decreased" },
+        { address=0X2A46DC, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 Current HP increased" },
+        { address=0X2A46DC, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 Current HP decreased" },
+      },
+    },
+  },
+}

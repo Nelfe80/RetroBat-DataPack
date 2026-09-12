@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lunar Lander",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "lunar-lander",
+    hashes = {
+      { hash = "d146dc815a9f7fbbd669ea24d4db776d", label = "llander.7z <Lunar Lander (rev 2)>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XA4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X009C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Time." },
+      },
+    },
+  },
+}

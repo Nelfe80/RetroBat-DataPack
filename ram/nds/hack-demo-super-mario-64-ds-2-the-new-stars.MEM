@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Super Mario 64 DS 2: The New Stars",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-super-mario-64-ds-2-the-new-stars",
+    hashes = {
+      { hash = "6f062128318e1ca7df40805be1f16484", label = "SM64DS - Super Mario 64 DS 2 - The New Stars (Demo) (Splatty).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F2C4, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+        { address=0X9F358, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9CAA7, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Activate Brown ? Switch" },
+        { address=0X9CAA7, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Activate Red ? Switch" },
+        { address=0X9CAAC, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Activate Brown ? Switch" },
+      },
+    },
+  },
+}

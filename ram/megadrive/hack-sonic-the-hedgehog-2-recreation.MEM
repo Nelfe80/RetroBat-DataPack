@@ -1,0 +1,127 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic the Hedgehog 2 Recreation",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-the-hedgehog-2-recreation",
+    hashes = {
+      { hash = "9c2fac444e7b7b852e41d8ea8dd90475", label = "Sonic 2 - Sonic 2 Recreation (SHC2013) (redhotsonic).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB025, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Card/Level Select in Portal/Menus" },
+        { address=0XB025, type="u8", condition="eq", value=0X08, action="GAME_OVER", desc="Game Over/Time Over" },
+        { address=0XF63A, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused" },
+        { address=0XFEC6, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XFEC6, type="u8", condition="eq", value=0X8C, action="TITLE_SCREEN", desc="Title Card" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFC06, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="Accesed from level select / Act 3 has been completed already" },
+        { address=0XFC06, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Level not accessed from level select/Act 2 completed" },
+        { address=0XFC09, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Initial Value, can access West Bay Zone only" },
+        { address=0XFC09, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Can access Great Gate Zone only" },
+        { address=0XFC09, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Can access Gem Runway Zone only" },
+        { address=0XFC09, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="Can access Chaos Angel Zone only" },
+        { address=0XFC09, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="Can access any zone, with possibility to choose a specific act" },
+        { address=0XFC09, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="Can access Chaos Angel Zone Act 3, finished Act 2" },
+        { address=0XFC75, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select Code Entered [Bool]" },
+        { address=0XFEC6, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Level Select" },
+        { address=0XFEC6, type="u8", condition="eq", value=0XFA, action="NEW_LEVEL", desc="Level Select (Multiplayer)" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X00, action="LEVEL_WEST_BAY", desc="West Bay" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X04, action="LEVEL_CHAOS_ANGEL", desc="Chaos Angel" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X05, action="LEVEL_CHAOS_ANGEL_ACT_3", desc="Chaos Angel (Act 3)" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X06, action="LEVEL_WING_FORTRESS", desc="'Wing Fortress'" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X07, action="LEVEL_PORTAL", desc="Portal" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X08, action="LEVEL_GEM_RUNWAY", desc="Gem Runway" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0A, action="LEVEL_OIL_OCEAN", desc="'Oil Ocean'" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0B, action="LEVEL_MYSTIC_CAVE", desc="'Mystic Cave'" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0C, action="LEVEL_CASINO_NIGHT", desc="'Casino Night'" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0D, action="LEVEL_TRICKY_TOWER", desc="Tricky Tower" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0E, action="LEVEL_PREPERATION", desc="Preperation" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X0F, action="LEVEL_GREAT_GATE_ZONE", desc="Great Gate Zone" },
+        { address=0XFEC9, type="u8", condition="eq", value=0X10, action="LEVEL_SPECIAL_STAGE", desc="Special Stage" },
+        { address=0XFEE0, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select Level ID" },
+      },
+      zone = {
+        { address=0XFEC9, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },
+      },
+      stage = {
+        { address=0XFC06, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act [Lower4]" },
+        { address=0XFC06, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Act 1 - Act 3 for Chaos Angel Act 3 (when 0x00fec9 : 0x05)" },
+        { address=0XFC06, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Act 2" },
+        { address=0XFC06, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Act 3" },
+        { address=0XFC06, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Capsule opened" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB025, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="Death" },
+        { address=0XB029, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Numbers of Lives increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Numbers of Lives decreased" },
+        { address=0XFE1F, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="Level finished (Goal Plate passed or Capsule Button pressed)" },
+        { address=0XFE1F, type="u8", condition="eq", value=0X1, action="LOSE_LIFE", desc="Level not finished" },
+        { address=0XFEF0, type="u16le", condition="increase", action="GAIN_LIFE", desc="Total Rings Collected increased" },
+        { address=0XFEF0, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Total Rings Collected decreased" },
+      },
+      health = {
+        { address=0XB025, type="u8", condition="eq", value=0X04, action="HIT", desc="Hurt" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Shield" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Invincibility" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Power Sneakers" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Magnet (Goes with bit0 when grabbing the Magnet Shield)" },
+        { address=0XFC2E, type="u8", condition="change", action="TREASURE", desc="Number of emeralds collected [Lower4]" },
+        { address=0XFEC6, type="u8", condition="eq", value=0X34, action="TREASURE", desc="Emerald Exchange Screen" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="Current Rings increased" },
+        { address=0XFF40, type="u16le", condition="increase", action="COIN_GAIN", desc="Rings left in current act increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB4A0, type="u8", condition="change", action="BOSS_HIT", desc="West Bay Zone Boss HPs" },
+        { address=0XB4B3, type="u8", condition="change", action="BOSS_HIT", desc="Great Gate Zone Boss HPs" },
+        { address=0XB5B3, type="u8", condition="change", action="BOSS_HIT", desc="Gem Runway Zone Boss HPs" },
+        { address=0XFC05, type="u8", condition="change", action="BOSS_HIT", desc="Bosses Pinch Difficulty |8-Bit]" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB023, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Jumping/Rolling" },
+        { address=0XB023, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="RollJumping" },
+        { address=0XB03D, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Is jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB023, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Standing on object (platform, bridges, monitors, springs, you name it)" },
+        { address=0XB023, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Pushing/Close enough to wall/object to push" },
+        { address=0XB023, type="u8", condition="bit_true", mask=0X40, action="ENVIRONMENT_UNDERWATER", desc="Underwater" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XB029, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Drowning Timer" },
+        { address=0XB029, type="u8", condition="eq", value=0X0B, action="GENERAL_TIMER", desc="Drowning music and visuals appears" },
+        { address=0XB029, type="u8", condition="eq", value=0X1E, action="GENERAL_TIMER", desc="Initial Value" },
+      },
+    },
+  },
+}

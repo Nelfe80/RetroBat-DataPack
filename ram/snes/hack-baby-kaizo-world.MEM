@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Baby Kaizo World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-baby-kaizo-world",
+    hashes = {
+      { hash = "526830cb760eb7e82720dfaa20eda75f", label = "SMW - Baby Kaizo World (Nowieso).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0906, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Completed: Single bit" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages cleared" },
+      },
+      stage = {
+        { address=0X01E5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="kaizo hint block in ghost stage" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="green switch flag" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="yellow switch flag" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="blue switch flag" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="red switch flag" },
+        { address=0X1C95B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 1" },
+        { address=0X1CAD5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 2" },
+        { address=0X1CC7F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 4" },
+        { address=0X1CCA8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 3" },
+        { address=0X1CE20, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 5" },
+        { address=0X1D33A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Hidden kaizo block missed this one" },
+        { address=0X1D33B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 7 (wut)" },
+        { address=0X1D501, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 6" },
+        { address=0X1D670, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 7" },
+        { address=0X1D83F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 11" },
+        { address=0X1D857, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 9" },
+        { address=0X1D86E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 10" },
+        { address=0X1D880, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 8" },
+        { address=0X1D9B0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 12" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X19D00, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter x10000" },
+        { address=0X19D01, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter x1000" },
+        { address=0X19D02, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter x100" },
+        { address=0X19D03, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter x10" },
+        { address=0X19D04, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter x1" },
+      },
+    },
+  },
+}

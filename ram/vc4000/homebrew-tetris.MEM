@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tetris",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tetris",
+    hashes = {
+      { hash = "0cbac5ace65a63613587152d2ef87311", label = "Tetris (World) (v20200922) (Aftermarket) (SimonAugustin).bin" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X051E, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X054D, type="u24be", condition="change", action="LEVEL_CLEAR", desc="[24-bit BE] Lines Cleared" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0560, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit BE] Score" },
+      },
+    },
+  },
+}

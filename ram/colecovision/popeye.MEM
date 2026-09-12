@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Popeye",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "popeye",
+    hashes = {
+      { hash = "a7773e1265e0089bc8f148527256a20e", label = "Popeye (USA).col" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ The Legend of Zelda: Zelda's Eternal Youth",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-the-legend-of-zelda-zeldas-eternal-youth",
+    hashes = {
+      { hash = "20ac8dc6eaf3b2ed41ac515f42a7908d", label = "Legend of Zelda, The - Zelda's Eternal Youth (Demo) (Airikitascave).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X15F9BC, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X15E692, type="u16be", condition="increase", action="HEAL", desc="Link HP 16 bits increased" },
+        { address=0X15E692, type="u16be", condition="decrease", action="HIT", desc="Link HP 16 bits decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X15E6EE, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Grenades" },
+        { address=0X15E6EF, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Deku Stick" },
+        { address=0X15E732, type="u8", condition="increase", action="COIN_GAIN", desc="N-Coin Count increased" },
+      },
+    },
+  },
+}

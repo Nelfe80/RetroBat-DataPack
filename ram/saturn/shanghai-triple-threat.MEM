@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shanghai: Triple-Threat",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "shanghai-triple-threat",
+    hashes = {
+      { hash = "b4d6a5dd218520a93e5b7598a4a32e8a", label = "Shanghai - Triple-Threat (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X18E754, type="u16le", condition="eq", value=0XFFFF, action="CONTINUE_SCREEN", desc="Game Over" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X18E754, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="16-bit Continue Timer" },
+      },
+    },
+  },
+}

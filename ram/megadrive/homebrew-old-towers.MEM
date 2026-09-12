@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Old Towers",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Puzzle-Game, Glisser"
+  },
+
+  rom = {
+    name = "homebrew-old-towers",
+    hashes = {
+      { hash = "96216acdb9b8eb86f8fa7209a5cc5619", label = "Old Towers (World) (v1.2) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X464A, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X464E, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X464E, type="u8", condition="eq", value=0X05, action="CONTINUE_SCREEN", desc="Continue/Well Done Screen" },
+        { address=0X464E, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0FBC, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Tile Data Array [1280 bytes, 16-bit entries]" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X0001, action="NEW_LEVEL", desc="Other Player" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X0005, action="NEW_LEVEL", desc="Wall" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X0008, action="NEW_LEVEL", desc="Brick" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X001D, action="NEW_LEVEL", desc="Small Coin" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X0021, action="NEW_LEVEL", desc="Big Coin" },
+        { address=0X0FBC, type="u16le", condition="eq", value=0X0025, action="NEW_LEVEL", desc="One Way Block (Changes to 0x0005)" },
+        { address=0X14CA, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level" },
+        { address=0X464A, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0X464A, type="u8", condition="eq", value=0X1A, action="NEW_LEVEL", desc="Well Done" },
+        { address=0X464E, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level State" },
+        { address=0X464E, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Playing" },
+        { address=0X464E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Loading" },
+        { address=0X464E, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Beaten" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0EF6, type="u16be", condition="change", action="LOSE_LIFE", desc="[16-bit, signed] Death Count" },
+        { address=0X464E, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Player Died" },
+      },
+      health = {
+        { address=0X00F2, type="u16be", condition="increase", action="HEAL", desc="Health | Range 0-5 increased" },
+        { address=0X00F2, type="u16be", condition="decrease", action="HIT", desc="Health | Range 0-5 decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X14CE, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: X0000 | Valid Range: 0-9" },
+        { address=0X14D2, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 0X000 | Valid Range: 0-9" },
+        { address=0X14D6, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 00X00 | Valid Range: 0-9" },
+        { address=0X14DA, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 000X0 | Valid Range: 0-9" },
+        { address=0X14DE, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score: 0000X | Valid Range: 0-9" },
+      },
+      collectibles = {
+        { address=0X0F64, type="u32be", condition="increase", action="COIN_GAIN", desc="Coins Remaining increased" },
+        { address=0X0F68, type="u32be", condition="increase", action="COIN_GAIN", desc="Coin Animation Frame Counter increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X4874, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Hardware Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,85 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rockman X3",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "rockman-x3",
+    hashes = {
+      { hash = "1b1029dbc188b8d47cdb3827be0aff28", label = "Rockman X3 (Japan) (2M)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X40003, type="u8", condition="eq", value=0XC4, action="CREDITS_SCREEN", desc="Final Screen after credits" },
+        { address=0X1E005D, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Continue / Password" },
+        { address=0X1E024B, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Finished with bad end, will go 00 at credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1E026F, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Yes" },
+      },
+      stage = {
+        { address=0X70248, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID Clone?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1E024E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1E024E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X1E0034, type="u8", condition="increase", action="HEAL", desc="X HP Sprite? increased" },
+        { address=0X1E0034, type="u8", condition="decrease", action="HIT", desc="X HP Sprite? decreased" },
+        { address=0X1E0256, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Toxic Seahorse" },
+        { address=0X1E0256, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E0256, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E0258, type="u8", condition="increase", action="HEAL", desc="Weapon Energy - Blast Hornet increased" },
+        { address=0X1E0258, type="u8", condition="decrease", action="HIT", desc="Weapon Energy - Blast Hornet decreased" },
+        { address=0X1E025A, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Volt Catfish" },
+        { address=0X1E025A, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E025A, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E025C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Crush Crawfish" },
+        { address=0X1E025C, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E025C, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E025E, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Neon Tiger" },
+        { address=0X1E025E, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E025E, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E0262, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Blizzard Buffalo" },
+        { address=0X1E0262, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E0262, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E0264, type="u8", condition="increase", action="HEAL", desc="Weapon Energy - Tunnel Rhino increased" },
+        { address=0X1E0264, type="u8", condition="decrease", action="HIT", desc="Weapon Energy - Tunnel Rhino decreased" },
+        { address=0X1E0266, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Hyper Charge" },
+        { address=0X1E0266, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E0266, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E026C, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Weapon energy - Frost. S" },
+        { address=0X1E026C, type="u8", condition="eq", value=0X5C, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1E026C, type="u8", condition="eq", value=0XDC, action="HEALTH_STATE", no_log=true, desc="Not Selected" },
+        { address=0X1E0B9C, type="u8", condition="increase", action="HEAL", desc="X HP increased" },
+        { address=0X1E0B9C, type="u8", condition="decrease", action="HIT", desc="X HP decreased" },
+        { address=0X1E18AC, type="u8", condition="increase", action="HEAL", desc="Enemy HP 4 increased" },
+        { address=0X1E18AC, type="u8", condition="decrease", action="HIT", desc="Enemy HP 4 decreased" },
+        { address=0X1E191C, type="u8", condition="increase", action="HEAL", desc="Enemy HP 3 increased" },
+        { address=0X1E191C, type="u8", condition="decrease", action="HIT", desc="Enemy HP 3 decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1E021C, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="Yes" },
+        { address=0X1E0272, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="Bit is destroyed." },
+        { address=0X1E0272, type="u8", condition="bit_true", mask=0X08, action="OBJECT_DESTROYED", desc="Byte is destroyed." },
+        { address=0X1E0272, type="u8", condition="bit_true", mask=0X10, action="OBJECT_DESTROYED", desc="Vile destroyed in the factory level." },
+        { address=0X1E027A, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="1st" },
+        { address=0X1E027A, type="u8", condition="bit_true", mask=0X02, action="OBJECT_DESTROYED", desc="2nd" },
+      },
+    },
+  },
+}

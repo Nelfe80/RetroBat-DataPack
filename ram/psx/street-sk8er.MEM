@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Street Sk8er",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Sports, Skateboard"
+  },
+
+  rom = {
+    name = "street-sk8er",
+    hashes = {
+      { hash = "e0d150a2ebe020f709f64bc86eef050f", label = "Street Sk8er (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X7B1AA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage Value :" },
+        { address=0X7B1AA, type="u8", condition="eq", value=0X17, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X7B1AA, type="u8", condition="eq", value=0X18, action="PROGRESSION_STAGE", desc="Stage 2" },
+        { address=0X7B1AA, type="u8", condition="eq", value=0X19, action="PROGRESSION_STAGE", desc="Stage 3" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7B19A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Timer value (16-bit)" },
+        { address=0X7B19A, type="u16le", condition="eq", value=0X2, action="GENERAL_TIMER", desc="0.03 secs" },
+        { address=0X7B19A, type="u16le", condition="eq", value=0X3000, action="GENERAL_TIMER", desc="99.96 secs" },
+      },
+    },
+  },
+}

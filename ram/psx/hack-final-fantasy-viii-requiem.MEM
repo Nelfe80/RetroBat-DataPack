@@ -1,0 +1,116 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VIII Requiem",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-viii-requiem",
+    hashes = {
+      { hash = "dd734a0f150a824699070e9da73c99c5", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Disc 1)" },
+      { hash = "6d4394615709a3ae6661a50374f30b69", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Disc 2)" },
+      { hash = "be9fef188a3027c68094c50d1ccd35c9", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Disc 3)" },
+      { hash = "2c7937848a2f37c4a325822407dd5cca", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Disc 4)" },
+      { hash = "32191bf97de0a56f901cf4390aeb7710", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Repaired) (Disc 1)" },
+      { hash = "a0e174e1286df517e66894088d2d471a", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Repaired) (Disc 2)" },
+      { hash = "af46d81d485598b10882f8b95e02573f", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Repaired) (Disc 3)" },
+      { hash = "ddc7ec9134ed2a9ed424402173550437", label = "Final Fantasy VIII Requiem (v1.2.1) (LandonRay) (Repaired) (Disc 4)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X775FC, type="u32le", condition="change", action="DEMO_MODE", desc="[Bitfield] learned abilities of Pandemona group 1" },
+        { address=0X77600, type="u32le", condition="change", action="DEMO_MODE", desc="[Bitfield] learned abilities of Pandemona group 2" },
+        { address=0X77604, type="u32le", condition="change", action="DEMO_MODE", desc="[Bitfield] learned abilities of Pandemona group 3" },
+        { address=0X77608, type="u32le", condition="change", action="DEMO_MODE", desc="[Bitfield] learned abilities of Pandemona group 4" },
+        { address=0X830B0, type="u16le", condition="eq", value=0X1D74, action="GAME_OVER", desc="Game Over" },
+        { address=0X83794, type="u8", condition="change", action="PAUSE_ON", desc="[Boolean] pause in battle" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XED3D1, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy 1 grounded" },
+        { address=0X10331B, type="u8", condition="change", action="NEW_LEVEL", desc="in battle command selected on first level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X830B0, type="u16le", condition="eq", value=0X1896, action="LOSE_LIFE", desc="LV?Death (Quistis)" },
+        { address=0X830B0, type="u16le", condition="eq", value=0XCD38, action="LOSE_LIFE", desc="Rinoa... (You let her die in Adel fight)" },
+        { address=0XED458, type="u8", condition="change", action="LOSE_LIFE", desc="8-bit - Enemy 1 death resistance" },
+        { address=0XED528, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 2 death resistance" },
+        { address=0XED5F8, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 3 death resistance" },
+        { address=0XED6C8, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 4 death resistance" },
+      },
+      health = {
+        { address=0X77808, type="u16le", condition="increase", action="HEAL", desc="Squall current HP increased" },
+        { address=0X77808, type="u16le", condition="decrease", action="HIT", desc="Squall current HP decreased" },
+        { address=0X7780A, type="u16le", condition="increase", action="HEAL", desc="Squall bonus HP increased" },
+        { address=0X7780A, type="u16le", condition="decrease", action="HIT", desc="Squall bonus HP decreased" },
+        { address=0X778A2, type="u16le", condition="increase", action="HEAL", desc="Zell bonus HP increased" },
+        { address=0X778A2, type="u16le", condition="decrease", action="HIT", desc="Zell bonus HP decreased" },
+        { address=0X7793A, type="u16le", condition="increase", action="HEAL", desc="Irvine bonus HP increased" },
+        { address=0X7793A, type="u16le", condition="decrease", action="HIT", desc="Irvine bonus HP decreased" },
+        { address=0X779D0, type="u16le", condition="increase", action="HEAL", desc="Quistis current HP increased" },
+        { address=0X779D0, type="u16le", condition="decrease", action="HIT", desc="Quistis current HP decreased" },
+        { address=0X779D2, type="u16le", condition="increase", action="HEAL", desc="Quistis bonus HP increased" },
+        { address=0X779D2, type="u16le", condition="decrease", action="HIT", desc="Quistis bonus HP decreased" },
+        { address=0X77A6A, type="u16le", condition="increase", action="HEAL", desc="Rinoa bonus HP increased" },
+        { address=0X77A6A, type="u16le", condition="decrease", action="HIT", desc="Rinoa bonus HP decreased" },
+        { address=0X77B00, type="u16le", condition="increase", action="HEAL", desc="Selphie current HP increased" },
+        { address=0X77B00, type="u16le", condition="decrease", action="HIT", desc="Selphie current HP decreased" },
+        { address=0X77B02, type="u16le", condition="increase", action="HEAL", desc="Selphie bonus HP increased" },
+        { address=0X77B02, type="u16le", condition="decrease", action="HIT", desc="Selphie bonus HP decreased" },
+        { address=0X77C30, type="u16le", condition="increase", action="HEAL", desc="Edea current HP increased" },
+        { address=0X77C30, type="u16le", condition="decrease", action="HIT", desc="Edea current HP decreased" },
+        { address=0X78892, type="u16le", condition="increase", action="HEAL", desc="current HP of Partymember 1 increased" },
+        { address=0X78892, type="u16le", condition="decrease", action="HIT", desc="current HP of Partymember 1 decreased" },
+        { address=0X78A62, type="u16le", condition="increase", action="HEAL", desc="current HP of Partymember 2 (0-9999) increased" },
+        { address=0X78A62, type="u16le", condition="decrease", action="HIT", desc="current HP of Partymember 2 (0-9999) decreased" },
+        { address=0X78C32, type="u16le", condition="increase", action="HEAL", desc="current HP of Partymember 3 increased" },
+        { address=0X78C32, type="u16le", condition="decrease", action="HIT", desc="current HP of Partymember 3 decreased" },
+        { address=0XED3E0, type="u32le", condition="increase", action="HEAL", desc="Enemy 1 current HP increased" },
+        { address=0XED3E0, type="u32le", condition="decrease", action="HIT", desc="Enemy 1 current HP decreased" },
+        { address=0XED3E4, type="u32le", condition="increase", action="HEAL", desc="Enemy 1 max HP increased" },
+        { address=0XED3E4, type="u32le", condition="decrease", action="HIT", desc="Enemy 1 max HP decreased" },
+        { address=0XED4B0, type="u32le", condition="increase", action="HEAL", desc="- Enemy 2 current HP increased" },
+        { address=0XED4B0, type="u32le", condition="decrease", action="HIT", desc="- Enemy 2 current HP decreased" },
+        { address=0XED4B4, type="u32le", condition="increase", action="HEAL", desc="- Enemy 2 max HP increased" },
+        { address=0XED4B4, type="u32le", condition="decrease", action="HIT", desc="- Enemy 2 max HP decreased" },
+        { address=0XED580, type="u32le", condition="increase", action="HEAL", desc="Enemy 3 current HP increased" },
+        { address=0XED580, type="u32le", condition="decrease", action="HIT", desc="Enemy 3 current HP decreased" },
+        { address=0XED584, type="u32le", condition="increase", action="HEAL", desc="Enemy 3 max HP increased" },
+        { address=0XED584, type="u32le", condition="decrease", action="HIT", desc="Enemy 3 max HP decreased" },
+        { address=0XED650, type="u32le", condition="increase", action="HEAL", desc="Enemy 4 current HP increased" },
+        { address=0XED650, type="u32le", condition="decrease", action="HIT", desc="Enemy 4 current HP decreased" },
+        { address=0XED654, type="u32le", condition="increase", action="HEAL", desc="Enemy 4 max HP increased" },
+        { address=0XED654, type="u32le", condition="decrease", action="HIT", desc="Enemy 4 max HP decreased" },
+        { address=0XED992, type="u32le", condition="change", action="HIT", desc="printed damage or healing number" },
+        { address=0XEE4CC, type="u32le", condition="change", action="HIT", desc="printed damage number as follow up in same turn from poison but doesn't show healing from regena" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X7737C, type="u8", condition="eq", value=0XEC, action="TREASURE", desc="Ultimecia Castle- Treasure Rm" },
+      },
+      weapon = {
+        { address=0X77811, type="u8", condition="change", action="WEAPON_STATE", desc="Squall Weapon" },
+        { address=0X778A9, type="u8", condition="change", action="WEAPON_STATE", desc="Zell Weapon" },
+        { address=0X77941, type="u8", condition="change", action="WEAPON_STATE", desc="Irvine Weapon" },
+        { address=0X779D9, type="u8", condition="change", action="WEAPON_STATE", desc="Quistis Weapon" },
+        { address=0X77A71, type="u8", condition="change", action="WEAPON_STATE", desc="Rinoa Weapon" },
+        { address=0X77B09, type="u8", condition="change", action="WEAPON_STATE", desc="Selphie Weapon" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7737C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Location (from base set)" },
+      },
+    },
+  },
+}

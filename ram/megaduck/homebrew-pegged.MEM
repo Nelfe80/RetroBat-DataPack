@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pegged",
+    system = "megaduck",
+    system_name = "Mega Duck",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-pegged",
+    hashes = {
+      { hash = "651635c9b964bdd1fde94adf6b6f38ec", label = "Pegged (World) (v1.2) (Aftermarket) (Under4Mhz).bin" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC100, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon XD: DX [Director's Cut]",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-xd-dx-directors-cut",
+    hashes = {
+      { hash = "b134627a93ccf34c8cdde9cd7df13536", label = "Pokemon XD - DX [Director's Cut] (v3.0.2) (PepGames)" },
+    }
+  },
+
+  events = {
+  },
+}

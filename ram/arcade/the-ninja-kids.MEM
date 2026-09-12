@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Ninja Kids",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "the-ninja-kids",
+    hashes = {
+      { hash = "b80055109380d6cd70e75b0e9cc17897", label = "ninjak.7z <The Ninja Kids (World)>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1100, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_mask="XXXX0000", score_encoding="bcd", desc="[16-bit BCD] 1P Score xxxx0000" },
+        { address=0X1102, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_mask="0000XXXX", score_encoding="bcd", desc="[16-bit BCD] 1P Score 0000xxxx" },
+      },
+    },
+  },
+}

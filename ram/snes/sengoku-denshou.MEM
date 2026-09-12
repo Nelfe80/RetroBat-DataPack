@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sengoku Denshou",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "sengoku-denshou",
+    hashes = {
+      { hash = "46b29735c680c494b21caa7d8032ac36", label = "Sengoku Denshou (Japan).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1FFF6, type="u16le", condition="increase", action="GAIN_LIFE", desc="Option: Lives increased" },
+        { address=0X1FFF6, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Option: Lives decreased" },
+        { address=0X1FFF6, type="u16le", condition="eq", value=0X00, action="LIVES_STATE", desc="1" },
+        { address=0X1FFF6, type="u16le", condition="eq", value=0X08, action="LIVES_STATE", desc="9" },
+      },
+    },
+  },
+}

@@ -1,0 +1,84 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Sword and Shield Ultimate Plus",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-sword-and-shield-ultimate-plus",
+    hashes = {
+      { hash = "63940c626d3b31a3da42e7531f8b43de", label = "Pokemon FireRed - Sword and Shield Ultimate Plus (En) (v1.2.1.2) (PCL.G).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0E7C, type="u8", condition="change", action="TITLE_SCREEN", desc="[Boolean] Title Screen -> In Game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 1: Level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 2: Level" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 3: Level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 4: Level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 5: Level" },
+        { address=0X2C4DC, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 6: Level" },
+        { address=0X2D8F2, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Magnezone" },
+        { address=0X43175, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Traditional Encounter (non-overworld)" },
+      },
+      stage = {
+        { address=0X2BC0E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Active Pokemon: Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2C2A4, type="u16le", condition="eq", value=0X230, action="LOSE_LIFE", desc="Herdier" },
+        { address=0X2C2A4, type="u16le", condition="eq", value=0X2FD, action="LOSE_LIFE", desc="Frogadier" },
+        { address=0X2D8F8, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Herdier" },
+        { address=0X2D90B, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Frogadier" },
+        { address=0X2E510, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Rock/Ice: Circhester (Gordie/Melony)" },
+        { address=0X3EE0E, type="u16le", condition="eq", value=0X0205, action="LOSE_LIFE", desc="Circhester: Gym Leader Gordie" },
+        { address=0X406AE, type="u16le", condition="eq", value=0X0031, action="LOSE_LIFE", desc="Gordie: Gym 6" },
+      },
+      health = {
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="Active Pokemon: HP increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="Active Pokemon: HP decreased" },
+        { address=0X2C2DA, type="u8", condition="increase", action="HEAL", desc="Pokemon Slot 1: Current HP increased" },
+        { address=0X2C2DA, type="u8", condition="decrease", action="HIT", desc="Pokemon Slot 1: Current HP decreased" },
+        { address=0X2C2DC, type="u8", condition="increase", action="HEAL", desc="Pokemon Slot 1: Max HP increased" },
+        { address=0X2C2DC, type="u8", condition="decrease", action="HIT", desc="Pokemon Slot 1: Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2D7BC, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+        { address=0X2E4EC, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Quest - Battle Bianca (Mega Ring)" },
+        { address=0X2E4EC, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Quest - Escort Mudsdale (Z-Power Ring)" },
+        { address=0X44228, type="u16le", condition="eq", value=0X010B, action="MONEY_STATE", desc="Z-Power Ring" },
+        { address=0X44228, type="u16le", condition="eq", value=0X0161, action="MONEY_STATE", desc="Mega Ring" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X2C2A4, type="u16le", condition="eq", value=0X1CF, action="SHIELD_GAIN", desc="Shieldon" },
+        { address=0X2D8EC, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="Shieldon" },
+      },
+      player = {
+        { address=0X2C2A4, type="u16le", condition="eq", value=0X00BD, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+        { address=0X2D8D0, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X4F92, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Number of Times Player Switches Pokemon in Current Battle" },
+        { address=0X2C598, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time Played: Minutes" },
+        { address=0X2C599, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Played: Seconds" },
+      },
+    },
+  },
+}

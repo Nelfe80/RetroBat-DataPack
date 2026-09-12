@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Gravibots",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform, Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-gravibots",
+    hashes = {
+      { hash = "14b60c4b9ee6db2d04be4d1ed2ab278f", label = "Gravibots (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X159A, type="u8", condition="change", action="NEW_LEVEL", desc="Current Block In Hand (0xff - empty, each individual block in a level has its own value starting" },
+      },
+      stage = {
+        { address=0X0039, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+  },
+}

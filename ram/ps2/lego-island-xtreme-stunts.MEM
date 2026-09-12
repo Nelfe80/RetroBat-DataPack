@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "LEGO Island: Xtreme Stunts",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "lego-island-xtreme-stunts",
+    hashes = {
+      { hash = "1e7b311c07ecbb27aeb739ae2a87b8b4", label = "LEGO Island Xtreme Stunts (Europe) (En,Fr,De,Es,It,Nl,Sv,Da)" },
+      { hash = "4e50e9bd37abc90e5e279140e9353faf", label = "LEGO Island Xtreme Stunts (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2F9F14, type="u32le", condition="change", action="NEW_LEVEL", desc="[NTSCU] [32-bit] Trouble In Store - Levels" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2D2948, type="u32le", condition="increase", action="HEAL", desc="[NTSCU] [32-bit] Freeway Frenzy - Health of Pepper's Car increased" },
+        { address=0X2D2948, type="u32le", condition="decrease", action="HIT", desc="[NTSCU] [32-bit] Freeway Frenzy - Health of Pepper's Car decreased" },
+        { address=0X2D2980, type="u32le", condition="increase", action="HEAL", desc="[NTSCU] [32-bit] Freeway Frenzy - Health of Brickster's Car increased" },
+        { address=0X2D2980, type="u32le", condition="decrease", action="HIT", desc="[NTSCU] [32-bit] Freeway Frenzy - Health of Brickster's Car decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2D2664, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[NTSCU] [32-bit] Freeway Frenzy - Score" },
+        { address=0X2DAED4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[NTSCU] [32-bit] Player Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2D2668, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[NTSCU] [32-bit] Freeway Frenzy - Remaining Minutes (Timer)" },
+        { address=0X2D266C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[NTSCU] [32-bit] Freeway Frenzy - Remaining Seconds(Timer)" },
+        { address=0X2F9F10, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[NTSCU] [32-bit float] Trouble In Store - Remaining time (in seconds)" },
+      },
+    },
+  },
+}

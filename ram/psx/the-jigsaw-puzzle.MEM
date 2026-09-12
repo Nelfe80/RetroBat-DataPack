@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Jigsaw Puzzle",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-jigsaw-puzzle",
+    hashes = {
+      { hash = "77b363db6722e4c6201db7c22c6bd1c9", label = "Simple 1500 Series Vol. 51 - The Jigsaw Puzzle (Japan)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XB3C8C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Thiss tells you how much time you have selected In Turn battle mode." },
+        { address=0XB3C8C, type="u8", condition="eq", value=0X0, action="GENERAL_TIMER", desc="3 minute" },
+        { address=0XB3C8C, type="u8", condition="eq", value=0X1, action="GENERAL_TIMER", desc="5 minutes" },
+        { address=0XB3C8C, type="u8", condition="eq", value=0X2, action="GENERAL_TIMER", desc="10 minutes" },
+      },
+    },
+  },
+}

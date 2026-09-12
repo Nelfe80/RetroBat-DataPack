@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ TV-Chan's Great Escape!: GB",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tv-chans-great-escape-gb",
+    hashes = {
+      { hash = "1a3ddd2e8430ee7f754196f6b5202432", label = "TV-Chan's Great Escape! (World) (v1.0) (Aftermarket) (GB Studio) (nykTV).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

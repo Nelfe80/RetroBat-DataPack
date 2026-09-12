@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Caverns of Titan",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-caverns-of-titan",
+    hashes = {
+      { hash = "015a4f70f73c9d59452b716e2cc0c2d0", label = "Caverns of Titan (2005) (v1.1) (JLTurSan).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD52F, type="u8", condition="change", action="NEW_LEVEL", desc="[MSX] Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X152E, type="u8", condition="increase", action="GAIN_LIFE", desc="[8-bit BCD] [MSX2] Lives (0 - 99) increased" },
+        { address=0X152E, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8-bit BCD] [MSX2] Lives (0 - 99) decreased" },
+        { address=0X1532, type="u8", condition="increase", action="GAIN_LIFE", desc="[MSX2] Death Frames - Countdown to Next Life increased" },
+        { address=0X1532, type="u8", condition="decrease", action="LOSE_LIFE", desc="[MSX2] Death Frames - Countdown to Next Life decreased" },
+        { address=0XD52E, type="u8", condition="increase", action="GAIN_LIFE", desc="[8-bit BCD] [MSX] Lives increased" },
+        { address=0XD52E, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8-bit BCD] [MSX] Lives decreased" },
+        { address=0XD532, type="u8", condition="increase", action="GAIN_LIFE", desc="[MSX] Death Frames - Countdown to Next Life increased" },
+        { address=0XD532, type="u8", condition="decrease", action="LOSE_LIFE", desc="[MSX] Death Frames - Countdown to Next Life decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1535, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BCD] [MSX2] Score" },
+        { address=0X1537, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BCD] [MSX2] High Score" },
+        { address=0X155C, type="u8", condition="eq", value=0X04, action="SCORE_STATE", desc="Yes (score tallying or changing to ending)" },
+        { address=0XD535, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BCD] [MSX] Score" },
+        { address=0XD537, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BCD] [MSX] High Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X152D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[MSX2] Oxygen Timer" },
+      },
+    },
+  },
+}

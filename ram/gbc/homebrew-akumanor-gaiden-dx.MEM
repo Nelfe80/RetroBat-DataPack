@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Akumanor Gaiden DX",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-akumanor-gaiden-dx",
+    hashes = {
+      { hash = "396e507b1870779bd3c2aa7bd6f0132a", label = "Akumanor Gaiden DX (World) (v1.0) (Aftermarket) (Michirin).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCC35, type="u8", condition="eq", value=0X21, action="GAME_PLAYING", desc="Stage 2 - Section 3" },
+        { address=0XCC35, type="u8", condition="eq", value=0X6C, action="GAME_PLAYING", desc="Stage 3 - Section 1" },
+        { address=0XCC35, type="u8", condition="eq", value=0X87, action="GAME_PLAYING", desc="Stage 1 - Section 2" },
+        { address=0XCC35, type="u8", condition="eq", value=0X8D, action="GAME_PLAYING", desc="Stage 3 - Section 2" },
+        { address=0XCC35, type="u8", condition="eq", value=0XBC, action="CREDITS_SCREEN", desc="Game Beaten/Credits" },
+        { address=0XCC35, type="u8", condition="eq", value=0XBD, action="GAME_PLAYING", desc="Stage 1 - Section 3" },
+        { address=0XCC35, type="u8", condition="eq", value=0XC3, action="GAME_PLAYING", desc="Stage 3 - Section 3" },
+        { address=0XCC35, type="u8", condition="eq", value=0XDA, action="GAME_PLAYING", desc="Stage 2 - Section 1" },
+        { address=0XCC35, type="u8", condition="eq", value=0XEB, action="GAME_PLAYING", desc="Stage 2 - Section 2" },
+        { address=0XCC35, type="u8", condition="eq", value=0XF4, action="GAME_PLAYING", desc="Stage 1 - Section 1" },
+        { address=0XCC5B, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCC57, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="D" },
+        { address=0XCC57, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="C" },
+        { address=0XCC57, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="B" },
+        { address=0XCC57, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="A" },
+        { address=0XCC57, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="S" },
+        { address=0XCC57, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="SS" },
+        { address=0XCC57, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="SSS" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCC3F, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0XCC3F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+        { address=0XCC59, type="u8", condition="change", action="LOSE_LIFE", desc="[8-bir] Deaths" },
+      },
+      health = {
+        { address=0XCC39, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0XCC39, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+        { address=0XCC5D, type="u8", condition="change", action="HIT", desc="Total Damage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCC41, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCC35, type="u8", condition="eq", value=0X11, action="BOSS_HIT", desc="Boss Rush Boss 1 (Normal)" },
+        { address=0XCC35, type="u8", condition="eq", value=0X6E, action="BOSS_HIT", desc="Boss Rush Boss 1 (Hard)" },
+        { address=0XCC35, type="u8", condition="eq", value=0X9E, action="BOSS_HIT", desc="Boss Rush Results Screen" },
+        { address=0XCC35, type="u8", condition="eq", value=0XB4, action="BOSS_HIT", desc="Boss Rush Boss 1 (Easy)" },
+        { address=0XCC35, type="u8", condition="eq", value=0XC5, action="BOSS_HIT", desc="Boss Rush Boss 3 (Easy, Normal and Hard)" },
+        { address=0XCC35, type="u8", condition="eq", value=0XCA, action="BOSS_HIT", desc="Boss Rush Boss 2 (Easy, Normal and Hard)" },
+        { address=0XCC49, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health Display" },
+        { address=0XCC63, type="u8", condition="change", action="BOSS_HIT", desc="Boss Rush Rank" },
+        { address=0XCCFB, type="u8", condition="change", action="BOSS_HIT", desc="1st Boss Health" },
+        { address=0XCCFD, type="u8", condition="change", action="BOSS_HIT", desc="1st Boss Explosion Frames" },
+        { address=0XCE03, type="u8", condition="change", action="BOSS_HIT", desc="2nd Boss Health" },
+        { address=0XCE05, type="u8", condition="change", action="BOSS_HIT", desc="2nd Boss Explosion Frames" },
+        { address=0XCED3, type="u8", condition="change", action="BOSS_HIT", desc="3rd Boss Health" },
+        { address=0XCED5, type="u8", condition="change", action="BOSS_HIT", desc="3rd Boss Explosion Frames" },
+        { address=0XCEDB, type="u8", condition="change", action="BOSS_HIT", desc="1st Boss Health in Boss Rush" },
+        { address=0XCEDD, type="u8", condition="change", action="BOSS_HIT", desc="1st Boss Explosion Frames in Boss Rush" },
+        { address=0XCEDF, type="u8", condition="change", action="BOSS_HIT", desc="2nd Boss Health in Boss Rush" },
+        { address=0XCEE1, type="u8", condition="change", action="BOSS_HIT", desc="2nd Boss Explosion Frames in Boss Rush" },
+        { address=0XCEE3, type="u8", condition="change", action="BOSS_HIT", desc="3rd Boss Health in Boss Rush" },
+        { address=0XCEE5, type="u8", condition="change", action="BOSS_HIT", desc="3rd Boss Explosion Frames in Boss Rush" },
+      },
+    },
+  },
+}

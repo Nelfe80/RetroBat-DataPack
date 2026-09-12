@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Sacred Echoes",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-sacred-echoes",
+    hashes = {
+      { hash = "e1ffc6bf135b30dc07cf3ffa7193f4f2", label = "FE8 - Fire Emblem - Sacred Echoes (En) (v1.1.2) (HyperGammaSpaces).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X33E7E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="1st Support Level - Character 1" },
+        { address=0X33E87, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character 1 10th support level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5273, type="u8", condition="bit_true", mask=0X80, action="LIVES_STATE", desc="Delthea lives" },
+        { address=0X33CFE, type="u8", condition="eq", value=0X1F, action="LOSE_LIFE", desc="Chapter 24C - Winds of Death" },
+        { address=0X34FCE, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss current max life increased" },
+        { address=0X34FCE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss current max life decreased" },
+        { address=0X34FCF, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss Max life increased" },
+        { address=0X34FCF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss Max life decreased" },
+        { address=0X424F0, type="u16le", condition="eq", value=0X8AA8, action="LOSE_LIFE", desc="Soldier" },
+      },
+      health = {
+        { address=0X33E5E, type="u8", condition="increase", action="HEAL", desc="Character 1 Max HP increased" },
+        { address=0X33E5E, type="u8", condition="decrease", action="HIT", desc="Character 1 Max HP decreased" },
+        { address=0X33E5F, type="u8", condition="increase", action="HEAL", desc="Character 1 HP increased" },
+        { address=0X33E5F, type="u8", condition="decrease", action="HIT", desc="Character 1 HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X05F4, type="u8", condition="eq", value=0X68, action="MONEY_STATE", desc="Mage ring" },
+        { address=0X05F4, type="u8", condition="eq", value=0X7E, action="MONEY_STATE", desc="Speed ring" },
+        { address=0X424F0, type="u16le", condition="eq", value=0X8274, action="MONEY_STATE", desc="Gold Knight" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X05F4, type="u8", condition="eq", value=0X65, action="SHIELD_GAIN", desc="Iron Shield on Chapter 8" },
+        { address=0X05F4, type="u8", condition="eq", value=0X66, action="SHIELD_GAIN", desc="Steel shield" },
+        { address=0X05F4, type="u8", condition="eq", value=0X67, action="SHIELD_GAIN", desc="Silvershield" },
+        { address=0X05F4, type="u8", condition="eq", value=0X71, action="SHIELD_GAIN", desc="Iotes Shield in Chapter 19c" },
+      },
+    },
+  },
+}

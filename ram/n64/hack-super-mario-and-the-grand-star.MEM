@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario and the Grand Star",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-and-the-grand-star",
+    hashes = {
+      { hash = "0e2f4871350ce43a452f58ec795cbfdd", label = "SM64 - Super Mario and the Grand Star (Grand Star) (1.2).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B21D, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death" },
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario's Extra Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario's Extra Lives decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Mario's Health:" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X08, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X33EDCC, type="u8", condition="increase", action="HEAL", desc="Final Bowser's HP increased" },
+        { address=0X33EDCC, type="u8", condition="decrease", action="HIT", desc="Final Bowser's HP decreased" },
+        { address=0X341DBC, type="u8", condition="increase", action="HEAL", desc="Bowser's HP increased" },
+        { address=0X341DBC, type="u8", condition="decrease", action="HIT", desc="Bowser's HP decreased" },
+        { address=0X34299C, type="u8", condition="increase", action="HEAL", desc="Mr. Is HP increased" },
+        { address=0X34299C, type="u8", condition="decrease", action="HIT", desc="Mr. Is HP decreased" },
+        { address=0X342B8C, type="u8", condition="increase", action="HEAL", desc="King Whomp's HP increased" },
+        { address=0X342B8C, type="u8", condition="decrease", action="HIT", desc="King Whomp's HP decreased" },
+        { address=0X342DEC, type="u8", condition="increase", action="HEAL", desc="Big Boo's HP increased" },
+        { address=0X342DEC, type="u8", condition="decrease", action="HIT", desc="Big Boo's HP decreased" },
+        { address=0X344F2C, type="u8", condition="increase", action="HEAL", desc="King Bob-Omb's HP increased" },
+        { address=0X344F2C, type="u8", condition="decrease", action="HIT", desc="King Bob-Omb's HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X0C, action="TREASURE", desc="Course 3 'Submerged Treasure'" },
+      },
+      weapon = {
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X15, action="WEAPON_STATE", no_log=true, desc="Khonsu's Superweapon" },
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X22, action="WEAPON_STATE", no_log=true, desc="Khonsu's Superweapon Battle" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X207718, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X20771C, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X20771E, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X20771F, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X207720, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X207722, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X207723, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X207727, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8 Red Coins" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Coins graphic increased" },
+        { address=0X3613FD, type="u8", condition="eq", value=0X08, action="MONEY_STATE", desc="8 red coins" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="First Key" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Second Key" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="!-Block" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B25D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="00 : Time Off" },
+      },
+    },
+  },
+}

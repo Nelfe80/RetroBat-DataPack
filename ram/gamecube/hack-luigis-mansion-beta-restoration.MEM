@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Luigi's Mansion Beta Restoration",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-luigis-mansion-beta-restoration",
+    hashes = {
+      { hash = "c03d5588464987036d7b7b4ebc9f2cfd", label = "Luigi's Mansion Beta Restoration Revamped (v1.3) (Portable Productions)" },
+      { hash = "b4aaa6cfa08322cc403387eca8d20fbc", label = "Luigi's Mansion Beta Restoration Revamped (v1.5) (Portable Productions)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3CDF61, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF63, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF73, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF81, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF93, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF95, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+        { address=0X3CDF97, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="cleared" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X4D04E7, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X4D04E7, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X13ABC89, type="u8", condition="increase", action="HEAL", desc="Health intro skipped increased" },
+        { address=0X13ABC89, type="u8", condition="decrease", action="HIT", desc="Health intro skipped decreased" },
+        { address=0X13AE78D, type="u8", condition="increase", action="HEAL", desc="Health intro not skipped increased" },
+        { address=0X13AE78D, type="u8", condition="decrease", action="HIT", desc="Health intro not skipped decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X4CB824, type="u32be", condition="increase", action="COIN_GAIN", desc="(32-bit BE) Coins increased" },
+        { address=0X13ACE80, type="u32be", condition="increase", action="COIN_GAIN", desc="(32-bit BE) Coins intro skipped increased" },
+        { address=0X13AF984, type="u32be", condition="increase", action="COIN_GAIN", desc="(32-bit BE) Coins intro not skipped increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Pyrite",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-pyrite",
+    hashes = {
+      { hash = "e336e261538fb189bbd7739024b1df58", label = "Pokemon Crystal - Pyrite (v1.1) (Crystal_).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XD217, type="u8", condition="increase", action="HEAL", desc="Enemy Current HP increased" },
+        { address=0XD217, type="u8", condition="decrease", action="HIT", desc="Enemy Current HP decreased" },
+        { address=0XDD02, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 Current HP increased" },
+        { address=0XDD02, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 Current HP decreased" },
+        { address=0XDD32, type="u8", condition="increase", action="HEAL", desc="Pokemon 2 Current HP increased" },
+        { address=0XDD32, type="u8", condition="decrease", action="HIT", desc="Pokemon 2 Current HP decreased" },
+        { address=0XDD62, type="u8", condition="increase", action="HEAL", desc="Pokemon 3 Current HP increased" },
+        { address=0XDD62, type="u8", condition="decrease", action="HIT", desc="Pokemon 3 Current HP decreased" },
+        { address=0XDD92, type="u8", condition="increase", action="HEAL", desc="Pokemon 4 Current HP increased" },
+        { address=0XDD92, type="u8", condition="decrease", action="HIT", desc="Pokemon 4 Current HP decreased" },
+        { address=0XDDC2, type="u8", condition="increase", action="HEAL", desc="Pokemon 5 Current HP increased" },
+        { address=0XDDC2, type="u8", condition="decrease", action="HIT", desc="Pokemon 5 Current HP decreased" },
+        { address=0XDDF2, type="u8", condition="increase", action="HEAL", desc="Pokemon 6 Current HP increased" },
+        { address=0XDDF2, type="u8", condition="decrease", action="HIT", desc="Pokemon 6 Current HP decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Jet Moto 2: Championship Edition",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "jet-moto-2-championship-edition",
+    hashes = {
+      { hash = "8d29522854e7b60337c7dd6503344695", label = "Jet Moto 2 - Championship Edition (USA)" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XFDDEF, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="1st place" },
+        { address=0XFDDEF, type="u8", condition="eq", value=0X0A, action="OBJECT_INTERACTION_CHECKPOINT", desc="10th place/ last place" },
+      },
+    },
+  },
+}

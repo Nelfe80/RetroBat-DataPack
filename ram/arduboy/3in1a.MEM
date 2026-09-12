@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "3in1A",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "3in1a",
+    hashes = {
+      { hash = "98fe609ffe1702e999ea1d8886d55985", label = "3in1A (World) (v3.1) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0102, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X01A1, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Not Running/Demo Mode" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0102, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Pinball - Lives/Title Screen increased" },
+        { address=0X0102, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Pinball - Lives/Title Screen decreased" },
+      },
+      health = {
+        { address=0X0ADC, type="u16le", condition="eq", value=0XFFFF, action="HIT", desc="Undamaged" },
+        { address=0X0ADE, type="u16le", condition="eq", value=0XFFFF, action="HIT", desc="Undamaged" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0ADC, type="u16le", condition="eq", value=0X0000, action="OBJECT_DESTROYED", desc="Destroyed" },
+        { address=0X0ADE, type="u16le", condition="eq", value=0X0000, action="OBJECT_DESTROYED", desc="Destroyed" },
+      },
+    },
+  },
+}

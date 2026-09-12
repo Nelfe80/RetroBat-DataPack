@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Felix the Cat",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-felix-the-cat",
+    hashes = {
+      { hash = "a7ed2295964be206220b3853d05e08e2", label = "Felix the Cat (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFE86, type="u8", condition="eq", value=0X01, action="GAME_OVER", desc="Game Over" },
+        { address=0XFE86, type="u8", condition="eq", value=0X86, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X922C, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="Coin" },
+      },
+    },
+  },
+}

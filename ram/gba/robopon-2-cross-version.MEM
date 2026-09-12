@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Robopon 2: Cross Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "robopon-2-cross-version",
+    hashes = {
+      { hash = "22a4e57b85f7413c1973d4bd5a19d5a3", label = "Robopon 2 - Cross Version (USA).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1834E, type="u8", condition="change", action="RANK_STATE", desc="Current rank (downscaling)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5FF0, type="u24le", condition="eq", value=0X56, action="LOSE_LIFE", desc="Death Gaia" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X5FF0, type="u24le", condition="eq", value=0X51, action="MONEY_STATE", desc="Gold tower" },
+        { address=0X5FF0, type="u24le", condition="eq", value=0X54, action="MONEY_STATE", desc="the Gold Tower (Past)" },
+      },
+    },
+  },
+}

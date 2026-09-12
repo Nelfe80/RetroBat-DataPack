@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Deadly Moves",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "deadly-moves",
+    hashes = {
+      { hash = "208652cf1e1f77405cf3e854f009d2b8", label = "Deadly Moves (USA).md" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Sapphire",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-sapphire",
+    hashes = {
+      { hash = "bd329373ca8293f4f879d60a747d3535", label = "Super Mario 64 - Sapphire (Hack) (Nebula) (1.0).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X3613FD, type="u8", condition="eq", value=0X08, action="MONEY_STATE", desc="8 Red Coins" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Red !-Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green !-Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue !-Switch" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Star near 3 colour switches" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B25D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="00 : Time Off" },
+      },
+    },
+  },
+}

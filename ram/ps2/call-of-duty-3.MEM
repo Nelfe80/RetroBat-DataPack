@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Call of Duty 3",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "call-of-duty-3",
+    hashes = {
+      { hash = "f3b2a5a377b2317a028ce0040f5e2e71", label = "Call of Duty 3 (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X49C944, type="u32le", condition="change", action="NEW_LEVEL", desc="Levels Unlocked" },
+        { address=0X49C948, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Level (Doesn't work with Chapter 13)" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X47C6E4, type="u32le", condition="change", action="WEAPON_STATE", desc="Equipped Weapon ID" },
+        { address=0X47C6E8, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Status" },
+        { address=0X47C704, type="u32le", condition="change", action="WEAPON_STATE", desc="Secondary Weapon ID" },
+        { address=0X859D6C, type="u8", condition="change", action="WEAPON_STATE", desc="[ASCII] Current Weapon Equipped" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4B9714, type="u8", condition="change", action="OBJECT_INTERACTION", desc="1st Objective Event" },
+        { address=0X4B9738, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 1st Objective Event Identifier" },
+        { address=0X4B97B8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="2nd Objective Event" },
+        { address=0X4B97DC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 2nd Objective Event Identifier" },
+        { address=0X4B985C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="3rd Objective Event" },
+        { address=0X4B9880, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 3rd Objective Event Identifier" },
+        { address=0X4B9900, type="u8", condition="change", action="OBJECT_INTERACTION", desc="4th Objective Event" },
+        { address=0X4B9924, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 4th Objective Event Identifier" },
+        { address=0X4B99A4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="5th Objective Event" },
+        { address=0X4B99C8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 5th Objective Event Identifier" },
+        { address=0X4B9A48, type="u8", condition="change", action="OBJECT_INTERACTION", desc="6th Objective Event" },
+        { address=0X4B9A6C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 6th Objective Event Identifier" },
+        { address=0X4B9AEC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="7th Objective Event" },
+        { address=0X4B9B10, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 7th Objective Event Identifier" },
+        { address=0X4B9B90, type="u8", condition="change", action="OBJECT_INTERACTION", desc="8th Objective Event" },
+        { address=0X4B9BB4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] 8th Objective Event Identifier" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X47C75C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Times Damage Taken" },
+      },
+    },
+  },
+}

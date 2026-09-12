@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Uzesweeper",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "uzesweeper",
+    hashes = {
+      { hash = "04289f56bf870a9c75a9bf7e995dd684", label = "Uzesweeper (World) (Final) (D3thAdd3r).uze" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0388, type="u8", condition="bit_true", mask=0X04, action="TITLE_SCREEN", desc="Ingame (0: Title Screen)" },
+        { address=0X0EF7, type="u8", condition="bit_true", mask=0X20, action="PAUSE_ON", desc="Text Box (Pause/Win)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0EF7, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0DDA, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[16 Bit] Timer" },
+      },
+    },
+  },
+}

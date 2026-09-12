@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Primal Rage",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "primal-rage",
+    hashes = {
+      { hash = "1ce6a2d5b50098cbcc9f166f2cc44fba", label = "Primal Rage (USA, Europe).gg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D99, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1D9A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round time" },
+      },
+    },
+  },
+}

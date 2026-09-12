@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bio F.R.E.A.K.S.",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "bio-f-r-e-a-k-s",
+    hashes = {
+      { hash = "a1075dbc5e5f23bfdea7ae348b05826c", label = "Bio F.R.E.A.K.S. (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X922CC, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9A028, type="u8", condition="change", action="NEW_LEVEL", desc="1'st player rounds won" },
+        { address=0XB1044, type="u8", condition="change", action="NEW_LEVEL", desc="Arcade mode level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X9A039, type="u8", condition="increase", action="HEAL", desc="Player Hp increased" },
+        { address=0X9A039, type="u8", condition="decrease", action="HIT", desc="Player Hp decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X922C4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Round Time" },
+      },
+    },
+  },
+}

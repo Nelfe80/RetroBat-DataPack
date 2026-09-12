@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Castlevania: Resurrection",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-castlevania-resurrection",
+    hashes = {
+      { hash = "d59ca0093f3fd239289f6c2f71b8a9b8", label = "Castlevania - Resurrection (E3 Pre-Demo)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X88DA8, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X87844, type="u32le", condition="change", action="LOSE_LIFE", desc="Hydra dead : 0x01" },
+        { address=0XC5640, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XC5640, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X12A488, type="u32le", condition="eq", value=0X40, action="WEAPON_STATE", no_log=true, desc="subweapon" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X7B41AC, type="u32le", condition="change", action="BOSS_HIT", desc="1e when in boss room" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XC5648, type="u32le", condition="change", action="SHIELD_GAIN", desc="Shield picked up : 0x03" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB66C00, type="u32le", condition="change", action="DOOR_OPENED", desc="Stairs 2nd area behind door candle" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC5638, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left" },
+      },
+    },
+  },
+}

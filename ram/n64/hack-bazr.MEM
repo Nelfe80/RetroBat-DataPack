@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ BAZR",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-bazr",
+    hashes = {
+      { hash = "81e1bc868e1196865b65d5fde8bcf949", label = "SM64 - BAZR (v1.0.3) (anonymous_moose, furyiousfight, spk).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2706B6, type="u8", condition="change", action="DEMO_MODE", desc="{1.0.3} [8-bit] Green Demon Unnerf Active {unnerfGD}" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2B3246, type="u16be", condition="increase", action="GAIN_LIFE", desc="{1.0.3} [16-bit] (HUD) Lives - Amount increased" },
+        { address=0X2B3246, type="u16be", condition="decrease", action="LOSE_LIFE", desc="{1.0.3} [16-bit] (HUD) Lives - Amount decreased" },
+        { address=0X2B3302, type="u8", condition="increase", action="GAIN_LIFE", desc="{1.0.3} [8-bit] Lives - Amount increased" },
+        { address=0X2B3302, type="u8", condition="decrease", action="LOSE_LIFE", desc="{1.0.3} [8-bit] Lives - Amount decreased" },
+      },
+      health = {
+        { address=0X2B3301, type="u8", condition="increase", action="HEAL", desc="{1.0.3} [8-bit] Current HP increased" },
+        { address=0X2B3301, type="u8", condition="decrease", action="HIT", desc="{1.0.3} [8-bit] Current HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X4CDAD, type="u8", condition="increase", action="COIN_GAIN", desc="[Bitflag] Wet-Dry World - Stars Collected increased" },
+        { address=0X2734D6, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.0.3} [16-bit] Total Coins Spent {gTotalSpentCoins} increased" },
+        { address=0X2734D6, type="u16be", condition="eq", value=0X0, action="COIN_LOSE", desc="{1.0.3} [16-bit] Total Coins Spent {gTotalSpentCoins} empty" },
+        { address=0X2734DA, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.0.3} [16-bit] Total Coins {gTotalCoins} increased" },
+        { address=0X2B3244, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.0.3} [16-bit] (HUD) Total Coins - Amount increased" },
+        { address=0X2B32FE, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.0.3} [16-bit] Level Coins increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X274A56, type="u24be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="tick", desc="{1.0.3} [16-bit] Current Map ID {gCurrLevelNum}" },
+      },
+    },
+  },
+}

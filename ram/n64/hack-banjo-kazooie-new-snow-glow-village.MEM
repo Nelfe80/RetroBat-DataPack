@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: New Snow Glow Village",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-new-snow-glow-village",
+    hashes = {
+      { hash = "b79594de34304e41ad53968c078fc7b5", label = "Banjo-Kazooie - Snow Glow Village Redone (v1.2.2) (Kurko Mods).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X383302, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID" },
+        { address=0X383302, type="u8", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="New Snow Glow Village" },
+        { address=0X383302, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Christmas Hub" },
+        { address=0X383302, type="u8", condition="eq", value=0X0A, action="PROGRESSION_ZONE", desc="Snowglow Village" },
+        { address=0X383302, type="u8", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="File Select" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X3E, action="DOOR_OPENED", desc="Stop 'n Swop Room, behind the note door" },
+        { address=0X3832C6, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="New Snowglow: Sign Switches, A-O-O" },
+        { address=0X3832C7, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="New Snowglow: Ice Cavern, Timed Switch" },
+        { address=0X3832C7, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="New Snowglow: Ice Cavern, Tiptup Switch" },
+        { address=0X3832E2, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="New Snowglow: Ice Cavern Switch" },
+        { address=0X3832E3, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Old Snowglow: Engine room chimney, behind door" },
+      },
+    },
+  },
+}

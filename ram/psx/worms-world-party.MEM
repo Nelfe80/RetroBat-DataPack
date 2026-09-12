@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Worms World Party",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "worms-world-party",
+    hashes = {
+      { hash = "62dcbe8ff5b44dd69e699eeb54ce5f99", label = "Worms World Party (USA) (En,Fr,De,Es,It,Nl,Sv,Da)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X14DDF4, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Worm 1 Health | P1 increased" },
+        { address=0X14DDF4, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Worm 1 Health | P1 decreased" },
+      },
+    },
+  },
+}

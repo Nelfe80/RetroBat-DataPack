@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Newton",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "newton",
+    hashes = {
+      { hash = "f94d028134169f434134ad2d5a3bf2fc", label = "Newton (Europe) (ESS-011-B).tvc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X170E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score BCD" },
+      },
+    },
+  },
+}

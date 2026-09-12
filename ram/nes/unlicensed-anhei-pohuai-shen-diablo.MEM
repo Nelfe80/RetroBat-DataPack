@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Anhei Pohuai Shen: Diablo",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-anhei-pohuai-shen-diablo",
+    hashes = {
+      { hash = "4ebf65376a19b7bad59149725f713fd9", label = "Anhei Pohuai Shen - Diablo (China) (Aftermarket) (Pirate).nes" },
+      { hash = "34df4130d36904bb0857195637a67b1f", label = "Diablo II (World) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X614B, type="u8", condition="change", action="DEMO_MODE", desc="[8bit] Demonhide Armor Quantity" },
+        { address=0X61E9, type="u8", condition="change", action="DEMO_MODE", desc="[8bit] Demonhide Boots Quantity" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X6000, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+        { address=0X6011, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Experience To Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X6138, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] Death Mask Quantity" },
+      },
+      health = {
+        { address=0X6001, type="u8", condition="increase", action="HEAL", desc="[8bit] Health increased" },
+        { address=0X6001, type="u8", condition="decrease", action="HIT", desc="[8bit] Health decreased" },
+        { address=0X6002, type="u8", condition="increase", action="HEAL", desc="[8bit] Health*256 increased" },
+        { address=0X6002, type="u8", condition="decrease", action="HIT", desc="[8bit] Health*256 decreased" },
+        { address=0X609D, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy Health increased" },
+        { address=0X609D, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy Health decreased" },
+        { address=0X609E, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy Health*256 increased" },
+        { address=0X609E, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy Health*256 decreased" },
+        { address=0X60ED, type="u8", condition="increase", action="HEAL", desc="[8bit] Small Health Potion Quantity increased" },
+        { address=0X60ED, type="u8", condition="decrease", action="HIT", desc="[8bit] Small Health Potion Quantity decreased" },
+        { address=0X60EE, type="u8", condition="increase", action="HEAL", desc="[8bit] Light Health Potion Quantity increased" },
+        { address=0X60EE, type="u8", condition="decrease", action="HIT", desc="[8bit] Light Health Potion Quantity decreased" },
+        { address=0X60EF, type="u8", condition="increase", action="HEAL", desc="[8bit] Health Potion Quantity increased" },
+        { address=0X60EF, type="u8", condition="decrease", action="HIT", desc="[8bit] Health Potion Quantity decreased" },
+        { address=0X60F0, type="u8", condition="increase", action="HEAL", desc="[8bit] Great Health Potion Quantity increased" },
+        { address=0X60F0, type="u8", condition="decrease", action="HIT", desc="[8bit] Great Health Potion Quantity decreased" },
+        { address=0X60F1, type="u8", condition="increase", action="HEAL", desc="[8bit] Super Health Potion Quantity increased" },
+        { address=0X60F1, type="u8", condition="decrease", action="HIT", desc="[8bit] Super Health Potion Quantity decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X6014, type="u8", condition="eq", value=0X36, action="WEAPON_STATE", desc="Colossus Blade" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X6140, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Ring Mail Quantity increased" },
+        { address=0X62C9, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Gold increased" },
+        { address=0X62CA, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Gold*256 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X6157, type="u8", condition="change", action="BOSS_HIT", desc="[8bit] Embossed Plate Quantity" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X6127, type="u8", condition="change", action="OBJECT_DESTROYED", desc="[8bit] Broken Staff Quantity" },
+      },
+    },
+  },
+}

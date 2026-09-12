@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Ultimate Trial [Subset - Bonus]",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-ultimate-trial-subset-bonus",
+    hashes = {
+      { hash = "bc5263bddf8a4d9e214fb60aab607560", label = "Legend of Zelda, The - Ocarina of Time - Ultimate Trial (v1.0.1) [Subset - Bonus].z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X135561, type="u8", condition="change", action="NEW_LEVEL", desc="Magic Metter Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1355BF, type="u8", condition="bit_true", mask=0X04, action="LIVES_STATE", desc="Stone of Life" },
+        { address=0X1355BF, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Stone of Death" },
+      },
+      health = {
+        { address=0X284C0C, type="u8", condition="increase", action="HEAL", desc="Shiba Health increased" },
+        { address=0X284C0C, type="u8", condition="decrease", action="HIT", desc="Shiba Health decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X145680, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0X145680, type="u8", condition="eq", value=0X5B, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0X145680, type="u8", condition="eq", value=0X64, action="BOSS_HIT", desc="King Dodongo Boss Fight Theme / Twinrova" },
+      },
+    },
+  },
+}

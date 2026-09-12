@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Micro Machines 1 and 2: Twin Turbo",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "micro-machines-1-and-2-twin-turbo",
+    hashes = {
+      { hash = "a721520df37c636ed924dbc268cdd753", label = "Micro Machines 1 and 2 - Twin Turbo (USA, Europe).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

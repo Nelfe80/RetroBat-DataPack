@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Telegraph: Sudoku & Kakuro",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "telegraph-sudoku-kakuro",
+    hashes = {
+      { hash = "ab44049bf469927de06bc41691ca6a1e", label = "Telegraph Sudoku & Kakuro (USA) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+  },
+}

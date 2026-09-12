@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Scorched Silver",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-scorched-silver",
+    hashes = {
+      { hash = "f7af51cecd3e170cc373fba01753053c", label = "Pokemon Emerald - Scorched Silver (v1.3) (Sloo).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2D1D0, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 1 Level" },
+        { address=0X2D234, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 2 Level" },
+        { address=0X2D298, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 3 Level" },
+        { address=0X2D2FC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 4 Level" },
+        { address=0X2D360, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 5 Level" },
+        { address=0X2D3C4, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pokemon Slot 6 Level" },
+        { address=0X2D428, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] enemy pokemon 1 level ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2CCD6, type="u16le", condition="increase", action="HEAL", desc="[16bit] current enemy mon hp increased" },
+        { address=0X2CCD6, type="u16le", condition="decrease", action="HIT", desc="[16bit] current enemy mon hp decreased" },
+      },
+    },
+  },
+}

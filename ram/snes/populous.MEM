@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Populous",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Construction and Management Simulation, Strategy"
+  },
+
+  rom = {
+    name = "populous",
+    hashes = {
+      { hash = "6f9294b5f83d777def17a801bf02df01", label = "Populous (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0084, type="u8", condition="eq", value=0XB6, action="PAUSE_ON", desc="paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X006E, type="u8", condition="change", action="NEW_LEVEL", desc="b6 and b7 change from 10 to 01 when ground shakes" },
+        { address=0X007C, type="u16le", condition="change", action="NEW_LEVEL", desc="level (x5)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0078, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SMA2 Micro-Hack: The Return to Dinosaur Land",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sma2-micro-hack-the-return-to-dinosaur-land",
+    hashes = {
+      { hash = "df01d18578247c6bd8b7c651793268bc", label = "SMA2 - The Return to Dinosaurland (v1.1) (Oquendo).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4C66, type="u16le", condition="eq", value=0XC7, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X4C66, type="u16le", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X101, action="NEW_LEVEL", desc="Iggy's Castle" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X102, action="NEW_LEVEL", desc="Yoshi's Island 4" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X103, action="NEW_LEVEL", desc="Yoshi's Island 3" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X105, action="NEW_LEVEL", desc="Yoshi's Island 1" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X106, action="NEW_LEVEL", desc="Yoshi's Island 2" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X14, action="NEW_LEVEL", desc="Yellow Switch Palace" },
+        { address=0X4C66, type="u16le", condition="eq", value=0X15, action="NEW_LEVEL", desc="Donut Plains 1" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X4300, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Powerup" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X42FF, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X42F4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="b6:Yellow Switch Palace Active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X42F9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="GameTime - Minutes" },
+        { address=0X42FA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game Time - Seconds" },
+      },
+    },
+  },
+}

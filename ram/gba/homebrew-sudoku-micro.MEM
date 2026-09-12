@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sudoku Micro",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sudoku-micro",
+    hashes = {
+      { hash = "f8931a1a9a842de8e11e39223350af60", label = "Sudoku Micro (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

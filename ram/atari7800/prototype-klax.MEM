@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Klax",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Strategy, Puzzle-Game"
+  },
+
+  rom = {
+    name = "prototype-klax",
+    hashes = {
+      { hash = "17b3b764d33eae9b5260f01df7bb9d2f", label = "Klax (USA) (Proto).a78" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X00DD, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00EB, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [16-Bit and 32-Bit]" },
+      },
+    },
+  },
+}

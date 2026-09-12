@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ EunHye DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-eunhye-ds",
+    hashes = {
+      { hash = "e19b7b3ade640ac4b96b529f860f2f0a", label = "EunHye DS (World) (v1.0) (Aftermarket) (Unl) (Ryu Seung-Ryul).nds" },
+    }
+  },
+
+  events = {
+  },
+}

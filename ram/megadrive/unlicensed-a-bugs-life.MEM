@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ A Bug's Life",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-a-bugs-life",
+    hashes = {
+      { hash = "fff8006af9f09aae3f9b8570944ca1a7", label = "Chong Chong Weiji - A Bug's Life (Taiwan) (En) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XE4A9, type="u8", condition="eq", value=0X13, action="LEVEL_CLEAR", desc="Level Completed (Ground Level)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Mickey Mania 7",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-mickey-mania-7",
+    hashes = {
+      { hash = "a80fd71e89d754d1bc80534867acf85e", label = "Mickey Mania 7 (Asia) (En) (Pirate).nes" },
+    }
+  },
+
+  events = {
+  },
+}

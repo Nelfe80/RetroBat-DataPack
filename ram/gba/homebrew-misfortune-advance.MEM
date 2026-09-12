@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Misfortune Advance",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-misfortune-advance",
+    hashes = {
+      { hash = "42fbeb32909935b02ce9f8826c86df03", label = "Misfortune Advance (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7D78, type="u8", condition="change", action="GAME_OVER", desc="Changes to 0xff on the game over screen" },
+        { address=0X7E58, type="u8", condition="change", action="TITLE_SCREEN", desc="0x02 on title screen, 0x03 or 0x00 in most other instances" },
+      },
+    },
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cortex",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cortex",
+    hashes = {
+      { hash = "f03d77b9353c9b875a6331275bb480a5", label = "Coretex (World) (v0.70) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0421, type="u8", condition="eq", value=0X3, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0421, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Choose a Level" },
+      },
+    },
+  },
+}

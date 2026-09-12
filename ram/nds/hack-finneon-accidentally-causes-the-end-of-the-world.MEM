@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Finneon Accidentally Causes the End of the World",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-finneon-accidentally-causes-the-end-of-the-world",
+    hashes = {
+      { hash = "b3e4ec402672841728210d3d17008f8c", label = "Pokemon Mystery Dungeon - Finneon Accidentally Causes the End of the World (v1.5) (minarchu).nds" },
+    }
+  },
+
+  events = {
+  },
+}

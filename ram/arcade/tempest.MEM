@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tempest",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "tempest",
+    hashes = {
+      { hash = "6ad8536215968eb1f3494143392c77bf", label = "tempest.7z <Tempest (rev 3, Revised Hardware)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0006, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0046, type="u8", condition="change", action="NEW_LEVEL", desc="Level zero-indexed hex number" },
+        { address=0X03AA, type="u8", condition="change", action="NEW_LEVEL", desc="Superzappers userd in level 02 is max" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0048, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0048, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X48, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0X0156, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch Bonus Lives thousands increased" },
+        { address=0X0156, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch Bonus Lives thousands decreased" },
+        { address=0X0158, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch starting lives increased" },
+        { address=0X0158, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch starting lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X40, type="u24be", condition="change", action="TREASURE", color="cyan", min=6000, max=1000000, desc="Score delta 6000-1000000: Start level bonus achieved" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X40, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X6, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X016A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dipswitch rating 08 : default" },
+        { address=0X071F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dipswitch difficulty 00 : Med1, 01 : Easy, 03 : Med2 02 : Hard" },
+      },
+    },
+  },
+}

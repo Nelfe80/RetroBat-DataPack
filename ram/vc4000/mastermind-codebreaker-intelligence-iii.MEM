@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mastermind | Codebreaker | Intelligence III",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "mastermind-codebreaker-intelligence-iii",
+    hashes = {
+      { hash = "455c82e043a886ee3f421ae117a4b266", label = "Mastermind (Europe).bin" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X050E, type="u8", condition="change", action="NEW_LEVEL", desc="[Upper 4] Current Round" },
+      },
+    },
+  },
+}

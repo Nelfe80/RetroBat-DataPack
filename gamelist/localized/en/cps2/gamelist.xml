@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+	<game>
+		<path>./1944.zip</path>
+		<name>1944 - The Loop Master</name>
+		<desc>The game takes place in the heated battles of 1944 during the Second World War as a super ace pilot attempts to defeat an entire army. The game operates and plays like most standard shooters. The objective of every level is to shoot enemy planes, tanks, trains, turrets, battleships, and defeat the boss after each level. Unlike its predecessor, 19XX: The War Against Destiny, the game plays more like the early games in the series.</desc>
+		<genre>Shoot'em Up / Vertical, Shoot'em Up</genre>
+		<image>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/screentitle.png</image>
+		<video>./../../plugins/APIExpose/media/systems/cps2/games/1944/video.mp4</video>
+		<marquee>./../../plugins/APIExpose/media/systems/cps2/games/1944/ui/wheels/wheel.png</marquee>
+		<thumbnail>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/box/front.png</thumbnail>
+		<fanart>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/fanart.jpg</fanart>
+		<titleshot>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/screentitle.png</titleshot>
+		<boxart>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/box/front.png</boxart>
+		<boxback>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/box/back.png</boxback>
+		<wheel>./../../plugins/APIExpose/media/systems/cps2/games/1944/ui/wheels/wheel.png</wheel>
+		<rating>0.9</rating>
+		<releasedate>20000620T000000</releasedate>
+		<developer>Eighting</developer>
+		<publisher>Capcom</publisher>
+		<players>1-2</players>
+		<crc32>d3cd25f2</crc32>
+		<md5>bfcde752c41389ee2688879c9a2f2510</md5>
+		
+		<region>us</region>
+		<cheevosHash>6F2688A5FCE7D48C8D19762B88C32C3B</cheevosHash>
+		<extra1>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/flyer.jpg</extra1>
+		<figurine>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/figurine.png</figurine>
+		<screenshot>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/screenshot.png</screenshot>
+		<source>screenscraper</source>
+		<gameid>c5fc6e9017c8483b49e715aa9903d0bb</gameid>
+		<genres>79, 2851</genres>
+		<bezel>./../../plugins/APIExpose/media/systems/cps2/games/1944/artwork/bezels/bezel.png</bezel>
+	</game>
+	<game>
+		<path>./19xx.zip</path>
+		<name>19xx - The War Against Destiny</name>
+		<desc>19XX: The War Against Destiny is a vertical scrolling shooter arcade game made by Capcom in 1995 (copyrighted in 1996). The game is the 4th of a series of World War II vertical shooters made by Capcom. The story takes place before a fictional war (Hence, the 19XX) as a lone pilot tries to defeat an entire army/evil organization from starting another World War, which soon escalates to a nuclear apocalypse.</desc>
+		<genre>Shoot'em Up / Vertical, Shoot'em Up</genre>
+		<video>./../../plugins/APIExpose/media/systems/cps2/games/19xx/video.mp4</video>
+		<marquee>./../../plugins/APIExpose/media/systems/cps2/games/19xx/ui/wheels/wheel.png</marquee>
+		<fanart>./../../plugins/APIExpose/media/systems/cps2/games/19xx/artwork/fanart.jpg</fanart>
+		<wheel>./../../plugins/APIExpose/media/systems/cps2/games/19xx/ui/wheels/wheel.png</wheel>
+		<rating>0.7</rating>
+		<releasedate>19960101T000000</releasedate>
+		<developer>Capcom</developer>
+		<publisher>Capcom</publisher>
+		<players>1-2</players>
+		<crc32>a3ddb605</crc32>
+		<md5>3564a5467f0357a5570162b2cb393728</md5>
+		<lang>en</lang>
+		<region>us</region>
+		<cheevosHash>33A48137BD598345260024F173986B35</cheevosHash>
+		<cheevosId>11958</cheevosId>
+		<extra1>./../../plugins/APIExpose/media/systems/cps2/games/19xx/artwork/flyer.jpg</extra1>
+		<figurine>./../../plugins/APIExpose/media/systems/cps2/games/19xx/artwork/figurine.png</figurine>
+		<screenshot>./../../plugins/APIExpose/media/systems/cps2/games/19xx/artwork/screenshot-wor.png</screenshot>
+		<source>screenscraper</source>
+		<gameid>4b52c6cc4d96cbdcb00560f7a74c6ee7</gameid>
+		<genres>79, 2851</genres>
+	</game>
+</gameList>

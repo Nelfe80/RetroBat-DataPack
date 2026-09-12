@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: Desolation",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-desolation",
+    hashes = {
+      { hash = "1a9034291774584a3997c5a04e8b95d7", label = "Metroid ZM - Desolation (v1.1.2) (jasinchen).gba" },
+      { hash = "58a2315fc43410586d967a79df04c2db", label = "Metroid ZM - Desolation (v1.3.1) (jasinchen).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1530, type="u16le", condition="increase", action="HEAL", desc="[16bit] Health Maximum increased" },
+        { address=0X1530, type="u16le", condition="decrease", action="HIT", desc="[16bit] Health Maximum decreased" },
+        { address=0X1536, type="u16le", condition="increase", action="HEAL", desc="[16bit] Health Current increased" },
+        { address=0X1536, type="u16le", condition="decrease", action="HIT", desc="[16bit] Health Current decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X01C0, type="u16le", condition="change", action="BOSS_HIT", desc="[16bit] Enemy/Boss Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X13DA, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Invincibility Timer" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0151, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Timer - Minutes" },
+        { address=0X0152, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Timer - Seconds" },
+      },
+    },
+  },
+}

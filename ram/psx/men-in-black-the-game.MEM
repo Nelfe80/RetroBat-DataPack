@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Men in Black: The Game",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "men-in-black-the-game",
+    hashes = {
+      { hash = "3e1a33cb616c3d52abd00912b9b74b11", label = "Men in Black - The Game (Europe)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XDFA7C, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XDFA7C, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+  },
+}

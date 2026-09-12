@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Knight Guy In Low Res World: Castle Days",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-knight-guy-in-low-res-world-castle-days",
+    hashes = {
+      { hash = "33dbb58f9ee73e9f476b4ebbc8190c88", label = "Knight Guy in Low-Res World - Castle Days (World) (RC1.1) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+  },
+}

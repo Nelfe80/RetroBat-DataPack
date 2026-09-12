@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Flappy Bird for MSX",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-flappy-bird-for-msx",
+    hashes = {
+      { hash = "c60cacd6c1a8d390eae9e73e1f4da697", label = "Flappy Bird (2014) (Crunchworks).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X308A, type="u8", condition="eq", value=0X0C, action="GAME_OVER", desc="Game Over" },
+        { address=0XF08A, type="u8", condition="eq", value=0X0C, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X308A, type="u8", condition="eq", value=0XC0, action="LOSE_LIFE", desc="Death" },
+        { address=0XF08A, type="u8", condition="eq", value=0XC0, action="LOSE_LIFE", desc="Death" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2008, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16bit] MSX2 - Score" },
+        { address=0X200A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16bit] MSX2- High Score" },
+        { address=0XE008, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[MSX] 16bit score" },
+      },
+    },
+  },
+}

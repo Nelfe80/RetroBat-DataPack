@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bomberman Land",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "bomberman-land",
+    hashes = {
+      { hash = "6fcd853f93edd424d747db9b26c476cc", label = "Bomberman Land (USA).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XBFBEDD, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Screen Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCE17F4, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Red Zone" },
+        { address=0XCE17F4, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Blue Zone" },
+        { address=0XCE17F4, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Yellow Zone" },
+        { address=0XCE17F4, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Green Zone" },
+        { address=0XCE17F4, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="White Zone" },
+        { address=0XCE17F4, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Rainbow Zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCE2CB8, type="u8", condition="eq", value=0X1, action="LOSE_LIFE", desc="On" },
+        { address=0XD614E4, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Mini-game Life's/Chances (Story Mode) increased" },
+        { address=0XD614E4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Mini-game Life's/Chances (Story Mode) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD614C4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16-bits - Current Mini-games Score (In Story Mode)" },
+        { address=0XD614FC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16-bits - Current Mini-games High Score (In Story Mode)" },
+      },
+      collectibles = {
+        { address=0XCE181C, type="u32le", condition="increase", action="COIN_GAIN", desc="Money Quantity [32-bits] increased" },
+        { address=0XDAA198, type="u24le", condition="eq", value=0XF423F, action="MONEY_STATE", desc="Max Money" },
+        { address=0XDAE958, type="u24le", condition="eq", value=0XF423F, action="MONEY_STATE", desc="Max Money" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XDA7EE4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Current Mini-game Time - Minutes (In Story Mode)" },
+        { address=0XDA8264, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Current Mini-game Time - Seconds Decimal (In Story Mode)" },
+        { address=0XDA8424, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Current Mini-game Time - Seconds Unit (In Story Mode)" },
+        { address=0XDAE958, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="In Hammer Time Money Quantity [24-bits]" },
+      },
+    },
+  },
+}

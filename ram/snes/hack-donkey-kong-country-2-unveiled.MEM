@@ -1,0 +1,103 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong Country 2 Unveiled",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-country-2-unveiled",
+    hashes = {
+      { hash = "22e9e58d90e048e177d25d97987a8c63", label = "DKC2 - Donkey Kong Country 2 Unveiled (Pt-Br) (v8.1.2) (emptysys).sfc" },
+      { hash = "c449bf07668703910db00668f0c20b90", label = "DKC2 - Donkey Kong Country 2 Unveiled (En) (v8.1.2) (emptysys).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X08C2, type="u8", condition="bit_true", mask=0X40, action="PAUSE_ON", desc="Pause flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X052D, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld flag" },
+        { address=0X052D, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="In overworld" },
+      },
+      zone = {
+        { address=0X08FA, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="World 2" },
+        { address=0X08FA, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="World 3" },
+        { address=0X08FA, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_ZONE", desc="World 4" },
+        { address=0X08FA, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_ZONE", desc="World 5" },
+        { address=0X08FA, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="World 6" },
+        { address=0X5957, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="Purple coin world 3" },
+        { address=0X5969, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="Purple coin world 7" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X5952, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="some purple coin" },
+        { address=0X5954, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="some purple coin" },
+        { address=0X5954, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="some purple coin" },
+        { address=0X5957, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="some purple coin" },
+        { address=0X5957, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="some purple coin" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="3-2" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="4-6" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="1-1" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="1-3" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="3-4" },
+        { address=0X59D2, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="2-1" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="2-4" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="3-5" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="1-5" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="1-2" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="4-2" },
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="4-4" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="5-2" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="4-1" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="5-4" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="2-3" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="1-4" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="8-4" },
+        { address=0X59D4, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="5-5" },
+        { address=0X59D5, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="5-3" },
+        { address=0X59D5, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="5-1" },
+        { address=0X59D6, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="6-2" },
+        { address=0X59D6, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="2-5" },
+        { address=0X59D6, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="2-2" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="3-1" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="3-3" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="4-5" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="3-6" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="4-3" },
+        { address=0X59D7, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="7-1" },
+        { address=0X59DE, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="6-3" },
+        { address=0X59DF, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="6-1" },
+        { address=0X59DF, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="6-5" },
+        { address=0X59DF, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="6-6" },
+        { address=0X59E2, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="8-3" },
+        { address=0X59E3, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="6-4" },
+        { address=0X59E4, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="8-2" },
+        { address=0X59E5, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="8-1" },
+        { address=0X59E5, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="8-5" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X59D3, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="1-boss" },
+        { address=0X59D6, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="2-boss" },
+        { address=0X59DE, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="7-boss" },
+        { address=0X59DE, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="3-boss" },
+        { address=0X59DF, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="8-boss" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X08AA, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint barrel is active" },
+        { address=0X08AC, type="u8", condition="eq", value=0X9B, action="OBJECT_INTERACTION_CHECKPOINT", desc="Kongpendium" },
+      },
+    },
+  },
+}

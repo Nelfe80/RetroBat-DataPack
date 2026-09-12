@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Microsoft Pinball Arcade",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Pinball"
+  },
+
+  rom = {
+    name = "microsoft-pinball-arcade",
+    hashes = {
+      { hash = "31f7a606b52e8d10fc010b4efe9fb514", label = "Microsoft Pinball Arcade (USA).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC90B, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="not paused" },
+      },
+    },
+  },
+}

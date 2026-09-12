@@ -1,0 +1,117 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Ultimate",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-ultimate",
+    hashes = {
+      { hash = "0b67cd533e2ac2b107b6e1f33b4be480", label = "SMB3 - Super Mario Ultimate (v1.1) (Silas).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0376, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X0376, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00D8, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Touching Ground" },
+        { address=0X0150, type="u8", condition="change", action="NEW_LEVEL", desc="[28 Bytes][28 * 8-bit] Overworld Inventory Slots" },
+        { address=0X7D02, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="1-1" },
+        { address=0X7D02, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="1-2" },
+        { address=0X7D04, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="1-4" },
+        { address=0X7D04, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="2-1" },
+        { address=0X7D06, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="3-1" },
+        { address=0X7D06, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="1-Castle" },
+        { address=0X7D06, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="1-3" },
+        { address=0X7D08, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="2-2 / 3-3" },
+        { address=0X7D08, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="2-3" },
+        { address=0X7D09, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="2-5" },
+        { address=0X7D0A, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="3-2" },
+        { address=0X7D0A, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="2-4" },
+        { address=0X7D0C, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="2-6" },
+        { address=0X7D0C, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="1-5" },
+        { address=0X7D0C, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="3-Castle" },
+        { address=0X7D0E, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="2-Castle" },
+        { address=0X7D0E, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="1-6" },
+        { address=0X7D10, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="2-7" },
+        { address=0X7D12, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="2-9" },
+        { address=0X7D14, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="2-8" },
+        { address=0X7D16, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="2-Sand Pit" },
+      },
+      zone = {
+        { address=0X0727, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+        { address=0X0727, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="World 1" },
+        { address=0X0727, type="u8", condition="eq", value=0X07, action="PROGRESSION_ZONE", desc="World 8" },
+        { address=0X0727, type="u8", condition="eq", value=0X08, action="PROGRESSION_ZONE", desc="Warp Zone" },
+        { address=0X7D1A, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_ZONE", desc="World 2 Secret Toad House" },
+        { address=0X7D1C, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_ZONE", desc="World 2 Secret Toad House" },
+        { address=0X7D1E, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_ZONE", desc="World 2 Secret Toad House" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X00ED, type="u8", condition="decrease", action="HIT", desc="Power Up State decreased" },
+        { address=0X01E0, type="u8", condition="decrease", action="HIT", desc="Power-Up in Level Inventory Slot decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X00ED, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Fire Flower" },
+        { address=0X00ED, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Leaf" },
+        { address=0X00ED, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Frog Suit" },
+        { address=0X00ED, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Tanooki Suit" },
+        { address=0X00ED, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Hammer Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Empty" },
+        { address=0X0150, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Mushroom" },
+        { address=0X0150, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Fire Flower" },
+        { address=0X0150, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Leaf" },
+        { address=0X0150, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Frog Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Tanooki Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Hammer Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Cloud" },
+        { address=0X0150, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="P-Wing" },
+        { address=0X0150, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Star" },
+        { address=0X0150, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Anchor" },
+        { address=0X0150, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="Pickaxe (Hammer)" },
+        { address=0X0150, type="u8", condition="eq", value=0X0C, action="DYNAMIC_INVENTORY", desc="Ocarina (Flute)" },
+        { address=0X0150, type="u8", condition="eq", value=0X0D, action="DYNAMIC_INVENTORY", desc="Music Box" },
+        { address=0X01E0, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Empty" },
+        { address=0X01E0, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Mushroom" },
+        { address=0X01E0, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Fire Flower" },
+        { address=0X01E0, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Leaf" },
+        { address=0X01E0, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Frog Suit" },
+        { address=0X01E0, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Tanooki Suit" },
+        { address=0X01E0, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Hammer Suit" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X00ED, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Flower" },
+        { address=0X00ED, type="u8", condition="eq", value=0X04, action="TRANSFORMATION_FROG", desc="Transformed into Frog Suit" },
+        { address=0X00ED, type="u8", condition="eq", value=0X05, action="TRANSFORMATION_TANOOKI", desc="Transformed into Tanooki Suit" },
+        { address=0X00ED, type="u8", condition="eq", value=0X06, action="TRANSFORMATION_HAMMER", desc="Transformed into Hammer Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Flower" },
+        { address=0X0150, type="u8", condition="eq", value=0X04, action="TRANSFORMATION_FROG", desc="Transformed into Frog Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X05, action="TRANSFORMATION_TANOOKI", desc="Transformed into Tanooki Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X06, action="TRANSFORMATION_HAMMER", desc="Transformed into Hammer Suit" },
+        { address=0X0150, type="u8", condition="eq", value=0X0B, action="TRANSFORMATION_HAMMER", desc="Transformed into Pickaxe (Hammer)" },
+        { address=0X01E0, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Flower" },
+        { address=0X01E0, type="u8", condition="eq", value=0X04, action="TRANSFORMATION_FROG", desc="Transformed into Frog Suit" },
+        { address=0X01E0, type="u8", condition="eq", value=0X05, action="TRANSFORMATION_TANOOKI", desc="Transformed into Tanooki Suit" },
+        { address=0X01E0, type="u8", condition="eq", value=0X06, action="TRANSFORMATION_HAMMER", desc="Transformed into Hammer Suit" },
+      },
+    },
+  },
+}

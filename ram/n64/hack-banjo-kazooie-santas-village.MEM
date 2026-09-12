@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: Santa's Village",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-santas-village",
+    hashes = {
+      { hash = "57a0fc74c9a052415d9e44740b3923dc", label = "Banjo-Kazooie - Santa's Village (v1.1) (Kurko Mods).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X3F, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X383302, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID" },
+        { address=0X383302, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Santa's Village" },
+        { address=0X383302, type="u8", condition="eq", value=0X0A, action="PROGRESSION_ZONE", desc="Santa's Village, Switch Cutaway Sequence" },
+        { address=0X383302, type="u8", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="File Select" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X385F80, type="u32be", condition="increase", action="HEAL", desc="Player HP increased" },
+        { address=0X385F80, type="u32be", condition="decrease", action="HIT", desc="Player HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X60, action="TREASURE", desc="Treasure Chest House" },
+        { address=0X3832C3, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Treasure Chest House" },
+        { address=0X385F78, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Treasure Chest House" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3831A8, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Witch Switch" },
+        { address=0X3831AC, type="u8", condition="bit_true", mask=0X08, action="DOOR_OPENED", desc="180 Note Door" },
+        { address=0X3831AF, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Attic Switch" },
+        { address=0X3831C2, type="u8", condition="bit_true", mask=0X04, action="OBJECT_DESTROYED", desc="Attic Webs Destroyed" },
+        { address=0X3832C0, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Clock Tower Timed Switch" },
+        { address=0X3832F3, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Switch House" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X37E8F6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Map ID" },
+        { address=0X385F48, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Hourglass Timer Flag" },
+      },
+    },
+  },
+}

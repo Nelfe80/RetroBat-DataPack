@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Grand Adventure",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-grand-adventure",
+    hashes = {
+      { hash = "7c4b70dc99923a31b1c1c2a2e115591c", label = "SMW - Mario's Grand Adventure (AppleBoy54321).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XFD82, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint" },
+      },
+    },
+  },
+}

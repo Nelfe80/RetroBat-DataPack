@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Newer Super Mario Bros. DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-newer-super-mario-bros-ds",
+    hashes = {
+      { hash = "e9bbb39abf88029b04f4d5b5351c956b", label = "Newer Super Mario Bros. DS (V1.16).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X85A78, type="u8", condition="change", action="NEW_LEVEL", desc="Can be used as in Level check" },
+        { address=0X85A78, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="In Level" },
+        { address=0X85A78, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="on Map" },
+      },
+      zone = {
+        { address=0X88C3C, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C3E, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C40, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C42, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C44, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C46, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C48, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+        { address=0X88C4A, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="unlocked" },
+      },
+    },
+  },
+}

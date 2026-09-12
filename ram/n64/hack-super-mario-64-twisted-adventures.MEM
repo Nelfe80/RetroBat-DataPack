@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Twisted Adventures",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-twisted-adventures",
+    hashes = {
+      { hash = "b5ae14c8973591df1edeb3aca59d9bc8", label = "SM64 - Twisted Adventures (v2.2) (Lincrash, SomeRussianMarioDude).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X32D5F0, type="u32be", condition="change", action="DEMO_MODE", desc="[32bit] current demo input" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] map id – gCurrLevelNum" },
+        { address=0X33B1E4, type="u16be", condition="change", action="NEW_LEVEL", desc="[16bit] water y-level of the water box mario is currently in" },
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] warpDest level id" },
+      },
+      stage = {
+        { address=0X2076B1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Cloud Stage (OW2) stars (bit0-bit5)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u16be", condition="increase", action="GAIN_LIFE", desc="[16bit] nof lives increased" },
+        { address=0X33B21E, type="u16be", condition="decrease", action="LOSE_LIFE", desc="[16bit] nof lives decreased" },
+      },
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2076B4, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 3 Coin Score increased" },
+        { address=0X2076B5, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 2 Coin Score increased" },
+        { address=0X2076B6, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 1 Coin Score increased" },
+        { address=0X2076B8, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 7 Coin Score increased" },
+        { address=0X2076B9, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 6 Coin Score increased" },
+        { address=0X2076BA, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 5 Coin Score increased" },
+        { address=0X2076BB, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 4 Coin Score increased" },
+        { address=0X2076BC, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 11 Coin Score increased" },
+        { address=0X2076BD, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 10 Coin Score increased" },
+        { address=0X2076BE, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 9 Coin Score increased" },
+        { address=0X2076BF, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 8 Coin Score increased" },
+        { address=0X2076C0, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 15 Coin Score increased" },
+        { address=0X2076C1, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 14 Coin Score increased" },
+        { address=0X2076C2, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 13 Coin Score increased" },
+        { address=0X2076C3, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Course 12 Coin Score increased" },
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin COUNT increased" },
+        { address=0X33B260, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] hud displayed coins increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] red coins/8, negative when remaining reds exceed 8 increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X330E34, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] gMarioPlatform – object struct" },
+        { address=0X33D694, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[0] behavior script" },
+        { address=0X33D8F4, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[1] behavior script" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B220, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="[8bit] hp increment counter" },
+        { address=0X33B221, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8bit] hp decrement counter" },
+      },
+    },
+  },
+}

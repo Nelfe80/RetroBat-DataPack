@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Metal Slug: Super Vehicle-001",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "prototype-metal-slug-super-vehicle-001",
+    hashes = {
+      { hash = "7ab3a2b98ce6a85bfa23bc8bb6ecadef", label = "Metal Slug - Super Vehicle-001 (Japan) (En) (Proto).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1908, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Level [32bit]" },
+        { address=0X31D0, type="u24le", condition="change", action="NEW_LEVEL", desc="0x0031d0 Levels" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X328F, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X3048, type="u8", condition="increase", action="HEAL", desc="Helicopter Health increased" },
+        { address=0X3048, type="u8", condition="decrease", action="HIT", desc="Helicopter Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X3194, type="u8", condition="change", action="WEAPON_STATE", desc="Something to Do With Weapons." },
+        { address=0X3278, type="u32le", condition="change", action="WEAPON_STATE", desc="Weapon Type [32bit]" },
+        { address=0X32A8, type="u8", condition="change", action="WEAPON_STATE", desc="Has Something to Do With Messing With the Weapon Achievements." },
+        { address=0XE8B0, type="u8", condition="change", action="WEAPON_STATE", desc="Maybe Weapons/Maybe POWS." },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X327C, type="u16le", condition="eq", value=0X03E8, action="AMMO_STATE", desc="1000 Ammo" },
+        { address=0X327C, type="u16le", condition="eq", value=0XFFFF, action="AMMO_STATE", desc="0 Ammo" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X301C, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="stage boss" },
+        { address=0X3020, type="u32le", condition="change", action="BOSS_HIT", desc="Level 1 - Boss Status [32bit]" },
+        { address=0X302C, type="u32le", condition="change", action="BOSS_HIT", desc="Level 1 - Boss - Hits [32bit]" },
+        { address=0X3030, type="u32le", condition="change", action="BOSS_HIT", desc="Level 1 - Boss - Fadeout [32bit]" },
+      },
+    },
+  },
+}

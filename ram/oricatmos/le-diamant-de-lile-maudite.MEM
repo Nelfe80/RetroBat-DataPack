@@ -1,0 +1,18 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Le Diamant de l'île maudite",
+    system = "oricatmos",
+    system_name = "Oric",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "le-diamant-de-lile-maudite",
+    hashes = {
+    }
+  },
+
+  events = {
+  },
+}

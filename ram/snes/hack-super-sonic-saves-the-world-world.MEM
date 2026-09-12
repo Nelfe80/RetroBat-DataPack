@@ -1,0 +1,76 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super "Sonic Saves the World" World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-sonic-saves-the-world-world",
+    hashes = {
+      { hash = "3122e5b96afffd01ff45ef6e781132f8", label = "SMW - Super 'Sonic Saves the World' World (v0.666.5) (Maddy).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1426, type="u8", condition="change", action="NEW_LEVEL", desc="Message box status; some messages are assigned to 0x01 and others are assigned to 0x02. This may" },
+        { address=0X1EAC, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld flags - I. Only Yesterday" },
+        { address=0X1EEF, type="u8", condition="change", action="NEW_LEVEL", desc="Daddy's Castsle level flags" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exits cleared on current save (Max: 0x1b); 0x1b displays as '69'" },
+      },
+      stage = {
+        { address=0X1FF0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moons pt. 1 (stage; screen)" },
+        { address=0X1FF2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moons pt. 2 (stage;screen)" },
+        { address=0X1FF4, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moons pt. 3 (stage; screen)" },
+        { address=0X1FF7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moons pt. 5 (stage; screen)" },
+        { address=0X1FF8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moons pt. 6 (stage; screen)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X010B, type="u24le", condition="increase", action="GAIN_LIFE", desc="Most recent screen ID loaded (Does not change when entering the overworld until a new level is s" },
+        { address=0X010B, type="u24le", condition="decrease", action="LOSE_LIFE", desc="Most recent screen ID loaded (Does not change when entering the overworld until a new level is s" },
+        { address=0X0DBF, type="u8", condition="increase", action="GAIN_LIFE", desc="Amount of coins/rings picked up on the current life increased" },
+        { address=0X0DBF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Amount of coins/rings picked up on the current life decreased" },
+        { address=0X13BF, type="u8", condition="increase", action="GAIN_LIFE", desc="Level ID of most recently entered stage (final rooms when protection is needed) increased" },
+        { address=0X13BF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Level ID of most recently entered stage (final rooms when protection is needed) decreased" },
+        { address=0X150B, type="u8", condition="change", action="LOSE_LIFE", desc="Elon head #1 HP; starts at 0x03 and dies at 0x00" },
+        { address=0X150C, type="u8", condition="change", action="LOSE_LIFE", desc="Elon head #2 HP; starts at 0x03 and dies at 0x00" },
+        { address=0X150D, type="u8", condition="change", action="LOSE_LIFE", desc="Elon head #3 HP; starts at 0x03 and dies at 0x00" },
+        { address=0X1FF6, type="u8", condition="increase", action="GAIN_LIFE", desc="Moons pt. 4 (stage; screen) increased" },
+        { address=0X1FF6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Moons pt. 4 (stage; screen) decreased" },
+        { address=0X1B403, type="u16le", condition="increase", action="GAIN_LIFE", desc="Current checkpoint increased" },
+        { address=0X1B403, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Current checkpoint decreased" },
+        { address=0X20500, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ones place)" },
+        { address=0X20501, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Tens place)" },
+        { address=0X20502, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Hundreds place)" },
+        { address=0X20503, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Thousands place)" },
+        { address=0X20504, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ten Thousands place)" },
+        { address=0X20505, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (One Hundred Thousands place)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-up" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X14AF, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switch value" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X20511, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall game time - Minutes" },
+        { address=0X20512, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall game time - Seconds" },
+        { address=0X20564, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Overall game time until Overworld level is entered - Hours" },
+        { address=0X20565, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="minute", desc="Overall game time until Overworld level is entered - Minutes" },
+        { address=0X20566, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", desc="Overall game time until Overworld level is entered - Seconds" },
+      },
+    },
+  },
+}

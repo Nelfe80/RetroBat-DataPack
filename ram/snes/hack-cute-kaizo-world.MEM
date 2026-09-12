@@ -1,0 +1,117 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Cute Kaizo World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-cute-kaizo-world",
+    hashes = {
+      { hash = "a65572927b758ccb0014b2858b46ad93", label = "SMW - Cute Kaizo World (v1.1) (slopcore).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XB404, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XE15E, action="DEMO_MODE", desc="Demo level" },
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X1B, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Game paused : 01" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld map" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XCC71, action="NEW_LEVEL", desc="Intro level" },
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="overworld map" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="entering a level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="Fade in level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="in a level" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level exit:" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="normal exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="secret exit" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Canterbury Woods" },
+        { address=0X13BF, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Oak Hill" },
+        { address=0X13BF, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Stonebridge" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Pat's Peak" },
+        { address=0X13BF, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Intervale" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Brattleboro" },
+        { address=0X13BF, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Pink Switch" },
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Blue Switch" },
+        { address=0X13BF, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="Windsor" },
+        { address=0X13BF, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="Blossom Hill" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Kimball" },
+        { address=0X13BF, type="u8", condition="eq", value=0X15, action="NEW_LEVEL", desc="Zalzion Castle" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Yoshi's House" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Windsor" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Intervale" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Stonebridge" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Pink Switch" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Kimball (Secret exit)" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Kimball (Normal exit)" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Brattleboro" },
+        { address=0X1F02, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Canterbury Woods" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Zalzion Castle" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Blossom Hill" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Blue Switch" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Pat's Peak (Secret exit)" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Pat's Peak (Normal exit)" },
+        { address=0X1F03, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Oak Hill" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="start + select or die" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="Power-ups decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="small" },
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="big" },
+        { address=0X0019, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="cape" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="fire flower" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins, reset to 00 if you exit/retry or die increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into big" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="TRANSFORMATION_FIRE", desc="Transformed into fire flower" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CE, type="u16le", condition="eq", value=0XCD71, action="OBJECT_INTERACTION", desc="Pink Switch main room" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XD49B, action="OBJECT_INTERACTION", desc="Blue Switch main and shell room combined" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XD62C, action="OBJECT_INTERACTION", desc="Pink Switch switch room" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue switch pressed" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Pink switch pressed" },
+        { address=0XD4E1, type="u32le", condition="eq", value=0X24, action="OBJECT_INTERACTION", desc="not hitted" },
+        { address=0XD4E1, type="u32le", condition="eq", value=0X32, action="OBJECT_INTERACTION", desc="Already got hitted" },
+        { address=0XD4E1, type="u32le", condition="eq", value=0X52, action="OBJECT_INTERACTION", desc="Being hitted" },
+        { address=0XD4EE, type="u32le", condition="eq", value=0X24, action="OBJECT_INTERACTION", desc="not hitted" },
+        { address=0XD4EE, type="u32le", condition="eq", value=0X32, action="OBJECT_INTERACTION", desc="Already got hitted" },
+        { address=0XD4EE, type="u32le", condition="eq", value=0X52, action="OBJECT_INTERACTION", desc="Being hitted" },
+        { address=0XD4F1, type="u32le", condition="eq", value=0X24, action="OBJECT_INTERACTION", desc="not hitted" },
+        { address=0XD4F1, type="u32le", condition="eq", value=0X32, action="OBJECT_INTERACTION", desc="Already got hitted" },
+        { address=0XD4F1, type="u32le", condition="eq", value=0X52, action="OBJECT_INTERACTION", desc="Being hitted" },
+        { address=0XD4FE, type="u32le", condition="eq", value=0X24, action="OBJECT_INTERACTION", desc="not hitted" },
+        { address=0XD4FE, type="u32le", condition="eq", value=0X32, action="OBJECT_INTERACTION", desc="Already got hitted" },
+        { address=0XD4FE, type="u32le", condition="eq", value=0X52, action="OBJECT_INTERACTION", desc="Being hitted" },
+      },
+    },
+  },
+}

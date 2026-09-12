@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ #0 IGGY'S CASTLE",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-0-iggys-castle",
+    hashes = {
+      { hash = "fea5dc2292cf872e27b8384d71d21ecf", label = "SMW - #0 IGGY'S CASTLE (v2.0.0) (Wakana).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2010B, type="u16le", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X20DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X218BB, type="u8", condition="increase", action="HEAL", desc="Mario's Health vs Mushroom increased" },
+        { address=0X218BB, type="u8", condition="decrease", action="HIT", desc="Mario's Health vs Mushroom decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins 00X increased" },
+        { address=0X20F42, type="u8", condition="increase", action="COIN_GAIN", desc="Coins 0X0 increased" },
+        { address=0X20F43, type="u8", condition="increase", action="COIN_GAIN", desc="Coins X00 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X218B7, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X21497, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Mario's Invincibility Timer" },
+      },
+    },
+  },
+}

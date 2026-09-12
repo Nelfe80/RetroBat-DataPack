@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ninja Spirit",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "ninja-spirit",
+    hashes = {
+      { hash = "042aac9b0a7b7b1bb14a9e3edcb1d666", label = "nspiritj.7z <Saigo no Nindou (Japan)>" },
+      { hash = "b8f0e3368d41ee9e95f5738a750b70a0", label = "nspirit.7z <Ninja Spirit (World)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X299DC, type="u8", condition="change", action="TITLE_SCREEN", desc="0x00 - Title" },
+        { address=0X2A0E0, type="u8", condition="change", action="DEMO_MODE", desc="FF : Demo Active" },
+        { address=0X2A0EB, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X2A12A, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2A1CE, type="u8", condition="change", action="NEW_LEVEL", desc="Number of Enemies Attacking from the ground" },
+      },
+      stage = {
+        { address=0X2A0C4, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Distance (16-Bit)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2A0EB, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of lives increased" },
+        { address=0X2A0EB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of lives decreased" },
+        { address=0X2A122, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch - Starting Lives increased" },
+        { address=0X2A122, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch - Starting Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X26870, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2A1B1, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2A0E5, type="u8", condition="change", action="BOSS_DEFEATED", desc="0xff - Boss defeated?" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X2A102, type="u8", condition="change", action="INVINCIBILITY_START", desc="Dipswitch - Bit6 : Invincibility" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2A0FB, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dipswitch - Difficulty" },
+        { address=0X2A101, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Coinage Dipswitch - F0 : Free Play" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X268B2, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Flame Shield Timer" },
+      },
+    },
+  },
+}

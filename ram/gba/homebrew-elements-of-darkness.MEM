@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Elements of Darkness",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-elements-of-darkness",
+    hashes = {
+      { hash = "13d7c9ecc69dc3939540db8e9c2fcc7b", label = "Elements of Darkness (World) (Demo) (Unl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X190D0, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+  },
+}

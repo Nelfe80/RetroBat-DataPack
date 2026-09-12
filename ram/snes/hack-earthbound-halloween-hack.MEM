@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ EarthBound: Halloween Hack",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-earthbound-halloween-hack",
+    hashes = {
+      { hash = "3c9a6079146414790ad6712d48ab31a3", label = "EarthBound (USA) - EarthBound Halloween (Bad Fur Day Edition) (Toby Fox).sfc" },
+      { hash = "82cbda347e2bdfb18ef8ee088f5ecc3e", label = "EarthBound (USA) - EarthBound Halloween (Redone) (the_ally235).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X99D3, type="u8", condition="change", action="NEW_LEVEL", desc="Varik's Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X9A15, type="u16le", condition="increase", action="HEAL", desc="Varik's HP increased" },
+        { address=0X9A15, type="u16le", condition="decrease", action="HIT", desc="Varik's HP decreased" },
+        { address=0XA22E, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0XA22E, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0XA27C, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0XA27C, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0XA2CA, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0XA2CA, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Contra",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "contra",
+    hashes = {
+      { hash = "855dc91e683d897662c2f676b4dc3e3a", label = "Contra (Japan) (Wii U Virtual Console).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2021, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of Continues (Rest)" },
+        { address=0X2094, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Menus" },
+        { address=0X2094, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Gameplay (also for the demo)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X218B, type="u8", condition="change", action="LEVEL_CLEAR", desc="All Items Destroyed / Stage Clear Flag" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X22C9, type="u8", condition="increase", action="HEAL", desc="Player HP increased" },
+        { address=0X22C9, type="u8", condition="decrease", action="HIT", desc="Player HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X2030, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up Falcons Collected" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2036, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit BE BCD] High Score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X231E, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility Frames" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2308, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Credits Screen 'Slides'" },
+      },
+    },
+  },
+}

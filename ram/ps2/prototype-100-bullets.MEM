@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ 100 Bullets",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-100-bullets",
+    hashes = {
+      { hash = "8f4a0a30aa904c5af883857c22e8523d", label = "100 Bullets (USA) (Proto)" },
+    }
+  },
+
+  events = {
+  },
+}

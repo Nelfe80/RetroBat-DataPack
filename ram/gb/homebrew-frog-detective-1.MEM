@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Frog Detective -1",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-frog-detective-1",
+    hashes = {
+      { hash = "a079653cbee238c70ca3a35601822b82", label = "Frog Detective Minus 1 (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC529, type="u16le", condition="eq", value=0X393A, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC529, type="u16le", condition="eq", value=0X613A, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC529, type="u16le", condition="eq", value=0X6239, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC529, type="u16le", condition="eq", value=0X823B, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC529, type="u16le", condition="eq", value=0XD738, action="TITLE_SCREEN", desc="Title Secret" },
+        { address=0XC529, type="u16le", condition="eq", value=0XE035, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC529, type="u16le", condition="eq", value=0XF63B, action="TITLE_SCREEN", desc="Title Secret" },
+        { address=0XCBC4, type="u16le", condition="change", action="TITLE_SCREEN", desc="Title Screen Secret" },
+      },
+    },
+  },
+}

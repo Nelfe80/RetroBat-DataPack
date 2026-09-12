@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hashire Hebereke",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "hashire-hebereke",
+    hashes = {
+      { hash = "1aaff7ec0c1213e7add1ef2b4bcf197c", label = "Hashire Hebereke (Japan).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

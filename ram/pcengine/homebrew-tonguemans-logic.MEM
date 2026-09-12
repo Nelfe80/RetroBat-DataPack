@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tongueman's Logic",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-tonguemans-logic",
+    hashes = {
+      { hash = "15107f07c3b7a65a7e784add44349961", label = "Tongueman's Logic (World) (Aftermarket) (Unl).pce" },
+      { hash = "2480d1a5475973b3032f164ae857c7f1", label = "pce/tongueman.7z <Tongueman's Logic>" },
+    }
+  },
+
+  events = {
+  },
+}

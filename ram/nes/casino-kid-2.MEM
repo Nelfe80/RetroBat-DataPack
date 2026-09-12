@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Casino Kid 2",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "casino-kid-2",
+    hashes = {
+      { hash = "11e9d80f217f597c11fbb4ef7a5483f1", label = "Casino Kid II (USA).nes" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X050E, type="u8", condition="increase", action="COIN_GAIN", desc="Money (In Cents) increased" },
+        { address=0X06A0, type="u8", condition="increase", action="COIN_GAIN", desc="Roulete Opponent's Money (In Cents) increased" },
+        { address=0X0744, type="u8", condition="increase", action="COIN_GAIN", desc="01 - Opponent Bets All Money increased" },
+        { address=0X075B, type="u8", condition="increase", action="COIN_GAIN", desc="Poker & Blackjack Opponent's Money (In Cents) increased" },
+      },
+    },
+  },
+}

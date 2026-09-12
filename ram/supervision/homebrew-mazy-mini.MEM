@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mazy Mini",
+    system = "supervision",
+    system_name = "Watara Supervision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mazy-mini",
+    hashes = {
+      { hash = "646dfa79b64831f3b32b8b7b4b209ac4", label = "Mazy Mini (World) (v20240311) (Aftermarket) (Inufuto).sv" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0207, type="u8", condition="change", action="TITLE_SCREEN", desc="[Hex] Title Screen Check" },
+        { address=0X021F, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0224, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage Clear Boolean Flag" },
+      },
+      stage = {
+        { address=0X0221, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage [8bit] +1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X021F, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8bit] increased" },
+        { address=0X021F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X021D, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [16bit] x10" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Mystery Dungeon: Explorers of the Spirit",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-mystery-dungeon-explorers-of-the-spirit",
+    hashes = {
+      { hash = "331fb72bd82b78fbf98b86fa4bb0ec7c", label = "Pokemon Mystery Dungeon - Explorers of the Spirit (v1.01) (Team EotS).nds" },
+    }
+  },
+
+  events = {
+  },
+}

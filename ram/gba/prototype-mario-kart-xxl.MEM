@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Mario Kart XXL",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-mario-kart-xxl",
+    hashes = {
+      { hash = "766094925834dc617650cd0a5387c545", label = "Mario Kart XXL (Europe) (Demo).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0C6C, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0C6C, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+  },
+}

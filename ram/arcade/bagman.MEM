@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bagman",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "bagman",
+    hashes = {
+      { hash = "f0db515c84d74deb39ebc7aafc39217c", label = "bagman.7z <Bagman>" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X6176, type="u24be", condition="change", action="TREASURE", color="blue", min=1000, max=9500, desc="Score delta 1000-9500: A bonus type range" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X6176, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X6000, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X01E8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Bonus counter (BCD)" },
+      },
+    },
+  },
+}

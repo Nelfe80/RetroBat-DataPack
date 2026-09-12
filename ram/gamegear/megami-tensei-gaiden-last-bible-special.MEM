@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Megami Tensei Gaiden: Last Bible Special",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "megami-tensei-gaiden-last-bible-special",
+    hashes = {
+      { hash = "37caaea150b3064a06253adc20b9e641", label = "Megami Tensei Gaiden - Last Bible Special (Japan) (En) (v1.02) (SSTranslations).gg" },
+      { hash = "aab2b02c831252f6a2eb369df39f7c73", label = "Megami Tensei Gaiden - Last Bible Special (Japan).gg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X06BC, type="u8", condition="eq", value=0X11, action="DEMO_MODE", desc="Demon (Claw)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X30, action="DEMO_MODE", desc="Demon (Bow)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X7, action="DEMO_MODE", desc="Demon (Axe)" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X06BC, type="u8", condition="eq", value=0X85, action="PROGRESSION_ZONE", desc="World (Use)" },
+      },
+      stage = {
+        { address=0X0678, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Main Character Level" },
+        { address=0X06D8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Character 2 Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X067F, type="u8", condition="eq", value=0X81, action="LOSE_LIFE", desc="Soldier" },
+        { address=0X06BC, type="u8", condition="eq", value=0X3A, action="LOSE_LIFE", desc="Death (Staff)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X3B, action="LIVES_STATE", desc="Life (Staff)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X8C, action="LOSE_LIFE", desc="Undead (Use)" },
+      },
+      health = {
+        { address=0X0679, type="u8", condition="increase", action="HEAL", desc="[8bit] Main Character Health increased" },
+        { address=0X0679, type="u8", condition="decrease", action="HIT", desc="[8bit] Main Character Health decreased" },
+        { address=0X0680, type="u8", condition="increase", action="HEAL", desc="[8bit] Main Character Max Health increased" },
+        { address=0X0680, type="u8", condition="decrease", action="HIT", desc="[8bit] Main Character Max Health decreased" },
+        { address=0X0CD9, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy 1 Health increased" },
+        { address=0X0CD9, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy 1 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0589, type="u8", condition="eq", value=0XB2, action="TREASURE", desc="Emerald Coffin Opened" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X06BC, type="u8", condition="eq", value=0X46, action="MONEY_STATE", desc="Ring (Mid-Armor)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X95, action="MONEY_STATE", desc="Coin (Use)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X06BC, type="u8", condition="eq", value=0X5A, action="SHIELD_GAIN", desc="Wood (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X5B, action="SHIELD_GAIN", desc="Iron (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X5C, action="SHIELD_GAIN", desc="Beton (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X5D, action="SHIELD_GAIN", desc="Diamon (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X5E, action="SHIELD_GAIN", desc="Wolf (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X5F, action="SHIELD_GAIN", desc="Golden (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X60, action="SHIELD_GAIN", desc="Might (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X61, action="SHIELD_GAIN", desc="Photon (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X62, action="SHIELD_GAIN", desc="Zele (Shield)" },
+        { address=0X06BC, type="u8", condition="eq", value=0X63, action="SHIELD_GAIN", desc="Force (Shield)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0587, type="u8", condition="eq", value=0XB1, action="OBJECT_INTERACTION", desc="Water Switch Pressed" },
+        { address=0X06BD, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="Broken" },
+      },
+    },
+  },
+}

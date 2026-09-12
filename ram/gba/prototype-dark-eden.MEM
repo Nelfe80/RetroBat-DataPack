@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Dark Eden",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-dark-eden",
+    hashes = {
+      { hash = "50e9dbc3731383d6452584bfad42297d", label = "Dark Eden (Unknown) (Prototype).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X98BE, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X98BE, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+  },
+}

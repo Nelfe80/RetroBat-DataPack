@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Robodemons",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-robodemons",
+    hashes = {
+      { hash = "531f4b4fbf208c6b34d44d0de12d2dfd", label = "Robodemons (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0501, type="u8", condition="eq", value=0X02, action="GAME_PLAYING", desc="level of bone" },
+        { address=0X0501, type="u8", condition="eq", value=0X03, action="GAME_PLAYING", desc="level of flesh (schmup)" },
+        { address=0X0501, type="u8", condition="eq", value=0X04, action="GAME_PLAYING", desc="level of flesh (indoors)" },
+        { address=0X0501, type="u8", condition="eq", value=0X05, action="GAME_PLAYING", desc="level of fire (schmup)" },
+        { address=0X0501, type="u8", condition="eq", value=0X06, action="GAME_PLAYING", desc="level of fire (indoors)" },
+        { address=0X0501, type="u8", condition="eq", value=0X07, action="GAME_PLAYING", desc="level of condemned souls (schmup)" },
+        { address=0X0501, type="u8", condition="eq", value=0X08, action="GAME_PLAYING", desc="level of condemned souls (indoors)" },
+        { address=0X0501, type="u8", condition="eq", value=0X09, action="DEMO_MODE", desc="level of demons (schmup)" },
+        { address=0X0501, type="u8", condition="eq", value=0X0A, action="DEMO_MODE", desc="level of demons (indoors)" },
+        { address=0X0501, type="u8", condition="eq", value=0X0B, action="DEMO_MODE", desc="the demon factory (schmup)" },
+        { address=0X0501, type="u8", condition="eq", value=0X0C, action="DEMO_MODE", desc="the demon factory (indoors)" },
+        { address=0X0501, type="u8", condition="eq", value=0X81, action="TITLE_SCREEN", desc="level of bone (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X82, action="TITLE_SCREEN", desc="level of flesh (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X83, action="TITLE_SCREEN", desc="level of fire (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X84, action="TITLE_SCREEN", desc="level of comdemned souls (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X85, action="TITLE_SCREEN", desc="level of demons (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X86, action="TITLE_SCREEN", desc="the demon factory (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X87, action="TITLE_SCREEN", desc="king kull's chamber (title card)" },
+        { address=0X0501, type="u8", condition="eq", value=0X89, action="GAME_OVER", desc="game over screen" },
+        { address=0X0501, type="u8", condition="eq", value=0X8A, action="TITLE_SCREEN", desc="path to hades (title card)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X000A, type="u8", condition="change", action="NEW_LEVEL", desc="The current level." },
+      },
+      stage = {
+        { address=0X05CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Invincibility/Stage Skip cheat code flag." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00F4, type="u8", condition="change", action="LOSE_LIFE", desc="Hits 06 when the player dies either through 0 health or being one shot." },
+        { address=0X0505, type="u8", condition="increase", action="GAIN_LIFE", desc="num lives increased" },
+        { address=0X0505, type="u8", condition="decrease", action="LOSE_LIFE", desc="num lives decreased" },
+      },
+      health = {
+        { address=0X051B, type="u8", condition="increase", action="HEAL", desc="The player's health. increased" },
+        { address=0X051B, type="u8", condition="decrease", action="HIT", desc="The player's health. decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X08F4, type="u8", condition="increase", action="COIN_GAIN", desc="Final Boss death cry and briefly triggered during transition to stage 7. increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X03B9, type="u8", condition="change", action="BOSS_HIT", desc="New final boss cry flag at 70." },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0501, type="u8", condition="eq", value=0X0E, action="DOOR_OPENED", desc="king kull's chamber (indoors)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0501, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="game state" },
+      },
+    },
+  },
+}

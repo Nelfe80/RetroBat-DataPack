@@ -1,0 +1,80 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mega Man Battle Network 2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "mega-man-battle-network-2",
+    hashes = {
+      { hash = "6100f72725022c811f1ee5ddbfcb6a8c", label = "Battle Network - Rockman EXE 2 (Japan) (Purple Star) (v1.1) (Souzooka).gba" },
+      { hash = "5222b96b7c9555f825db96379a4b3d6d", label = "Mega Man - Battle Network 2 (Europe) (Purple Star) (v1.1) (Souzooka).gba" },
+      { hash = "76a3ca72300db4cff7bb87873cde2b9c", label = "Mega Man - Battle Network 2 (USA) (Purple Star) (v1.1) (Souzooka).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X11078, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X16FD0, type="u8", condition="eq", value=0X62, action="DEMO_MODE", desc="BlueDemon" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X9130, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="[Mega Man Actual HP In World]" },
+        { address=0X9132, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="[Mega Man Max HP In World]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X16FD0, type="u8", condition="eq", value=0X1A, action="LOSE_LIFE", desc="DeathFire" },
+      },
+      health = {
+        { address=0X8EE0, type="u8", condition="increase", action="HEAL", desc="[Megaman LV./HP Memory Collected] increased" },
+        { address=0X8EE0, type="u8", condition="decrease", action="HIT", desc="[Megaman LV./HP Memory Collected] decreased" },
+        { address=0X8EF0, type="u8", condition="increase", action="HEAL", desc="[Mini Energy Quantity] increased" },
+        { address=0X8EF0, type="u8", condition="decrease", action="HIT", desc="[Mini Energy Quantity] decreased" },
+        { address=0X8EF1, type="u8", condition="increase", action="HEAL", desc="[Full Energy Quantity] increased" },
+        { address=0X8EF1, type="u8", condition="decrease", action="HIT", desc="[Full Energy Quantity] decreased" },
+        { address=0X10A94, type="u16le", condition="increase", action="HEAL", desc="[Mega Man Actual HP In Combat] increased" },
+        { address=0X10A94, type="u16le", condition="decrease", action="HIT", desc="[Mega Man Actual HP In Combat] decreased" },
+        { address=0X10A96, type="u16le", condition="increase", action="HEAL", desc="[Mega Man Max HP In Combat] increased" },
+        { address=0X10A96, type="u16le", condition="decrease", action="HIT", desc="[Mega Man Max HP In Combat] decreased" },
+        { address=0X10B54, type="u16le", condition="increase", action="HEAL", desc="[Enemy 1 Actual HP] increased" },
+        { address=0X10B54, type="u16le", condition="decrease", action="HIT", desc="[Enemy 1 Actual HP] decreased" },
+        { address=0X10B56, type="u16le", condition="increase", action="HEAL", desc="[Enemy 1 Max HP] increased" },
+        { address=0X10B56, type="u16le", condition="decrease", action="HIT", desc="[Enemy 1 Max HP] decreased" },
+        { address=0X10C14, type="u16le", condition="increase", action="HEAL", desc="[Enemy 2 Actual HP] increased" },
+        { address=0X10C14, type="u16le", condition="decrease", action="HIT", desc="[Enemy 2 Actual HP] decreased" },
+        { address=0X10C16, type="u16le", condition="increase", action="HEAL", desc="[Enemy 2 Max HP] increased" },
+        { address=0X10C16, type="u16le", condition="decrease", action="HIT", desc="[Enemy 2 Max HP] decreased" },
+        { address=0X10CD4, type="u16le", condition="increase", action="HEAL", desc="[Enemy 3 Actual HP] increased" },
+        { address=0X10CD4, type="u16le", condition="decrease", action="HIT", desc="[Enemy 3 Actual HP] decreased" },
+        { address=0X10CD6, type="u16le", condition="increase", action="HEAL", desc="[Enemy 3 Max HP] increased" },
+        { address=0X10CD6, type="u16le", condition="decrease", action="HIT", desc="[Enemy 3 Max HP] decreased" },
+        { address=0X11C3C, type="u16le", condition="change", action="HIT", desc="[First Chip Damage]" },
+        { address=0X11C3E, type="u16le", condition="change", action="HIT", desc="[Second Chip Damage]" },
+        { address=0X11C40, type="u16le", condition="change", action="HIT", desc="[Third Chip Damage]" },
+        { address=0X11C42, type="u16le", condition="change", action="HIT", desc="[Fourth Chip Damage]" },
+        { address=0X11C44, type="u16le", condition="change", action="HIT", desc="[Fifth Chip Damage]" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X8EE1, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up Quantity]" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X8F15, type="u8", condition="change", action="SHIELD_GAIN", desc="[Elec Shield]" },
+        { address=0X8F16, type="u8", condition="change", action="SHIELD_GAIN", desc="[Heat Shield]" },
+        { address=0X8F17, type="u8", condition="change", action="SHIELD_GAIN", desc="[Aqua Shield]" },
+        { address=0X8F18, type="u8", condition="change", action="SHIELD_GAIN", desc="[Wood Shield]" },
+      },
+    },
+  },
+}

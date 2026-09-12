@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Final Fantasy X: Fantasy War",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-final-fantasy-x-fantasy-war",
+    hashes = {
+      { hash = "6556192c6fdfde1e7f7a538bb75ad6d9", label = "Taikong Zhanshi X - Fantasy War (Taiwan) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XD017, type="u8", condition="eq", value=0X11, action="HEALTH_STATE", desc="Special attack (drains health)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XD017, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0XD017, type="u8", condition="eq", value=0X07, action="JUMPING", no_log=true, no_survey=true, desc="Jumping forward" },
+        { address=0XD017, type="u8", condition="eq", value=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Running jumping forward" },
+      },
+    },
+  },
+}

@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SD Hiryuu no Ken",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "sd-hiryuu-no-ken",
+    hashes = {
+      { hash = "7eaae4829e2d938d34f8c1032ed6bd4b", label = "SD Hiryuu no Ken (Japan).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1FD8, type="u8", condition="change", action="NEW_LEVEL", desc="Level Difficulty (00 to 08)" },
+        { address=0X1FDB, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds Setting" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10D1, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Life increased" },
+        { address=0X10D1, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Life decreased" },
+        { address=0X10D2, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Life increased" },
+        { address=0X10D2, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Life decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0033, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer in Continue Screen" },
+        { address=0X1FD9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer Setting" },
+      },
+    },
+  },
+}

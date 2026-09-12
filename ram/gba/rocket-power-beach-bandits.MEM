@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rocket Power: Beach Bandits",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "rocket-power-beach-bandits",
+    hashes = {
+      { hash = "6c1de42661ca9ca859620753d8e12083", label = "Rocket Power - Beach Bandits (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X13018, type="u32le", condition="eq", value=0X00000000, action="LOSE_LIFE", desc="Title Menu/Transistions/Death State" },
+        { address=0X1337A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="0 health, death state" },
+      },
+      health = {
+        { address=0X1337A, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health (Burrito)" },
+        { address=0X1337A, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="Max health" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X13334, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Mini Game Timer (seconds)" },
+        { address=0X13334, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="0" },
+        { address=0X13334, type="u8", condition="eq", value=0X3C, action="GENERAL_TIMER", desc="60" },
+      },
+    },
+  },
+}

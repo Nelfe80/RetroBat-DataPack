@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "G-LOC: Air Battle",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Flying"
+  },
+
+  rom = {
+    name = "g-loc-air-battle",
+    hashes = {
+      { hash = "5b7f2be0359b0770eb844e6518769a68", label = "gloc.7z <G-LOC Air Battle (World)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFD01, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] Credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE09E, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[16bit BCD] Timer" },
+        { address=0XE8A0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[16bit BCD] Session time (real) 2" },
+        { address=0XE8A2, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[16bit BCD] Session time (Real) 1" },
+        { address=0XF824, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[16bit BCD] Session time 2 - 2" },
+        { address=0XF826, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[16bit BCD] Session time 2 - 1" },
+      },
+    },
+  },
+}

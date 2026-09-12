@@ -1,0 +1,76 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mega Man Star Force 3: Black Ace",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Role-Playing, Strategy"
+  },
+
+  rom = {
+    name = "mega-man-star-force-3-black-ace",
+    hashes = {
+      { hash = "ecba14fcbfedac0184dd1b20990b1022", label = "Mega Man Star Force 3 - Black Ace (USA).nds" },
+      { hash = "750004f41de45d14e668dc23050cf3f5", label = "Mega Man Star Force 3 - Black Ace (USA) (Undub).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XF9438, type="u8", condition="increase", action="HEAL", desc="[Small Energy] [8-Bits] increased" },
+        { address=0XF9438, type="u8", condition="decrease", action="HIT", desc="[Small Energy] [8-Bits] decreased" },
+        { address=0XF9439, type="u8", condition="increase", action="HEAL", desc="[Large Energy] [8-Bits] increased" },
+        { address=0XF9439, type="u8", condition="decrease", action="HIT", desc="[Large Energy] [8-Bits] decreased" },
+        { address=0XF943A, type="u8", condition="increase", action="HEAL", desc="[Deluxe Energy] [8-Bits] increased" },
+        { address=0XF943A, type="u8", condition="decrease", action="HIT", desc="[Deluxe Energy] [8-Bits] decreased" },
+        { address=0X1C7FFC, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16-Bits] increased" },
+        { address=0X1C7FFC, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16-Bits] decreased" },
+        { address=0X1C81A4, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16-Bits] increased" },
+        { address=0X1C81A4, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16-Bits] decreased" },
+        { address=0X1C834C, type="u16le", condition="increase", action="HEAL", desc="[Enemy HP] [16-Bits] increased" },
+        { address=0X1C834C, type="u16le", condition="decrease", action="HIT", desc="[Enemy HP] [16-Bits] decreased" },
+        { address=0X1C84F4, type="u16le", condition="increase", action="HEAL", desc="[Mega Man HP In Battle] [16-Bits] increased" },
+        { address=0X1C84F4, type="u16le", condition="decrease", action="HIT", desc="[Mega Man HP In Battle] [16-Bits] decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XF9421, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/PntdFang] [8-Bits]" },
+        { address=0XF9422, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/StarHoop] [8-Bits]" },
+        { address=0XF9423, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/ShadowClaw] [8-Bits]" },
+        { address=0XF9425, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Aqua Fang] [8-Bits]" },
+        { address=0XF9426, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Storm Hoop] [8-Bits]" },
+        { address=0XF9427, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Parlyze Wing] [8-Bits]" },
+        { address=0XF9428, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/R-F Claw] [8-Bits]" },
+        { address=0XF9429, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Zenny Finder] [8-Bits]" },
+        { address=0XF942A, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Titn Glove] [8-Bits]" },
+        { address=0XF942B, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Flash Band] [8-Bits]" },
+        { address=0XF942C, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/K. Knuckle] [8-Bits]" },
+        { address=0XF942D, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Virus Claw] [8-Bits]" },
+        { address=0XF942E, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Hypno Eye] [8-Bits]" },
+        { address=0XF942F, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Impact Roar] [8-Bits]" },
+        { address=0XF9430, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Card Finder] [8-Bits]" },
+        { address=0XF9431, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Cosmic Rave] [8-Bits]" },
+        { address=0XF9432, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Chivalry] [8-Bits]" },
+        { address=0XF9433, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/White Fang] [8-Bits]" },
+        { address=0XF9434, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/Gale Claw] [8-Bits]" },
+        { address=0XF9436, type="u8", condition="change", action="WEAPON_STATE", desc="[Weapon/BN Blaster EX] [8-Bits]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XF93B4, type="u32le", condition="increase", action="COIN_GAIN", desc="Coins/Credits increased" },
+        { address=0XF9424, type="u8", condition="increase", action="COIN_GAIN", desc="[Weapon/QuickRing] [8-Bits] increased" },
+        { address=0XF9435, type="u8", condition="increase", action="COIN_GAIN", desc="[Weapon/Danger Ring] [8-Bits] increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XF9E0C, type="u32le", condition="change", action="OBJECT_DESTROYED", desc="[Moon Destroyer R Record] [32-Bits]" },
+        { address=0XFCAA0, type="u8", condition="change", action="DOOR_OPENED", desc="[Doors] [Bitflags]" },
+        { address=0XFCAA1, type="u8", condition="change", action="DOOR_OPENED", desc="[Doors] [Bitflags]" },
+      },
+    },
+  },
+}

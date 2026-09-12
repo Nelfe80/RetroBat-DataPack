@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Frogs",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "frogs",
+    hashes = {
+      { hash = "bf9990695b6c6c88406557bc17a83f7c", label = "frogs.7z <>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1428, type="u48le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

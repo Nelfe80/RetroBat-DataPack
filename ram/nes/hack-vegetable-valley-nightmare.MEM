@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Vegetable Valley Nightmare",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vegetable-valley-nightmare",
+    hashes = {
+      { hash = "10cf1e1ae3ab6f83712d3dd45e80a16e", label = "Kirby's Adventure - Vegetable Valley Nightmare (v1.05) (RhysOwens101).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0191, type="u8", condition="eq", value=0X07, action="DEMO_MODE", desc="Demo Mode or Story (Can use in stage)" },
+        { address=0X0191, type="u8", condition="eq", value=0X0F, action="TITLE_SCREEN", desc="Title Screen or Paused (Cant Use)" },
+        { address=0X058F, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Game Paused" },
+        { address=0X0599, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X0783, type="u8", condition="eq", value=0X0B, action="GAME_OVER", desc="Game Over" },
+        { address=0X0783, type="u8", condition="eq", value=0X35, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0191, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="Level Teaser (Can use for Reset Checks)" },
+      },
+      zone = {
+        { address=0X0558, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+        { address=0X0558, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Vegitable Valley" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0597, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Dead" },
+        { address=0X0599, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0599, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0599, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="If you die and try to restart" },
+      },
+      health = {
+        { address=0X004E, type="u8", condition="decrease", action="HIT", desc="Power Up State decreased" },
+        { address=0X0597, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health" },
+        { address=0X0597, type="u8", condition="eq", value=0X07, action="HEALTH_STATE", no_log=true, desc="1 HP" },
+        { address=0X0597, type="u8", condition="eq", value=0X0F, action="HEALTH_STATE", no_log=true, desc="2 HP" },
+        { address=0X0597, type="u8", condition="eq", value=0X17, action="HEALTH_STATE", no_log=true, desc="3 HP" },
+        { address=0X0597, type="u8", condition="eq", value=0X1F, action="HEALTH_STATE", no_log=true, desc="4 HP" },
+        { address=0X0597, type="u8", condition="eq", value=0X27, action="HEALTH_STATE", no_log=true, desc="5 HP" },
+        { address=0X0597, type="u8", condition="eq", value=0X2F, action="HEALTH_STATE", no_log=true, desc="6 HP" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X004E, type="u8", condition="eq", value=0X40, action="DYNAMIC_INVENTORY", desc="Have Power Up" },
+        { address=0X004E, type="u8", condition="eq", value=0X41, action="DYNAMIC_INVENTORY", desc="No Power Up" },
+        { address=0X004E, type="u8", condition="eq", value=0X43, action="DYNAMIC_INVENTORY", desc="beam power up" },
+        { address=0X004E, type="u8", condition="eq", value=0X44, action="DYNAMIC_INVENTORY", desc="fire power up" },
+        { address=0X004E, type="u8", condition="eq", value=0X45, action="DYNAMIC_INVENTORY", desc="needle power up" },
+        { address=0X004E, type="u8", condition="eq", value=0X47, action="DYNAMIC_INVENTORY", desc="CLEAR" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0558, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Boss" },
+        { address=0X055E, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Boss Room" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X004E, type="u8", condition="eq", value=0X44, action="TRANSFORMATION_FIRE", desc="Transformed into fire power up" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "badlands",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "bad-lands",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XFFF2BB, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: shields" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=1000, max=1000, desc="Score delta 1000-1000: bonus first" },
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=500, max=500, desc="Score delta 500-500: bonus second" },
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=510, max=3000, desc="Score delta 510-3000: bonus total" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFFF2A6, type="u32be", condition="change", action="SCORE_STATE", color="blue", min=0, max=10, desc="Score delta 0-10: Score 0" },
+      },
+      collectibles = {
+        { address=0XFFFF1D, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

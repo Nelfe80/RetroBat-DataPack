@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Station Silicon Valley",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "space-station-silicon-valley",
+    hashes = {
+      { hash = "488611af773cec5b7ecc5bd3efb754bb", label = "Spacestation Silicon Valley (Europe) (En,Fr,De,Es,It,Nl,Sv) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XCB2D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Point blocks collected" },
+      },
+    },
+  },
+}

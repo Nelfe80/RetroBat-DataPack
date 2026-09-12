@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "X-treme Express",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "x-treme-express",
+    hashes = {
+      { hash = "b55f0a28c2ba7fba9c6ef537ec526f82", label = "X-treme Express - World Grand Prix (Europe)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X227A08, type="u32le", condition="change", action="RANK_STATE", desc="Race Position (0-based, 0:1st, 1:2nd, 2:3rd, etc. - A value of -1 (0xFFFFFFFF) means retire)" },
+        { address=0X237782, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0X237782, type="u16le", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Snow Plain" },
+        { address=0X237782, type="u16le", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Metropolis" },
+        { address=0X237782, type="u16le", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Coastline" },
+        { address=0X237782, type="u16le", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Cityscape" },
+        { address=0X237782, type="u16le", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Rural Lane" },
+        { address=0X237782, type="u16le", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Subway" },
+        { address=0X237782, type="u16le", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Avenue B" },
+        { address=0X237782, type="u16le", condition="eq", value=0X7, action="PROGRESSION_STAGE", desc="Alpine Way" },
+        { address=0X237782, type="u16le", condition="eq", value=0X8, action="PROGRESSION_STAGE", desc="Rock Route" },
+        { address=0X237782, type="u16le", condition="eq", value=0X9, action="PROGRESSION_STAGE", desc="South Isle" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2279B0, type="u16le", condition="eq", value=0X24, action="LOSE_LIFE", desc="San Diego-D" },
+      },
+    },
+  },
+}

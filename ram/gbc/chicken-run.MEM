@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Chicken Run",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "chicken-run",
+    hashes = {
+      { hash = "bda8c4e5e18070924261823e5fca655c", label = "Chicken Run (USA, Europe) (En,Fr,De,Es,It).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XC01A, type="u24le", condition="change", action="PROGRESSION_STAGE", desc="level id - last stage:24" },
+        { address=0XC01A, type="u24le", condition="eq", value=0X19, action="PROGRESSION_STAGE", desc="end game sequence" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC1D1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="timer - number of pie chunks remaining until complete" },
+        { address=0XC1FB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Time on Continue Screen" },
+      },
+    },
+  },
+}

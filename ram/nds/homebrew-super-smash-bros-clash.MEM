@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Smash Bros. Clash",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-smash-bros-clash",
+    hashes = {
+      { hash = "fecaf270c6507b361792805fce4e39f0", label = "Super Smash Bros Clash (World) (v2012-04-30) (Aftermarket) (Unl) (Team Clash).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7D636, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X7D636, type="u8", condition="eq", value=0X0C, action="CONTINUE_SCREEN", desc="Continue Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7C33A, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Underground Laboratory" },
+      },
+      stage = {
+        { address=0X7D636, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage Select" },
+      },
+    },
+  },
+}

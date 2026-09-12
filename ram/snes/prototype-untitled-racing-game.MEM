@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Untitled Racing Game",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "prototype-untitled-racing-game",
+    hashes = {
+      { hash = "898ad86d5dbc153e8ec2e02983805b82", label = "Untitled Racing Game (Unknown) (Proto).sfc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X5E95, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="<8-bit> seconds in game timer" },
+        { address=0X5EA8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="<8-bit> minute in game timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Gold Sinnoh",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-gold-sinnoh",
+    hashes = {
+      { hash = "eff55420ce06c9eba301a27fdb51d50f", label = "Pokemon Gold - Pokemon Gold Sinnoh (v4.0) (ericgall23).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

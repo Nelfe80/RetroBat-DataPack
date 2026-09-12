@@ -1,0 +1,4 @@
+# Aucune conversion de fin de ligne, dans aucun sens : le sha du blob doit etre celui des
+# octets du fichier tel qu'il est sur la borne, sinon la synchronisation croirait chaque
+# fichier different et retelechargerait tout.
+* -text

@@ -1,0 +1,135 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Captain Commando",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "captain-commando",
+    hashes = {
+      { hash = "33d1f8bc44a414a1f2f76cfe4c197c66", label = "captcommb.7z <Captain Commando (bootleg set 1, 911014 other country)>" },
+      { hash = "af13b049084ba6917ade6d6f01cd33dd", label = "captcommj.7z <Captain Commando (911202 Japan)>" },
+      { hash = "b7cf5aa4176917b597eac76d364e449c", label = "captcommr1.7z <Captain Commando (911014 World)>" },
+      { hash = "e37004f9a9251cc5d5921836e14fb5c6", label = "captcommu.7z <Captain Commando (910928 USA)>" },
+      { hash = "f6267c0019e7006bab5875b27be32478", label = "captcomm.7z <Captain Commando (911202 World)>" },
+      { hash = "f9505345203b7c29fcf0c227a198dfc2", label = "captcommjr1.7z <Captain Commando (910928 Japan)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8A1C, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits used" },
+        { address=0X9262, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue countdown" },
+        { address=0XA851, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XF874, type="u8", condition="eq", value=0X06, action="TITLE_SCREEN", desc="stage /part finished" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X889E, type="u8", condition="change", action="LEVEL_CLEAR", desc="91 : stage finished?" },
+        { address=0XA9AE, type="u16le", condition="eq", value=0XD6D6, action="NEW_LEVEL", desc="Ground Shock" },
+      },
+      stage = {
+        { address=0XA8CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE ID" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="City" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Museum" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Ninja House" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Circus Camp" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Sea Port" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Aquarium" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Underground Base" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Enemy's Spaceship" },
+        { address=0XA8CF, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Callisto" },
+        { address=0XA8D1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE PART" },
+        { address=0XAA65, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Enemies beaten on bonus stage (stage 5)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA9C9, type="u8", condition="change", action="LOSE_LIFE", desc="ff:enemy death (on screen)" },
+        { address=0XA9D1, type="u8", condition="change", action="LOSE_LIFE", desc="FF : 1P Death" },
+        { address=0XAA7D, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XAA7D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XAAD1, type="u8", condition="change", action="LOSE_LIFE", desc="FF : 2P Death" },
+        { address=0XFFAA7C, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+      health = {
+        { address=0XA99A, type="u8", condition="eq", value=0X06, action="HIT", desc="getting hurt" },
+        { address=0XA9C8, type="u8", condition="increase", action="HEAL", desc="Enemy health (on screen) increased" },
+        { address=0XA9C8, type="u8", condition="decrease", action="HIT", desc="Enemy health (on screen) decreased" },
+        { address=0XA9D0, type="u8", condition="change", action="HEALTH_STATE", desc="P1 Health" },
+        { address=0XA9D0, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", desc="full" },
+        { address=0XA9D2, type="u8", condition="change", action="HEALTH_STATE", desc="P1 Health" },
+        { address=0XA9D2, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", desc="full" },
+        { address=0XAAD0, type="u8", condition="change", action="HEALTH_STATE", desc="2P Health" },
+        { address=0XAAD0, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", desc="full" },
+        { address=0XAAD2, type="u8", condition="change", action="HEALTH_STATE", desc="2P Health" },
+        { address=0XAAD2, type="u8", condition="eq", value=0X48, action="HEALTH_STATE", desc="full" },
+        { address=0XE550, type="u8", condition="increase", action="HEAL", desc="Mecha health increased" },
+        { address=0XE550, type="u8", condition="decrease", action="HIT", desc="Mecha health decreased" },
+        { address=0XFFA9D1, type="u8", condition="decrease", action="HIT", desc="player1_die: energy" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XA8C2, type="u8", condition="change", action="TREASURE", color="white", min=15000, max=15000, score_kind="threshold", desc="Score delta 15000-15000: Scumocide ( Orange/Cyan)" },
+        { address=0XA8C2, type="u8", condition="change", action="TREASURE", color="white", min=5000, max=5000, score_kind="threshold", desc="Score delta 5000-5000: Monster ( Green/Cyan)" },
+        { address=0XA8C2, type="u8", condition="change", action="TREASURE", color="white", min=6000, max=6000, score_kind="threshold", desc="Score delta 6000-6000: Dr T.W.(White/Orange)" },
+        { address=0XA8C2, type="u8", condition="change", action="TREASURE", color="white", min=7000, max=7000, score_kind="threshold", desc="Score delta 7000-7000: Blood ( Green/Orange)" },
+        { address=0XA8C2, type="u8", condition="change", action="TREASURE", color="white", min=8000, max=8000, score_kind="threshold", desc="Score delta 8000-8000: Doppel ( Green/Yellow)" },
+        { address=0XFFAA74, type="u32be", condition="change", action="TREASURE", color="white", min=15000, max=15000, desc="Score delta 15000-15000: Scumocide ( Orange/Cyan)" },
+        { address=0XFFAA74, type="u32be", condition="change", action="TREASURE", color="white", min=5000, max=5000, desc="Score delta 5000-5000: Monster ( Green/Cyan)" },
+        { address=0XFFAA74, type="u32be", condition="change", action="TREASURE", color="white", min=6000, max=6000, desc="Score delta 6000-6000: Dr T.W.(White/Orange)" },
+        { address=0XFFAA74, type="u32be", condition="change", action="TREASURE", color="white", min=7000, max=7000, desc="Score delta 7000-7000: Blood ( Green/Orange)" },
+        { address=0XFFAA74, type="u32be", condition="change", action="TREASURE", color="white", min=8000, max=8000, desc="Score delta 8000-8000: Doppel ( Green/Yellow)" },
+      },
+      weapon = {
+        { address=0XAA08, type="u8", condition="change", action="WEAPON_STATE", desc="01 : using weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFFAA74, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0XFFA850, type="u32be", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC810, type="u8", condition="change", action="BOSS_HIT", desc="enemy 3 health (Boss health)" },
+        { address=0XC8D0, type="u8", condition="change", action="BOSS_HIT", desc="enemy 4 health (Boss health)" },
+        { address=0XCA50, type="u8", condition="change", action="BOSS_HIT", desc="enemy 2 health (Boss health)" },
+        { address=0XCA51, type="u8", condition="change", action="BOSS_DEFEATED", desc="FF : enemy 2 dead (Boss)" },
+        { address=0XCB10, type="u8", condition="change", action="BOSS_HIT", desc="enemy 1 health (Boss health)" },
+        { address=0XCB11, type="u8", condition="change", action="BOSS_DEFEATED", desc="ff: enemy 1 dead (Boss)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XA99A, type="u8", condition="eq", value=0X08, action="JUMPING", no_log=true, no_survey=true, desc="jump dash attack" },
+        { address=0XA99A, type="u8", condition="eq", value=0X0A, action="JUMPING", no_log=true, no_survey=true, desc="jump" },
+        { address=0XA99A, type="u8", condition="eq", value=0X0E, action="JUMPING", no_log=true, no_survey=true, desc="jump attack" },
+        { address=0XA9A1, type="u16le", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="intact when stopped or jumping 16bit" },
+        { address=0XA9B3, type="u8", condition="eq", value=0X13EE, action="JUMPING", no_log=true, no_survey=true, desc="wall climb jump" },
+        { address=0XA9D4, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="fc : wall climb jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XE551, type="u8", condition="change", action="OBJECT_DESTROYED", desc="ff:mecha destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCB8C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Stage 5 boss timer" },
+        { address=0XF878, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="TIME - Seconds" },
+        { address=0XF879, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="TIME - Minutes" },
+      },
+    },
+  },
+}

@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWE SmackDown! vs. Raw 2007",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "wwe-smackdown-vs-raw-2007",
+    hashes = {
+      { hash = "a1dea7ce6427874a22ff80915c600ca7", label = "WWE SmackDown vs. Raw 2007 (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3FA20F, type="u8", condition="change", action="NEW_LEVEL", desc="Custom AI Settings - Ground Strike Reversal Rate (8-bit)" },
+        { address=0X3FA210, type="u8", condition="change", action="NEW_LEVEL", desc="Custom AI Settings - Ground Grapple Reversal Rate (8-bit)" },
+        { address=0X3FA21B, type="u8", condition="change", action="NEW_LEVEL", desc="Custom AI Settings - Ground Strike Reversal (8-bit)" },
+        { address=0X3FA21C, type="u8", condition="change", action="NEW_LEVEL", desc="Custom AI Settings - Ground Grapple Reversal (8-bit)" },
+      },
+      zone = {
+        { address=0X3F6066, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World Heavyweight Champion Character ID (16-bit)" },
+        { address=0X3F6066, type="u16le", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="The Rock" },
+        { address=0X3F6066, type="u16le", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Steve Austin" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3FA1E5, type="u8", condition="eq", value=0X0A, action="MONEY_STATE", desc="10" },
+        { address=0X3FA1E6, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="On" },
+        { address=0X453C90, type="u8", condition="eq", value=0X54, action="MONEY_STATE", desc="Money in the Bank" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3FA1E9, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="On" },
+      },
+    },
+  },
+}

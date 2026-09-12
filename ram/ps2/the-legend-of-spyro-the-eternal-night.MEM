@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Legend of Spyro: The Eternal Night",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-legend-of-spyro-the-eternal-night",
+    hashes = {
+      { hash = "eced98d88a6fbf06bbe95e4eb49f6d2f", label = "Legend of Spyro, The - The Eternal Night (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X94665C, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="Closed / Unpaused" },
+        { address=0X94665C, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Open / Paused" },
+        { address=0X955C70, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="On" },
+        { address=0XA0E400, type="u8", condition="change", action="TITLE_SCREEN", desc="[8 Bytes ASCII] Current Enemy Target, also used for Subtitles" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X955D98, type="u16le", condition="change", action="NEW_LEVEL", desc="Fire Element Level" },
+        { address=0X955D98, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Blazing Fire Blast" },
+        { address=0X955D98, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Erupting Fire Blast" },
+        { address=0X955D98, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Berylsythe's Fire Blast of Infernal Ruin" },
+        { address=0X955D98, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="Upgraded to Maximum" },
+        { address=0X955DB8, type="u16le", condition="change", action="NEW_LEVEL", desc="Electric Element Level" },
+        { address=0X955DB8, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Pulsing Electric Orb" },
+        { address=0X955DB8, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Radiating Electric Orb" },
+        { address=0X955DB8, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Zygoren's Thundering Electric Orb" },
+        { address=0X955DB8, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="Upgraded to Maximum" },
+        { address=0X955DD8, type="u16le", condition="change", action="NEW_LEVEL", desc="Ice Element Level" },
+        { address=0X955DD8, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Piercing Polar Bomb" },
+        { address=0X955DD8, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Splintering Polar Bomb" },
+        { address=0X955DD8, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Fayveer's Cryogenic Polar Bomb" },
+        { address=0X955DD8, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="Upgraded to Maximum" },
+        { address=0X955DF8, type="u16le", condition="change", action="NEW_LEVEL", desc="Earth Element Level" },
+        { address=0X955DF8, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Whipping Earth Flail" },
+        { address=0X955DF8, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Cracking Earth Flail" },
+        { address=0X955DF8, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Thraklor's Obliterating Earth Flail" },
+        { address=0X955DF8, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="Upgraded to Maximum" },
+        { address=0X955E4E, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="New Game Plus, this Bit Set also removes the Level EXP Cap" },
+        { address=0X95C0C8, type="u24le", condition="eq", value=0X6F726775, action="NEW_LEVEL", desc="'ugrove' -> Underground Grove" },
+        { address=0XC35354, type="u16le", condition="change", action="NEW_LEVEL", desc="Enable Level Select" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XECE100, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X955C98, type="u8", condition="increase", action="HEAL", desc="[Float] Spyro's Current HP increased" },
+        { address=0X955C98, type="u8", condition="decrease", action="HIT", desc="[Float] Spyro's Current HP decreased" },
+        { address=0X955C9C, type="u8", condition="increase", action="HEAL", desc="[Float] Spyro's Maximum HP increased" },
+        { address=0X955C9C, type="u8", condition="decrease", action="HIT", desc="[Float] Spyro's Maximum HP decreased" },
+        { address=0X955E77, type="u8", condition="change", action="HEALTH_STATE", desc="Health Relic 1/5" },
+        { address=0X955E77, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Not collected, 0x10:Collected" },
+        { address=0X955E9F, type="u8", condition="change", action="HEALTH_STATE", desc="Health Relic 2/5" },
+        { address=0X955E9F, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Not collected, 0x10:Collected" },
+        { address=0X955EB3, type="u8", condition="change", action="HEALTH_STATE", desc="Health Relic 3/5" },
+        { address=0X955EB3, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Not collected, 0x10:Collected" },
+        { address=0X955EEB, type="u8", condition="change", action="HEALTH_STATE", desc="Health Relic 4/5" },
+        { address=0X955EEB, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Not collected, 0x10:Collected" },
+        { address=0X955F23, type="u8", condition="change", action="HEALTH_STATE", desc="Health Relic 5/5" },
+        { address=0X955F23, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="Not collected, 0x10:Collected" },
+        { address=0X95A2A8, type="u8", condition="increase", action="HEAL", desc="[Float] Current Enemy HP increased" },
+        { address=0X95A2A8, type="u8", condition="decrease", action="HIT", desc="[Float] Current Enemy HP decreased" },
+        { address=0X95A2AC, type="u8", condition="increase", action="HEAL", desc="[Float] Enemy Max HP increased" },
+        { address=0X95A2AC, type="u8", condition="decrease", action="HIT", desc="[Float] Enemy Max HP decreased" },
+        { address=0X1931AB8, type="u8", condition="increase", action="HEAL", desc="[Float] Arborics HP increased" },
+        { address=0X1931AB8, type="u8", condition="decrease", action="HIT", desc="[Float] Arborics HP decreased" },
+        { address=0X199C038, type="u32le", condition="increase", action="HEAL", desc="Executioner HP increased" },
+        { address=0X199C038, type="u32le", condition="decrease", action="HIT", desc="Executioner HP decreased" },
+        { address=0X1C60EF8, type="u8", condition="increase", action="HEAL", desc="[Float] Assassins HP increased" },
+        { address=0X1C60EF8, type="u8", condition="decrease", action="HIT", desc="[Float] Assassins HP decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X946310, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Dragon Time Active" },
+        { address=0X94667C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Cheat Flag" },
+        { address=0X946794, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Game Timer, Time Count (Seconds)" },
+        { address=0X955E32, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Progression Flag" },
+        { address=0X955ECF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Enchanted Scriber's Quill" },
+      },
+    },
+  },
+}

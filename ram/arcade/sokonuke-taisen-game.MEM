@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sokonuke Taisen Game",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "sokonuke-taisen-game",
+    hashes = {
+      { hash = "523bfae43809c4b9c59664cdd0d88e3a", label = "sokonuke.7z <Sokonuke Taisen Game (Japan)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7EFC, type="u8", condition="eq", value=0X01, action="GAME_PLAYING", desc="stage select" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X08, action="GAME_PLAYING", desc="break stage - balloon" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X09, action="GAME_PLAYING", desc="break stage - blocks" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X0A, action="GAME_PLAYING", desc="break stage - bell" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="break stage - whack a mole" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X0D, action="GAME_PLAYING", desc="stage over" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X10, action="CONTINUE_SCREEN", desc="continue?" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X14, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X7EFC, type="u8", condition="eq", value=0X16, action="TITLE_SCREEN", desc="title screen 2" },
+        { address=0X7FB4, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0058, type="u8", condition="change", action="LEVEL_CLEAR", desc="Normal stage cleared : ff" },
+        { address=0X0059, type="u8", condition="change", action="LEVEL_CLEAR", desc="Very Hard stage cleared : ff" },
+        { address=0X005A, type="u8", condition="change", action="LEVEL_CLEAR", desc="Easy stage cleared : ff" },
+        { address=0X005B, type="u8", condition="change", action="LEVEL_CLEAR", desc="Hard stage cleared : ff" },
+        { address=0X005C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Balloon Break stage cleared : ff" },
+        { address=0X005D, type="u8", condition="change", action="LEVEL_CLEAR", desc="Expert stage cleared : ff" },
+        { address=0X005E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Bell Break stage cleared : ff" },
+        { address=0X005F, type="u8", condition="change", action="LEVEL_CLEAR", desc="Block Break stage cleared : ff" },
+        { address=0X0061, type="u8", condition="change", action="LEVEL_CLEAR", desc="Whack a Mole Break stage cleared : ff" },
+        { address=0X006E, type="u8", condition="change", action="NEW_LEVEL", desc="Round" },
+      },
+      stage = {
+        { address=0X0064, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of won stages including breaks" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X7FF0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Score upper in hex" },
+        { address=0X7FF2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Score lower in hex" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7F96, type="u8", condition="eq", value=0X0, action="OBJECT_INTERACTION", desc="Easy" },
+        { address=0X7F96, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="Normal" },
+        { address=0X7F96, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="Hard" },
+        { address=0X7F96, type="u8", condition="eq", value=0X3, action="OBJECT_INTERACTION", desc="Hardest" },
+        { address=0X8124, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Free play dipswitch" },
+      },
+    },
+  },
+}

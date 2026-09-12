@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ReCast FF3: War of the Magitek",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-recast-ff3-war-of-the-magitek",
+    hashes = {
+      { hash = "0e644b42c7732d5b20482d321e4151aa", label = "FFVI - ReCast FF3 - War of the Magitek (v3.20) (C-Dude).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0014, type="u16le", condition="eq", value=0XC17F, action="LOSE_LIFE", desc="death rattle found during final Kefka's dying animation" },
+        { address=0X1E96, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Cid dies" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1ECA, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Bought Hero Ring from auction" },
+        { address=0X1ECB, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Bought Gold Studs from auction" },
+      },
+    },
+  },
+}

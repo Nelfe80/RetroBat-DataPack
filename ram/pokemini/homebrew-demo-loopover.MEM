@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Loopover",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-loopover",
+    hashes = {
+      { hash = "be6a27e04fa02f2c7214431e0aa8a2cd", label = "Loopover (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X04E2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Started Playing, used for ingame timer" },
+        { address=0X04E2, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="Solved/Timer got to 10 minutes" },
+        { address=0X04E2, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Is Playing" },
+      },
+    },
+  },
+}

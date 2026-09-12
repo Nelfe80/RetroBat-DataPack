@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Fish",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-fish",
+    hashes = {
+      { hash = "aea36c6703336ed118701e1d4b9e5211", label = "Fish (World) (v1.2) (Aftermarket) (Unl) (voxel).nes" },
+    }
+  },
+
+  events = {
+  },
+}

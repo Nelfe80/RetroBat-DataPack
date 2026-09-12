@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "invaders",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "space-invaders-space-invaders-m",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X21FF, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="orange", min=20, max=20, desc="Score delta 20-20: Score 20" },
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="yellow", min=30, max=30, desc="Score delta 30-30: Score 30" },
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", min=40, max=400, desc="Score delta 40-400: Mystery" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X20F8, type="u16be", condition="change", action="OBJECT_DESTROYED", color="white", min=10, max=10, desc="Score delta 10-10: Ship Scores" },
+      },
+    },
+  },
+}

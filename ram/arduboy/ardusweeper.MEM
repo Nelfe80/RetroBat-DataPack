@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ardusweeper",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ardusweeper",
+    hashes = {
+      { hash = "56eb9ab3af384d4cbb2aa74b1d2cbe2d", label = "Ardusweeper (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+  },
+}

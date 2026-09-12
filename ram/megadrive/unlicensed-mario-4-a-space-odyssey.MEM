@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Mario 4: A Space Odyssey",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-mario-4-a-space-odyssey",
+    hashes = {
+      { hash = "fbc5a7bb3c581098e130ed019a06ac28", label = "Mario 4 - Space Odyssey (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA176, type="u16be", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+  },
+}

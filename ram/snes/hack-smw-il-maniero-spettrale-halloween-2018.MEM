@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SMW: Il Maniero Spettrale (Halloween 2018)",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-smw-il-maniero-spettrale-halloween-2018",
+    hashes = {
+      { hash = "8e1b4a90f0338087a76a4033b7448ce7", label = "SMW - Il Maniero Spettrale (En) (v1.3.1) (Duraner Hawkeye,RednGreen,Storm Kyleis).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Paused : 1" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Loaded level : 0x29" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0EFB, type="u8", condition="increase", action="HEAL", desc="Health X0 increased" },
+        { address=0X0EFB, type="u8", condition="decrease", action="HIT", desc="Health X0 decreased" },
+        { address=0X0EFC, type="u8", condition="increase", action="HEAL", desc="Health 0X increased" },
+        { address=0X0EFC, type="u8", condition="decrease", action="HIT", desc="Health 0X decreased" },
+      },
+    },
+  },
+}

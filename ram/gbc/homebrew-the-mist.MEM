@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Mist",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-mist",
+    hashes = {
+      { hash = "dafb6629c51cdf4bb11f9b6154321aa0", label = "Mist, The (World) (v1.3.3) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

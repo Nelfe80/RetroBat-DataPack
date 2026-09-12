@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pump It Up: Exceed",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "pump-it-up-exceed",
+    hashes = {
+      { hash = "793783e245f886be0aa7f57f0a20cc92", label = "Pump It Up - Exceed (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X805006, type="u16le", condition="eq", value=0X00, action="DEMO_MODE", desc="Not demo" },
+        { address=0X805006, type="u16le", condition="eq", value=0X01, action="DEMO_MODE", desc="demo mode?" },
+      },
+      events = {
+        { address=0X1ECB040, type="u16le", condition="change", action="COMBO_HIT", desc="Actual Combo" },
+        { address=0X1ECB044, type="u16le", condition="change", action="COMBO_HIT", desc="Highest Max Combo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B5D3C, type="u16le", condition="eq", value=0X02, action="LOSE_LIFE", desc="Sudden Death" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1ECAEE4, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Total Score" },
+        { address=0X1ECF692, type="u8", condition="eq", value=0X78, action="SCORE_STATE", desc="Score list" },
+      },
+    },
+  },
+}

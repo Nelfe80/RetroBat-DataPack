@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Prototype~ Plants vs. Zombies DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-prototype-plants-vs-zombies-ds",
+    hashes = {
+      { hash = "be27a9eb87784c503ef337fd8429a1ce", label = "Plants vs Zombies DS (World) (Beta 3) (Aftermarket) (Unl) (Suidoken77).nds" },
+    }
+  },
+
+  events = {
+  },
+}

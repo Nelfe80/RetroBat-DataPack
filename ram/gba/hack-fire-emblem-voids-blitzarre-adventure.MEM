@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Void's Blitzarre Adventure",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-voids-blitzarre-adventure",
+    hashes = {
+      { hash = "4a991060c2c3284e76b02b2ea08b3c1c", label = "Fire Emblem - The Sacred Stones - Void's Blitzarre Adventure (v1.1.6) (FEU).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X33D04, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Last viewed stat screen is weapon/support level (3/3)" },
+        { address=0X33D05, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="clear" },
+        { address=0X42969, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Default (set when selecting another unit/activating Canto)" },
+        { address=0X42969, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Wait" },
+        { address=0X42969, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Attack" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="critical" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="miss" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="triangle attack *only need to check 1st round for this" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="silencer" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="brave" },
+        { address=0X42AC0, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="devil reversal" },
+        { address=0X42AC4, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] battle round 2 data - same structure as the 1st round" },
+        { address=0X42AC8, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] battle round 3 data - same structure as the 1st round, idk how many rounds this goes on" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5259, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="event ID 176 (0xB0) : Casual (no permadeath) mode" },
+        { address=0X33E58, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Unit is selected OR not drawn (used for undeployed or dead units)" },
+        { address=0X33E58, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Dead (used in conjunction with bit0)" },
+        { address=0X33EA0, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Dead (Used in conjunction with bit0 to not display), use this for full recruitment check" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33CF8, type="u32le", condition="increase", action="COIN_GAIN", desc="[32bit] Gold increased" },
+        { address=0X428F8, type="u16le", condition="increase", action="COIN_GAIN", desc="[16bit] Arena bet money increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4296E, type="u8", condition="eq", value=0X09, action="OBJECT_INTERACTION", desc="Phase switch" },
+        { address=0X46CF4, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Record Turns data (broken in this hack, several chapters aren't recorded...)" },
+      },
+    },
+  },
+}

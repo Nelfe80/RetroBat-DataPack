@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Crazy Climber",
+    system = "wswan",
+    system_name = "WonderSwan",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "crazy-climber",
+    hashes = {
+      { hash = "0ed3a08a3a9858f65d1487889645dc55", label = "Crazy Climber (Japan).ws" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X01C8, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [24bit BE]" },
+      },
+    },
+  },
+}

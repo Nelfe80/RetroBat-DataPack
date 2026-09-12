@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tangram DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tangram-ds",
+    hashes = {
+      { hash = "b98be2121946073b213e4fa0bf555340", label = "Tangram DS (World) (v1.1) (Aftermarket) (Unl) (beodeulpiri).nds" },
+    }
+  },
+
+  events = {
+  },
+}

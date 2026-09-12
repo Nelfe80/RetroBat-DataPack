@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Planetarian: Chiisa na Hoshi no Yume",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Visual Novel"
+  },
+
+  rom = {
+    name = "planetarian-chiisa-na-hoshi-no-yume",
+    hashes = {
+      { hash = "d472cb31b65213b10dd384d50251e32b", label = "Planetarian - Chiisa na Hoshi no Yume (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

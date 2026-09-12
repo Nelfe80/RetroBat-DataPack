@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Monaco Master",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "homebrew-monaco-master",
+    hashes = {
+      { hash = "12b2db71b0b8202d471a70116fae61fe", label = "Monaco Master (World) (v2.9.1) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01FB, type="u8", condition="eq", value=0X7C, action="TITLE_SCREEN", desc="Menu/Title" },
+        { address=0X01FB, type="u8", condition="eq", value=0X7D, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0002, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead/Menu" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0004, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] High Score, ignore 0 first digit." },
+      },
+    },
+  },
+}

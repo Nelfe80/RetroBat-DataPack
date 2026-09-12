@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Kadu Bird",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-kadu-bird",
+    hashes = {
+      { hash = "1d9eb0f4c79935ec84d0c5b0df3230e8", label = "Kadu Bird (World) (v1.0) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCF08, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XCF08, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XCF40, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Out of Game or Dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCF04, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

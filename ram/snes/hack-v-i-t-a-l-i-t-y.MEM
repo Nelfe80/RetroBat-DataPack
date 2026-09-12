@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ V I T A L I T Y",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-v-i-t-a-l-i-t-y",
+    hashes = {
+      { hash = "6092a3ea09347e1800e330ea27efbef2", label = "Super Metroid - V I T A L I T Y (Digital_Mantra).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X09C2, type="u8", condition="increase", action="HEAL", desc="Current Energy increased" },
+        { address=0X09C2, type="u8", condition="decrease", action="HIT", desc="Current Energy decreased" },
+        { address=0X09C4, type="u8", condition="increase", action="HEAL", desc="Max Energy increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="HIT", desc="Max Energy decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Space Jump" },
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X20, action="JUMPING", no_log=true, no_survey=true, desc="Speed Boost" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X09C5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Max Energy2 - Amount of times the other Max Energy value can roll over (Appears to be 1 for ever" },
+        { address=0X09DC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Game Time - Seconds" },
+        { address=0X09DE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Game Time - Minutes" },
+      },
+    },
+  },
+}

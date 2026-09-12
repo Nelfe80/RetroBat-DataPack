@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mansion of Insmouse: Mario Madness Edition",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mansion-of-insmouse-mario-madness-edition",
+    hashes = {
+      { hash = "faf72685bbcc1df04f265669217bf6d2", label = "Mansion of Insmouse - Mario Madness Edition (v1.0) (Benjamin Stevens).vb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6B02, type="u8", condition="change", action="LEVEL_CLEAR", desc="0x03 - Stage Clear" },
+        { address=0X6B0E, type="u8", condition="change", action="LEVEL_CLEAR", desc="0x01 - Stage Clear" },
+      },
+      stage = {
+        { address=0X3CF6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Starting Stage" },
+        { address=0X3CF8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X3CF4, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X3CF4, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3CF0, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo" },
+      },
+    },
+  },
+}

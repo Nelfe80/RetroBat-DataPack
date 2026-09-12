@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Magical Tetris Challenge",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "magical-tetris-challenge",
+    hashes = {
+      { hash = "79fcc98002d1f4c79deaf55784222df8", label = "Magical Tetris Challenge (USA).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X14F3D5, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo mode inactive" },
+        { address=0X1BCFA6, type="u8", condition="eq", value=0X28, action="GAME_OVER", desc="At menu" },
+        { address=0X1D7B73, type="u8", condition="eq", value=0X0E, action="GAME_OVER", desc="Game Over (Magical Story Mode and Updown)" },
+        { address=0X1D7B73, type="u8", condition="eq", value=0X0F, action="GAME_OVER", desc="Game Over (Endless)" },
+        { address=0X1D7B87, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="One continue used" },
+        { address=0X1D7B87, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Two continues used" },
+        { address=0X1D7B8D, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="In game" },
+        { address=0X1D7B8D, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="At continue screen" },
+        { address=0X1D7B8F, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue Count Down" },
+      },
+      events = {
+        { address=0X1D2610, type="u8", condition="change", action="COMBO_HIT", desc="Max Combo" },
+        { address=0X1D2611, type="u8", condition="change", action="COMBO_HIT", desc="Current Combo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1D25ED, type="u8", condition="eq", value=0X07, action="LEVEL_CLEAR", desc="Complete" },
+        { address=0X1D261C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of lines cleared" },
+        { address=0X1D261D, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of lines cleared above 255" },
+        { address=0X1D2632, type="u8", condition="change", action="NEW_LEVEL", desc="Increases by 2 for every piece locked in current round" },
+        { address=0X1D2634, type="u8", condition="change", action="LEVEL_CLEAR", desc="Single line clears - persistent throughout story mode" },
+        { address=0X1D2638, type="u8", condition="change", action="LEVEL_CLEAR", desc="Triple line clears - persistent throughout story mode" },
+        { address=0X1D263A, type="u8", condition="change", action="LEVEL_CLEAR", desc="Double line clears - persistent throughout story mode" },
+        { address=0X1D263C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Pentris clears - persistent throughout story mode" },
+        { address=0X1D263E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Tetris clears - persistent throughout story mode" },
+        { address=0X1D263F, type="u8", condition="change", action="LEVEL_CLEAR", desc="Tetris clears - persistent throughout story mode" },
+        { address=0X1D6E4F, type="u8", condition="change", action="LEVEL_CLEAR", desc="All Clear" },
+        { address=0X1D7B74, type="u8", condition="change", action="NEW_LEVEL", desc="Menu Selector - Can be used to track level selected." },
+        { address=0X1D7B74, type="u8", condition="eq", value=0X00, action="LEVEL_EASY", desc="Easy" },
+        { address=0X1D7B74, type="u8", condition="eq", value=0X00, action="LEVEL_PRACTICE", desc="Practice" },
+        { address=0X1D7B74, type="u8", condition="eq", value=0X01, action="LEVEL_NORMAL", desc="Normal" },
+        { address=0X1D7B74, type="u8", condition="eq", value=0X02, action="LEVEL_EXPERT", desc="Expert" },
+      },
+      stage = {
+        { address=0X1D25ED, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0X1D25ED, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Starting" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1D26A4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score(32 bit recommended)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XDBCD8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Value increases by one everytime 0x0dbcdf overflows, which takes about 45.3 seconds. Resets to 0" },
+        { address=0X1D25CC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time until active piece falls one row" },
+        { address=0X1D25E0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Lock Delay Timer" },
+        { address=0X1D25F2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Magic Bar Animation Timer" },
+        { address=0X1D2613, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Number of Counters this round" },
+        { address=0X1D7A82, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Player 2/Opponent Blocks Placed" },
+        { address=0X1D7B81, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="minute", desc="Round Time - Minutes" },
+        { address=0X1D7B82, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="Round Time - Seconds" },
+        { address=0X1D7B83, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="Round Time - Milliseconds" },
+        { address=0X1D7BA6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round Time - Hours" },
+      },
+    },
+  },
+}

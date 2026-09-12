@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Cave Escape",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-cave-escape",
+    hashes = {
+      { hash = "6a99e07b9baf09d68d24bacc49293c4c", label = "Pokemon Emerald - Cave Escape (v20250109) (Ketchupplant).gba" },
+    }
+  },
+
+  events = {
+  },
+}

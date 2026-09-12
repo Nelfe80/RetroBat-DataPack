@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Klax (Tengen)",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "klax",
+    hashes = {
+      { hash = "3dfce8def728e2e249917307b8e38ca5", label = "Klax (USA, Europe) (Tengen).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X147B, type="u8", condition="change", action="PAUSE_ON", desc="8-bit - Paused/Inactive : 01" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Yu-Gi-Oh! Forbidden Memories Reborn",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-yu-gi-oh-forbidden-memories-reborn",
+    hashes = {
+      { hash = "17274c752525ff5dc519b939088bcaaa", label = "Yu-Gi-Oh! Forbidden Memories - Reborn (15 Drop) (Final)" },
+    }
+  },
+
+  events = {
+  },
+}

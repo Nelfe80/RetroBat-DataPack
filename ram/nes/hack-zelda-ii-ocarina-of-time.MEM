@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Zelda II: Ocarina of Time",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-zelda-ii-ocarina-of-time",
+    hashes = {
+      { hash = "ec77c6813b5837fba7ec49e5f87fc4fc", label = "Zelda II - Ocarina of Time (v1.3) (Miralupa).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0027, type="u8", condition="change", action="TITLE_SCREEN", desc="On Title Screen or File Selection? [bit5]" },
+        { address=0X076E, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title or File Select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0562, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Facing Direction" },
+        { address=0X0563, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0630, type="u8", condition="change", action="NEW_LEVEL", desc="Cucco from Gerudo Training Grounds [bit7] (Room 20, Loc 02, Side 17)" },
+        { address=0X0706, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Map ID" },
+        { address=0X0706, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Child Timeline" },
+        { address=0X0706, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="??" },
+        { address=0X0706, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Adult Timeline" },
+        { address=0X076E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Overworld, Link's House" },
+      },
+      zone = {
+        { address=0X0707, type="u8", condition="change", action="PROGRESSION_ZONE", desc="General World Location" },
+        { address=0X0707, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Most caves, enemy encounters" },
+        { address=0X0707, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Some Towns" },
+        { address=0X0707, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Some Towns" },
+        { address=0X0707, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Which Dungeons" },
+        { address=0X0707, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Which Dungeons" },
+        { address=0X0707, type="u8", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="Ganon's Castle" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0700, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Remaining increased" },
+        { address=0X0700, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Remaining decreased" },
+        { address=0X0779, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Power increased" },
+        { address=0X0779, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Power decreased" },
+        { address=0X079F, type="u8", condition="change", action="LOSE_LIFE", desc="Death Count for Current File" },
+      },
+      health = {
+        { address=0X00C2, type="u8", condition="increase", action="HEAL", desc="Enemy 6's HP increased" },
+        { address=0X00C2, type="u8", condition="decrease", action="HIT", desc="Enemy 6's HP decreased" },
+        { address=0X00C3, type="u8", condition="increase", action="HEAL", desc="Enemy 5's HP increased" },
+        { address=0X00C3, type="u8", condition="decrease", action="HIT", desc="Enemy 5's HP decreased" },
+        { address=0X00C4, type="u8", condition="increase", action="HEAL", desc="Enemy 4's HP increased" },
+        { address=0X00C4, type="u8", condition="decrease", action="HIT", desc="Enemy 4's HP decreased" },
+        { address=0X00C5, type="u8", condition="increase", action="HEAL", desc="Enemy 3's HP increased" },
+        { address=0X00C5, type="u8", condition="decrease", action="HIT", desc="Enemy 3's HP decreased" },
+        { address=0X00C6, type="u8", condition="increase", action="HEAL", desc="Enemy 2's HP increased" },
+        { address=0X00C6, type="u8", condition="decrease", action="HIT", desc="Enemy 2's HP decreased" },
+        { address=0X00C7, type="u8", condition="increase", action="HEAL", desc="Enemy 1's HP increased" },
+        { address=0X00C7, type="u8", condition="decrease", action="HIT", desc="Enemy 1's HP decreased" },
+        { address=0X0565, type="u8", condition="increase", action="HEAL", desc="Current HP (UI) increased" },
+        { address=0X0565, type="u8", condition="decrease", action="HIT", desc="Current HP (UI) decreased" },
+        { address=0X0774, type="u8", condition="increase", action="HEAL", desc="Current HP (Internal) increased" },
+        { address=0X0774, type="u8", condition="decrease", action="HIT", desc="Current HP (Internal) decreased" },
+        { address=0X0784, type="u8", condition="increase", action="HEAL", desc="HP Containers increased" },
+        { address=0X0784, type="u8", condition="decrease", action="HIT", desc="HP Containers decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0770, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Experience Points Needed for Next Level [16-bit BE]" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X068D, type="u8", condition="change", action="SHIELD_GAIN", desc="Family Shield from Spirit Temple [bit4] (Room 1a, Loc 0a, Side 35)" },
+        { address=0X077B, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield Spell" },
+      },
+      player = {
+        { address=0X077C, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump Spell" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0748, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Side View Area Location Index" },
+      },
+    },
+  },
+}

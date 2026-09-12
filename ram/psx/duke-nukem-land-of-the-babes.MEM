@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Duke Nukem: Land of the Babes",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Adventure, Shooter"
+  },
+
+  rom = {
+    name = "duke-nukem-land-of-the-babes",
+    hashes = {
+      { hash = "83cd4e2cd1d194ab48d15b0c9a1194a0", label = "Duke Nukem - Land of the Babes (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X70070, type="u8", condition="change", action="PAUSE_OFF", desc="GAME PAUSE (0:PAUSE) (1:UNPAUSE)" },
+        { address=0XEA17B, type="u8", condition="change", action="CONTINUE_SCREEN", desc="(STATS) CONTINUES" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X6FF00, type="u8", condition="change", action="LEVEL_CLEAR", desc="(OLD) LEVEL COMPLETE CARD (A)" },
+        { address=0X6FF01, type="u8", condition="change", action="LEVEL_CLEAR", desc="(OLD) LEVEL COMPLETE CARD (B)" },
+        { address=0X6FF02, type="u8", condition="change", action="LEVEL_CLEAR", desc="(OLD) LEVEL COMPLETE CARD (C)" },
+        { address=0XFE808, type="u8", condition="change", action="NEW_LEVEL", desc="LOAD GAME (LEVEL NUMBER)" },
+        { address=0X1FFF71, type="u8", condition="change", action="NEW_LEVEL", desc="PREVIOUS LEVEL INDICATOR 1" },
+        { address=0X1FFF72, type="u8", condition="change", action="NEW_LEVEL", desc="CURRENT LEVEL INDICATOR 1" },
+        { address=0X1FFF91, type="u8", condition="change", action="NEW_LEVEL", desc="PREVIOUS LEVEL INDICATOR 2" },
+        { address=0X1FFF92, type="u8", condition="change", action="NEW_LEVEL", desc="CURRENT LEVEL INDICATOR 2" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XE7370, type="u8", condition="increase", action="HEAL", desc="TELETHPHONE (0-BREW/1-MOVIE/2-FINGERS) increased" },
+        { address=0XE7370, type="u8", condition="decrease", action="HIT", desc="TELETHPHONE (0-BREW/1-MOVIE/2-FINGERS) decreased" },
+        { address=0XE9D33, type="u8", condition="increase", action="HEAL", desc="DUKES HP increased" },
+        { address=0XE9D33, type="u8", condition="decrease", action="HIT", desc="DUKES HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XEA012, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) HANDGUN" },
+        { address=0XEA01A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) COMBAT SHOTGUN" },
+        { address=0XEA022, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) LASER BLASTER" },
+        { address=0XEA03A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) LASER GATLING" },
+        { address=0XEA04A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) RPG" },
+        { address=0XEA05A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) MINI LASER GATLING" },
+        { address=0XEA07A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) SNIPER" },
+        { address=0XEA08A, type="u8", condition="change", action="AMMO_STATE", desc="(AMMO) STEALTH GENERATOR" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XFB2A0, type="u8", condition="change", action="BOSS_HIT", desc="(BOSS) GUNSHIP HP" },
+        { address=0X1E3EFF, type="u8", condition="change", action="BOSS_HIT", desc="(BOSS) MECHAPE HP" },
+        { address=0X1E5A93, type="u8", condition="change", action="BOSS_HIT", desc="(BOSS) SILVERBACK HP" },
+        { address=0X1E6F67, type="u8", condition="change", action="BOSS_HIT", desc="(BOSS) ALIEN SLAVE BOSS HP" },
+        { address=0X1EE6E7, type="u8", condition="change", action="BOSS_HIT", desc="(BOSS) MOTHERBRAIN HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XF9B05, type="u8", condition="change", action="SHIELD_GAIN", desc="SHIELDS (FLUX GRID FIGHT)" },
+        { address=0XFB369, type="u8", condition="change", action="SHIELD_GAIN", desc="SHIELDS (GUNSHIP FIGHT)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X6FF28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="OBJECTIVE TRIGGER:-" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF8668, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="BABES SAVED (LEVEL 13 OBJECTIVE COUNTER / COMPLETE WHEN HIT 0)" },
+        { address=0XFB528, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="BABES SAVED (LEVEL 12 OBJECTIVE COUNTER / COMPLETE WHEN HIT 0)" },
+      },
+    },
+  },
+}

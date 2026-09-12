@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ CrazyBus",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-crazybus",
+    hashes = {
+      { hash = "8329789cf6137cf0dffdfd503c82e1c3", label = "CrazyBus (World) (Aftermarket) (Unl) (Tom Maneiro).md" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Judy's Adventure",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-judys-adventure",
+    hashes = {
+      { hash = "74a74cfede8c9024c918e9038b5da47c", label = "Judy's Adventure (World) (v11.3) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC5D2, type="u16le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen & Menu & Loading..." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC5D2, type="u16le", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0XC5D2, type="u16le", condition="eq", value=0X4FEA, action="NEW_LEVEL", desc="Level 4" },
+        { address=0XC5D2, type="u16le", condition="eq", value=0X5378, action="NEW_LEVEL", desc="Level 2" },
+        { address=0XC5D2, type="u16le", condition="eq", value=0X54F4, action="NEW_LEVEL", desc="Level 3" },
+        { address=0XC5D2, type="u16le", condition="eq", value=0X7E57, action="NEW_LEVEL", desc="Level 1" },
+      },
+    },
+  },
+}

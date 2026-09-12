@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gekitotsu Yonku Battle",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Racing"
+  },
+
+  rom = {
+    name = "gekitotsu-yonku-battle",
+    hashes = {
+      { hash = "f12bd5d8afa47098d3052b6271abb6f9", label = "Gekitotsu Yonku Battle (Japan).nes" },
+    }
+  },
+
+  events = {
+  },
+}

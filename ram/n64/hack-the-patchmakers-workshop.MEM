@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Patchmaker's Workshop",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-patchmakers-workshop",
+    hashes = {
+      { hash = "e541597c8e3eeeec81ae02e31eae77a8", label = "SM64 - The Patchmaker's Workshop (v1.1.0) (CowQuack).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X643C5, type="u8", condition="change", action="CONTINUE_SCREEN", desc="{Logic Offset - File # * 0xf8} [Bitflags] (Save 1) Stars Obtained - Patch Challenges Continued" },
+        { address=0X240AF8, type="u8", condition="change", action="PAUSE_ON", desc="0x02 : Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X240B1C, type="u32be", condition="eq", value=0X1302, action="NEW_LEVEL", desc="Star Grab (Grounded)" },
+      },
+      stage = {
+        { address=0X228DFE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1.1] Current Act of Level?" },
+        { address=0X240CC2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Portal 1 Current Stage Sub-Area" },
+        { address=0X240CC3, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Portal 1 Current Stage" },
+        { address=0X240CC6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Portal 2 Current Stage Sub-Area" },
+        { address=0X240CC7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Portal 2 Current Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X240B00, type="u8", condition="increase", action="HEAL", desc="[1.1] Health Buffer increased" },
+        { address=0X240B00, type="u8", condition="decrease", action="HIT", desc="[1.1] Health Buffer decreased" },
+        { address=0X240BCD, type="u8", condition="increase", action="HEAL", desc="[1.1] Health increased" },
+        { address=0X240BCD, type="u8", condition="decrease", action="HIT", desc="[1.1] Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X643B4, type="u8", condition="increase", action="COIN_GAIN", desc="{Logic Offset - File # * 0xf8} [Bitflags] (Save 1) Stars Obtained - C4 Gold Soaked Sky increased" },
+        { address=0X644AC, type="u8", condition="increase", action="COIN_GAIN", desc="[Bitflags] (Save 1) Stars Obtained - C4 Gold Soaked Sky increased" },
+        { address=0X644AF, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Red Coins in the Crag" },
+        { address=0X644AF, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coin Star" },
+        { address=0X240A5D, type="u8", condition="increase", action="COIN_GAIN", desc="# of collected red coins increased" },
+        { address=0X240AFC, type="u8", condition="increase", action="COIN_GAIN", desc="[1.1] Coin Buffer increased" },
+        { address=0X240BCA, type="u16be", condition="increase", action="COIN_GAIN", desc="[1.1] Coin Count increased" },
+        { address=0X24FE18, type="u8", condition="increase", action="COIN_GAIN", desc="Subterranean Seaway - Coin Switch - Blue Coins Collected (7 Total) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X240886, type="u16be", condition="change", action="BOSS_HIT", desc="[1.1] Patchmaker Boss Health (All Fights?)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X240B1D, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="Is Mario swimming? (0x01 : Yes)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X644A9, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Is the library door in Candlelit Chamber unlocked? (Talk to the ghost on the far side)" },
+        { address=0X240B1C, type="u32be", condition="eq", value=0X1320, action="DOOR_OPENED", desc="Opening Door" },
+        { address=0X240B1C, type="u32be", condition="eq", value=0X1321, action="DOOR_OPENED", desc="Also Opening Door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X240AEA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Map" },
+      },
+    },
+  },
+}

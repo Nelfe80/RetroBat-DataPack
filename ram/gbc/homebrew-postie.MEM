@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Postie",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-postie",
+    hashes = {
+      { hash = "fcdeae417e8bdf89f1300311e4be5c57", label = "Postie (World) (v1.1) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCB26, type="u16le", condition="change", action="LOSE_LIFE", desc="Deaths" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XC0F7, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+        { address=0XC129, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+        { address=0XC15B, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+        { address=0XC18D, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+        { address=0XC1BF, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+        { address=0XC1F1, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="3->0 - Wall Jump" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCB1E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time - Seconds" },
+        { address=0XCB20, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Minutes" },
+      },
+    },
+  },
+}

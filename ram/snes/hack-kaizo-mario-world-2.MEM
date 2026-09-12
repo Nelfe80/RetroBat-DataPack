@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Kaizo Mario World 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-kaizo-mario-world-2",
+    hashes = {
+      { hash = "31d1e226a78c1f4f8b248f5b94ff3aa2", label = "SMW - Kaizo Mario World 2 (En) (2017-08-18) (T. Takemoto) (Inf. Lives + Retry).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13BF, type="u8", condition="eq", value=0X31, action="DEMO_MODE", desc="Pandemonium" },
+        { address=0X13D4, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X13D4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Stage Clear" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID (8 Bits)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="City Sky" },
+        { address=0X13BF, type="u8", condition="eq", value=0X15, action="NEW_LEVEL", desc="Archway Mountains" },
+        { address=0X13BF, type="u8", condition="eq", value=0X18, action="NEW_LEVEL", desc="Queen Elizabeth" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Yoshi House" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2D, action="NEW_LEVEL", desc="Labrinth" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2E, action="NEW_LEVEL", desc="Silver Mountain" },
+        { address=0X13BF, type="u8", condition="eq", value=0X32, action="NEW_LEVEL", desc="Final - Castlevania" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3C, action="NEW_LEVEL", desc="Norfair" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3D, action="NEW_LEVEL", desc="Ultra Star Return" },
+        { address=0X13BF, type="u8", condition="eq", value=0X50, action="NEW_LEVEL", desc="Screw City" },
+        { address=0X13BF, type="u8", condition="eq", value=0X51, action="NEW_LEVEL", desc="Mt. Everest" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Death" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (8 bits) increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (8 bits) decreased" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X0071, type="u8", condition="eq", value=0X01, action="HIT", desc="Damage" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins (8 bits) increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="eq", value=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Have A Checkpoint" },
+        { address=0X1F2A, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Not Is Activated" },
+        { address=0X1F2A, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Activated" },
+        { address=0X1B404, type="u8", condition="eq", value=0X09, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint In Screw City" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Timer For Complete A Stage (8 Bits)" },
+      },
+    },
+  },
+}

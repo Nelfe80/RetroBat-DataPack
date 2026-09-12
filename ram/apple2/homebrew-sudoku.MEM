@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sudoku",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sudoku",
+    hashes = {
+      { hash = "bd92a051c2098b3090b865365caa3571", label = "A2Sudoku v1.2 (2015-07-24)(Rand-Emonium Software)(MIT).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

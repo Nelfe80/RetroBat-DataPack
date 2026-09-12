@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hashiriya: Ookami-tachi no Densetsu",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hashiriya-ookami-tachi-no-densetsu",
+    hashes = {
+      { hash = "14cc8c24aab9737a017ce730b5f8cda2", label = "Hashiriya - Ookami-tachi no Densetsu (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA2398, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Story Clears Saved" },
+      },
+      stage = {
+        { address=0XBFB90, type="u8", condition="change", action="RANK_STATE", desc="Player position [8-Bits]" },
+      },
+    },
+  },
+}

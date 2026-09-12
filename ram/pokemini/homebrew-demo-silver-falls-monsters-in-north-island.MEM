@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Silver Falls: Monsters in North Island",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-silver-falls-monsters-in-north-island",
+    hashes = {
+      { hash = "0ce0bead3ee9911765d3d0eb097ee7e7", label = "Silver Falls - Monsters In North Island (World) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0580, type="u8", condition="change", action="NEW_LEVEL", desc="Camp Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04FA, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="undead monster" },
+      },
+      health = {
+        { address=0X04F5, type="u8", condition="increase", action="HEAL", desc="Monster health increased" },
+        { address=0X04F5, type="u8", condition="decrease", action="HIT", desc="Monster health decreased" },
+        { address=0X0508, type="u8", condition="increase", action="HEAL", desc="Wilma health increased" },
+        { address=0X0508, type="u8", condition="decrease", action="HIT", desc="Wilma health decreased" },
+        { address=0X050A, type="u8", condition="increase", action="HEAL", desc="Bull Health increased" },
+        { address=0X050A, type="u8", condition="decrease", action="HIT", desc="Bull Health decreased" },
+        { address=0X050E, type="u8", condition="increase", action="HEAL", desc="Hogan Health increased" },
+        { address=0X050E, type="u8", condition="decrease", action="HIT", desc="Hogan Health decreased" },
+        { address=0X0510, type="u8", condition="increase", action="HEAL", desc="Oxa health increased" },
+        { address=0X0510, type="u8", condition="decrease", action="HIT", desc="Oxa health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X050C, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Health increased" },
+        { address=0X0518, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Power increased" },
+        { address=0X0548, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Happiness increased" },
+        { address=0X0554, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Friendship increased" },
+        { address=0X0560, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Fun increased" },
+        { address=0X0FF4, type="u8", condition="eq", value=0X02, action="MONEY_STATE", desc="Gold" },
+      },
+    },
+  },
+}

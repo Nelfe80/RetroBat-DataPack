@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Cartuchito World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-cartuchito-world",
+    hashes = {
+      { hash = "89d33b24d7e0d5b0ab4441b469a3093f", label = "SMW - Cartuchito World (Maxwel) (2016-09-02).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0312, type="u8", condition="change", action="GAME_OVER", desc="Tela de Game Over" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="00-Nenhum Power up; 01-Cogumelo; 03-Flor de Fogo" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Guerra nas Estrelas" },
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Robo que Rouba Rabo" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="O Grande Mickey" },
+        { address=0X1F36, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Sem Controle Doce" },
+      },
+    },
+  },
+}

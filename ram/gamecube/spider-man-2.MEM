@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Spider-Man 2",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Adventure, Sandbox"
+  },
+
+  rom = {
+    name = "spider-man-2",
+    hashes = {
+      { hash = "af82769fe7546675953b24f5ba5301f8", label = "Spider-Man 2 (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4BF49C, type="u8", condition="change", action="PAUSE_ON", desc="[Float BE] Pause Flag" },
+        { address=0X57F4AE, type="u16be", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1479724, type="u32be", condition="eq", value=0X00, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XAD3898, type="u32be", condition="increase", action="HEAL", desc="[32-bit BE] Player HP increased" },
+        { address=0XAD3898, type="u32be", condition="decrease", action="HIT", desc="[32-bit BE] Player HP decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X142AC30, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Hero Points" },
+      },
+      collectibles = {
+        { address=0X4BF498, type="u8", condition="increase", action="COIN_GAIN", desc="[Float BE] Pause Flag (Works in conjunction with 0x004bf49c. Used to differentiate between the g" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X4C26AC, type="u32be", condition="eq", value=0X09, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0X4C26AC, type="u32be", condition="eq", value=0X0D, action="BOSS_HIT", desc="In-between chapters/during boss arena" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XAD1A04, type="u32be", condition="eq", value=0X05, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0XAD1A04, type="u32be", condition="eq", value=0X07, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jumping" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14689A4, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16-bit BE] Mission Timer State" },
+        { address=0X1471458, type="u32be", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[32-bit BE] Arcade: Air Combo Timer" },
+      },
+    },
+  },
+}

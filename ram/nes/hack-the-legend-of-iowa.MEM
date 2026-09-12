@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Iowa",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-iowa",
+    hashes = {
+      { hash = "fda976a991596fc0491f321603f422f5", label = "Legend of Iowa, The (Dr. Floppy) (1.13).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00E0, type="u8", condition="eq", value=0X0, action="PAUSE_OFF", desc="No" },
+        { address=0X00E0, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0010, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level (0 : Overworld)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0630, type="u8", condition="change", action="LOSE_LIFE", desc="Number of deaths" },
+        { address=0X0631, type="u8", condition="change", action="LOSE_LIFE", desc="Number of deaths" },
+        { address=0X0632, type="u8", condition="change", action="LOSE_LIFE", desc="Number of deaths" },
+      },
+      health = {
+        { address=0X0050, type="u8", condition="change", action="HIT", desc="Counts number of enemies killed without taking damage, resets to 0 once it reaches 10 ('10th ene" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X00A5, type="u8", condition="change", action="WEAPON_STATE", desc="Farmer Bob's Pitchfork Direction (As a Melee weapon)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X00B3, type="u8", condition="eq", value=0X30, action="SHIELD_GAIN", desc="Being Deflected by Shield" },
+      },
+      player = {
+        { address=0X0030, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Countdown until Rock _1 and Swimming Cow's Fireball start to move" },
+        { address=0X0031, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Countdown until Rock _2 and Swimming Cow's Fireball start to move" },
+        { address=0X0032, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Countdown until Rock _3 and Swimming Cow's Fireball start to move" },
+        { address=0X0033, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Countdown until Swimming Cows start his next animation" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X052A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Enemy Death Counter (8-bit)" },
+      },
+    },
+  },
+}

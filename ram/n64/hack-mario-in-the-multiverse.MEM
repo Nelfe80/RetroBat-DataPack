@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario in the Multiverse",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-in-the-multiverse",
+    hashes = {
+      { hash = "ad15b036ad90c8f86b57cca0b383f972", label = "SM64 - Mario in the Multiverse (v1.1.1) (rovertronic).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2113D7, type="u8", condition="change", action="PAUSE_ON", desc="{1.1.0} Pause State" },
+        { address=0X21146F, type="u8", condition="change", action="PAUSE_ON", desc="{1.1.1} Pause State" },
+        { address=0X2158E0, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Data [1372 Bytes] {mitm_credits}" },
+      },
+      events = {
+        { address=0X2153D2, type="u8", condition="change", action="COMBO_HIT", desc="{1.1.0} P Challenge - Combo Meter [8-bit] {combo_meter}" },
+        { address=0X21546A, type="u8", condition="change", action="COMBO_HIT", desc="{1.1.1} P Challenge - Combo Meter [8-bit] {combo_meter}" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X54964, type="u8", condition="change", action="NEW_LEVEL", desc="{Logic Offset - File # * 0x140} Levels Unlocked [Bitflags]" },
+        { address=0X54965, type="u8", condition="change", action="NEW_LEVEL", desc="{Logic Offset - File # * 0x140} Levels Unlocked [Bitflags]" },
+        { address=0X54AA4, type="u8", condition="change", action="NEW_LEVEL", desc="(File A) Levels Unlocked [Bitflags]" },
+        { address=0X54AA5, type="u8", condition="change", action="NEW_LEVEL", desc="(File A) Levels Unlocked [Bitflags]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BA5B7, type="u8", condition="increase", action="HEAL", desc="{1.1.0} Current HP increased" },
+        { address=0X2BA5B7, type="u8", condition="decrease", action="HIT", desc="{1.1.0} Current HP decreased" },
+        { address=0X2BA797, type="u8", condition="increase", action="HEAL", desc="{1.1.1} Current HP increased" },
+        { address=0X2BA797, type="u8", condition="decrease", action="HIT", desc="{1.1.1} Current HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X54AAA, type="u16be", condition="increase", action="COIN_GAIN", desc="(File A) Total Coins increased" },
+        { address=0X54BEA, type="u16be", condition="increase", action="COIN_GAIN", desc="(File B) Total Coins increased" },
+        { address=0X54D2A, type="u16be", condition="increase", action="COIN_GAIN", desc="(File C) Total Coins increased" },
+        { address=0X214F4E, type="u16be", condition="increase", action="COIN_GAIN", desc="HUD - Coins [16-bit] {hud_display_coins} increased" },
+        { address=0X232977, type="u8", condition="increase", action="COIN_GAIN", desc="{1.1.0} Red Coins Collected increased" },
+        { address=0X232B57, type="u8", condition="increase", action="COIN_GAIN", desc="{1.1.1} Red Coins Collected increased" },
+        { address=0X2652BC, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins Collected Amount increased" },
+        { address=0X2BA5F8, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.1.0} Coins increased" },
+        { address=0X2BA7D8, type="u16be", condition="increase", action="COIN_GAIN", desc="{1.1.1} Coins increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X2237F8, type="u16be", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="{1.1.0} Aku Aku Invincibility Time Left [16-bit] {aku_invincibility}" },
+        { address=0X2238D0, type="u16be", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="{1.1.1} Aku Aku Invincibility Time Left [16-bit] {aku_invincibility}" },
+      },
+      player = {
+        { address=0X2178C7, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="{1.1.0} {gSpecialTripleJump}" },
+        { address=0X21799F, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="{1.1.1} {gSpecialTripleJump}" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2BA602, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="{1.1.0} Current Checkpoint ID" },
+        { address=0X2BA7E2, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="{1.1.1} Current Checkpoint ID" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Boulder Dash",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "boulder-dash",
+    hashes = {
+      { hash = "ceff12f5d453cc60b6f4441b9042eac0", label = "Boulder Dash (USA) (Beta).col" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0388, type="u8", condition="change", action="NEW_LEVEL", desc="Starting Level" },
+      },
+      stage = {
+        { address=0X0392, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Crystals Collected on current stage." },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X038C, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit BE BCD] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0039, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left in the current level. (updates later than 0x386)" },
+        { address=0X0386, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left in the current level. If this hits 0, then you die and the timer internally counts bac" },
+      },
+    },
+  },
+}

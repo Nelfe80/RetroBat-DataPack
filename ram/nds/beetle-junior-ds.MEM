@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Beetle Junior DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "beetle-junior-ds",
+    hashes = {
+      { hash = "b4332b88e805bbf4643abfabc8f6956d", label = "Beetle Junior DS (Europe) (En,Fr,De).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13FC87, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="game paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XE5DF2, type="u8", condition="change", action="NEW_LEVEL", desc="Current level" },
+        { address=0XE5DF2, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="level 1" },
+        { address=0XE5EF0, type="u16le", condition="change", action="NEW_LEVEL", desc="(16 bit) how many seconds remaining in the level/health" },
+        { address=0X13FC9C, type="u8", condition="change", action="NEW_LEVEL", desc="How many Blue Beetles are in the level (0 based)" },
+        { address=0X163EF0, type="u8", condition="change", action="NEW_LEVEL", desc="Level selected in the menu from: New Game" },
+        { address=0X163EF0, type="u8", condition="eq", value=0X00, action="LEVEL_LEVEL_1", desc="level 1" },
+      },
+      stage = {
+        { address=0X13FC98, type="u8", condition="change", action="PROGRESSION_STAGE", desc="How many cactuses are in a level (0 based)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XE5EF4, type="u8", condition="increase", action="HEAL", desc="Health countdown miliseconds increased" },
+        { address=0XE5EF4, type="u8", condition="decrease", action="HIT", desc="Health countdown miliseconds decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE5EF8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="(32 bit) Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XE5E48, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="a treasure was destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE5E44, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="How many treasures left" },
+      },
+    },
+  },
+}

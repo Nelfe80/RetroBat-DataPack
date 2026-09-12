@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Redneck Rampage",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "redneck-rampage",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X41D3A2, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0X41D3A2, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+  },
+}

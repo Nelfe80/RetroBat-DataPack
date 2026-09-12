@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Chase: Criminal Termination",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "super-chase-criminal-termination",
+    hashes = {
+      { hash = "c82fcb4ec0a1531268557f45cd0df6ea", label = "superchs.7z <Super Chase - Criminal Termination (World)>" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X10DBC, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="16-Bit - Timer" },
+      },
+    },
+  },
+}

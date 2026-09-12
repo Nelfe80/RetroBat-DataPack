@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "A Witch's Tale",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "a-witchs-tale",
+    hashes = {
+      { hash = "31d7640ceb02884e696f1a29aba96330", label = "Witch's Tale, A (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9B750, type="u32le", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Theme" },
+        { address=0X9B750, type="u32le", condition="eq", value=0X19, action="GAME_OVER", desc="Game Over" },
+        { address=0X9B750, type="u32le", condition="eq", value=0X1C, action="DEMO_MODE", desc="Demon's Mouth" },
+        { address=0X1B474D, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Resting in Demon Inn" },
+        { address=0X1B474D, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Not Resting in Demon Inn" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X0D, action="DEMO_MODE", desc="Demon Pill (Restores all HP)" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0XD58, action="DEMO_MODE", desc="Power Demon" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X37FE28, type="u32le", condition="eq", value=0X1B58, action="LOSE_LIFE", desc="Death (Little Sister Rock)" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X5DC, action="LOSE_LIFE", desc="Death (Cacao Field)" },
+      },
+      health = {
+        { address=0X26BE60, type="u8", condition="eq", value=0X09, action="HEALTH_STATE", no_log=true, desc="Ribbit Candy (Restores 100 HP)" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X0A, action="HEALTH_STATE", no_log=true, desc="Choco Tadpole (Restores 300 HP)" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X0B, action="HEALTH_STATE", no_log=true, desc="Frog Soup (Restores 500 HP)" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X0C, action="HEALTH_STATE", no_log=true, desc="Snake Meat (Restores 1000 HP)" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X13, action="HEALTH_STATE", no_log=true, desc="Miracle Pill (Restores all HP and MP)" },
+        { address=0X26BE60, type="u8", condition="eq", value=0X15, action="HEALTH_STATE", no_log=true, desc="Air Seed (Restores HP underwater)" },
+        { address=0X37FE28, type="u32le", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy A Max HP" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="No Enemy" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X0A, action="HEALTH_STATE", no_log=true, desc="Card" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X1518, action="HEALTH_STATE", no_log=true, desc="Muffy (Second Fight)" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X16F8, action="HEALTH_STATE", no_log=true, desc="Toothache" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X1F40, action="HEALTH_STATE", no_log=true, desc="Nutcracker" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X1F8, action="HEALTH_STATE", no_log=true, desc="Momolaton" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X21C, action="HEALTH_STATE", no_log=true, desc="Beauty Fungus" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X2328, action="HEALTH_STATE", no_log=true, desc="Muffy" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X2DC, action="HEALTH_STATE", no_log=true, desc="Clipper" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X2F4, action="HEALTH_STATE", no_log=true, desc="Psychochnigo" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X318, action="HEALTH_STATE", no_log=true, desc="Whiton" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X360, action="HEALTH_STATE", no_log=true, desc="Coco Ron, Wallskipper" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X48, action="HEALTH_STATE", no_log=true, desc="Slip Crane" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X480, action="HEALTH_STATE", no_log=true, desc="Pinchy Pinchy" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X4C4, action="HEALTH_STATE", no_log=true, desc="Meat Kid" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X510, action="HEALTH_STATE", no_log=true, desc="Zombie Dog" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X57C, action="HEALTH_STATE", no_log=true, desc="Amnesia Moon" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X5A9, action="HEALTH_STATE", no_log=true, desc="Chaos Mask" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X627, action="HEALTH_STATE", no_log=true, desc="Night Messenger" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X6AC, action="HEALTH_STATE", no_log=true, desc="Snowthing" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X6C0, action="HEALTH_STATE", no_log=true, desc="Vine Ghost" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X7A0, action="HEALTH_STATE", no_log=true, desc="Tongue Puller" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X804, action="HEALTH_STATE", no_log=true, desc="TikTok" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X81A, action="HEALTH_STATE", no_log=true, desc="Evil Daruma" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X86C4, action="HEALTH_STATE", no_log=true, desc="Ice Queen" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X90E, action="HEALTH_STATE", no_log=true, desc="Creamer" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0X988, action="HEALTH_STATE", no_log=true, desc="Axe Girl" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0XA02, action="HEALTH_STATE", no_log=true, desc="Dagger Kid" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0XCDE, action="HEALTH_STATE", no_log=true, desc="Heart's Tail" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0XD8, action="HEALTH_STATE", no_log=true, desc="Chocolaton" },
+        { address=0X37FE28, type="u32le", condition="eq", value=0XF4, action="HEALTH_STATE", no_log=true, desc="Grave Feline" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9B750, type="u32le", condition="eq", value=0X04, action="DOOR_OPENED", desc="Between Doors" },
+        { address=0XB56ED, type="u8", condition="eq", value=0X00, action="OBJECT_DESTROYED", desc="Not Destroyed" },
+        { address=0XB56ED, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="Destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X26BE60, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Item On Hand Slot 1" },
+      },
+    },
+  },
+}

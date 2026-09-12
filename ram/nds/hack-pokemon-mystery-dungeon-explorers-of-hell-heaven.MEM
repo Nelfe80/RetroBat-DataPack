@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Mystery Dungeon: Explorers of Hell & Heaven",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-mystery-dungeon-explorers-of-hell-heaven",
+    hashes = {
+      { hash = "3d45fe249a140018867a1ec1c3be00f6", label = "Pokemon Mystery Dungeon - Explorers of Heaven (v2.2) (babou).nds" },
+      { hash = "a13209aa2ddf228758f7dc7464848c0b", label = "Pokemon Mystery Dungeon - Explorers of Hell (v2.2) (babou).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1B2F4A, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 1 Level" },
+        { address=0X1B318A, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 2 Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1B2F50, type="u16le", condition="increase", action="HEAL", desc="Pokemon 1 current HP (16bits) increased" },
+        { address=0X1B2F50, type="u16le", condition="decrease", action="HIT", desc="Pokemon 1 current HP (16bits) decreased" },
+        { address=0X1B2F52, type="u16le", condition="increase", action="HEAL", desc="Pokemon 1 Max HP (16bits) increased" },
+        { address=0X1B2F52, type="u16le", condition="decrease", action="HIT", desc="Pokemon 1 Max HP (16bits) decreased" },
+        { address=0X1B2FF8, type="u8", condition="change", action="HIT", desc="Pokemon 1 total damage taken ?" },
+        { address=0X1B3190, type="u16le", condition="increase", action="HEAL", desc="Pokemon 2 current HP (16bits) increased" },
+        { address=0X1B3190, type="u16le", condition="decrease", action="HIT", desc="Pokemon 2 current HP (16bits) decreased" },
+        { address=0X1B3192, type="u16le", condition="increase", action="HEAL", desc="Pokemon 2 Max HP (16bits) increased" },
+        { address=0X1B3192, type="u16le", condition="decrease", action="HIT", desc="Pokemon 2 Max HP (16bits) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2A4BB8, type="u32le", condition="increase", action="COIN_GAIN", desc="Current Money (32bits) increased" },
+        { address=0X2A4BC4, type="u32le", condition="increase", action="COIN_GAIN", desc="Current money in bank (32bits) increased" },
+      },
+    },
+  },
+}

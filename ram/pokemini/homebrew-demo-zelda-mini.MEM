@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Zelda Mini",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-zelda-mini",
+    hashes = {
+      { hash = "d204bb4f33c0034dc6cdd8c9b6ff9846", label = "Zelda Mini (World) (Demo) (v1.0) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

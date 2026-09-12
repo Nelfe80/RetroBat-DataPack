@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Skidmarks",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "super-skidmarks",
+    hashes = {
+      { hash = "533b890ed1113547691f36ad1c59e346", label = "Super Skidmarks (Europe) (J-Cart).md" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XECC6, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Options] Display Laptimes, 0xffff:Enabled" },
+      },
+    },
+  },
+}

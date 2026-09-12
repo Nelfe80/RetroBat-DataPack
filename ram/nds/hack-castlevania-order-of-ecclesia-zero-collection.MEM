@@ -1,0 +1,90 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Order of Ecclesia - Zero Collection",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-order-of-ecclesia-zero-collection",
+    hashes = {
+      { hash = "2616241a33f082d7138f477cfad159bf", label = "Castlevania - OoE - Zero Collection - Zero Edition (v2.1.0) (Oersted).nds" },
+      { hash = "d5df925c0bfb8da498c231f00f2629e3", label = "Castlevania - OoE - Zero Collection - Omega Edition (v2.1.0) (Oersted).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD88E4, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="Game Over" },
+        { address=0XD88E4, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1000F4, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Playing" },
+        { address=0X1000F4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X1000F6, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Playing" },
+        { address=0X1000F6, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Paused" },
+        { address=0X100792, type="u8", condition="bit_true", mask=0X04, action="PAUSE_ON", desc="Omega (normal if not active)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1002B0, type="u16le", condition="change", action="NEW_LEVEL", desc="[16 Bit] Current Level" },
+        { address=0X10079A, type="u8", condition="change", action="NEW_LEVEL", desc="Level Cap" },
+        { address=0X10079A, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="1" },
+        { address=0X10079A, type="u8", condition="eq", value=0X32, action="NEW_LEVEL", desc="50" },
+        { address=0X10079A, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="255" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Death Defeated" },
+        { address=0X10989C, type="u8", condition="eq", value=0X15, action="LOSE_LIFE", desc="Death Animation in Air" },
+        { address=0X10989C, type="u8", condition="eq", value=0X26, action="LOSE_LIFE", desc="Died" },
+      },
+      health = {
+        { address=0X1002B4, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Your Current HP increased" },
+        { address=0X1002B4, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Your Current HP decreased" },
+        { address=0X1002B6, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Your Max HP increased" },
+        { address=0X1002B6, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Your Max HP decreased" },
+        { address=0X10989C, type="u8", condition="eq", value=0X14, action="HIT", desc="Hurt Animation" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XFFC9C, type="u16le", condition="eq", value=0X8498, action="BOSS_HIT", desc="Giant Skeleton boss room" },
+        { address=0XFFC9C, type="u16le", condition="eq", value=0XF7C0, action="BOSS_HIT", desc="Arthroverta's boss room" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Arthroverta Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Giant Skeleton Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Brachyura Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Maneater Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Rusalka Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Goliath Defeated" },
+        { address=0X1003E4, type="u8", condition="bit_true", mask=0X80, action="BOSS_DEFEATED", desc="Gravedorcus Defeated" },
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Albus Defeated" },
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Barlowe Defeated" },
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Blackmore Defeated" },
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Eligor Defeated" },
+        { address=0X1003E5, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Dracula Defeated" },
+        { address=0X100790, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Boss Rush" },
+        { address=0X1516C6, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Normal Course" },
+        { address=0X1516C6, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Dracula's Castle Course" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X10989C, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Jumping / Warping" },
+        { address=0X10989C, type="u8", condition="eq", value=0X16, action="JUMPING", no_log=true, no_survey=true, desc="Slide Attack Jump" },
+        { address=0X10989C, type="u8", condition="eq", value=0X17, action="JUMPING", no_log=true, no_survey=true, desc="B Attack part 1 (Jumping slash part)" },
+        { address=0X10989C, type="u8", condition="eq", value=0X1E, action="JUMPING", no_log=true, no_survey=true, desc="Diagonal Dive Attack (Down-Left or Down-Right + Jump after double jump)" },
+        { address=0X10989C, type="u8", condition="eq", value=0X1F, action="JUMPING", no_log=true, no_survey=true, desc="Dive Attack (Down + Jump after double jump)" },
+        { address=0X10989C, type="u8", condition="eq", value=0X20, action="JUMPING", no_log=true, no_survey=true, desc="High Jump" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1092B4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Boss Rush Timer" },
+      },
+    },
+  },
+}

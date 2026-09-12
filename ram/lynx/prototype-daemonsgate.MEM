@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Daemonsgate",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "prototype-daemonsgate",
+    hashes = {
+      { hash = "f8b4debd68eb0d7c578242fa74e1c593", label = "Daemon's Gate (USA) (Proto 1).lnx" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X3FD8, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="Objects-Sword of Venom (Amulet)" },
+        { address=0X3FD9, type="u8", condition="eq", value=0X4, action="OBJECT_INTERACTION", desc="Objects-Permit (Anchor)" },
+      },
+    },
+  },
+}

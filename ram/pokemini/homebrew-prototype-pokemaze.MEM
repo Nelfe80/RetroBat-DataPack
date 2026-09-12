@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Prototype~ PokeMaze",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-prototype-pokemaze",
+    hashes = {
+      { hash = "db53ab1335e95df2b33d4ef3735d7af6", label = "PokeMaze (World) (Proto) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

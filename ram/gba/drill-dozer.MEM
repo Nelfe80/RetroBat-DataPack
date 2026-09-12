@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Drill Dozer",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "drill-dozer",
+    hashes = {
+      { hash = "14dab12e795098988d46b96885170538", label = "Drill Dozer (USA).gba" },
+      { hash = "2286cf9c0253344a19ccc19a36ea293f", label = "Drill Dozer (Europe) (En,Fr,De,Es,It) (Virtual Console).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2DA1C, type="u8", condition="change", action="NEW_LEVEL", desc="Room-ID Number 01, becomes 0000 when level ends." },
+        { address=0X2DA60, type="u8", condition="change", action="NEW_LEVEL", desc="Room-ID Number 02, becomes a different number after level ends." },
+        { address=0X3C5D8, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level ID, does not change when going back to main menu." },
+        { address=0X3C660, type="u8", condition="change", action="NEW_LEVEL", desc="Level Completion bits" },
+        { address=0X3C6D3, type="u8", condition="change", action="NEW_LEVEL", desc="00 while in menu, 01 while in a level." },
+        { address=0X3C6D4, type="u8", condition="change", action="NEW_LEVEL", desc="Current Area ID minus one, regardless of Level." },
+        { address=0X3DA68, type="u16le", condition="change", action="LEVEL_CLEAR", desc="16-bit addr is ALMOST always 0001 but becomes 0000 when a level is complete." },
+      },
+      zone = {
+        { address=0X3C5D7, type="u8", condition="change", action="PROGRESSION_ZONE", desc="8-bit World-ID, does not change after exiting to menu" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1594, type="u8", condition="change", action="LOSE_LIFE", desc="Beef Dead, isn't that supposed to be Dead Beef.." },
+      },
+      health = {
+        { address=0X3C63C, type="u8", condition="increase", action="HEAL", desc="Amount of Energy Tank Upgrades, 06 is max increased" },
+        { address=0X3C63C, type="u8", condition="decrease", action="HIT", desc="Amount of Energy Tank Upgrades, 06 is max decreased" },
+        { address=0X3C6BC, type="u8", condition="increase", action="HEAL", desc="HP, goes up 100 with each energy tank increased" },
+        { address=0X3C6BC, type="u8", condition="decrease", action="HIT", desc="HP, goes up 100 with each energy tank decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X3C668, type="u8", condition="change", action="TREASURE", desc="Single bits for Treasure unlocks" },
+        { address=0X3C669, type="u8", condition="change", action="TREASURE", desc="Single bits for Treasure unlocks" },
+        { address=0X3C66A, type="u8", condition="change", action="TREASURE", desc="Single bits for Treasure unlocks" },
+        { address=0X3C66B, type="u8", condition="change", action="TREASURE", desc="Single bits for Treasure unlocks; a full amount for this addr is 7F" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3C670, type="u16le", condition="increase", action="COIN_GAIN", desc="16-bit number of chips (money) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0D60, type="u8", condition="change", action="BOSS_HIT", desc="Last Boss HP?" },
+        { address=0X41D8, type="u8", condition="change", action="BOSS_HIT", desc="Last Boss HP?" },
+        { address=0X825E, type="u16le", condition="change", action="BOSS_HIT", desc="Another Current Boss HP, with next 16-bit as max HP." },
+        { address=0X8456, type="u16le", condition="change", action="BOSS_HIT", desc="Boss Current HP, next 16-bit addr is Boss Full HP" },
+        { address=0X3C661, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Final Boss Defeated (after credits)" },
+      },
+    },
+  },
+}

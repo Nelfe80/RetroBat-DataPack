@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Hack 0 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-hack-0-2",
+    hashes = {
+      { hash = "6276b2099bff97d6a3072e48f06f78a3", label = "SMW - Hack 0 2 (v1.0) (Golden Yoshi).sfc" },
+      { hash = "1d4285309448a5b0844a733fc3ced4db", label = "SMW - Hack 0 2 (v1.1) (Golden Yoshi).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="GAME_PLAYING", desc="Overworld/level fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="Level fade in" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="In overworld" },
+        { address=0X1EC7, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level cleared" },
+        { address=0X1EC8, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level cleared" },
+        { address=0X1EC9, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level cleared" },
+        { address=0X1ECB, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level cleared" },
+        { address=0X1ECC, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level cleared" },
+        { address=0X1F2E, type="u8", condition="change", action="NEW_LEVEL", desc="Number of levels beaten" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B405, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Playing normally" },
+        { address=0X1B405, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Death transition is active" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="Mario powerup state decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small Mario" },
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big Mario" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big Mario" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1EC7, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint active" },
+        { address=0X1EC8, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint active" },
+        { address=0X1EC9, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint active" },
+        { address=0X1ECB, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint active" },
+        { address=0X1ECC, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Blue P-Switch Timer (counts down from 0xB0)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Death Merchant",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-death-merchant",
+    hashes = {
+      { hash = "fab7b59dd580dce0b28be3e74a7b8433", label = "DeathMerchant (World) (v1.30) (Digital) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01A9, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] [BCD] Credits Top Digits" },
+        { address=0X01AA, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] [BCD] Credits Middle Digits" },
+        { address=0X01AB, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] [BCD] Credits Bottom Digits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0167, type="u8", condition="increase", action="HEAL", desc="[8bit] [BCD] Health increased" },
+        { address=0X0167, type="u8", condition="decrease", action="HIT", desc="[8bit] [BCD] Health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0175, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[8bit] [BCD] Times Trained Stat" },
+      },
+    },
+  },
+}

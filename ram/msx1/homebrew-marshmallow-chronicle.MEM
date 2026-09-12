@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Marshmallow Chronicle",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-marshmallow-chronicle",
+    hashes = {
+      { hash = "6e3e3a0dc9847efdc7e6a01d77cf3c9f", label = "Marshmallow Chronicle (2024) (v1.1) (meichnpp).dsk" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X6B9E, type="u8", condition="increase", action="HEAL", desc="Enemy current HP increased" },
+        { address=0X6B9E, type="u8", condition="decrease", action="HIT", desc="Enemy current HP decreased" },
+        { address=0X6B9F, type="u8", condition="increase", action="HEAL", desc="Enemy current HP increased" },
+        { address=0X6B9F, type="u8", condition="decrease", action="HIT", desc="Enemy current HP decreased" },
+        { address=0X6BAA, type="u8", condition="increase", action="HEAL", desc="Elina's HP in battle increased" },
+        { address=0X6BAA, type="u8", condition="decrease", action="HIT", desc="Elina's HP in battle decreased" },
+        { address=0X6BAB, type="u8", condition="increase", action="HEAL", desc="Rita's HP in battle increased" },
+        { address=0X6BAB, type="u8", condition="decrease", action="HIT", desc="Rita's HP in battle decreased" },
+        { address=0X7EBB, type="u8", condition="increase", action="HEAL", desc="Elina's current HP increased" },
+        { address=0X7EBB, type="u8", condition="decrease", action="HIT", desc="Elina's current HP decreased" },
+        { address=0X7EBC, type="u8", condition="increase", action="HEAL", desc="Rita's current HP increased" },
+        { address=0X7EBC, type="u8", condition="decrease", action="HIT", desc="Rita's current HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X10F4, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bi] Ring found in locked dungeon increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1224, type="u8", condition="change", action="DOOR_OPENED", desc="[8-bitt] Opened door wih elm key" },
+      },
+    },
+  },
+}

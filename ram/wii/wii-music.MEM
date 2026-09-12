@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wii Music",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "wii-music",
+    hashes = {
+      { hash = "de51fee4f896496d8b1a9997057188ad", label = "Wii Music (Europe) (En,Fr,De,Es,It)" },
+      { hash = "1d9a8cbf4df6f5ebd6c61172707bf8fa", label = "Wii Music (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1274563C, type="u8", condition="change", action="NEW_LEVEL", desc="Save a vido current background" },
+      },
+    },
+  },
+}

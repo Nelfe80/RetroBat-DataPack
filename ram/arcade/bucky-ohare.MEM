@@ -1,0 +1,142 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bucky O'Hare",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "bucky-ohare",
+    hashes = {
+      { hash = "1a06e384836545dbb4d4c20553ac9498", label = "bucky.7z <Bucky O'Hare (ver EAB)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Attractmode" },
+        { address=0X004F, type="u8", condition="eq", value=0X09, action="TITLE_SCREEN", desc="Intro / Titlescreen" },
+        { address=0X0050, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits (Hex) - Shows current credits. Decreases if credit used." },
+        { address=0X0064, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Default (All The Time)" },
+        { address=0X006D, type="u8", condition="eq", value=0X01, action="GAME_OVER", desc="Default (Game Over After Second Round)" },
+        { address=0X0948, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P1 Character Select (After Continue Used)" },
+        { address=0X0949, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P1 Character Select (After Continue Used)" },
+        { address=0X09C8, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P2 Character Select (After Continue Used)" },
+        { address=0X09C9, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P2 Character Select (After Continue Used)" },
+        { address=0X0A48, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P3 Character Select (After Continue Used)" },
+        { address=0X0A49, type="u8", condition="change", action="CONTINUE_SCREEN", desc="P3 Character Select (After Continue Used)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X004F, type="u8", condition="change", action="NEW_LEVEL", desc="LevelID / Transition Cutscenes" },
+        { address=0X004F, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Cutscenes after levels" },
+        { address=0X004F, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Player select" },
+        { address=0X0065, type="u8", condition="change", action="NEW_LEVEL", desc="Dipswitch: Difficulty Level" },
+        { address=0X0065, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Default 4 / Medium" },
+        { address=0X094B, type="u8", condition="change", action="NEW_LEVEL", desc="P1 Weapon Power Level" },
+        { address=0X09CB, type="u8", condition="change", action="NEW_LEVEL", desc="P2 Weapon Power Level" },
+        { address=0X0A4B, type="u8", condition="change", action="NEW_LEVEL", desc="P3 Weapon Power Level" },
+      },
+      stage = {
+        { address=0X001C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Page/Progression AABB (Horizontal levels)" },
+        { address=0X001C, type="u8", condition="eq", value=0XAA, action="PROGRESSION_STAGE", desc="Page" },
+        { address=0X001C, type="u8", condition="eq", value=0XBB, action="PROGRESSION_STAGE", desc="Progression" },
+        { address=0X004F, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1 - Planet Warren - Al Negator" },
+        { address=0X004F, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 2 - Planet Punk - Toad Borg" },
+        { address=0X004F, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage 3 - Climate Converter - Total Terror Toad" },
+        { address=0X004F, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage 4 - Asteroidbelt - Large Spacecraft" },
+        { address=0X004F, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 5 - Planet Rat - Cyborg Spider" },
+        { address=0X004F, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Stage 6 - Mother Ship - Void Droid" },
+        { address=0X004F, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Stage 7 - Toad Star - Air Marshall" },
+        { address=0X004F, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Stage 8 - Planet Life Force - KOMPLEX-2-Go" },
+        { address=0X0C70, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Page/Progression AABB (Vertical levels)" },
+        { address=0X0C70, type="u8", condition="eq", value=0XAA, action="PROGRESSION_STAGE", desc="Page" },
+        { address=0X0C70, type="u8", condition="eq", value=0XBB, action="PROGRESSION_STAGE", desc="Progression" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0063, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch: Player's Life increased" },
+        { address=0X0063, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch: Player's Life decreased" },
+        { address=0X0063, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="Default 1 Credit, 2 Lives" },
+        { address=0X0944, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0X0944, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0X09C4, type="u8", condition="increase", action="GAIN_LIFE", desc="P2 Lives increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="LOSE_LIFE", desc="P2 Lives decreased" },
+        { address=0X0A44, type="u8", condition="increase", action="GAIN_LIFE", desc="P3 Lives increased" },
+        { address=0X0A44, type="u8", condition="decrease", action="LOSE_LIFE", desc="P3 Lives decreased" },
+        { address=0X0AC4, type="u8", condition="increase", action="GAIN_LIFE", desc="P4 Lives increased" },
+        { address=0X0AC4, type="u8", condition="decrease", action="LOSE_LIFE", desc="P4 Lives decreased" },
+        { address=0X24821, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0X24821, type="u8", condition="eq", value=0X81, action="LOSE_LIFE", desc="Boss Stage 1 Death" },
+        { address=0X248A1, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="Life" },
+      },
+      health = {
+        { address=0X0947, type="u8", condition="increase", action="HEAL", desc="P1 Health increased" },
+        { address=0X0947, type="u8", condition="decrease", action="HIT", desc="P1 Health decreased" },
+        { address=0X09C7, type="u8", condition="increase", action="HEAL", desc="P2 Health increased" },
+        { address=0X09C7, type="u8", condition="decrease", action="HIT", desc="P2 Health decreased" },
+        { address=0X0A47, type="u8", condition="increase", action="HEAL", desc="P3 Health increased" },
+        { address=0X0A47, type="u8", condition="decrease", action="HIT", desc="P3 Health decreased" },
+        { address=0X0AC7, type="u8", condition="increase", action="HEAL", desc="P4 Health increased" },
+        { address=0X0AC7, type="u8", condition="decrease", action="HIT", desc="P4 Health decreased" },
+        { address=0X24857, type="u8", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0X24857, type="u8", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA42, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X0060, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Default (1 coin, 1 credit)" },
+        { address=0X0061, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Default (1 coin, 1 credit)" },
+        { address=0X248A1, type="u8", condition="eq", value=0X06, action="MONEY_STATE", desc="Coin" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0C1A, type="u8", condition="change", action="BOSS_HIT", desc="Boss State" },
+        { address=0X0CAA, type="u8", condition="change", action="BOSS_HIT", desc="Boss State" },
+        { address=0X0E05, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Phase 1" },
+        { address=0X0E05, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Phase 2" },
+        { address=0X0E05, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Phase 3" },
+        { address=0X24827, type="u24le", condition="eq", value=0X0A, action="BOSS_HIT", desc="Boss 3 (Total Terror Toad) (80)" },
+        { address=0X24827, type="u24le", condition="eq", value=0X13, action="BOSS_HIT", desc="Boss 1 (Al Negator) (58)" },
+        { address=0X24827, type="u24le", condition="eq", value=0X15, action="BOSS_HIT", desc="Boss 3 (Fish) (68)" },
+        { address=0X24827, type="u24le", condition="eq", value=0X1E, action="BOSS_HIT", desc="Boss 4 (Spaceship) (b4)" },
+        { address=0X24827, type="u24le", condition="eq", value=0X2D, action="BOSS_HIT", desc="Boss 7 (Air Marshall) (f0)" },
+        { address=0X24827, type="u24le", condition="eq", value=0X2F, action="BOSS_HIT", desc="Boss 4 (Bug) (40)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0966, type="u8", condition="change", action="INVINCIBILITY_TIMER", player=1, timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P1 Invincibility" },
+        { address=0X09E6, type="u8", condition="change", action="INVINCIBILITY_TIMER", player=2, timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P2 Invincibility" },
+        { address=0X0A66, type="u8", condition="change", action="INVINCIBILITY_TIMER", player=3, timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="P3 Invincibility" },
+      },
+      player = {
+        { address=0X2405D, type="u24le", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="P1 Jump Height Basevalue" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0067, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Default (Normal)" },
+        { address=0X006A, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Default (Free Play No)" },
+        { address=0X108A, type="u8", condition="eq", value=0X1E, action="OBJECT_INTERACTION", desc="Default (30)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0064, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Dipswitch: Sound In Attract Mode" },
+        { address=0X0075, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Attractmode Level Gameplay Timer (XX->00)" },
+        { address=0X0C22, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="tick", desc="Continue? (Timer Tick)" },
+        { address=0X0C23, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continue? (Timer)" },
+      },
+    },
+  },
+}

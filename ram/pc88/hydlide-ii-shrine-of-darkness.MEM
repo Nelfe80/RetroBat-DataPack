@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hydlide II: Shrine of Darkness",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hydlide-ii-shrine-of-darkness",
+    hashes = {
+      { hash = "1fed914fd693b14dca4ea00026f72248", label = "Hydlide II [Alt 2] {V1 mode}.d88" },
+      { hash = "e8f1aa4bcd196a6f7892b9b5e7d354ca", label = "Hydlide II {V1 mode}.d88" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XFE29, type="u8", condition="change", action="NEW_LEVEL", desc="Char level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFE1B, type="u8", condition="increase", action="GAIN_LIFE", desc="Char Life increased" },
+        { address=0XFE1B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Char Life decreased" },
+        { address=0XFE3F, type="u8", condition="increase", action="GAIN_LIFE", desc="life shield in inventory increased" },
+        { address=0XFE3F, type="u8", condition="decrease", action="LOSE_LIFE", desc="life shield in inventory decreased" },
+      },
+      health = {
+        { address=0XE3C9, type="u8", condition="increase", action="HEAL", desc="boxing enemy health increased" },
+        { address=0XE3C9, type="u8", condition="decrease", action="HIT", desc="boxing enemy health decreased" },
+        { address=0XE3CA, type="u8", condition="increase", action="HEAL", desc="boxing player health increased" },
+        { address=0XE3CA, type="u8", condition="decrease", action="HIT", desc="boxing player health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFE88, type="u16le", condition="increase", action="COIN_GAIN", desc="Player gold(16-bit) increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XFE3E, type="u8", condition="change", action="SHIELD_GAIN", desc="mind shield in inventory" },
+      },
+    },
+  },
+}

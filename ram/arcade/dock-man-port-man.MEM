@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dock Man | Port Man",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "dock-man-port-man",
+    hashes = {
+      { hash = "355fcd5b805941d25c2d9dc6c9d3114a", label = "portman.7z <Port Man>" },
+      { hash = "7b2b70597b5d73a02a67c2dc0ab987f7", label = "portmanj.7z <Port Man (Japan)>" },
+      { hash = "929e4da5eda83a9ec5a4369897cf6b60", label = "dockman.7z <Dock Man>" },
+      { hash = "fde27e470207e146b29b8906826589cb", label = "porter.7z <>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0023, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0050, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0050, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XF7, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

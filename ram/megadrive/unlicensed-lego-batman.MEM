@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ LEGO Batman",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-lego-batman",
+    hashes = {
+      { hash = "3642f8eeccdb7db61955b41848253cd4", label = "Lego Batman (Russia) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2AA6, type="u8", condition="change", action="NEW_LEVEL", desc="That tells the number of collectables in a level + 1" },
+        { address=0X6EAE, type="u8", condition="change", action="NEW_LEVEL", desc="00 : in level" },
+        { address=0X6EAE, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="finished level" },
+        { address=0X6EBA, type="u8", condition="change", action="NEW_LEVEL", desc="number of bad guys per level" },
+        { address=0X6EC2, type="u8", condition="change", action="NEW_LEVEL", desc="this tells what level you are on" },
+        { address=0XFF6A, type="u8", condition="change", action="NEW_LEVEL", desc="That only tells the number of collectables in each level when in the game" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2E0E, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of lives increased" },
+        { address=0X2E0E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of lives decreased" },
+      },
+      health = {
+        { address=0X2E06, type="u8", condition="increase", action="HEAL", desc="This is for your health increased" },
+        { address=0X2E06, type="u8", condition="decrease", action="HIT", desc="This is for your health decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mushroom Kingdom: Under Crimson Skies",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mushroom-kingdom-under-crimson-skies",
+    hashes = {
+      { hash = "b6505d6576e40ea5e33018420488c4d9", label = "SMW - Mushroom Kingdom - Under Crimson Skies (Blind Devil).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X143D, type="u8", condition="change", action="GAME_OVER", desc="game over(starts from ff when the game over screen pops up, when it hits 00 then the screen fade" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0075, type="u8", condition="change", action="NEW_LEVEL", desc="player is in water(keep around to see if related to stuff like quicksand)" },
+        { address=0X13EF, type="u8", condition="change", action="NEW_LEVEL", desc="checks if mario is on the ground(01 means he is)" },
+        { address=0X18D7, type="u8", condition="change", action="NEW_LEVEL", desc="if 01, all enemies on screen are on ground. if 00, at least one is in the air, or dead." },
+        { address=0X1F5D, type="u8", condition="change", action="NEW_LEVEL", desc="equals 8c when final level, 'Koopa King Doomship', is unlocked(bit 2 is flipped when it is not a" },
+        { address=0X1C0FD, type="u8", condition="change", action="NEW_LEVEL", desc="ghost palace water level/tracks relic amount" },
+      },
+      zone = {
+        { address=0X1F2E, type="u8", condition="change", action="PROGRESSION_ZONE", desc="stars(world map count)" },
+      },
+      stage = {
+        { address=0X1DEA, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="stage number" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="lives(overworld) - seems to override the other lives byte? linked to 0x000dbe in some way increa" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives(overworld) - seems to override the other lives byte? linked to 0x000dbe in some way decrea" },
+        { address=0X0EFB, type="u8", condition="increase", action="GAIN_LIFE", desc="onscreen life counter(first digit)(changes based on what is in 0xdb4) increased" },
+        { address=0X0EFB, type="u8", condition="decrease", action="LOSE_LIFE", desc="onscreen life counter(first digit)(changes based on what is in 0xdb4) decreased" },
+        { address=0X0EFC, type="u8", condition="increase", action="GAIN_LIFE", desc="lives(second digit, stage tile) increased" },
+        { address=0X0EFC, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives(second digit, stage tile) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="powerup" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DB6, type="u8", condition="increase", action="COIN_GAIN", desc="holds coin value between stages increased" },
+        { address=0X0F02, type="u8", condition="increase", action="COIN_GAIN", desc="onscreen coin counter(second digit, first digit)(changes based on what is in 0xdb6) increased" },
+        { address=0X0F06, type="u8", condition="increase", action="COIN_GAIN", desc="shield ring 1(first third of bar, full at cf and empty at c7) first third of power bar in timer" },
+        { address=0X0F07, type="u8", condition="increase", action="COIN_GAIN", desc="shield ring 2(second third of bar, full at cf and empty at c7) second third of timer bar in powe" },
+        { address=0X0F08, type="u8", condition="increase", action="COIN_GAIN", desc="shield ring 1(last third of bar, full at cf and empty at c7), last third of timer bar in power r" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X20089, type="u8", condition="change", action="INVINCIBILITY_START", desc="upper 4 dictates which invincibility stars have been found" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X187B0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="timer for post-game time trials(minute place)" },
+        { address=0X187B1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="timer for post-game time trials(second place)" },
+      },
+    },
+  },
+}

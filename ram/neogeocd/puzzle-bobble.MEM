@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puzzle Bobble",
+    system = "neogeocd",
+    system_name = "Neo Geo CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "puzzle-bobble",
+    hashes = {
+      { hash = "282ffc9411808cd514c092d2772b5163", label = "Puzzle Bobble ~ Bust-A-Move (Japan) (En,Ja)" },
+    }
+  },
+
+  events = {
+  },
+}

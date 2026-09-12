@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Luigi Puzzle",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-luigi-puzzle",
+    hashes = {
+      { hash = "ff1419ab6c2a099eed072762978bc1cc", label = "Luigi Puzzle (World) (v1.2) (Unl).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X1F10, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Puzzle Timer - Graphic for Minutes left [32bit]" },
+        { address=0X1F14, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Puzzle Timer - Graphic for Seconds left [32bit]" },
+      },
+    },
+  },
+}

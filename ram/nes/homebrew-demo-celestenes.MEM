@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ CelesteNES",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-celestenes",
+    hashes = {
+      { hash = "b238825e2079b3cd0fbee564229ff15c", label = "Celeste NES (World) (Demo) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X050A, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+  },
+}

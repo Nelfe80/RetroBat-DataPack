@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Great Battle II: Last Fighter Twin",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Beat'em Up"
+  },
+
+  rom = {
+    name = "the-great-battle-ii-last-fighter-twin",
+    hashes = {
+      { hash = "216de312ea7a62f41e323a7c78815c99", label = "Great Battle II, The - Last Fighter Twin (Japan) (En) (1.2) (Aeon Genesis).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0074, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="To Jungle" },
+        { address=0X0074, type="u8", condition="eq", value=0X17, action="DEMO_MODE", desc="To Ocean" },
+        { address=0X0074, type="u8", condition="eq", value=0X29, action="DEMO_MODE", desc="to moon" },
+        { address=0X00D5, type="u8", condition="change", action="CREDITS_SCREEN", desc="1P Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00AE, type="u8", condition="change", action="NEW_LEVEL", desc="Fce9 items on ground" },
+        { address=0X0433, type="u8", condition="change", action="NEW_LEVEL", desc="1P Special Level" },
+        { address=0X118FC, type="u8", condition="change", action="NEW_LEVEL", desc="Around parcial GFX Chat" },
+      },
+      stage = {
+        { address=0X0085, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Rom id [stage too]" },
+        { address=0X009E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00D4, type="u8", condition="increase", action="GAIN_LIFE", desc="1P Lives increased" },
+        { address=0X00D4, type="u8", condition="decrease", action="LOSE_LIFE", desc="1P Lives decreased" },
+      },
+      health = {
+        { address=0X0454, type="u8", condition="increase", action="HEAL", desc="1p Hp increased" },
+        { address=0X0454, type="u8", condition="decrease", action="HIT", desc="1p Hp decreased" },
+        { address=0X05A4, type="u8", condition="increase", action="HEAL", desc="Some enemy's HP increased" },
+        { address=0X05A4, type="u8", condition="decrease", action="HIT", desc="Some enemy's HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0460, type="u8", condition="change", action="BOSS_HIT", desc="See to boss" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0440, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Timer to invincibility" },
+      },
+      player = {
+        { address=0X0468, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Animations / jump guts" },
+      },
+    },
+  },
+}

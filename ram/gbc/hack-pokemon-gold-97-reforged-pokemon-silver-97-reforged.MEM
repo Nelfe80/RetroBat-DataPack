@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Gold 97: Reforged | Pokémon Silver 97: Reforged",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-gold-97-reforged-pokemon-silver-97-reforged",
+    hashes = {
+      { hash = "ebb39e56cc46891de74e890395f34df9", label = "Pokemon - Crystal Version - Gold & Silver 97 Reforged (v6.0a) (Camerupt).gbc" },
+      { hash = "fc111493b98b37d4c115d09add3319e1", label = "Pokemon - Crystal Version - Gold & Silver 97 Reforged (v3.CHU) (Camerupt).gbc" },
+      { hash = "a1477422064292527d7e4a2dc174ba3b", label = "Pokemon - Crystal Version - Gold & Silver 97 Reforged (v6.1c) (Camerupt).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

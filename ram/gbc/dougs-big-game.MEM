@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Doug's Big Game",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "dougs-big-game",
+    hashes = {
+      { hash = "19e0d71a2a6090e0f59607ca4da9b156", label = "Doug's Big Game (USA).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XC16B, type="u8", condition="increase", action="HEAL", desc="quailman health increased" },
+        { address=0XC16B, type="u8", condition="decrease", action="HIT", desc="quailman health decreased" },
+        { address=0XC16D, type="u8", condition="increase", action="HEAL", desc="inactive quailman health increased" },
+        { address=0XC16D, type="u8", condition="decrease", action="HIT", desc="inactive quailman health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC22E, type="u8", condition="increase", action="COIN_GAIN", desc="coins collected increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XC205, type="u8", condition="eq", value=0X3, action="SHIELD_GAIN", desc="shield" },
+      },
+    },
+  },
+}

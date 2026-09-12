@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ DUNE 2: Sand Emperor",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "homebrew-demo-dune-2-sand-emperor",
+    hashes = {
+      { hash = "8e01e2a395fcbf488f50711ee1402a1c", label = "Sand Emperor (World) (Demo 5d9) (Aftermarket) (Unl).nes" },
+      { hash = "9e58b413422397204a416381892af504", label = "Sand Emperor (World) (Demo 5c) (PAL) (Aftermarket) (Unl).nes" },
+      { hash = "ffe1e521abf411818868a6370b9edcc5", label = "Sand Emperor (World) (Demo 5c) (NTSC) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

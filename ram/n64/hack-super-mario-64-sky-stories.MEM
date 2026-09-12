@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Sky Stories",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-sky-stories",
+    hashes = {
+      { hash = "c3ae73f60a9f3ae1e2c770ef426349ce", label = "Super Mario 64 (1996)(Nintendo)(US)[h154].bin Sky Stories by The64MarioMan (SM64 Hack).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+  },
+}

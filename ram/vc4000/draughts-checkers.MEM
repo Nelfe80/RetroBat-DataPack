@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Draughts | Checkers",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "draughts-checkers",
+    hashes = {
+      { hash = "e3fc6069cfc0307e33fd1f506de1721f", label = "Draughts (Europe).bin" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X00ED, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[BCD] P1 Game Timer (Sec)" },
+        { address=0X00EE, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[BCD] P2 Game Timer (Sec)" },
+        { address=0X00EF, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[BCD] P1 Game Timer (Min)" },
+        { address=0X00F0, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[BCD] P2 Game Timer (Min)" },
+      },
+    },
+  },
+}

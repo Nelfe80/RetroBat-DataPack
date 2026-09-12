@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Vexed",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-vexed",
+    hashes = {
+      { hash = "2cde86c5890081de8c16ff598a756be3", label = "Vexed (World) (v1.15) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000D, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X000D, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Main Game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X000F, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level -1" },
+        { address=0X1FCE, type="u32le", condition="change", action="LEVEL_CLEAR", desc="ASCII text for level clear" },
+      },
+      stage = {
+        { address=0X0013, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Move Target" },
+        { address=0X00CC, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="Reset Stage" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0011, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CC, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Block Select" },
+      },
+    },
+  },
+}

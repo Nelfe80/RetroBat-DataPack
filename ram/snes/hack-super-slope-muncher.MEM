@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Slope Muncher",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-slope-muncher",
+    hashes = {
+      { hash = "d9adaf7f73949833b1219b1e11c6db50", label = "SMW - Super Slope Muncher (LinkdeadX2) (1.1).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="change", action="CREDITS_SCREEN", desc="Game mode. 0x01 : Nintendo presents logo. 0x1B : credits. 0x0A : Player select.0x12 : level fade" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0109, type="u8", condition="change", action="NEW_LEVEL", desc="Is set to a value to load a level. 0xE9 : intro level (C5)" },
+        { address=0X13BF, type="u24le", condition="change", action="NEW_LEVEL", desc="First room of the current level. if > _$24, then add _$DC. (never happens in ssm)" },
+        { address=0X1F2E, type="u8", condition="change", action="NEW_LEVEL", desc="Number of events triggered. (level exits beaten). Should be 0 on a new game." },
+      },
+      stage = {
+        { address=0X0DD5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Which level exit has been activated." },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario's powerup status. 0x01 : big (mushroom)" },
+      },
+    },
+  },
+}

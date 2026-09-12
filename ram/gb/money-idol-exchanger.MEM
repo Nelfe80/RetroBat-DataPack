@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Money Idol Exchanger",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "money-idol-exchanger",
+    hashes = {
+      { hash = "05abf83f5e7c30675801ec0d7648e03f", label = "Money Idol Exchanger (Japan) (SGB Enhanced).gb" },
+    }
+  },
+
+  events = {
+  },
+}

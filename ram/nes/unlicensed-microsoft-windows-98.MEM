@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Microsoft Windows 98",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-microsoft-windows-98",
+    hashes = {
+      { hash = "4bb42479ad9d6cf94f96bfe590a97310", label = "Microsoft Windows '98 (China) (Aftermarket) (Bootleg) (Bei Tongfang).nes" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shanghai",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "shanghai",
+    hashes = {
+      { hash = "8e0d5c3ed17bf61d50ae0a1b42d94a4a", label = "Shanghai.woz" },
+      { hash = "b9ab7fe2746fc56ae406ce65c375ffd1", label = "Shanghai (4am crack).dsk" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X00C5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="DEC - Timer - Seconds" },
+        { address=0X00C6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="DEC - Timer - Minutes" },
+      },
+    },
+  },
+}

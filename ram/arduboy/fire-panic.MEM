@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fire Panic",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "fire-panic",
+    hashes = {
+      { hash = "9ff3d81181c550c74bb9d4a60326c741", label = "Fire Panic (World) (Alt).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01B7, type="u8", condition="change", action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X01B0, type="u16le", condition="increase", action="HEAL", desc="Ambulance Health increased" },
+        { address=0X01B0, type="u16le", condition="decrease", action="HIT", desc="Ambulance Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X01AD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

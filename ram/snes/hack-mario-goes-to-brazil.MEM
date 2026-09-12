@@ -1,0 +1,80 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Goes to Brazil",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-goes-to-brazil",
+    hashes = {
+      { hash = "3a8bf590b3a020f73d8311ac1ad864da", label = "SMW - Mario Goes to Brazil (v1.2) (MarcosMoutta).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X213D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X21F13, type="u8", condition="change", action="NEW_LEVEL", desc="Player State on Overworld" },
+        { address=0X21F17, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld, Sub X" },
+        { address=0X21F19, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld, Sub Y" },
+        { address=0X21F1F, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld, Player X" },
+        { address=0X21F21, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld, Player Y" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X20DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X20DC3, type="u8", condition="decrease", action="HIT", desc="Power Up Backup Slot decreased" },
+        { address=0XA0019, type="u8", condition="decrease", action="HIT", desc="Player Powerup State decreased" },
+        { address=0XA0071, type="u8", condition="eq", value=0X01, action="HIT", desc="Taking damage" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20DC3, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Mushroom" },
+        { address=0X20DC3, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Fire Ball" },
+        { address=0X20DC3, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Star" },
+        { address=0X20DC3, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Cape" },
+        { address=0X20DC3, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="1-Up" },
+        { address=0XA0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small" },
+        { address=0XA0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Super" },
+        { address=0XA0019, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Cape" },
+        { address=0XA0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Fire" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X20DC3, type="u8", condition="eq", value=0X02, action="TRANSFORMATION_FIRE", desc="Transformed into Fire Ball" },
+        { address=0XA0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Super" },
+        { address=0XA0019, type="u8", condition="eq", value=0X03, action="TRANSFORMATION_FIRE", desc="Transformed into Fire" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X213CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway Point Check" },
+        { address=0X213CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Used to override the castle/ghost house entrance cutscene after you collect the midway point." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X213D3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pause Timer" },
+      },
+    },
+  },
+}

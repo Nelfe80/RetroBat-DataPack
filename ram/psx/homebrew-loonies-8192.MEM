@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Loonies 8192",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-loonies-8192",
+    hashes = {
+      { hash = "72949e30f94769be578ba7b8482aff31", label = "Loonies 8192 (NTSC) (r66) (Aftermarket) (Unl)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X4B9B0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="your score (16 bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4B9B8, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Nr.blocks(16 bit)" },
+      },
+    },
+  },
+}

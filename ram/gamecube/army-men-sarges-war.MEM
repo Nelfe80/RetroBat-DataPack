@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Army Men: Sarge's War",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "army-men-sarges-war",
+    hashes = {
+      { hash = "c80cef71b7ba14824d6467062763f86c", label = "Army Men - Sarge's War (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

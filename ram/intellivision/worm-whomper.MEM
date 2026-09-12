@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Worm Whomper",
+    system = "intellivision",
+    system_name = "Intellivision",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "worm-whomper",
+    hashes = {
+      { hash = "49999333cf35d0cb321802ca378a7af7", label = "Worm Whomper (USA, Europe).int" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X0DAC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0000XXXX", score_encoding="hex", desc="Player Score [16-bit] hex 0000XXXX" },
+        { address=0X0DB4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0000", score_encoding="hex", desc="Player Score [16-bit] hex XXXX0000" },
+      },
+    },
+  },
+}

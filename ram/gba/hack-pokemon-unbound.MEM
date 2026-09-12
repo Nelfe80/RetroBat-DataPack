@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Unbound",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-unbound",
+    hashes = {
+      { hash = "6dc50eda0c537b60c0163be3591773dd", label = "Pokemon FireRed - Unbound (v2.1.0) (Skeli).gba" },
+      { hash = "9cad8e771940e7f7094d13911552cef0", label = "Pokemon FireRed - Unbound (v2.1.1) (Skeli).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 1 Level" },
+        { address=0X43254, type="u8", condition="change", action="NEW_LEVEL", desc="// Overworld Items [Start]" },
+        { address=0X4328B, type="u8", condition="change", action="NEW_LEVEL", desc="// Overworld Items [End]" },
+        { address=0X4604E, type="u8", condition="change", action="NEW_LEVEL", desc="[Den] //Den Star Level" },
+        { address=0X4604E, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="6 Stars" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X4321D, type="u8", condition="change", action="LOSE_LIFE", desc="Bit 5 - Daily Quest [Flower Paradies] [Daily]" },
+      },
+      health = {
+        { address=0X4326E, type="u8", condition="increase", action="HEAL", desc="Bit 0 - HP Up [Antisis Sewers] [Item] increased" },
+        { address=0X4326E, type="u8", condition="decrease", action="HIT", desc="Bit 0 - HP Up [Antisis Sewers] [Item] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X434BC, type="u8", condition="change", action="TREASURE", desc="Blazing Emeralds" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X30464, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 4 - Coin Case [Dehara City] [Gift] increased" },
+        { address=0X30470, type="u8", condition="increase", action="COIN_GAIN", desc="Bit 1 - Mega Ring [Tarmigan Mansion] increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2E500, type="u8", condition="change", action="BOSS_DEFEATED", desc="Bit 2 - Defeat Boss Zeph [Crater Town]" },
+        { address=0X2E502, type="u8", condition="change", action="BOSS_DEFEATED", desc="Bit 1 - Boss Zeph Defeat [Shadow Base] [Easy] [Trainer]" },
+        { address=0X2E503, type="u8", condition="change", action="BOSS_DEFEATED", desc="Bit 2 - Boss Aklove defeat [Crystal Peak] [Trainer]" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X2E4CA, type="u16le", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Bit 0 - Swimmer Tony [Route 14] [Trainer]" },
+        { address=0X2E4CB, type="u16le", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Bit 0 - Swimmer Aimee [Route 18] [Trainer]" },
+        { address=0X2E4CD, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Bit 0 - Swimmer Sandra [Route 15] [Trainer]" },
+        { address=0X2E4CE, type="u16le", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Bit 0 - Swimmer Melissa [Route 13] [Trainer]" },
+        { address=0X2E4F4, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Bit 0 - Swimmer Ava [Auburn Waterway] [Trainer]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X30477, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Bit 0 - TM92 Voltswitch [Dehara City Gym] [Gift]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X5EA6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Ingame Time [Seconds]" },
+        { address=0X5EA7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Ingame Time [Minutes]" },
+        { address=0X5EA8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Ingame Time [Seconds]" },
+        { address=0X8017, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Counter]" },
+        { address=0X2C598, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time Played - Minutes" },
+        { address=0X2C599, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Played - Seconds" },
+        { address=0X2E730, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[Counter] // Hall of Fame Debut" },
+        { address=0X2E731, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[Counter] // Hall of Fame Debut" },
+      },
+    },
+  },
+}

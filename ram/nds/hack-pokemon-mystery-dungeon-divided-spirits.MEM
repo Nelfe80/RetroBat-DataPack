@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Mystery Dungeon: Divided Spirits",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-mystery-dungeon-divided-spirits",
+    hashes = {
+      { hash = "6630d61ac94fb03e381a613c8fe9d1f1", label = "Pokemon Mystery Dungeon - Divided Spirits (tainted3886).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XAF230, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Roll Start" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1C4C00, type="u16le", condition="increase", action="HEAL", desc="Duskull Current HP increased" },
+        { address=0X1C4C00, type="u16le", condition="decrease", action="HIT", desc="Duskull Current HP decreased" },
+        { address=0X1C5500, type="u8", condition="increase", action="HEAL", desc="Banette Health (Dusknoir Fight) increased" },
+        { address=0X1C5500, type="u8", condition="decrease", action="HIT", desc="Banette Health (Dusknoir Fight) decreased" },
+        { address=0X1C5502, type="u8", condition="increase", action="HEAL", desc="Banette Max Health (Dusknoir Fight) increased" },
+        { address=0X1C5502, type="u8", condition="decrease", action="HIT", desc="Banette Max Health (Dusknoir Fight) decreased" },
+        { address=0X1C5740, type="u32le", condition="increase", action="HEAL", desc="Lairon Health increased" },
+        { address=0X1C5740, type="u32le", condition="decrease", action="HIT", desc="Lairon Health decreased" },
+        { address=0X1C5980, type="u32le", condition="increase", action="HEAL", desc="Charmeleon Health increased" },
+        { address=0X1C5980, type="u32le", condition="decrease", action="HIT", desc="Charmeleon Health decreased" },
+      },
+    },
+  },
+}

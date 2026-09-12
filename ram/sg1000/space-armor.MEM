@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Armor",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "space-armor",
+    hashes = {
+      { hash = "b6aff368af8c8e1f0ae257c519d96ca8", label = "Space Armor (Japan) (Rev 2) (Othello Multivision).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0338, type="u8", condition="bit_true", mask=0X04, action="DEMO_MODE", desc="0 : Not Demo" },
+      },
+      events = {
+        { address=0X0010, type="u8", condition="change", action="COMBO_HIT", desc="Saved Combo Point" },
+        { address=0X0055, type="u8", condition="change", action="COMBO_HIT", desc="Combo Point" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0336, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Loading Back to Main Menu / Game Over / Scene Clear" },
+        { address=0X0336, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="Scene Cleared" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000C, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X000C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0000, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player High Score BCD" },
+        { address=0X0004, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Current Score BCD" },
+      },
+    },
+  },
+}

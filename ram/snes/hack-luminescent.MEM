@@ -1,0 +1,103 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Luminescent",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-luminescent",
+    hashes = {
+      { hash = "f03f9a04e93097025ecb1a11e2de1cf5", label = "SMW - Luminescent (TheBourgyman) (1.02).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="title screen (fade in)" },
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="title screen (player select)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="fade to overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="load overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="overworld fade in" },
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="fade to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="fade to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="load level" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="NEW_LEVEL", desc="preparing level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="level fade in" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="currently in a level" },
+        { address=0X0109, type="u8", condition="change", action="NEW_LEVEL", desc="overworld loading routine override" },
+        { address=0X0109, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="load overworld" },
+        { address=0X0109, type="u8", condition="eq", value=0XE9, action="NEW_LEVEL", desc="load intro level" },
+        { address=0X1426, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="complete intro level" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB7, action="NEW_LEVEL", desc="tutorial level" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F33, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="stacked raceway" },
+        { address=0X1F33, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="rattle snake desert" },
+        { address=0X1F33, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="flip-flop vault" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="(not used)" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="the cn tower" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="everwall corridor" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="samba de kaizo" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="wiggly beach" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="abstract pipes" },
+        { address=0X1F34, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="glutton's grove" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB0, action="MONEY_STATE", desc="(not used)" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="lavender lagoon" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB2, action="MONEY_STATE", desc="ray of flight" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB3, action="MONEY_STATE", desc="terminal climb" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="fungus fortress" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="atomic dip tunnel" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB6, action="MONEY_STATE", desc="lava woods cottage" },
+        { address=0X1F35, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="stacked mountain" },
+        { address=0XCCC6, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCC7, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCC8, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCC9, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCCA, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCCB, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCCC, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCCD, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XCCCE, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDA6, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDA7, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDA8, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDA9, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDAA, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDAB, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDAC, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDAD, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+        { address=0XDDAE, type="u16le", condition="eq", value=0X1A, action="MONEY_STATE", desc="unactivated bridge coin block" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13D2, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="yellow switch" },
+        { address=0X13D2, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="cyan switch" },
+        { address=0X13D2, type="u8", condition="eq", value=0X3, action="OBJECT_INTERACTION", desc="magenta switch" },
+        { address=0X13D2, type="u8", condition="eq", value=0X4, action="OBJECT_INTERACTION", desc="black switch" },
+        { address=0X1426, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="message blocks activate" },
+        { address=0X1426, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="message block activated" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="black switch palace activated [bool]" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="yellow switch palace activated [bool]" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="cyan switch palace activated [bool]" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="magenta switch palace activated [bool]" },
+        { address=0XE45D, type="u16le", condition="eq", value=0X2525, action="OBJECT_INTERACTION", desc="big switch upper half : activated" },
+        { address=0XE45D, type="u16le", condition="eq", value=0X2928, action="OBJECT_INTERACTION", desc="big switch upper half : untouched" },
+        { address=0XE46D, type="u16le", condition="eq", value=0X2B2A, action="OBJECT_INTERACTION", desc="big switch lower half : untouched" },
+        { address=0XE46D, type="u16le", condition="eq", value=0X5D5C, action="OBJECT_INTERACTION", desc="big switch lower half : activated" },
+      },
+    },
+  },
+}

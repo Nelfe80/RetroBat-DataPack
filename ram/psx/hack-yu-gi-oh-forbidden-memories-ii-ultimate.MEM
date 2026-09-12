@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Yu-Gi-Oh! Forbidden Memories II Ultimate",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-yu-gi-oh-forbidden-memories-ii-ultimate",
+    hashes = {
+      { hash = "4b394d84a94370ff0b4163bcede3ae86", label = "Yu-Gi-Oh! Forbidden Memories II Ultimate (FM Brasil Team)" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XEAED4, type="u16le", condition="eq", value=0X14, action="OBJECT_DESTROYED", desc="Simon's destroyed room" },
+      },
+    },
+  },
+}

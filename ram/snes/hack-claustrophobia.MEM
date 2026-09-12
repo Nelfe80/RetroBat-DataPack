@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Claustrophobia",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-claustrophobia",
+    hashes = {
+      { hash = "64cbce20ff2b4d3b37c53eee635feb9f", label = "SMW - Claustrophobia (NaroGugul) (1.2.1).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X010B, type="u16le", condition="eq", value=0X01A8, action="CREDITS_SCREEN", desc="end credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="current level / room number (0-based)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X019C, action="BOSS_HIT", desc="boss fight 1" },
+        { address=0X010B, type="u16le", condition="eq", value=0X019D, action="BOSS_HIT", desc="boss fight 2" },
+        { address=0X010B, type="u16le", condition="eq", value=0X019E, action="BOSS_HIT", desc="boss fight 3" },
+        { address=0X010B, type="u16le", condition="eq", value=0X019F, action="BOSS_HIT", desc="boss fight 4" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A0, action="BOSS_HIT", desc="boss fight 5" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A1, action="BOSS_HIT", desc="boss fight 6" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A2, action="BOSS_HIT", desc="boss fight 7" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A3, action="BOSS_HIT", desc="boss fight 8" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A4, action="BOSS_HIT", desc="boss fight 9" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A5, action="BOSS_HIT", desc="boss fight 10" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A6, action="BOSS_HIT", desc="boss fight 11" },
+        { address=0X010B, type="u16le", condition="eq", value=0X01A7, action="BOSS_HIT", desc="boss fight 12" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="eq", value=0X0D, action="DOOR_OPENED", desc="enter door" },
+      },
+    },
+  },
+}

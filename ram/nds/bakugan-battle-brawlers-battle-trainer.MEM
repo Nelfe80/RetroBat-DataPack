@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bakugan Battle Brawlers: Battle Trainer",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "bakugan-battle-brawlers-battle-trainer",
+    hashes = {
+      { hash = "6c2bc2e141c1fbcbff22fffa02ed11d3", label = "Bakugan - Battle Brawlers - Battle Trainer (Europe) (En,Fr,De,Es,It,Nl,Sv).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC2B84, type="u32le", condition="change", action="NEW_LEVEL", desc="[Total Levels Beated] [32-Bits]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9AF0C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Defense Training Points] [32-Bits]" },
+        { address=0XB286C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Defense Training Points Highscore] [32-Bits]" },
+        { address=0XB2870, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Attack Training Points Highscore] [32-Bits]" },
+        { address=0XB2878, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Speed Training Points Highscore] [32-Bits]" },
+        { address=0XB287C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Intelligence Training Points Highscore] [32-Bits]" },
+        { address=0XB2880, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Dexterity Training Points Highscore] [32-Bits]" },
+        { address=0XC1660, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Dexterity Training Points] [32-Bits]" },
+      },
+    },
+  },
+}

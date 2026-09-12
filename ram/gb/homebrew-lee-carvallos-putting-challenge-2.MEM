@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Lee Carvallo's Putting Challenge 2",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-lee-carvallos-putting-challenge-2",
+    hashes = {
+      { hash = "49b4214dceb5404acd5b83fc3d1a36bf", label = "Lee Carvallo's Putting Challenge II (World) (v1.2) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCBD3, type="u8", condition="change", action="LOSE_LIFE", desc="Bit0:Achievement - Dead putters society" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCBBB, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8bit] Related to object hovered" },
+      },
+    },
+  },
+}

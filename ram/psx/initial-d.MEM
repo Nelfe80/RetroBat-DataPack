@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Initial D",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "initial-d",
+    hashes = {
+      { hash = "6fb346ae06ec9c6895b197a80bb463df", label = "Initial D (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1021C, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Playing race demo" },
+        { address=0X585EC, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X585EC, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Restarting" },
+        { address=0X585EC, type="u8", condition="eq", value=0X05, action="PAUSE_ON", desc="Retiring" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X10AC8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Akina" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Usui" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Myogi" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Extra Course 1" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Extra Course 2" },
+        { address=0X10AC8, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Extra Course 3" },
+        { address=0X193E68, type="u8", condition="change", action="RANK_STATE", desc="Current position" },
+        { address=0X1E5204, type="u8", condition="change", action="RANK_STATE", desc="Current Rank" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X10B28, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Dificulty meter" },
+        { address=0X10B28, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Normal(after beat one time)" },
+        { address=0X10B28, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="Hard(after beat two times)" },
+        { address=0X10B28, type="u8", condition="eq", value=0X03, action="GENERAL_TIMER", desc="Very Hard(after beat thre times)" },
+      },
+    },
+  },
+}

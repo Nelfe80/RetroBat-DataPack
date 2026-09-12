@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Street Fighter II Mix",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-street-fighter-ii-mix",
+    hashes = {
+      { hash = "59413a6ed9d6c0938f67338c6338a533", label = "sf2mix.7z <>" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X83E8, type="u8", condition="increase", action="HEAL", desc="player 1 health increased" },
+        { address=0X83E8, type="u8", condition="decrease", action="HIT", desc="player 1 health decreased" },
+        { address=0X83EA, type="u8", condition="increase", action="HEAL", desc="player 1 health increased" },
+        { address=0X83EA, type="u8", condition="decrease", action="HIT", desc="player 1 health decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "My French Coach: Level 1 - Learn to Speak French",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "my-french-coach-level-1-learn-to-speak-french",
+    hashes = {
+      { hash = "f8b7c5f6081468f30e89a07e48bfc246", label = "My French Coach - Level 1 - Learn to Speak French (Europe).nds" },
+    }
+  },
+
+  events = {
+  },
+}

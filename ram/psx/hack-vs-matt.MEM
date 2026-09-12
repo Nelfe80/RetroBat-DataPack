@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VS. Matt",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vs-matt",
+    hashes = {
+      { hash = "2047af3511d10e9329a94412828c78a8", label = "PSXFunkin' - VS. Matt (UNSTOP4BLE)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E0B75, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E0B75, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+      events = {
+        { address=0X1E0D5A, type="u16le", condition="change", action="COMBO_HIT", desc="[16 Bit] Combo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1E0D58, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X1E0D58, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="[16 Bit] Player's HP" },
+        { address=0X1E0D58, type="u16le", condition="eq", value=0X4E20, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1E0D60, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E0D1E, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16 Bit] Song Timer/Duration" },
+      },
+    },
+  },
+}

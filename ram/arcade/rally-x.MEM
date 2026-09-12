@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rally-X",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "rally-x",
+    hashes = {
+      { hash = "e58cbd633c30d51321deb5153359ada5", label = "rallyx.7z <Rally X (32k Ver.?)>" },
+    }
+  },
+
+  events = {
+  },
+}

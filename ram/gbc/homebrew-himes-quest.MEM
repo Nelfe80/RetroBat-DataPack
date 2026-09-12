@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Hime's Quest",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "homebrew-himes-quest",
+    hashes = {
+      { hash = "e16141de4a31074438eb44e808fb6789", label = "Hime's Quest (World) (Digital) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XCBB5, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Switch 1" },
+        { address=0XCBB5, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Switch 4" },
+        { address=0XCBB5, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Switch 2" },
+        { address=0XCBB5, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Switch 3" },
+        { address=0XCBB5, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Switch 5" },
+        { address=0XCBB6, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Warp Switch" },
+        { address=0XCBB6, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Power Switch 1" },
+        { address=0XCBB6, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Power Switch 2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCC3F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Cat Minigame - Counter" },
+      },
+    },
+  },
+}

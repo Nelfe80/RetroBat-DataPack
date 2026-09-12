@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lucky Luke: Wanted!",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "lucky-luke-wanted",
+    hashes = {
+      { hash = "2ab4cafacf54e34053b34527539b7e5b", label = "Lucky Luke - Wanted! (Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1EB8, type="u16le", condition="eq", value=0X802A, action="NEW_LEVEL", desc="City (Level 1)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X635A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+      },
+      health = {
+        { address=0X635A, type="u8", condition="change", action="HEALTH_STATE", desc="Sherif Gold Stars (HP)" },
+      },
+    },
+  },
+}

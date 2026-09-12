@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "O-chan no Oekaki Logic",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "o-chan-no-oekaki-logic",
+    hashes = {
+      { hash = "71ca9b37fa2bd9a328fb60cae9881346", label = "Oh-chan no Oekaki Logic (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

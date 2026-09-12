@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Crash Bandicoot",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-crash-bandicoot",
+    hashes = {
+      { hash = "b782760018ba007d79d0fec6ef27558f", label = "Crash Bandicoot (China) (Aftermarket) (Bootleg) (Nice Code).nes" },
+      { hash = "eb36b5a9da8b92780fb8ffb3ccd09504", label = "Crash Bandicoot (China) (Aftermarket) (Bootleg) (Nice Code) (Alt).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0330, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Level Completion" },
+      },
+    },
+  },
+}

@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Without Escape",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-without-escape",
+    hashes = {
+      { hash = "e97c66a915f42f51fde402afa7179cfa", label = "Without Escape (World) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X342AAD, type="u8", condition="eq", value=0X01, action="CREDITS_SCREEN", desc="Scenary Beta 2011 or credits" },
+        { address=0X342AAD, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X342AAD, type="u8", condition="eq", value=0X19, action="CREDITS_SCREEN", desc="Just before credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X342AE6, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X342AE6, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Don't have" },
+        { address=0X342AE6, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Have" },
+        { address=0X342AE6, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Used" },
+      },
+      zone = {
+        { address=0X342AAD, type="u8", condition="eq", value=0X16, action="PROGRESSION_ZONE", desc="The other world" },
+        { address=0X342AAF, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Other world" },
+        { address=0X342AAF, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Reached this area" },
+        { address=0X342AAF, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Placed the symbol" },
+        { address=0X342AC9, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Welcome to blood world" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X342AE7, type="u8", condition="eq", value=0X02, action="DOOR_OPENED", desc="Banging on door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X342AF1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Clock" },
+      },
+    },
+  },
+}

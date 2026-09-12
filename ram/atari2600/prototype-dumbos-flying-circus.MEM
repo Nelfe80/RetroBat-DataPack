@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Dumbo's Flying Circus",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-dumbos-flying-circus",
+    hashes = {
+      { hash = "3897744dd3c756ea4b1542e5e181e02a", label = "Dumbo's Flying Circus (USA) (Proto).a26" },
+    }
+  },
+
+  events = {
+  },
+}

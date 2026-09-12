@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Joe Biden for the PS2 2: Re-elected",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-joe-biden-for-the-ps2-2-re-elected",
+    hashes = {
+      { hash = "d0a652b699cfda44a70cc35be682250b", label = "SMW - Joe Biden for the PS2 2 Re-elected (v1.0) (SubliminalSiren).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="In Overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In Level" },
+        { address=0X010B, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID Second and Third Digits" },
+        { address=0X010C, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID First Digit" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level State" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Level Clear (Normal Exit)" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Level Clear (Secret Exit)" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="NEW_LEVEL", desc="Level Exit" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Fort Fastard" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Electorial Office" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="Creamy Candidate" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2B, action="NEW_LEVEL", desc="Spooky Soda" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Exits Cleared" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="Mario Died" },
+        { address=0X009D, type="u8", condition="eq", value=0X30, action="LOSE_LIFE", desc="Dead" },
+        { address=0X13BF, type="u8", condition="eq", value=0X37, action="LOSE_LIFE", desc="Death Compliance" },
+        { address=0X13E0, type="u8", condition="eq", value=0X3E, action="LOSE_LIFE", desc="Dead (Works offscreen and as Big Biden)" },
+        { address=0X1426, type="u8", condition="change", action="LOSE_LIFE", desc="Death Checker for Pipe Logic" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X140D, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Spin Jump Active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X141A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="unknown", desc="Counter that increments every time a new level is entered (with a door or pipe)" },
+      },
+    },
+  },
+}

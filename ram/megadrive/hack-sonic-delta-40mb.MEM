@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic Delta 40Mb",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-delta-40mb",
+    hashes = {
+      { hash = "76777d3a0e62a05557c4d91f5d593d2f", label = "Sonic Delta 40Mb (v0.64) (Neto).md" },
+    }
+  },
+
+  events = {
+  },
+}

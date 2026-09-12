@@ -1,0 +1,76 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rygar",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "rygar",
+    hashes = {
+      { hash = "02f6b54be05c7927e0794b73a942f909", label = "rygar.7z <Rygar (US set 1)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0003, type="u32le", condition="eq", value=0X36, action="GAME_OVER", desc="Game Over" },
+        { address=0X0027, type="u8", condition="eq", value=0XC0, action="TITLE_SCREEN", desc="Game Over / Titlescreen" },
+        { address=0X003A, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits (XX) Hex" },
+        { address=0X005B, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="Easy" },
+        { address=0X005B, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Normal" },
+        { address=0X005B, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Hard" },
+        { address=0X005B, type="u8", condition="eq", value=0X03, action="CONTINUE_SCREEN", desc="Hardest" },
+        { address=0X005B, type="u8", condition="eq", value=0X09, action="CONTINUE_SCREEN", desc="Normal" },
+        { address=0X005B, type="u8", condition="eq", value=0X0A, action="CONTINUE_SCREEN", desc="Hard" },
+        { address=0X005B, type="u8", condition="eq", value=0X0B, action="CONTINUE_SCREEN", desc="Hardest" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0104, type="u8", condition="change", action="NEW_LEVEL", desc="Round Counter (XX) Hex" },
+        { address=0X0104, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0003, type="u32le", condition="eq", value=0X08, action="LOSE_LIFE", desc="Player Death" },
+        { address=0X0059, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch: Lives increased" },
+        { address=0X0059, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch: Lives decreased" },
+        { address=0X0059, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="3 Lives" },
+        { address=0X0059, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X0059, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="5 Lives" },
+        { address=0X0059, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="2 Lives" },
+        { address=0X00A0, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Count increased" },
+        { address=0X00A0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Count decreased" },
+      },
+      health = {
+        { address=0X00EE, type="u8", condition="decrease", action="HIT", desc="Powerup ID decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X00EE, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Star Power" },
+        { address=0X00EE, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Crown Power" },
+        { address=0X23AC, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup 1 Sprite (Star Power)" },
+        { address=0X23AE, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup 2 Sprite (Crown Power)" },
+        { address=0X23B0, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup 3 Sprite (Tiger Power)" },
+        { address=0X23B2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup 4 Sprite (Cross Power)" },
+        { address=0X23B4, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup 5 Sprite (Sun Power)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XAF, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00AA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level Timer" },
+      },
+    },
+  },
+}

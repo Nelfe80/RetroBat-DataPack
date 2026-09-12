@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Glucoboy",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "glucoboy",
+    hashes = {
+      { hash = "ddd7e9448cd3d991eae4f057905de534", label = "Glucoboy (Australia).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X5112, type="u16le", condition="increase", action="HEAL", desc="Knock 'Em Downs: Health increased" },
+        { address=0X5112, type="u16le", condition="decrease", action="HIT", desc="Knock 'Em Downs: Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Teddy Gun" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Claw Gun" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Softball Gun" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Darts" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", no_log=true, desc="Jelly Bean Gun" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="Sticky Hand" },
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Beach Ball" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Pie Tin" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Soda Bomb" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Bubble Gun" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Throwing Stars" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Six Shooters" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", no_log=true, desc="RC Car Bomb" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="Denture Gun" },
+        { address=0X50FD, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Alien Ray Gun" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X50FC, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Ring Toss" },
+        { address=0X5110, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="Knock 'Em Downs: Ranged Ammo" },
+      },
+    },
+  },
+}

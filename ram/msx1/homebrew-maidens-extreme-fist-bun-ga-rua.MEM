@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Maiden's Extreme Fist 'BUN-GA-RUA'",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-maidens-extreme-fist-bun-ga-rua",
+    hashes = {
+      { hash = "432de13f52afed4c625bfa3373396000", label = "Maiden's Extreme Fist 'BUN-GA-RUA' (2024) (v1.1.2) (Retromixis).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2FE1, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Simple Mode: Rest (Continues)" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X2FC8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Background" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage 2" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage 3" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 4" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Stage 5" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Stage 6" },
+        { address=0X2FC8, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Stage 7" },
+        { address=0X2FE0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Simple Mode: Current Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2FD1, type="u8", condition="increase", action="HEAL", desc="Max Health Value increased" },
+        { address=0X2FD1, type="u8", condition="decrease", action="HIT", desc="Max Health Value decreased" },
+        { address=0X2FD2, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0X2FD2, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3156, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Simple Mode: Bonus #1 - Enemy Killcount (Score)" },
+        { address=0XC0B6, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[Lower-4 BCD] Simple Mode: High Score (X0000000)" },
+        { address=0XC0B7, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0XX00000", score_encoding="bcd", desc="[8-bit BCD] Simple Mode: High Score (0XX00000)" },
+        { address=0XC0B8, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="000XX000", score_encoding="bcd", desc="[8-bit BCD] Simple Mode: High Score (000XX000)" },
+        { address=0XC0B9, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00000XX0", score_encoding="bcd", desc="[8-bit BCD] Simple Mode: High Score (00000XX0)" },
+      },
+      collectibles = {
+        { address=0X2FC0, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Gold Key" },
+        { address=0X2FC2, type="u16le", condition="increase", action="COIN_GAIN", desc="Money (Gold) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2FFF, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Sub Boss - Strange Pomp" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Boss - Void" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="Sub Boss - Du Hua" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Boss - Ramen Zombie Z" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X12, action="BOSS_HIT", desc="Boss - Solid Noodle" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X14, action="BOSS_HIT", desc="Sub Boss - Ramen Zombie 1" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X2A, action="BOSS_HIT", desc="Boss - Yen Chin" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X32, action="BOSS_HIT", desc="Sub Boss - Earth Quaker" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X3A, action="BOSS_HIT", desc="Sub Boss - Qigong" },
+        { address=0X3030, type="u8", condition="eq", value=0X40, action="BOSS_HIT", desc="Max (simple mode)" },
+        { address=0X3030, type="u8", condition="eq", value=0X50, action="BOSS_HIT", desc="Max (story mode)" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X2FFF, type="u8", condition="eq", value=0X14, action="JUMPING", no_log=true, no_survey=true, desc="1st Training (jump)" },
+        { address=0X2FFF, type="u8", condition="eq", value=0X23, action="JUMPING", no_log=true, no_survey=true, desc="5th Training (jumping kick)" },
+        { address=0X3014, type="u8", condition="eq", value=0X05, action="JUMPING", no_log=true, no_survey=true, desc="First training (jump)" },
+        { address=0X3014, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="Fifth training (jumping kick)" },
+        { address=0X3102, type="u8", condition="eq", value=0X40, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0X3102, type="u8", condition="eq", value=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Jump Kick" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2FD0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Length of the Healthbar" },
+        { address=0X3131, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[24-bit] Food: Effect Timer" },
+      },
+    },
+  },
+}

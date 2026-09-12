@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sniper Elite",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter, Stealth, Strategy"
+  },
+
+  rom = {
+    name = "sniper-elite",
+    hashes = {
+      { hash = "6fcea9fdba2ffdc3b609fea9585f4fa6", label = "Sniper Elite (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

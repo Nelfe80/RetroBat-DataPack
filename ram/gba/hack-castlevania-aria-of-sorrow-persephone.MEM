@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Aria of Sorrow - Persephone",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-aria-of-sorrow-persephone",
+    hashes = {
+      { hash = "44214175b0dc0b57adb93f6622bdc869", label = "Castlevania - Aria of Sorrow Persephone (v1.0) (caminopreacher) (PoR Colors).gba" },
+      { hash = "763ba9a7e7f3bd1f95ce50db328bdd38", label = "Castlevania - Aria of Sorrow - Persephone (v1.0) (caminopreacher).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X842D, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8 Bit] Boss Rush Clear Flag on Bit 2 tbc" },
+        { address=0X1B279, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Persephone Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1B27A, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Current HP increased" },
+        { address=0X1B27A, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Current HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1B268, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="[8 Bit] Weapon Equipment" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X837E, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bit] Boss Kill Flags tbc" },
+        { address=0X837F, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bit] Boss Kill Flags" },
+        { address=0X84CC, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bit] Boss Rush Status" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X9260, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Boss Rush timer. Caps out at 0x34BBE" },
+      },
+    },
+  },
+}

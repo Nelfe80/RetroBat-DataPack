@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Balls of Fury",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "balls-of-fury",
+    hashes = {
+      { hash = "9f0c747df62ffe5fd9ce395557d7626f", label = "Balls of Fury (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC3B13, type="u8", condition="change", action="LOSE_LIFE", desc="[Save 1] Arcade Mode beaten as Freddie Fingers" },
+        { address=0XC3B8B, type="u8", condition="change", action="LOSE_LIFE", desc="[Save 2] Arcade Mode beaten as Freddie Fingers" },
+        { address=0XC3C03, type="u8", condition="change", action="LOSE_LIFE", desc="[Save 3] Arcade Mode beaten as Freddie Fingers" },
+        { address=0XC3C7B, type="u8", condition="change", action="LOSE_LIFE", desc="[Save 4] Arcade Mode beaten as Freddie Fingers" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC3B30, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Save 1] Points won statistic" },
+        { address=0XC3BA8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Save 2] Points won statistic" },
+        { address=0XC3C20, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Save 3] Points won statistic" },
+        { address=0XC3C98, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Save 4] Points won statistic" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC3B50, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Save 1] Time played statistic - counts in seconds" },
+        { address=0XC3BC8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Save 2] Time played statistic - counts in seconds" },
+        { address=0XC3C40, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Save 3] Time played statistic - counts in seconds" },
+        { address=0XC3CB8, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Save 4] Time played statistic - counts in seconds" },
+      },
+    },
+  },
+}

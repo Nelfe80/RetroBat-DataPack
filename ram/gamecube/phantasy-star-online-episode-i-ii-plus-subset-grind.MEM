@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Phantasy Star Online Episode I & II Plus [Subset - Grind]",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "phantasy-star-online-episode-i-ii-plus-subset-grind",
+    hashes = {
+      { hash = "d833e34cbbb9f631b601a4ea1e4ff41a", label = "Phantasy Star Online Episode I & II Plus [Subset - Grind]" },
+    }
+  },
+
+  events = {
+  },
+}

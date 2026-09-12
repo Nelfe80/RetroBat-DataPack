@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Aquatic Games",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "the-aquatic-games",
+    hashes = {
+      { hash = "0eec7f8771ca70ad5ace3d46cb4be9d4", label = "Aquatic Games Starring James Pond and the Aquabats, The (USA, Europe).md" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XB3F0, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Seal-watching Score" },
+      },
+    },
+  },
+}

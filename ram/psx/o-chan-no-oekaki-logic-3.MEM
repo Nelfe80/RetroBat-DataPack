@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "O-chan no Oekaki Logic 3",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "o-chan-no-oekaki-logic-3",
+    hashes = {
+      { hash = "f97b30a660b7d8f314c807ec30a9eee0", label = "Oh-chan no Oekaki Logic 3 (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

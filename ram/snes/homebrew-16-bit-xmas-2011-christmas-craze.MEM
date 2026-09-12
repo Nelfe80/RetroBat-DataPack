@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 16 BIT XMAS 2011: Christmas Craze",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-16-bit-xmas-2011-christmas-craze",
+    hashes = {
+      { hash = "0829ebfde80e7a9673fe9966a8d47b0f", label = "16 BIT XMAS 2011 - Christmas Craze (World) (Aftermarket) (Unl).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33CD, type="u8", condition="change", action="TITLE_SCREEN", desc="80 in Titlescreen" },
+        { address=0X41AD, type="u8", condition="change", action="PAUSE_OFF", desc="Pause On/Off" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X419F, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+  },
+}

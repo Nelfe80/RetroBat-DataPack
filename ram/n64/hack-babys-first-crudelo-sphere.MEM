@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Baby's First Crudelo Sphere",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-babys-first-crudelo-sphere",
+    hashes = {
+      { hash = "20f779742ca4f51a1eaeef323cedf258", label = "SM64 - Baby's First Crudelo Sphere (v1.0) (Lugmillord).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X206D02, type="u16be", condition="eq", value=0X0097, action="OBJECT_INTERACTION", desc="Mysterious Hidden Object, last textbox of the sign (unreliable)" },
+      },
+    },
+  },
+}

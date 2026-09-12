@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Casio Mario World [Subset - True Skill]",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-casio-mario-world-subset-true-skill",
+    hashes = {
+      { hash = "b1dced3b9bfda03d307a91becd583aa9", label = "Super Mario World (USA) - Casio Mario World (1.2) (English)[Subset - Bonus]" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X010B, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level Number" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="The Reeling" },
+        { address=0X13BF, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Sleep Dealer" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="By Fire" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Power of Persuasion" },
+        { address=0X13BF, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Love in the Time of Lexapro" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Freaky Eyes" },
+        { address=0X13BF, type="u8", condition="eq", value=0X25, action="PROGRESSION_STAGE", desc="Training Room" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3F, action="PROGRESSION_STAGE", desc="Everyday" },
+        { address=0X13BF, type="u8", condition="eq", value=0X45, action="PROGRESSION_STAGE", desc="Over the Ice" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13BF, type="u8", condition="eq", value=0X07, action="LOSE_LIFE", desc="Child Soldier" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player - Powerup [8bit]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="Yes" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1528, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Boss Hit Counter. Counts down from 30." },
+      },
+    },
+  },
+}

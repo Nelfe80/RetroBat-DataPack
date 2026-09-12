@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Onee-san to Issho! Janken Paradise",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "onee-san-to-issho-janken-paradise",
+    hashes = {
+      { hash = "d902e9258441bc01d81dc15f2a39d1d7", label = "Onee-san to Issho! Janken Paradise (Japan)" },
+    }
+  },
+
+  events = {
+  },
+}

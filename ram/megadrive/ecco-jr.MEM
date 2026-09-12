@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ecco Jr.",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Adventure, Education"
+  },
+
+  rom = {
+    name = "ecco-jr",
+    hashes = {
+      { hash = "ca7fa198e67d77b348111d57a6ad9df1", label = "Ecco Jr. (USA, Australia).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9A28, type="u32be", condition="eq", value=0X32, action="DEMO_MODE", desc="parents optionn screen" },
+        { address=0X9A28, type="u32be", condition="eq", value=0X4E, action="DEMO_MODE", desc="reading dolphin facts" },
+        { address=0X9A28, type="u32be", condition="eq", value=0XE0, action="DEMO_MODE", desc="in game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA860, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level | Level Select Level" },
+      },
+    },
+  },
+}

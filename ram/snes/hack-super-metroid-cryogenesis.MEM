@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Cryogenesis",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-cryogenesis",
+    hashes = {
+      { hash = "02c2ab6af4257bf4e292e8abb292a0fb", label = "Super Metroid - Cryogenesis (v1.0) (Ommyks).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

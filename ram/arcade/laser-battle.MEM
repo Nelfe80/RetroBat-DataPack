@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "laserbat",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "laser-battle",
+    hashes = {
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1CB6, type="u32be", condition="change", action="SCORE_STATE", color="orange", min=10, max=100, desc="Score delta 10-100: Score delta 10-100" },
+        { address=0X1CB6, type="u32be", condition="change", action="SCORE_STATE", color="cyan", min=110, max=300, desc="Score delta 110-300: Score delta 110-300" },
+        { address=0X1CB6, type="u32be", condition="change", action="SCORE_STATE", color="blue", min=1100, max=10000, desc="Score delta 1100-10000: Score delta 1100-10000" },
+        { address=0X1CB6, type="u32be", condition="change", action="SCORE_STATE", color="green", min=310, max=1000, desc="Score delta 310-1000: Score delta 310-1000" },
+      },
+      collectibles = {
+        { address=0X1C7D, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

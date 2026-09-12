@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 🅱️ikmin 269 DX: Director's Cut",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ikmin-269-dx-directors-cut",
+    hashes = {
+      { hash = "6c5e87f26f9972d097eec7aeac2d98b0", label = "Pikmin 2 - Bikmin 269 DX (v1.1) (Rheycore)" },
+    }
+  },
+
+  events = {
+  },
+}

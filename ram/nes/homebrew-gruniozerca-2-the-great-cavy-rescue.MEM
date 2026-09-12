@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Gruniożerca 2: The Great Cavy Rescue!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-gruniozerca-2-the-great-cavy-rescue",
+    hashes = {
+      { hash = "5331a79e3980f589e706397976e5aad2", label = "Gruniozerca 2 (World) (En,Pl) (Rev 1) (NESDev 2017) (Aftermarket) (Unl).nes" },
+      { hash = "ae2859400fb79e6eb9a8f0939e345940", label = "Gruniozerca 2 - The Great Cavy Rescue! (World) (En,Pl) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000F, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X000F, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="In-game" },
+        { address=0X0065, type="u8", condition="change", action="PAUSE_ON", desc="Pause flag" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X00B5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 18:ending" },
+        { address=0X0492, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Carrot picked on stage" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CB, type="u8", condition="change", action="DOOR_OPENED", desc="Door sprite" },
+      },
+    },
+  },
+}

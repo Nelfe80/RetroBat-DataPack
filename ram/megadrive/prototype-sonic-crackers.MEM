@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Sonic Crackers",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prototype-sonic-crackers",
+    hashes = {
+      { hash = "f9d87064d48d99ebbd425e8334de4beb", label = "Sonic Crackers (World) (Proto) (1994-07-xx).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD87B, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Game Over/pause" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X0204, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="World 2" },
+        { address=0X0204, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="World 1" },
+      },
+    },
+  },
+}

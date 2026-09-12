@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Wario's Wonderful Walk",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-warios-wonderful-walk",
+    hashes = {
+      { hash = "01986fdf785ede1b9f71cb43680a3136", label = "SMW - Wario's Wonderful Walk (Captain Domas).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Complete Level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+        { address=0X13BF, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="From Darkness" },
+        { address=0X13BF, type="u8", condition="eq", value=0X34, action="NEW_LEVEL", desc="The Book of Souls" },
+        { address=0X13BF, type="u8", condition="eq", value=0X36, action="NEW_LEVEL", desc="Snowblind" },
+        { address=0X13BF, type="u8", condition="eq", value=0X48, action="NEW_LEVEL", desc="Keeper of the 7Keys" },
+        { address=0X13BF, type="u8", condition="eq", value=0X52, action="NEW_LEVEL", desc="Mountains" },
+        { address=0X13BF, type="u8", condition="eq", value=0X53, action="NEW_LEVEL", desc="Winter's Gate" },
+        { address=0X13BF, type="u8", condition="eq", value=0X57, action="NEW_LEVEL", desc="Dry The River" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5B, action="NEW_LEVEL", desc="Above Wario's sewer" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5C, action="NEW_LEVEL", desc="This is the End" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5E, action="NEW_LEVEL", desc="Year Zero" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5F, action="NEW_LEVEL", desc="Bad to the Bone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13BF, type="u8", condition="eq", value=0X55, action="LOSE_LIFE", desc="Death in Fire" },
+      },
+    },
+  },
+}

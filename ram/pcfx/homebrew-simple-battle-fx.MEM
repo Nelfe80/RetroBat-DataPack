@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Simple Battle FX",
+    system = "pcfx",
+    system_name = "PC-FX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-simple-battle-fx",
+    hashes = {
+      { hash = "3c576145aee0c0b78245bbae4870be8a", label = "Simple Battle FX (World) (Aftermarket) (gameblabla)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XBFAA, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XBF54, type="u16le", condition="increase", action="HEAL", desc="16bit Player HP increased" },
+        { address=0XBF54, type="u16le", condition="decrease", action="HIT", desc="16bit Player HP decreased" },
+        { address=0XBF58, type="u8", condition="change", action="HIT", desc="damage roll?" },
+        { address=0XBF5C, type="u16le", condition="increase", action="HEAL", desc="16bit Plus MP, HP increased" },
+        { address=0XBF5C, type="u16le", condition="decrease", action="HIT", desc="16bit Plus MP, HP decreased" },
+        { address=0XBF74, type="u16le", condition="increase", action="HEAL", desc="16bit Enemy HP increased" },
+        { address=0XBF74, type="u16le", condition="decrease", action="HIT", desc="16bit Enemy HP decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Kong Quest",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-kong-quest",
+    hashes = {
+      { hash = "c9d69098b19859ac462c4a86bb06b242", label = "Donkey Kong 64 - Kong Quest (v1.0) (GloriousLiar).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X7FC954, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coin increased" },
+        { address=0X7FC9B6, type="u8", condition="increase", action="COIN_GAIN", desc="Diddy Coin increased" },
+        { address=0X7FCA10, type="u8", condition="increase", action="COIN_GAIN", desc="Lanky Coin increased" },
+        { address=0X7FCA72, type="u8", condition="increase", action="COIN_GAIN", desc="Tiny Coin increased" },
+        { address=0X7FCACC, type="u8", condition="increase", action="COIN_GAIN", desc="Chunky Coin increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,159 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Judge Dredd: Dredd vs. Death",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Shooter"
+  },
+
+  rom = {
+    name = "judge-dredd-dredd-vs-death",
+    hashes = {
+      { hash = "9e8681d7df9d73e1dc00c1c0bb3b91b7", label = "Judge Dredd - Dredd vs. Death (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2B8054, type="u32be", condition="eq", value=0X00, action="DEMO_MODE", desc="cinematic/demo" },
+        { address=0X2E5D94, type="u32be", condition="eq", value=0X00, action="PAUSE_ON", desc="paused" },
+        { address=0X2E5D94, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="pausing" },
+        { address=0X2E5D94, type="u32be", condition="eq", value=0X03, action="PAUSE_ON", desc="unpausing" },
+        { address=0X2E5D94, type="u32be", condition="eq", value=0X04, action="PAUSE_ON", desc="in game" },
+        { address=0X2E5F54, type="u32be", condition="eq", value=0X00, action="DEMO_MODE", desc="demo, main menu" },
+        { address=0X1380898, type="u32be", condition="eq", value=0X00, action="DEMO_MODE", desc="failed" },
+        { address=0X1380898, type="u32be", condition="eq", value=0X01, action="DEMO_MODE", desc="complete?" },
+        { address=0X13808AC, type="u32be", condition="eq", value=0X00, action="DEMO_MODE", desc="hidden" },
+        { address=0X13808AC, type="u32be", condition="eq", value=0X01, action="DEMO_MODE", desc="complete?" },
+        { address=0X13808D0, type="u32be", condition="change", action="DEMO_MODE", desc="[32-bit BE] Story m.2 - obj. 1 arrest the demonstrators - # of people to arrest/kill" },
+        { address=0X13808D4, type="u32be", condition="change", action="DEMO_MODE", desc="[32-bit BE] Story m.2 - obj. 1 arrest the demonstrators - # arrests+casualties" },
+        { address=0X13808D8, type="u32be", condition="eq", value=0X00, action="DEMO_MODE", desc="0 arrests" },
+        { address=0X13808D8, type="u32be", condition="eq", value=0X01, action="DEMO_MODE", desc="arrested: 1" },
+        { address=0X13808D8, type="u32be", condition="eq", value=0X0A, action="DEMO_MODE", desc="arrested: 10" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2EE848, type="u32be", condition="eq", value=0X00, action="NEW_LEVEL", desc="level default" },
+        { address=0X1290400, type="u32be", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="complete?" },
+        { address=0X1290440, type="u32be", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="rescued: 1/mission complete" },
+      },
+      zone = {
+        { address=0X35C030, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] Cheat: Mirror World state" },
+        { address=0X35C030, type="u32be", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="on" },
+        { address=0X62A480, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] Cheat: Mirror World unlocked" },
+        { address=0X62A480, type="u32be", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="yes" },
+      },
+      stage = {
+        { address=0X1290400, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Story - training - Obj. 7 rescue hostage from the perps - failed?" },
+        { address=0X1290400, type="u32be", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="failed" },
+        { address=0X1290414, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Story - training - Obj. 7 rescue hostage from the perps - text" },
+        { address=0X1290414, type="u32be", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="hidden" },
+        { address=0X1290418, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Story - training - Obj. 7 rescue hostage from the perps - obj type" },
+        { address=0X1290418, type="u32be", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="secondary" },
+        { address=0X1290418, type="u32be", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="primary" },
+        { address=0X1290440, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Story - training - Obj. 7 rescue the hostage from the perps - rescued #" },
+        { address=0X1290440, type="u32be", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="0 rescued/obj not rescued" },
+        { address=0X1290440, type="u32be", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="rescued: 2" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2EE83C, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Team Deathmatch" },
+        { address=0X2EE83C, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Elimination" },
+        { address=0X2EE83C, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="Team Ellimination" },
+        { address=0X2EE83C, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Vampire" },
+        { address=0X2EE83C, type="u8", condition="eq", value=0X05, action="LOSE_LIFE", desc="Judges vs. Perps" },
+        { address=0X35E700, type="u32be", condition="change", action="LOSE_LIFE", desc="[32-bit BE] Battle -deathmatch - related to winner screen" },
+        { address=0X35E93C, type="u32be", condition="eq", value=0X00, action="LOSE_LIFE", desc="not shown" },
+        { address=0X35E93C, type="u32be", condition="eq", value=0X01, action="LOSE_LIFE", desc="winner: X" },
+        { address=0X35FE2C, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Team Deathmatch" },
+        { address=0X35FE2C, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Elimination" },
+        { address=0X35FE2C, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="Team Ellimination" },
+        { address=0X35FE2C, type="u8", condition="eq", value=0X04, action="LOSE_LIFE", desc="Vampire" },
+        { address=0X35FE2C, type="u8", condition="eq", value=0X05, action="LOSE_LIFE", desc="Judges vs. Perps" },
+        { address=0X36096C, type="u32be", condition="eq", value=0X00, action="LOSE_LIFE", desc="Deathmatch" },
+        { address=0X36096C, type="u32be", condition="eq", value=0X01, action="LOSE_LIFE", desc="Team Deathmatch" },
+      },
+      health = {
+        { address=0XF206D0, type="u32be", condition="increase", action="HEAL", desc="[32-bit BE] HP value - dynamic 1 increased" },
+        { address=0XF206D0, type="u32be", condition="decrease", action="HIT", desc="[32-bit BE] HP value - dynamic 1 decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X12903C0, type="u32be", condition="eq", value=0X00, action="WEAPON_STATE", desc="failed" },
+        { address=0X12903C0, type="u32be", condition="eq", value=0X01, action="WEAPON_STATE", desc="complete?" },
+        { address=0X12903D4, type="u32be", condition="eq", value=0X00, action="WEAPON_STATE", desc="hidden" },
+        { address=0X12903D4, type="u32be", condition="eq", value=0X01, action="WEAPON_STATE", desc="not hidden" },
+        { address=0X12903D8, type="u32be", condition="eq", value=0X00, action="WEAPON_STATE", desc="secondary" },
+        { address=0X12903D8, type="u32be", condition="eq", value=0X01, action="WEAPON_STATE", desc="primary" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2E4934, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] might indicate when the score stops counting up on the results screen" },
+        { address=0X2E4938, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Score (in Story/Challenge missions)" },
+        { address=0X2E4938, type="u32be", condition="eq", value=0X18C7, action="SCORE_STATE", desc="6,343 score - street judge (attempt 3)" },
+        { address=0X2E4938, type="u32be", condition="eq", value=0X19C8, action="SCORE_STATE", desc="6,600 score - street judge (attempt 5)" },
+        { address=0X2E4938, type="u32be", condition="eq", value=0X2D50, action="SCORE_STATE", desc="11,600 score - judge dredd (attempt 4)" },
+        { address=0X2E4938, type="u32be", condition="eq", value=0X884, action="SCORE_STATE", desc="2,180 score - cadet (attempt 2)" },
+        { address=0X2EE828, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Battle - Deatmatch - settings - Score limit option" },
+        { address=0X2EE828, type="u32be", condition="eq", value=0X01, action="SCORE_STATE", desc="1" },
+        { address=0X2EE828, type="u32be", condition="eq", value=0X02, action="SCORE_STATE", desc="2" },
+        { address=0X2EE828, type="u32be", condition="eq", value=0X03, action="SCORE_STATE", desc="3" },
+        { address=0X2EE828, type="u32be", condition="eq", value=0X64, action="SCORE_STATE", desc="100 (highest)" },
+        { address=0X102E5C4, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-bit BE] battle - deathmatch -player 1 kills/score dyanmic 4" },
+        { address=0X10CB40C, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-bit BE] battle - deathmatch -player 1 kills/score dyanmic 1" },
+        { address=0X10CB414, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-bit BE] battle - deathmatch -player 1 kills/score alt." },
+        { address=0X11618DC, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-bit BE] battle - deathmatch -player 1 kills/score dyanmic 2" },
+        { address=0X1181EAC, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32-bit BE] battle - deathmatch -player 1 kills/score dyanmic 3" },
+      },
+      collectibles = {
+        { address=0X35C038, type="u32be", condition="eq", value=0X01, action="AMMO_STATE", desc="on" },
+        { address=0XB10778, type="u32be", condition="change", action="AMMO_STATE", desc="[32-bit BE] dynamic ammo in mag shotgun in WWW" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XF206D4, type="u32be", condition="change", action="SHIELD_GAIN", desc="[32-bit BE] Shields value - dynamic 1" },
+      },
+      player = {
+        { address=0X1290680, type="u32be", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="failed" },
+        { address=0X1290680, type="u32be", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="complete?" },
+        { address=0X1290694, type="u32be", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="hidden" },
+        { address=0X1290694, type="u32be", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="complete?" },
+        { address=0X1290698, type="u32be", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="secondary" },
+        { address=0X1290698, type="u32be", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="primary" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33C290, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[ASCII] Judge Dredd commands code block" },
+        { address=0X1270DB4, type="u32be", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="failed" },
+        { address=0X1270DB4, type="u32be", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="complete?" },
+        { address=0X1270DC4, type="u32be", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="not complete (hidden)" },
+        { address=0X1270DC4, type="u32be", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="complete" },
+        { address=0X1270DC8, type="u32be", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="incomplete/'secondary' text shows" },
+        { address=0X1270DC8, type="u32be", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="'secondary' is hidden/Complete" },
+        { address=0X1290A88, type="u32be", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="failed" },
+        { address=0X1290A88, type="u32be", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="complete" },
+        { address=0X1290A9C, type="u32be", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="not complete/hidden" },
+        { address=0X1290A9C, type="u32be", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="complete" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2E03D0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Float BE] Story - single player - training - timer? seconds" },
+        { address=0X2EE810, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="minute", desc="[32-bit BE] Battle - Deatmatch - settings - Time limit (minutes) option" },
+        { address=0X2EE810, type="u32be", condition="eq", value=0X01, action="GENERAL_TIMER", desc="1" },
+        { address=0X2EE810, type="u32be", condition="eq", value=0X02, action="GENERAL_TIMER", desc="2" },
+        { address=0X2EE810, type="u32be", condition="eq", value=0X03, action="GENERAL_TIMER", desc="3" },
+        { address=0X2EE810, type="u32be", condition="eq", value=0X1E, action="GENERAL_TIMER", desc="30 (highest)" },
+        { address=0X2EE848, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[32-bit BE] Battle - Deatmatch - settings - Pickup respawn time option" },
+      },
+    },
+  },
+}

@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Big2Small",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-big2small",
+    hashes = {
+      { hash = "ed351bbc74e47f7adb4a926c8c59af8b", label = "BIG2SMALL (World) (Digital) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC39E, type="u8", condition="change", action="NEW_LEVEL", desc="Level selected" },
+      },
+      zone = {
+        { address=0XC30F, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Map" },
+      },
+    },
+  },
+}

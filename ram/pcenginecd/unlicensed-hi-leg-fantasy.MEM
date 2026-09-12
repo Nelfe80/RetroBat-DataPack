@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Hi-Leg Fantasy",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "unlicensed-hi-leg-fantasy",
+    hashes = {
+      { hash = "ed4c95b232098f09ed58c0182fd84f2d", label = "Hi-Leg Fantasy (Japan) (Unl)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X06D1, type="u24le", condition="eq", value=0X0C, action="TITLE_SCREEN", desc="new game/menu" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X24, action="TITLE_SCREEN", desc="intro (boat)" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X25, action="TITLE_SCREEN", desc="town" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X27, action="TITLE_SCREEN", desc="overworld" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X28, action="TITLE_SCREEN", desc="battle/item shop" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X2C, action="TITLE_SCREEN", desc="inn" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X2E, action="TITLE_SCREEN", desc="cave" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X2F, action="TITLE_SCREEN", desc="intro (beach/dock inn)" },
+        { address=0X06D1, type="u24le", condition="eq", value=0X30, action="TITLE_SCREEN", desc="intro (beach w/ lady)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0DBB, type="u8", condition="change", action="NEW_LEVEL", desc="hero level" },
+        { address=0X0DBD, type="u8", condition="change", action="NEW_LEVEL", desc="ririn level" },
+        { address=0X0DBF, type="u8", condition="change", action="NEW_LEVEL", desc="kororu level" },
+        { address=0X0DCA, type="u16le", condition="change", action="NEW_LEVEL", desc="hero next level" },
+        { address=0X0DCC, type="u16le", condition="change", action="NEW_LEVEL", desc="ririn next level" },
+        { address=0X0DCE, type="u16le", condition="change", action="NEW_LEVEL", desc="kororu next level" },
+      },
+      stage = {
+        { address=0X32E84, type="u8", condition="change", action="PROGRESSION_STAGE", desc="enemy sprite stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2AA66, type="u8", condition="change", action="LOSE_LIFE", desc="in battle - goes to 0 on party death or enemy death" },
+      },
+      health = {
+        { address=0X0D90, type="u16le", condition="increase", action="HEAL", desc="hero hp increased" },
+        { address=0X0D90, type="u16le", condition="decrease", action="HIT", desc="hero hp decreased" },
+        { address=0X0D92, type="u16le", condition="increase", action="HEAL", desc="ririn hp increased" },
+        { address=0X0D92, type="u16le", condition="decrease", action="HIT", desc="ririn hp decreased" },
+        { address=0X0D94, type="u16le", condition="increase", action="HEAL", desc="kororu hp increased" },
+        { address=0X0D94, type="u16le", condition="decrease", action="HIT", desc="kororu hp decreased" },
+        { address=0X0D96, type="u16le", condition="increase", action="HEAL", desc="hero max hp increased" },
+        { address=0X0D96, type="u16le", condition="decrease", action="HIT", desc="hero max hp decreased" },
+        { address=0X0D98, type="u16le", condition="increase", action="HEAL", desc="ririn max hp increased" },
+        { address=0X0D98, type="u16le", condition="decrease", action="HIT", desc="ririn max hp decreased" },
+        { address=0X0D9A, type="u16le", condition="increase", action="HEAL", desc="kororu max hp increased" },
+        { address=0X0D9A, type="u16le", condition="decrease", action="HIT", desc="kororu max hp decreased" },
+        { address=0X32E7E, type="u8", condition="increase", action="HEAL", desc="enemy hp increased" },
+        { address=0X32E7E, type="u8", condition="decrease", action="HIT", desc="enemy hp decreased" },
+        { address=0X32E7F, type="u8", condition="increase", action="HEAL", desc="enemy max hp increased" },
+        { address=0X32E7F, type="u8", condition="decrease", action="HIT", desc="enemy max hp decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0E97, type="u8", condition="change", action="BOSS_HIT", desc="[5 bytes] hero boss abp" },
+      },
+    },
+  },
+}

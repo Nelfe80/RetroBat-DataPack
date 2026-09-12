@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Melee Adventure 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "hack-super-melee-adventure-64",
+    hashes = {
+      { hash = "152ffb83c9d8a438ceb67fb02ff805ae", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Mario].z64" },
+      { hash = "16a9715d5cccb179695fec81daf1071d", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Garfield].z64" },
+      { hash = "9254ad15ca75a2cf637f7ff4024f9f5e", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Luigi].z64" },
+      { hash = "9c3d27016418015a1f5a463b41f91f7c", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Peter Griffin].z64" },
+      { hash = "ca5e37accedf72900a7c6a8b7cf7b599", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Ness].z64" },
+      { hash = "e00ce18ae7b9cc93ecdbb2fcc0e24b50", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Star Fox].z64" },
+      { hash = "fc0e69509dc22c6d160d68e4e6833482", label = "Super Mario 64 - [Hack - Melee Adventure 64 - Captain Falcon].z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF0892, type="u16be", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20770D, type="u8", condition="change", action="NEW_LEVEL", desc="Power Star in Underground Maze" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Underground Maze" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Life increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Life decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Coins graphic increased" },
+        { address=0X3613FD, type="u8", condition="eq", value=0X08, action="MONEY_STATE", desc="8 red coins" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B25D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="00 : Time Off" },
+      },
+    },
+  },
+}

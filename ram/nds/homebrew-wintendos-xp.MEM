@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ WintenDoS XP",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-wintendos-xp",
+    hashes = {
+      { hash = "594a7b3f070fb0b8d971e90427eef0b2", label = "WintenDos (World) (v3.0) (Aftermarket) (Unl).nds" },
+      { hash = "d06a5474eacaa5e557bd0ab35959c414", label = "WintenDos (World) (v2.05) (En) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+  },
+}

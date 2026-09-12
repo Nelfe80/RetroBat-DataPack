@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "King Salmon: The Big Catch",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "king-salmon-the-big-catch",
+    hashes = {
+      { hash = "0423ebd4abb1da95f758dba60231a00f", label = "King Salmon - The Big Catch (USA).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA8B3, type="u8", condition="change", action="PAUSE_ON", desc="Pause flag [8bit]" },
+        { address=0XC535, type="u8", condition="change", action="DEMO_MODE", desc="Demo Mode Active [8bit]" },
+        { address=0XE0CE, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Flag [8bit]" },
+        { address=0XE0D0, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Flag [8bit]" },
+        { address=0XE0D3, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Flag [8bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC34C, type="u8", condition="change", action="NEW_LEVEL", desc="Player Level [8bit]" },
+      },
+      stage = {
+        { address=0XC337, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Number [8bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA8AC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time(Hours) [8bit]" },
+        { address=0XA8AE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time (minutes) [8bit]" },
+      },
+    },
+  },
+}

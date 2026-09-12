@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Sims 2: Castaway",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-sims-2-castaway",
+    hashes = {
+      { hash = "386bd30bfc13d03fbdff37282fb73df1", label = "Sims 2, The - Castaway (Europe) (En,Fr,De,Es,It,Nl,Pt).nds" },
+      { hash = "9d7209b7e05917ef52f902d95130536f", label = "Sims 2, The - Castaway (USA) (En,Fr,De,Es,It,Nl,Pt).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XC43FE, type="u8", condition="increase", action="HEAL", desc="Energy increased" },
+        { address=0XC43FE, type="u8", condition="decrease", action="HIT", desc="Energy decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,127 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Channel 5: Part 2",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "space-channel-5-part-2",
+    hashes = {
+      { hash = "b74d77edda51ce82836246d754073c1f", label = "Space Channel 5 Part 2 (Japan) (En) (v1.0) (BrAzE)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1723C0, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Normal gameplay" },
+        { address=0X1723C0, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Cheat activated" },
+        { address=0X1723C0, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Demo" },
+        { address=0X1723C0, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X23FD6C, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Report 05 - World 2 - Clear Count" },
+        { address=0X9C1CA2, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Report 05 - Secret Zone" },
+        { address=0X9C1CA2, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Report 05 - Secret Zone (Extra Mode)" },
+        { address=0X9C1CA2, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Ulala's Dance (100-Round Battle Mode)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X23FD14, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Costumes 05 - Spy Suit" },
+        { address=0X23FD15, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Costumes 16 - Space Michael Suit" },
+        { address=0X23FD15, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Costumes 15 - Synchro Suit" },
+        { address=0X23FD15, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Costumes 12 - Stealth Suit (Requires REZ Save)" },
+        { address=0X23FD16, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Costumes 24 - Chef Suit" },
+        { address=0X23FD16, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Costumes 23 - Mr. Nervous Suit" },
+        { address=0X23FD16, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Costumes 21 - Dancing Purge Suit" },
+        { address=0X23FD16, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Costumes 20 - Evila (upgrade) Suit" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Costumes 32 - Morolian Suit" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Costumes 31 - Robot (Macho) Suit" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Costumes 30 - Robot Suit (silver)" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Costumes 29 - Hard Core Sexy Suit (Requires Space Channel 5 save)" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Costumes 28 - Blank Suit (Requires Space Channel 5 save)" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X20, action="DYNAMIC_INVENTORY", desc="Costumes 27 - Granny Suit" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X40, action="DYNAMIC_INVENTORY", desc="Costumes 26 - Rescue Squad Suit" },
+        { address=0X23FD17, type="u8", condition="bit_true", mask=0X80, action="DYNAMIC_INVENTORY", desc="Costumes 25 - Space Primary School Suit" },
+        { address=0X23FD18, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Costumes 39 - Peach Suit" },
+        { address=0X23FD18, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Costumes 36 - Striped Suit" },
+        { address=0X23FD18, type="u8", condition="bit_true", mask=0X20, action="DYNAMIC_INVENTORY", desc="Costumes 35 - Cloaked Purge Suit" },
+        { address=0X23FD18, type="u8", condition="bit_true", mask=0X40, action="DYNAMIC_INVENTORY", desc="Costumes 34 - Eighty-eight Man Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Channel 5 Retro Gear" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Flower Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Gogo Gear (w/o helmet)" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Gogo Gear (w/helmet)" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Spy Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Old Retro Gear" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Old Retro Gear (dirty)" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Super Ulala Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="School Uniform" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="China Dress" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Woolen Wear" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0B, action="DYNAMIC_INVENTORY", desc="Stealth Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0C, action="DYNAMIC_INVENTORY", desc="Pudding Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0D, action="DYNAMIC_INVENTORY", desc="Pine Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0E, action="DYNAMIC_INVENTORY", desc="Synchro Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X0F, action="DYNAMIC_INVENTORY", desc="Space Michael Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X10, action="DYNAMIC_INVENTORY", desc="Jaguar Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X11, action="DYNAMIC_INVENTORY", desc="Peace Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X12, action="DYNAMIC_INVENTORY", desc="Noize Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X13, action="DYNAMIC_INVENTORY", desc="Evila (upgrade) Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X14, action="DYNAMIC_INVENTORY", desc="Dancing Purge Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X15, action="DYNAMIC_INVENTORY", desc="Noe-Japanese Astronaut" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X16, action="DYNAMIC_INVENTORY", desc="Mr. Nervous Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X17, action="DYNAMIC_INVENTORY", desc="Chef Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X18, action="DYNAMIC_INVENTORY", desc="Space Primary School Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X19, action="DYNAMIC_INVENTORY", desc="Rescue Squad Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1A, action="DYNAMIC_INVENTORY", desc="Granny Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1B, action="DYNAMIC_INVENTORY", desc="Blank Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1C, action="DYNAMIC_INVENTORY", desc="Hard Core Sexy Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1D, action="DYNAMIC_INVENTORY", desc="Robot Suit (silver)" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1E, action="DYNAMIC_INVENTORY", desc="Robot (Macho) Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X1F, action="DYNAMIC_INVENTORY", desc="Morolian Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X20, action="DYNAMIC_INVENTORY", desc="Boss Morolian Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X21, action="DYNAMIC_INVENTORY", desc="Eighty-eight Man Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X22, action="DYNAMIC_INVENTORY", desc="Cloaked Purge Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X23, action="DYNAMIC_INVENTORY", desc="Striped Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X24, action="DYNAMIC_INVENTORY", desc="Camouflage Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X25, action="DYNAMIC_INVENTORY", desc="Black Gear" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X26, action="DYNAMIC_INVENTORY", desc="Peach Suit" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X27, action="DYNAMIC_INVENTORY", desc="Coconut Ulala Costume" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X23FC93, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Special 019 - Money Bags" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X23FCA8, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Bosses 104 - Kin / Kon / Kan (Berserk mode)" },
+        { address=0X23FCA8, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Bosses 103 - Kin / Kon / Kan (Singing mode)" },
+        { address=0X23FCA9, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Bosses 108 - Peace Carrier" },
+        { address=0X23FCA9, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Bosses 109 - King Purge" },
+        { address=0X23FCA9, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Bosses 107 - Purge Hovercraft" },
+        { address=0X23FCA9, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="Bosses 106 - Pon Piriri (Robot mode)" },
+        { address=0X23FCA9, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Bosses 105 - Pon Piriri (Plant mode)" },
+        { address=0X23FCAA, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Bosses 110 - Great Purge" },
+        { address=0X23FCAF, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Morolian 120 - Morolian Boss" },
+        { address=0X23FD18, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Costumes 33 - Boss Morolian Suit" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X240CF4, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_FIRE", desc="Transformed into Flower Costume" },
+        { address=0X240CF4, type="u8", condition="eq", value=0X07, action="TRANSFORMATION_SUPER", desc="Transformed into Super Ulala Costume" },
+      },
+      player = {
+        { address=0X23FC9C, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="Ordinary Folk 082 - Space Synchronized Swimming Team" },
+      },
+    },
+  },
+}

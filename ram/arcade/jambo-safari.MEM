@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Jambo! Safari",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "jambo-safari",
+    hashes = {
+      { hash = "e6f06702c43d31c81cb42967420c0b31", label = "jambo.zip <Jambo! Safari (Rev A)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2AAD4C, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues used on current play through" },
+        { address=0X2DB858, type="u8", condition="eq", value=0X01, action="GAME_PLAYING", desc="Results screen/stage complete if no results screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2DB858, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Results screen/stage complete if no results screen" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2B7FB8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ranger points" },
+        { address=0X31ED20, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Animal score from stage" },
+        { address=0X31ED2C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Time score from stage" },
+        { address=0X31ED38, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Total score on report screen (0x002b83d0 + 0x0031ed2c)" },
+        { address=0X31ED44, type="u8", condition="eq", value=0X0C, action="SCORE_STATE", desc="Score displayed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X144A2C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer in seconds" },
+        { address=0X2E1164, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Embamba Plains naturalist event timer" },
+        { address=0X2E1200, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Embamba Plains villager event timer" },
+        { address=0X2E129C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Embamba Plains poacher event timer" },
+        { address=0X2E1338, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Shetani Riverside naturalist event timer" },
+      },
+    },
+  },
+}

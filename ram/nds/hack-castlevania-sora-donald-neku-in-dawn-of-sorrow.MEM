@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Sora, Donald & Neku in Dawn of Sorrow",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-sora-donald-neku-in-dawn-of-sorrow",
+    hashes = {
+      { hash = "8a3b8079095478e1eaeca2a3c08afeca", label = "Castlevania - Sora, Donald & Neku in Dawn of Sorrow (v2.0) (Shametal).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC07F0, type="u8", condition="change", action="PAUSE_ON", desc="[8 Bit] Pause State" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XF740C, type="u16le", condition="change", action="NEW_LEVEL", desc="[16 Bit] Current Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XF7410, type="u16le", condition="increase", action="HEAL", desc="[16 Bit] Current HP increased" },
+        { address=0XF7410, type="u16le", condition="decrease", action="HIT", desc="[16 Bit] Current HP decreased" },
+      },
+    },
+  },
+}

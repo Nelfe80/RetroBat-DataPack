@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Insantaty",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-insantaty",
+    hashes = {
+      { hash = "18ce447d010dcdcd9e9b9f8693d351e9", label = "Insantaty (World) (Aftermarket) (AetherBye)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X09CE, type="u16le", condition="increase", action="GAIN_LIFE", desc="[16 Bit] Life Counter increased" },
+        { address=0X09CE, type="u16le", condition="decrease", action="LOSE_LIFE", desc="[16 Bit] Life Counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X09D0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Score Lower half" },
+        { address=0X09D2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Score Upper half" },
+      },
+    },
+  },
+}

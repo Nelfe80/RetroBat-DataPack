@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ John Madden Football",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "prototype-john-madden-football",
+    hashes = {
+      { hash = "e76328b0795af8cd85a70e84c1ef4722", label = "John Madden Football (USA) (Proto 2) (SGB Enhanced).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC500, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Sudden Death" },
+        { address=0XC501, type="u8", condition="eq", value=0X18, action="LOSE_LIFE", desc="San Diego" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC3B2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="State change" },
+        { address=0XC3B3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="State change" },
+      },
+    },
+  },
+}

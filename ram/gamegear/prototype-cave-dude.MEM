@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Cave Dude",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "prototype-cave-dude",
+    hashes = {
+      { hash = "933770b934e2f4eb2b6e3918f0955d40", label = "Cave Dude (USA) (Proto).gg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0251, type="u8", condition="change", action="DEMO_MODE", desc="1 if demo is playing, 0 otherwise" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X026C, type="u8", condition="change", action="LEVEL_CLEAR", desc="1 to clear level instantly" },
+      },
+      zone = {
+        { address=0X0245, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World" },
+      },
+      stage = {
+        { address=0X0246, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X0277, type="u16be", condition="change", action="PROGRESSION_STAGE", desc="Yellow stars collected in current stage [16-bit BE BCD]" },
+        { address=0X027B, type="u16be", condition="change", action="PROGRESSION_STAGE", desc="Grey stars collected in current stage [16-bit BE BCD]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0276, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8-bit BCD] increased" },
+        { address=0X0276, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8-bit BCD] decreased" },
+      },
+      health = {
+        { address=0X0275, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0275, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X027F, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [24-bit BE BCD] *10 to get displayed score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X029C, type="u8", condition="change", action="BOSS_HIT", desc="Boss health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X026A, type="u8", condition="change", action="INVINCIBILITY_START", desc="1 if Cave Dude is invincible, 0 otherwise" },
+      },
+      player = {
+        { address=0X0267, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="0 if Cave Dude is allowed to jump, 1 otherwise" },
+      },
+    },
+  },
+}

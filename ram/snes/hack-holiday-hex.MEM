@@ -1,0 +1,62 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Holiday Hex",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-holiday-hex",
+    hashes = {
+      { hash = "a97940fd58ab013c88b6cbf9c23ee586", label = "EarthBound - Holiday Hex (v1.0.1) (Mr. Tenda).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X99D3, type="u8", condition="change", action="NEW_LEVEL", desc="Tina level" },
+        { address=0X9A32, type="u8", condition="change", action="NEW_LEVEL", desc="Kyle level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X96FC, type="u8", condition="change", action="HIT", desc="75 - Normal damage" },
+        { address=0X99D8, type="u16le", condition="increase", action="HEAL", desc="Tina Max HP increased" },
+        { address=0X99D8, type="u16le", condition="decrease", action="HIT", desc="Tina Max HP decreased" },
+        { address=0X9A13, type="u16le", condition="increase", action="HEAL", desc="Tina rolling HP increased" },
+        { address=0X9A13, type="u16le", condition="decrease", action="HIT", desc="Tina rolling HP decreased" },
+        { address=0X9A15, type="u16le", condition="increase", action="HEAL", desc="Tina current HP increased" },
+        { address=0X9A15, type="u16le", condition="decrease", action="HIT", desc="Tina current HP decreased" },
+        { address=0X9A37, type="u16le", condition="increase", action="HEAL", desc="Kyle Max HP increased" },
+        { address=0X9A37, type="u16le", condition="decrease", action="HIT", desc="Kyle Max HP decreased" },
+        { address=0X9A72, type="u16le", condition="increase", action="HEAL", desc="Kyle rolling HP increased" },
+        { address=0X9A72, type="u16le", condition="decrease", action="HIT", desc="Kyle rolling HP decreased" },
+        { address=0X9A74, type="u16le", condition="increase", action="HEAL", desc="Kyle current HP increased" },
+        { address=0X9A74, type="u16le", condition="decrease", action="HIT", desc="Kyle current HP decreased" },
+        { address=0X9FBD, type="u16le", condition="increase", action="HEAL", desc="Tina rolling HP in battle increased" },
+        { address=0X9FBD, type="u16le", condition="decrease", action="HIT", desc="Tina rolling HP in battle decreased" },
+        { address=0X9FBF, type="u16le", condition="increase", action="HEAL", desc="Tina current HP in battle increased" },
+        { address=0X9FBF, type="u16le", condition="decrease", action="HIT", desc="Tina current HP in battle decreased" },
+        { address=0XA00B, type="u16le", condition="increase", action="HEAL", desc="Kyle rolling HP in battle increased" },
+        { address=0XA00B, type="u16le", condition="decrease", action="HIT", desc="Kyle rolling HP in battle decreased" },
+        { address=0XA00D, type="u16le", condition="increase", action="HEAL", desc="Kyle current HP in battle increased" },
+        { address=0XA00D, type="u16le", condition="decrease", action="HIT", desc="Kyle current HP in battle decreased" },
+        { address=0XA22F, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0XA22F, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0XA27D, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0XA27D, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X9C24, type="u8", condition="change", action="TREASURE", desc="Type of treasure container opened:" },
+        { address=0X9C6B, type="u8", condition="change", action="TREASURE", desc="Treasure flags:" },
+        { address=0X9C6C, type="u8", condition="change", action="TREASURE", desc="Treasure flags:" },
+        { address=0X9C6D, type="u8", condition="change", action="TREASURE", desc="Treasure flags:" },
+      },
+    },
+  },
+}

@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Blasteroids",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "blasteroids",
+    hashes = {
+      { hash = "2e4e7be832d73b84cf2b1538f91106c1", label = "blstroid3.7z <Blasteroids (rev 3)>" },
+      { hash = "379139d55945c5f246c7caca8948ad75", label = "blstroid.7z <Blasteroids (rev 4)>" },
+      { hash = "6c17c88d247ccae747cb06509ebb37dd", label = "blstroidg.7z <Blasteroids (German, rev 2)>" },
+      { hash = "e28e9b13b4960d0308b5231c78e13175", label = "blstroidh.7z <Blasteroids (with heads)>" },
+      { hash = "fa62b076b025ac675351f6ad200fcff1", label = "blstroid2.7z <Blasteroids (rev 2)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1304, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits" },
+        { address=0X3A0B, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits (mirrored)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFFE55C, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: power shots" },
+        { address=0XFFE55E, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: shields" },
+      },
+      health = {
+        { address=0XFFE548, type="u8", condition="decrease", action="HIT", desc="player1_die: energy" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X29B2, type="u16le", condition="change", action="TREASURE", color="white", min=100000, max=100000, score_kind="threshold", desc="Score delta 100000-100000: Score delta 100000-100000" },
+        { address=0X29B2, type="u16le", condition="change", action="TREASURE", color="white", min=150000, max=150000, score_kind="threshold", desc="Score delta 150000-150000: Score delta 150000-150000" },
+        { address=0X29B2, type="u16le", condition="change", action="TREASURE", color="white", min=50000, max=50000, score_kind="threshold", desc="Score delta 50000-50000: Bonus" },
+        { address=0X8365B0, type="u32be", condition="change", action="TREASURE", color="white", min=100000, max=100000, desc="Score delta 100000-100000: Score 100000" },
+        { address=0X8365B0, type="u32be", condition="change", action="TREASURE", color="white", min=150000, max=150000, desc="Score delta 150000-150000: Score 150000" },
+        { address=0X8365B0, type="u32be", condition="change", action="TREASURE", color="white", min=50000, max=50000, desc="Score delta 50000-50000: Bonus" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8365B0, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0XFFCF05, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X29B2, type="u16le", condition="change", action="OBJECT_DESTROYED", color="white", min=10, max=10, score_kind="threshold", desc="Score delta 10-10: Destroy little grey asteroid" },
+        { address=0X29B2, type="u16le", condition="change", action="OBJECT_DESTROYED", color="white", min=100, max=100, score_kind="threshold", desc="Score delta 100-100: Destroy little blue asteroid" },
+        { address=0X29B2, type="u16le", condition="change", action="OBJECT_DESTROYED", color="white", min=50, max=50, score_kind="threshold", desc="Score delta 50-50: Destroy little red asteroid" },
+        { address=0X29B2, type="u16le", condition="change", action="OBJECT_DESTROYED", color="white", min=500, max=500, score_kind="threshold", desc="Score delta 500-500: Destroy medium asteroid" },
+        { address=0X29B2, type="u16le", condition="change", action="OBJECT_DESTROYED", color="green", min=7500, max=7500, score_kind="threshold", desc="Score delta 7500-7500: Mukors enemy tubes green" },
+        { address=0X8365B0, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=10, max=10, desc="Score delta 10-10: Destroy little grey asteroid" },
+        { address=0X8365B0, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=100, max=100, desc="Score delta 100-100: Destroy little blue asteroid" },
+        { address=0X8365B0, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=50, max=50, desc="Score delta 50-50: Destroy little red asteroid" },
+        { address=0X8365B0, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=500, max=500, desc="Score delta 500-500: Destroy medium asteroid" },
+        { address=0X8365B0, type="u32be", condition="change", action="OBJECT_DESTROYED", color="green", min=7500, max=7500, desc="Score delta 7500-7500: Mukors enemy tubes green" },
+      },
+    },
+  },
+}

@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "astrob",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "astro-blaster",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCD0A, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCB2F, type="u16be", condition="change", action="SCORE_STATE", min=10, max=100, desc="Score delta 10-100: Score delta 10-100" },
+        { address=0XCB2F, type="u16be", condition="change", action="SCORE_STATE", color="blue", min=1000, max=10000, desc="Score delta 1000-10000: Score delta 1000-10000" },
+        { address=0XCB2F, type="u16be", condition="change", action="SCORE_STATE", color="orange", min=110, max=200, desc="Score delta 110-200: Score delta 110-200" },
+        { address=0XCB2F, type="u16be", condition="change", action="SCORE_STATE", color="cyan", min=210, max=400, desc="Score delta 210-400: Score delta 210-400" },
+        { address=0XCB2F, type="u16be", condition="change", action="SCORE_STATE", color="green", min=410, max=900, desc="Score delta 410-900: Score delta 410-900" },
+      },
+    },
+  },
+}

@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Konami's Boxing",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "konamis-boxing",
+    hashes = {
+      { hash = "3c276ae556ddd0feea9df0d5d31a5e1d", label = "Konami's Boxing (Japan).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2000, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Demo" },
+        { address=0X2000, type="u8", condition="eq", value=0X07, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2210, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round" },
+        { address=0X2210, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round 1" },
+      },
+      stage = {
+        { address=0X2051, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[BCD] Current Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2218, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player Health/Stamina" },
+        { address=0X2218, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X2218, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="1 Glove Taken" },
+        { address=0X2218, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", no_log=true, desc="2 Gloves Taken" },
+        { address=0X2218, type="u8", condition="eq", value=0X06, action="HEALTH_STATE", no_log=true, desc="Player Can Be Knocked Down" },
+        { address=0X221A, type="u8", condition="increase", action="HEAL", desc="Opponent Health/Stamina increased" },
+        { address=0X221A, type="u8", condition="decrease", action="HIT", desc="Opponent Health/Stamina decreased" },
+        { address=0X2274, type="u8", condition="eq", value=0XC3, action="HIT", desc="Taking Damage" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2274, type="u8", condition="eq", value=0X26, action="OBJECT_INTERACTION", desc="Idle/Block Body" },
+        { address=0X2274, type="u8", condition="eq", value=0X84, action="OBJECT_INTERACTION", desc="Idle/Block Head" },
+        { address=0X2274, type="u8", condition="eq", value=0X8A, action="OBJECT_INTERACTION", desc="Idle/Block Body" },
+        { address=0X2274, type="u8", condition="eq", value=0XB4, action="OBJECT_INTERACTION", desc="Idle/Block Head" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2212, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="minute", desc="[ASCII] Round Timer: Minutes" },
+        { address=0X2214, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="[ASCII] Round Timer: Ten Seconds" },
+        { address=0X2215, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", desc="[ASCII] Round Timer: Seconds" },
+      },
+    },
+  },
+}

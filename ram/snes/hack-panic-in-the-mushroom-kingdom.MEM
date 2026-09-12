@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Panic in the Mushroom Kingdom",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-panic-in-the-mushroom-kingdom",
+    hashes = {
+      { hash = "81317b808c4365a9df49039e4a133769", label = "SMW - Panic in the Mushroom Kingdom (Original) (ghettoyouth).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1F33, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Snow Valley 2" },
+        { address=0X1F34, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Death Desert 2" },
+      },
+    },
+  },
+}

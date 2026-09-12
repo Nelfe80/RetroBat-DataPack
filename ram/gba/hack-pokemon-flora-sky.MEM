@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Flora Sky",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-flora-sky",
+    hashes = {
+      { hash = "1d0d29c33cc9d5051aed4f7c2c543a06", label = "Pokemon Emerald - Flora Sky (Completed Dex) (Sky).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0F2C, type="u8", condition="change", action="PAUSE_ON", desc="01:pause movement" },
+        { address=0X5E22, type="u8", condition="change", action="CREDITS_SCREEN", desc="Roulette Current Credits" },
+      },
+    },
+  },
+}

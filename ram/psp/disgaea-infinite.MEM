@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Disgaea Infinite",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "disgaea-infinite",
+    hashes = {
+      { hash = "2ee224b56776470f78b4789c75997867", label = "Disgaea Infinite (USA).iso" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA010E1, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Netherworld SP Healing" },
+        { address=0XA010E3, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Netherworld HP Healing" },
+        { address=0XA02738, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Netherworld" },
+      },
+      zone = {
+        { address=0XA010E2, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="Another World's Language" },
+        { address=0XA010EC, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="Human World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA010DE, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Death Flag Cliche" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XA010E1, type="u8", condition="bit_true", mask=0X40, action="DYNAMIC_INVENTORY", desc="Power-Up Unit" },
+      },
+    },
+  },
+}

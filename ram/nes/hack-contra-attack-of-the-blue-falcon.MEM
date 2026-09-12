@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Contra: Attack of the Blue Falcon",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-contra-attack-of-the-blue-falcon",
+    hashes = {
+      { hash = "18d2c7c4a45c9f9f78650984181ff226", label = "Contra - Attack of the Blue Falcon (v2.0 - Normal) (DANGER X).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0025, type="u8", condition="change", action="PAUSE_ON", desc="Paused?" },
+        { address=0X0038, type="u8", condition="change", action="GAME_OVER", desc="Game Over" },
+        { address=0X003A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0030, type="u8", condition="change", action="NEW_LEVEL", desc="Level id" },
+        { address=0X0064, type="u8", condition="change", action="NEW_LEVEL", desc="Level screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0032, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0032, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X00AA, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon?" },
+      },
+    },
+  },
+}

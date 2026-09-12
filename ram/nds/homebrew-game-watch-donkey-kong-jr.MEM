@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Game & Watch Donkey Kong Jr",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-game-watch-donkey-kong-jr",
+    hashes = {
+      { hash = "3b84e35122e0e3f7987053e7667cfcc1", label = "Game & Watch Donkey Kong Jr (World) (v1.1) (Aftermarket) (Unl) (PaulGoes).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XFED50, type="u32le", condition="increase", action="GAIN_LIFE", desc="[32 bit]Lives increased" },
+        { address=0XFED50, type="u32le", condition="decrease", action="LOSE_LIFE", desc="[32 bit]Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFED58, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 bit]Score" },
+      },
+    },
+  },
+}

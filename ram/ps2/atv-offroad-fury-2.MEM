@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "ATV Offroad Fury 2",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "atv-offroad-fury-2",
+    hashes = {
+      { hash = "f7c396b74adba87f92a7c3c50a07f089", label = "ATV Offroad Fury 2 (USA) (v2.00)" },
+    }
+  },
+
+  events = {
+  },
+}

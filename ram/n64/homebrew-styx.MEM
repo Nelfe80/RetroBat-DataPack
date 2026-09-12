@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Styx",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Construction and Management Simulation, Horror, Strategy"
+  },
+
+  rom = {
+    name = "homebrew-styx",
+    hashes = {
+      { hash = "542bed9c63d531a7b180ba31924da728", label = "Styx (World) (N64brew Game Jam 2022) (Aftermarket) (Unl).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X179E8B, type="u8", condition="increase", action="COIN_GAIN", desc="[Stadium 2] [Gold Silver C1] [Trade] increased" },
+      },
+    },
+  },
+}

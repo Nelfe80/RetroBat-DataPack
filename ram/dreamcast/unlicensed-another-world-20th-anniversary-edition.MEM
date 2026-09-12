@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Another World: 20th Anniversary Edition",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-another-world-20th-anniversary-edition",
+    hashes = {
+      { hash = "9013594342e6c84c68797b69a6a05e77", label = "Another World - 20th Annivesary Edition (World) (Aftermarket) (Unl)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XD5AAD4, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ball N Flag",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-ball-n-flag",
+    hashes = {
+      { hash = "5c494004ef7ad7686edb9cbed08ae497", label = "Ball'N'Flag (World) (Beta) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X000B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="high score" },
+      },
+    },
+  },
+}

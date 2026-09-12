@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man X6: Tweaks",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-x6-tweaks",
+    hashes = {
+      { hash = "3eb9c1ca4ef22915391335062e558707", label = "Mega Man X6 (Tweaks) (v2.6) (acediez)" },
+      { hash = "8728100bd39969b166add6b71e4a4f6c", label = "Mega Man X6 (Tweaks+Localization) (v2.6) (acediez)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6D5F8, type="u8", condition="change", action="NEW_LEVEL", desc="[Game Level] [8-Bits]" },
+        { address=0X8EF48, type="u16le", condition="eq", value=0X3241, action="NEW_LEVEL", desc="Ground Scaravich" },
+      },
+      stage = {
+        { address=0XCCF36, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Intro Stage Beaten" },
+        { address=0XCCF36, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage Select Unlocked" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X8EFA4, type="u8", condition="increase", action="HEAL", desc="[Entity 1 HP] [8-Bits] increased" },
+        { address=0X8EFA4, type="u8", condition="decrease", action="HIT", desc="[Entity 1 HP] [8-Bits] decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X8EF48, type="u16le", condition="eq", value=0X3041, action="BOSS_HIT", desc="Initial Stage Boss" },
+        { address=0XCCEF4, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="On" },
+        { address=0XCCEFE, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCEFF, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF00, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF01, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF02, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF03, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF04, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF05, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Boss Rush Boss Defeated] [8-Bits]" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Commander Yanmark" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Blizzard Wolfang" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Blaze Heatnix" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Metal Shark Player" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Ground Scaravich" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Rainy Turtloid" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Shield Sheldon" },
+        { address=0XCCF30, type="u8", condition="bit_true", mask=0X80, action="BOSS_DEFEATED", desc="Infinity Mijinion" },
+        { address=0XCCF36, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Boss Rush Unlocked" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X8EF48, type="u16le", condition="eq", value=0X3341, action="SHIELD_GAIN", desc="Shield Sheldon" },
+        { address=0XCCF3B, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="W-tank [Shield Sheldon]" },
+        { address=0XCCF3C, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Shield Sheldon" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCCF60, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="[Stage Ingame Time] [32-Bits]" },
+      },
+    },
+  },
+}

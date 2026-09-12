@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Battleship",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Board Game"
+  },
+
+  rom = {
+    name = "battleship",
+    hashes = {
+      { hash = "d4f7ade01af0818a79bc809cf96118bb", label = "Battleship (USA, Europe).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFFB3, type="u8", condition="eq", value=0X08, action="TITLE_SCREEN", desc="title screen" },
+        { address=0XFFB3, type="u8", condition="eq", value=0X0D, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFFB3, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="beginning of level 'Are You Ready?' screen" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XFFB3, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="result of weapon firing screen" },
+        { address=0XFFB3, type="u8", condition="eq", value=0X0B, action="WEAPON_STATE", no_log=true, desc="firing weapon screen" },
+        { address=0XFFB3, type="u8", condition="eq", value=0X0C, action="WEAPON_STATE", no_log=true, desc="weapon meets ship (maybe) screen" },
+      },
+    },
+  },
+}

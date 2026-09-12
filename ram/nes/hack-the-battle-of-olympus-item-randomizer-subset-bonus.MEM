@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Battle of Olympus: Item Randomizer [Subset - Bonus]",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-battle-of-olympus-item-randomizer-subset-bonus",
+    hashes = {
+      { hash = "a6fe74bb1dffb79956f0d516734dd4b4", label = "Battle of Olympus, The (Item Randomizer) (v1.75) (clymax) [Subset - Bonus].nes" },
+      { hash = "78157893755e1eb7068fb8524e99e305", label = "Battle of Olympus, The (Item Randomizer) (v1.76) (clymax) [Subset - Bonus].nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00F5, type="u8", condition="eq", value=0X0D, action="TITLE_SCREEN", desc="Title Screen/Helene Cutscene" },
+        { address=0X00F5, type="u8", condition="eq", value=0X0F, action="CONTINUE_SCREEN", desc="Start/Continue" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00F5, type="u8", condition="eq", value=0X12, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X004A, type="u8", condition="increase", action="HEAL", desc="Current health of player increased" },
+        { address=0X004A, type="u8", condition="decrease", action="HIT", desc="Current health of player decreased" },
+        { address=0X00EF, type="u8", condition="increase", action="HEAL", desc="[1 byte] Maximum health of player increased" },
+        { address=0X00EF, type="u8", condition="decrease", action="HIT", desc="[1 byte] Maximum health of player decreased" },
+        { address=0X040F, type="u8", condition="change", action="HIT", desc="Goes up as Cerberus' second head takes damage. Goes to 0xff once Cerberus is defeated" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X006E, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Currently equipped weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00E0, type="u8", condition="increase", action="COIN_GAIN", desc="Money 1s increased" },
+        { address=0X00E1, type="u8", condition="increase", action="COIN_GAIN", desc="Money 10s increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00F5, type="u8", condition="eq", value=0X15, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0X042F, type="u8", condition="change", action="BOSS_HIT", desc="Appears to indicate how many hits a boss has taken" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0066, type="u8", condition="change", action="INVINCIBILITY_START", desc="[1 byte] Invincibility cooldown, candidate A" },
+      },
+    },
+  },
+}

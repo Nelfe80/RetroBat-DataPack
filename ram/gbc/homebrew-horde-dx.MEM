@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Horde DX",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-horde-dx",
+    hashes = {
+      { hash = "04b48de01f0c610134ce5a08d9b88303", label = "Horde DX (USA) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XC0B9, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0XC0B9, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+        { address=0XC0EA, type="u8", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0XC0EA, type="u8", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC59C, type="u8", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Neighbours from Hell",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Puzzle, Strategy"
+  },
+
+  rom = {
+    name = "neighbours-from-hell",
+    hashes = {
+      { hash = "7e27db8b3fc71b991cd31c2f1b6d1afe", label = "Neighbours from Hell (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X47BAD0, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifeboat Stats - E (32 Bytes) increased" },
+        { address=0X47BAD0, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifeboat Stats - E (32 Bytes) decreased" },
+        { address=0X47CE90, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifeboat Stats - S (32 Bytes) increased" },
+        { address=0X47CE90, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifeboat Stats - S (32 Bytes) decreased" },
+        { address=0X47DF10, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifeboat Stats - F (32 Bytes) increased" },
+        { address=0X47DF10, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifeboat Stats - F (32 Bytes) decreased" },
+        { address=0X47E090, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifeboat Stats - G (32 Bytes) increased" },
+        { address=0X47E090, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifeboat Stats - G (32 Bytes) decreased" },
+        { address=0X47F0D0, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifeboat Stats - I (32 Bytes) increased" },
+        { address=0X47F0D0, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifeboat Stats - I (32 Bytes) decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kongzooie",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kongzooie",
+    hashes = {
+      { hash = "61fee3dab424c57b4370019657ed3860", label = "DK64 - Banjo-Kongzooie (v1.0) (GloriousLiar).z64" },
+      { hash = "8bb3ad1e07a3b302ba4930b9b121b8d6", label = "DK64 - Banjo-Kongzooie (v1.2) (GloriousLiar).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X755317, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="DK TV (Attract Mode)" },
+        { address=0X755317, type="u8", condition="eq", value=0X07, action="GAME_OVER", desc="Loading Game Over Cutscene" },
+        { address=0X755317, type="u8", condition="eq", value=0X09, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7FCC48, type="u16be", condition="increase", action="HEAL", desc="Player HP increased" },
+        { address=0X7FCC48, type="u16be", condition="decrease", action="HIT", desc="Player HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X7444E4, type="u32be", condition="eq", value=0X5A, action="TREASURE", desc="Treasure Trove Cove" },
+        { address=0X7444E4, type="u32be", condition="eq", value=0X5C, action="TREASURE", desc="Treasure Trove Cove: Pirate Ship" },
+        { address=0X7444E4, type="u32be", condition="eq", value=0XAF, action="TREASURE", desc="Gruntilda's Lair: Treasure Trove Cove" },
+        { address=0X76A0A8, type="u32be", condition="eq", value=0X5A, action="TREASURE", desc="Treasure Trove Cove" },
+        { address=0X76A0A8, type="u32be", condition="eq", value=0X5C, action="TREASURE", desc="Treasure Trove Cove: Pirate Ship" },
+        { address=0X76A0A8, type="u32be", condition="eq", value=0XAF, action="TREASURE", desc="Gruntilda's Lair: Treasure Trove Cove" },
+        { address=0X7FC95E, type="u16be", condition="change", action="TREASURE", desc="Donkey Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FC996, type="u16be", condition="change", action="TREASURE", desc="Donkey Kong: Golden Bananas - Treasure Trove Cove" },
+        { address=0X7FC9B8, type="u16be", condition="change", action="TREASURE", desc="Diddy Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FC9F0, type="u16be", condition="change", action="TREASURE", desc="Diddy Kong: Golden Bananas - Treasure Trove Cove" },
+        { address=0X7FCA1A, type="u16be", condition="change", action="TREASURE", desc="Lanky Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FCA52, type="u16be", condition="change", action="TREASURE", desc="Lanky Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FCA74, type="u16be", condition="change", action="TREASURE", desc="Tiny Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FCAAC, type="u16be", condition="change", action="TREASURE", desc="Tiny Kong: Golden Bananas - Treasure Trove Cove" },
+        { address=0X7FCAD6, type="u16be", condition="change", action="TREASURE", desc="Chunky Kong: Colored Bananas - Treasure Trove Cove" },
+        { address=0X7FCB0E, type="u16be", condition="change", action="TREASURE", desc="Chunky Kong: Golden Bananas - Treasure Trove Cove" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X7FC954, type="u16be", condition="increase", action="COIN_GAIN", desc="Spiral Mountain: Coins increased" },
+        { address=0X7FC9B6, type="u16be", condition="increase", action="COIN_GAIN", desc="Diddy's Coins increased" },
+        { address=0X7FCA10, type="u16be", condition="increase", action="COIN_GAIN", desc="Lanky's Coins increased" },
+        { address=0X7FCA72, type="u16be", condition="increase", action="COIN_GAIN", desc="Tiny's Coins increased" },
+        { address=0X7FCACC, type="u16be", condition="increase", action="COIN_GAIN", desc="Chunky's Coins increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X755317, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="DK Bonus / Bosses" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X7444E4, type="u32be", condition="eq", value=0XB1, action="SWIMMING", no_log=true, no_survey=true, desc="Mumbo's Mountain: Swimming Minigame" },
+        { address=0X76A0A8, type="u32be", condition="eq", value=0XB1, action="SWIMMING", no_log=true, no_survey=true, desc="Mumbo's Mountain: Swimming Minigame" },
+        { address=0X7ECEDB, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Training Barrel: Swimming" },
+        { address=0X7ED097, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Training Barrel: Swimming" },
+        { address=0X7ED233, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Training Barrel: Swimming" },
+        { address=0X7ED253, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Training Barrel: Swimming" },
+        { address=0X7ED40F, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Training Barrel: Swimming" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7EDEA8, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Save Slot 1" },
+        { address=0X7EDEA8, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Save Slot 2" },
+        { address=0X7EDEA8, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Save Slot 3" },
+        { address=0X7EDEA9, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Save Slot 1" },
+        { address=0X7EDEA9, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Save Slot 2" },
+        { address=0X7EDEA9, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Save Slot 3" },
+        { address=0X7EDEAA, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Save Slot 1" },
+        { address=0X7EDEAA, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Save Slot 2" },
+        { address=0X7EDEAA, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Save Slot 3" },
+        { address=0X7EDEAB, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Save Slot 1" },
+        { address=0X7EDEAB, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Save Slot 2" },
+        { address=0X7EDEAB, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Save Slot 3" },
+      },
+    },
+  },
+}

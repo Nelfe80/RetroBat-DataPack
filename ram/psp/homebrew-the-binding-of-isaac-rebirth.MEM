@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Binding of Isaac: Rebirth",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-binding-of-isaac-rebirth",
+    hashes = {
+      { hash = "bab91e3fae443ff7c7c6241defad1b57", label = "Binding of Isaac, The - Rebirth (Demake) (v0.2.0.4) (Yerson Games)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1CFEE7E, type="u16le", condition="change", action="LOSE_LIFE", desc="Deaths" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1D09D9E, type="u16le", condition="increase", action="COIN_GAIN", desc="Amount of Coins increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Golden Sun: The Lost Age - Alex Path",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-golden-sun-the-lost-age-alex-path",
+    hashes = {
+      { hash = "5e3a0491f905b4039bfe2c771b053c08", label = "Golden Sun TLA - Alex Path (v1.16) (bidoof3836).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X38900, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 - Current HP [16-bit, possibly higher] increased" },
+        { address=0X38900, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 - Current HP [16-bit, possibly higher] decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mr. Chin",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mr-chin",
+    hashes = {
+      { hash = "421d26d11fe4006122ba63713045495c", label = "Mr. Chin (MSX Conversion) (World) (Aftermarket) (Unl).col" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X003B, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X003A, type="u8", condition="change", action="NEW_LEVEL", desc="Round [8bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X003B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives [8bit] increased" },
+        { address=0X003B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X003D, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="P1 Score [16bit]" },
+      },
+    },
+  },
+}

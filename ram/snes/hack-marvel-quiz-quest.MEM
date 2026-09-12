@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Marvel Quiz Quest",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marvel-quiz-quest",
+    hashes = {
+      { hash = "95e0d9dcca5ca8795628b119efd756c9", label = "SMW - Marvel Quiz Quest (v2.0) (BillyTime! Games).sfc" },
+      { hash = "6cb79ef3c0ea4d7acf11aaca84608179", label = "SMW - Marvel Quiz Quest (v3.0) (BillyTime! Games).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00D6, type="u8", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="title screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X00D6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="used to help hold stage differences" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90A2, action="PROGRESSION_STAGE", desc="black panther" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90AE, action="PROGRESSION_STAGE", desc="storm/magneto" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90BC, action="PROGRESSION_STAGE", desc="venom" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90C8, action="PROGRESSION_STAGE", desc="deadpool 2" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90D3, action="PROGRESSION_STAGE", desc="thor" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90DD, action="PROGRESSION_STAGE", desc="stan lee" },
+        { address=0X00D6, type="u8", condition="eq", value=0X90EA, action="PROGRESSION_STAGE", desc="galactus" },
+        { address=0X00D6, type="u8", condition="eq", value=0X9280, action="PROGRESSION_STAGE", desc="ironman" },
+        { address=0X00D6, type="u8", condition="eq", value=0X928B, action="PROGRESSION_STAGE", desc="prof x" },
+        { address=0X00D6, type="u8", condition="eq", value=0X9296, action="PROGRESSION_STAGE", desc="spiderman" },
+        { address=0X00D6, type="u8", condition="eq", value=0X92A2, action="PROGRESSION_STAGE", desc="deadpool 1" },
+        { address=0X00D6, type="u8", condition="eq", value=0X92AD, action="PROGRESSION_STAGE", desc="dr strange" },
+        { address=0X00D6, type="u8", condition="eq", value=0X92B9, action="PROGRESSION_STAGE", desc="cpt marvel" },
+        { address=0X00D6, type="u8", condition="eq", value=0X92C7, action="PROGRESSION_STAGE", desc="thanos" },
+        { address=0X00D6, type="u8", condition="eq", value=0X92D3, action="PROGRESSION_STAGE", desc="game select screen, talking to Uatu ot talking to Cpt. America" },
+        { address=0X00EC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage i.d" },
+      },
+    },
+  },
+}

@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kingsley's Adventure",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "kingsleys-adventure",
+    hashes = {
+      { hash = "111689fa2a26cf5f2557dda3b289e795", label = "Kingsley's Adventure (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XE85B0, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (US) increased" },
+        { address=0XE85B0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (US) decreased" },
+      },
+      health = {
+        { address=0XE851A, type="u16le", condition="increase", action="HEAL", desc="Health (US) increased" },
+        { address=0XE851A, type="u16le", condition="decrease", action="HIT", desc="Health (US) decreased" },
+        { address=0XE856A, type="u16le", condition="increase", action="HEAL", desc="Health (EU) increased" },
+        { address=0XE856A, type="u16le", condition="decrease", action="HIT", desc="Health (EU) decreased" },
+        { address=0X1FA156, type="u8", condition="increase", action="HEAL", desc="Gallagher's current HP (EU) increased" },
+        { address=0X1FA156, type="u8", condition="decrease", action="HIT", desc="Gallagher's current HP (EU) decreased" },
+        { address=0X1FA772, type="u8", condition="increase", action="HEAL", desc="Gallagher's current HP (US) increased" },
+        { address=0X1FA772, type="u8", condition="decrease", action="HIT", desc="Gallagher's current HP (US) decreased" },
+        { address=0X1FB90E, type="u8", condition="increase", action="HEAL", desc="Castle: trainer's current HP (US) increased" },
+        { address=0X1FB90E, type="u8", condition="decrease", action="HIT", desc="Castle: trainer's current HP (US) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XE8574, type="u16le", condition="increase", action="COIN_GAIN", desc="Number of coins in inventory (US) increased" },
+        { address=0XE85C4, type="u16le", condition="increase", action="COIN_GAIN", desc="Number of coins collected (EU) increased" },
+      },
+    },
+  },
+}

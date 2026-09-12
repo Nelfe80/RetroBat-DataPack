@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Summer Mixhack 2021",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-summer-mixhack-2021",
+    hashes = {
+      { hash = "2f62f473249c1e1aaab1f0e468388da3", label = "SM64 - Summer Mixhack 2021 (gmddoesdmg et al.) (1.0.1).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X33BAC8, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level index" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] mario HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] mario HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0000, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="::::: Notable Object Slot Structure Members (size: 0x260 b.ytes) :::::" },
+        { address=0X341394, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[26] current action" },
+        { address=0X341454, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[26] behavior script" },
+      },
+    },
+  },
+}

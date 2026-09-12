@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Pizza Portals",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-pizza-portals",
+    hashes = {
+      { hash = "7a82cd5eb14a26eb8f1afbc1edc197a6", label = "Pizza Portals (World) (Demo) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0685, type="u8", condition="eq", value=0XFD, action="CREDITS_SCREEN", desc="byte-off credits" },
+        { address=0X0685, type="u8", condition="eq", value=0XFE, action="CREDITS_SCREEN", desc="more credits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X04EB, type="u8", condition="increase", action="HEAL", desc="Top lich health increased" },
+        { address=0X04EB, type="u8", condition="decrease", action="HIT", desc="Top lich health decreased" },
+        { address=0X04EC, type="u8", condition="increase", action="HEAL", desc="Bottom lich health increased" },
+        { address=0X04EC, type="u8", condition="decrease", action="HIT", desc="Bottom lich health decreased" },
+      },
+    },
+  },
+}

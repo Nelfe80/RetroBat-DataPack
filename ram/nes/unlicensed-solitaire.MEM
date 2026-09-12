@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Solitaire",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "unlicensed-solitaire",
+    hashes = {
+      { hash = "51d86a8d25beb53a3df7d0176765e018", label = "Solitaire (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dear Daniel no Sweet Adventure: Kitty-chan o Sagashite",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "dear-daniel-no-sweet-adventure-kitty-chan-o-sagashite",
+    hashes = {
+      { hash = "793c57f58d4e9c92088c333b129d1c7e", label = "Dear Daniel no Sweet Adventure - Kitty-chan o Sagashite (Japan) (SGB Enhanced) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD2D2, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="In-game" },
+        { address=0XD2D2, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XD2D9, type="u8", condition="increase", action="HEAL", desc="Health (Melon) increased" },
+        { address=0XD2D9, type="u8", condition="decrease", action="HIT", desc="Health (Melon) decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD2D6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Counter, If health reaches 0, it will recover half of the health" },
+      },
+    },
+  },
+}

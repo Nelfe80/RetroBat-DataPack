@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Urbz: Sims in the City",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-urbz-sims-in-the-city",
+    hashes = {
+      { hash = "2d03f353493efc3fbc9bb12e098a363b", label = "Urbz, The - Sims in the City (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X01, action="COMBO_HIT", desc="Cheat Gnome" },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X02, action="COMBO_HIT", desc="Give Sim Money" },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X04, action="COMBO_HIT", desc="Fill All Motives" },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X08, action="COMBO_HIT", desc="Skill Objects..." },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X10, action="COMBO_HIT", desc="Unlock All Districts" },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X20, action="COMBO_HIT", desc="Unlock All Socials" },
+        { address=0X4C507A, type="u8", condition="bit_true", mask=0X80, action="COMBO_HIT", desc="Max Physical Skill" },
+        { address=0X4C507B, type="u8", condition="bit_true", mask=0X01, action="COMBO_HIT", desc="Max Mental Skill" },
+        { address=0X4C507B, type="u8", condition="bit_true", mask=0X02, action="COMBO_HIT", desc="Max Artistic Skill" },
+        { address=0X4C507B, type="u8", condition="bit_true", mask=0X04, action="COMBO_HIT", desc="Give All Powersocial Items" },
+        { address=0X4C507B, type="u8", condition="bit_true", mask=0X08, action="COMBO_HIT", desc="Reputation..." },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ping-Pong Diplomacy",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-ping-pong-diplomacy",
+    hashes = {
+      { hash = "53d59905f1000de11478eb245257313b", label = "Ping Pong Diplomacy (World) (v1.0) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XE36A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="opponent's score" },
+      },
+    },
+  },
+}

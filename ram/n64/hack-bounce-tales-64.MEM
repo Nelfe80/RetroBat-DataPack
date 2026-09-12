@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Bounce Tales 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-bounce-tales-64",
+    hashes = {
+      { hash = "f91effec4a48252d69c51e1ac3efa272", label = "SM64 - Bounce Tales 64 (v1.0 fix) (AloXado320).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] current level id" },
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="warpDest level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3786FC, type="u32be", condition="change", action="LOSE_LIFE", desc="number of deaths" },
+      },
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X330E34, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="mario stood on object" },
+        { address=0X33D694, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[0] behav script" },
+        { address=0X33D8F4, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[1] behav script" },
+      },
+    },
+  },
+}

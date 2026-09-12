@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ So-Nanoka DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-so-nanoka-ds",
+    hashes = {
+      { hash = "57cc51c3dae1293bc6fd0930c987f10a", label = "So-Nanoka DS (World) (v2009) (Aftermarket) (Unl) (Hatena mark).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1FA4EC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Saved High Score [Both Cores]" },
+        { address=0X213D5C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Session High Score [Desmume]" },
+        { address=0X2155C4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Session High Score" },
+      },
+    },
+  },
+}

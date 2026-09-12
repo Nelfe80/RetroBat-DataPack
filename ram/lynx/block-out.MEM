@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Block Out",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "block-out",
+    hashes = {
+      { hash = "c81abf2919effd525b83c2103b75e6ca", label = "Block Out (USA, Europe).lnx" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X08FB, type="u8", condition="change", action="DEMO_MODE", desc="Demo/Pause Check" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X08E4, type="u8", condition="change", action="NEW_LEVEL", desc="Current/Selected Level" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X5465, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-Bit] Current Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XADAE, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blockset" },
+      },
+    },
+  },
+}

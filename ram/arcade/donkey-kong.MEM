@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Donkey Kong",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "donkey-kong",
+    hashes = {
+      { hash = "02bbe063efc4b8883206c66e6cb775c9", label = "dkong.7z <Donkey Kong (US set 1)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0005, type="u8", condition="change", action="DEMO_MODE", desc="GameState 1 : demo 2 : credits added 3 : playing" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0229, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X0388, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level completed animation (heart)? goes to 5 and back to 0 when level is complete" },
+        { address=0X1BA3, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+      stage = {
+        { address=0X022E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage, depends on level also" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0020, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch lives setting increased" },
+        { address=0X0020, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch lives setting decreased" },
+        { address=0X0040, type="u8", condition="increase", action="GAIN_LIFE", desc="Initial Lives left (0 in demo mode) increased" },
+        { address=0X0040, type="u8", condition="decrease", action="LOSE_LIFE", desc="Initial Lives left (0 in demo mode) decreased" },
+        { address=0X0228, type="u8", condition="increase", action="GAIN_LIFE", desc="Display Lives increased" },
+        { address=0X0228, type="u8", condition="decrease", action="LOSE_LIFE", desc="Display Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X60B2, type="u24be", condition="change", action="TREASURE", min=100, max=200, desc="Score delta 100-200: 1 Barrel" },
+        { address=0X60B2, type="u24be", condition="change", action="TREASURE", color="white", min=300, max=300, desc="Score delta 300-300: Hitting barrel" },
+        { address=0X60B2, type="u24be", condition="change", action="TREASURE", color="blue", min=600, max=5000, desc="Score delta 600-5000: Bonus" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X60B2, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X6001, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0011, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump button pressed : 10" },
+        { address=0X0060, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="number of barrels jumped" },
+      },
+    },
+  },
+}

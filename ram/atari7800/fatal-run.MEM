@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fatal Run",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Action, Racing, Driving"
+  },
+
+  rom = {
+    name = "fatal-run",
+    hashes = {
+      { hash = "d25d5d19188e9f149977c49eb0367cd1", label = "Fatal Run (USA).a78" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X2254, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [24 bit BE BCD]" },
+      },
+    },
+  },
+}

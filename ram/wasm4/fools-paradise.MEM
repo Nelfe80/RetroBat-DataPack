@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fool's Paradise",
+    system = "wasm4",
+    system_name = "WASM-4",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "fools-paradise",
+    hashes = {
+      { hash = "c3bbfd1bd0f82fa31bc3026702ac7f1f", label = "Fool's Paradise (World) (v0.2.0) (Dave Purdum).wasm" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X93B8, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X93B8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9408, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9414, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Day or Night Switch" },
+      },
+    },
+  },
+}

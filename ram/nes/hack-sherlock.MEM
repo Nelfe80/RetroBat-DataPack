@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sherlock",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sherlock",
+    hashes = {
+      { hash = "4cd5894c5f9e76325a7a4f0cdc50d33e", label = "Batman - Sherlock (v1.0) (pacnsacdave).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0096, type="u8", condition="increase", action="HEAL", desc="1 HP Remaining Blink '72/73' increased" },
+        { address=0X0096, type="u8", condition="decrease", action="HIT", desc="1 HP Remaining Blink '72/73' decreased" },
+        { address=0X00B7, type="u8", condition="increase", action="HEAL", desc="Health, from 0x08 down to 0x01 increased" },
+        { address=0X00B7, type="u8", condition="decrease", action="HIT", desc="Health, from 0x08 down to 0x01 decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00BB, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score?" },
+        { address=0X00BC, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score?" },
+      },
+      collectibles = {
+        { address=0X00B8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo" },
+      },
+    },
+  },
+}

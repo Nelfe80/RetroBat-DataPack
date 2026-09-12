@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bomberman Max: Blue Champion",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "bomberman-max-blue-champion",
+    hashes = {
+      { hash = "c987f711dfb9cba8dc1174219877360f", label = "Bomberman Max - Blue Champion (USA).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XC622, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Exit Status for Stage" },
+        { address=0XC622, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Cannot Leave the Stage" },
+        { address=0XC622, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Mission Successful: Can Leave/Move On" },
+        { address=0XC622, type="u8", condition="eq", value=0XFF, action="PROGRESSION_STAGE", desc="Mission Failed: Must Retry" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC000, type="u8", condition="eq", value=0X97, action="LOSE_LIFE", desc="Took a death." },
+        { address=0XC010, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0XC014, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0XC74C, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Alive" },
+        { address=0XC74C, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+  },
+}

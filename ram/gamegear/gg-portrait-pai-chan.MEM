@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "GG Portrait: Pai Chan",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Life Simulation"
+  },
+
+  rom = {
+    name = "gg-portrait-pai-chan",
+    hashes = {
+      { hash = "3dbd51ce27c7eeee98aaeccdb96affb6", label = "GG Portrait - Pai Chen (Japan).gg" },
+    }
+  },
+
+  events = {
+  },
+}

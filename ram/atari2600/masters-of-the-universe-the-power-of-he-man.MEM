@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Masters of the Universe: The Power of He-Man!",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "masters-of-the-universe-the-power-of-he-man",
+    hashes = {
+      { hash = "3b76242691730b2dd22ec0ceab351bc6", label = "Masters of the Universe - The Power of He-Man (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X004A, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Remaining increased" },
+        { address=0X004A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Remaining decreased" },
+        { address=0X004A, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1" },
+        { address=0X004A, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="2" },
+        { address=0X004A, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3" },
+        { address=0X004A, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X006D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score x10000" },
+        { address=0X006E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score x100" },
+      },
+    },
+  },
+}

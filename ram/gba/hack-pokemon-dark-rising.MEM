@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Dark Rising",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-dark-rising",
+    hashes = {
+      { hash = "bfc7ae79445c34c44bc1ffb144049be4", label = "Pokemon - Dark Rising (DarkRisingGirl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy Pokemon level" },
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Slot 1 Level" },
+        { address=0X2C33A, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 2: Level" },
+        { address=0X2C39E, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 3: Level" },
+        { address=0X2C402, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 4: Level" },
+        { address=0X2C466, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 5: Level" },
+        { address=0X2C4CA, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon - Slot 6: Level" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Active Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BBC8, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X2BBC8, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="Active Pokemon Current HP increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="Active Pokemon Current HP decreased" },
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="Enemy Current HP increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="Enemy Current HP decreased" },
+        { address=0X2BC68, type="u8", condition="increase", action="HEAL", desc="Enemy Max HP increased" },
+        { address=0X2BC68, type="u8", condition="decrease", action="HIT", desc="Enemy Max HP decreased" },
+        { address=0X2C082, type="u8", condition="increase", action="HEAL", desc="Enemy Pokemon HP increased" },
+        { address=0X2C082, type="u8", condition="decrease", action="HIT", desc="Enemy Pokemon HP decreased" },
+        { address=0X2C2DA, type="u8", condition="increase", action="HEAL", desc="Pokemon Slot 1 - Current HP increased" },
+        { address=0X2C2DA, type="u8", condition="decrease", action="HIT", desc="Pokemon Slot 1 - Current HP decreased" },
+        { address=0X2C2DC, type="u8", condition="increase", action="HEAL", desc="Pokemon Slot 1 - Max HP increased" },
+        { address=0X2C2DC, type="u8", condition="decrease", action="HIT", desc="Pokemon Slot 1 - Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X8490, type="u8", condition="increase", action="COIN_GAIN", desc="Money Screen increased" },
+        { address=0X2D7BC, type="u8", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X406AE, type="u24le", condition="eq", value=0X96, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer(Female) Diana" },
+        { address=0X406AE, type="u24le", condition="eq", value=0XEA, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer(Male) Luis" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2BE87, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Pokeball Shakes if broken out" },
+      },
+    },
+  },
+}

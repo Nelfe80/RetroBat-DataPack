@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 2048",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-2048",
+    hashes = {
+      { hash = "5515e0491719ff09553b6d7d930569bc", label = "2048 (World) (Aftermarket) (Unl).lyx" },
+    }
+  },
+
+  events = {
+  },
+}

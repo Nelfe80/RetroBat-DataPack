@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puzzle - Echter Puzzlespass für Unterwegs: Blumen & Muster",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "puzzle-echter-puzzlespass-fur-unterwegs-blumen-muster",
+    hashes = {
+      { hash = "7d54ac30acf54e887adfde4111c9862b", label = "Blumen & Muster Puzzle - Echter Puzzlespass fuer Unterwegs (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

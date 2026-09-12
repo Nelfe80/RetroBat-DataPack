@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SuperFly DX",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-superfly-dx",
+    hashes = {
+      { hash = "b7a6ddb06827fc8cbaa3fee0369e6fda", label = "SuperFly DX (World) (v1.1) (Aftermarket) (Unl) (Reboot).cdi" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X655C, type="u32be", condition="change", action="PAUSE_ON", desc="[32-bit BE] Pause Enabled" },
+        { address=0XAE41, type="u8", condition="change", action="PAUSE_ON", desc="Bit 0 : Paused" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X64C4, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] World Two Open" },
+        { address=0X64EA, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] World Three Open" },
+        { address=0X6510, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] World Four Open" },
+        { address=0X6A63, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+        { address=0X6A63, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="1" },
+        { address=0X6A63, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="2" },
+        { address=0X6A63, type="u8", condition="eq", value=0X08, action="PROGRESSION_ZONE", desc="3" },
+        { address=0X6A63, type="u8", condition="eq", value=0X0C, action="PROGRESSION_ZONE", desc="4" },
+      },
+      stage = {
+        { address=0X6A67, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X4BEC, type="u8", condition="change", action="LOSE_LIFE", desc="Low 4 : 9 when dead" },
+        { address=0X508D, type="u8", condition="change", action="LOSE_LIFE", desc="0x0a : Ingame 0x05 : Dead?" },
+      },
+    },
+  },
+}

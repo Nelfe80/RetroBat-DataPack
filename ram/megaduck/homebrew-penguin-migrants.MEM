@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Penguin Migrants",
+    system = "megaduck",
+    system_name = "Mega Duck",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-penguin-migrants",
+    hashes = {
+      { hash = "4f78024f2102292fc03929cdd957319e", label = "Penguin Migrant (World) (Aftermarket) (SunnyChowTheGuy).bin" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9800, type="u16le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9800, type="u16le", condition="eq", value=0XFFFF, action="NEW_LEVEL", desc="Level selector" },
+        { address=0XC0B2, type="u8", condition="change", action="NEW_LEVEL", desc="Level, in level selection screen and ingame" },
+        { address=0XDFF3, type="u8", condition="change", action="NEW_LEVEL", desc="New Hash - Level state type beat" },
+        { address=0XDFF3, type="u8", condition="eq", value=0X31, action="NEW_LEVEL", desc="In Level select" },
+        { address=0XDFF3, type="u8", condition="eq", value=0X32, action="LEVEL_CLEAR", desc="Level finished" },
+        { address=0XDFF3, type="u8", condition="eq", value=0X34, action="NEW_LEVEL", desc="In Level" },
+      },
+      stage = {
+        { address=0XDFF4, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Only indicator of winning a stage" },
+      },
+    },
+  },
+}

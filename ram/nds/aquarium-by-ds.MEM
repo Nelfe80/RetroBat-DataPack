@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Aquarium by DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "aquarium-by-ds",
+    hashes = {
+      { hash = "76835b69101d584d08beac9ea33ae4d7", label = "Aquarium by DS (Europe) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+  },
+}

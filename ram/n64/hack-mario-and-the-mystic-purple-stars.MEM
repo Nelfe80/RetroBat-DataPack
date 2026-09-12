@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario and the Mystic Purple Stars",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-and-the-mystic-purple-stars",
+    hashes = {
+      { hash = "7e1f0cbc68f12b7ea679af5108fbb7d5", label = "Super Mario 64 - Mario and the Mystic Purple Stars (Hack) (Progji) (1.4).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Power Star (from Toad in Second Overworld)" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Power Star (from Toad in First Overworld)" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Power Star (from Toad in Third Overworld)" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Power Star (from MIPP in First Overworld)" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Power Star (from MIPP in First Overworld again)" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Power Star (from Slide)" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Power Star (from Warp)" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Power Star (from 6 Red Coins)" },
+      },
+      zone = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X0D, action="PROGRESSION_ZONE", desc="Course 13 'Gloomy World of the VC'" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X207720, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Power Star (from 5 Treasures)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X207718, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Power Star (from 8 Red Coins)" },
+        { address=0X20771F, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Power Star (from 8 Red Coins)" },
+        { address=0X207720, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Power Star (from 6 Red Coins)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Activate Green Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Activate Blue Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Obtain First Key" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Obtain Second Key" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B25D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time On/Off" },
+      },
+    },
+  },
+}

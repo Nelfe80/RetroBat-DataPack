@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ NEScape!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-nescape",
+    hashes = {
+      { hash = "141f58c07a561001f4b833f59a437d56", label = "NEScape! (USA) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0004, type="u24le", condition="eq", value=0X000000, action="TITLE_SCREEN", desc="title screen / credit screens" },
+        { address=0X0042, type="u8", condition="eq", value=0X10, action="CREDITS_SCREEN", desc="escaped the room + end credits" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0210, type="u16le", condition="eq", value=0X02, action="TREASURE", desc="emerald key" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0210, type="u16le", condition="eq", value=0X01, action="MONEY_STATE", desc="gold key" },
+        { address=0X0227, type="u8", condition="eq", value=0XB4, action="MONEY_STATE", desc="insert coin : dime" },
+        { address=0X0227, type="u8", condition="eq", value=0XB5, action="MONEY_STATE", desc="insert coin : nickel" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0004, type="u24le", condition="eq", value=0X191A16, action="DOOR_OPENED", desc="zoom in on door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0004, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="screen id [24-bit]" },
+        { address=0X022D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="event flags [bits]" },
+        { address=0X0236, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="main game phase" },
+      },
+    },
+  },
+}

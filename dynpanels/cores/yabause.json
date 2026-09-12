@@ -1,0 +1,324 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "core",
+  "core": "yabause",
+  "display_name": "Sega - Saturn Yabause",
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "mame_button": "P1_BUTTON1",
+        "rmp_button_by_layout": {
+          "2-Button": "b",
+          "4-Button": "b",
+          "6-Button": "b",
+          "8-Button": "b"
+        }
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "mame_button": "P1_BUTTON2",
+        "rmp_button_by_layout": {
+          "2-Button": "a",
+          "4-Button": "a",
+          "6-Button": "a",
+          "8-Button": "a"
+        }
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "mame_button": "P1_BUTTON6",
+        "rmp_button_by_layout": {
+          "6-Button": "r",
+          "8-Button": "r"
+        }
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "mame_button": "P1_BUTTON8",
+        "rmp_button_by_layout": {
+          "8-Button": "r2"
+        }
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "mame_button": "P1_BUTTON4",
+        "rmp_button_by_layout": {
+          "4-Button": "y",
+          "6-Button": "y",
+          "8-Button": "y"
+        }
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "mame_button": "P1_BUTTON3",
+        "rmp_button_by_layout": {
+          "4-Button": "x",
+          "6-Button": "x",
+          "8-Button": "x"
+        }
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "mame_button": "P1_BUTTON5",
+        "rmp_button_by_layout": {
+          "6-Button": "l",
+          "8-Button": "l"
+        }
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "mame_button": "P1_BUTTON7",
+        "rmp_button_by_layout": {
+          "8-Button": "l2"
+        }
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start"
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      }
+    },
+    "rmp_slots_by_layout": {
+      "2-Button": {
+        "1": "b",
+        "2": "a"
+      },
+      "4-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y"
+      },
+      "6-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r"
+      },
+      "8-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r",
+        "7": "l2",
+        "8": "r2"
+      }
+    },
+    "rmp_system_buttons": {
+      "start": "start",
+      "select": "select",
+      "coin": "select"
+    }
+  },
+  "core_template": {
+    "retropad": {
+      "buttons": {
+        "b": {
+          "retropad_id": 0,
+          "label": "B"
+        },
+        "y": {
+          "retropad_id": 1,
+          "label": "Y"
+        },
+        "start": {
+          "retropad_id": 3,
+          "label": "START"
+        },
+        "dpad_up": {
+          "retropad_id": 4,
+          "label": "DPAD_UP"
+        },
+        "dpad_down": {
+          "retropad_id": 5,
+          "label": "DPAD_DOWN"
+        },
+        "dpad_left": {
+          "retropad_id": 6,
+          "label": "DPAD_LEFT"
+        },
+        "dpad_right": {
+          "retropad_id": 7,
+          "label": "DPAD_RIGHT"
+        },
+        "a": {
+          "retropad_id": 8,
+          "label": "A"
+        },
+        "x": {
+          "retropad_id": 9,
+          "label": "X"
+        },
+        "l1": {
+          "retropad_id": 10,
+          "label": "L1"
+        },
+        "r1": {
+          "retropad_id": 11,
+          "label": "R1"
+        },
+        "l2": {
+          "retropad_id": 12,
+          "label": "L2"
+        },
+        "r2": {
+          "retropad_id": 13,
+          "label": "R2"
+        },
+        "left_stick": {
+          "label": "LEFT_STICK"
+        }
+      }
+    },
+    "default_group": "default",
+    "groups": {
+      "default": {
+        "name": "default",
+        "mappings": [
+          {
+            "retropad_key": "b",
+            "retropad_id": 0,
+            "label": "B",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "y",
+            "retropad_id": 1,
+            "label": "Y",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "start",
+            "retropad_id": 3,
+            "label": "START",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "dpad_up",
+            "retropad_id": 4,
+            "label": "DPAD_UP",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "dpad_down",
+            "retropad_id": 5,
+            "label": "DPAD_DOWN",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "dpad_left",
+            "retropad_id": 6,
+            "label": "DPAD_LEFT",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "dpad_right",
+            "retropad_id": 7,
+            "label": "DPAD_RIGHT",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "a",
+            "retropad_id": 8,
+            "label": "A",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "x",
+            "retropad_id": 9,
+            "label": "X",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "l1",
+            "retropad_id": 10,
+            "label": "L1",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "r1",
+            "retropad_id": 11,
+            "label": "R1",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "l2",
+            "retropad_id": 12,
+            "label": "L2",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "r2",
+            "retropad_id": 13,
+            "label": "R2",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "left_stick",
+            "retropad_id": null,
+            "label": "LEFT_STICK",
+            "system_entry": ""
+          }
+        ]
+      }
+    },
+    "content_databases": [
+      "Sega - Saturn"
+    ]
+  },
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  }
+}

@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic the Hedgehog 3: Complete",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-the-hedgehog-3-complete",
+    hashes = {
+      { hash = "153b6d32026993569b16ff89c53197a3", label = "Sonic the Hedgehog 3 - Complete (Tiddles).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFFD0, type="u8", condition="change", action="DEMO_MODE", desc="Demo active 0x01" },
+        { address=0XFFD2, type="u8", condition="change", action="DEMO_MODE", desc="demo ID" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFF82, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select - selected level" },
+      },
+      zone = {
+        { address=0XFE11, type="u16be", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },
+      },
+      stage = {
+        { address=0XB02F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Good end act, 3rd" },
+        { address=0XF831, type="u8", condition="change", action="STAGE_SELECT", desc="01 : perfect in special stage" },
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act" },
+        { address=0XFFE0, type="u16be", condition="change", action="PROGRESSION_STAGE", desc="16-bit 101 : level select menu active" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB278, type="u8", condition="increase", action="GAIN_LIFE", desc="Metal Sonic lives Sky Sanctuary increased" },
+        { address=0XB278, type="u8", condition="decrease", action="LOSE_LIFE", desc="Metal Sonic lives Sky Sanctuary decreased" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFE17, type="u8", condition="change", action="TREASURE", desc="Something to do with emeralds?" },
+        { address=0XFFB0, type="u8", condition="change", action="TREASURE", desc="super emeralds" },
+        { address=0XFFB1, type="u8", condition="change", action="TREASURE", desc="chaos emeralds" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFE28, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score low 16" },
+      },
+      collectibles = {
+        { address=0XFE20, type="u8", condition="increase", action="COIN_GAIN", desc="current amount of rings increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XEE98, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="GP time minutes" },
+        { address=0XEE9A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="GP time seconds" },
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time [minutes]" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time [seconds]" },
+      },
+    },
+  },
+}

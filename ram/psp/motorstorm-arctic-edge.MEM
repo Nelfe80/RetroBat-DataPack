@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "MotorStorm: Arctic Edge",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "motorstorm-arctic-edge",
+    hashes = {
+      { hash = "aa7077c97ed27af91f1f45796dcb59c5", label = "MotorStorm - Arctic Edge (Europe) (En,Fr,De,Es,It,Nl,Pt,Sv,No,Da,Fi,Pl,Ru,El).iso" },
+    }
+  },
+
+  events = {
+  },
+}

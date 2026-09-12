@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Treasure of Usas",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-treasure-of-usas",
+    hashes = {
+      { hash = "9aab75984b06c21ed8e6214474d3a68e", label = "Treasure of Usas, The (Japan, Europe) (En).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0200, type="u8", condition="change", action="DEMO_MODE", desc="00 While demo mode" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X0211, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World" },
+        { address=0X0C10, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Room for World doors" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X041A, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss Life increased" },
+        { address=0X041A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss Life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0259, type="u8", condition="increase", action="COIN_GAIN", desc="Coins OOXX (Dec) increased" },
+        { address=0X025A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins XXOO (Dec) increased" },
+      },
+    },
+  },
+}

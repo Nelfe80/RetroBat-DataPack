@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Andaron Saga: Randomizer",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-andaron-saga-randomizer",
+    hashes = {
+      { hash = "e31c36f4243e3da477a2594ff73f2e4d", label = "FE8 - Andaron Saga Randomizer (v20240916) (Mangs & Team).gba" },
+    }
+  },
+
+  events = {
+  },
+}

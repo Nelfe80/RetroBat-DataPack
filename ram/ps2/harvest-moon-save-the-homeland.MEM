@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Harvest Moon: Save the Homeland",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "harvest-moon-save-the-homeland",
+    hashes = {
+      { hash = "ee9dac6dff0f564fbb53b70c5c1e372b", label = "Harvest Moon - Save the Homeland (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X859FE3, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Round up Cows" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X80D985, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Lyla found that the flower died" },
+        { address=0X80D996, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="Horse Dead" },
+        { address=0X859E65, type="u8", condition="change", action="LOSE_LIFE", desc="Days until chicken 1 is dead" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X80D980, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Tim finds a treasure map" },
+        { address=0X80D980, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Helping Tim with the treasure map" },
+        { address=0X80D980, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Tim finds a second treasure map" },
+        { address=0X80D980, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Found the treasure of the sacred land" },
+        { address=0X80DA17, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Treasure Hunt I Ending Achieved" },
+        { address=0X80DA17, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Treasure Hunt II Ending Achieved" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X267864, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X26776C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Current Action" },
+        { address=0X859961, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Treasure Map Story Day Counter" },
+      },
+    },
+  },
+}

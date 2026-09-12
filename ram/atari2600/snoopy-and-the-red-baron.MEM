@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Snoopy and the Red Baron",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "snoopy-and-the-red-baron",
+    hashes = {
+      { hash = "57939b326df86b74ca6404f64f89fce9", label = "Snoopy and the Red Baron (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X001F, type="u8", condition="eq", value=0X0B, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+  },
+}

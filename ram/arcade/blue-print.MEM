@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Blue Print",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "blue-print",
+    hashes = {
+      { hash = "0ebed401db4d71422ddd282538be265e", label = "blueprnt.7z <Blue Print (Midway)>" },
+      { hash = "8e2faa5a95bc5b0c6688a2735503064c", label = "blueprntj.7z <Blue Print (Jaleco)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0A94, type="u8", condition="change", action="CREDITS_SCREEN", desc="credits remaining" },
+        { address=0X0AB8, type="u8", condition="bit_true", mask=0X01, action="TITLE_SCREEN", desc="0 Ingame" },
+        { address=0X0AB8, type="u8", condition="bit_true", mask=0X40, action="TITLE_SCREEN", desc="1 P2 Game" },
+        { address=0X0AB8, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="1 P1+ Game" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0AE0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="P1 Stage __" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0A9F, type="u8", condition="increase", action="GAIN_LIFE", desc="DIP byte2 (lives + difficulty) increased" },
+        { address=0X0A9F, type="u8", condition="decrease", action="LOSE_LIFE", desc="DIP byte2 (lives + difficulty) decreased" },
+        { address=0X0ABF, type="u8", condition="change", action="LOSE_LIFE", desc="01:player death animation" },
+        { address=0X0AE1, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 lives increased" },
+        { address=0X0AE1, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 lives decreased" },
+        { address=0X0AF1, type="u8", condition="increase", action="GAIN_LIFE", desc="P2 lives increased" },
+        { address=0X0AF1, type="u8", condition="decrease", action="LOSE_LIFE", desc="P2 lives decreased" },
+        { address=0X0CD2, type="u8", condition="change", action="LOSE_LIFE", desc="c4:ogre dead, c5:alive" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA96, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Sims",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Life Simulation"
+  },
+
+  rom = {
+    name = "the-sims",
+    hashes = {
+      { hash = "4b67fd311dc62e5b443e97fc79034172", label = "Sims, The (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

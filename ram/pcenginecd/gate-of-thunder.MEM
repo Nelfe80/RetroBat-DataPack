@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gate of Thunder",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "gate-of-thunder",
+    hashes = {
+      { hash = "2fa9f811db92264e29d00135d265e431", label = "Gate of Thunder (Japan) (FACT, FADT)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00C6, type="u8", condition="change", action="DEMO_MODE", desc="01 : Demo" },
+        { address=0X0683, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0685, type="u8", condition="change", action="NEW_LEVEL", desc="Laser Level" },
+        { address=0X0686, type="u8", condition="change", action="NEW_LEVEL", desc="Spread Weapon Level" },
+        { address=0X0687, type="u8", condition="change", action="NEW_LEVEL", desc="Explosive Weapon Level" },
+        { address=0X0699, type="u8", condition="change", action="LEVEL_CLEAR", desc="FF : Stage Clear" },
+      },
+      stage = {
+        { address=0X0680, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Number" },
+        { address=0X0691, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Select Number" },
+        { address=0X069A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="FF : Stage Select Active" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0681, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0X0681, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0684, type="u8", condition="change", action="WEAPON_STATE", desc="Current Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0688, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score (16-Bit)" },
+        { address=0X068A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Player Score (16-Bit)" },
+      },
+    },
+  },
+}

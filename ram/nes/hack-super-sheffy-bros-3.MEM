@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Sheffy Bros. 3",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-sheffy-bros-3",
+    hashes = {
+      { hash = "3ff6c672ba8ef580d7fe0491b4478105", label = "SMB3 - Super Sheffy Bros. 3 (v1.2) (westslasher2).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X04E5, type="u8", condition="eq", value=0XF, action="CREDITS_SCREEN", desc="FindPeachANDcredits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7B50, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID:" },
+        { address=0X7D02, type="u8", condition="change", action="NEW_LEVEL", desc="Beat Level Bitflags:" },
+        { address=0X7D04, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Fortress 2" },
+        { address=0X7D04, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Bottom Path 1" },
+        { address=0X7D04, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Level 5" },
+        { address=0X7D06, type="u8", condition="change", action="NEW_LEVEL", desc="Beat Level Bitflags:" },
+        { address=0X7D08, type="u8", condition="change", action="NEW_LEVEL", desc="Beat Level Bitflags:" },
+        { address=0X7D0A, type="u8", condition="change", action="NEW_LEVEL", desc="Beat Level Bitflags:" },
+        { address=0X7D0C, type="u8", condition="change", action="NEW_LEVEL", desc="Beat Level Bitflags:" },
+      },
+      zone = {
+        { address=0X0727, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID:" },
+      },
+    },
+  },
+}

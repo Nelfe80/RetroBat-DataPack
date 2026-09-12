@@ -1,0 +1,68 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Prehistoric Isle 2",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "prehistoric-isle-2",
+    hashes = {
+      { hash = "b693a2560b6f671f495b11c357853a16", label = "preisle2.7z <Prehistoric Isle 2>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7503, type="u8", condition="eq", value=0X61, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X7503, type="u8", condition="eq", value=0XEF, action="DEMO_MODE", desc="Demo" },
+        { address=0X7503, type="u8", condition="eq", value=0XF2, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5077, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Level 2 upgrade" },
+        { address=0X5077, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Level 3 upgrade" },
+        { address=0X5077, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Max level upgrade" },
+        { address=0X7503, type="u8", condition="eq", value=0XE1, action="NEW_LEVEL", desc="During level transition" },
+        { address=0X7503, type="u8", condition="eq", value=0XF0, action="NEW_LEVEL", desc="Final level transition" },
+        { address=0XFD8C, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Difficulty Level (Bios setting)" },
+        { address=0XFD8C, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Level 1" },
+        { address=0XFD8C, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="Level 8 (Max difficulty)" },
+        { address=0XFD8E, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Btts] Credit/Level (BIOS setting)" },
+        { address=0XFD8E, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="ON/OFF" },
+        { address=0XFD8E, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="ON/ON" },
+        { address=0XFD8E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="OFF/OFF" },
+        { address=0XFD8E, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="OFF/ON" },
+      },
+      stage = {
+        { address=0X8434, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bits] Stage" },
+        { address=0X8434, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X8434, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 2" },
+        { address=0X8434, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Stage 3" },
+        { address=0X8434, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Stage 4" },
+        { address=0X8434, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="Stage 5" },
+        { address=0X8434, type="u8", condition="eq", value=0X14, action="PROGRESSION_STAGE", desc="Stage 6" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5054, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bits] Lives increased" },
+        { address=0X5054, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bits] Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC1A4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFDDB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8 Bits] Time (countdown in the title screen)" },
+      },
+    },
+  },
+}

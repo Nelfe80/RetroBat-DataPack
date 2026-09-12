@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dexter's Laboratory: Mandark's Lab?",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Party"
+  },
+
+  rom = {
+    name = "dexters-laboratory-mandarks-lab",
+    hashes = {
+      { hash = "ea872ad35252b53d01cfd57e76913285", label = "Dexter's Laboratory - Mandark's Lab (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X19BB44, type="u8", condition="change", action="COMBO_HIT", desc="Perfect Combo in Dee-Dee's Dance Off" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1AB288, type="u8", condition="change", action="NEW_LEVEL", desc="Dee-Dee's Dance Off Round:" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1951D0, type="u8", condition="increase", action="GAIN_LIFE", desc="Dee-Dee's Dance Off Life Counter: increased" },
+        { address=0X1951D0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dee-Dee's Dance Off Life Counter: decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC0C4C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Actual Score)" },
+        { address=0X1AB29C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Round 1)" },
+        { address=0X1AB2A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Round 2)" },
+        { address=0X1AB2A4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Round 3)" },
+        { address=0X1AB2A8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Round 4)" },
+        { address=0X1AB2AC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score in Dee-Dee's Dance Off (Round 5)" },
+        { address=0X1FF8BC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Qualify Score in Dee-Dee's Dance Off" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X8F354, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Entrance Door" },
+      },
+    },
+  },
+}

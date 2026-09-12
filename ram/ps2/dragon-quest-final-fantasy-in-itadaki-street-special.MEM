@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Quest & Final Fantasy in Itadaki Street Special",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Board Game"
+  },
+
+  rom = {
+    name = "dragon-quest-final-fantasy-in-itadaki-street-special",
+    hashes = {
+      { hash = "61dd8446cfff1e8150b45a01727810c6", label = "Dragon Quest & Final Fantasy in Itadaki Street Special (Japan) (En) (v3.7) (Choppasmith)" },
+    }
+  },
+
+  events = {
+  },
+}

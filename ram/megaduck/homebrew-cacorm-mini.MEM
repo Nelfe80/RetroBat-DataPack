@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cacorm Mini",
+    system = "megaduck",
+    system_name = "Mega Duck",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cacorm-mini",
+    hashes = {
+      { hash = "30fd14ff650d9d77a601ec4ce21b6f52", label = "Cacorm Mini (World) (v20241020) (Aftermarket) (Inufuto).bin" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE0DD, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XC0DE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[Hex] Stage" },
+        { address=0XC0DE, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="stage 1" },
+        { address=0XC0DE, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="stage 8" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XE0DD, type="u8", condition="increase", action="GAIN_LIFE", desc="[Hex] Number of Lives increased" },
+        { address=0XE0DD, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Hex] Number of Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC0DB, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="[Hex] Score x 10" },
+      },
+    },
+  },
+}

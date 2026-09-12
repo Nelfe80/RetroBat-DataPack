@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros. 1X",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-1x",
+    hashes = {
+      { hash = "d2a7c6b85423da2b9fb59c45ead71347", label = "SMW - Super Mario Bros. 1X (Koyuki) (1.6).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u8", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u8", condition="eq", value=0XA40D, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u8", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage" },
+        { address=0X1493, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear the stage" },
+        { address=0X1DFF, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage cleared" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario's Lives increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario's Lives decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="HIT", desc="Death" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="A-Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Start at checkpoint" },
+      },
+    },
+  },
+}

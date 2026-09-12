@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Buzz! Master Quiz",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "buzz-master-quiz",
+    hashes = {
+      { hash = "fde214668c084f1a482d3a4f236887c4", label = "Buzz! Master Quiz (Europe).iso" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XD784B2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Float] Score" },
+      },
+    },
+  },
+}

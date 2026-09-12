@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Casper",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "casper",
+    hashes = {
+      { hash = "b88f36135944c14f00d2c7680e12e973", label = "Casper (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X95330, type="u32le", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X95330, type="u32le", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9532C, type="u32le", condition="increase", action="COIN_GAIN", desc="Gold coins increased" },
+      },
+    },
+  },
+}

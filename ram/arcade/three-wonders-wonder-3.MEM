@@ -1,0 +1,129 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Three Wonders | Wonder 3",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Compilation"
+  },
+
+  rom = {
+    name = "three-wonders-wonder-3",
+    hashes = {
+      { hash = "7ee7cde16a82fe5e8615f01d75c0b642", label = "3wonders.7z <Three Wonders (wonder 3 910520 etc)>" },
+      { hash = "f186d88ad5649df3e530aab4afd3d43e", label = "wonder3.7z <Wonder 3 (910520 Japan)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0D80, type="u8", condition="eq", value=0X0, action="CONTINUE_SCREEN", desc="Continue screen" },
+        { address=0X0D80, type="u8", condition="eq", value=0X1, action="CONTINUE_SCREEN", desc="Game" },
+        { address=0X0E13, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Don't Pull - Amount of continues (starts at 1)" },
+        { address=0X0E2D, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Midnight Wanderers and Chariot - Amount of continues" },
+        { address=0X0E6E, type="u8", condition="change", action="DEMO_MODE", desc="[Bit0] Midnight Wanderers - Demo mode" },
+        { address=0X0FBA, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[Bit0] Midnight Wanderers and Chariot - Continue flag" },
+        { address=0X103C, type="u8", condition="change", action="DEMO_MODE", desc="[Bit0] Don't Pull - Demo mode" },
+        { address=0X18C9, type="u8", condition="change", action="DEMO_MODE", desc="[Bit0] Chariot - Demo mode" },
+      },
+      events = {
+        { address=0XBE0E, type="u8", condition="change", action="COMBO_HIT", desc="Don't Pull - Kill combo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0090, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Playing" },
+        { address=0X0090, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Bonus points per enemy not killed" },
+        { address=0X0090, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="Time tier" },
+        { address=0X0090, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="Loading" },
+        { address=0X0D33, type="u8", condition="change", action="LEVEL_CLEAR", desc="[Bit0] Stage clear flag" },
+        { address=0X0FF0, type="u8", condition="change", action="LEVEL_CLEAR", desc="[Bit0] Chariot - Stage complete flag" },
+        { address=0X1844, type="u8", condition="change", action="NEW_LEVEL", desc="Chariot - Weapon level" },
+        { address=0X6CBA, type="u8", condition="change", action="LEVEL_CLEAR", desc="[Bit0] Don' t Pull - Round clear flag" },
+      },
+      stage = {
+        { address=0X0DC8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Mignight Wanderers and Chariot - Stage ID" },
+        { address=0X0E55, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Don't Pull - Stage ID" },
+        { address=0X0FF1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Midnight Wanderers - Subsection of the stage" },
+        { address=0X1816, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[Bit0] Chariot - Stage loaded" },
+        { address=0X185C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[Bit0] Midnight Wanderers - Stage loaded" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0D86, type="u8", condition="increase", action="GAIN_LIFE", desc="Midnight Wanderers - Lives dipswitch increased" },
+        { address=0X0D86, type="u8", condition="decrease", action="LOSE_LIFE", desc="Midnight Wanderers - Lives dipswitch decreased" },
+        { address=0X0D88, type="u8", condition="increase", action="GAIN_LIFE", desc="Don't Pull - Lives dipswitch increased" },
+        { address=0X0D88, type="u8", condition="decrease", action="LOSE_LIFE", desc="Don't Pull - Lives dipswitch decreased" },
+        { address=0X0D89, type="u8", condition="increase", action="GAIN_LIFE", desc="Chariot - Lives dipswitch increased" },
+        { address=0X0D89, type="u8", condition="decrease", action="LOSE_LIFE", desc="Chariot - Lives dipswitch decreased" },
+        { address=0X0DE6, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0X0DE6, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0X0EBF, type="u8", condition="increase", action="GAIN_LIFE", desc="Don't Pull - Goal to next 1-up increased" },
+        { address=0X0EBF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Don't Pull - Goal to next 1-up decreased" },
+        { address=0X101E, type="u8", condition="increase", action="GAIN_LIFE", desc="Midnight Wanderers - Boss Life Bar Nuggets increased" },
+        { address=0X101E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Midnight Wanderers - Boss Life Bar Nuggets decreased" },
+        { address=0X1027, type="u8", condition="increase", action="GAIN_LIFE", desc="Midnight Wanderers - Additional Boss Life Bar Nuggets increased" },
+        { address=0X1027, type="u8", condition="decrease", action="LOSE_LIFE", desc="Midnight Wanderers - Additional Boss Life Bar Nuggets decreased" },
+        { address=0X184D, type="u8", condition="increase", action="GAIN_LIFE", desc="Chariot - Hearts needed for next 1UP increased" },
+        { address=0X184D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Chariot - Hearts needed for next 1UP decreased" },
+      },
+      health = {
+        { address=0X17CA, type="u8", condition="eq", value=0X4, action="HIT", desc="Taking Damage" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0E15, type="u8", condition="eq", value=0X0, action="WEAPON_STATE", desc="Super" },
+        { address=0X0E15, type="u8", condition="eq", value=0X1, action="WEAPON_STATE", desc="Normal" },
+        { address=0X0E15, type="u8", condition="eq", value=0X2, action="WEAPON_STATE", desc="Tail" },
+        { address=0X0E15, type="u8", condition="eq", value=0X3, action="WEAPON_STATE", desc="Hyper" },
+        { address=0X0E15, type="u8", condition="eq", value=0X4, action="WEAPON_STATE", desc="Bound" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFF0DD2, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0FCB, type="u8", condition="change", action="BOSS_HIT", desc="Chariot - Boss fight : 0xff" },
+        { address=0X0FF6, type="u8", condition="change", action="BOSS_HIT", desc="Midnight Wanderers - Boss fight : 0xff" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0D87, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Bit0] Test Mode dipswitch" },
+        { address=0X0D8B, type="u8", condition="eq", value=0X0, action="OBJECT_INTERACTION", desc="Easy" },
+        { address=0X0D8B, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="Normal" },
+        { address=0X0D8B, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="Hard" },
+        { address=0X0D8B, type="u8", condition="eq", value=0X3, action="OBJECT_INTERACTION", desc="Hardest" },
+        { address=0X0D8D, type="u8", condition="eq", value=0X10, action="OBJECT_INTERACTION", desc="Easy" },
+        { address=0X0D8D, type="u8", condition="eq", value=0X18, action="OBJECT_INTERACTION", desc="Normal" },
+        { address=0X0D8D, type="u8", condition="eq", value=0X20, action="OBJECT_INTERACTION", desc="Hard" },
+        { address=0X0D8D, type="u8", condition="eq", value=0X28, action="OBJECT_INTERACTION", desc="Hardest" },
+        { address=0X0D95, type="u8", condition="eq", value=0X0, action="OBJECT_INTERACTION", desc="Easy" },
+        { address=0X0D95, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="Normal" },
+        { address=0X0D95, type="u8", condition="eq", value=0X2, action="OBJECT_INTERACTION", desc="Hard" },
+        { address=0X0D95, type="u8", condition="eq", value=0X3, action="OBJECT_INTERACTION", desc="Hardest" },
+        { address=0XFF0DD2, type="u24be", condition="change", action="OBJECT_DESTROYED", min=100, max=100, score_kind="threshold", desc="Score delta 100-100: Kill simple enemy" },
+        { address=0XFF0DD2, type="u24be", condition="change", action="OBJECT_DESTROYED", color="cyan", min=1000, max=1000, score_kind="threshold", desc="Score delta 1000-1000: Kill giant enemy or prize" },
+        { address=0XFF0DD2, type="u24be", condition="change", action="OBJECT_DESTROYED", min=200, max=200, score_kind="threshold", desc="Score delta 200-200: Kill medium enemy or destroy house" },
+        { address=0XFF0DD2, type="u24be", condition="change", action="OBJECT_DESTROYED", min=300, max=300, score_kind="threshold", desc="Score delta 300-300: Kill medium enemy 2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0090, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Don't Pull - Round clear flags" },
+        { address=0X009B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Don't Pull - Stage complete time tier" },
+        { address=0X1002, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Chariot - Boss timer" },
+        { address=0X100E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[8-bit BCD] Midnight Wanderers - timer X:00" },
+        { address=0X1010, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[8-bit BCD] Midnight Wanderers - timer 0:0X" },
+        { address=0X1011, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="[8-bit BCD] Midnight Wanderers - timer 0:X0" },
+        { address=0XBBF4, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Chariot - Boss timer for 1st half Lar" },
+      },
+    },
+  },
+}

@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pibby Corrupted",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pibby-corrupted",
+    hashes = {
+      { hash = "f5441acf89f914440060fc97bef172f4", label = "PSXFunkin' - Pibby Corrupted (UNSTOP4BLE, IgorSou30000)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E3B90, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E3B90, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1E3B91, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E3B91, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+      events = {
+        { address=0X1E3DE2, type="u16le", condition="change", action="COMBO_HIT", desc="[16 Bit] Combo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B2C, type="u16le", condition="eq", value=0XD5, action="LOSE_LIFE", desc="Dead" },
+        { address=0X1E3DE0, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X1E3C95, type="u8", condition="increase", action="HEAL", desc="[Bit 0] Option - Health Drain increased" },
+        { address=0X1E3C95, type="u8", condition="decrease", action="HIT", desc="[Bit 0] Option - Health Drain decreased" },
+        { address=0X1E3DE0, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="[16 Bit] Player's HP - Starts at 0x2710" },
+        { address=0X1E3DE0, type="u16le", condition="eq", value=0X4E20, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1E3DE8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E3DC4, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16 Bit] Song Timer/Duration" },
+      },
+    },
+  },
+}

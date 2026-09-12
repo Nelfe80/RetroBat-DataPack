@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The King of Fighters '96",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "the-king-of-fighters-96",
+    hashes = {
+      { hash = "23438b2c55800e5b4e8ab86f525b379c", label = "kof96h.7z <The King of Fighters '96 (NGH-214)>" },
+      { hash = "3cfc8c16d865610ec01beb115c307874", label = "kof96.7z <The King of Fighters '96 (NGM-214)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8502, type="u16le", condition="eq", value=0X87E0, action="CONTINUE_SCREEN", desc="Continue screen" },
+        { address=0X8502, type="u16le", condition="eq", value=0XB4E6, action="TITLE_SCREEN", desc="Title" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="inactive (attract mode)" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+      },
+      events = {
+        { address=0X84B1, type="u8", condition="change", action="COMBO_HIT", desc="Combo Rush" },
+        { address=0X84CF, type="u8", condition="change", action="COMBO_HIT", desc="Combo Rush on screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA7EC, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds" },
+        { address=0XA83D, type="u8", condition="change", action="NEW_LEVEL", desc="end of round : 23" },
+        { address=0XA844, type="u8", condition="change", action="NEW_LEVEL", desc="2P/CPU Rounds won?" },
+        { address=0XA84E, type="u8", condition="change", action="NEW_LEVEL", desc="1P Rounds won?" },
+        { address=0XDB4D, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1(beginner)" },
+        { address=0XDB4D, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3 Normal (AES default)" },
+        { address=0XDB4D, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4(MVS default)" },
+        { address=0XDB4D, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 8(Expert)" },
+        { address=0XE78E, type="u8", condition="change", action="NEW_LEVEL", desc="Rounds won in sequence?" },
+        { address=0XE78E, type="u8", condition="eq", value=0X35, action="NEW_LEVEL", desc="Chizuru" },
+        { address=0XE78E, type="u8", condition="eq", value=0X37, action="NEW_LEVEL", desc="Goenitz" },
+        { address=0XE78E, type="u8", condition="eq", value=0X40, action="NEW_LEVEL", desc="ending" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1(easiest)" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4(default)" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 8(hardest)" },
+      },
+      stage = {
+        { address=0XA796, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage (16 bit)" },
+        { address=0XA796, type="u16le", condition="eq", value=0X01FF, action="PROGRESSION_STAGE", desc="Chizuru" },
+        { address=0XA796, type="u16le", condition="eq", value=0X03FF, action="PROGRESSION_STAGE", desc="Goenitz" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X8238, type="u8", condition="increase", action="HEAL", desc="1P health increased" },
+        { address=0X8238, type="u8", condition="decrease", action="HIT", desc="1P health decreased" },
+        { address=0X8438, type="u8", condition="increase", action="HEAL", desc="2P health increased" },
+        { address=0X8438, type="u8", condition="decrease", action="HIT", desc="2P health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X81FC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA837, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Timer: Decimal (BCD)" },
+        { address=0XE754, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Total time survivor 16 bit" },
+        { address=0XE754, type="u32le", condition="eq", value=0XD4C00001, action="GENERAL_TIMER", desc="20 minutes 32 bit" },
+        { address=0XE756, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Total time survivor 16 bit" },
+        { address=0XE756, type="u16le", condition="eq", value=0X4650, action="GENERAL_TIMER", desc="3 minutes" },
+        { address=0XE756, type="u16le", condition="eq", value=0X8CA0, action="GENERAL_TIMER", desc="6 minutes" },
+        { address=0XE756, type="u16le", condition="eq", value=0XEA60, action="GENERAL_TIMER", desc="10 minutes" },
+      },
+    },
+  },
+}

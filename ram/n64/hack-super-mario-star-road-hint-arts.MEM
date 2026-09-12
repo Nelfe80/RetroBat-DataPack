@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Star Road: Hint Arts",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-star-road-hint-arts",
+    hashes = {
+      { hash = "9b5472864e5bd6a3c064ea7433c2adae", label = "SM64 - Star Road Hint Arts (v1.2) (aglab2, Ozsef).z64" },
+      { hash = "7f7dd5e0fa6335e1522b56786e9c2078", label = "SM64 - Star Road Hint Arts (v1.2 + RA DLC) (aglab2, Ozsef, Dimedime).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] warp dest level id" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X254204, type="u24be", condition="change", action="HEALTH_STATE", no_log=true, desc="Part of the code that updates Mario's Health" },
+        { address=0X254204, type="u24be", condition="eq", value=0X24190000, action="HEALTH_STATE", no_log=true, desc="One-Hit Kill Mode (pressed L on file select)" },
+        { address=0X254204, type="u24be", condition="eq", value=0X25B9FFC0, action="HEALTH_STATE", no_log=true, desc="Normal" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33B1F8, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] marioObj – object struct" },
+        { address=0X33D694, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[0] behavior script" },
+        { address=0X361160, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] gCurrentObject" },
+      },
+    },
+  },
+}

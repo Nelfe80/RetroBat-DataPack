@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ H7N9",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-h7n9",
+    hashes = {
+      { hash = "784f9220a864953323b42aef566d667e", label = "H7N9 (USA) (v20161024) (Aftermarket) (Unl).sg" },
+    }
+  },
+
+  events = {
+  },
+}

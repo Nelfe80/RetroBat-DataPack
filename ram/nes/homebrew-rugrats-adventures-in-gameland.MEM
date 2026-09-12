@@ -1,0 +1,101 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Rugrats: Adventures in Gameland",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-rugrats-adventures-in-gameland",
+    hashes = {
+      { hash = "2fc1aaa843eed8d7c2022a62758f5bff", label = "Rugrats - Adventures in Gameland (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X05D8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stages" },
+        { address=0X05D8, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="living room - stage 1" },
+        { address=0X05D8, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="kitchen" },
+        { address=0X05D8, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="sandbox" },
+        { address=0X05D8, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="backyard" },
+        { address=0X05D8, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="attic" },
+        { address=0X05D8, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="bedroom" },
+        { address=0X05D8, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="final stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0066, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="tommy health" },
+        { address=0X0066, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="full health" },
+        { address=0X0067, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="chucky health" },
+        { address=0X0067, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="full health" },
+        { address=0X0068, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="phil health" },
+        { address=0X0068, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="full health" },
+        { address=0X0069, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="lil health" },
+        { address=0X0069, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="full health" },
+        { address=0X03AF, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="current selected baby health" },
+        { address=0X03AF, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="full health" },
+        { address=0X0444, type="u8", condition="increase", action="HEAL", desc="red dummy bear health increased" },
+        { address=0X0444, type="u8", condition="decrease", action="HIT", desc="red dummy bear health decreased" },
+        { address=0X0446, type="u8", condition="increase", action="HEAL", desc="blue dummy bear health increased" },
+        { address=0X0446, type="u8", condition="decrease", action="HIT", desc="blue dummy bear health decreased" },
+        { address=0X0447, type="u8", condition="increase", action="HEAL", desc="pink dummy bear health increased" },
+        { address=0X0447, type="u8", condition="decrease", action="HIT", desc="pink dummy bear health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0052, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="1st reptar coin" },
+        { address=0X0052, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="2nd reptar coin" },
+        { address=0X0052, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="3rd reptar coin" },
+        { address=0X0052, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="4th reptar coin" },
+        { address=0X005B, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X005C, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X005D, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X005E, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X005F, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X0060, type="u8", condition="eq", value=0X0F, action="COIN_GAIN", desc="all coins" },
+        { address=0X0064, type="u8", condition="eq", value=0X15, action="MONEY_STATE", desc="easy mode door open" },
+        { address=0X0064, type="u8", condition="eq", value=0X18, action="MONEY_STATE", desc="hard mode door open" },
+        { address=0X05D7, type="u8", condition="eq", value=0X06, action="MONEY_STATE", desc="reptar door before/as coins are entered" },
+        { address=0X05D7, type="u8", condition="eq", value=0X63, action="MONEY_STATE", desc="reptar door after coins entered" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0440, type="u8", condition="eq", value=0X04, action="BOSS_DEFEATED", desc="boss dead, coin drop" },
+        { address=0X0440, type="u8", condition="eq", value=0X31, action="BOSS_HIT", desc="phase 3" },
+        { address=0X0440, type="u8", condition="eq", value=0X32, action="BOSS_HIT", desc="phase 2" },
+        { address=0X0440, type="u8", condition="eq", value=0X33, action="BOSS_HIT", desc="phase 1" },
+        { address=0X0445, type="u8", condition="change", action="BOSS_HIT", desc="sandbox boss/ angelica health" },
+        { address=0X05D7, type="u8", condition="eq", value=0X17, action="BOSS_HIT", desc="cookie screen pre boss & thorg phase 1" },
+        { address=0X05D7, type="u8", condition="eq", value=0X2A, action="BOSS_HIT", desc="cookie screen pre boss & dummi bears boss" },
+        { address=0X05D7, type="u8", condition="eq", value=0X3C, action="BOSS_HIT", desc="cookie screen pre boss & big boy boss phase 1" },
+        { address=0X05D7, type="u8", condition="eq", value=0X3D, action="BOSS_HIT", desc="big boy boss phase 3" },
+        { address=0X05D7, type="u8", condition="eq", value=0X4F, action="BOSS_HIT", desc="cookie screen pre boss & boppo boss" },
+        { address=0X05D7, type="u8", condition="eq", value=0X60, action="BOSS_HIT", desc="cookie screen pre boss & tippy boss" },
+        { address=0X05D7, type="u8", condition="eq", value=0X7E, action="BOSS_HIT", desc="last boss fight screen" },
+        { address=0X05D9, type="u8", condition="eq", value=0X13, action="BOSS_HIT", desc="cookie screen pre thorg boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X29, action="BOSS_HIT", desc="cookie screen pre dummi bear boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X2A, action="BOSS_HIT", desc="dummi bears boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X34, action="BOSS_HIT", desc="cookie screen pre big boy boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X3C, action="BOSS_HIT", desc="big boy boss phase 1" },
+        { address=0X05D9, type="u8", condition="eq", value=0X3D, action="BOSS_HIT", desc="big boy boss phase 3" },
+        { address=0X05D9, type="u8", condition="eq", value=0X41, action="BOSS_HIT", desc="cookie screen pre boppo boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X4F, action="BOSS_HIT", desc="boppo boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X58, action="BOSS_HIT", desc="cookie screen pre tippy boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X60, action="BOSS_HIT", desc="tippy boss" },
+        { address=0X05D9, type="u8", condition="eq", value=0X75, action="BOSS_HIT", desc="last boss fight screen" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X05D9, type="u8", condition="eq", value=0X02, action="DOOR_OPENED", desc="reptar door" },
+      },
+    },
+  },
+}

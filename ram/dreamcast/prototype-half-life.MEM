@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Half-Life",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-half-life",
+    hashes = {
+      { hash = "7206d28391a74688a303456c3bda622b", label = "Half-Life (USA) (2001-05-23) (Prototype)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD3A120, type="u8", condition="change", action="PAUSE_ON", desc="[8000 bytes] Section for what's being typed into Console. Can be used to Pause Lock if console i" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC7AB80, type="u8", condition="increase", action="HEAL", desc="Health [Controller | +1000 Keyboard] increased" },
+        { address=0XC7AB80, type="u8", condition="decrease", action="HIT", desc="Health [Controller | +1000 Keyboard] decreased" },
+        { address=0XC7BC58, type="u8", condition="increase", action="HEAL", desc="HUD Health Brighten [Keyboard | -1000 Controller] increased" },
+        { address=0XC7BC58, type="u8", condition="decrease", action="HIT", desc="HUD Health Brighten [Keyboard | -1000 Controller] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XC7A9C7, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="b7 - HEV Suit Collected (Controller)" },
+        { address=0XC7ACA8, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Suit Power [Controller | +1000 Keyboard]" },
+      },
+      weapon = {
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D18BC, action="WEAPON_STATE", desc="Crowbar" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D19C4, action="WEAPON_STATE", desc="Handgun" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D1ACC, action="WEAPON_STATE", desc="357" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D1BD4, action="WEAPON_STATE", desc="Assault Rifle" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D1DE4, action="WEAPON_STATE", desc="Crossbow" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D1EEC, action="WEAPON_STATE", desc="Shotgun" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D1FF4, action="WEAPON_STATE", desc="RPG Launcher" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D20FC, action="WEAPON_STATE", desc="Tau Cannon" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D2204, action="WEAPON_STATE", desc="Gluon Gun" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D230C, action="WEAPON_STATE", desc="Hive Hand" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D2414, action="WEAPON_STATE", desc="Grenades" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D251C, action="WEAPON_STATE", desc="Laser-Trip Mine" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D2624, action="WEAPON_STATE", desc="C4 Explosive" },
+        { address=0XC7B9E0, type="u24le", condition="eq", value=0X1D272C, action="WEAPON_STATE", desc="Snarks" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D18BC, action="WEAPON_STATE", desc="Crowbar" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D19C4, action="WEAPON_STATE", desc="Handgun" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D1ACC, action="WEAPON_STATE", desc="357" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D1BD4, action="WEAPON_STATE", desc="Assault Rifle" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D1DE4, action="WEAPON_STATE", desc="Crossbow" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D1EEC, action="WEAPON_STATE", desc="Shotgun" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D1FF4, action="WEAPON_STATE", desc="RPG Launcher" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D20FC, action="WEAPON_STATE", desc="Tau Cannon" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D2204, action="WEAPON_STATE", desc="Gluon Gun" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D230C, action="WEAPON_STATE", desc="Hive Hand" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D2414, action="WEAPON_STATE", desc="Grenades" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D251C, action="WEAPON_STATE", desc="Laser-Trip Mine" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D2624, action="WEAPON_STATE", desc="C4 Explosive" },
+        { address=0XC7B9FC, type="u24le", condition="eq", value=0X1D272C, action="WEAPON_STATE", desc="Snarks" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D18BC, action="WEAPON_STATE", desc="Crowbar" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D19C4, action="WEAPON_STATE", desc="Handgun" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D1ACC, action="WEAPON_STATE", desc="357" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D1BD4, action="WEAPON_STATE", desc="Assault Rifle" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D1DE4, action="WEAPON_STATE", desc="Crossbow" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D1EEC, action="WEAPON_STATE", desc="Shotgun" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D1FF4, action="WEAPON_STATE", desc="RPG Launcher" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D20FC, action="WEAPON_STATE", desc="Tau Cannon" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D2204, action="WEAPON_STATE", desc="Gluon Gun" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D230C, action="WEAPON_STATE", desc="Hive Hand" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D2414, action="WEAPON_STATE", desc="Grenades" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D251C, action="WEAPON_STATE", desc="Laser-Trip Mine" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D2624, action="WEAPON_STATE", desc="C4 Explosive" },
+        { address=0XC7BB60, type="u24le", condition="eq", value=0X1D272C, action="WEAPON_STATE", desc="Snarks" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC7AD04, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Flashlight Switch [Controller | +1000 Keyboard]" },
+        { address=0XC7BD04, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Flashlight Switch [Keyboard | -1000 Controller]" },
+      },
+    },
+  },
+}

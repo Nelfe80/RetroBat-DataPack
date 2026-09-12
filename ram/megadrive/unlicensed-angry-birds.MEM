@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Angry Birds",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-angry-birds",
+    hashes = {
+      { hash = "ad6ac7316d65857e27e5944b376af9c0", label = "Angry Birds (Demo) (Bootleg).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0B94, type="u8", condition="change", action="NEW_LEVEL", desc="current level" },
+      },
+    },
+  },
+}

@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Version: Party Randomizer",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-version-party-randomizer",
+    hashes = {
+      { hash = "7e319f61dc68fc37223d5ac17f012356", label = "Pokemon - Emerald Version - Party Randomizer (v1.1) (Googleben).gba" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X9388, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Gold Tower" },
+        { address=0X9388, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Dome" },
+        { address=0X9389, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Palace Gold" },
+        { address=0X9389, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Arena Gold" },
+        { address=0X9389, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Factory Gold" },
+        { address=0X9389, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Pike Gold" },
+        { address=0X938A, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Pyramid Gold" },
+        { address=0XA752, type="u8", condition="eq", value=0X2B, action="MONEY_STATE", desc="Gold Shield" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X928D, type="u8", condition="eq", value=0X5, action="SHIELD_LOST", desc="Silver Shield" },
+        { address=0X928D, type="u8", condition="eq", value=0X6, action="SHIELD_LOST", desc="Golden Shield" },
+        { address=0XA752, type="u8", condition="eq", value=0X2A, action="SHIELD_LOST", desc="Silver Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0E08, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Timer is running (used as in-game check)" },
+      },
+    },
+  },
+}

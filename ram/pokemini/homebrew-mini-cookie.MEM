@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mini Cookie",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mini-cookie",
+    hashes = {
+      { hash = "78197d139406095e68b0043fbf004860", label = "Mini Cookie (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Side Pocket",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "side-pocket",
+    hashes = {
+      { hash = "10e339039df1185206e2b8a236af9248", label = "Side Pocket (USA).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X002D, type="u8", condition="change", action="NEW_LEVEL", desc="ball in the zone or star target? amount" },
+        { address=0X002D, type="u8", condition="eq", value=0X3A, action="NEW_LEVEL", desc="2 balls inside of special hole" },
+        { address=0X002D, type="u8", condition="eq", value=0X4E, action="NEW_LEVEL", desc="3 balls inside" },
+        { address=0X002E, type="u8", condition="change", action="NEW_LEVEL", desc="ball in the zone or star target? amount" },
+        { address=0X002E, type="u8", condition="eq", value=0XE5, action="NEW_LEVEL", desc="2 balls inside of special hole" },
+      },
+      stage = {
+        { address=0X14CF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage (City)" },
+        { address=0X14CF, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="ending" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X109A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Pocketed in Row value points" },
+        { address=0X109A, type="u8", condition="eq", value=0X37, action="SCORE_STATE", desc="5500 (6balls game)" },
+      },
+    },
+  },
+}

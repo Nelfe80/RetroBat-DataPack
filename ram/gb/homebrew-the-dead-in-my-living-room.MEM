@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Dead in My Living Room",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-dead-in-my-living-room",
+    hashes = {
+      { hash = "020397a93cb6b897716c4f261e9a339e", label = "Dead in My Living Room, The (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XC05D, type="u8", condition="change", action="DOOR_OPENED", desc="[8 Bit] Door Locked Check | Garage" },
+        { address=0XC17E, type="u8", condition="change", action="DOOR_OPENED", desc="[8 Bit] Door Functionality | Garage" },
+        { address=0XCC3C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Found Object | Garage Key" },
+        { address=0XCC40, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Found Object | Fabric Scissors" },
+        { address=0XCC42, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Found Object | Batteries" },
+        { address=0XCC56, type="u8", condition="change", action="DOOR_OPENED", desc="[8 Bit] Flag Check | Cellar Door Open Message" },
+      },
+    },
+  },
+}

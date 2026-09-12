@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Thomas the Tank Engine & Friends",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle, Quiz, Racing"
+  },
+
+  rom = {
+    name = "prototype-thomas-the-tank-engine-friends",
+    hashes = {
+      { hash = "8095a12c1b6512e547e878d9e0ab3a95", label = "Thomas the Tank Engine & Friends (USA) (Proto).nes" },
+    }
+  },
+
+  events = {
+  },
+}

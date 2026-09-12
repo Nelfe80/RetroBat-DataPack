@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Paint or Draw",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-paint-or-draw",
+    hashes = {
+      { hash = "1a899af55fd6434d21b8f3b9f2be81f9", label = "Paint or Draw (USA) (v3.0) (Aftermarket) (Unl) (dougeff).nes" },
+    }
+  },
+
+  events = {
+  },
+}

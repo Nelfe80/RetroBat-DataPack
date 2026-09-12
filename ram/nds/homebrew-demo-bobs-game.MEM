@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Bob's Game",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-bobs-game",
+    hashes = {
+      { hash = "2994cf6a6b757cabad9b2f0f4c5c23c7", label = "Bob's Game (World) (Demo) (Aftermarket) (Unl) (Robert Pelloni).nds" },
+    }
+  },
+
+  events = {
+  },
+}

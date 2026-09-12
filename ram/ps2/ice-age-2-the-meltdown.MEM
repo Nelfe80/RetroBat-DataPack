@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ice Age 2: The Meltdown",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "ice-age-2-the-meltdown",
+    hashes = {
+      { hash = "80c397c7427410527caefb77faa779cf", label = "Ice Age 2 - The Meltdown (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3B821C, type="u32le", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X3B821C, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+        { address=0X3F0442, type="u16le", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X3F0442, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3B64EC, type="u16le", condition="eq", value=0X00, action="LEVEL_NO", desc="No" },
+        { address=0X3B64EC, type="u16le", condition="eq", value=0X01, action="LEVEL_YES", desc="Yes" },
+      },
+      stage = {
+        { address=0X3B64EC, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="[32bit] Cheat Flag - Level Select Active" },
+        { address=0X3B64EC, type="u16le", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Yes" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X3B6534, type="u32le", condition="change", action="HEALTH_STATE", desc="[32bit] Cheat Flag - Infinite Health" },
+        { address=0X3B6534, type="u32le", condition="eq", value=0X01, action="HEALTH_STATE", desc="Yes" },
+        { address=0X3B654C, type="u32le", condition="change", action="HEALTH_STATE", desc="[32bit] Cheat Flag - Infinite Energy" },
+        { address=0X3B654C, type="u32le", condition="eq", value=0X01, action="HEALTH_STATE", desc="Yes" },
+        { address=0X418840, type="u32le", condition="increase", action="HEAL", desc="[32bit] Scrat Health increased" },
+        { address=0X418840, type="u32le", condition="decrease", action="HIT", desc="[32bit] Scrat Health decreased" },
+        { address=0X418844, type="u32le", condition="increase", action="HEAL", desc="[32bit] Scrat Max Health increased" },
+        { address=0X418844, type="u32le", condition="decrease", action="HIT", desc="[32bit] Scrat Max Health decreased" },
+      },
+    },
+  },
+}

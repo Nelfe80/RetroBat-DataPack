@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puzzle Bobble",
+    system = "wswan",
+    system_name = "WonderSwan",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "puzzle-bobble",
+    hashes = {
+      { hash = "cf5e9f022baadd1ed9b0a9e88b503e95", label = "Puzzle Bobble (Japan).ws" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0D0F, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0DD4, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer before next bubble auto shoots - 16bit" },
+      },
+    },
+  },
+}

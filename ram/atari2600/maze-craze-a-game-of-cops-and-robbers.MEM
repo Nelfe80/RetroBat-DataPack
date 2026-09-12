@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Maze Craze: A Game of Cops and Robbers",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "maze-craze-a-game-of-cops-and-robbers",
+    hashes = {
+      { hash = "f825c538481f9a7a46d1e9bc06200aaf", label = "Maze Craze - A Game of Cops 'n Robbers ~ Maze Mania - A Game of Cops 'n Robbers (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X006A, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="dead" },
+        { address=0X006B, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="dead" },
+      },
+    },
+  },
+}

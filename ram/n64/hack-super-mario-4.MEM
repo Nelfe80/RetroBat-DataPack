@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario _4",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-4",
+    hashes = {
+      { hash = "9135e0361658fc0aae3915c7ad310acb", label = "Super Mario 64 - Super Mario _4 (v.1.0.1) (Various).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="star" },
+        { address=0X20777B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="star" },
+        { address=0X2077EB, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="star" },
+        { address=0X20785B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="star" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B264, type="u8", condition="increase", action="HEAL", desc="Player Health increased" },
+        { address=0X33B264, type="u8", condition="decrease", action="HIT", desc="Player Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+        { address=0X33B260, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count HUD increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coin Count increased" },
+      },
+    },
+  },
+}

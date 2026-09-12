@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wheel of Fortune Deluxe!",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "wheel-of-fortune-deluxe",
+    hashes = {
+      { hash = "674c9ce830025b4700928359b52f902c", label = "Wheel of Fortune - Deluxe Edition (USA).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

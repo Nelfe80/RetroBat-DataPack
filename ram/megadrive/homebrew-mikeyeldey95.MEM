@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ mikeyeldey95",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-mikeyeldey95",
+    hashes = {
+      { hash = "2de0763d2487e0d839171c0ce895e3c1", label = "mikeyeldey95 (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

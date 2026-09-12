@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Railroad Tycoon II",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Construction and Management Simulation"
+  },
+
+  rom = {
+    name = "railroad-tycoon-ii",
+    hashes = {
+      { hash = "ab0869b1627bb09e7c9360baacd61781", label = "Railroad Tycoon II (Europe) (En,Fr,De)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA7F08, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not paused" },
+        { address=0XA7F08, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X12F7E0, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Paused" },
+        { address=0X1FFE61, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Pop up active (pause menu, tutorial messages, etc)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA8628, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Zoom Level" },
+        { address=0XA8628, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Max Zoom" },
+        { address=0XA8628, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Medium Zoom" },
+        { address=0XA8628, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Min Zoom" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB63F6, type="u8", condition="eq", value=0XB0, action="OBJECT_DESTROYED", desc="Select" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB1, action="OBJECT_DESTROYED", desc="L3" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="R3" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB3, action="OBJECT_DESTROYED", desc="Start" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB4, action="OBJECT_DESTROYED", desc="Up" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB5, action="OBJECT_DESTROYED", desc="Right" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB6, action="OBJECT_DESTROYED", desc="Down" },
+        { address=0XB63F6, type="u8", condition="eq", value=0XB7, action="OBJECT_DESTROYED", desc="Left" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB0, action="OBJECT_DESTROYED", desc="L2" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB1, action="OBJECT_DESTROYED", desc="R2" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="L1" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB3, action="OBJECT_DESTROYED", desc="R1" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB4, action="OBJECT_DESTROYED", desc="Triangle" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB5, action="OBJECT_DESTROYED", desc="Circle" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB6, action="OBJECT_DESTROYED", desc="Cross" },
+        { address=0XB63F7, type="u8", condition="eq", value=0XB7, action="OBJECT_DESTROYED", desc="Square" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA8420, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="[8bit] Campaign Options" },
+        { address=0XA862C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Screen Rotation" },
+        { address=0X12F53B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Month Timer" },
+        { address=0X12F53C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Month Sub-Timer" },
+        { address=0X1FFE78, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Time ~ Hour" },
+      },
+    },
+  },
+}

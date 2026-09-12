@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mr. Goemon",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "mr-goemon",
+    hashes = {
+      { hash = "1f5cf7d567bd719d2b2f116ec9567c21", label = "mrgoemon.7z <Mr. Goemon (Japan)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X07A2, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8 Bit] BCD Credits" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X10DE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] Stage Number (Display only)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0603, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Dipswtich Lives increased" },
+        { address=0X0603, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Dipswtich Lives decreased" },
+        { address=0X0605, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Dipswtich First bonus Life increased" },
+        { address=0X0605, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Dipswtich First bonus Life decreased" },
+        { address=0X0606, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Dipswtich Subsequent bonus Lives increased" },
+        { address=0X0606, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Dipswtich Subsequent bonus Lives decreased" },
+        { address=0X09B0, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] LifeCount increased" },
+        { address=0X09B0, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] LifeCount decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0900, type="u8", condition="change", action="TREASURE", min=100000, max=100000, score_kind="threshold", desc="Score delta 100000-100000: Vida Extra a partir de la segunda vida" },
+        { address=0X0900, type="u8", condition="change", action="TREASURE", min=50000, max=50000, score_kind="threshold", desc="Score delta 50000-50000: Vida Extra" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X900, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X0601, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] Dipswtich Credit per Coin increased" },
+        { address=0X09EE, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] Level subpart ID increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X07A3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8 Bit] Timer" },
+        { address=0X07FD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8 Bit] BCD Timer Bonus * 10" },
+        { address=0X07FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="[8 Bit] BCD Timer Bonus * 1" },
+        { address=0X09F2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8 Bit] Level timer indicator" },
+        { address=0X09F3, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8 Bit] Level timer indicator" },
+      },
+    },
+  },
+}

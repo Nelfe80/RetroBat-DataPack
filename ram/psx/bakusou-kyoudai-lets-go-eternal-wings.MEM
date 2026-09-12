@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bakusou Kyoudai Let's & Go!! Eternal Wings",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "bakusou-kyoudai-lets-go-eternal-wings",
+    hashes = {
+      { hash = "7d56b82497f0ed726a42c38e0ace7b42", label = "Bakusou Kyoudai Let's & Go!! Eternal Wings (Japan)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X82F88, type="u32le", condition="eq", value=0X0001869F, action="MONEY_STATE", desc="Max Money" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X89E0C, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Game Mode" },
+        { address=0X89E0C, type="u8", condition="eq", value=0X03, action="GENERAL_TIMER", desc="Time Attack" },
+        { address=0XE85C0, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Free Battle mode:" },
+        { address=0XE85C0, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="Time Attack." },
+        { address=0XFE5C0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Especial timer (goes down to 0)" },
+        { address=0XFE5C0, type="u8", condition="eq", value=0XD2, action="GENERAL_TIMER", desc="Magnum Tornado" },
+        { address=0X111A1C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] First Lap Time" },
+        { address=0X111A20, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Second Lap Time" },
+      },
+    },
+  },
+}

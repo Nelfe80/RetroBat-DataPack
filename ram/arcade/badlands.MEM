@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "BadLands",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "badlands",
+    hashes = {
+      { hash = "dae6836307c6b9db62fd874161342689", label = "badlands.7z <Bad Lands>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3DF2, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=1000, max=1000, score_kind="threshold", desc="Score delta 1000-1000: bonus first" },
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=500, max=500, score_kind="threshold", desc="Score delta 500-500: bonus second" },
+        { address=0XFFF2A6, type="u32be", condition="change", action="TREASURE", color="white", min=510, max=3000, score_kind="threshold", desc="Score delta 510-3000: bonus total" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFFF2A6, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X36BA, type="u8", condition="eq", value=0X63, action="SHIELD_GAIN", desc="Max" },
+        { address=0X373A, type="u8", condition="eq", value=0X63, action="SHIELD_GAIN", desc="Max" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4289, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Easy" },
+        { address=0X4289, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Moderate" },
+        { address=0X4289, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Hard" },
+        { address=0X4289, type="u8", condition="eq", value=0X06, action="OBJECT_INTERACTION", desc="Hardest" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X36CF, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Player 1/Blue Car Lap Counter" },
+        { address=0X374F, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Player 2/Red Car Lap Counter" },
+        { address=0X37CF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Green CPU Drone Lap Counter" },
+        { address=0X3844, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Upgrade/Continue Timer" },
+        { address=0X4291, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Credits Counter" },
+      },
+    },
+  },
+}

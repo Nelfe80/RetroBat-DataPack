@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Fruit Ninja",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-fruit-ninja",
+    hashes = {
+      { hash = "d78eec305766adef1c638ae46a0ca55b", label = "Fruit Ninja (v2023) (yokaai).iso" },
+    }
+  },
+
+  events = {
+  },
+}

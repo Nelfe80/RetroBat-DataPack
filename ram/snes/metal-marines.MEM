@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Metal Marines",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "metal-marines",
+    hashes = {
+      { hash = "643058311eb11c1e0e0947bb27c77d49", label = "Metal Marines (USA).sfc" },
+      { hash = "9d69898691e9e6a434abb10afa2e8782", label = "Metal Marines (Europe).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1136, type="u8", condition="increase", action="HEAL", desc="Metal Marines Plane Health (Enemy and Player) increased" },
+        { address=0X1136, type="u8", condition="decrease", action="HIT", desc="Metal Marines Plane Health (Enemy and Player) decreased" },
+        { address=0X1DA2, type="u8", condition="increase", action="HEAL", desc="Player Energy increased" },
+        { address=0X1DA2, type="u8", condition="decrease", action="HIT", desc="Player Energy decreased" },
+        { address=0X1DAA, type="u8", condition="increase", action="HEAL", desc="Enemy Energy increased" },
+        { address=0X1DAA, type="u8", condition="decrease", action="HIT", desc="Enemy Energy decreased" },
+        { address=0X8002, type="u8", condition="eq", value=0X3E, action="HEALTH_STATE", no_log=true, desc="Energy Plant" },
+        { address=0X8010, type="u8", condition="increase", action="HEAL", desc="Unit 1 Health increased" },
+        { address=0X8010, type="u8", condition="decrease", action="HIT", desc="Unit 1 Health decreased" },
+        { address=0X801E, type="u8", condition="increase", action="HEAL", desc="Unit 1 Max Health increased" },
+        { address=0X801E, type="u8", condition="decrease", action="HIT", desc="Unit 1 Max Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1800, type="u8", condition="eq", value=0X79, action="MONEY_STATE", desc="Metal Marine (Gold - Normal Arm)" },
+        { address=0X1800, type="u8", condition="eq", value=0X7A, action="MONEY_STATE", desc="Metal Marine (Gold - AT-MMR Arm)" },
+        { address=0X1800, type="u8", condition="eq", value=0X7B, action="MONEY_STATE", desc="Metal Marine (Gold - AT-Pod Arm)" },
+        { address=0X1DA0, type="u8", condition="increase", action="COIN_GAIN", desc="Player Money increased" },
+        { address=0X1DA8, type="u8", condition="increase", action="COIN_GAIN", desc="Enemy Money increased" },
+        { address=0X8002, type="u8", condition="eq", value=0X79, action="MONEY_STATE", desc="Metal Marine (Gold)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1120, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Metal Marine Plane Destroyed - FFFF" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1DA6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer (Seconds)" },
+      },
+    },
+  },
+}

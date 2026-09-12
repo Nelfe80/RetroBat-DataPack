@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Rhythm Land",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-rhythm-land",
+    hashes = {
+      { hash = "035d06c80ccbbf2d7ff49a4d5b98301e", label = "Rhythm Land (World) (v1.0.1) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0DA, type="u8", condition="eq", value=0X2C, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XFFCF, type="u8", condition="eq", value=0X06, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

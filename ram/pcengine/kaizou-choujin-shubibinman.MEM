@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kaizou Choujin Shubibinman",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "kaizou-choujin-shubibinman",
+    hashes = {
+      { hash = "8041a028a666cc0adc7a06c20a99d172", label = "Kaizou Choujin Shubibinman (Japan).pce" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 1st Hacking Competition: Nathaniel Bandy",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-1st-hacking-competition-nathaniel-bandy",
+    hashes = {
+      { hash = "0da45298d04aa8678f37c8ea08e8fcb6", label = "19 - Land of Originality (RainbowKappaTV).z64" },
+      { hash = "0e1b7e8aaabc515a2cae2deac020eb02", label = "17 - Bandy's Ice Quest (Cankicker8).z64" },
+      { hash = "389b9cd772a2f289965c4bd34010155a", label = "05 - NB (Blue64).z64" },
+      { hash = "3f3b194489452cdc964f859956a37689", label = "18 - Bandy's Dank Rave (KatShark).z64" },
+      { hash = "41722362d8b0736408eac5c0ad4a81cb", label = "06 - Gay Baby Jail the Prequel (Rovert Entertainment).z64" },
+      { hash = "4450b9c124b2acef41e533231e71601f", label = "12 - Nathaniel Bandy's Big House (Loudermonkeyboy).z64" },
+      { hash = "45011153570f79d05adbd5325c8b4408", label = "13 - NB Romhack Thing (DNVIC).z64" },
+      { hash = "586a134a9f6db70940761d840d37568f", label = "09 - NB's Big House 64 (Cheezepin).z64" },
+      { hash = "63ab1ccc87d1ee6efa76997d69314f4c", label = "20 - Nathaniel Bandy (Sebas Igua).z64" },
+      { hash = "6b6394d9e1567e4b2569ad8092c5bd60", label = "04 - Nathan Bandy (scuttlebugraiser).z64" },
+      { hash = "71dd35d192a86df43ca2c9bfeabc3134", label = "14 - NBFrickenBandy (GraymonDGT).z64" },
+      { hash = "76383fd9805f3b2bc3c45a6b2186932c", label = "15 - Little Boo's Big House (Sophia707).z64" },
+      { hash = "7716eef7b4298586b0dd64362d7a4bb1", label = "07 - Super Bandy Rescue 64 (Team Cornersoft).z64" },
+      { hash = "86d47fdee9c4aff948caa36cb7dfe3be", label = "10 - NB Hack (FireMario74).z64" },
+      { hash = "8df4c20933e210c94ca4e37ad4049c1f", label = "08 - Nathaniel Bandy's Big House (Daniel_EDC).z64" },
+      { hash = "9f2a9801179be35563d6b176cf6b9265", label = "16 - Nathaniel Bandy's Revenge (IngoH).z64" },
+      { hash = "aa1a2926a44a8a82b7f7af90d6d09965", label = "03 - Jumping Over It with Nathaniel Bandy (Kaze Emanuar).z64" },
+      { hash = "ad2873ac9d98194ffe62669e8365a678", label = "21 - Nataniel Bendi (Davide).z64" },
+      { hash = "be0454db882168bbf0f70ff87f4ad0b3", label = "01 - Scuttle Pirate Bandy (Luigiman94).z64" },
+      { hash = "d1488dd9c6621d31c890d2ad6d4c4bc7", label = "22 - Competition 1 (PixelPiece).z64" },
+      { hash = "de233aaacc2394bb36b16f6cad9e7099", label = "02 - Nathaniel Bandy vs the Globglogabgalab (janja).z64" },
+      { hash = "de815e72755910aa3b1db632dd439706", label = "11 - Super Duper Bandy 64 (Buggy).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X32DD87, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Collected Star in the World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+      },
+    },
+  },
+}

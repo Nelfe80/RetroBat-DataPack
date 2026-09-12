@@ -1,0 +1,85 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Digimon Adventure 02: D1 Tamers",
+    system = "wswan",
+    system_name = "WonderSwan",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "digimon-adventure-02-d1-tamers",
+    hashes = {
+      { hash = "0b4973f8406e90f325198b6747b4e632", label = "Digimon Adventure 02 - D1 Tamers (En) (v0.97) (USC).wsc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10979, type="u8", condition="eq", value=0X69, action="DEMO_MODE", desc="Vamdemon" },
+        { address=0X10979, type="u8", condition="eq", value=0XB1, action="DEMO_MODE", desc="VenomVamdemon" },
+        { address=0X10979, type="u8", condition="eq", value=0XB8, action="DEMO_MODE", desc="Demon" },
+        { address=0X10EDE, type="u8", condition="eq", value=0X26, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X13850, type="u8", condition="bit_true", mask=0X20, action="DEMO_MODE", desc="Vademon defeated in Playtown 2" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10979, type="u8", condition="eq", value=0X67, action="LOSE_LIFE", desc="DeathMeramon" },
+      },
+      health = {
+        { address=0X10981, type="u16le", condition="increase", action="HEAL", desc="1st Digimon Current HP increased" },
+        { address=0X10981, type="u16le", condition="decrease", action="HIT", desc="1st Digimon Current HP decreased" },
+        { address=0X10983, type="u16le", condition="increase", action="HEAL", desc="1st Digimon Max HP increased" },
+        { address=0X10983, type="u16le", condition="decrease", action="HIT", desc="1st Digimon Max HP decreased" },
+        { address=0X109E9, type="u16le", condition="increase", action="HEAL", desc="2nd Digimon Current HP increased" },
+        { address=0X109E9, type="u16le", condition="decrease", action="HIT", desc="2nd Digimon Current HP decreased" },
+        { address=0X109EB, type="u16le", condition="increase", action="HEAL", desc="2nd Digimon Max HP increased" },
+        { address=0X109EB, type="u16le", condition="decrease", action="HIT", desc="2nd Digimon Max HP decreased" },
+        { address=0X10A51, type="u16le", condition="increase", action="HEAL", desc="3rd Digimon Current HP increased" },
+        { address=0X10A51, type="u16le", condition="decrease", action="HIT", desc="3rd Digimon Current HP decreased" },
+        { address=0X10A53, type="u16le", condition="increase", action="HEAL", desc="3rd Digimon Max HP increased" },
+        { address=0X10A53, type="u16le", condition="decrease", action="HIT", desc="3rd Digimon Max HP decreased" },
+        { address=0X14AE8, type="u16le", condition="increase", action="HEAL", desc="1st Digimon In-Battle HP (Left) increased" },
+        { address=0X14AE8, type="u16le", condition="decrease", action="HIT", desc="1st Digimon In-Battle HP (Left) decreased" },
+        { address=0X14B37, type="u16le", condition="increase", action="HEAL", desc="2nd Digimon In-battle HP (Middle) increased" },
+        { address=0X14B37, type="u16le", condition="decrease", action="HIT", desc="2nd Digimon In-battle HP (Middle) decreased" },
+        { address=0X14B86, type="u16le", condition="increase", action="HEAL", desc="3rd Digimon In-Battle HP (Right) increased" },
+        { address=0X14B86, type="u16le", condition="decrease", action="HIT", desc="3rd Digimon In-Battle HP (Right) decreased" },
+        { address=0X14BD5, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP (Middle) increased" },
+        { address=0X14BD5, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP (Middle) decreased" },
+        { address=0X14BD7, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 Max HP increased" },
+        { address=0X14BD7, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 Max HP decreased" },
+        { address=0X14C24, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 HP (Left) increased" },
+        { address=0X14C24, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 HP (Left) decreased" },
+        { address=0X14C26, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 Max HP increased" },
+        { address=0X14C26, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 Max HP decreased" },
+        { address=0X14C73, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 HP (Right) increased" },
+        { address=0X14C73, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 HP (Right) decreased" },
+        { address=0X14C75, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 Max HP increased" },
+        { address=0X14C75, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X10979, type="u8", condition="eq", value=0X65, action="AMMO_STATE", no_log=true, desc="Mammon" },
+        { address=0X10979, type="u8", condition="eq", value=0X6B, action="AMMO_STATE", no_log=true, desc="SkullMammon" },
+        { address=0X10EDE, type="u8", condition="eq", value=0X29, action="MONEY_STATE", desc="Gold shop" },
+        { address=0X135AB, type="u24le", condition="eq", value=0X014D00, action="MONEY_STATE", desc="Gold Shop" },
+        { address=0X135AB, type="u24le", condition="eq", value=0X01A800, action="MONEY_STATE", desc="Item/Gold Shop" },
+        { address=0X13780, type="u24le", condition="increase", action="COIN_GAIN", desc="[24-bit] Gold Bits increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X14AC6, type="u8", condition="eq", value=0X17, action="BOSS_HIT", desc="In-battle (boss)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X10979, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="1st Digimon ID" },
+      },
+    },
+  },
+}

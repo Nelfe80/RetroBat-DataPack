@@ -1,0 +1,110 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man X: Soft-Type",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-x-soft-type",
+    hashes = {
+      { hash = "170bbd3186c4ca8d30279d8682921a59", label = "Mega Man X - Soft-Type (v2.1.1) (Hart-Hunt).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0C03, type="u8", condition="change", action="NEW_LEVEL", desc="Buster charged level:" },
+        { address=0X0C03, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Max" },
+        { address=0X0C03, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Med" },
+        { address=0X0C03, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Low" },
+      },
+      stage = {
+        { address=0X1F7A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Central Highway" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Octopus" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Chameleon" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Armadillo" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Mammoth" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Eagle" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Mandrill" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Kuwanger" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Penguin" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Sigma 1" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Sigma 2" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Sigma 3" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Sigma 4" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0BAA, type="u16le", condition="eq", value=0X0C, action="LOSE_LIFE", desc="Death" },
+        { address=0X0BD8, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Death" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0BDB, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="X Buster," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Homing Torpedo," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="Chameleon Sting," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X08, action="WEAPON_STATE", no_log=true, desc="Fire Wave," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X0A, action="WEAPON_STATE", no_log=true, desc="Storm Tornado," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X0C, action="WEAPON_STATE", no_log=true, desc="Electric Spark," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X0E, action="WEAPON_STATE", no_log=true, desc="Boomerang Cutter," },
+        { address=0X0BDB, type="u8", condition="eq", value=0X10, action="WEAPON_STATE", no_log=true, desc="Shotgun Ice" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0BAA, type="u16le", condition="eq", value=0X36, action="AMMO_STATE", no_log=true, desc="Mammoth Crash" },
+        { address=0X0E72, type="u8", condition="eq", value=0X0C, action="AMMO_STATE", no_log=true, desc="Flame Mammoth" },
+        { address=0X1F99, type="u8", condition="bit_true", mask=0X80, action="AMMO_STATE", no_log=true, desc="Mammoth's" },
+        { address=0X1F9C, type="u8", condition="bit_true", mask=0X10, action="AMMO_STATE", no_log=true, desc="Mammoth" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0E68, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X0E72, type="u8", condition="eq", value=0X09, action="BOSS_HIT", desc="Sting Sub Boss" },
+        { address=0X0E72, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Launch Octopus Sub Boss (fish)" },
+        { address=0X0E72, type="u8", condition="eq", value=0X23, action="BOSS_HIT", desc="Launch Octopus Sub Boss (minhoca) - testar o hp" },
+        { address=0X0EA8, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X0EE8, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X0F28, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X0F68, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X0FA8, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="boss explosion" },
+        { address=0X1F88, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F8A, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F8C, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F8E, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F90, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F92, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F94, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag" },
+        { address=0X1F96, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Boss Flag - Stage Select" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X1E, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X23, action="BOSS_HIT", desc="Boss Preparation - Sigma Fortress" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X24, action="BOSS_HIT", desc="Boss Fight - Sigma Fortress" },
+        { address=0XFFFD, type="u24le", condition="eq", value=0X2E, action="BOSS_HIT", desc="Boss Preparation" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0BDB, type="u8", condition="eq", value=0X06, action="SHIELD_GAIN", desc="Rolling Shield," },
+        { address=0X1232, type="u16le", condition="eq", value=0X09, action="SHIELD_GAIN", desc="Rolling Shield" },
+        { address=0X1232, type="u16le", condition="eq", value=0X12, action="SHIELD_GAIN", desc="R. Shield Charged" },
+      },
+      player = {
+        { address=0X0BAA, type="u16le", condition="eq", value=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0BAA, type="u16le", condition="eq", value=0X1C, action="DOOR_OPENED", desc="Door Transition" },
+      },
+    },
+  },
+}

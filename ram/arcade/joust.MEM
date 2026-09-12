@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Joust",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "joust",
+    hashes = {
+      { hash = "0e7217251d81adfd48614df6680043d4", label = "joust.7z <Joust (White/Green label)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE290, type="u8", condition="eq", value=0X0, action="DEMO_MODE", desc="Attract" },
+        { address=0XE290, type="u8", condition="eq", value=0X1, action="DEMO_MODE", desc="Play" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XE28E, type="u8", condition="change", action="NEW_LEVEL", desc="Number of Enemies loaded into memory spawned from a certain memory grouping (particularly round" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XE252, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XE252, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XE25B, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2 Lives increased" },
+        { address=0XE25B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2 Lives decreased" },
+        { address=0XE25E, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra life per score setting - Lower e and Upper f of 0x00e25 in decimal increased" },
+        { address=0XE25E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra life per score setting - Lower e and Upper f of 0x00e25 in decimal decreased" },
+        { address=0XE277, type="u8", condition="increase", action="GAIN_LIFE", desc="Starting Numbe of Lives Setting increased" },
+        { address=0XE277, type="u8", condition="decrease", action="LOSE_LIFE", desc="Starting Numbe of Lives Setting decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE24C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

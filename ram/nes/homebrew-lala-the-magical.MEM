@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Lala the Magical",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-lala-the-magical",
+    hashes = {
+      { hash = "1e3f9155e5fb43344448e8a67b75ca26", label = "Lala The Magical (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0003, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen/Cutscene" },
+        { address=0X0003, type="u8", condition="eq", value=0X1, action="GAME_OVER", desc="Playing/Game Over" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0301, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X0301, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Stage 1 (Ancient Ruins)" },
+        { address=0X0301, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Magic Wand Stage" },
+        { address=0X0301, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Stage 2 (Sky Palace)" },
+        { address=0X0301, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Stage 3" },
+        { address=0X034B, type="u8", condition="eq", value=0X7, action="PROGRESSION_STAGE", desc="Restart Level (Applies to Stage 2)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0093, type="u8", condition="change", action="LOSE_LIFE", desc="[bitflag] Death" },
+        { address=0X0641, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0641, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0644, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[bitflag] 2x Magic Platform Power-up Active" },
+        { address=0X0645, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="2x Platform Power-up Seconds Remaining" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0642, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objects" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Heathcliff! Frantic Foto",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "heathcliff-frantic-foto",
+    hashes = {
+      { hash = "3a1d58a0455e7991857b929401395ec3", label = "Heathcliff! - Frantic Foto (USA) (En,Fr,Es).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8F447, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+  },
+}

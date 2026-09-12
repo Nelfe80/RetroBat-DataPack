@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Vigilante 8",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Shooter"
+  },
+
+  rom = {
+    name = "vigilante-8",
+    hashes = {
+      { hash = "048a9dfb67acb7198831f1141dc8b56d", label = "Vigilante 8 (USA) (Rev 1)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X66AA0, type="u8", condition="change", action="NEW_LEVEL", desc="Level id" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Secret base" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Oild fields" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Aircraft grave" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Ghost town" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Hoover dam" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Valley farm" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Casino city" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Canyonlands" },
+        { address=0X66AA0, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Sky resort" },
+      },
+      stage = {
+        { address=0X66AA0, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Sand factory" },
+        { address=0X66AB1, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Sand Factory and Secret Base Levels" },
+        { address=0X66AB1, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_STAGE", desc="All Characters and Extra Levels Unlocked" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X667D4, type="u8", condition="increase", action="GAIN_LIFE", desc="Opponet lives count 1 increased" },
+        { address=0X667D4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Opponet lives count 1 decreased" },
+        { address=0X667D5, type="u8", condition="increase", action="GAIN_LIFE", desc="Opponet lives count 2 increased" },
+        { address=0X667D5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Opponet lives count 2 decreased" },
+        { address=0X667D6, type="u8", condition="increase", action="GAIN_LIFE", desc="Opponet lives count 3 increased" },
+        { address=0X667D6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Opponet lives count 3 decreased" },
+        { address=0X667D7, type="u8", condition="increase", action="GAIN_LIFE", desc="Opponet lives count 4 increased" },
+        { address=0X667D7, type="u8", condition="decrease", action="LOSE_LIFE", desc="Opponet lives count 4 decreased" },
+        { address=0XA3A10, type="u8", condition="increase", action="GAIN_LIFE", desc="Enemy life increased" },
+        { address=0XA3A10, type="u8", condition="decrease", action="LOSE_LIFE", desc="Enemy life decreased" },
+        { address=0XA3D4A, type="u8", condition="increase", action="GAIN_LIFE", desc="Player life increased" },
+        { address=0XA3D4A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player life decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X66AB1, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Homing Missile Power-Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X18374C, type="u8", condition="change", action="AMMO_STATE", desc="Ammo rockets" },
+        { address=0X1B4F74, type="u8", condition="change", action="AMMO_STATE", desc="Ammo firegun" },
+        { address=0X1D85AC, type="u8", condition="change", action="AMMO_STATE", desc="Ammo projectiles" },
+        { address=0X1E42D4, type="u8", condition="change", action="AMMO_STATE", desc="Ammo mortar" },
+      },
+    },
+  },
+}

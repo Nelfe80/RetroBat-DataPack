@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon R.O.W.E.",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-rowe",
+    hashes = {
+      { hash = "ae28a549a110b3fc11d855e49b67eef8", label = "Pokemon Emerald - R.O.W.E. (v1.8.3) (rioluwott).gba" },
+      { hash = "1544e75b936a2f4e1d75d0a92b1d6372", label = "Pokemon Emerald - R.O.W.E. (v2.0.3.2) (rioluwott).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2D144, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 1 - Level" },
+        { address=0X2D190, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 2 - Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2D146, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 1 - Current HP increased" },
+        { address=0X2D146, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 1 - Current HP decreased" },
+        { address=0X2D148, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 1 - Max HP increased" },
+        { address=0X2D148, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 1 - Max HP decreased" },
+        { address=0X2D174, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 2 - EV Max HP increased" },
+        { address=0X2D174, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 2 - EV Max HP decreased" },
+        { address=0X2D192, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 2 - Current HP increased" },
+        { address=0X2D192, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 2 - Current HP decreased" },
+        { address=0X2D194, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 2 - Max HP increased" },
+        { address=0X2D194, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 2 - Max HP decreased" },
+      },
+    },
+  },
+}

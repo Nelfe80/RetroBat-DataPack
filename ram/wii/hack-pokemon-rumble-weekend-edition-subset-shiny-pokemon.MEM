@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Rumble: Weekend Edition [Subset - Shiny Pokémon]",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-rumble-weekend-edition-subset-shiny-pokemon",
+    hashes = {
+      { hash = "91feefbea0067f10426fd19c1913f18d", label = "Pokemon Rumble - Weekend Edition [Subset - Shiny Pokemon]" },
+    }
+  },
+
+  events = {
+  },
+}

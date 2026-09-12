@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Towers II: Plight of the Stargazer",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "prototype-towers-ii-plight-of-the-stargazer",
+    hashes = {
+      { hash = "2b0ad9175fa23c2e278e2174d08df821", label = "Towers II - Plight of the Stargazer (USA) (Proto 1) (2000-05-07).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 20 Challenges: Episode 3 - The tale from a bone",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-20-challenges-episode-3-the-tale-from-a-bone",
+    hashes = {
+      { hash = "f51f607f94844efe03de2520ea69f404", label = "SMW - 20 Challenges - Episode 3 - The Tale from a Bone (v20250104) (Drakel).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="bit_true", mask=0X01, action="PAUSE_ON", desc="active" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0077, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="ground" },
+        { address=0X13EF, type="u8", condition="change", action="NEW_LEVEL", desc="solid ground indicator" },
+        { address=0X13EF, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="in air/on object" },
+        { address=0X13EF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="on ground" },
+        { address=0X13F9, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="in level" },
+        { address=0X13F9, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="on overworld" },
+      },
+      stage = {
+        { address=0X010B, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Part ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X009D, type="u8", condition="eq", value=0X30, action="LOSE_LIFE", desc="died" },
+        { address=0X14C9, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="died by collision" },
+        { address=0X14C9, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="died by spin" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1530, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X008F, type="u8", condition="eq", value=0X0B, action="JUMPING", no_log=true, no_survey=true, desc="jump" },
+        { address=0X008F, type="u8", condition="eq", value=0X24, action="JUMPING", no_log=true, no_survey=true, desc="fall" },
+        { address=0X140D, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="active" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0077, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="right side" },
+        { address=0X0077, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="left side" },
+        { address=0X0077, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="roof" },
+        { address=0X13CE, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint" },
+        { address=0XC903, type="u8", condition="eq", value=0X2E, action="OBJECT_INTERACTION", desc="block active" },
+        { address=0XC904, type="u8", condition="eq", value=0X2E, action="OBJECT_INTERACTION", desc="block active" },
+        { address=0XC90B, type="u8", condition="eq", value=0X2E, action="OBJECT_INTERACTION", desc="block active" },
+        { address=0XC90C, type="u8", condition="eq", value=0X2E, action="OBJECT_INTERACTION", desc="block active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0020, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="timer - layer 3 room 13" },
+        { address=0X1493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Clear Exit Timer" },
+      },
+    },
+  },
+}

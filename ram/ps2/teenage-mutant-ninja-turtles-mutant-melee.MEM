@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Teenage Mutant Ninja Turtles: Mutant Melee",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "teenage-mutant-ninja-turtles-mutant-melee",
+    hashes = {
+      { hash = "28ce85c771cfc992ba9aee9f2e732674", label = "Teenage Mutant Ninja Turtles - Mutant Melee (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X44BE48, type="u32le", condition="change", action="NEW_LEVEL", desc="Turtles' Lair Level" },
+        { address=0X44BE4C, type="u32le", condition="change", action="NEW_LEVEL", desc="Sewer-Canal Level" },
+        { address=0X44BE50, type="u32le", condition="change", action="NEW_LEVEL", desc="Subway Level" },
+        { address=0X44BE54, type="u32le", condition="change", action="NEW_LEVEL", desc="Autumn Level" },
+        { address=0X44BE58, type="u32le", condition="change", action="NEW_LEVEL", desc="Waterfall Level" },
+        { address=0X44BE5C, type="u32le", condition="change", action="NEW_LEVEL", desc="Junkyard Level" },
+        { address=0X44BE60, type="u32le", condition="change", action="NEW_LEVEL", desc="Sewer Level" },
+        { address=0X44BE64, type="u32le", condition="change", action="NEW_LEVEL", desc="Lab Level" },
+        { address=0X44BE68, type="u32le", condition="change", action="NEW_LEVEL", desc="Pond Level" },
+        { address=0X44BE6C, type="u32le", condition="change", action="NEW_LEVEL", desc="Sewer Falls Level" },
+        { address=0X44BE70, type="u32le", condition="change", action="NEW_LEVEL", desc="Shredder's Palace Exterior Level" },
+        { address=0X44BE74, type="u32le", condition="change", action="NEW_LEVEL", desc="Shredder's Palace Interior Level" },
+        { address=0X44BE78, type="u32le", condition="change", action="NEW_LEVEL", desc="Lava Level" },
+        { address=0X44BE7C, type="u32le", condition="change", action="NEW_LEVEL", desc="Stone Level" },
+        { address=0X44BE80, type="u32le", condition="change", action="NEW_LEVEL", desc="Freezer Level" },
+        { address=0X44BE84, type="u32le", condition="change", action="NEW_LEVEL", desc="April's Apartment Level" },
+        { address=0X44BE88, type="u32le", condition="change", action="NEW_LEVEL", desc="Bamboo Level" },
+        { address=0X4B21FC, type="u32le", condition="change", action="LEVEL_CLEAR", desc="Leo: Stages Complete" },
+        { address=0X4B2200, type="u32le", condition="change", action="LEVEL_CLEAR", desc="Don: Stages Complete" },
+        { address=0X9F24E8, type="u32le", condition="change", action="NEW_LEVEL", desc="Melee Match: Level" },
+      },
+      stage = {
+        { address=0X4B2180, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Leo: Stages Passed" },
+        { address=0X4B2184, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Don: Stages Passed" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X449540, type="u32le", condition="increase", action="HEAL", desc="Melee Match: Last Man Standing: Health increased" },
+        { address=0X449540, type="u32le", condition="decrease", action="HIT", desc="Melee Match: Last Man Standing: Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X44953C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Melee Match: King of the Hill / Keep Away: Points" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X449544, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Melee Match: Knock Out - KO: Time per Game" },
+        { address=0X4B56A0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[Float] Round Time" },
+        { address=0X4B56A4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="countdown", timer_unit="unknown", desc="[Float] Round Time Left" },
+      },
+    },
+  },
+}

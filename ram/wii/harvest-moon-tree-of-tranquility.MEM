@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Harvest Moon: Tree of Tranquility",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "harvest-moon-tree-of-tranquility",
+    hashes = {
+      { hash = "ce94a2f8dd9806d56eb61d2d7e0f1542", label = "Harvest Moon - Tree of Tranquility (USA) (Rev 1)" },
+      { hash = "2d9c739cae81d9af1c9687fcc1ce2d60", label = "Harvest Moon - Tree of Tranquility (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X4E5270, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lifetime Total Shipped [32-bit BE] increased" },
+        { address=0X4E5270, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lifetime Total Shipped [32-bit BE] decreased" },
+      },
+    },
+  },
+}

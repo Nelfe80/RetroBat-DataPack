@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Chronoclasm",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-chronoclasm",
+    hashes = {
+      { hash = "09aac22300d81ba90582124063403b3d", label = "SMW - Chronoclasm (v1.0) (LightAligns, Saela).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X010B, type="u16le", condition="eq", value=0XAD, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X010B, type="u16le", condition="eq", value=0X14A, action="LIVES_STATE", desc="Pay 5 lives to pass" },
+        { address=0X010B, type="u16le", condition="eq", value=0X1D, action="GAIN_LIFE", desc="Bonus to get 1ups (some cutscene rooms follow" },
+        { address=0X010B, type="u16le", condition="eq", value=0X5B, action="LIVES_STATE", desc="Pay 5 lives to pass (0x88)and skip 5 rooms (0x58)" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X141A, type="u8", condition="increase", action="GAIN_LIFE", desc="8-bit - Increment by 1 each room transition, resets to 1 once user lose a life. increased" },
+        { address=0X141A, type="u8", condition="decrease", action="LOSE_LIFE", desc="8-bit - Increment by 1 each room transition, resets to 1 once user lose a life. decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X1C9, action="BOSS_HIT", desc="First boss room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X34, action="BOSS_HIT", desc="First boss room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X38, action="BOSS_HIT", desc="Last boss room" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X010B, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Room-Id (i will name group of rooms by a letter, those with a number can be missed cause are RNG" },
+      },
+    },
+  },
+}

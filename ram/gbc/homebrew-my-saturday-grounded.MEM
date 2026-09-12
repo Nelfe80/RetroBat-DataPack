@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ My Saturday Grounded",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-my-saturday-grounded",
+    hashes = {
+      { hash = "02d5f8a622ba5255eb544fc38ef81728", label = "My Saturday Grounded (World) (v2.0) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC6AE, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC6AE, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Pause Menu" },
+        { address=0XC6AE, type="u8", condition="eq", value=0X0C, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC71B, type="u8", condition="eq", value=0XB0, action="OBJECT_DESTROYED", desc="Right" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB1, action="OBJECT_DESTROYED", desc="Left" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="Up" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB3, action="OBJECT_DESTROYED", desc="Down" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB4, action="OBJECT_DESTROYED", desc="A" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB5, action="OBJECT_DESTROYED", desc="B" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB6, action="OBJECT_DESTROYED", desc="Select" },
+        { address=0XC71B, type="u8", condition="eq", value=0XB7, action="OBJECT_DESTROYED", desc="Start" },
+      },
+    },
+  },
+}

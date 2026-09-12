@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Crates 3D",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "crates-3d",
+    hashes = {
+      { hash = "57970fbe146c65d4f66d3431c2e74735", label = "Crates 3D (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0AF8, type="u8", condition="eq", value=0X01, action="GAME_PLAYING", desc="Playing a level" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0104, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Current Level" },
+        { address=0X0AF7, type="u8", condition="change", action="NEW_LEVEL", desc="Level Flag" },
+        { address=0X0AF7, type="u8", condition="eq", value=0X20, action="NEW_LEVEL", desc="In a Level" },
+      },
+    },
+  },
+}

@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Zippy the Porcupine",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-zippy-the-porcupine",
+    hashes = {
+      { hash = "457b03cd48ff6d895795ef043c6b0f1e", label = "Zippy the Porcupine (NTSC) (v2) (Aftermarket) (Unl) (Chris Spry).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X007F, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X003C, type="u8", condition="change", action="NEW_LEVEL", desc="78 : Overworld" },
+        { address=0X003C, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Ingame" },
+        { address=0X0054, type="u8", condition="change", action="NEW_LEVEL", desc="50 : level passed" },
+      },
+      stage = {
+        { address=0X005A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Lower4 : True Stage ID as Zippy on overworld map" },
+        { address=0X005F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID : Two IDs in a level (normal and on the top with using trampoline)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0013, type="u8", condition="increase", action="GAIN_LIFE", desc="Lower Life increased" },
+        { address=0X0013, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lower Life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0015, type="u8", condition="eq", value=0XF0, action="MONEY_STATE", desc="no crystal" },
+        { address=0X0015, type="u8", condition="eq", value=0XF1, action="MONEY_STATE", desc="green crystal" },
+        { address=0X0015, type="u8", condition="eq", value=0XF2, action="MONEY_STATE", desc="purple crystal" },
+        { address=0X0015, type="u8", condition="eq", value=0XF3, action="MONEY_STATE", desc="red crystal" },
+        { address=0X0015, type="u8", condition="eq", value=0XF4, action="MONEY_STATE", desc="cyan crystal" },
+        { address=0X0057, type="u8", condition="increase", action="COIN_GAIN", desc="23 : get hit or lose all rings increased" },
+        { address=0X0057, type="u8", condition="eq", value=0X0, action="COIN_LOSE", desc="23 : get hit or lose all rings empty" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X006F, type="u8", condition="eq", value=0X2, action="SHIELD_GAIN", desc="Shield" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Fast Food 64: Holiday Snacks",
+    system = "jaguarcd",
+    system_name = "Atari Jaguar CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-fast-food-64-holiday-snacks",
+    hashes = {
+      { hash = "c58a8131dcd07bd60146d675c10b5d0f", label = "Fast Food 64 - Holiday Snacks (USA) (Unl)" },
+    }
+  },
+
+  events = {
+  },
+}

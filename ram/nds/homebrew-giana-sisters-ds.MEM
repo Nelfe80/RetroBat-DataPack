@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Giana Sisters DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-giana-sisters-ds",
+    hashes = {
+      { hash = "935eb1e7a41545b88042057d564b1d5c", label = "Giana Sisters DS (World) (v2007) (Aftermarket) (Unl) (MrSID).nds" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X28F6E, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power up" },
+      },
+    },
+  },
+}

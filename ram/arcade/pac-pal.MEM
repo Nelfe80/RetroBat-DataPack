@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pac & Pal",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "pac-pal",
+    hashes = {
+      { hash = "45e29a533f272f2ec99ad6ea3966c1de", label = "pacnpal.7z <Pac & Pal>" },
+      { hash = "a44a96bafc4507b5d8a9c35a99f8636a", label = "pacnchmp.7z <Pac-Man & Chomp Chomp>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1039, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen/Rankings" },
+        { address=0X1039, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo" },
+        { address=0X105A, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X188B, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Clear" },
+        { address=0X1968, type="u8", condition="change", action="NEW_LEVEL", desc="Level addr" },
+      },
+      stage = {
+        { address=0X01AB, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Bonus stage multiplyer" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1831, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip Switch for Lives increased" },
+        { address=0X1831, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip Switch for Lives decreased" },
+        { address=0X1831, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1" },
+        { address=0X1831, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="2" },
+        { address=0X1831, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3" },
+        { address=0X1831, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="5" },
+        { address=0X1837, type="u8", condition="increase", action="GAIN_LIFE", desc="Bonus Life 1 increased" },
+        { address=0X1837, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bonus Life 1 decreased" },
+        { address=0X1837, type="u8", condition="eq", value=0X20, action="LIVES_STATE", desc="20K" },
+        { address=0X1837, type="u8", condition="eq", value=0X30, action="LIVES_STATE", desc="30K" },
+        { address=0X183A, type="u8", condition="increase", action="GAIN_LIFE", desc="Bonus Life 2 increased" },
+        { address=0X183A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bonus Life 2 decreased" },
+        { address=0X183A, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="100K?" },
+        { address=0X183A, type="u8", condition="eq", value=0X70, action="LIVES_STATE", desc="70K" },
+        { address=0X183A, type="u8", condition="eq", value=0X80, action="LIVES_STATE", desc="80K" },
+        { address=0X1967, type="u8", condition="change", action="LOSE_LIFE", desc="Card streak (Resets when you die)" },
+        { address=0X1975, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1975, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X17AF, type="u8", condition="decrease", action="HIT", desc="Pac-Man's power up indicator decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X17AF, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Regular Pac-Man" },
+        { address=0X17AF, type="u8", condition="eq", value=0X0D, action="DYNAMIC_INVENTORY", desc="Super Pac-Man" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3F7, type="u56be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X17AF, type="u8", condition="eq", value=0X0D, action="TRANSFORMATION_SUPER", desc="Transformed into Super Pac-Man" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1808, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="In Game Time: Minutes" },
+        { address=0X1809, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="In Game Time: Seconds" },
+      },
+    },
+  },
+}

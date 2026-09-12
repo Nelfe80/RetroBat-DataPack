@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Phantasy Star 0 [Subset - Item Catalog]",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "phantasy-star-0-subset-item-catalog",
+    hashes = {
+      { hash = "b7136dbe095ee57cb38b0dd4da5a493c", label = "Phantasy Star 0 [Subset - Item Catalog].nds" },
+    }
+  },
+
+  events = {
+    state = {
+      temporary = {
+        { address=0X2429BE, type="u8", condition="change", action="SHIELD_GAIN", desc="Item Catalog - Shields" },
+      },
+    },
+  },
+}

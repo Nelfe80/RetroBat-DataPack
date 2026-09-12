@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Among Us",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-among-us",
+    hashes = {
+      { hash = "d3bfde5d973230ba15078e4f5ca78ad5", label = "Among Us (World) (GBComp2021) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    inventory = {
+      weapon = {
+        { address=0XC6AC, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Weapon" },
+      },
+    },
+  },
+}

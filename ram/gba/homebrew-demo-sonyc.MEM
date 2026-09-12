@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Sonyc",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-sonyc",
+    hashes = {
+      { hash = "2dfeaaab827614e32b8868e522be4783", label = "SonyC (World) (Demo - MSX Port) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

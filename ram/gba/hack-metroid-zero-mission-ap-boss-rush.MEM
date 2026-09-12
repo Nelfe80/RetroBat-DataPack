@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: Zero Mission - AP Boss Rush",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-zero-mission-ap-boss-rush",
+    hashes = {
+      { hash = "22b622baf6104af286fc495cddf7af73", label = "Metroid Zero Mission - AP Boss Rush (v1.0) (Trivial Man).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X05B0, type="u8", condition="increase", action="HEAL", desc="Deorem HP increased" },
+        { address=0X05B0, type="u8", condition="decrease", action="HIT", desc="Deorem HP decreased" },
+        { address=0X05E8, type="u8", condition="increase", action="HEAL", desc="Deorem HP increased" },
+        { address=0X05E8, type="u8", condition="decrease", action="HIT", desc="Deorem HP decreased" },
+        { address=0X1326, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X1326, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+        { address=0X1530, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X1530, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X1536, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X1536, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Blaze Black | Pokémon Volt White",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-blaze-black-pokemon-volt-white",
+    hashes = {
+      { hash = "7b880d705e0f1bc3e8d23e5569aeef2c", label = "Pokemon White - Volt White (v3.1) (Drayano).nds" },
+      { hash = "c48382957670ecb1150946d9670573a4", label = "Pokemon Black - Blaze Black (v3.1) (Drayano).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X258230, type="u16le", condition="eq", value=0X03F8, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X23D1ED, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Magnezone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X23BFE3, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Worker Eddie (Cold Storage)" },
+        { address=0X23D1F3, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Herdier" },
+      },
+      health = {
+        { address=0X23BFA0, type="u8", condition="bit_true", mask=0X01, action="HEALTH_STATE", desc="HP Up (Chargestone Cave, hidden)" },
+        { address=0X23BFAE, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", desc="HP Up (Village Bridge)" },
+        { address=0X23BFB7, type="u8", condition="bit_true", mask=0X40, action="HEALTH_STATE", desc="HP Up (Route 3)" },
+        { address=0X23BFBC, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="HP Up (Route 9)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X23BE34, type="u8", condition="eq", value=0X05, action="MONEY_STATE", desc="Amulet Coin given" },
+        { address=0X23CDAC, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X23D1E7, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="Shieldon" },
+      },
+      player = {
+        { address=0X23C00A, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer M Wright (Route 17)" },
+        { address=0X23C00A, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer F Joyce (Route 17)" },
+        { address=0X23C00D, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer M Berke (Route 17)" },
+        { address=0X23C011, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer F Caroline (Route 17)" },
+        { address=0X23C020, type="u8", condition="bit_true", mask=0X10, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Matt (Undella Bay)" },
+        { address=0X23C020, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Bart (Undella Bay)" },
+        { address=0X23C020, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Tim (Undella Bay)" },
+        { address=0X23C020, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Rebecca (Undella Bay)" },
+        { address=0X23C021, type="u8", condition="bit_true", mask=0X01, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Tyra (Undella Bay)" },
+        { address=0X23C021, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Larissa (Undella Bay)" },
+        { address=0X23D1CB, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Jumpluff" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X23C07F, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Trainer blocking the ferris wheel battled" },
+      },
+    },
+  },
+}

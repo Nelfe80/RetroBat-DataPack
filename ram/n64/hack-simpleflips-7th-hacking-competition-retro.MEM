@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 7th Hacking Competition: Retro",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-7th-hacking-competition-retro",
+    hashes = {
+      { hash = "0e9fbccd042dd98abb0ff68d460aef61", label = "13 - Unregistered Hypercam 64 (U) [!] (ver 1).z64" },
+      { hash = "15c957edc96b023cd0f67fae7c010ebe", label = "07 - Counter-Strike 1.64.z64" },
+      { hash = "1bf531cbb73dcb43942df869438b6893", label = "19 - Mario 64 1UP Race.z64" },
+      { hash = "263e81e3b57c48192aeb8fefc7a52eec", label = "23 - Atari Battlefield 2600.z64" },
+      { hash = "423aa756fe3bd4176008a321d9868b21", label = "06 - Hazy Maze Temple.Z64" },
+      { hash = "4930a3050d92507bff53960e268fd2a8", label = "17 - Dragster 64.z64" },
+      { hash = "5e4b24d45ac1b10ecdae201a50281615", label = "05 - SM64 Legend of Peach.z64" },
+      { hash = "61b52cd707f48a0add9e51ca4ba67b05", label = "02 - Frogger 64.z64" },
+      { hash = "792163eb30ebd89c2b75eb233915a9e1", label = "08 - Mario DOS Madness.z64" },
+      { hash = "7b13ee30baaf79622a763447b03bfe18", label = "03 - Arcade Fighter 64.z64" },
+      { hash = "811c63082903c1984b5ba060487c64c0", label = "18 - Super Mario Land 2 - Sixty Four Golden Coins.z64" },
+      { hash = "813e5ea6e75a50bb604533fe0b8bca21", label = "04 - Chip's Challenge 64.z64" },
+      { hash = "91c9bc41a2523d8762f966fc72faecbc", label = "15 - Minesweeper 64.z64" },
+      { hash = "9dc8adab194f7740f7ded2c4077090c5", label = "12 - Abandoned Arcade.z64" },
+      { hash = "a7df143515f720b5a099c452c93fd851", label = "11 - NewSoup64.z64" },
+      { hash = "a847844133a7f220645dfc401e3f4dd8", label = "16 - Somari Classic Generations.z64" },
+      { hash = "af4d9e8499cfc629a18fb5eb40407b3c", label = "14 - Mario 64 - The Crystal Shards.z64" },
+      { hash = "b321be8aa7dbb1e2edfed9e86526e913", label = "13 - Unregistered Hypercam 64 (U) [!] (ver 2).z64" },
+      { hash = "b8a939dd79afa6fb98ae4b47863e498a", label = "10 - Retro Mario Time.z64" },
+      { hash = "ba1481803e38449f2cb66dab1719ba0d", label = "20 - A Collection of Famous Levels.z64" },
+      { hash = "ceb7f7c949752017be769e87a3f44516", label = "01 - Marble Zone 3D.z64" },
+      { hash = "ee2fb774be08e80abee832e7f1fce545", label = "21 - Wii Fit 64.z64" },
+      { hash = "f463e1e0a2d2e0a2ddd55dd412a976cc", label = "22 - Super Arcade 64.z64" },
+      { hash = "f82a3051a68a6fb302abbb61643f704e", label = "09 - Super Retro Land.z64" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X213D49, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Eye Switch activated" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X15E6D8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Hazy Maze Temple - Ocarina unlocked" },
+      },
+    },
+  },
+}

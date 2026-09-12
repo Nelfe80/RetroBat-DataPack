@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tanglewood",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform, Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-tanglewood",
+    hashes = {
+      { hash = "b684990797358eb247bfc466ea606292", label = "Tanglewood (World) (GOG, Itch) (Aftermarket) (Unl).md" },
+      { hash = "8f50069edeb5022f0003fa1461a89545", label = "Tanglewood (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X5105, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="First Yellow Point on Flower-Light [Stage 1]" },
+        { address=0X513B, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_STAGE", desc="Second Yellow Point on Flower-Light [Stage 1]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5B4B, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Catch Checkpoint?" },
+      },
+    },
+  },
+}

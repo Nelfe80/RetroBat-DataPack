@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Spice World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-spice-world",
+    hashes = {
+      { hash = "cb9f01be58ad43f5417078b0be1ccd11", label = "SMW - Super Spice World (2017-10-13) (Randomiser).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="Cave" },
+        { address=0X1DEA, type="u8", condition="change", action="NEW_LEVEL", desc="level" },
+      },
+    },
+  },
+}

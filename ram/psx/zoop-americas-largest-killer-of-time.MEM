@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Zoop: America's Largest Killer of Time!",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "zoop-americas-largest-killer-of-time",
+    hashes = {
+      { hash = "8ef29a73f105719e1607c5679abb4197", label = "Zoop - America's Largest Killer of Time! (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X193FFD, type="u8", condition="change", action="NEW_LEVEL", desc="Level play difficulty" },
+      },
+    },
+  },
+}

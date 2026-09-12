@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Five Nights in BFBB",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-five-nights-in-bfbb",
+    hashes = {
+      { hash = "d7c9dff7b81485d5b30b74d7de0e8a12", label = "SpongeBob SquarePants - Battle for Bikini Bottom - Five Nights in BFBB (v1.4) (Gravity)" },
+    }
+  },
+
+  events = {
+  },
+}

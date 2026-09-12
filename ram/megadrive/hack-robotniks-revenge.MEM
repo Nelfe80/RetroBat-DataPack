@@ -1,0 +1,137 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Robotnik's Revenge",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "hack-robotniks-revenge",
+    hashes = {
+      { hash = "21c929253a667827d89805238efb9724", label = "Sonic 2 - Robotnik's Revenge (v1.0) (ColinC10).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB001, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="You are on the title screen" },
+        { address=0XB001, type="u8", condition="eq", value=0X00000000, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XB19B, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Sonic and Time Attack" },
+        { address=0XB19B, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Sonic and Survival" },
+        { address=0XB19B, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Character Select as Sonic" },
+        { address=0XB19B, type="u8", condition="eq", value=0X03, action="TITLE_SCREEN", desc="Tails and Time Attack" },
+        { address=0XB19B, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Tails and Survival" },
+        { address=0XB19B, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Character Select as Tails" },
+        { address=0XF63A, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not Paused!" },
+        { address=0XF63A, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused!" },
+        { address=0XF772, type="u32be", condition="eq", value=0X000020B2, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XF772, type="u32be", condition="eq", value=0X1BD2, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XFE05, type="u8", condition="change", action="TITLE_SCREEN", desc="Secret Title Screen Loop! (8-bit)" },
+        { address=0XFE13, type="u8", condition="eq", value=0X0, action="GAME_OVER", desc="game over" },
+        { address=0XFF87, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Time Attack" },
+        { address=0XFF87, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Survival" },
+        { address=0XFF87, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Character Select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XB025, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="load zone" },
+        { address=0XB550, type="u8", condition="change", action="NEW_LEVEL", desc="1968 bytes Part of addr Pool responsible for Level Object Leveing (0x00b550-0x00bvff)" },
+        { address=0XB7E0, type="u8", condition="change", action="NEW_LEVEL", desc="Eggman Labyrinth Zone Health (8-bit)" },
+        { address=0XB7E0, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Eggman is dead or off screen." },
+        { address=0XB860, type="u8", condition="change", action="NEW_LEVEL", desc="Alternate Labyrinth Zone Eggman Health (8-bit)" },
+        { address=0XB860, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Eggman is dead or offscreen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB025, type="u8", condition="increase", action="GAIN_LIFE", desc="Life States (8-bit) increased" },
+        { address=0XB025, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life States (8-bit) decreased" },
+        { address=0XB025, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="neutral living" },
+        { address=0XB025, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="hitstun" },
+        { address=0XB025, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="dead" },
+        { address=0XB025, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="fully dead" },
+        { address=0XF772, type="u32be", condition="eq", value=0X00002376, action="LOSE_LIFE", desc="Death Egg Robot + Results Screen" },
+        { address=0XF772, type="u32be", condition="eq", value=0X2376, action="LOSE_LIFE", desc="the Death Egg Robot (17/17🚩)" },
+        { address=0XF772, type="u32be", condition="eq", value=0X237C, action="LOSE_LIFE", desc="the Death Egg Robot (17/17🚩)" },
+        { address=0XF772, type="u32be", condition="eq", value=0X2382, action="LOSE_LIFE", desc="the Death Egg Robot (17/17🚩)" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Silver Sonic and Death Egg Robot" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives for Sonic and Tails (4-bit) increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives for Sonic and Tails (4-bit) decreased" },
+        { address=0XFE13, type="u8", condition="eq", value=0X1, action="LIVES_STATE", desc="1 live" },
+        { address=0XFE13, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="2 lives" },
+        { address=0XFE13, type="u8", condition="eq", value=0X3, action="LIVES_STATE", desc="3 lives" },
+        { address=0XFE13, type="u8", condition="eq", value=0X9, action="LIVES_STATE", desc="infinite lives" },
+        { address=0XFEF0, type="u8", condition="increase", action="GAIN_LIFE", desc="The Amount of Rings Ever Collected This Life (8-bit) increased" },
+        { address=0XFEF0, type="u8", condition="decrease", action="LOSE_LIFE", desc="The Amount of Rings Ever Collected This Life (8-bit) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFE30, type="u8", condition="eq", value=0X01, action="TREASURE", desc="Passed Emerald Hill!" },
+        { address=0XFE31, type="u8", condition="eq", value=0X01, action="TREASURE", desc="Post-Emerald Hill" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFEF0, type="u8", condition="eq", value=0X00, action="COIN_GAIN", desc="0 Rings" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XB460, type="u8", condition="eq", value=0X00, action="BOSS_DEFEATED", desc="both off screen and dead." },
+        { address=0XF7AB, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Eggman hasn't spawned yet." },
+        { address=0XF7AB, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Chemical Plant" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Emerald Hill" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Hill Top" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Aquatic Ruin" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Mystic Cave" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Casino Night" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X07, action="BOSS_HIT", desc="Metropolis" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Oil Ocean" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="Green Hill" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Marble Garden" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Spring Yard" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0D, action="BOSS_HIT", desc="Labyrinth Zone" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0E, action="BOSS_HIT", desc="Star Light and Winged Fortress" },
+        { address=0XF7AB, type="u8", condition="eq", value=0X0F, action="BOSS_HIT", desc="Final Zone" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XB03D, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Not Jumping" },
+        { address=0XB03D, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XF714, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION_CHECKPOINT", desc="loading" },
+        { address=0XF714, type="u8", condition="eq", value=0X06, action="OBJECT_INTERACTION_CHECKPOINT", desc="Title Screen" },
+        { address=0XF714, type="u8", condition="eq", value=0X12, action="OBJECT_INTERACTION_CHECKPOINT", desc="Pre-Emerald Hill Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X18, action="OBJECT_INTERACTION_CHECKPOINT", desc="Emerald Hill Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X2A, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Emerald Hill Checkpoint + Green Hill Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X3C, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Green Hill Checkpoint + Chemical Plant Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X4E, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Chemical Plant Checkpoint + Aquatic Run Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X60, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Aquatic Ruin Checkpoint + Marble Zone Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X72, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Marble Zone Checkpoint + Casino Night Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X84, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Casino Night Checkpoint + Spring Yard Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0X96, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Spring Yard Checkpoint + Hill Top Boss" },
+        { address=0XF714, type="u8", condition="eq", value=0XA8, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Hill Top Boss Checkpoint + Marble Garden Zone" },
+        { address=0XF714, type="u8", condition="eq", value=0XBA, action="OBJECT_INTERACTION_CHECKPOINT", desc="Post Marble Garden Checkpoint + Lab Zone" },
+        { address=0XFE30, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION_CHECKPOINT", desc="No Checkpoint!" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XB19B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Tracks who and what option on the title screen. (8-bit.)" },
+        { address=0XF714, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Weird Checkpoint Mapping that is only in Time Attack that repeats values for some reason. (Not u" },
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="In-Game Timer Minutes (8-bit)" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="In-Game Timer Seconds (8-bit)" },
+        { address=0XFF87, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Tracks the Cursor on the Title Screen. (8-bit)" },
+      },
+    },
+  },
+}

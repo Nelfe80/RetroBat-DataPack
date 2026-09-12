@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bushido Blade 2",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "bushido-blade-2",
+    hashes = {
+      { hash = "6f67480ab32de9471c39d40c7809449a", label = "Bushido Blade 2 (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA3834, type="u8", condition="eq", value=0X0B, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA37A0, type="u8", condition="change", action="NEW_LEVEL", desc="Story mode levels 8Bits" },
+        { address=0XA37A0, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="1st level" },
+        { address=0XA37A0, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Unlock 1st char level" },
+        { address=0XA37A0, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Unlock 2nd char level" },
+        { address=0XA37A0, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Last level Narukagami" },
+        { address=0XA37A0, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Last level Shainto" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA3748, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Kill" },
+        { address=0XA3748, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Death" },
+        { address=0XA3748, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="In battle" },
+      },
+    },
+  },
+}

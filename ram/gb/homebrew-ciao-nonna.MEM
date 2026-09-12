@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ciao Nonna",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-ciao-nonna",
+    hashes = {
+      { hash = "2d6b629ac9898b7688fcc21ad3548ebc", label = "Ciao Nonna (World) (En,It) (v2.2) (Aftermarket) (Unl).gb" },
+      { hash = "90ff156a9f31dab82ac604f3830edc13", label = "Ciao Nonna (World) (Es,Eu) (v2.2) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0B2, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title/Credits" },
+        { address=0XC24D, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen/Credits" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC589, type="u8", condition="eq", value=0XB0, action="COIN_GAIN", desc="Shiny Coin" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC2DF, type="u8", condition="eq", value=0XB0, action="OBJECT_DESTROYED", desc="Right" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB1, action="OBJECT_DESTROYED", desc="Left" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB2, action="OBJECT_DESTROYED", desc="Up" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB3, action="OBJECT_DESTROYED", desc="Down" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB4, action="OBJECT_DESTROYED", desc="A" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB5, action="OBJECT_DESTROYED", desc="B" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB6, action="OBJECT_DESTROYED", desc="Select" },
+        { address=0XC2DF, type="u8", condition="eq", value=0XB7, action="OBJECT_DESTROYED", desc="Start" },
+      },
+    },
+  },
+}

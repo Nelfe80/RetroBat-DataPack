@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Little Red Hood",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "unlicensed-little-red-hood",
+    hashes = {
+      { hash = "05a7d49a3135274c152d5e16ff9abca4", label = "Little Red Hood (Australia) (Unl).nes" },
+      { hash = "8e1652a48d0476108facc2d3b156da2a", label = "Little Red Hood - Xiao Hong Mao (Asia) (Ja) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0802, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag [8bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X038E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Complete Flag [8bit]" },
+        { address=0X063C, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level of Player 1 [8bit]" },
+        { address=0X063D, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level of Player 2 [8bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X063E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives used by Player 1 [8bit] increased" },
+        { address=0X063E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives used by Player 1 [8bit] decreased" },
+        { address=0X063F, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives used by Player 2 [8bit] increased" },
+        { address=0X063F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives used by Player 2 [8bit] decreased" },
+      },
+      health = {
+        { address=0X0637, type="u8", condition="increase", action="HEAL", desc="Current Health [8bit] increased" },
+        { address=0X0637, type="u8", condition="decrease", action="HIT", desc="Current Health [8bit] decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0633, type="u8", condition="increase", action="COIN_GAIN", desc="Current Money of Player 1 [8bit] increased" },
+        { address=0X0634, type="u8", condition="increase", action="COIN_GAIN", desc="Current Money of Player 2 [8bit] increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0268, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0270, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0278, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0280, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0288, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0290, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X0298, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02A0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02A8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02B0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02B8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02C0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02C8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02D0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02D8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02E0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02E8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02F0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+        { address=0X02F8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object Slot" },
+      },
+    },
+  },
+}

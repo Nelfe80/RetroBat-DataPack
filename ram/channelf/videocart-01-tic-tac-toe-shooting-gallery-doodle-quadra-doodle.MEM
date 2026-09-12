@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Videocart-01: Tic-Tac-Toe, Shooting Gallery, Doodle, Quadra-Doodle",
+    system = "channelf",
+    system_name = "Fairchild Channel F",
+    genre = "Casual Game"
+  },
+
+  rom = {
+    name = "videocart-01-tic-tac-toe-shooting-gallery-doodle-quadra-doodle",
+    hashes = {
+      { hash = "7e5c26a6d1f9a90c68669a9800ba522d", label = "Tic-Tac-Toe, Shooting Gallery, Doodle, Quadra-Doodle (USA).bin" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0039, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", no_log=true, desc="[BCD] Shooting Gallery Time left in minutes" },
+        { address=0X003A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="[BCD] Shooting Gallery)Time left in seconds" },
+      },
+    },
+  },
+}

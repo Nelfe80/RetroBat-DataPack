@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Bubble Wrap DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-bubble-wrap-ds",
+    hashes = {
+      { hash = "318cf0621b0204b5daae3052177778c3", label = "Bubble Wrap (World) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+  },
+}

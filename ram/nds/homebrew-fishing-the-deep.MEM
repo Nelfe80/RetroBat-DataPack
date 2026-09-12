@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Fishing the Deep",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-fishing-the-deep",
+    hashes = {
+      { hash = "c72c9b93c5fd833201e6cb24414e98f9", label = "Fishing the Deep (World) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC252C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+  },
+}

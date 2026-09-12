@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Air Raiders",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "air-raiders",
+    hashes = {
+      { hash = "a9cb638cd2cb2e8e0643d7a67db4281c", label = "Air Raiders (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X006F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+        { address=0X006F, type="u8", condition="eq", value=0X36, action="LOSE_LIFE", desc="Hit" },
+        { address=0X006F, type="u8", condition="eq", value=0XA6, action="LOSE_LIFE", desc="Alive" },
+        { address=0X006F, type="u8", condition="eq", value=0XFE, action="LOSE_LIFE", desc="Hit by Flak" },
+      },
+    },
+  },
+}

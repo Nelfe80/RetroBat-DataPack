@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Regulation Red | Regulation Blue [Subset - Solo Challenge]",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-regulation-red-regulation-blue-subset-solo-challenge",
+    hashes = {
+      { hash = "4574f22a18859640dec5ca6a58dfa9c7", label = "Pokemon - Regulation Blue [Subset - Solo Challenge].gb" },
+      { hash = "dc6b3c07ed38e4c37366817e01e88df4", label = "Pokemon - Regulation Red [Subset - Solo Challenge].gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD18C, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bits] Pokemon 1 level (team)" },
+      },
+    },
+  },
+}

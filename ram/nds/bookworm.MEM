@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bookworm",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Education, Puzzle"
+  },
+
+  rom = {
+    name = "bookworm",
+    hashes = {
+      { hash = "84127bc85bc7490b44285c96f158cfd7", label = "Bookworm (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1858F0, type="u16le", condition="eq", value=0X04, action="PAUSE_ON", desc="Pause Menu" },
+        { address=0X1858F8, type="u16le", condition="eq", value=0X00, action="PAUSE_ON", desc="Books" },
+        { address=0X1858F8, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Stats" },
+        { address=0X1858F8, type="u16le", condition="eq", value=0X02, action="PAUSE_ON", desc="Library" },
+        { address=0X1858F8, type="u16le", condition="eq", value=0X04, action="PAUSE_ON", desc="Quitting to Menu" },
+        { address=0X1858F8, type="u16le", condition="eq", value=0X05, action="PAUSE_ON", desc="Returning to Game" },
+        { address=0X1858FC, type="u16le", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1858FC, type="u16le", condition="eq", value=0X0A, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1846DC, type="u8", condition="bit_true", mask=0X40, action="DYNAMIC_INVENTORY", desc="Suit" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X186B14, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Incremental Score Display" },
+      },
+      collectibles = {
+        { address=0X184960, type="u32le", condition="increase", action="COIN_GAIN", desc="Gold Tiles Stat Classic Mode increased" },
+        { address=0X184978, type="u32le", condition="increase", action="COIN_GAIN", desc="Gold Tiles Stat Action Mode increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1846FD, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blocks" },
+        { address=0X184A04, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="[54-bytes array] of 18 [12-byte] objects representing dates for each room." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X01, action="GENERAL_TIMER", desc="Dawn" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X02, action="GENERAL_TIMER", desc="Dusk" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X04, action="GENERAL_TIMER", desc="Hour" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X08, action="GENERAL_TIMER", desc="Noon" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X10, action="GENERAL_TIMER", desc="Week" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X20, action="GENERAL_TIMER", desc="Year" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X40, action="GENERAL_TIMER", desc="Month" },
+        { address=0X1846F8, type="u8", condition="bit_true", mask=0X80, action="GENERAL_TIMER", desc="Night" },
+        { address=0X1846F9, type="u8", condition="bit_true", mask=0X01, action="GENERAL_TIMER", desc="Clock" },
+        { address=0X1846F9, type="u8", condition="bit_true", mask=0X02, action="GENERAL_TIMER", desc="Decade" },
+        { address=0X1846F9, type="u8", condition="bit_true", mask=0X04, action="GENERAL_TIMER", desc="Second" },
+        { address=0X1846F9, type="u8", condition="bit_true", mask=0X08, action="GENERAL_TIMER", desc="Minute" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Law & Order: Mushroom Kingdom Unit - Pilot Episode - Tragic Fox "Tails"",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-law-order-mushroom-kingdom-unit-pilot-episode-tragic-fox-tails",
+    hashes = {
+      { hash = "affa75a9cd1f5677a42f0de1f44f184e", label = "SMW - Law & Order - Mushroom Kingdom Unit - Pilot Episode - Tragic Fox Tails (v1.0.2) (Major Case Squad).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

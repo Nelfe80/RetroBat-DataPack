@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Addams Family",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "the-addams-family",
+    hashes = {
+      { hash = "09202bc26fcf19ebd3ffcbd80e23ed9d", label = "Addams Family, The (Europe).sms" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0308, type="u8", condition="increase", action="GAIN_LIFE", desc="Life bar increased" },
+        { address=0X0308, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life bar decreased" },
+        { address=0X032D, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes, FF game over increased" },
+        { address=0X032D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes, FF game over decreased" },
+        { address=0X035F, type="u8", condition="change", action="LOSE_LIFE", desc="Death?" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0303, type="u8", condition="increase", action="COIN_GAIN", desc="Money XX000000 increased" },
+        { address=0X0304, type="u8", condition="increase", action="COIN_GAIN", desc="Money 00XX0000 increased" },
+        { address=0X0305, type="u8", condition="increase", action="COIN_GAIN", desc="Money 0000XX00 increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0348, type="u8", condition="change", action="DOOR_OPENED", desc="1M door open 01" },
+      },
+    },
+  },
+}

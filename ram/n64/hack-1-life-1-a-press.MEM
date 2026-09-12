@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 1 Life = 1 A Press",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-1-life-1-a-press",
+    hashes = {
+      { hash = "6e08521e0ba19ca20435f4cad443ab36", label = "SM64 - 1 Life 1 A Press (v1.0) (Blue64).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X32DD87, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Collected Star In World" },
+      },
+    },
+  },
+}

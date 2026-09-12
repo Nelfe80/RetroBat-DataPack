@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Mandalorian - Chapter 3: The Sin",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-mandalorian-chapter-3-the-sin",
+    hashes = {
+      { hash = "91c3d238305f308e00fca917d996bb40", label = "Mandalorian, The - Chapter 3 - The Sin (World) (v2.1) (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC6AF, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Mando the Game Title Card" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X09, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="Chapter 3 Title Card" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X18, action="GAME_OVER", desc="Game Over (Stronghold)" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X28, action="GAME_OVER", desc="Game Over (Post Escape)" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X2C, action="GAME_OVER", desc="Game Over (Post Pershing)" },
+        { address=0XC6AF, type="u8", condition="eq", value=0X34, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCCD1, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="Open" },
+        { address=0XCCD1, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Closed" },
+      },
+    },
+  },
+}

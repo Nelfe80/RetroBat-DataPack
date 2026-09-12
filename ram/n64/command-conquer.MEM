@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Command & Conquer",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "command-conquer",
+    hashes = {
+      { hash = "42da4c7d040f9e7cd046a42ec3e68027", label = "Command & Conquer (Europe) (En,Fr).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X934E0, type="u32be", condition="change", action="CREDITS_SCREEN", desc="Ending Credits" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X934E4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Total Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X934DC, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time to Beat (minutes)" },
+      },
+    },
+  },
+}

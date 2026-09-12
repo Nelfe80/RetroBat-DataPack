@@ -1,0 +1,96 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Mario Bros. Mini",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-super-mario-bros-mini",
+    hashes = {
+      { hash = "14a2442e6b50b2617e58ffe10ed6a970", label = "Super Mario Bros. Mini (World) (v2.0.8) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCDB3, type="u16le", condition="change", action="TITLE_SCREEN", desc="Game State {VAR_ISTITLESCREEN} [16bit]" },
+        { address=0XCE03, type="u16le", condition="change", action="DEMO_MODE", desc="In Demo {VAR_ISDEMO} [16bit]" },
+        { address=0XCE33, type="u16le", condition="change", action="PAUSE_ON", desc="Game Paused {VAR_ISPAUSED} [16bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCDB7, type="u16le", condition="change", action="NEW_LEVEL", desc="{VAR_CURRENTWORLD} [16bit]" },
+        { address=0XCDB9, type="u16le", condition="change", action="NEW_LEVEL", desc="{VAR_CURRENTLEVEL} [16bit]" },
+        { address=0XCDC7, type="u16le", condition="change", action="NEW_LEVEL", desc="CurrentLevelType {VAR_CURRENTLEVELTYPE} [16bit]" },
+        { address=0XCDCB, type="u16le", condition="change", action="NEW_LEVEL", desc="WarpFromSubLevel {VAR_WARPFROMSUBLEVEL} [16bit]" },
+        { address=0XCDCD, type="u16le", condition="change", action="NEW_LEVEL", desc="{VAR_CURRENTSUBLEVEL} [16bit]" },
+        { address=0XCDF1, type="u16le", condition="change", action="NEW_LEVEL", desc="{VAR_ISSKYBONUSLEVEL} [16bit]" },
+        { address=0XCE1F, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Select - Level {VAR_SELECTEDLEVEL} [16bit]" },
+        { address=0XCE23, type="u16le", condition="change", action="NEW_LEVEL", desc="{VAR_BOWSER_BACKGROUND_IDX} [16bit]" },
+        { address=0XCE35, type="u16le", condition="change", action="NEW_LEVEL", desc="In Warp Zone {VAR_INWARPZONE} [16bit]" },
+        { address=0XCE37, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Level Complete {VAR_LEVELCOMPLETE} [16bit]" },
+      },
+      zone = {
+        { address=0XCE1B, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="Level Select - World {VAR_SELECTEDWORLD} [16bit]" },
+        { address=0XCE2D, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="Current World {VAR_ACTUALWORLD} [16bit]" },
+      },
+      stage = {
+        { address=0XC1CA, type="u8", condition="change", action="RANK_STATE", desc="Player Position - X [8bit]" },
+        { address=0XC1CC, type="u8", condition="change", action="RANK_STATE", desc="Player Position - Y [8bit]" },
+        { address=0XCE2F, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Level {VAR_ACTUALLEVEL} [16bit]" },
+        { address=0XCE31, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Sub Level {VAR_ACTUALSUBLEVEL} [16bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCDAB, type="u16le", condition="increase", action="GAIN_LIFE", desc="Lives {VAR_LIVES} [16bit] increased" },
+        { address=0XCDAB, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Lives {VAR_LIVES} [16bit] decreased" },
+        { address=0XCDE7, type="u16le", condition="increase", action="GAIN_LIFE", desc="Current Powerup {VAR_CURRENTPOWERUPTYPE} [16bit] increased" },
+        { address=0XCDE7, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Current Powerup {VAR_CURRENTPOWERUPTYPE} [16bit] decreased" },
+        { address=0XCE01, type="u16le", condition="change", action="LOSE_LIFE", desc="{VAR_DEATHTYPE} [16bit]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCDBD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_SCOREUPPER} [16bit]" },
+        { address=0XCDBF, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_TOPSCOREUPPER} [16bit]" },
+        { address=0XCDF5, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_POWERSTARCOMBOSCORE} [16bit]" },
+        { address=0XCDF7, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_SHELLCOMBOSCORE} [16bit]" },
+        { address=0XCDF9, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_JUMPCOMBOSCORE} [16bit]" },
+        { address=0XCE09, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_TOPSCORELOWER} [16bit]" },
+        { address=0XCE0B, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="{VAR_SCORELOWER} [16bit]" },
+      },
+      collectibles = {
+        { address=0XCDB1, type="u16le", condition="increase", action="COIN_GAIN", desc="Coins {VAR_COINS} [16bit] increased" },
+        { address=0XCDE5, type="u16le", condition="increase", action="COIN_GAIN", desc="Multi-Coin Brick Counter {VAR_MULTICOINBRICKCOUNTER} [16bit] increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCDEF, type="u16le", condition="change", action="BOSS_HIT", desc="Boss HP {VAR_BOWSER_HP} [16bit]" },
+        { address=0XCE21, type="u16le", condition="change", action="BOSS_HIT", desc="{VAR_ISFINALBOSS} [16bit]" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XCE15, type="u16le", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="{VAR_CANSWIM} [16bit]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCDAF, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="{VAR_HITBLOCKID} [16bit]" },
+        { address=0XCE11, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="{VAR_HITBLOCKSOURCE} [16bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCDA7, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time {VAR_DEATHTIME} [16bit]" },
+      },
+    },
+  },
+}

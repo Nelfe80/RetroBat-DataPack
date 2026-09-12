@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Wall-E",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-wall-e",
+    hashes = {
+      { hash = "8c304722f73b9c91d3b68db6eaad690d", label = "Wall-E (USA) (v20130624) (Aftermarket) (Unl).a26" },
+    }
+  },
+
+  events = {
+  },
+}

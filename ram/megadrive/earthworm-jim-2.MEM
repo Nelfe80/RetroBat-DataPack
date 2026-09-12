@@ -1,0 +1,109 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Earthworm Jim 2",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "earthworm-jim-2",
+    hashes = {
+      { hash = "2ed39b147fa5fa67d6d0707f54a5a078", label = "Earthworm Jim 2 (USA).md" },
+      { hash = "48ae14e7a771e48513c5ae6f8cd9a56b", label = "Earthworm Jim 2 (USA) (Ru) (NewGame).md" },
+      { hash = "fa52bcb320299c6b51c7f47caa303da8", label = "Earthworm Jim 2 (Europe).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X943A, type="u8", condition="bit_true", mask=0X80, action="PAUSE_OFF", desc="Irrelevant since pressing Start would unpause and stop the cheats." },
+        { address=0XA1EF, type="u8", condition="eq", value=0XFF, action="DEMO_MODE", desc="Demo" },
+        { address=0XA200, type="u8", condition="change", action="CONTINUE_SCREEN", desc="number of continues" },
+        { address=0XFEFE, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0XFEFE, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Paused / Cheat Menu" },
+        { address=0XFF1F, type="u8", condition="change", action="PAUSE_ON", desc="Player 1 Controls - Inverted? (Not While Paused)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA20C, type="u8", condition="change", action="NEW_LEVEL", desc="Flags Collected in Level Ate" },
+        { address=0XFBC2, type="u8", condition="change", action="NEW_LEVEL", desc="Is Jim Moving on the Ground?" },
+        { address=0XFBC2, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Staying Still" },
+        { address=0XFBC2, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Moving to the Right" },
+        { address=0XFBC2, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="Moving to the Left" },
+        { address=0XFBE1, type="u8", condition="change", action="NEW_LEVEL", desc="Is Jim on the Ground?" },
+        { address=0XFBE1, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="In the Air" },
+        { address=0XFBE1, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="On the Ground" },
+        { address=0XFC20, type="u8", condition="change", action="NEW_LEVEL", desc="Cheated to Next Level?" },
+        { address=0XFC20, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="Turns on until the next level starts." },
+        { address=0XFDF3, type="u8", condition="change", action="NEW_LEVEL", desc="Memory Game Round Number" },
+        { address=0XFF29, type="u8", condition="change", action="NEW_LEVEL", desc="Puppy Love Current Round (0 Index)" },
+      },
+      stage = {
+        { address=0XA1A7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0XA202, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_STAGE", desc="Beaten Stage" },
+        { address=0XA20F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Semi Stage Flag?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X965A, type="u8", condition="increase", action="GAIN_LIFE", desc="Life / Continue Data (Not Change-able) increased" },
+        { address=0X965A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life / Continue Data (Not Change-able) decreased" },
+        { address=0X9692, type="u8", condition="increase", action="GAIN_LIFE", desc="life [8x] x : 10 porcent [not changeable] increased" },
+        { address=0X9692, type="u8", condition="decrease", action="LOSE_LIFE", desc="life [8x] x : 10 porcent [not changeable] decreased" },
+        { address=0XA1EB, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Counter increased" },
+        { address=0XA1EB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Counter decreased" },
+      },
+      health = {
+        { address=0XA4A2, type="u8", condition="increase", action="HEAL", desc="meat hp / Pedro pupa hp [hard] increased" },
+        { address=0XA4A2, type="u8", condition="decrease", action="HIT", desc="meat hp / Pedro pupa hp [hard] decreased" },
+        { address=0XA510, type="u8", condition="increase", action="HEAL", desc="Pedro pupa Health increased" },
+        { address=0XA510, type="u8", condition="decrease", action="HIT", desc="Pedro pupa Health decreased" },
+        { address=0XFAFC, type="u8", condition="increase", action="HEAL", desc="Jim's Health (hundred's digit) [8-bit ASCII] increased" },
+        { address=0XFAFC, type="u8", condition="decrease", action="HIT", desc="Jim's Health (hundred's digit) [8-bit ASCII] decreased" },
+        { address=0XFAFE, type="u8", condition="increase", action="HEAL", desc="Jim's Health (one's digit) [8-bit ASCII] increased" },
+        { address=0XFAFE, type="u8", condition="decrease", action="HIT", desc="Jim's Health (one's digit) [8-bit ASCII] decreased" },
+        { address=0XFAFF, type="u8", condition="increase", action="HEAL", desc="Jim's Health (ten's digit) [8-bit ASCII] increased" },
+        { address=0XFAFF, type="u8", condition="decrease", action="HIT", desc="Jim's Health (ten's digit) [8-bit ASCII] decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9672, type="u8", condition="change", action="AMMO_STATE", desc="Ammo Count Display Digit 1" },
+        { address=0X9677, type="u8", condition="change", action="AMMO_STATE", desc="Display Digit 2 of Ammo Count?" },
+        { address=0X967A, type="u8", condition="change", action="AMMO_STATE", desc="Ammo Count Display Digit 2 (if required)" },
+        { address=0X967F, type="u8", condition="change", action="AMMO_STATE", desc="Display Digit 3 of Ammo Count?" },
+        { address=0X9682, type="u8", condition="change", action="AMMO_STATE", desc="Ammo Count Display Digit 3 (if required)" },
+        { address=0X9687, type="u8", condition="change", action="AMMO_STATE", desc="Display Digit 4 of Ammo Count?" },
+        { address=0X968A, type="u8", condition="change", action="AMMO_STATE", desc="Ammo Count Display Digit 4 (if required)" },
+        { address=0XFAE4, type="u16be", condition="change", action="AMMO_STATE", desc="Regular Gun Stored Ammo" },
+        { address=0XFAE6, type="u16be", condition="change", action="AMMO_STATE", desc="Three Finger Gun Stored Ammo" },
+        { address=0XFAE8, type="u16be", condition="change", action="AMMO_STATE", desc="Mega Plasma Gun Stored Ammo" },
+        { address=0XFAEA, type="u16be", condition="change", action="AMMO_STATE", desc="Bubble Gun Stored Ammo" },
+        { address=0XFAEC, type="u16be", condition="change", action="AMMO_STATE", desc="Homing Missiles Stored Ammo" },
+        { address=0XFAF0, type="u16be", condition="change", action="AMMO_STATE", desc="Barn Blaster Stored Ammo" },
+        { address=0XFF06, type="u8", condition="increase", action="COIN_GAIN", desc="Unclear - Active During Whip increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XA1C5, type="u8", condition="eq", value=0XFF, action="INVINCIBILITY_START", desc="On" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X9438, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Cheat Input Counter" },
+        { address=0X9439, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Cheat Timer Countdown" },
+        { address=0X966F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Display Digit 1 of Ammo Count?" },
+        { address=0XA38E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Countdown Timer" },
+        { address=0XFAD1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Unexpected Countdown Timer?" },
+        { address=0XFE80, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Countdown Timer (One's Digit)" },
+        { address=0XFE81, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Countdown Timer (Ten's Digit)" },
+        { address=0XFE83, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time to Tick Down Seconds" },
+      },
+    },
+  },
+}

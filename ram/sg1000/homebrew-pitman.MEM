@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pitman",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-pitman",
+    hashes = {
+      { hash = "f8d0df42b3143c16d3730a37ff1190b9", label = "Pitman (World) (v1.03) (Aftermarket) (Unl) (under4mhz).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X008A, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen / game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X008F, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X03E8, type="u8", condition="eq", value=0XD9, action="LEVEL_CLEAR", desc="Level clear" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0090, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0090, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00BC, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level time" },
+      },
+    },
+  },
+}

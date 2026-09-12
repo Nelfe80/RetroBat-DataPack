@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Goes Skateboarding 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-goes-skateboarding-64",
+    hashes = {
+      { hash = "4257690b5c114fc60231f9d6e37b9e25", label = "SM64 - Mario Goes Skateboarding 64 (En) (v1.0) (AphidKirby).z64" },
+      { hash = "bc915c05e82527f58f64bd447f4fb1e5", label = "SM64 - Mario Goes Skateboarding 64 (Es) (v1.0) (AphidKirby).z64" },
+      { hash = "8905b2f0badc5dba1e4255ca459abafe", label = "SM64 - Mario Goes Skateboarding 64 (En) (v2.0) (AphidKirby).z64" },
+      { hash = "70a8fb8b1f3b19b73fbf7c71e0e95d65", label = "SM64 - Mario Goes Skateboarding 64 (Es) (v2.0) (AphidKirby).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3314FA, type="u16be", condition="eq", value=0X0001, action="PAUSE_ON", desc="Yes" },
+        { address=0X3314FA, type="u16be", condition="eq", value=0XFFFF, action="PAUSE_OFF", desc="No" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins Collected increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33D270, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="Total Objects on the Map" },
+      },
+    },
+  },
+}

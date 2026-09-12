@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ GameBoy WORDLE",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-gameboy-wordle",
+    hashes = {
+      { hash = "aa05bfdc3b5655d4cf6694f54a6262b0", label = "GameBoy WORDLE (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

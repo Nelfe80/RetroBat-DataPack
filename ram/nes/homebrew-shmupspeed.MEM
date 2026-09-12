@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ShmupSpeed",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-shmupspeed",
+    hashes = {
+      { hash = "7affc0f1417af62f9a528c1daefe1fcf", label = "ShmupSpeed (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X0045, type="u8", condition="eq", value=0XFD, action="SCORE_STATE", desc="High score updated & Current score reset to 000" },
+      },
+    },
+  },
+}

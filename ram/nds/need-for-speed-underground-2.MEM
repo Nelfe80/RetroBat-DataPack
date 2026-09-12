@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Need for Speed: Underground 2",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Racing, Driving"
+  },
+
+  rom = {
+    name = "need-for-speed-underground-2",
+    hashes = {
+      { hash = "78f4c1e793b735ea41c7fa0ae1d900b6", label = "Need for Speed - Underground 2 (USA) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X18BF0A, type="u8", condition="change", action="LEVEL_CLEAR", desc="Circuit Level 1 - Races Completed" },
+        { address=0X18BF0C, type="u8", condition="change", action="NEW_LEVEL", desc="Circuit Level 1 - Percent" },
+        { address=0X18BF12, type="u8", condition="change", action="LEVEL_CLEAR", desc="Circuit Level 2 - Races Completed" },
+        { address=0X18BF14, type="u8", condition="change", action="NEW_LEVEL", desc="Circuit Level 2 - Percent" },
+        { address=0X18BF1A, type="u8", condition="change", action="LEVEL_CLEAR", desc="Circuit Level 3 - Races Completed" },
+        { address=0X18BF1B, type="u8", condition="change", action="NEW_LEVEL", desc="01:Level 3 Circuit Locked" },
+        { address=0X18BF1C, type="u8", condition="change", action="NEW_LEVEL", desc="Circuit Level 3 - Percent" },
+        { address=0X18BF22, type="u8", condition="change", action="LEVEL_CLEAR", desc="Own The Zone - Races Completed" },
+        { address=0X18BF24, type="u8", condition="change", action="LEVEL_CLEAR", desc="Own The Zone - Percent Complete" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X18BD36, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16bit Points" },
+      },
+    },
+  },
+}

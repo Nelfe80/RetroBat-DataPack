@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ SWORDSMAN on the ETERNAL JOURNEY",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-swordsman-on-the-eternal-journey",
+    hashes = {
+      { hash = "f67e8aa1d9c49401bfbc8dd148223d99", label = "Swordsman on the Eternal Journey (World) (En,Ja) (v1.01) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCBB1, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Yes" },
+        { address=0XCD81, type="u8", condition="change", action="DEMO_MODE", desc="Demon Lord Defeated" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCBA5, type="u16le", condition="change", action="NEW_LEVEL", desc="Player Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCDC9, type="u8", condition="increase", action="GAIN_LIFE", desc="Forgotten Library: Life Gem Chest increased" },
+        { address=0XCDC9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Forgotten Library: Life Gem Chest decreased" },
+        { address=0XCDDD, type="u8", condition="increase", action="GAIN_LIFE", desc="Palace Ruins: Life Gem Chest increased" },
+        { address=0XCDDD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Palace Ruins: Life Gem Chest decreased" },
+      },
+      health = {
+        { address=0XCBA7, type="u16le", condition="increase", action="HEAL", desc="Player Current HP increased" },
+        { address=0XCBA7, type="u16le", condition="decrease", action="HIT", desc="Player Current HP decreased" },
+        { address=0XCBA9, type="u16le", condition="increase", action="HEAL", desc="Player Max HP increased" },
+        { address=0XCBA9, type="u16le", condition="decrease", action="HIT", desc="Player Max HP decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCA50, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Shoot the Monsters: Score" },
+      },
+      collectibles = {
+        { address=0XCCD4, type="u16le", condition="increase", action="COIN_GAIN", desc="Player Gold increased" },
+        { address=0XCD9D, type="u8", condition="increase", action="COIN_GAIN", desc="Cathedral of Stella: Amethyst Ring Chest increased" },
+        { address=0XCDB3, type="u8", condition="increase", action="COIN_GAIN", desc="Mountain Path of the Seeker: Agate Ring Chest increased" },
+        { address=0XCDB5, type="u8", condition="increase", action="COIN_GAIN", desc="Underwater Cavern: Rutile Ring Chest increased" },
+        { address=0XCDC3, type="u8", condition="increase", action="COIN_GAIN", desc="Forgotten Library: Quartz Ring Chest increased" },
+        { address=0XCDDF, type="u8", condition="increase", action="COIN_GAIN", desc="Palace Ruins: Golden Ring Chest increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCCE1, type="u8", condition="change", action="DOOR_OPENED", desc="Cathedral Door Unlocked" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCD97, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Number of Demon Form Hearts" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Holey Moley",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "prototype-holey-moley",
+    hashes = {
+      { hash = "078e08c1ddf839067b7bc7b88dc04ac1", label = "Holey Moley (USA) (Joystick Conversion) (Prototype).a26" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sips",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sips",
+    hashes = {
+      { hash = "03a47a034c02e457fb6f8412b81ae56c", label = "Sips (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

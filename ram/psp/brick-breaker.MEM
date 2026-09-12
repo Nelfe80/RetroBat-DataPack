@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Brick Breaker",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "brick-breaker",
+    hashes = {
+      { hash = "bae0f7d0af79f552a0d783d7963ec1c4", label = "Brick Breaker (USA) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1F98409, type="u8", condition="eq", value=0X62, action="GAME_OVER", desc="Normal Gameplay/Game Over" },
+        { address=0X1F98409, type="u8", condition="eq", value=0XC4, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1F98409, type="u8", condition="eq", value=0XB5, action="LEVEL_CLEAR", desc="Finished last level" },
+        { address=0X1F98409, type="u8", condition="eq", value=0XBA, action="NEW_LEVEL", desc="Level unlocked" },
+      },
+      stage = {
+        { address=0X8C6524, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage number" },
+        { address=0XE8B910, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of Classic Mode Stages unlocked" },
+        { address=0XE8B914, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of Double Padel Mode Stages unlocked" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1F97D94, type="u16le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X1F97D94, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X1F96388, type="u8", condition="decrease", action="HIT", desc="Have glue power up decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1F96388, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="No" },
+        { address=0X1F96388, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Yes" },
+        { address=0X1F96390, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="0x01 - Gun Power-up active" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1F97D98, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F96360, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="minute", no_log=true, desc="Current Stage Time - Minutes" },
+        { address=0X1F96362, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="Current Stage Time - Seconds" },
+      },
+    },
+  },
+}

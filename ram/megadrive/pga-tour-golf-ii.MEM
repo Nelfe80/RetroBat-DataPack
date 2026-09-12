@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "PGA Tour Golf II",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "pga-tour-golf-ii",
+    hashes = {
+      { hash = "adb33c74e368ef21b04903eadc6244cf", label = "PGA Tour Golf II (USA, Europe) (Rev A).md" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Star Revenge 3: Mario on An Saoire",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-star-revenge-3-mario-on-an-saoire",
+    hashes = {
+      { hash = "e9b1afb391fa4312c62be8cbc5c3771d", label = "SM64 - Star Revenge 3 - Mario on An Saoire (BroDute) (1.2).z64" },
+    }
+  },
+
+  events = {
+  },
+}

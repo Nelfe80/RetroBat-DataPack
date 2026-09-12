@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Fix-it Felix Jr.",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-fix-it-felix-jr",
+    hashes = {
+      { hash = "38a3555768b31dc2abfc34d20ef546ca", label = "Fix-It Felix Jr. (World) (Aftermarket) (Pirate).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00F2, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

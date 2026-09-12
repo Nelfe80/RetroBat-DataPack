@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hudson Hawk",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "hudson-hawk",
+    hashes = {
+      { hash = "34db58de82a102c28619f650014d7aec", label = "Hudson Hawk (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01FF, type="u8", condition="eq", value=0XC6, action="DEMO_MODE", desc="Demo (No actual demo.)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0073, type="u8", condition="change", action="NEW_LEVEL", desc="(8-bit) Level Index" },
+        { address=0X0073, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="First level" },
+        { address=0X0073, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Second Level" },
+        { address=0X0073, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Third Level" },
+        { address=0X0073, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Finished game" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00F2, type="u8", condition="increase", action="GAIN_LIFE", desc="(8-bit) Lives Value increased" },
+        { address=0X00F2, type="u8", condition="decrease", action="LOSE_LIFE", desc="(8-bit) Lives Value decreased" },
+        { address=0X00F2, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="Initial Value" },
+        { address=0X00F3, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead (not instant)" },
+        { address=0X00F6, type="u8", condition="bit_true", mask=0X100, action="LIVES_STATE", desc="Actual Control of Cheat code." },
+      },
+      health = {
+        { address=0X00F3, type="u8", condition="change", action="HEALTH_STATE", desc="(8-bit) Energy Value" },
+        { address=0X00F3, type="u8", condition="eq", value=0XFF, action="HEALTH_STATE", desc="Max Value (8 hearts)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00FA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="(8-bit) Continues Left. Note when this is 1, it appears you can continue one last time, even tho" },
+      },
+    },
+  },
+}

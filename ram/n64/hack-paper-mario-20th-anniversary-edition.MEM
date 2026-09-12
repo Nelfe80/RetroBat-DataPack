@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Paper Mario: 20th Anniversary Edition",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-paper-mario-20th-anniversary-edition",
+    hashes = {
+      { hash = "76d1d6bb0bd59cfdf0e47d63ef8b3678", label = "Paper Mario - 20th Anniversary Edition (v1.0) (Monstar Mods).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X10EF96, type="u16be", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X10EF96, type="u16be", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X10F29E, type="u16be", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Invictus",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-invictus",
+    hashes = {
+      { hash = "56c33658bc878f05b5ae7b8634098066", label = "SMW - Invictus (Juzcook).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="fade to the overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="level loaded, normal play mode, playing the level" },
+        { address=0X010B, type="u16le", condition="change", action="NEW_LEVEL", desc="(16-bit) Current Level / Room ID" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="(8-bit) Number of Levels Cleared (in invictus 16 : 22 levels cleared)" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8-Bit) Stage Indicator" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="dead transition, retry" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario Powerup State: 00:Small, 01:Big, 02:Cape, 03:Flower" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1426, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Message Blocks:" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Stray Cat DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-stray-cat-ds",
+    hashes = {
+      { hash = "1e60e59ba1294abecbb95df158379e9c", label = "Stray Cat DS (World) (Aftermarket) (Unl) (frodonag).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X19801B, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X19801B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+  },
+}

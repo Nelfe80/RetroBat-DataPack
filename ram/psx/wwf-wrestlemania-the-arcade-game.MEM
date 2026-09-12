@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWF WrestleMania: The Arcade Game",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "wwf-wrestlemania-the-arcade-game",
+    hashes = {
+      { hash = "5c00f86feb6d00e4814ead917021286d", label = "WWF WrestleMania - The Arcade Game (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10070, type="u8", condition="eq", value=0X30, action="DEMO_MODE", desc="Demo Match" },
+        { address=0X100C0, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X100C0, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Player 1 Paused" },
+        { address=0X100C0, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Player 2 Paused" },
+      },
+      events = {
+        { address=0X100C8, type="u8", condition="change", action="COMBO_HIT", desc="Cheats - Infinite Combo Meter (8-bit)" },
+        { address=0X6E866, type="u8", condition="change", action="COMBO_HIT", desc="P1 Combo Bar (8-bit)" },
+        { address=0X6E867, type="u8", condition="change", action="COMBO_HIT", desc="P1 Combo Mode active (8-bit)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X771FA, type="u8", condition="change", action="NEW_LEVEL", desc="P1 Round Wins (8-bit)" },
+        { address=0X771FC, type="u8", condition="change", action="NEW_LEVEL", desc="P2 Round Wins (8-bit)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X6E860, type="u8", condition="increase", action="HEAL", desc="P1 Health (8-bit) increased" },
+        { address=0X6E860, type="u8", condition="decrease", action="HIT", desc="P1 Health (8-bit) decreased" },
+        { address=0X6E870, type="u8", condition="increase", action="HEAL", desc="P2 Health (8-bit) increased" },
+        { address=0X6E870, type="u8", condition="decrease", action="HIT", desc="P2 Health (8-bit) decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X100F0, type="u8", condition="change", action="INVINCIBILITY_START", desc="Cheats - Invincibility (8-bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X100AC, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="On" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1009C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", desc="Settings - Clock Speed (8-bit)" },
+        { address=0X1009C, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="Very Slow" },
+        { address=0X1009C, type="u8", condition="eq", value=0X05, action="GENERAL_TIMER", desc="Very Fast" },
+        { address=0X100E4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Cheats - Stop Timer [Doesn't actually do anything] (8-bit)" },
+        { address=0X771E8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer - Tens (8-bit)" },
+        { address=0X771EA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds (8-bit)" },
+      },
+    },
+  },
+}

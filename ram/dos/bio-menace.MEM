@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bio Menace",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "bio-menace",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X2D5EE, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Lives increased" },
+        { address=0X2D5EE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Lives decreased" },
+      },
+    },
+  },
+}

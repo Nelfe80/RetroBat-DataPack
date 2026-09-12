@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ The Dinosaur Dooley",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "unlicensed-the-dinosaur-dooley",
+    hashes = {
+      { hash = "e5c7ba1a2a6e1e9de597479add641d1d", label = "Dinosaur Dooley, The (Korea) (En) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0008, type="u8", condition="change", action="PAUSE_ON", desc="Pause (flickers)" },
+        { address=0X000D, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Left" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X024E, type="u8", condition="change", action="LEVEL_CLEAR", desc="bit5 - setting to 1 finishes current stage" },
+      },
+      stage = {
+        { address=0X0238, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000E, type="u8", condition="increase", action="GAIN_LIFE", desc="Initial Player Life increased" },
+        { address=0X000E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Initial Player Life decreased" },
+        { address=0X01D8, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives in HUD increased" },
+        { address=0X01D8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives in HUD decreased" },
+        { address=0X0249, type="u8", condition="increase", action="GAIN_LIFE", desc="Total HP increased" },
+        { address=0X0249, type="u8", condition="decrease", action="LOSE_LIFE", desc="Total HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X024B, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0DA9, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit BE BCD] Score" },
+        { address=0X0DAF, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[24-bit BE BCD] High Score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0B93, type="u8", condition="change", action="BOSS_HIT", desc="Boss Sprite" },
+        { address=0X0B9A, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0247, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Invincibility timer" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0246, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Increased Speed: Time Left" },
+        { address=0X0358, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Orbiting Dinosaur: Time Left" },
+      },
+    },
+  },
+}

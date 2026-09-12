@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bomberman Online",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "bomberman-online",
+    hashes = {
+      { hash = "ebee803a43d98f94ec40b18904490e14", label = "Bomberman Online (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

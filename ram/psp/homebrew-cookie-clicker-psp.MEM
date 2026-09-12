@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cookie Clicker PSP",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cookie-clicker-psp",
+    hashes = {
+      { hash = "3159992a4320bffedc9399d45782cd61", label = "Cookie Clicker PSP (World) (Aftermarket) (XD)" },
+    }
+  },
+
+  events = {
+  },
+}

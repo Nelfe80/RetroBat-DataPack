@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Project Ember",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-project-ember",
+    hashes = {
+      { hash = "861a0c1d7c5c7fa3dcaaf4a400743461", label = "FE6 - Project Ember (HM) (v1.85) (Brunhilda).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X4130C, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="critical" },
+        { address=0X4130C, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="miss" },
+        { address=0X4130C, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="triangle attack" },
+      },
+      stage = {
+        { address=0X32B80, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - Current Level - Character 1" },
+        { address=0X32BA9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 1st Support Level - Character 1" },
+        { address=0X32BAA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 2nd Support Level - Character 1" },
+        { address=0X32BAB, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 3rd Support Level - Character 1" },
+        { address=0X32BAC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 4th Support Level - Character 1" },
+        { address=0X32BAD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 5th Support Level - Character 1" },
+        { address=0X32BAE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 6th Support Level - Character 1" },
+        { address=0X32BAF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 7th Support Level - Character 1" },
+        { address=0X32BB0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 8th Support Level - Character 1" },
+        { address=0X32BB1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] - 9th Support Level - Character 1" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X32B88, type="u8", condition="increase", action="HEAL", desc="[8 Bit] - Max HP - Character 1 increased" },
+        { address=0X32B88, type="u8", condition="decrease", action="HIT", desc="[8 Bit] - Max HP - Character 1 decreased" },
+        { address=0X32B89, type="u8", condition="increase", action="HEAL", desc="[8 Bit] - Current HP - Character 1 increased" },
+        { address=0X32B89, type="u8", condition="decrease", action="HIT", desc="[8 Bit] - Current HP - Character 1 decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X32A50, type="u16le", condition="increase", action="COIN_GAIN", desc="[16 Bit] Gold increased" },
+      },
+    },
+  },
+}

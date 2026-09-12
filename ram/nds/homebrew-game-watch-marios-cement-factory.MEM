@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Game & Watch Mario's Cement Factory",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-game-watch-marios-cement-factory",
+    hashes = {
+      { hash = "a93ae7321932e61c116b74bfa13d59b2", label = "Game & Watch Mario's Cement Factory (World) (v1.2) (Aftermarket) (Unl) (PaulGoes).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XBAF3C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 bit]Score" },
+      },
+    },
+  },
+}

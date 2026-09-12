@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Recharged Yellow",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-recharged-yellow",
+    hashes = {
+      { hash = "9d54170472e5a37fc92602b838fe754e", label = "Pokemon Emerald - Recharged Yellow (v1.8.0) (Jaizu).gba" },
+      { hash = "3d26111c90fc3041abe5b1ac4c8257b3", label = "Pokemon Emerald - Recharged Yellow (v1.9.0) (Jaizu).gba" },
+      { hash = "f82b2f98c0c38191cc1f88b9a1df2678", label = "Pokemon Emerald - Recharged Yellow (v1.9.3) (Jaizu).gba" },
+      { hash = "30e6c02acdf3308cfd60ba082f611052", label = "Pokemon Emerald - Recharged Yellow (v1.9.4) (Jaizu).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X9468, type="u16le", condition="increase", action="HEAL", desc="Active HP increased" },
+        { address=0X9468, type="u16le", condition="decrease", action="HIT", desc="Active HP decreased" },
+        { address=0X245A2, type="u16le", condition="increase", action="HEAL", desc="Slot 1 HP increased" },
+        { address=0X245A2, type="u16le", condition="decrease", action="HIT", desc="Slot 1 HP decreased" },
+        { address=0X24606, type="u16le", condition="increase", action="HEAL", desc="Slot 2 HP increased" },
+        { address=0X24606, type="u16le", condition="decrease", action="HIT", desc="Slot 2 HP decreased" },
+        { address=0X2466A, type="u16le", condition="increase", action="HEAL", desc="Slot 3 HP increased" },
+        { address=0X2466A, type="u16le", condition="decrease", action="HIT", desc="Slot 3 HP decreased" },
+        { address=0X246CE, type="u16le", condition="increase", action="HEAL", desc="Slot 4 HP increased" },
+        { address=0X246CE, type="u16le", condition="decrease", action="HIT", desc="Slot 4 HP decreased" },
+        { address=0X24732, type="u16le", condition="increase", action="HEAL", desc="Slot 5 HP increased" },
+        { address=0X24732, type="u16le", condition="decrease", action="HIT", desc="Slot 5 HP decreased" },
+        { address=0X24796, type="u16le", condition="increase", action="HEAL", desc="Slot 6 HP increased" },
+        { address=0X24796, type="u16le", condition="decrease", action="HIT", desc="Slot 6 HP decreased" },
+      },
+    },
+  },
+}

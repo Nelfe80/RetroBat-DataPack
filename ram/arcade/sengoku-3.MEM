@@ -1,0 +1,76 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sengoku 3",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sengoku-3",
+    hashes = {
+      { hash = "f02ef978fd0ec8736cbb7e2b3c9d96b9", label = "sengoku3.7z <Sengoku 3 / Sengoku Densho 2001 (set 1)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFD8D, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - toggle demo sound" },
+        { address=0XFD8E, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - toggle continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X8410, type="u8", condition="change", action="LEVEL_CLEAR", desc="China Stage Flag: 00 : Inactive, 01 : Selected, FF : Cleared" },
+        { address=0X8411, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of Stages Finished" },
+        { address=0X8412, type="u8", condition="change", action="LEVEL_CLEAR", desc="Japan Stage Flag: 00 : Inactive, 01 : Selected, FF : Cleared" },
+        { address=0X8413, type="u8", condition="change", action="LEVEL_CLEAR", desc="Italy Stage Flag: 00 : Inactive, 01 : Selected, FF : Cleared" },
+        { address=0X8414, type="u8", condition="change", action="LEVEL_CLEAR", desc="FF : Stage Clear" },
+        { address=0X85A9, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage clear flag" },
+      },
+      stage = {
+        { address=0X83B6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage result flag" },
+        { address=0X8415, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage sections (unique)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X83E0, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 - Number of Lives increased" },
+        { address=0X83E0, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 - Number of Lives decreased" },
+        { address=0X83FE, type="u8", condition="increase", action="GAIN_LIFE", desc="2P - Number of Lives increased" },
+        { address=0X83FE, type="u8", condition="decrease", action="LOSE_LIFE", desc="2P - Number of Lives decreased" },
+        { address=0XFD8F, type="u8", condition="increase", action="GAIN_LIFE", desc="Soft Dip Setup - lives increased" },
+        { address=0XFD8F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Soft Dip Setup - lives decreased" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1(min)" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="2(default)" },
+        { address=0XFD8F, type="u8", condition="eq", value=0X08, action="LIVES_STATE", desc="9(max)" },
+      },
+      health = {
+        { address=0X2C18, type="u8", condition="increase", action="HEAL", desc="P1 Health: 60 : Maximum increased" },
+        { address=0X2C18, type="u8", condition="decrease", action="HIT", desc="P1 Health: 60 : Maximum decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X83EB, type="u8", condition="change", action="WEAPON_STATE", desc="P1 - Sub Weapon Type: 00 : Shuriken, 01 : Kunai, 02 : Bomb, 03 : Disc" },
+        { address=0X8409, type="u8", condition="change", action="WEAPON_STATE", desc="2P - Sub Weapon Type: 00 : Shuriken, 01 : Kunai, 02 : Bomb, 03 : Disc" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X83E6, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X83EA, type="u8", condition="change", action="AMMO_STATE", desc="P1 - Sub Weapon Ammo" },
+        { address=0X8408, type="u8", condition="change", action="AMMO_STATE", desc="2P - Sub Weapon Ammo" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X83BF, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="2P Continue Timer" },
+      },
+    },
+  },
+}

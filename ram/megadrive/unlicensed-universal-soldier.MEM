@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Universal Soldier",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Platform, Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-universal-soldier",
+    hashes = {
+      { hash = "1546f822e7fe5b5d7fa54067968628dd", label = "Universal Soldier (USA, Europe) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0009, type="u8", condition="change", action="DEMO_MODE", desc="Demo mode flag" },
+        { address=0X12D6, type="u8", condition="change", action="CONTINUE_SCREEN", desc="number of continues available" },
+        { address=0X133A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Cheat - Continues work when at 0" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X12D0, type="u8", condition="change", action="NEW_LEVEL", desc="Level loaded" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0032, type="u8", condition="increase", action="GAIN_LIFE", desc="Life of secret boss on level 6 increased" },
+        { address=0X0032, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life of secret boss on level 6 decreased" },
+        { address=0X0ADE, type="u8", condition="increase", action="GAIN_LIFE", desc="Player lives [BCD] increased" },
+        { address=0X0ADE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player lives [BCD] decreased" },
+        { address=0X0AF0, type="u8", condition="increase", action="GAIN_LIFE", desc="UI Life bar increased" },
+        { address=0X0AF0, type="u8", condition="decrease", action="LOSE_LIFE", desc="UI Life bar decreased" },
+        { address=0X1338, type="u8", condition="increase", action="GAIN_LIFE", desc="Cheat - Lives reset to 99 when reach 0 increased" },
+        { address=0X1338, type="u8", condition="decrease", action="LOSE_LIFE", desc="Cheat - Lives reset to 99 when reach 0 decreased" },
+      },
+      health = {
+        { address=0X1339, type="u8", condition="increase", action="HEAL", desc="Cheat - Health resets at 0 increased" },
+        { address=0X1339, type="u8", condition="decrease", action="HIT", desc="Cheat - Health resets at 0 decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X075D, type="u8", condition="change", action="WEAPON_STATE", desc="Spreadgun weapon power" },
+        { address=0X08CB, type="u8", condition="change", action="WEAPON_STATE", desc="Ricochet weapon power" },
+        { address=0X0936, type="u8", condition="change", action="WEAPON_STATE", desc="Flame wave weapon power" },
+        { address=0X132C, type="u24be", condition="change", action="WEAPON_STATE", desc="Weapon type" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0AE0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="First digits of player score [16 bit]" },
+        { address=0X0AE2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Last four digits of player score [16 bit]" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X034A, type="u8", condition="change", action="BOSS_HIT", desc="First boss health" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0AE8, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Timer [16 bit] [BCD]" },
+      },
+    },
+  },
+}

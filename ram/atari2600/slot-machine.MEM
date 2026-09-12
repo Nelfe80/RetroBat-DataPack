@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Slot Machine",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Simulation, Casino, Machine a sous"
+  },
+
+  rom = {
+    name = "slot-machine",
+    hashes = {
+      { hash = "f90b5da189f24d7e1a2117d8c8abc952", label = "Slot Machine ~ Slots (USA).a26" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X003B, type="u8", condition="increase", action="COIN_GAIN", desc="Coins You Have At The Moment increased" },
+        { address=0X003D, type="u8", condition="increase", action="COIN_GAIN", desc="How many coins you bet increased" },
+      },
+    },
+  },
+}

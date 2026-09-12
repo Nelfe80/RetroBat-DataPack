@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dinoforce",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-dinoforce",
+    hashes = {
+      { hash = "649d21db47c5aca68687793cd97f4cc2", label = "Dinoforce (Japan) (En) (Aftermarket) (Unl).pce" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X032A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X032B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0331, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives | Power increased" },
+        { address=0X0331, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives | Power decreased" },
+        { address=0X03AC, type="u8", condition="increase", action="GAIN_LIFE", desc="10 Lives Cheat increased" },
+        { address=0X03AC, type="u8", condition="decrease", action="LOSE_LIFE", desc="10 Lives Cheat decreased" },
+        { address=0X04AB, type="u8", condition="increase", action="GAIN_LIFE", desc="Powerup Slot 1 increased" },
+        { address=0X04AB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Powerup Slot 1 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X04AC, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Powerup Slot 2" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X031A, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X04B2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Weapon Select Timer" },
+      },
+    },
+  },
+}

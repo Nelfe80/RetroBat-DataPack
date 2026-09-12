@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hercules",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "hercules",
+    hashes = {
+      { hash = "abd4baa57f0b90b402c2e56090394f9e", label = "Hercules (USA, Europe) (SGB Enhanced).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XFFEB, type="u8", condition="increase", action="HEAL", desc="health increased" },
+        { address=0XFFEB, type="u8", condition="decrease", action="HIT", desc="health decreased" },
+      },
+    },
+  },
+}

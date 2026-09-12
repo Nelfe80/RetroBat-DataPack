@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Barbie: Explorer",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "barbie-explorer",
+    hashes = {
+      { hash = "c117dfd7dfa38f018b31845e96aae331", label = "Barbie - Explorer (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8C470, type="u8", condition="change", action="PAUSE_ON", desc="PAUSE" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X8C6A4, type="u16le", condition="change", action="NEW_LEVEL", desc="16-bit Level ID," },
+        { address=0X8CD40, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level's collected Jewels" },
+        { address=0X8DB5A, type="u16le", condition="change", action="NEW_LEVEL", desc="16-bit Level 'Section' data," },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8DB8A, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Lives Remaining increased" },
+        { address=0X8DB8A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Lives Remaining decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X8E0AE, type="u8", condition="change", action="SHIELD_GAIN", desc="Sapphire Shield Collected" },
+      },
+    },
+  },
+}

@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Senshijidaino Kyoryu: DINOPREHIS!",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-senshijidaino-kyoryu-dinoprehis",
+    hashes = {
+      { hash = "6762619d05c36252b1ddfb67230f52f0", label = "Senshijidaino kyōryū - DINOPREHÍS! (World) (1997 Beta) (Es) (Aftermarket) (Unl).gb" },
+      { hash = "7936b12937a175abb39e199c9feed508", label = "Senshijidaino kyoryu - DINOPREHIS! (World) (1997 Beta) (En) (v1.0) (AgamemnonGaming).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC120, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCC6F, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Player's Dinoprehis HP in battle increased" },
+        { address=0XCC6F, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Player's Dinoprehis HP in battle decreased" },
+        { address=0XCD85, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Opponent's Dinoprehis HP in battle increased" },
+        { address=0XCD85, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Opponent's Dinoprehis HP in battle decreased" },
+        { address=0XCD91, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Opponent second Dinoprehis HP increased" },
+        { address=0XCD91, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Opponent second Dinoprehis HP decreased" },
+        { address=0XCD9D, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Opponent third Dinoprehis HP increased" },
+        { address=0XCD9D, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Opponent third Dinoprehis HP decreased" },
+        { address=0XCDA9, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Opponent fourth Dinoprehis HP increased" },
+        { address=0XCDA9, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Opponent fourth Dinoprehis HP decreased" },
+        { address=0XCDB5, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] Opponent fifth Dinoprehis HP increased" },
+        { address=0XCDB5, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] Opponent fifth Dinoprehis HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCE59, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Rock in the second area destroyed" },
+      },
+    },
+  },
+}

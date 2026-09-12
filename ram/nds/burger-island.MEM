@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Burger Island",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Life Simulation"
+  },
+
+  rom = {
+    name = "burger-island",
+    hashes = {
+      { hash = "a316552f39b8433e0f3dac1f74a7516e", label = "Burger Island (USA).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X126E4C, type="u32le", condition="change", action="NEW_LEVEL", desc="Level number saved to file | Starts tracking from level 2 onwards" },
+        { address=0X133840, type="u32le", condition="change", action="NEW_LEVEL", desc="Level cash" },
+        { address=0X133984, type="u16le", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="False" },
+        { address=0X133984, type="u16le", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="True" },
+        { address=0X133990, type="u16le", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="False" },
+        { address=0X133990, type="u16le", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="True" },
+        { address=0X133998, type="u16le", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="False" },
+        { address=0X133998, type="u16le", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="True" },
+        { address=0X136540, type="u32le", condition="change", action="NEW_LEVEL", desc="Level number saved to file | Starts tracking from level 2 onwards" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X133844, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X133844, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X13654A, type="u16le", condition="increase", action="GAIN_LIFE", desc="Lives saved to file increased" },
+        { address=0X13654A, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Lives saved to file decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X126E44, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Total score saved to file" },
+        { address=0X133994, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Boolean] Qualified for bonus score" },
+        { address=0X133994, type="u32le", condition="eq", value=0X0, action="SCORE_STATE", desc="False" },
+        { address=0X133994, type="u32le", condition="eq", value=0X1, action="SCORE_STATE", desc="True" },
+        { address=0X136538, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score saved to file" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X126E48, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Save file time, in seconds, saved to file" },
+        { address=0X133848, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Save file time, in seconds" },
+        { address=0X13398C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Boolean] Store closed / overtime" },
+        { address=0X13653C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Save file time saved to file, in seconds" },
+      },
+    },
+  },
+}

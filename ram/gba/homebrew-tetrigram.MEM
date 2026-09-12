@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Tetrigram",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-tetrigram",
+    hashes = {
+      { hash = "2050e27bdf4b7281482ce766a8c3676d", label = "Tetrigram (World) (v1.0) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X011C, type="u8", condition="change", action="PAUSE_ON", desc="Paused : 0x00" },
+        { address=0X05A4, type="u8", condition="change", action="TITLE_SCREEN", desc="On Title Screen : 0x00" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X7ED0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+      },
+    },
+  },
+}

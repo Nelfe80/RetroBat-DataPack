@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Klondike Solitaire",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-klondike-solitaire",
+    hashes = {
+      { hash = "9ced5749ab0db9d67b5446381a0182f7", label = "Klondike Solitaire (USA) (v1.04b) (Aftermarket) (Unl).sg" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bust-A-Move 2: Arcade Edition",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "bust-a-move-2-arcade-edition",
+    hashes = {
+      { hash = "f705f203ca39bd9515af523e686ca3d9", label = "Bust-A-Move 2 - Arcade Edition (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1A6E88, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="On" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1BD772, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round" },
+      },
+      zone = {
+        { address=0X1A6D8B, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="On" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1A6BB4, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Higher Portion)" },
+        { address=0X1A6BB6, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Lower Portion)" },
+      },
+      collectibles = {
+        { address=0X1CC8D8, type="u8", condition="increase", action="COIN_GAIN", desc="Credits increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1BD76C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="unknown", desc="Round Counter" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ DiveJely",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-divejely",
+    hashes = {
+      { hash = "9575b6fdb2fbcb021ab4435b28aac79d", label = "DiveJely (2023) (CPCRetroDev 2023) (ChonkyBird).sna" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X9240, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X9241, type="u8", condition="change", action="NEW_LEVEL", desc="Wave (Sublevel)" },
+      },
+    },
+  },
+}

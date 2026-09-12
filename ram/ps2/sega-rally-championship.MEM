@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sega Rally Championship",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "sega-rally-championship",
+    hashes = {
+      { hash = "0cd9e555b4f26953e3fc4550dde35d04", label = "Sega Rally Championship (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X30FD44, type="u16le", condition="eq", value=0X2, action="DEMO_MODE", desc="Attract Mode" },
+        { address=0X30FD50, type="u16le", condition="eq", value=0X3, action="GAME_PLAYING", desc="In-game (Championship) / Stage Select (Practice)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1E04FD, type="u8", condition="change", action="NEW_LEVEL", desc="Round length" },
+        { address=0X1E04FD, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Normal" },
+        { address=0X1E04FD, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Short" },
+        { address=0X1E04FD, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Long" },
+        { address=0X1E04FD, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Longest" },
+      },
+      stage = {
+        { address=0X310338, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+        { address=0X310338, type="u16le", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Desert" },
+        { address=0X310338, type="u16le", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Forest" },
+        { address=0X310338, type="u16le", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Mountains" },
+        { address=0X310338, type="u16le", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Lakeside" },
+        { address=0X310338, type="u16le", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="(In Game Select Screen)" },
+        { address=0X311710, type="u32le", condition="change", action="RANK_STATE", desc="Race Position (i.e. POSITION: X / 15)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X30FD4C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Ternary game state" },
+        { address=0X30FD4C, type="u16le", condition="eq", value=0XB, action="GENERAL_TIMER", desc="Time Out/Car Select" },
+        { address=0X30FD70, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Lap Counter (0-based)" },
+      },
+    },
+  },
+}

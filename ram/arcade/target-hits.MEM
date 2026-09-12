@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Target Hits",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Gun"
+  },
+
+  rom = {
+    name = "target-hits",
+    hashes = {
+      { hash = "96c0d70925ca11ccaffc5432b4080cf7", label = "targeth.zip <Target Hits (ver 1.1, Checksum 5152)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XDB66, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Remaining increased" },
+        { address=0XDB66, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X4F88, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

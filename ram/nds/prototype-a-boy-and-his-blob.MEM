@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ A Boy and His Blob",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-a-boy-and-his-blob",
+    hashes = {
+      { hash = "33a224f5c0f30cf69469a765a8d183fe", label = "Boy and His Blob, A (USA) (Proto) (2005-05-16).nds" },
+      { hash = "39aef5eb735bc5046cf190072bcd0e2c", label = "Boy and His Blob, A (USA) (Proto) (2005-07-21).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X15293C, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Level [32bit] {Build 07/2005}" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X15803C, type="u32le", condition="increase", action="HEAL", desc="Health [32bit] {Build 07/2005} increased" },
+        { address=0X15803C, type="u32le", condition="decrease", action="HIT", desc="Health [32bit] {Build 07/2005} decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X158044, type="u32le", condition="increase", action="COIN_GAIN", desc="Money [32bit] {Build 07/2005} increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1528E2, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Elapsed Time [16bit] {Build 07/2005}" },
+      },
+    },
+  },
+}

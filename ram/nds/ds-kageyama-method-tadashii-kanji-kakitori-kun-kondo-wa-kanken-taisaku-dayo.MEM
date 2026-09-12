@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "DS Kageyama Method: Tadashii Kanji Kakitori-Kun - Kondo wa Kanken Taisaku Dayo!",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ds-kageyama-method-tadashii-kanji-kakitori-kun-kondo-wa-kanken-taisaku-dayo",
+    hashes = {
+      { hash = "ce828f74da4a4c09a7c979ddc3067309", label = "DS Kageyama Method Dennou Hanpuku - Tadashii Kanji Kakitori-kun - Kondo wa Kanken Taisaku Da yo! (Japan).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1237BE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Character Writing Points Awarded (てん) [8bit]" },
+        { address=0X1A0ACF, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Character Writing Percentage/Points (Romaji is ten) [8bit]" },
+      },
+    },
+  },
+}

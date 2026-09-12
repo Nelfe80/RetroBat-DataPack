@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gyakuten Saiban",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Adventure, Visual Novel"
+  },
+
+  rom = {
+    name = "gyakuten-saiban",
+    hashes = {
+      { hash = "a476526adc63d7e287d905eb7251d120", label = "Gyakuten Saiban (Japan).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3A8C, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1042, type="u8", condition="change", action="NEW_LEVEL", desc="First Background IMG ID" },
+        { address=0X153D, type="u8", condition="change", action="NEW_LEVEL", desc="Last Background IMG ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X37BF, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X37BF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

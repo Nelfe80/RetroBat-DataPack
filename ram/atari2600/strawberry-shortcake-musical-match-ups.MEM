@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Strawberry Shortcake: Musical Match-Ups",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Ludo-Educatif, Strategy"
+  },
+
+  rom = {
+    name = "strawberry-shortcake-musical-match-ups",
+    hashes = {
+      { hash = "516ffd008057a1d78d007c851e6eff37", label = "Strawberry Shortcake - Musical Match-Ups (Europe).a26" },
+      { hash = "e10d2c785aadb42c06390fae0d92f282", label = "Strawberry Shortcake - Musical Match-Ups (USA).a26" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0019, type="u8", condition="eq", value=0X1, action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0X001A, type="u8", condition="eq", value=0X1, action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0X001B, type="u8", condition="eq", value=0X1, action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0X001C, type="u8", condition="eq", value=0X1, action="HEALTH_STATE", no_log=true, desc="HP" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0052, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Game Mode" },
+      },
+    },
+  },
+}

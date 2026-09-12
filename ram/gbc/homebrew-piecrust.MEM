@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Piecrust",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-piecrust",
+    hashes = {
+      { hash = "d076ab5be2ec4972376de685c3705ff2", label = "Piecrust (World) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X481B, type="u8", condition="change", action="PAUSE_ON", desc="Pause Screen Text" },
+        { address=0X9A05, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Blank" },
+        { address=0X9A05, type="u8", condition="eq", value=0X3D, action="TITLE_SCREEN", desc="A" },
+        { address=0X9A05, type="u8", condition="eq", value=0X3E, action="TITLE_SCREEN", desc="B" },
+        { address=0X9A05, type="u8", condition="eq", value=0X3F, action="TITLE_SCREEN", desc="C" },
+        { address=0X9A05, type="u8", condition="eq", value=0X40, action="TITLE_SCREEN", desc="D" },
+        { address=0X9A05, type="u8", condition="eq", value=0X41, action="TITLE_SCREEN", desc="E" },
+        { address=0X9A05, type="u8", condition="eq", value=0X42, action="TITLE_SCREEN", desc="F" },
+        { address=0X9A05, type="u8", condition="eq", value=0X43, action="TITLE_SCREEN", desc="G" },
+        { address=0X9A05, type="u8", condition="eq", value=0X44, action="TITLE_SCREEN", desc="H" },
+        { address=0X9A05, type="u8", condition="eq", value=0X45, action="TITLE_SCREEN", desc="I" },
+        { address=0X9A05, type="u8", condition="eq", value=0X46, action="TITLE_SCREEN", desc="J" },
+        { address=0X9A05, type="u8", condition="eq", value=0X47, action="TITLE_SCREEN", desc="K" },
+        { address=0X9A05, type="u8", condition="eq", value=0X48, action="TITLE_SCREEN", desc="L" },
+        { address=0X9A05, type="u8", condition="eq", value=0X49, action="TITLE_SCREEN", desc="M" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4A, action="TITLE_SCREEN", desc="N" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4B, action="TITLE_SCREEN", desc="O" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4C, action="TITLE_SCREEN", desc="P" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4D, action="TITLE_SCREEN", desc="Q" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4E, action="TITLE_SCREEN", desc="R" },
+        { address=0X9A05, type="u8", condition="eq", value=0X4F, action="TITLE_SCREEN", desc="S" },
+        { address=0X9A05, type="u8", condition="eq", value=0X50, action="TITLE_SCREEN", desc="T" },
+        { address=0X9A05, type="u8", condition="eq", value=0X51, action="TITLE_SCREEN", desc="U" },
+        { address=0X9A05, type="u8", condition="eq", value=0X52, action="TITLE_SCREEN", desc="V" },
+        { address=0X9A05, type="u8", condition="eq", value=0X53, action="TITLE_SCREEN", desc="W" },
+        { address=0X9A05, type="u8", condition="eq", value=0X54, action="TITLE_SCREEN", desc="X" },
+        { address=0X9A05, type="u8", condition="eq", value=0X55, action="TITLE_SCREEN", desc="Y" },
+        { address=0X9A05, type="u8", condition="eq", value=0X56, action="TITLE_SCREEN", desc="Z" },
+        { address=0X9A05, type="u8", condition="eq", value=0X57, action="TITLE_SCREEN", desc="0" },
+        { address=0X9A05, type="u8", condition="eq", value=0X58, action="TITLE_SCREEN", desc="1" },
+        { address=0X9A05, type="u8", condition="eq", value=0X59, action="TITLE_SCREEN", desc="2" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5A, action="TITLE_SCREEN", desc="3" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5B, action="TITLE_SCREEN", desc="4" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5C, action="TITLE_SCREEN", desc="5" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5D, action="TITLE_SCREEN", desc="6" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5E, action="TITLE_SCREEN", desc="7" },
+        { address=0X9A05, type="u8", condition="eq", value=0X5F, action="TITLE_SCREEN", desc="8" },
+        { address=0X9A05, type="u8", condition="eq", value=0X60, action="TITLE_SCREEN", desc="9" },
+        { address=0X9A05, type="u8", condition="eq", value=0X61, action="TITLE_SCREEN", desc="10" },
+        { address=0X9D07, type="u8", condition="change", action="PAUSE_ON", desc="Pause 'Continue' Displayed Text" },
+        { address=0X9D27, type="u8", condition="change", action="PAUSE_ON", desc="Pause 'Restart' Displayed Text" },
+        { address=0X9D47, type="u8", condition="change", action="PAUSE_ON", desc="Pause 'Exit' Displayed Text" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC162, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer/Minutes." },
+        { address=0XC163, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer/Seconds." },
+        { address=0XC164, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Timer/Incrementer." },
+        { address=0XC165, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Active timer flag." },
+      },
+    },
+  },
+}

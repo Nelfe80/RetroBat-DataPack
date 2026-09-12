@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Bobby's World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "prototype-bobbys-world",
+    hashes = {
+      { hash = "6452748e3042c9b7a4ff37dde5e9e69b", label = "Bobby's World (USA) (Proto).sfc" },
+      { hash = "acbf444f4fdba7d0f09f09c454991203", label = "Bobby's World (USA) (Beta) (Pt) (v1.0) (Emunow).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0673, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title/Options" },
+        { address=0X0673, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0X1380, type="u8", condition="change", action="DEMO_MODE", desc="FF : Demo" },
+        { address=0X1391, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues (Start Only)" },
+        { address=0X1397, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X07BC, type="u8", condition="change", action="NEW_LEVEL", desc="Final level transition" },
+        { address=0X7AA5, type="u8", condition="change", action="NEW_LEVEL", desc="Level transition" },
+        { address=0X7B0E, type="u8", condition="change", action="NEW_LEVEL", desc="Level transition" },
+      },
+      stage = {
+        { address=0X01E6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages" },
+        { address=0X0ADE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Input for Stage Skip: Bit 7" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0E41, type="u8", condition="increase", action="GAIN_LIFE", desc="Bobby's lives increased" },
+        { address=0X0E41, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bobby's lives decreased" },
+        { address=0X138F, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (Start Only) increased" },
+        { address=0X138F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (Start Only) decreased" },
+        { address=0X1395, type="u8", condition="increase", action="GAIN_LIFE", desc="Bobby's lives increased" },
+        { address=0X1395, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bobby's lives decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X04ED, type="u8", condition="change", action="BOSS_HIT", desc="Bobby's horizontal moves before/inside bosses rooms" },
+        { address=0X1B49, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1AF1, type="u8", condition="change", action="SHIELD_GAIN", desc="When a enemies hits the shield, this memory became variable with only one value as '26'" },
+      },
+      player = {
+        { address=0X1AF5, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Memory of jump" },
+      },
+    },
+  },
+}

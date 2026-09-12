@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Quickie World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-quickie-world",
+    hashes = {
+      { hash = "922d8ac14a2d7bba2304977f75e536a7", label = "SMW - Quickie World (Valdio).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u8", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u8", condition="eq", value=0X94C7, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u8", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="01 : Complete any stage" },
+        { address=0X1493, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear exit" },
+        { address=0X1B99, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage for kaizo" },
+        { address=0X1DFF, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage" },
+        { address=0X1F13, type="u8", condition="change", action="NEW_LEVEL", desc="02 : Overworld for kaizo" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X1F13, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="Any stage for kaizo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="Player's animation trigger: 09:Death, 1:shrink, d:enter a door" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X13EF, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="40 : Checkpoint after dying (back to overview map then start at checkpoint right now)" },
+        { address=0X13F1, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="01 : Checkpoint after dying" },
+        { address=0X14D0, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="08 : Clitchcake Lake - Checkpoint after dying" },
+        { address=0X15C7, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="01 : Color Code Cove - Checkpoint after dying" },
+        { address=0X1C27, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="19 : Run Forest - Checkpoint after dying" },
+      },
+    },
+  },
+}

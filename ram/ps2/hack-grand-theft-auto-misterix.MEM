@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Grand Theft Auto: Misterix",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-grand-theft-auto-misterix",
+    hashes = {
+      { hash = "ae7ac5c7f8cfe04f709467613ea5b39d", label = "Grand Theft Auto - San Andreas - Misterix (v2.0) (nadalao)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10AE82E, type="u8", condition="bit_true", mask=0X20, action="DEMO_MODE", desc="Use Attractor Instantly" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X6B1098, type="u32le", condition="eq", value=0X09, action="LEVEL_CLEAR", desc="Cleared" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10AE82A, type="u8", condition="bit_true", mask=0X40, action="LOSE_LIFE", desc="Dead Ped in Front of Car" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X10AE82A, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Money Has Been Given by Script" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X10AE82E, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Midriff Blocked for Jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X10AE82E, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Right Arm Blocked" },
+        { address=0X10AE82E, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Left Arm Blocked" },
+        { address=0X10AE82E, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Duck Right Arm Blocked" },
+      },
+    },
+  },
+}

@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Peach's Fury",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-peachs-fury",
+    hashes = {
+      { hash = "605c74e34d0302707723b191ea30ae44", label = "SM64 - Peach's Fury (v1.0) (Kaze Emanuar).z64" },
+      { hash = "f8430d574ff9904e4ed94efb3e368020", label = "SM64 - Peach's Fury (v1.1) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1480B2, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="8 Bit Underground" },
+        { address=0X1480B5, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Mario Go Round" },
+        { address=0X1480B6, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Playground Silvers" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1480B1, type="u8", condition="bit_true", mask=0X04, action="COIN_GAIN", desc="100 Coins" },
+        { address=0X37B93E, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins [16bit] increased" },
+      },
+    },
+  },
+}

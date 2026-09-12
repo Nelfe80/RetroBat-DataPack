@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Tomb Raider Gold | Tomb Raider: Unfinished Business",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-tomb-raider-gold-tomb-raider-unfinished-business",
+    hashes = {
+      { hash = "25dc9c42294e26b6cf4d74ea95195633", label = "Tomb Raider I - Unfinished Business (USA) (Expansion)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X87602, type="u16le", condition="change", action="PAUSE_ON", desc="Pause & Inventory input" },
+        { address=0X1DD554, type="u8", condition="change", action="PAUSE_ON", desc="[Bitflags] Pause Input" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X87F84, type="u16le", condition="increase", action="HEAL", desc="Lara's current Hp increased" },
+        { address=0X87F84, type="u16le", condition="decrease", action="HIT", desc="Lara's current Hp decreased" },
+        { address=0X1B651A, type="u16le", condition="increase", action="HEAL", desc="Lara's current Hp (mirror) increased" },
+        { address=0X1B651A, type="u16le", condition="decrease", action="HIT", desc="Lara's current Hp (mirror) decreased" },
+      },
+    },
+  },
+}

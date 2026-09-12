@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Project Overkill",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "project-overkill",
+    hashes = {
+      { hash = "e23a9e06e7c230aeb27e7d571fb3dc98", label = "Project Overkill (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5BAF4, type="u8", condition="change", action="PAUSE_ON", desc="- 0x01 if paused" },
+        { address=0X5BB04, type="u8", condition="change", action="DEMO_MODE", desc="- 0x02 if Demo Mode" },
+        { address=0X7E032, type="u8", condition="change", action="PAUSE_ON", desc="- Pause:" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5BB9C, type="u16le", condition="change", action="NEW_LEVEL", desc="- Ground level" },
+        { address=0X997B0, type="u16le", condition="change", action="NEW_LEVEL", desc="- Floor level:" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7E03E, type="u8", condition="increase", action="HEAL", desc="- Escort health increased" },
+        { address=0X7E03E, type="u8", condition="decrease", action="HIT", desc="- Escort health decreased" },
+        { address=0X997B6, type="u8", condition="increase", action="HEAL", desc="- Health increased" },
+        { address=0X997B6, type="u8", condition="decrease", action="HIT", desc="- Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X5BBA4, type="u16le", condition="change", action="DYNAMIC_INVENTORY", desc="- Speed powerup" },
+        { address=0X5BBA6, type="u16le", condition="change", action="DYNAMIC_INVENTORY", desc="- Cloak powerup" },
+        { address=0X5BBA8, type="u16le", condition="change", action="DYNAMIC_INVENTORY", desc="- Invincibility powerup" },
+      },
+      weapon = {
+        { address=0X997D8, type="u8", condition="change", action="WEAPON_STATE", desc="- Weapon Swap:" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X99826, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="- Enemy Hitpoints" },
+      },
+      collectibles = {
+        { address=0X9973E, type="u8", condition="increase", action="COIN_GAIN", desc="- Gold Aliens increased" },
+        { address=0X997DA, type="u16le", condition="change", action="AMMO_STATE", desc="- Ammo slot 1" },
+        { address=0X997DC, type="u8", condition="change", action="AMMO_STATE", desc="- Ammo slot 2" },
+        { address=0X997DD, type="u8", condition="change", action="AMMO_STATE", desc="- Ammo slot 3" },
+        { address=0X997DE, type="u8", condition="change", action="AMMO_STATE", desc="- Ammo slot 4" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X59E9C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[Lower4] - Timer - Ten Minutes" },
+        { address=0X59E9D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[Lower4] - Timer - Minutes" },
+        { address=0X59E9F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[Lower4] - Timer - 10 seconds" },
+        { address=0X59EA0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[Lower4] - Timer - Seconds" },
+      },
+    },
+  },
+}

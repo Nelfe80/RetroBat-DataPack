@@ -1,0 +1,81 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Scary Bosses and Nice Sprites",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-scary-bosses-and-nice-sprites",
+    hashes = {
+      { hash = "300d548532aad29fe1c300fc4b94697f", label = "SMW - Scary Bosses and Nice Sprites (v1.2) (Darolac).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X110, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X13BF, type="u8", condition="eq", value=0X34, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X010B, type="u16le", condition="eq", value=0X10E, action="NEW_LEVEL", desc="Alligator level first segment" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Yoshi's House" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="Helsing Nightmares" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="I Spit On Your Cave" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2B, action="NEW_LEVEL", desc="Difficulty Spike" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2C, action="NEW_LEVEL", desc="Ruined Eyesight" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2D, action="NEW_LEVEL", desc="Koopa Konservation" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2E, action="NEW_LEVEL", desc="Epic" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2F, action="NEW_LEVEL", desc="Day of the Bumpty" },
+        { address=0X13BF, type="u8", condition="eq", value=0X32, action="NEW_LEVEL", desc="Later Alligator" },
+        { address=0X13BF, type="u8", condition="eq", value=0X33, action="NEW_LEVEL", desc="Stowaway Mario" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+        { address=0X13BF, type="u8", condition="eq", value=0X30, action="LOSE_LIFE", desc="Bubble To Death" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X2B, action="BOSS_HIT", desc="boss or 4th level" },
+        { address=0X1531, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="dead" },
+        { address=0X1860, type="u16le", condition="change", action="BOSS_HIT", desc="16-bit turn from 04 to 25 when boss shot a shell" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0071, type="u8", condition="eq", value=0X01, action="INVINCIBILITY_START", desc="Invincibility Frames" },
+      },
+      player = {
+        { address=0X140D, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="spin jump active - if frozen it force a normal jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0071, type="u8", condition="eq", value=0X0C, action="OBJECT_DESTROYED", desc="Destroying Castle" },
+        { address=0X0071, type="u8", condition="eq", value=0X0D, action="DOOR_OPENED", desc="Entering a Door" },
+        { address=0X010B, type="u16le", condition="eq", value=0X40, action="DOOR_OPENED", desc="Epic Big Door room" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="8-bit Combo kill counter" },
+      },
+    },
+  },
+}

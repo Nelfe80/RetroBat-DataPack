@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Treasure World: Dream Edition",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-treasure-world-dream-edition",
+    hashes = {
+      { hash = "6447aeb24bcf44e504abfa81760941cc", label = "SM64 - Super Mario Treasure World - Dream Edition (v1.1.5) (Rambi_Rampage).z64" },
+      { hash = "bf958c344bfe831e1c6f03243f486bc8", label = "SM64 - Super Mario Treasure World - Dream Edition + Infinite Lives (v1.1.5) (Rambi_Rampage).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (8-bit) increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (8-bit) decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health (8-bit) increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health (8-bit) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins (16-bit) increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Neo Turf Masters",
+    system = "neogeocd",
+    system_name = "Neo Geo CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "neo-turf-masters",
+    hashes = {
+      { hash = "6afe4c4108f34914cac0274f1e49c294", label = "Big Tournament Golf ~ Neo Turf Masters (Japan) (En,Ja)" },
+    }
+  },
+
+  events = {
+  },
+}

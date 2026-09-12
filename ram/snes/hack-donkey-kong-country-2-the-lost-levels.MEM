@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong Country 2: The Lost Levels",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-country-2-the-lost-levels",
+    hashes = {
+      { hash = "0391195ded8d5b2958915f538a952aec", label = "Donkey Kong Country 2 - The Lost Levels (LucasRangel).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X08E0, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="KongCoins, bit2:Swimming, bit3:EndLevelTarget, bit4:RambisSupercharge" },
+        { address=0X08E4, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="SecretPassages, bit2:BonusLevels" },
+        { address=0X0E01, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stage not completed?" },
+        { address=0X0F2A, type="u8", condition="change", action="LEVEL_CLEAR", desc="Levels cleared?" },
+      },
+      zone = {
+        { address=0X01FF, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World status 0xb5 map 0x80 level" },
+        { address=0X06B1, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World id(01, 02, 03, 04)" },
+        { address=0X06B3, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World type (03 deck, 04 mast)" },
+      },
+      stage = {
+        { address=0X00D3, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X059F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage exit number" },
+        { address=0X064B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="In stage?" },
+        { address=0X0E94, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage or map status?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X08BE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives counter increased" },
+        { address=0X08BE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives counter decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X59C7, type="u16le", condition="change", action="TREASURE", desc="Kremkoins Bonuses Completed 16: Bit0- B2 Blue-Tail Trouble; Bit2- B1 Sunset Ship; Bit3- B1 Taran" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X08CA, type="u8", condition="increase", action="COIN_GAIN", desc="Banana coins? increased" },
+        { address=0X08CC, type="u8", condition="increase", action="COIN_GAIN", desc="Krem coins Counter increased" },
+        { address=0X08CE, type="u8", condition="increase", action="COIN_GAIN", desc="DK coins Counter increased" },
+        { address=0X59D2, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 1: Bit1- Suken Ship; Bit2- Bland Bursts; Bit3- Boat of Begins; Bit4- Sunset Shi" },
+        { address=0X59D3, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 2: Bit0- Boiling Bog; Bit2- Swamp Scramble; Bit3- Manic Mast Blast; Bit4- Squaw" },
+        { address=0X59D4, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 3: Bit0- Boogie Bird; Bit1- Blue Bulb; Bit3- Creepy Crag; Bit4- Enguarde Panic;" },
+        { address=0X59D5, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 3: Bit0- Freezy Freenzy; Bit1- Poisonous Passage increased" },
+        { address=0X59D6, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 5: Bit3- Traumatic Tunnels; Bit4- Reptile Rise; Bit6- Blue-Tail Trouble increas" },
+        { address=0X59DE, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 13: Bit2- Endless Elevator increased" },
+        { address=0X59DF, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 14: Bit3- Krocodile Kore; Bit4- Blood Brambles; Bit5- Devil's Dungeon; Bit6- Sl" },
+        { address=0X59E3, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 18: Bit7- Windy War increased" },
+        { address=0X59E4, type="u8", condition="increase", action="COIN_GAIN", desc="DK Coins Counter 19: Bit6- Frosty Fields increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0652, type="u8", condition="change", action="BOSS_HIT", desc="Boss health countdown" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X08E2, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="AnimalBarrels, bit2:JumpingOnEnemies, bit6:AreaGuardian, bit3:ExtraLivesBalloons, bit4:RattlysSu" },
+        { address=0X08E3, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="SecretDoors, bit2:RollJump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X08AA, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint achieved" },
+        { address=0X59C3, type="u8", condition="change", action="DOOR_OPENED", desc="Kremkoins Bonuses Completed 12: Bit0- B2 Poisonous Passage; Bit1- B2 Swamp Scramble; Bit2- B1 Ve" },
+        { address=0X59C4, type="u8", condition="change", action="DOOR_OPENED", desc="Kremkoins Bonuses Completed 13: Bit1- B1 Windy War; Bit2- B2 Windy War; Bit3- B2 Deep Dangerous" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00D6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", desc="Game time 1 : 4.5 secs" },
+      },
+    },
+  },
+}

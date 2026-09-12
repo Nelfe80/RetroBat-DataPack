@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Trap and Turn",
+    system = "megaduck",
+    system_name = "Mega Duck",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "trap-and-turn",
+    hashes = {
+      { hash = "ae12c30ad7b294c999c935bfcbb94600", label = "Trap Turn (World).bin" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC091, type="u8", condition="change", action="NEW_LEVEL", desc="Selected Level" },
+      },
+    },
+  },
+}

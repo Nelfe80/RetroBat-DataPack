@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cabela's Dangerous Hunts: Ultimate Challenge",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "cabelas-dangerous-hunts-ultimate-challenge",
+    hashes = {
+      { hash = "bd84c4d0a410c65b79aeedb39fdcffda", label = "Cabela's Dangerous Hunts - Ultimate Challenge (Europe).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD2D898, type="u8", condition="change", action="TITLE_SCREEN", desc="Subtitles Option" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCDDC44, type="u8", condition="change", action="NEW_LEVEL", desc="Stumps Shot in First Level" },
+        { address=0XCDE8EC, type="u8", condition="change", action="NEW_LEVEL", desc="Stumps Shot in Last Story Level" },
+        { address=0XCFCDDC, type="u8", condition="change", action="LEVEL_CLEAR", desc="Amount of Levels Completed" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X12ED52C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points - 16 Bit" },
+      },
+      collectibles = {
+        { address=0XCDECDC, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo Amount Loaded" },
+        { address=0X1C2928C, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo Amount Loaded (Adjustable)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCFCAC8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Final Time - Minutes" },
+        { address=0XCFCACC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Final Time - Seconds" },
+        { address=0X1FFE040, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time - Seconds" },
+        { address=0X1FFE4B4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer - Seconds" },
+        { address=0X1FFE4B8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Timer - Minutes" },
+      },
+    },
+  },
+}

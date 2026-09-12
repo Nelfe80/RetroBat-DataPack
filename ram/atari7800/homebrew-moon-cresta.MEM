@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Moon Cresta",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-moon-cresta",
+    hashes = {
+      { hash = "3a15fe7bead3d9b90f3fb13d63e1ee42", label = "Moon Cresta (World) (NTSC) (Aftermarket) (Unl).a78" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0061, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

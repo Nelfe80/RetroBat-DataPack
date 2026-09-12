@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Kagamine Rin & Len Tamanegi Throw & Catch",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-kagamine-rin-len-tamanegi-throw-catch",
+    hashes = {
+      { hash = "118acfe853bc28d1582eaaceeae29e18", label = "Kagamine Rin & Len Tamanegi Throw & Catch (World) (Aftermarket) (Unl) (MeRAMEN).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1BB6C, type="u8", condition="eq", value=0X38, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+  },
+}

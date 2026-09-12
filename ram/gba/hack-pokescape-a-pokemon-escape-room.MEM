@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokescape: A Pokémon Escape Room",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokescape-a-pokemon-escape-room",
+    hashes = {
+      { hash = "b63b62b3aa0c8940ef61f16402739a8c", label = "Pokemon Emerald - Pokescape - A Pokemon Escape Room (v1.0.4) (wiz1989).gba" },
+    }
+  },
+
+  events = {
+  },
+}

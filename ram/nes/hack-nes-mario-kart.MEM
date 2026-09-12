@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ NES Mario Kart",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-nes-mario-kart",
+    hashes = {
+      { hash = "7ab461dec5c3e11c10392005d4c183b1", label = "R.C. Pro Am (Rev 1) - Mario Kart.nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0003, type="u8", condition="eq", value=0X20, action="GAME_OVER", desc="game over" },
+        { address=0X0003, type="u8", condition="eq", value=0X30, action="CONTINUE_SCREEN", desc="press start for p1 / continue" },
+        { address=0X0050, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="in demo" },
+        { address=0X0050, type="u8", condition="eq", value=0XA4, action="DEMO_MODE", desc="in game" },
+        { address=0X0848, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="durring demo and in game" },
+        { address=0X0848, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="at title" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X045A, type="u8", condition="eq", value=0X1, action="WEAPON_STATE", no_log=true, desc="DroppedBomb, 2:Missile" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X03FD, type="u8", condition="change", action="LEVEL_TIMER", player=1, timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Name Registration - Time Remaining - Seconds" },
+        { address=0X0848, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer menu to demo, counts down from 9 at splash" },
+      },
+    },
+  },
+}

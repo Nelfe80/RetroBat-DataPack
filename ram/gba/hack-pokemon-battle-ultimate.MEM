@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Battle Ultimate",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-battle-ultimate",
+    hashes = {
+      { hash = "dab9c501b5f278fb1ec48a2b53615754", label = "Pokemon FireRed - Pokemon Battle Ultimate (Final) (Oscar Brock, VerskrDark).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Akogare 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-akogare-2",
+    hashes = {
+      { hash = "caf27a84685f4499414428cf31d53665", label = "SMW - Akogare 2 (v1.1) (Mega).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="game is on pause" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X010B, type="u16le", condition="eq", value=0X01, action="GAIN_LIFE", desc="Oho Oasis 1up" },
+        { address=0X010B, type="u16le", condition="eq", value=0X19, action="GAIN_LIFE", desc="'Northern Range 1up" },
+        { address=0X010B, type="u16le", condition="eq", value=0X1E, action="GAIN_LIFE", desc="'Fungal Wastes' 1up room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X31, action="GAIN_LIFE", desc="Ruined Arboretum 1up" },
+        { address=0X010B, type="u16le", condition="eq", value=0X37, action="GAIN_LIFE", desc="tower of fate 1up room" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Earth Defender",
+    system = "supervision",
+    system_name = "Watara Supervision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "earth-defender",
+    hashes = {
+      { hash = "9f130a26b3843d6a59da894b3692b978", label = "Earth Defender (USA, Europe).sv" },
+    }
+  },
+
+  events = {
+    combat = {
+      enemies = {
+        { address=0X00AE, type="u8", condition="eq", value=0X64, action="BOSS_DEFEATED", desc="Boss 2 defeated" },
+        { address=0X00AE, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="Boss 1 defeated" },
+      },
+    },
+  },
+}

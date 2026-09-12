@@ -1,0 +1,95 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Jersey Devil",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "jersey-devil",
+    hashes = {
+      { hash = "7bf33002d9614795686ea72e8f66f395", label = "Jersey Devil (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1004D, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Bat Caves - Power Level" },
+        { address=0X1004D, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Root Canal - Power Level" },
+        { address=0X1004E, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="The Crypt - Power Level" },
+        { address=0X1004E, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Haunted Mansion - Power Level" },
+        { address=0X1004F, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Sludge Slides - Power Level" },
+        { address=0X10050, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Amazing Boxes - Power Level" },
+        { address=0X10050, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Monkey's Trail - Power Level" },
+      },
+      stage = {
+        { address=0X1004C, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Museum Madness - Power Stage" },
+        { address=0X1004C, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Dome Sweet Dome - Power Stage" },
+        { address=0X1004F, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Toxic Factory - Power Level" },
+        { address=0X1007D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages Saved 8-bit" },
+        { address=0X1007E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X1007E, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Museum - Bonus Level" },
+        { address=0X1007E, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Museum - Bonus Level" },
+        { address=0X1007E, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Museum Madness (Pink Token)" },
+        { address=0X1007E, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Museum Madness (Pink Token)" },
+        { address=0X1007E, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Dome Sweet Dome (Pink Token)" },
+        { address=0X1007E, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Dome Sweet Dome (Pink Token)" },
+        { address=0X1007F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X1007F, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Bat Caves (Pink Token)" },
+        { address=0X1007F, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Bat Caves (Pink Token)" },
+        { address=0X1007F, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Root Canal (Pink Token)" },
+        { address=0X1007F, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Root Canal (Pink Token)" },
+        { address=0X1007F, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Green Park - Bonus Level" },
+        { address=0X1007F, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Green Park - Bonus Level" },
+        { address=0X10080, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X10080, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="The Crypt (Pink Token)" },
+        { address=0X10080, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="The Crypt (Pink Token)" },
+        { address=0X10080, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Haunted Mansion (Pink Token)" },
+        { address=0X10080, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Haunted Mansion (Pink Token)" },
+        { address=0X10080, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="The Crypt - Bonus Level" },
+        { address=0X10080, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="The Crypt - Bonus Level" },
+        { address=0X10081, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X10081, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Toxic Factory (Pink Token)" },
+        { address=0X10081, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Toxic Factory (Pink Token)" },
+        { address=0X10081, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Sludge Slides (Pink Token)" },
+        { address=0X10081, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Sludge Slides (Pink Token)" },
+        { address=0X10081, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Chemical Wasteland - Bonus" },
+        { address=0X10081, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Chemical Wasteland - Bonus" },
+        { address=0X10082, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X10082, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Amazing Boxes (Pink Token)" },
+        { address=0X10082, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Amazing Boxes (Pink Token)" },
+        { address=0X10082, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Monkey's Trail (Pink Token)" },
+        { address=0X10082, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Monkey's Trail (Pink Token)" },
+        { address=0X10082, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Sewer Port - Bonus" },
+        { address=0X10082, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Sewer Port - Bonus" },
+        { address=0X10083, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hostages 8-bit (Bits)" },
+        { address=0X10083, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Through the Trees (Hostages)" },
+        { address=0X10083, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Through the Trees (Hostages)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10043, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives 8-bit increased" },
+        { address=0X10043, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives 8-bit decreased" },
+      },
+      health = {
+        { address=0X10044, type="u8", condition="increase", action="HEAL", desc="Player - Current Health 8-bit increased" },
+        { address=0X10044, type="u8", condition="decrease", action="HIT", desc="Player - Current Health 8-bit decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X5AE73, type="u8", condition="change", action="BOSS_HIT", desc="All Bosses Health 8-bit" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X10053, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Nitro Potion (Destroy Nitro Crates) 8-bit" },
+        { address=0X5B0CC, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 16-bit" },
+      },
+    },
+  },
+}

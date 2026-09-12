@@ -1,0 +1,98 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 100 Rooms of Enemies",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-100-rooms-of-enemies",
+    hashes = {
+      { hash = "41d848ac3e9cc267bde84719edd8d8df", label = "SMW - 100 Rooms of Enemies (Arcade Mode) (v2.0) (Daizo Dee Von).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X17, action="GAME_OVER", desc="Game Over!" },
+        { address=0X13D4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Game Paused" },
+      },
+      events = {
+        { address=0X162B, type="u8", condition="change", action="COMBO_HIT", desc="Throw Block Combo" },
+        { address=0X1697, type="u8", condition="change", action="COMBO_HIT", desc="Combo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="In Overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="Re-entering Level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In Level" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit [Bits]" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X13E0, type="u8", condition="eq", value=0X3E, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0F34, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Mario Score" },
+      },
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X010B, type="u8", condition="eq", value=0X038, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 1" },
+        { address=0X010B, type="u8", condition="eq", value=0X04D, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 2" },
+        { address=0X010B, type="u8", condition="eq", value=0X058, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 3" },
+        { address=0X010B, type="u8", condition="eq", value=0X063, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 4" },
+        { address=0X010B, type="u8", condition="eq", value=0X06E, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 5" },
+        { address=0X010B, type="u8", condition="eq", value=0X079, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 6" },
+        { address=0X010B, type="u8", condition="eq", value=0X084, action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint 7" },
+        { address=0X010B, type="u8", condition="eq", value=0X08C, action="OBJECT_INTERACTION_CHECKPOINT", desc="Undead Mouser Checkpoint" },
+        { address=0X010B, type="u8", condition="eq", value=0X08E, action="OBJECT_INTERACTION_CHECKPOINT", desc="Resurrected Big Boo Checkpoint" },
+        { address=0X010B, type="u8", condition="eq", value=0X090, action="OBJECT_INTERACTION_CHECKPOINT", desc="Reignited Fryguy Checkpoint" },
+        { address=0X010B, type="u8", condition="eq", value=0X092, action="OBJECT_INTERACTION_CHECKPOINT", desc="Nightmare Thwomp + Mecha Undead Mouser Checkpoint" },
+        { address=0X1C904, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 07 (Room 79)" },
+        { address=0X1C905, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 08 (Room 79)" },
+        { address=0X1C907, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 09 (Room 79)" },
+        { address=0X1C908, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 10 (Room 79)" },
+        { address=0X1C90A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 11 (Room 79)" },
+        { address=0X1C90B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 12 (Room 79)" },
+        { address=0X1C91D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Block 1 (Room 52)" },
+        { address=0X1C91E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Block 2 (Room 52)" },
+        { address=0X1C92D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Block 3 (Room 52)" },
+        { address=0X1C92E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Block 4 (Room 52)" },
+        { address=0X1C931, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 1 (Room 69)" },
+        { address=0X1C933, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 03 (Room 79)" },
+        { address=0X1C934, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 04 (Room 79)" },
+        { address=0X1C937, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 1 (Room 76)" },
+        { address=0X1C938, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 2 (Room 76)" },
+        { address=0X1C93B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 05 (Room 79)" },
+        { address=0X1C93C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 06 (Room 79)" },
+        { address=0X1C93E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 7 (Room 69)" },
+        { address=0X1C941, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 2 (Room 69)" },
+        { address=0X1C947, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 1 (Room 76)" },
+        { address=0X1C948, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 1 (Room 76)" },
+        { address=0X1C94E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 8 (Room 69)" },
+        { address=0X1C951, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 3 (Room 69)" },
+        { address=0X1C95E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 9 (Room 69)" },
+        { address=0X1C961, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 4 (Room 69)" },
+        { address=0X1C96E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 10 (Room 69)" },
+        { address=0X1C971, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 5 (Room 69)" },
+        { address=0X1C97E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 11 (Room 69)" },
+        { address=0X1C981, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 6 (Room 69)" },
+        { address=0X1C98E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Throw Block 12 (Room 69)" },
+      },
+    },
+  },
+}

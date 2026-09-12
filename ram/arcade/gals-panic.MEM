@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gals Panic",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Mature"
+  },
+
+  rom = {
+    name = "gals-panic",
+    hashes = {
+      { hash = "2b0a17187c12ddc79d80976180b43a9f", label = "galsnew.zip <Gals Panic (Export, EXPRO-02 PCB)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3D065, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits Max 9" },
+        { address=0X41A4C, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits on screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3E7D5, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X3E7D5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3E7E6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Time Remaining seconds (Hex)" },
+        { address=0X3E7E7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", no_log=true, desc="Time Remaining Minutes" },
+      },
+    },
+  },
+}

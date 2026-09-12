@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Guitar Hero III: Game Hits [Subset - Expert Full Combos]",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-guitar-hero-iii-game-hits-subset-expert-full-combos",
+    hashes = {
+      { hash = "d370f43cb4d010a0a5473aae77f58026", label = "Guitar Hero III - Game Hits (v1.0) (Beto Luvas) [Subset - Expert Full Combos]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X369A64, type="u32le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+      events = {
+        { address=0X373180, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] Current P1 Combo (on Display?)" },
+        { address=0XA6AA80, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] Current P1 Combo (Stable)" },
+        { address=0XA6AC84, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] P1 Highest Combo Achieved In Current Song (Streak)" },
+        { address=0XA6B2F4, type="u32le", condition="change", action="COMBO_HIT", desc="[32 BIT] P2 Highest Combo Achieved in Current Song (Streak)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XA6AF64, type="u8", condition="increase", action="HEAL", desc="[FLOAT] P1 Rock Meter (health) increased" },
+        { address=0XA6AF64, type="u8", condition="decrease", action="HIT", desc="[FLOAT] P1 Rock Meter (health) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X373168, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32 BIT] Player 1 Current Score" },
+        { address=0X37316C, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="[32 BIT] Player 2 Current Score" },
+        { address=0X373188, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32 BIT] Current P1 Score Multiplier (On Display?)" },
+      },
+    },
+  },
+}

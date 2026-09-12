@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Postman Pat's Trail Game",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-postman-pats-trail-game",
+    hashes = {
+      { hash = "161d839487a5b618c50eeb95b839ac8c", label = "Postman Pat's Trail Game (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

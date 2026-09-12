@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Doom II: The Way ID Did",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-doom-ii-the-way-id-did",
+    hashes = {
+      { hash = "7543ad7a40fe8fe5ac00468bef30e095", label = "Doom II - The Way ID Did (Bazooka_Face).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X81C8, type="u16le", condition="change", action="NEW_LEVEL", desc="Kills In Current Level" },
+        { address=0X81CC, type="u16le", condition="change", action="NEW_LEVEL", desc="Items Found in Current Level" },
+        { address=0X8240, type="u16le", condition="change", action="NEW_LEVEL", desc="Last Level Beaten" },
+        { address=0XDC9C, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Kills in Level % (Finished Screen)" },
+        { address=0XDCA0, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Items Found In Level % (Finished Screen)" },
+        { address=0XDCA4, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Secrets Found in Level % (Finished Screen)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X82A6, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="I'm Too Young To Die." },
+      },
+      health = {
+        { address=0X8140, type="u16le", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X8140, type="u16le", condition="decrease", action="HIT", desc="HP decreased" },
+        { address=0X82A6, type="u8", condition="eq", value=0X02, action="HIT", desc="Hurt Me Plenty." },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X8170, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="Fist" },
+        { address=0X8170, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", no_log=true, desc="Pistol" },
+        { address=0X8170, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Shotgun" },
+        { address=0X8170, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", no_log=true, desc="Chaingun" },
+        { address=0X8170, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="RPG" },
+        { address=0X8170, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", no_log=true, desc="Plasma Cannon" },
+        { address=0X8170, type="u8", condition="eq", value=0X06, action="WEAPON_STATE", no_log=true, desc="BFG9000" },
+        { address=0X8170, type="u8", condition="eq", value=0X07, action="WEAPON_STATE", no_log=true, desc="Chainsaw" },
+        { address=0X8170, type="u8", condition="eq", value=0X08, action="WEAPON_STATE", no_log=true, desc="Super Shotgun" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X8468, type="u32le", condition="eq", value=0X3748A5A5, action="AMMO_STATE", no_log=true, desc="All Ammo And Keys" },
+        { address=0X8468, type="u32le", condition="eq", value=0X44A4A557, action="AMMO_STATE", no_log=true, desc="Ammo" },
+        { address=0XD9E8, type="u16le", condition="change", action="AMMO_STATE", no_log=true, desc="Held Weapon Ammo" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X8468, type="u32le", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Cheat Detection" },
+        { address=0X8468, type="u32le", condition="eq", value=0X123434AA, action="INVINCIBILITY_START", desc="Invincibility" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XDC60, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="Level Time in Seconds (Finished Screen)" },
+        { address=0XDC64, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Total Time in Seconds (Finished Screen)" },
+        { address=0XDC68, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Level Par Time (Finished Screen)" },
+      },
+    },
+  },
+}

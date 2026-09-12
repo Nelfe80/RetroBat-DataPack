@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Gacha Hack",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-gacha-hack",
+    hashes = {
+      { hash = "7ca4962646a3b9f42dfcee0f385cb217", label = "Fire Emblem - The Sacred Stones (USA) - Gacha Hack (v1.0) (LeonarthCG).gba" },
+    }
+  },
+
+  events = {
+  },
+}

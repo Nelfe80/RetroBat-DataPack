@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Getaway",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-getaway",
+    hashes = {
+      { hash = "f9c456c1d3e91cbbe0b91d6537ce26d5", label = "Getaway, The (USA) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X392718, type="u8", condition="change", action="TITLE_SCREEN", desc="subtitles" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3A9A00, type="u32le", condition="eq", value=0X04, action="LOSE_LIFE", desc="transition into death or cutscenes" },
+      },
+      health = {
+        { address=0X393758, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", no_log=true, desc="Double Health" },
+        { address=0X3A9A00, type="u32le", condition="eq", value=0XD2, action="HEALTH_STATE", no_log=true, desc="failed because of health" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X393758, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Armored Car Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X393758, type="u8", condition="bit_true", mask=0X01, action="AMMO_STATE", no_log=true, desc="Infinite Ammo:" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3A9A04, type="u16le", condition="eq", value=0X64, action="OBJECT_INTERACTION", desc="first objective done" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3A9A00, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="State change" },
+      },
+    },
+  },
+}

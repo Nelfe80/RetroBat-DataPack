@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sega Smash Pack",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Compilation"
+  },
+
+  rom = {
+    name = "sega-smash-pack",
+    hashes = {
+      { hash = "763fc686e0e12ddb53e0cf9c0f27854a", label = "SEGA Smash Pack (USA).gba" },
+      { hash = "d76d995cef14fce9129d8b7c9f049568", label = "SEGA Smash Pack (Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB556, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits (Goldenaxe)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2353C, type="u8", condition="change", action="NEW_LEVEL", desc="Current level (Goldenaxe)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X23544, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X23544, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0XB600, type="u8", condition="increase", action="HEAL", desc="Current health (Goldenaxe) increased" },
+        { address=0XB600, type="u8", condition="decrease", action="HIT", desc="Current health (Goldenaxe) decreased" },
+      },
+    },
+  },
+}

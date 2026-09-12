@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "OMG-Z",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "omg-z",
+    hashes = {
+      { hash = "165208aff8fb8750b2df9f1f9396d68e", label = "OMG-Z (Europe) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0ABF8, type="u8", condition="eq", value=0X3, action="PAUSE_ON", desc="paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC0AE44, type="u8", condition="change", action="NEW_LEVEL", desc="[bitflag] level select pages state" },
+        { address=0XC0AE44, type="u8", condition="eq", value=0X1, action="LEVEL_IN_LEVEL_SELECT_SCREEN", desc="in level select screen" },
+        { address=0XC0AE44, type="u8", condition="eq", value=0X2, action="LEVEL_TRANSITIONING_INTO_GAMEPLAY", desc="transitioning into gameplay" },
+        { address=0XC0AE44, type="u8", condition="eq", value=0X4, action="LEVEL_TRANSITIONING_INTO_UPGRADES_PAGE", desc="transitioning into upgrades page" },
+        { address=0XC0AE44, type="u8", condition="eq", value=0X5, action="LEVEL_IN_UPGRADES_PAGE", desc="in upgrades page" },
+        { address=0XC0AE44, type="u8", condition="eq", value=0X6, action="LEVEL_TRANSITIONING_OUT_OF_UPGRADES_PAGE", desc=": transitioning out of upgrades page" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XAB04D6, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] soldier upgrades" },
+        { address=0XAB0528, type="u32le", condition="change", action="LOSE_LIFE", desc="[32bit] soldier shots fired" },
+        { address=0XAB0538, type="u32le", condition="change", action="LOSE_LIFE", desc="[32bit] soldier zombie related kills" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XAB038C, type="u32le", condition="eq", value=0X02, action="MONEY_STATE", desc="gold" },
+        { address=0XAB04E0, type="u32le", condition="increase", action="COIN_GAIN", desc="[32bit] money increased" },
+        { address=0XAB04F0, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] gold medals earned increased" },
+        { address=0XAB0518, type="u32le", condition="increase", action="COIN_GAIN", desc="[32bit] total money earned increased" },
+      },
+    },
+  },
+}

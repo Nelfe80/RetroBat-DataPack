@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: How the Gruntch Stole Christmas",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-how-the-gruntch-stole-christmas",
+    hashes = {
+      { hash = "7a688e9898b6ee98dcf3904cf1094d04", label = "Banjo-Kazooie - The Gruntch (v1.2) (Kurko Mods).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X3F, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X383302, type="u8", condition="eq", value=0X0D, action="CREDITS_SCREEN", desc="Story Sequences/Credits" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X383302, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID" },
+        { address=0X383302, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Act One: Who-Ville" },
+        { address=0X383302, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Mt. Grumpit" },
+        { address=0X383302, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="Token flushing scene" },
+        { address=0X383302, type="u8", condition="eq", value=0X0A, action="PROGRESSION_ZONE", desc="Act 2: Gruntch Cave" },
+        { address=0X383302, type="u8", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="File Select" },
+        { address=0X385F68, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Jiggies collected in the current world" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X385F88, type="u32be", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X385F88, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X385F70, type="u32be", condition="increase", action="COIN_GAIN", desc="Gold Feathers increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3831AC, type="u8", condition="bit_true", mask=0X04, action="DOOR_OPENED", desc="Note Door #1" },
+        { address=0X3832C0, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Jinjo House Switch" },
+        { address=0X3832C3, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Note Door Platforms" },
+        { address=0X3832C4, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Library - Water Closet Switch" },
+        { address=0X385F78, type="u8", condition="bit_true", mask=0X08, action="DOOR_OPENED", desc="Behind the note door" },
+      },
+    },
+  },
+}

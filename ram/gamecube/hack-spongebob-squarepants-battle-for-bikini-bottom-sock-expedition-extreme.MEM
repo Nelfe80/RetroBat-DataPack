@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SpongeBob SquarePants: Battle for Bikini Bottom - Sock Expedition Extreme",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-spongebob-squarepants-battle-for-bikini-bottom-sock-expedition-extreme",
+    hashes = {
+      { hash = "fafa1254dada8f3192001c06b55d5712", label = "SpongeBob SquarePants - Battle for Bikini Bottom - Sock Expedition Extreme (v1.6) (TetraxZ)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3CB8A8, type="u32be", condition="eq", value=0X07, action="PAUSE_ON", desc="pause menu" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5B0C40, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION_CHECKPOINT", desc="false" },
+        { address=0X5B0C40, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="true" },
+        { address=0X5B0EA8, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION_CHECKPOINT", desc="false" },
+        { address=0X5B0EA8, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="true" },
+      },
+    },
+  },
+}

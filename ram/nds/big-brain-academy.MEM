@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Big Brain Academy",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Quiz"
+  },
+
+  rom = {
+    name = "big-brain-academy",
+    hashes = {
+      { hash = "e0e7964ba8b9b1e98c6c99e4b2349d51", label = "Big Brain Academy (Europe) (En,Fr,De,Es,It,Nl).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Bronze" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Silver" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Platinum" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Bronze" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Silver" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Platinum" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Bronze" },
+        { address=0X11105E, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Silver" },
+        { address=0X11105F, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Platinum" },
+      },
+    },
+  },
+}

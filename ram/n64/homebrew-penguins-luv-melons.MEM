@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Penguins Luv Melons",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-penguins-luv-melons",
+    hashes = {
+      { hash = "09fa95c99eac0804aba96e4fd75fb76e", label = "Penguins Luv Melons (World) (v2.0) (Aftermarket) (Unl) (Sanni).z64" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ The Adventures of Pinocchio",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prototype-the-adventures-of-pinocchio",
+    hashes = {
+      { hash = "ba78ac0638f36a89386b690d619f13b1", label = "Adventures of Pinocchio, The (Europe) (Proto).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC104, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused [Bit0]" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XFFDC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFFEF, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0XFFEF, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+    },
+  },
+}

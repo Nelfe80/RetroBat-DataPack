@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic: Into the Void",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-into-the-void",
+    hashes = {
+      { hash = "55d00850838446df73c1649863c42dee", label = "Sonic - Into The Void (Blueblur93) (v4.1).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF601, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="Non-interactive : 01" },
+        { address=0XF63A, type="u8", condition="change", action="PAUSE_ON", desc="1 : paused" },
+        { address=0XFFF0, type="u8", condition="change", action="DEMO_MODE", desc="Demo Mode Active" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFFE4, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select code progress" },
+      },
+      zone = {
+        { address=0XFE11, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone - 00: Azure Hills; 01: Hydro Ruin/Final Gadget Act 3; 02: Ember Mines; 03: Starligh" },
+      },
+      stage = {
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act - 00: Act 1; 01: Act 2; 02/03: Act 3" },
+        { address=0XFFE1, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level Select active" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD003, type="u8", condition="change", action="LOSE_LIFE", desc="Sonic death detector. This addr always marks '07' when Sonic is alive. When he is dead by any me" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFE56, type="u8", condition="change", action="TREASURE", desc="Number of Chaos Emeralds" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFE26, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score starting at 655,360 pts - 16 Bit" },
+        { address=0XFE28, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score under 655,360 pts - 16 Bit" },
+      },
+      collectibles = {
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="Number of Rings - 16 bit increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XFE1F, type="u8", condition="eq", value=0X00, action="BOSS_DEFEATED", desc="Completed/Defeated" },
+        { address=0XFE1F, type="u8", condition="eq", value=0X01, action="BOSS_DEFEATED", desc="Not Completed/Not Defeated" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XD032, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Invincibility timer" },
+        { address=0XFE2C, type="u8", condition="change", action="INVINCIBILITY_START", desc="Invincibility - 00: Off; 01: On" },
+        { address=0XFE2D, type="u8", condition="change", action="SHIELD_LOST", desc="Shield - 00: Off; 01: On" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF7D0, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Bounce Combo Counter" },
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time - Minutes Counter" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time - Seconds Counter" },
+      },
+    },
+  },
+}

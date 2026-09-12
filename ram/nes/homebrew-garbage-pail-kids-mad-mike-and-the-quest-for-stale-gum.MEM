@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Garbage Pail Kids: Mad Mike and the Quest for Stale Gum",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-garbage-pail-kids-mad-mike-and-the-quest-for-stale-gum",
+    hashes = {
+      { hash = "b10b2fd9855be025b16289677f685932", label = "Garbage Pail Kids - Mad Mike and the Quest for Stale Gum (World) (Steam) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0024, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="pause/trade screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X005A, type="u8", condition="change", action="NEW_LEVEL", desc="background data" },
+      },
+      stage = {
+        { address=0X00AF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage areas (8-bit)" },
+        { address=0X00AF, type="u8", condition="eq", value=0X0D, action="PROGRESSION_STAGE", desc="egypt secret area" },
+        { address=0X0402, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage select screen" },
+        { address=0X0402, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="stoneage" },
+        { address=0X0402, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="tokyo 85" },
+        { address=0X0402, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="egypt" },
+        { address=0X0402, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="transylvania" },
+        { address=0X0402, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="mars" },
+        { address=0X0402, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="hell" },
+        { address=0X05F3, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stages" },
+        { address=0X6700, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage select screen (cart ram)" },
+        { address=0X6700, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="egypt" },
+        { address=0X6700, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="mars" },
+        { address=0X6700, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="transylvania" },
+        { address=0X6700, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="stoneage" },
+        { address=0X6700, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="tokyo 85" },
+        { address=0X6700, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="hell" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0387, type="u8", condition="increase", action="GAIN_LIFE", desc="buggy betty lives remaining (8-bit) increased" },
+        { address=0X0387, type="u8", condition="decrease", action="LOSE_LIFE", desc="buggy betty lives remaining (8-bit) decreased" },
+        { address=0X0387, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="mini game lost" },
+        { address=0X0387, type="u8", condition="eq", value=0X80, action="LIVES_STATE", desc="2 lost" },
+        { address=0X0387, type="u8", condition="eq", value=0X81, action="LIVES_STATE", desc="1 lost" },
+        { address=0X0387, type="u8", condition="eq", value=0X82, action="LIVES_STATE", desc="none lost" },
+        { address=0X039D, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+        { address=0X039D, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="alive" },
+        { address=0X039E, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+        { address=0X039E, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="alive" },
+        { address=0X039F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+        { address=0X039F, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="alive" },
+        { address=0X03A0, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+        { address=0X03A0, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="alive" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="change", action="HEALTH_STATE", desc="health (8-bit)" },
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="no hearts" },
+        { address=0X0019, type="u8", condition="eq", value=0X08, action="HEALTH_STATE", desc="1 heart" },
+        { address=0X0019, type="u8", condition="eq", value=0X10, action="HEALTH_STATE", desc="2 hearts" },
+        { address=0X0019, type="u8", condition="eq", value=0X18, action="HEALTH_STATE", desc="3 hearts" },
+        { address=0X0019, type="u8", condition="eq", value=0X20, action="HEALTH_STATE", desc="full health" },
+        { address=0X041C, type="u8", condition="increase", action="HEAL", desc="current player health increased" },
+        { address=0X041C, type="u8", condition="decrease", action="HIT", desc="current player health decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0685, type="u8", condition="change", action="INVINCIBILITY_START", desc="invincibility" },
+        { address=0X0740, type="u8", condition="change", action="INVINCIBILITY_START", desc="invincibility" },
+        { address=0X074A, type="u8", condition="change", action="INVINCIBILITY_START", desc="invincibility" },
+      },
+    },
+  },
+}

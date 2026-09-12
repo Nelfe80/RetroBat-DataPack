@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hot Wheels: Beat That!",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "hot-wheels-beat-that",
+    hashes = {
+      { hash = "35165d5516c7a0d5ab12720ff9ea6f23", label = "Hot Wheels - Beat That! (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

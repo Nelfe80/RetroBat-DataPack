@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario World: Adventure in Forest Land",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-world-adventure-in-forest-land",
+    hashes = {
+      { hash = "72c665dfae13d0441b810119bd9fcb01", label = "SMW - Adventure in Forest Land (v1.0) (En) (Green Jerry).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XE181, type="u8", condition="change", action="NEW_LEVEL", desc="Hero: Level" },
+        { address=0XE1C0, type="u8", condition="change", action="NEW_LEVEL", desc="Hero Weapon Level:" },
+        { address=0XE1C1, type="u8", condition="change", action="NEW_LEVEL", desc="Hero Weapon Level:" },
+        { address=0XE1C2, type="u8", condition="change", action="NEW_LEVEL", desc="Hero Weapon Level:" },
+        { address=0XE1C3, type="u8", condition="change", action="NEW_LEVEL", desc="Hero Weapon Level:" },
+        { address=0XE381, type="u8", condition="change", action="NEW_LEVEL", desc="Girl: Level" },
+        { address=0XE3C0, type="u8", condition="change", action="NEW_LEVEL", desc="Girl Weapon Level:" },
+        { address=0XE3C1, type="u8", condition="change", action="NEW_LEVEL", desc="Girl Weapon Level:" },
+        { address=0XE3C2, type="u8", condition="change", action="NEW_LEVEL", desc="Girl Weapon Level:" },
+        { address=0XE3C3, type="u8", condition="change", action="NEW_LEVEL", desc="Girl Weapon Level:" },
+        { address=0XE581, type="u8", condition="change", action="NEW_LEVEL", desc="Sprite: Level" },
+        { address=0XE5C0, type="u8", condition="change", action="NEW_LEVEL", desc="Sprite Weapon Level:" },
+        { address=0XE5C1, type="u8", condition="change", action="NEW_LEVEL", desc="Sprite Weapon Level:" },
+        { address=0XE5C2, type="u8", condition="change", action="NEW_LEVEL", desc="Sprite Weapon Level:" },
+        { address=0XE5C3, type="u8", condition="change", action="NEW_LEVEL", desc="Sprite Weapon Level:" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XE182, type="u8", condition="increase", action="HEAL", desc="Hero: Health (Current) increased" },
+        { address=0XE182, type="u8", condition="decrease", action="HIT", desc="Hero: Health (Current) decreased" },
+        { address=0XE184, type="u8", condition="increase", action="HEAL", desc="Hero: Health (Max) increased" },
+        { address=0XE184, type="u8", condition="decrease", action="HIT", desc="Hero: Health (Max) decreased" },
+        { address=0XE382, type="u8", condition="increase", action="HEAL", desc="Girl: Health (Current) increased" },
+        { address=0XE382, type="u8", condition="decrease", action="HIT", desc="Girl: Health (Current) decreased" },
+        { address=0XE384, type="u8", condition="increase", action="HEAL", desc="Girl: Health (Max) increased" },
+        { address=0XE384, type="u8", condition="decrease", action="HIT", desc="Girl: Health (Max) decreased" },
+        { address=0XE582, type="u8", condition="increase", action="HEAL", desc="Sprite: Health (Current) increased" },
+        { address=0XE582, type="u8", condition="decrease", action="HIT", desc="Sprite: Health (Current) decreased" },
+        { address=0XE584, type="u8", condition="increase", action="HEAL", desc="Sprite: Health (Max) increased" },
+        { address=0XE584, type="u8", condition="decrease", action="HIT", desc="Sprite: Health (Max) decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XE068, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Hero Weapon" },
+        { address=0XE268, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Girl Weapon" },
+        { address=0XE468, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Sprite Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCC6A, type="u16le", condition="increase", action="COIN_GAIN", desc="Money (16bit) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00DD, type="u8", condition="change", action="BOSS_HIT", desc="Boss" },
+      },
+    },
+  },
+}

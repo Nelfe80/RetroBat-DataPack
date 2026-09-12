@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Brave New World 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-brave-new-world-2",
+    hashes = {
+      { hash = "8d7cc6ced080bcfb1ebdaef4a576d0bd", label = "SMW - Brave New World 2 (v1.0) (derv82).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="title screen (fade in)" },
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X08, action="TITLE_SCREEN", desc="title screen (file select)" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="title screen (player select)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X00B3, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0105, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0181, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0182, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0183, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0184, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0185, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0187, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0189, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X018B, action="CREDITS_SCREEN", desc="end credits" },
+        { address=0X010B, type="u16le", condition="eq", value=0X018F, action="CREDITS_SCREEN", desc="end credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X001E, type="u16le", condition="eq", value=0X0110, action="NEW_LEVEL", desc="easternmost point of the overworld for Worlds 1 & 4" },
+        { address=0X001E, type="u16le", condition="eq", value=0XFFF0, action="NEW_LEVEL", desc="westernmost point of the overworld for Worlds 1 & 4" },
+        { address=0X005D, type="u8", condition="change", action="NEW_LEVEL", desc="number of screens in level" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="fade to overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="load overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="overworld fade in" },
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="fade to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="fade to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="load level" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="NEW_LEVEL", desc="preparing level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="level fade in" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="currently in a level" },
+        { address=0X1931, type="u8", condition="change", action="NEW_LEVEL", desc="overworld tileset" },
+        { address=0X1931, type="u8", condition="eq", value=0X17, action="NEW_LEVEL", desc="upside down" },
+      },
+      zone = {
+        { address=0X1931, type="u8", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="world 1 & world 4" },
+        { address=0X1931, type="u8", condition="eq", value=0X12, action="PROGRESSION_ZONE", desc="world 5" },
+        { address=0X1931, type="u8", condition="eq", value=0X13, action="PROGRESSION_ZONE", desc="world 3" },
+        { address=0X1931, type="u8", condition="eq", value=0X14, action="PROGRESSION_ZONE", desc="world 2" },
+        { address=0X1931, type="u8", condition="eq", value=0X15, action="PROGRESSION_ZONE", desc="world 6" },
+        { address=0X1931, type="u8", condition="eq", value=0X16, action="PROGRESSION_ZONE", desc="secret world (credit frog and nexodus)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="died" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X010B, type="u16le", condition="eq", value=0X0058, action="OBJECT_INTERACTION", desc="red switch fortress (room with moon)" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="green switch activated" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="yellow switch activated" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="blue switch activated" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="red switch activated" },
+      },
+    },
+  },
+}

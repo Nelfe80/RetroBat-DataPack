@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hero's Saga Laevatein Tactics",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing, Strategy"
+  },
+
+  rom = {
+    name = "heros-saga-laevatein-tactics",
+    hashes = {
+      { hash = "85d15a4c05e09e0e2a77e191ca299eab", label = "Hero's Saga - Laevatein Tactics (USA).nds" },
+    }
+  },
+
+  events = {
+  },
+}

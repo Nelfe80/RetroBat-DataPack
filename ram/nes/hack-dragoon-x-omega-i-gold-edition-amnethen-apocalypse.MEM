@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Dragoon X Omega I - Gold Edition: Amnethen Apocalypse",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-dragoon-x-omega-i-gold-edition-amnethen-apocalypse",
+    hashes = {
+      { hash = "de7c22c30658e115a25a7161ed063769", label = "Dragoon X Omega - Gold Edition - Amnethen Apocalypse (v2.0f) (Silver X).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X00C7, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X00C5, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X00C5, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X00CA, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X00CA, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X00E2, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X00E2, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00BC, type="u16le", condition="increase", action="COIN_GAIN", desc="Amount of money in possession increased" },
+      },
+    },
+  },
+}

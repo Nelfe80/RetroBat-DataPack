@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Canabalt",
+    system = "vc4000",
+    system_name = "Interton VC 4000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-canabalt",
+    hashes = {
+      { hash = "82c999bc12e38600ad9e70508d2dab8c", label = "Canabalt (World) (v20180101) (Aftermarket) (senilyDeluxe).bin" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X051E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16 Bit] Score BCD" },
+      },
+    },
+  },
+}

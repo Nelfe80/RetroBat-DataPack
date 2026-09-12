@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Elder Scrolls: Arena",
+    system = "dos",
+    system_name = "DOS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-elder-scrolls-arena",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X3BDCA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Character Level" },
+        { address=0X3BDCA, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Level 1 (etc)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X3BE1D, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X3BE1D, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X3BE1F, type="u16le", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X3BE1F, type="u16le", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X3C668, type="u32le", condition="eq", value=0X00AB00D8, action="HEALTH_STATE", no_log=true, desc="Southpoint" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X3C1E2, type="u32le", condition="increase", action="COIN_GAIN", desc="Current Gold increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3C1F8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time: Minutes" },
+      },
+    },
+  },
+}

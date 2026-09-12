@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Higurashi: When They Cry",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-higurashi-when-they-cry",
+    hashes = {
+      { hash = "211f73021b2dcd9aa4cb3be188742223", label = "Higurashi - When They Cry (World) (Demo) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+  },
+}

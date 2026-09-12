@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Yellow: Cramorant Edition",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-yellow-cramorant-edition",
+    hashes = {
+      { hash = "4311e7667d4edafba75ff0397856b25d", label = "Pokemon Yellow - Cramorant Edition (v1.5) (Cram-o-dev).gb" },
+      { hash = "8a02e978f2f413944cff4112b446e22c", label = "Pokemon Yellow - Cramorant Edition (v1.5) (Alt Voice) (Cram-o-dev).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCFBC, type="u8", condition="change", action="TITLE_SCREEN", desc="ff : Title/Battle/Noticed by NPC" },
+        { address=0XCFC4, type="u8", condition="change", action="PAUSE_ON", desc="01 : paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD013, type="u8", condition="change", action="NEW_LEVEL", desc="Current player Pokemon level" },
+        { address=0XD17D, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 1 Level" },
+        { address=0XD1A9, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 2 Level" },
+        { address=0XD1D5, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 3 Level" },
+        { address=0XD201, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 4 Level" },
+        { address=0XD22D, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 5 Level" },
+        { address=0XD259, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Team Slot 6 Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD164, type="u8", condition="eq", value=0X8D, action="LIVES_STATE", desc="Leech Life" },
+      },
+      health = {
+        { address=0XC5D1, type="u8", condition="eq", value=0X06, action="HEALTH_STATE", desc="Total HP Left points." },
+        { address=0XCFD8, type="u8", condition="increase", action="HEAL", desc="Current enemy Pokemon hp in combat increased" },
+        { address=0XCFD8, type="u8", condition="decrease", action="HIT", desc="Current enemy Pokemon hp in combat decreased" },
+        { address=0XD164, type="u8", condition="eq", value=0X74, action="HEALTH_STATE", desc="Focus Energy" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC5D1, type="u8", condition="eq", value=0X07, action="SCORE_STATE", desc="Total Radness points." },
+        { address=0XC5D1, type="u8", condition="eq", value=0X08, action="SCORE_STATE", desc="Total Points calculating." },
+        { address=0XC5D1, type="u8", condition="eq", value=0X09, action="SCORE_STATE", desc="Total Points number." },
+        { address=0XC5D1, type="u8", condition="eq", value=0X0A, action="SCORE_STATE", desc="'Hi-Score!!' text." },
+        { address=0XC5DC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[BCD] Cramorant's Beach current points - inside the mini-game" },
+      },
+      collectibles = {
+        { address=0XD154, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Pokemon in the team" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD164, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Pokemon 1 First Attack ID] [8-Bits]" },
+      },
+    },
+  },
+}

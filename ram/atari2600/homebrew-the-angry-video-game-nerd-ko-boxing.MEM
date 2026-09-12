@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Angry Video Game Nerd K.O. Boxing",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "homebrew-the-angry-video-game-nerd-ko-boxing",
+    hashes = {
+      { hash = "6a7e6fc102bf7459f89419c548a79e2c", label = "Angry Video Game Nerd K.O. Boxing (World) (NTSC) (Aftermarket) (Unl).a26" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X001C, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="on ground" },
+      },
+    },
+  },
+}

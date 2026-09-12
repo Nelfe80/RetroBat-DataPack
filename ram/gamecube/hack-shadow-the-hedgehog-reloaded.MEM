@@ -1,0 +1,96 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shadow the Hedgehog: Reloaded",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shadow-the-hedgehog-reloaded",
+    hashes = {
+      { hash = "f7ff03a01acf7d365f6a4294ab3416e0", label = "Shadow the Hedgehog - Reloaded (v1.2) (LimblessVector,dreamsyntax) (Widescreen)" },
+      { hash = "00453b56461723e74a68bcf84650f082", label = "Shadow the Hedgehog - Reloaded (v1.2) (LimblessVector,dreamsyntax)" },
+      { hash = "3374cef00523f161e9ff75d3bc05e85f", label = "Shadow the Hedgehog: Reloaded (v1.2) (Widescreen, Speedrun L-To-Restart) (LimblessVector, dreamsyntax)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X575F80, type="u32be", condition="eq", value=0X5, action="PAUSE_ON", desc="Pause." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X575F54, type="u32be", condition="eq", value=0X19, action="NEW_LEVEL", desc="Ground attack." },
+        { address=0X575F80, type="u32be", condition="eq", value=0X10, action="NEW_LEVEL", desc="Exiting level." },
+        { address=0X575F80, type="u32be", condition="eq", value=0X6, action="LEVEL_CLEAR", desc="Mission clear." },
+        { address=0X57D75C, type="u32be", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="S." },
+        { address=0X57D75C, type="u32be", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="A." },
+        { address=0X57D75C, type="u32be", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="B." },
+        { address=0X57D75C, type="u32be", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="C." },
+        { address=0X57D75C, type="u32be", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="E." },
+      },
+      stage = {
+        { address=0X584720, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Stage, 2." },
+        { address=0X5EF958, type="u32be", condition="change", action="PROGRESSION_STAGE", desc="[32-bit BE] Stage, 3." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X576707, type="u32be", condition="increase", action="GAIN_LIFE", desc="[32-bit BE] Lives. increased" },
+        { address=0X576707, type="u32be", condition="decrease", action="LOSE_LIFE", desc="[32-bit BE] Lives. decreased" },
+        { address=0X57FB4F, type="u32be", condition="change", action="LOSE_LIFE", desc="[32-bit BE] GUN enemy deaths." },
+        { address=0X57FB50, type="u32be", condition="change", action="LOSE_LIFE", desc="[32-bit BE] Egg enemy deaths." },
+        { address=0X57FB54, type="u32be", condition="change", action="LOSE_LIFE", desc="[32-bit BE] BA enemy deaths." },
+      },
+      health = {
+        { address=0X575F54, type="u32be", condition="eq", value=0X1E, action="HIT", desc="Damage." },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X578068, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Heal Cannon 1." },
+        { address=0X578068, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Heal Cannon 2." },
+        { address=0X578068, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Shadow Rifle." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Samurai Blade 1." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Samurai Blade 2." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Satellite Laser 1." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Satellite Laser 2." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Egg Vacuum 1." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", no_log=true, desc="Egg Vacuum 2." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="Omochao Gun 1." },
+        { address=0X578069, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Omochao Gun 2." },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X5766C8, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Hero Gauge points." },
+        { address=0X5766C8, type="u32be", condition="eq", value=0X7530, action="SCORE_STATE", desc="Maximum." },
+        { address=0X5766D4, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Dark Gauge points." },
+        { address=0X5766D4, type="u32be", condition="eq", value=0X7530, action="SCORE_STATE", desc="Maximum." },
+        { address=0X576710, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Normal Score." },
+        { address=0X576714, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Hero Score." },
+        { address=0X576718, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Dark Score." },
+        { address=0X57D758, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Goal Event total score." },
+      },
+      collectibles = {
+        { address=0X57670C, type="u32be", condition="increase", action="COIN_GAIN", desc="[32-bit BE] Rings. increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X5EE65C, type="u8", condition="eq", value=0X0, action="BOSS_HIT", desc="Empty." },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X575FA8, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Carrying object if 1." },
+        { address=0X57D8A6, type="u16be", condition="eq", value=0X0, action="OBJECT_INTERACTION_CHECKPOINT", desc="False." },
+        { address=0X57D8A6, type="u16be", condition="eq", value=0X1, action="OBJECT_INTERACTION_CHECKPOINT", desc="True." },
+      },
+    },
+  },
+}

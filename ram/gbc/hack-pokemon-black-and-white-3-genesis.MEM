@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Black and White 3: Genesis",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-black-and-white-3-genesis",
+    hashes = {
+      { hash = "8e2b1b69fc12a4e75abd8063a55aa6ef", label = "Pokemon Crystal - Black and White 3 - Genesis (V1.2) (Azure_Keys).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XDCFD, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 1" },
+        { address=0XDD2D, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 2" },
+        { address=0XDD5D, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 3" },
+        { address=0XDD8D, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 4" },
+        { address=0XDDBD, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 5" },
+        { address=0XDDED, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon Level Slot 6" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD4C9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Play Time Minutes" },
+        { address=0XD4CA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Play Time Seconds" },
+      },
+    },
+  },
+}

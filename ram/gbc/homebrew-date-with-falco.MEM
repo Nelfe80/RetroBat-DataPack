@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Date with Falco",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-date-with-falco",
+    hashes = {
+      { hash = "1145a60834a2f5910559e33cde6b6d1a", label = "Date with Falco (World) (v1.0) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XCCE4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - CAFE" },
+        { address=0XCCE5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - SHOE STORE" },
+        { address=0XCCE6, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - CHILLY FIELD" },
+        { address=0XCCE7, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - WATERFRONT" },
+        { address=0XCCEE, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - SCHOOLHOUSE" },
+        { address=0XCCEF, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Objective - SNOWBALL HILL" },
+      },
+    },
+  },
+}

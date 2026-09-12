@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Evolution",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "evolution",
+    hashes = {
+      { hash = "e0d1ff37974fa017a6c78c174925643a", label = "Evolution (USA) (Unl).col" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0037, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo Mode On" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0038, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression?" },
+        { address=0X0038, type="u8", condition="eq", value=0X1D, action="PROGRESSION_STAGE", desc="Amoeba" },
+        { address=0X0038, type="u8", condition="eq", value=0X5D, action="PROGRESSION_STAGE", desc="Frog" },
+        { address=0X0038, type="u8", condition="eq", value=0X73, action="PROGRESSION_STAGE", desc="rat" },
+        { address=0X0038, type="u8", condition="eq", value=0X8B, action="PROGRESSION_STAGE", desc="beaver" },
+        { address=0X0038, type="u8", condition="eq", value=0XC1, action="PROGRESSION_STAGE", desc="gorilla" },
+        { address=0X0038, type="u8", condition="eq", value=0XE4, action="PROGRESSION_STAGE", desc="human" },
+      },
+    },
+  },
+}

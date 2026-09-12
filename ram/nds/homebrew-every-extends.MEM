@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Every ExteNDS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-every-extends",
+    hashes = {
+      { hash = "1a59918344f5d9986a1edf4a06701305", label = "Every ExteNDS (World) (v1.0) (Aftermarket) (Unl) (Goldohulk).nds" },
+    }
+  },
+
+  events = {
+  },
+}

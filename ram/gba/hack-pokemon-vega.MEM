@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Vega",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-vega",
+    hashes = {
+      { hash = "07c35fe1c718fb92c80797c0d449455b", label = "Pokemon FireRed - Pokemon Vega (En) (v20200823) (Pokemon Vega Team).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0F9C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Can Move" },
+        { address=0X0F9C, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Cannot Move" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 1 Pokemon - Level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 2 Pokemon - Level" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 3 Pokemon - Level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 4 Pokemon - Level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 5 Pokemon - Level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="Slot 6 Pokemon - Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="Slot 1 Pokemon - Current HP increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="Slot 1 Pokemon - Current HP decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="Slot 1 Pokemon - Max HP increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="Slot 1 Pokemon - Max HP decreased" },
+        { address=0X2C33E, type="u16le", condition="increase", action="HEAL", desc="Slot 2 Pokemon - Current HP increased" },
+        { address=0X2C33E, type="u16le", condition="decrease", action="HIT", desc="Slot 2 Pokemon - Current HP decreased" },
+        { address=0X2C340, type="u16le", condition="increase", action="HEAL", desc="Slot 2 Pokemon - Max HP increased" },
+        { address=0X2C340, type="u16le", condition="decrease", action="HIT", desc="Slot 2 Pokemon - Max HP decreased" },
+        { address=0X2C3A2, type="u16le", condition="increase", action="HEAL", desc="Slot 3 Pokemon - Current HP increased" },
+        { address=0X2C3A2, type="u16le", condition="decrease", action="HIT", desc="Slot 3 Pokemon - Current HP decreased" },
+        { address=0X2C3A4, type="u16le", condition="increase", action="HEAL", desc="Slot 3 Pokemon - Max HP increased" },
+        { address=0X2C3A4, type="u16le", condition="decrease", action="HIT", desc="Slot 3 Pokemon - Max HP decreased" },
+        { address=0X2C406, type="u16le", condition="increase", action="HEAL", desc="Slot 4 Pokemon - Current HP increased" },
+        { address=0X2C406, type="u16le", condition="decrease", action="HIT", desc="Slot 4 Pokemon - Current HP decreased" },
+        { address=0X2C408, type="u16le", condition="increase", action="HEAL", desc="Slot 4 Pokemon - Max HP increased" },
+        { address=0X2C408, type="u16le", condition="decrease", action="HIT", desc="Slot 4 Pokemon - Max HP decreased" },
+        { address=0X2C46A, type="u16le", condition="increase", action="HEAL", desc="Slot 5 Pokemon - Current HP increased" },
+        { address=0X2C46A, type="u16le", condition="decrease", action="HIT", desc="Slot 5 Pokemon - Current HP decreased" },
+        { address=0X2C46C, type="u16le", condition="increase", action="HEAL", desc="Slot 5 Pokemon - Max HP increased" },
+        { address=0X2C46C, type="u16le", condition="decrease", action="HIT", desc="Slot 5 Pokemon - Max HP decreased" },
+        { address=0X2C4CE, type="u16le", condition="increase", action="HEAL", desc="Slot 6 Pokemon - Current HP increased" },
+        { address=0X2C4CE, type="u16le", condition="decrease", action="HIT", desc="Slot 6 Pokemon - Current HP decreased" },
+        { address=0X2C4D0, type="u16le", condition="increase", action="HEAL", desc="Slot 6 Pokemon - Max HP increased" },
+        { address=0X2C4D0, type="u16le", condition="decrease", action="HIT", desc="Slot 6 Pokemon - Max HP decreased" },
+        { address=0X3FEE8, type="u16le", condition="change", action="HIT", desc="Damage from last attack (resets on new battle)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2BD68, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Last Poke Ball type thrown" },
+        { address=0X3EE0E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Area within Map ID" },
+        { address=0X3EE10, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Map ID" },
+      },
+    },
+  },
+}

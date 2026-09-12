@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Gate of the Good",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-gate-of-the-good",
+    hashes = {
+      { hash = "046f7de9ff868525d1bb45cf5bd76cf5", label = "SM64 - Gate of the Good, The (MorningStorm64, Akuro).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] number of coins increased" },
+      },
+    },
+  },
+}

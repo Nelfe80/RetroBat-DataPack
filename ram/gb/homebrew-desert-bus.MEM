@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Desert Bus",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-desert-bus",
+    hashes = {
+      { hash = "44fc58f70f6a69c02b348f121cafb28c", label = "Desert Bus (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XFF8A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,90 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Adventure III",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-adventure-iii",
+    hashes = {
+      { hash = "d976145a9714188a42911c9f99df6574", label = "SMB3 - Mario Adventure 3 (v1.9.9) (DahrkDalz).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00DE, type="u8", condition="change", action="TITLE_SCREEN", desc="Title State [8bit]" },
+        { address=0X0376, type="u8", condition="change", action="PAUSE_ON", desc="Pause [8bit]" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7DFC, type="u8", condition="change", action="LEVEL_CLEAR", desc="// Levels Complete >>>" },
+        { address=0X7E48, type="u8", condition="change", action="NEW_LEVEL", desc="Level [8bit]" },
+      },
+      zone = {
+        { address=0X7DE9, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID [8bit]" },
+        { address=0X7EBB, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Cheat - World Select [8bit]" },
+      },
+      stage = {
+        { address=0X0013, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Exit to Map [8bit]" },
+        { address=0X0075, type="u8", condition="change", action="RANK_STATE", desc="Map - Player Position Y [8bit]" },
+        { address=0X0079, type="u8", condition="change", action="RANK_STATE", desc="Map - Player Position X [8bit]" },
+        { address=0X07BA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Name [ASCII]" },
+        { address=0X7D95, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID [8bit]" },
+        { address=0X7D96, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID Previous [8bit]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7C16, type="u8", condition="increase", action="HEAL", desc="HP Enemy? [8bit] increased" },
+        { address=0X7C16, type="u8", condition="decrease", action="HIT", desc="HP Enemy? [8bit] decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X03E0, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Cheat Power Up Cycle [8bit]" },
+        { address=0X7A09, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up Suit [8bit]" },
+        { address=0X7E3E, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Reserve Item [8bit]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X03F1, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Buffer [8bit] increased" },
+        { address=0X7DFE, type="u8", condition="increase", action="COIN_GAIN", desc="- Bit2 : 1-9 Beat Bound Block Boogie increased" },
+        { address=0X7E43, type="u16le", condition="increase", action="COIN_GAIN", desc="Coins Counter [16bit] increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X7EBE, type="u8", condition="change", action="BOSS_HIT", desc="Boss Rush Enable [8bit]" },
+        { address=0X7EBF, type="u8", condition="change", action="BOSS_DEFEATED", desc="Boss Rush - Boss Defeated [8bit]" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X03DC, type="u8", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X03DC, type="u8", condition="change", action="SPEED_TIMER", no_log=true, desc="P-Meter [BitCount]" },
+        { address=0X03DC, type="u8", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+      },
+      player = {
+        { address=0X040C, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Mid Air Jump [8bit]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7DF7, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Flag [8bit]" },
+        { address=0X7DF8, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Stage [8bit]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7E41, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Seconds [8bit]" },
+      },
+    },
+  },
+}

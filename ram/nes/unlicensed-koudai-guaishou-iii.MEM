@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Koudai Guaishou III",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-koudai-guaishou-iii",
+    hashes = {
+      { hash = "7fd412d83853297cd8d24a096fcc0e5b", label = "Koudai Guaishou III - Pokemon Diamond III (China) (Bootleg).nes" },
+      { hash = "7bf13f3379a1985629eb2f8fcb242a08", label = "Koudai Guaishou III - Pokemon Diamond III (China) (Bootleg) (Savefix - Blazekickn).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X04BC, type="u8", condition="change", action="NEW_LEVEL", desc="Party - Level" },
+        { address=0X05B4, type="u8", condition="change", action="NEW_LEVEL", desc="Battle - Opponent - Level" },
+        { address=0X61C8, type="u32le", condition="change", action="NEW_LEVEL", desc="PC - Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X04C2, type="u8", condition="increase", action="HEAL", desc="Party - Current HP increased" },
+        { address=0X04C2, type="u8", condition="decrease", action="HIT", desc="Party - Current HP decreased" },
+        { address=0X04C8, type="u8", condition="increase", action="HEAL", desc="Party - Current HP *256 increased" },
+        { address=0X04C8, type="u8", condition="decrease", action="HIT", desc="Party - Current HP *256 decreased" },
+        { address=0X0621, type="u16le", condition="increase", action="HEAL", desc="Battle - Opponent - Current HP [16bit] increased" },
+        { address=0X0621, type="u16le", condition="decrease", action="HIT", desc="Battle - Opponent - Current HP [16bit] decreased" },
+        { address=0X0623, type="u16le", condition="increase", action="HEAL", desc="Battle - Opponent - Max HP [16bit] increased" },
+        { address=0X0623, type="u16le", condition="decrease", action="HIT", desc="Battle - Opponent - Max HP [16bit] decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00FA, type="u16le", condition="increase", action="COIN_GAIN", desc="Money [16bit] increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X043A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="--- Bit0 | Moosdeep Gym - Switch activated" },
+      },
+    },
+  },
+}

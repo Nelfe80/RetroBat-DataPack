@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Emote Challenge 64 2",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-emote-challenge-64-2",
+    hashes = {
+      { hash = "0420df84cf44dec25bfb9be90858f719", label = "SM64 - Emote Challenge 2 (Challenge Edition Final) (Tomatobird8, MBCollector672, Sibley).z64" },
+      { hash = "b98c872c8f1f47e22e3d44469b90a061", label = "SM64 - Emote Challenge 2 (Casual Edition Final) (Tomatobird8, MBCollector672, Sibley).z64" },
+    }
+  },
+
+  events = {
+  },
+}

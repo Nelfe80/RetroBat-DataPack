@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Multiverse",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-multiverse",
+    hashes = {
+      { hash = "f8f57b1c5171a771b3987be56ef9f0ff", label = "Multiverse (World) (Aftermarket) (Unl).col" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X00BE, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X00BE, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X00BF, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00BB, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score/10" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00AC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Bitflags] Switches pressed" },
+        { address=0X00AD, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[Bitflags] Switches pressed" },
+      },
+    },
+  },
+}

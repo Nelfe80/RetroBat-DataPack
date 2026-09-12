@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mary-Kate & Ashley: Get a Clue!",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "mary-kate-ashley-get-a-clue",
+    hashes = {
+      { hash = "cc7639a2269210338b52e626096a99d9", label = "Mary-Kate & Ashley - Get a Clue! (USA, Europe) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

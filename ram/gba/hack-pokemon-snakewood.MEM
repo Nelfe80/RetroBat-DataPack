@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Snakewood",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-snakewood",
+    hashes = {
+      { hash = "3e18faadb97ea0dc129240fca69f8336", label = "Pokemon - Ruby Version - Snakewood (Alt) (Cutlerine).gba" },
+      { hash = "617a3839430fd88dab62265b82dae9d5", label = "Pokemon - Ruby Version - Snakewood (Cutlerine).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7387, type="u8", condition="change", action="PAUSE_ON", desc=":bit7 Pause Music Flag (Used for Jingles)" },
+        { address=0X2EA05, type="u8", condition="eq", value=0XB1, action="DEMO_MODE", desc="demon corpse orobas" },
+        { address=0X2EA3B, type="u8", condition="change", action="DEMO_MODE", desc="b7:defeated demon corpse zabulon" },
+        { address=0X2EA41, type="u8", condition="eq", value=0XB5, action="DEMO_MODE", desc="demon corpse andromalius" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X43B4, type="u8", condition="change", action="NEW_LEVEL", desc="level pokemon 1?" },
+        { address=0X447C, type="u8", condition="change", action="NEW_LEVEL", desc="2nd pokemon level" },
+        { address=0X44E0, type="u8", condition="change", action="NEW_LEVEL", desc="3rd pokemon level" },
+        { address=0X4614, type="u8", condition="change", action="NEW_LEVEL", desc="Level of the enemy pokemon" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2EA29, type="u8", condition="change", action="LOSE_LIFE", desc="b0:soldier schwartz (gym island rustboro gym)" },
+        { address=0X2EA36, type="u8", condition="eq", value=0XB2, action="LOSE_LIFE", desc="deathcaller alicia second battle" },
+        { address=0X2EA36, type="u8", condition="eq", value=0XB3, action="LOSE_LIFE", desc="alicia third battle (desert)" },
+        { address=0X2EA36, type="u8", condition="eq", value=0XB4, action="LOSE_LIFE", desc="war battle" },
+      },
+      health = {
+        { address=0X43B6, type="u8", condition="increase", action="HEAL", desc="active pokemon health increased" },
+        { address=0X43B6, type="u8", condition="decrease", action="HIT", desc="active pokemon health decreased" },
+        { address=0X43B8, type="u8", condition="increase", action="HEAL", desc="max hp of pokemon (1st slot) increased" },
+        { address=0X43B8, type="u8", condition="decrease", action="HIT", desc="max hp of pokemon (1st slot) decreased" },
+        { address=0X447E, type="u8", condition="increase", action="HEAL", desc="2nd pokemon active health increased" },
+        { address=0X447E, type="u8", condition="decrease", action="HIT", desc="2nd pokemon active health decreased" },
+        { address=0X4480, type="u8", condition="increase", action="HEAL", desc="max health 2nd pokemon increased" },
+        { address=0X4480, type="u8", condition="decrease", action="HIT", desc="max health 2nd pokemon decreased" },
+        { address=0X44E2, type="u8", condition="increase", action="HEAL", desc="3rd pokemon active health increased" },
+        { address=0X44E2, type="u8", condition="decrease", action="HIT", desc="3rd pokemon active health decreased" },
+        { address=0X44E4, type="u8", condition="increase", action="HEAL", desc="3rd pokemon active health 2 increased" },
+        { address=0X44E4, type="u8", condition="decrease", action="HIT", desc="3rd pokemon active health 2 decreased" },
+        { address=0X4616, type="u8", condition="increase", action="HEAL", desc="current hp of the enemy pokemon increased" },
+        { address=0X4616, type="u8", condition="decrease", action="HIT", desc="current hp of the enemy pokemon decreased" },
+        { address=0X2CAA8, type="u8", condition="increase", action="HEAL", desc="your pokemon current hp increased" },
+        { address=0X2CAA8, type="u8", condition="decrease", action="HIT", desc="your pokemon current hp decreased" },
+        { address=0X2CB00, type="u8", condition="increase", action="HEAL", desc="enemy pokemon current hp value increased" },
+        { address=0X2CB00, type="u8", condition="decrease", action="HIT", desc="enemy pokemon current hp value decreased" },
+        { address=0X2CBB0, type="u8", condition="increase", action="HEAL", desc="enemy pokemon hp (double battles) increased" },
+        { address=0X2CBB0, type="u8", condition="decrease", action="HIT", desc="enemy pokemon hp (double battles) decreased" },
+        { address=0X2CBF0, type="u8", condition="change", action="HIT", desc="damage dealt to both enemy and your pokemon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X4058, type="u24le", condition="increase", action="COIN_GAIN", desc="exp after fight 1? 1836 beating red gay demon? in cave increased" },
+        { address=0X2D73A, type="u8", condition="increase", action="COIN_GAIN", desc="The door you are entering on the map increased" },
+        { address=0X2DBC4, type="u32le", condition="increase", action="COIN_GAIN", desc="32bit money increased" },
+        { address=0X2DBC5, type="u8", condition="increase", action="COIN_GAIN", desc="money 2 increased" },
+        { address=0X317FA, type="u8", condition="increase", action="COIN_GAIN", desc="The door you are entering on the map being loaded increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X2EA05, type="u8", condition="eq", value=0XB5, action="SWIMMING", no_log=true, no_survey=true, desc="swimmer dirthugger" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2EA3E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="b2:severed head kent" },
+      },
+    },
+  },
+}

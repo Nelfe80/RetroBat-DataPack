@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Juiced",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "juiced",
+    hashes = {
+      { hash = "91d8cddce9e8f63de8b7fad62f97b92b", label = "Juiced (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4F5B14, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Before Title Screen" },
+        { address=0X4F5B14, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="After Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1478868, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Clear" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X14FE730, type="u8", condition="eq", value=0X0D, action="MONEY_STATE", desc="Gold Prototype Challenge" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1409160, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Pointer] -- Chain" },
+        { address=0X1478864, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="State change" },
+        { address=0X14B7444, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", desc="State change" },
+        { address=0X14B7444, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="Lap Time" },
+      },
+    },
+  },
+}

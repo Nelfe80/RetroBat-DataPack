@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tenchu: Shinobi Hyakusen",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "tenchu-shinobi-hyakusen",
+    hashes = {
+      { hash = "0bdd905ae81dcd4789145d5519e9c274", label = "Rittai Ninja Katsugeki - Tenchu - Shinobi Hyakusen (Japan)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X100CE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Mission 1 best time done with" },
+      },
+    },
+  },
+}

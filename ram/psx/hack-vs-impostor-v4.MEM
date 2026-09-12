@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VS. Impostor V4",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vs-impostor-v4",
+    hashes = {
+      { hash = "3799e3fc7fe2dd18dc4fdb2bdf750477", label = "PSXFunkin' - VS. Imposter V4 (Tomscop) (Disc 1)" },
+      { hash = "8ae324a30c5b27a5bcbadb62162d1975", label = "PSXFunkin' - VS. Imposter V4 (Tomscop) (Disc 2)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E5D4C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E5D4C, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1E6449, type="u8", condition="change", action="PAUSE_ON", desc="Disc 1 - [8-bit] Paused [0->1]" },
+      },
+      events = {
+        { address=0X1E615D, type="u8", condition="change", action="COMBO_HIT", desc="Disc 1 - [8-bit] Show Combo Text [0->1]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1E66FC, type="u32le", condition="increase", action="HEAL", desc="Disc 1 - [32-bit] Health increased" },
+        { address=0X1E66FC, type="u32le", condition="decrease", action="HIT", desc="Disc 1 - [32-bit] Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1D9654, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Disc 2 - [32-bit] Score" },
+        { address=0X1E6704, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Disc 1 - [32-bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E6590, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Disc 1 - [32-bit] Song ID" },
+        { address=0X1F6ABC, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Disc 1 - [32-bit] time measured in total seconds - after it reaches 0, it wraps around to FFFFFF" },
+      },
+    },
+  },
+}

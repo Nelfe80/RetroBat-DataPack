@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Road Rash",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "road-rash",
+    hashes = {
+      { hash = "f5767f97f44365b703eae78afb7562e6", label = "Road Rash (USA, Europe).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC0AB, type="u8", condition="change", action="NEW_LEVEL", desc="Level Value" },
+      },
+    },
+  },
+}

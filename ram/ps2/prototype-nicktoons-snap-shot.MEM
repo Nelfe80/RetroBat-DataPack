@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Nicktoons Snap Shot",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-nicktoons-snap-shot",
+    hashes = {
+      { hash = "1299750df42941dc73e61f822f6e16dc", label = "Nicktoons Snap Shot (USA) (Prototype) (2004-03-25)" },
+    }
+  },
+
+  events = {
+  },
+}

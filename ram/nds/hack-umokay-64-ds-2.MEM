@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Umokay 64 DS 2",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-umokay-64-ds-2",
+    hashes = {
+      { hash = "58d013111b9a6e541d88707b195f1a02", label = "SM64DS - Umokay 64 2 (0reo).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F2C4, type="u8", condition="change", action="PAUSE_ON", desc="Bit0 : Pause" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X23C0, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u24le", condition="eq", value=0X2400, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9F2F8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X19, action="NEW_LEVEL", desc="2D Retro Level" },
+        { address=0X183534, type="u16le", condition="change", action="NEW_LEVEL", desc="Animation ID [16-bit] [Overworld only]" },
+        { address=0X191680, type="u16le", condition="change", action="NEW_LEVEL", desc="Textmessage ID [16-bit] [For overall except Overworld]" },
+        { address=0X1918FA, type="u16le", condition="change", action="NEW_LEVEL", desc="X Coord [16-bit] [For overall except Overworld]" },
+        { address=0X1918FE, type="u16le", condition="change", action="NEW_LEVEL", desc="Z Coord [16-bit] [For overall except Overworld]" },
+        { address=0X191902, type="u16le", condition="change", action="NEW_LEVEL", desc="Y Coord [16-bit] [For overall except Overworld]" },
+        { address=0X191954, type="u16le", condition="change", action="NEW_LEVEL", desc="Animation ID [16-bit] [For overall except Overworld]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X190B8D, type="u8", condition="increase", action="HEAL", desc="Umokay King Whomp's HP increased" },
+        { address=0X190B8D, type="u8", condition="decrease", action="HIT", desc="Umokay King Whomp's HP decreased" },
+        { address=0X190F4E, type="u8", condition="increase", action="HEAL", desc="Umokay Big Boo's HP increased" },
+        { address=0X190F4E, type="u8", condition="decrease", action="HIT", desc="Umokay Big Boo's HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X9CAC9, type="u8", condition="bit_true", mask=0X02, action="TREASURE", desc="Secret Star - 3 Treasures" },
+        { address=0X9CAD0, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Secret Star - 5 Hidden Treasures" },
+        { address=0X189464, type="u8", condition="change", action="TREASURE", desc="Hidden Treasures" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9CAC9, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Secret Star - 8 Red Coins" },
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+        { address=0X9F358, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X9CACE, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Secret Star - Jump" },
+      },
+    },
+  },
+}

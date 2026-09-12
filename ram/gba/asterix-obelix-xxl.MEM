@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Astérix & Obélix XXL",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Compilation"
+  },
+
+  rom = {
+    name = "asterix-obelix-xxl",
+    hashes = {
+      { hash = "920882439cd994c2f0ab63d32a64eb80", label = "Asterix & Obelix XXL (Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X46120, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Titlescreen/Load/Ingame/OB-Sleigh Menu" },
+        { address=0X46404, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="Continue" },
+        { address=0X46408, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Continue" },
+        { address=0X46408, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Return to the Map" },
+        { address=0X46408, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Quit" },
+        { address=0X4640A, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Yes" },
+        { address=0X4640A, type="u8", condition="eq", value=0X01, action="PAUSE_OFF", desc="No" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X46120, type="u8", condition="eq", value=0X07, action="LEVEL_CLEAR", desc="Complete any Act" },
+      },
+    },
+  },
+}

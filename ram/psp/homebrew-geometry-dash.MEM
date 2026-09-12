@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Geometry Dash",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-geometry-dash",
+    hashes = {
+      { hash = "4a04ee0c551b721145a8b72c6e16f67a", label = "Geometry Dash (v1.0.1) (Yerson Games).iso" },
+    }
+  },
+
+  events = {
+  },
+}

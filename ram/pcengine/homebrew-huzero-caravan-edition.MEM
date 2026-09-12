@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ HuZERO: Caravan Edition",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-huzero-caravan-edition",
+    hashes = {
+      { hash = "b14e14493c7c45b8d61c160236ac0f85", label = "HuZERO (World) (Aftermarket) (Unl).pce" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0033, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title" },
+      },
+    },
+  },
+}

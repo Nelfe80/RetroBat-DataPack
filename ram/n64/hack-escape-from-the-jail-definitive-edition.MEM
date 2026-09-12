@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Escape from the Jail: Definitive Edition",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-escape-from-the-jail-definitive-edition",
+    hashes = {
+      { hash = "ba8862c71765e716c4e3adf31b71a8ae", label = "Super Mario 64 - Escape from Jail - Definitive Edition (aglab2) (1.4).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X18F5A4, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] level index (1 : c1, etc.)" },
+        { address=0X18FB64, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] v1.4 - level index" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X190302, type="u16be", condition="increase", action="GAIN_LIFE", desc="[16bit] HUD - displayed lives increased" },
+        { address=0X190302, type="u16be", condition="decrease", action="LOSE_LIFE", desc="[16bit] HUD - displayed lives decreased" },
+      },
+      health = {
+        { address=0X190304, type="u16be", condition="increase", action="HEAL", desc="[16bit] HUD - displayed health wedges (8 : full HP, hidden) increased" },
+        { address=0X190304, type="u16be", condition="decrease", action="HIT", desc="[16bit] HUD - displayed health wedges (8 : full HP, hidden) decreased" },
+        { address=0X1903BC, type="u16be", condition="increase", action="HEAL", desc="[16bit] mario health (xxyy) increased" },
+        { address=0X1903BC, type="u16be", condition="decrease", action="HIT", desc="[16bit] mario health (xxyy) decreased" },
+        { address=0X1903C0, type="u8", condition="increase", action="HEAL", desc="[8bit] hp increment count increased" },
+        { address=0X1903C0, type="u8", condition="decrease", action="HIT", desc="[8bit] hp increment count decreased" },
+        { address=0X1903C1, type="u8", condition="increase", action="HEAL", desc="[8bit] hp decrement count increased" },
+        { address=0X1903C1, type="u8", condition="decrease", action="HIT", desc="[8bit] hp decrement count decreased" },
+        { address=0X1915E8, type="u32be", condition="increase", action="HEAL", desc="objects[2] hp (32-bit) increased" },
+        { address=0X1915E8, type="u32be", condition="decrease", action="HIT", desc="objects[2] hp (32-bit) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X190300, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] HUD - displayed coin count increased" },
+        { address=0X1903BA, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] number of coins increased" },
+        { address=0X19DDF0, type="u32be", condition="increase", action="COIN_GAIN", desc="objects[86] behavior script (32-bit) increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X19101A, type="u16be", condition="change", action="OBJECT_INTERACTION", desc="objects[0] active flags (16-bit)" },
+        { address=0X1910F0, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[0] action (32-bit)" },
+        { address=0X1911B0, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[0] behavior script (32-bit)" },
+        { address=0X1915B0, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[2] action (32-bit)" },
+        { address=0X191670, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[2] behavior script (32-bit)" },
+        { address=0X19DBE4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="objects[86] graph flags" },
+        { address=0X19DC5A, type="u16be", condition="change", action="OBJECT_INTERACTION", desc="objects[86] active flags (16-bit)" },
+        { address=0X1A14E4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="objects[110] (608 bytes)" },
+        { address=0X1A1630, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="objects[110] current action (technically 32-bit but only need to check 8-bit in most cases)" },
+        { address=0X1A16F0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="objects[110] behavior script" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X192FD0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", desc="objects[13] action" },
+        { address=0X192FD8, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="objects[13] timer (32-bit)" },
+        { address=0X1A1638, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="objects[110] timer (32-bit)" },
+      },
+    },
+  },
+}

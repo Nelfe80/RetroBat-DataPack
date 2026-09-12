@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ SpongeBob PixelPants",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-spongebob-pixelpants",
+    hashes = {
+      { hash = "76b970b1497e9ec92ee9209895f4d682", label = "SpongeBob PixelPants (NTSC) (v2006) (Aftermarket) (Chris Read).a26" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X007F, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Jellyfish Fields (Level 1)" },
+        { address=0X007F, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="Plankton's Place (Level 2)" },
+      },
+    },
+  },
+}

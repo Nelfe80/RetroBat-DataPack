@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Adulting!",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-adulting",
+    hashes = {
+      { hash = "95a0f644d8778b1c934ac5ae8791d80f", label = "Adulting! (World) (v2.0) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0XC919, type="u8", condition="eq", value=0X0F, action="OBJECT_DESTROYED", desc="Far right car on street - interaction is broken and this value remains until new interaction" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC71D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Cuss timer" },
+        { address=0XC919, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current interaction. Unique per screen" },
+      },
+    },
+  },
+}

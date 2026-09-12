@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fear Factor Unleashed",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "fear-factor-unleashed",
+    hashes = {
+      { hash = "63bc29511f80b9ea2e5cd6daa9e76970", label = "Fear Factor - Unleashed (USA).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic 3 and Amy Rose",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-3-and-amy-rose",
+    hashes = {
+      { hash = "0f3bb6f4583d2d7fc8c8be599640ddb4", label = "Sonic 3 and Amy Rose (v1.4) (E-122-Psi).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF63A, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not Paused" },
+        { address=0XF63A, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFE11, type="u8", condition="eq", value=0X00, action="LEVEL_ANGEL_ISLAND", desc="Angel Island" },
+        { address=0XFE11, type="u8", condition="eq", value=0X01, action="LEVEL_HYDROCITY", desc="Hydrocity" },
+        { address=0XFE11, type="u8", condition="eq", value=0X02, action="LEVEL_MARBLE_GARDEN", desc="Marble Garden" },
+        { address=0XFE11, type="u8", condition="eq", value=0X03, action="LEVEL_CARNIVAL_NIGHT", desc="Carnival Night" },
+        { address=0XFE11, type="u8", condition="eq", value=0X04, action="LEVEL_FLYING_BATTERY", desc="Flying Battery" },
+        { address=0XFE11, type="u8", condition="eq", value=0X05, action="LEVEL_ICECAP", desc="Icecap" },
+        { address=0XFE11, type="u8", condition="eq", value=0X06, action="LEVEL_LAUNCH_BASE", desc="Launch Base" },
+        { address=0XFE11, type="u8", condition="eq", value=0X07, action="LEVEL_MUSHROOM_HILL", desc="Mushroom Hill" },
+        { address=0XFE11, type="u8", condition="eq", value=0X08, action="LEVEL_SANDOPOLIS", desc="Sandopolis" },
+        { address=0XFE11, type="u8", condition="eq", value=0X09, action="LEVEL_LAVA_REEF", desc="Lava Reef" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0A, action="LEVEL_SKY_SANCTUARY_ACT_2_IS_KNUCKLES_VERSION", desc="Sky Sanctuary (act 2 is Knuckles version)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0B, action="LEVEL_DEATH_EGG", desc="Death Egg" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0C, action="LEVEL_DOOMSDAY", desc="Doomsday" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0D, action="LEVEL_GAME_CLEAR_AS_SONIC_OR_TAILS_ACT_IS_0X01", desc="Game Clear as Sonic or Tails (act is 0x01)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0E, action="LEVEL_AZURE_LAKE_COMPETITION", desc="Azure Lake (competition)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X0F, action="LEVEL_BALLON_PARK_COMPETITION", desc="Ballon Park (competition)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X10, action="LEVEL_DESERT_PALACE_COMPETITION", desc="Desert Palace (competition)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X11, action="LEVEL_CHROME_GADGET_COMPETITION", desc="Chrome Gadget (competition)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X12, action="LEVEL_ENDLESS_MINE_COMPETITION", desc="Endless Mine (competition)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X13, action="LEVEL_GUMBALL_MACHINE_BONUS_STAGE_S3_ONLY", desc="Gumball Machine (Bonus Stage) S3 only?" },
+        { address=0XFE11, type="u8", condition="eq", value=0X14, action="LEVEL_VERTICAL_ORB_CLIMB_BONUS_STAGE", desc="Vertical Orb Climb (Bonus Stage)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X15, action="LEVEL_SLOT_MACHINE_BONUS_STAGE", desc="Slot Machine (Bonus Stage)" },
+        { address=0XFE11, type="u8", condition="eq", value=0X16, action="LEVEL_SECOND_PART_OF_LAVA_REEF_ACT_2_AUTOSCROLLER_AND_LAVA_BOS", desc="Second part of Lava Reef act 2 (autoscroller and lava boss) act 2 is Hidden Palace" },
+        { address=0XFE11, type="u8", condition="eq", value=0X17, action="LEVEL_SECOND_PART_OF_DEATH_EGG_ACT_2_FINAL_BOSS_WITHOUT_ALL_CH", desc="Second part of Death Egg act 2 (final boss without all Chaos Emeralds)" },
+        { address=0XFF0A, type="u8", condition="eq", value=0X0, action="LEVEL_AMY_TAILS", desc="Amy & Tails" },
+        { address=0XFF0A, type="u8", condition="eq", value=0X1, action="LEVEL_AMY", desc="Amy" },
+        { address=0XFF0A, type="u8", condition="eq", value=0X2, action="LEVEL_TAILS", desc="Tails" },
+        { address=0XFF0A, type="u8", condition="eq", value=0X3, action="LEVEL_KNUCKLES", desc="Knuckles" },
+      },
+      zone = {
+        { address=0XFE11, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },
+      },
+      stage = {
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Act" },
+        { address=0XFE10, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Act 1" },
+        { address=0XFE10, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Act 2" },
+        { address=0XFF0A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player Character in Level Select" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0000, type="u16le", condition="eq", value=0X0000, action="COIN_GAIN", desc="Ring Uncollected" },
+        { address=0X0000, type="u16le", condition="eq", value=0XFFFF, action="COIN_GAIN", desc="Ring Collected" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Has a Shield" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X02, action="INVINCIBILITY_START", desc="Invincibility" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X04, action="SPEED_START", desc="Speed Shoes" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Fire Shield" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Lightning Shield" },
+        { address=0XB02A, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Bubble Shield" },
+      },
+    },
+  },
+}

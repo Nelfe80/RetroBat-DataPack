@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Angry Birds",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-angry-birds",
+    hashes = {
+      { hash = "8129f5c0b4f86936352e0b0596ed2663", label = "Moai-kun - Angry Birds (v1.0) (Googie).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0018, type="u8", condition="change", action="TITLE_SCREEN", desc="title 00" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X003C, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0046, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (REST number) increased" },
+        { address=0X0046, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (REST number) decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X00C0, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Jump 02" },
+      },
+    },
+  },
+}

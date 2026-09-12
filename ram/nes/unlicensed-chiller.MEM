@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Chiller",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-chiller",
+    hashes = {
+      { hash = "44123d8f2a9b4555e5021fb0fb699971", label = "Chiller (USA) (Unl).nes" },
+      { hash = "52976be77d35c6a910246f2cff3c2e3f", label = "Chiller (Australia) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

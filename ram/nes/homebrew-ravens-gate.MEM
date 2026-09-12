@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Raven's Gate",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-ravens-gate",
+    hashes = {
+      { hash = "63827c9c80a45cf39d9cb90652c9eeb9", label = "Raven's Gate (World) (NESDev 2022) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X045F, type="u8", condition="change", action="HEALTH_STATE", desc="Current health" },
+        { address=0X045F, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", desc="Half a heart" },
+        { address=0X045F, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", desc="Whole heart" },
+        { address=0X0462, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X0462, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0460, type="u8", condition="increase", action="COIN_GAIN", desc="Number of coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X046D, type="u8", condition="change", action="DOOR_OPENED", desc="bit 0 -door unlocked (0x08)" },
+        { address=0X0470, type="u8", condition="change", action="DOOR_OPENED", desc="bit 6 - door (0x26)" },
+      },
+    },
+  },
+}

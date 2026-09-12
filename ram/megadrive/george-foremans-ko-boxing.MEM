@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "George Foreman's KO Boxing",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "george-foremans-ko-boxing",
+    hashes = {
+      { hash = "901918b93f0286a4c961ae60ab72d360", label = "George Foreman's KO Boxing (USA).md" },
+    }
+  },
+
+  events = {
+  },
+}

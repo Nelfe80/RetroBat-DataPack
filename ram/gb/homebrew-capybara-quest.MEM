@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Capybara Quest",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-capybara-quest",
+    hashes = {
+      { hash = "1625b54bab62ff4d7f6878e76c5d09c7", label = "Capybara Quest (World) (v1.2) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

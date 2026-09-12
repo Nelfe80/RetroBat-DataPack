@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid Prime: Trial of Strength",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-prime-trial-of-strength",
+    hashes = {
+      { hash = "4f5e80b8ae6795821560cebd98c6363b", label = "Metroid Prime - Trial of Strength (v1.2) (Uncle Reggie)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X45AAAC, type="u32be", condition="eq", value=0X01, action="PAUSE_ON", desc="Soft Paused" },
+        { address=0X45AAAC, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Paused" },
+        { address=0X45B138, type="u32be", condition="eq", value=0X02, action="PAUSE_ON", desc="Pause Game" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X45B0C4, type="u8", condition="change", action="BOSS_HIT", desc="[US-00] SM: Total (Max) Boss Energy [Float BE]" },
+        { address=0X45B0C8, type="u32be", condition="eq", value=0X5B, action="BOSS_HIT", desc="Metroid Prime" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X45A9B0, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[US-00] SM: Object Lists Vector - Number of Object Lists Reserved [32-Bit BE]" },
+      },
+    },
+  },
+}

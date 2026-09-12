@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Ruinous Shards",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-ruinous-shards",
+    hashes = {
+      { hash = "bf8fdaf612602f35e2807481e4c09765", label = "Legend of Zelda, The - Ocarina of Time - The Ruinous Shards (v1.04) (haddock).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X15E680, type="u8", condition="change", action="LOSE_LIFE", desc="Death Count" },
+        { address=0X15F50B, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="Death Mountain Trail" },
+        { address=0X15F50B, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Death Mountain Trail" },
+        { address=0X15F50B, type="u8", condition="bit_true", mask=0X08, action="LOSE_LIFE", desc="Death Mountain Trail" },
+        { address=0X15F50B, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Death Mountain Trail" },
+        { address=0X15F50B, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Death Mountain Crater" },
+      },
+      health = {
+        { address=0X15E692, type="u16be", condition="increase", action="HEAL", desc="Link HP 16 bits increased" },
+        { address=0X15E692, type="u16be", condition="decrease", action="HIT", desc="Link HP 16 bits decreased" },
+        { address=0X245BAC, type="u8", condition="increase", action="HEAL", desc="Ganon HP increased" },
+        { address=0X245BAC, type="u8", condition="decrease", action="HIT", desc="Ganon HP decreased" },
+        { address=0X256D9C, type="u8", condition="increase", action="HEAL", desc="Ganondorf HP increased" },
+        { address=0X256D9C, type="u8", condition="decrease", action="HIT", desc="Ganondorf HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X15E706, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Kokiri's Emerald" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X15E690, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Magic Metter" },
+        { address=0X15E706, type="u8", condition="bit_true", mask=0X80, action="MONEY_STATE", desc="Gold Skulltula Token Display" },
+        { address=0X15E707, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammount of Piece of Hearts" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X15E708, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X15E70C, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X15E70D, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X15E70E, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X15E70F, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Dungeon Boss Key" },
+        { address=0X16E9A4, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Boss Battle" },
+        { address=0X16E9A4, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X15E6FE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Kokiri Shield" },
+        { address=0X15E6FE, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Hylian Shield" },
+        { address=0X15E6FE, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="Mirror Shield" },
+      },
+    },
+  },
+}

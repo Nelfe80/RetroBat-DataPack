@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 3D Pinball: Space Cadet",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-3d-pinball-space-cadet",
+    hashes = {
+      { hash = "4d1b383b9cc8bce2c0130a41ccd37e8a", label = "BALL-03DRA [?] (BALL-03DRA) [F6CB8E53]" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X14504F0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (3D Pinball)" },
+        { address=0X14504F4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Billions) (3D Pinball)" },
+        { address=0X162D5B0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Display (3D Pinball)" },
+        { address=0X1D88420, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Full Tilt!)" },
+        { address=0X1D88424, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Billions (Full Tilt!)" },
+        { address=0X1F48710, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Display (Full Tilt!)" },
+      },
+    },
+  },
+}

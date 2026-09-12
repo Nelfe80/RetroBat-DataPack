@@ -1,0 +1,150 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Net Yaroze: 2014 Collection",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-net-yaroze-2014-collection",
+    hashes = {
+      { hash = "849e56df594443bf04ada4677b4e3fe9", label = "Net Yaroze Collection 2014 (World) (Net Yaroze) (Various)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9E10, type="u8", condition="eq", value=0X03, action="DEMO_MODE", desc="disc demos menu" },
+        { address=0X9E10, type="u8", condition="eq", value=0X06, action="DEMO_MODE", desc="net demos menu" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X01, action="DEMO_MODE", desc="A Dog Tale (D-J)" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X03, action="DEMO_MODE", desc="Earth Saves Our Love" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X07, action="DEMO_MODE", desc="blitterboy" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X09, action="DEMO_MODE", desc="Gravitation 1.3" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X13, action="DEMO_MODE", desc="Terra Incognita" },
+        { address=0X7B180, type="u16le", condition="eq", value=0X16, action="DEMO_MODE", desc="Roller" },
+        { address=0X7F794, type="u16le", condition="eq", value=0X9, action="DEMO_MODE", desc="Demos Released on Demo Discs" },
+        { address=0X98BA0, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X98BE0, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X98BEB, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X98C2C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen (or respawning)" },
+        { address=0X1200B0, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="menu demo" },
+        { address=0X13C354, type="u8", condition="change", action="DEMO_MODE", desc="Games on Demo Discs" },
+        { address=0X13C364, type="u8", condition="change", action="DEMO_MODE", desc="01 - Games on Demo Discs" },
+        { address=0X147410, type="u32le", condition="change", action="GAME_OVER", desc="Earth Saves Our Love - Hits Taken (3:game over)" },
+        { address=0X147454, type="u16le", condition="eq", value=0X06, action="GAME_OVER", desc="Game Over" },
+        { address=0X147454, type="u16le", condition="eq", value=0X0E, action="PAUSE_ON", desc="Paused" },
+        { address=0X157260, type="u8", condition="eq", value=0X3, action="CONTINUE_SCREEN", desc="Continue / Replay selection on any level loss or win" },
+        { address=0X161F90, type="u8", condition="eq", value=0XD0, action="CREDITS_SCREEN", desc="credits" },
+        { address=0X16C4B4, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X1A8908, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X1CF9F2, type="u8", condition="change", action="DEMO_MODE", desc="Demo" },
+        { address=0X1FFE28, type="u8", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X12B5D7, type="u8", condition="eq", value=0X40, action="NEW_LEVEL", desc="on ground" },
+        { address=0X147454, type="u16le", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="Stage Clear" },
+        { address=0X147464, type="u32le", condition="change", action="NEW_LEVEL", desc="Earth Saves Our Love - Current Level" },
+        { address=0X157260, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="level intro, goes to 0x0 when can play" },
+        { address=0X157260, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="Single Level" },
+        { address=0X157260, type="u8", condition="eq", value=0X8, action="NEW_LEVEL", desc="Single Level -> Point Challenge" },
+        { address=0X157290, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Roller - Number of Diamonds gathered in level" },
+        { address=0X157294, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8bit] Roller - Clear Number - Number of Diamonds required to open exit" },
+        { address=0X1572CC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Roller - Level Number. Max is 0x14 (20)" },
+        { address=0X1847D0, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="level 1 completed on easy" },
+        { address=0X1847D0, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="level 7 completed on easy" },
+        { address=0X1847D1, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Roller - Level completed on Easy, practice unlocked. For Levels 8-15 (bit0-bit7)" },
+        { address=0X1847D2, type="u16le", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Roller - Level completed on Easy, practice unlocked. For Levels 16-20 (bit0-bit4)" },
+        { address=0X1847D4, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Roller - Level completed on Hard, practice unlocked and Point Challenge unlocked." },
+        { address=0X1847D5, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Roller - Level completed on Hard, practice unlocked and Point Challenge unlocked." },
+        { address=0X1847D6, type="u16le", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Roller - Level completed on Hard, practice unlocked and Point Challenge unlocked." },
+        { address=0X1847D8, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="level 1 point challenge completed, diamond earned." },
+        { address=0X1847D8, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="level 2 point challenge completed, diamond earned." },
+        { address=0X1847D8, type="u8", condition="bit_true", mask=0X08, action="LEVEL_CLEAR", desc="level 3" },
+        { address=0X1847D8, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="level 7 point challenge completed" },
+        { address=0X1847D9, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="level 8 point challenge complete" },
+        { address=0X1847D9, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="level 15 point challenge complete" },
+        { address=0X1847DA, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="level 16 point challenge completed" },
+        { address=0X1847DA, type="u8", condition="bit_true", mask=0X10, action="LEVEL_CLEAR", desc="level 20 point challenge completed" },
+        { address=0X1A890C, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level Stat Screen" },
+      },
+      stage = {
+        { address=0X14742C, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Earth Saves Our Love - Remaining Enemies on Stage" },
+        { address=0X147454, type="u16le", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Bonus Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X98BE0, type="u8", condition="increase", action="GAIN_LIFE", desc="A Dog Tale - Lives increased" },
+        { address=0X98BE0, type="u8", condition="decrease", action="LOSE_LIFE", desc="A Dog Tale - Lives decreased" },
+        { address=0X98BE0, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="Initial" },
+        { address=0X98BE0, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="Max" },
+        { address=0X1572BC, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Roller - Lives increased" },
+        { address=0X1572BC, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Roller - Lives decreased" },
+        { address=0X159B02, type="u8", condition="increase", action="GAIN_LIFE", desc="[BOUNCER2][8-bit] Lives Left increased" },
+        { address=0X159B02, type="u8", condition="decrease", action="LOSE_LIFE", desc="[BOUNCER2][8-bit] Lives Left decreased" },
+        { address=0X17C2D0, type="u8", condition="eq", value=0X4C, action="LOSE_LIFE", desc="rainbow death" },
+        { address=0X17C2D5, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="rainbow death" },
+        { address=0X1AE8D4, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="death" },
+        { address=0X1D02BF, type="u8", condition="increase", action="GAIN_LIFE", desc="P1: Lives in Dogfight increased" },
+        { address=0X1D02BF, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1: Lives in Dogfight decreased" },
+      },
+      health = {
+        { address=0X147454, type="u16le", condition="eq", value=0X08, action="HIT", desc="Ingame/Damaged" },
+        { address=0X147584, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 1 Health Left increased" },
+        { address=0X147584, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 1 Health Left decreased" },
+        { address=0X1475B4, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 2 Health Left increased" },
+        { address=0X1475B4, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 2 Health Left decreased" },
+        { address=0X1475E4, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 3 Health Left increased" },
+        { address=0X1475E4, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 3 Health Left decreased" },
+        { address=0X147614, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 4 Health Left increased" },
+        { address=0X147614, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 4 Health Left decreased" },
+        { address=0X147644, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 5 Health Left increased" },
+        { address=0X147644, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 5 Health Left decreased" },
+        { address=0X147674, type="u32le", condition="increase", action="HEAL", desc="Earth Saves Our Love - UFO 6 Health Left increased" },
+        { address=0X147674, type="u32le", condition="decrease", action="HIT", desc="Earth Saves Our Love - UFO 6 Health Left decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE231, type="u8", condition="eq", value=0XD5, action="SCORE_STATE", desc="highscores" },
+        { address=0X11EDD8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Gikadriver - Score" },
+        { address=0X11EDE0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Gikadriver - High Score" },
+        { address=0X1250F8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[BOUNCER2][32-bit] Score" },
+        { address=0X147470, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Earth Saves Our Love - Current Score" },
+        { address=0X157264, type="u8", condition="eq", value=0X02, action="SCORE_STATE", desc="Points Challenge" },
+        { address=0X17C385, type="u8", condition="eq", value=0XC9, action="SCORE_STATE", desc="end game - hiscore" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X17E23E, type="u8", condition="change", action="BOSS_HIT", desc="[Terra Incognita] [8-Bit] - 0x02 - Mini-boss appears" },
+        { address=0X17E23F, type="u8", condition="change", action="BOSS_DEFEATED", desc="[Terra Incognita] [8-Bit] - 0x02 - Mini-boss dead" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X168198, type="u8", condition="eq", value=0XC0, action="JUMPING", no_log=true, no_survey=true, desc="jumping" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X147F78, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="play" },
+        { address=0X147F78, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="controls" },
+        { address=0X147F78, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="rules" },
+        { address=0X17E227, type="u8", condition="change", action="DOOR_OPENED", desc="[Terra Incognita] [8-Bit] 0x01 - Get past last door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X157284, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[16bit] Roller - Timer" },
+        { address=0X159B38, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="[BOUNCER2][16-bit] Time Left" },
+        { address=0X159CF8, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", desc="[BOUNCER2][16-bit] Powered Up Timer Ticks Remaining" },
+      },
+    },
+  },
+}

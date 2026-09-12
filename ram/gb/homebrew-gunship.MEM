@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Gunship",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-gunship",
+    hashes = {
+      { hash = "6a7cb6e2df241e843569c539b724bb5d", label = "Gunship (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0A0, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="In-Game (Including Pause)" },
+        { address=0XC0D2, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="In-Game (Includes Pause)" },
+        { address=0XC0D2, type="u8", condition="eq", value=0X04, action="GAME_OVER", desc="Game Over" },
+        { address=0XC0D2, type="u8", condition="eq", value=0X06, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD708, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0XD708, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Mission 1" },
+        { address=0XD708, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Mission 2" },
+        { address=0XD708, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Mission 3" },
+        { address=0XD708, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Mission 4" },
+        { address=0XD708, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Mission 5" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD756, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Bar increased" },
+        { address=0XD756, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Bar decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XD740, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-ups currently in play" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC0CA, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16-bit BCD] Player Score" },
+        { address=0XC0CC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX", desc="Score Overflow XX" },
+        { address=0XC0D2, type="u8", condition="eq", value=0X05, action="SCORE_STATE", desc="Score Report" },
+      },
+      collectibles = {
+        { address=0XD752, type="u8", condition="change", action="AMMO_STATE", desc="Super Ammo Count" },
+      },
+    },
+  },
+}

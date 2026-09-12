@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "rtype2",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "r-type-ii",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XE381A, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE381C, type="u32be", condition="change", action="SCORE_STATE", min=100, max=100, desc="Score delta 100-100: Various scores" },
+        { address=0XE381C, type="u32be", condition="change", action="SCORE_STATE", min=1100, max=2000, desc="Score delta 1100-2000: Score 1100" },
+        { address=0XE381C, type="u32be", condition="change", action="SCORE_STATE", color="orange", min=200, max=200, desc="Score delta 200-200: Score 200" },
+        { address=0XE381C, type="u32be", condition="change", action="SCORE_STATE", color="cyan", min=300, max=500, desc="Score delta 300-500: Score 300" },
+        { address=0XE381C, type="u32be", condition="change", action="SCORE_STATE", color="green", min=600, max=1000, desc="Score delta 600-1000: Score 600" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Smash Bros Rumble",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-smash-bros-rumble",
+    hashes = {
+      { hash = "72c58ff2bcbc990c4fbc0faa42764daf", label = "Super Smash Bros Rumble (World) (v0.8.0 Demo) (Aftermarket) (Unl) (Team Rumble).nds" },
+    }
+  },
+
+  events = {
+  },
+}

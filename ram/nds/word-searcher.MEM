@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Word Searcher",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "word-searcher",
+    hashes = {
+      { hash = "4411b1b83184976fe32264de70717de0", label = "Word Searcher (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1C81EC, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0X1C81EC, type="u8", condition="eq", value=0X20, action="CREDITS_SCREEN", desc="Viewing Credits" },
+        { address=0X1C81EC, type="u8", condition="eq", value=0X65, action="PAUSE_ON", desc="Puzzle is paused." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1C81EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Mini State, Including Current Page for Puzzles" },
+        { address=0X1CB714, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 1 Total Time in Minutes" },
+        { address=0X1CB715, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 1 Total Time in Seconds" },
+        { address=0X1CB718, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 2 Total Time in Minutes" },
+        { address=0X1CB719, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 2 Total Time in Seconds" },
+        { address=0X1CB71C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 3 Total Time in Minutes" },
+        { address=0X1CB71D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 3 Total Time in Seconds" },
+        { address=0X1CB724, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 1 in Minutes" },
+        { address=0X1CB725, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 1 in Seconds" },
+        { address=0X1CB728, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 2 in Minutes" },
+        { address=0X1CB729, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 2 in Seconds" },
+        { address=0X1CB734, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 5 in Minutes" },
+        { address=0X1CB735, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 5 in Seconds" },
+        { address=0X1CB73C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 7 in Minutes" },
+        { address=0X1CB73D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 7 in Seconds" },
+        { address=0X1CB89C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 95 in Minutes" },
+        { address=0X1CB89D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 95 in Seconds" },
+        { address=0X1CB8A8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 98 in Minutes" },
+        { address=0X1CB8A9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 98 in Seconds" },
+        { address=0X1CB8B0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 1: Time Earned on Puzzle 100 in Minutes" },
+        { address=0X1CB8B1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 1: Time Earned on Puzzle 100 in Seconds" },
+        { address=0X1CB8B4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 2: Time Earned on Puzzle 1 in Minutes" },
+        { address=0X1CB8B5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 2: Time Earned on Puzzle 1 in Seconds" },
+        { address=0X1CB8B8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 2: Time Earned on Puzzle 2 in Minutes" },
+        { address=0X1CB8B9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 2: Time Earned on Puzzle 2 in Seconds" },
+        { address=0X1CBA44, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="minute", desc="Profile 3: Time Earned on Puzzle 1 in Minutes" },
+        { address=0X1CBA45, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Profile 3: Time Earned on Puzzle 1 in Seconds" },
+        { address=0X2E8058, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 1 Total Time in Minutes" },
+        { address=0X2E8059, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 1 Total Time in Seconds" },
+        { address=0X2E805C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 2 Total Time in Minutes" },
+        { address=0X2E805D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 2 Total Time in Seconds" },
+        { address=0X2E8060, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Possible Profile 3 Total Time in Minutes" },
+        { address=0X2E8061, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Possible Profile 3 Total Time in Seconds" },
+      },
+    },
+  },
+}

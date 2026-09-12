@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VS. Ourple Guy V2",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vs-ourple-guy-v2",
+    hashes = {
+      { hash = "cd6acb0bc6caf7f85735e2f58060d945", label = "PSXFunkin' - VS. Ourple Guy V2 (Pichuman10)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D63C4, type="u8", condition="change", action="TITLE_SCREEN", desc="screen ID (1 - title screen, 2 - mode select, 04 - freeplay menu, 05 - credits, 06 - options, 7" },
+        { address=0X1D63C7, type="u8", condition="change", action="CREDITS_SCREEN", desc="used when scrolling through menus to determine what item the player is on (freeplay songs and cr" },
+      },
+      events = {
+        { address=0X1D6A7E, type="u8", condition="change", action="COMBO_HIT", desc="current combo" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1D6739, type="u8", condition="increase", action="HEAL", desc="health drain setting (probably for miller) increased" },
+        { address=0X1D6739, type="u8", condition="decrease", action="HIT", desc="health drain setting (probably for miller) decreased" },
+        { address=0X1D6A7C, type="u16le", condition="change", action="HEALTH_STATE", desc="health" },
+        { address=0X1D6A7C, type="u16le", condition="eq", value=0XDEAD, action="HEALTH_STATE", desc="fe25" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1D6A84, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="score (ignores zeros digit)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E6DB4, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="time measured in total seconds - after it reaches 0, it wraps around to FFFFFFFF, and potentiall" },
+        { address=0X1E6DB8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="time (seconds digit)" },
+        { address=0X1E6DBC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="time (minutes digit)" },
+      },
+    },
+  },
+}

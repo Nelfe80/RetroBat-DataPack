@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Portal 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-portal-64",
+    hashes = {
+      { hash = "a1cc17627435a9bb10210d513b70143f", label = "Portal64 (World) (v0.13 - 2023-11-16) (Aftermarket) (Unl).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X91898, type="u16be", condition="eq", value=0X03, action="PAUSE_ON", desc="Main Menu" },
+        { address=0X91898, type="u16be", condition="eq", value=0X06, action="PAUSE_ON", desc="Ingame" },
+        { address=0XDC56C, type="u8", condition="bit_true", mask=0X20, action="TITLE_SCREEN", desc="Subtitles" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X92018, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Has first portal gun" },
+        { address=0X92018, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Has second portal gun" },
+        { address=0X92018, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Is dead" },
+        { address=0X92018, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Is crouched" },
+        { address=0X92018, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Is stepping" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X92019, type="u8", condition="bit_true", mask=0X20, action="INVINCIBILITY_START", desc="Is Invincible" },
+      },
+      player = {
+        { address=0X92018, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Just jumped" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X92018, type="u8", condition="bit_true", mask=0X10, action="ENVIRONMENT_UNDERWATER", desc="Is underwater" },
+      },
+    },
+  },
+}

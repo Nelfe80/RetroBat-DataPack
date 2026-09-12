@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Renegade Platinum",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-renegade-platinum",
+    hashes = {
+      { hash = "60000586a8e1b1e6ae88f9ce6a2f287b", label = "Pokemon Renegade Platinum (v1.3.0) (Drayano) - Following Platinum Integration (v2.0) + 1 in 512 Shiny Rate (chensquared-art).nds" },
+      { hash = "97ac7f51107aff3251f5430c65b0f1e6", label = "Pokemon Renegade Platinum (v1.3.0) (Drayano).nds" },
+      { hash = "dac891923bf85938b422758dd3159a25", label = "Pokemon Renegade Platinum (v1.3.0) (Drayano) - Following Platinum Integration (v2.0) (chensquared-art).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1BEB04, type="u24le", condition="eq", value=0X495, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

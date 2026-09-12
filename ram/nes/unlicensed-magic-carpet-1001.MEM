@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Magic Carpet 1001",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "unlicensed-magic-carpet-1001",
+    hashes = {
+      { hash = "f159fe8fea5cece7523bf208768a1ba0", label = "Magic Carpet 1001 (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0015, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE" },
+        { address=0X0016, type="u8", condition="change", action="PROGRESSION_STAGE", desc="with Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0011, type="u8", condition="increase", action="GAIN_LIFE", desc="LIVES increased" },
+        { address=0X0011, type="u8", condition="decrease", action="LOSE_LIFE", desc="LIVES decreased" },
+      },
+    },
+  },
+}

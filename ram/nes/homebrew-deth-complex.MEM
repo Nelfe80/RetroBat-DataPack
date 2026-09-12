@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Deth Complex",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-deth-complex",
+    hashes = {
+      { hash = "b0bfbc9bbec10e36a0d0498c85ca98b9", label = "Deth Complex! (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X009F, type="u8", condition="increase", action="HEAL", desc="player health increased" },
+        { address=0X009F, type="u8", condition="decrease", action="HIT", desc="player health decreased" },
+      },
+    },
+  },
+}

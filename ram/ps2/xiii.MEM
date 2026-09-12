@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "XIII",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "xiii",
+    hashes = {
+      { hash = "5772781eeb3f5bffbfbde0df8677e15b", label = "XIII (USA)" },
+      { hash = "590f6731219ea4cf40260988f930572a", label = "XIII (USA) (60fps) (v1.0) (Souzooka)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X437AF8, type="u32le", condition="change", action="RANK_STATE", desc="[32-bit pointer]" },
+      },
+    },
+  },
+}

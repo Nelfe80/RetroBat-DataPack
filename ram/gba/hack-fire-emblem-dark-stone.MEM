@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fire Emblem: Dark Stone",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fire-emblem-dark-stone",
+    hashes = {
+      { hash = "e6ffdcc40d803298eac1e1dafc9fa4cd", label = "FE8 - Fire Emblem - Dark Stone (v1.21) (SaintRubenio).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33CFE, type="u8", condition="eq", value=0X3F, action="DEMO_MODE", desc="Final (Demon Path)" },
+        { address=0X33CFE, type="u8", condition="eq", value=0X43, action="DEMO_MODE", desc="Chapter 29 (Demon Path)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X34FCF, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X34FCF, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33CF8, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X5270, type="u8", condition="change", action="BOSS_HIT", desc="[8 Bit] Boss Bitflags / Event Bitflags" },
+      },
+    },
+  },
+}

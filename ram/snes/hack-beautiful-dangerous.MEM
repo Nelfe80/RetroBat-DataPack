@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Beautiful Dangerous",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-beautiful-dangerous",
+    hashes = {
+      { hash = "0c5483caf24de6f31205d61de4692b20", label = "SMW - Beautiful Dangerous (v1.1) (iamtheratio).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Indicates how a level was exited." },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Normal exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Secret exit" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X010B, type="u16le", condition="eq", value=0X0182, action="LIVES_STATE", desc="'Life's A Beach' secret room" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="[8bit] Current player powerup status. decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Small" },
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Big" },
+        { address=0X0019, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Cape" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Fire" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Current player coin count. Goes up to 99 (0x63) before looping back to 0. increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X002B, action="BOSS_HIT", desc="Final boss room" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0035, action="BOSS_HIT", desc="Final boss entrance" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="TRANSFORMATION_SUPER", desc="Transformed into Big" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="TRANSFORMATION_FIRE", desc="Transformed into Fire" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B420, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[40bit] Death counter. Each byte represents a digit of the death counter in decimal form, the fi" },
+      },
+    },
+  },
+}

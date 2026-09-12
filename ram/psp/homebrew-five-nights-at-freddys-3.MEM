@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Five Nights at Freddy's 3",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-five-nights-at-freddys-3",
+    hashes = {
+      { hash = "476afa7594fc204ce3bf73099b373f1d", label = "Five Nights At Freddy's 3 (v0.4.0) (AlexDev2).iso" },
+    }
+  },
+
+  events = {
+  },
+}

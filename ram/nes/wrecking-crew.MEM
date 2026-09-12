@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wrecking Crew",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle-Game"
+  },
+
+  rom = {
+    name = "wrecking-crew",
+    hashes = {
+      { hash = "e7d7225dad044b624fbad9c9ca96e835", label = "Wrecking Crew (World).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0440, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Bonus round active" },
+        { address=0X0440, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="yes" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X07F3, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="Else (Dead, No Music, etc.)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0764, type="u8", condition="eq", value=0X0C, action="MONEY_STATE", desc="coin found" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0764, type="u8", condition="eq", value=0X00, action="OBJECT_DESTROYED", desc="some walls destroyed" },
+        { address=0X0764, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="some walls destroyed" },
+        { address=0X0764, type="u8", condition="eq", value=0X24, action="OBJECT_DESTROYED", desc="no walls destroyed" },
+      },
+    },
+  },
+}

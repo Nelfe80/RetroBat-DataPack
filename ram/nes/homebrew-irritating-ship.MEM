@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Irritating Ship",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-irritating-ship",
+    hashes = {
+      { hash = "2ebf1481d28a5faa0f9f47aee07ed69a", label = "Irritating Ship (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X04E9, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="bit0 - Checkpoint 1" },
+        { address=0X04EA, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="bit0 - Checkpoint 9" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X04F6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time Spent - Minutes" },
+        { address=0X04F7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time Spent - Seconds" },
+      },
+    },
+  },
+}

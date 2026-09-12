@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Tank AI",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "hack-tank-ai",
+    hashes = {
+      { hash = "4704e6dae883e35fe31e09e06d4ddbfc", label = "Tank AI (USA, Europe) (Aftermarket) (Unl).a26" },
+    }
+  },
+
+  events = {
+  },
+}

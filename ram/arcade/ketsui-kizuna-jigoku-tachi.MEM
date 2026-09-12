@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ketsui: Kizuna Jigoku Tachi",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "ketsui-kizuna-jigoku-tachi",
+    hashes = {
+      { hash = "83f989dd820bb3683ef6ff6b2bc7fd68", label = "ket.7z <Ketsui Kizuna Jigoku Tachi (Japan, 2003/01/01. Master Ver.)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1000, type="u8", condition="change", action="CONTINUE_SCREEN", desc="continue" },
+        { address=0X1003, type="u8", condition="change", action="DEMO_MODE", desc="demo sound" },
+        { address=0X110E, type="u8", condition="change", action="DEMO_MODE", desc="Demo mode (8-bit)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFEC2, type="u8", condition="change", action="NEW_LEVEL", desc="Power level (8-bit)" },
+      },
+      stage = {
+        { address=0X12440, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID (8-bit)" },
+        { address=0X1247C, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage progression addr (16-bit)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1007, type="u8", condition="increase", action="GAIN_LIFE", desc="ship lives starts increased" },
+        { address=0X1007, type="u8", condition="decrease", action="LOSE_LIFE", desc="ship lives starts decreased" },
+        { address=0X12472, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Counter (8-bit) increased" },
+        { address=0X12472, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Counter (8-bit) decreased" },
+        { address=0X1D248, type="u8", condition="increase", action="GAIN_LIFE", desc="life counter? increased" },
+        { address=0X1D248, type="u8", condition="decrease", action="LOSE_LIFE", desc="life counter? decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1A640, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X1001, type="u8", condition="increase", action="COIN_GAIN", desc="coin mode increased" },
+        { address=0X1161, type="u8", condition="increase", action="COIN_GAIN", desc="coin counter increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X7C82, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP (8-bit)" },
+        { address=0X11510, type="u8", condition="change", action="BOSS_HIT", desc="boss multiplier" },
+        { address=0X1D2C4, type="u8", condition="change", action="BOSS_HIT", desc="Presence of boss addr (8-bit)" },
+        { address=0X1D2CA, type="u8", condition="change", action="BOSS_HIT", desc="boss multiplier graphic" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1004, type="u8", condition="change", action="OBJECT_INTERACTION", desc="extend switch" },
+        { address=0X1005, type="u8", condition="change", action="OBJECT_INTERACTION", desc="difficulty switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1139E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death counter, used for checking if you can enter loops (8-bit)" },
+        { address=0X1235F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="demo timer" },
+        { address=0X1A646, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continues used counter, used for checking if you can enter loops (8-bit)" },
+      },
+    },
+  },
+}

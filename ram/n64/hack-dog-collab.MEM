@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Dog Collab",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-dog-collab",
+    hashes = {
+      { hash = "709a491d7550de07a6ba5368b7ee2def", label = "SM64 - Dog Collab (v1.1.1) (Various).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X23907B, type="u8", condition="change", action="PAUSE_ON", desc="Pause Type (8-bit)" },
+        { address=0X273CD8, type="u8", condition="change", action="PAUSE_ON", desc="Pause Info (8-bit)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X89CAD, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Planting Cherry Trees Around The Markindon" },
+        { address=0X24494E, type="u16be", condition="change", action="NEW_LEVEL", desc="Ground Type? (16-bit)" },
+        { address=0X273D60, type="u32be", condition="change", action="NEW_LEVEL", desc="Grounds Polygon Y coords (32-bit)" },
+      },
+      stage = {
+        { address=0X244C96, type="u16be", condition="change", action="PROGRESSION_STAGE", desc="Current Act {gCurrActNum}" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X273D9E, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives [8bit] increased" },
+        { address=0X273D9E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives [8bit] decreased" },
+      },
+      health = {
+        { address=0X273D9D, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X273D9D, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X273DA1, type="u8", condition="change", action="HIT", desc="Damage Buffer [8bit]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X89CAD, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Red Coins--You Know the Drill!" },
+        { address=0X89CAD, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X89CB0, type="u8", condition="increase", action="COIN_GAIN", desc="(Save 1) [Bitflags] Stars Collected - Bowser's Rainbow Rings increased" },
+        { address=0X23A140, type="u16be", condition="increase", action="COIN_GAIN", desc="Current Map ID {gCurrLevelNum} increased" },
+        { address=0X244B06, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins collected (8-bit) increased" },
+        { address=0X273D9A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Retro Adventure",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-retro-adventure",
+    hashes = {
+      { hash = "0bc273dfa6a9ed9eaa8687bc391d946c", label = "Retro Adventure (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

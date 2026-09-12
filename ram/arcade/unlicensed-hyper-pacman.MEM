@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Hyper Pacman",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "unlicensed-hyper-pacman",
+    hashes = {
+      { hash = "90abdfdf093e5d1ab701f5298180517b", label = "hyperpac.7z <Hyper Pacman>" },
+      { hash = "e92b292ba49eabf5402e6437ebc5b385", label = "hyperpacb.7z <>" },
+    }
+  },
+
+  events = {
+  },
+}

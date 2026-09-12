@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "UFC Undisputed 2010",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "ufc-undisputed-2010",
+    hashes = {
+      { hash = "f9fc98c661cc0db0e7f2b6a58e11a8e7", label = "UFC Undisputed 2010 (Europe) (En,Fr,De,Es,It).iso" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X10B6176, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Total Play Time [Minutes] (8-bit)" },
+        { address=0X10B6177, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Total Play Time [Seconds] (8-bit)" },
+      },
+    },
+  },
+}

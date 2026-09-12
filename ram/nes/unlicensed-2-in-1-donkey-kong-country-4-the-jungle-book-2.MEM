@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ 2-in-1: Donkey Kong Country 4 & The Jungle Book 2",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-2-in-1-donkey-kong-country-4-the-jungle-book-2",
+    hashes = {
+      { hash = "6d06f4795d27df4e30f2ceb20b4f29ea", label = "SMB1 - Donkey Kong Country 4 + The Jungle Book 2 (Hummer Team).nes" },
+      { hash = "6f70f3560f85966763803c5ad08776f0", label = "Donkey Kong Country 4 (Asia) (En) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X04EA, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0BC5, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0BC5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X06DE, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+  },
+}

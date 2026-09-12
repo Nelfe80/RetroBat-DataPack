@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Deadeus",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure, Horror"
+  },
+
+  rom = {
+    name = "homebrew-deadeus",
+    hashes = {
+      { hash = "b04f705f3e4db711560f9834a6431171", label = "Deadeus (World) (v1.3.8) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC204, type="u16le", condition="eq", value=0X36, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC204, type="u16le", condition="eq", value=0X37, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC204, type="u16le", condition="eq", value=0X3D, action="TITLE_SCREEN", desc="Day 1 Title Card" },
+        { address=0XC204, type="u16le", condition="eq", value=0X40, action="TITLE_SCREEN", desc="Day 2 Title Card" },
+        { address=0XC204, type="u16le", condition="eq", value=0X43, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X44, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X45, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X46, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X47, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X48, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X4E, action="TITLE_SCREEN", desc="Day 3 Title Card" },
+        { address=0XC204, type="u16le", condition="eq", value=0X59, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X67, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X68, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X69, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6A, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6B, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6C, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6D, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6E, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC204, type="u16le", condition="eq", value=0X6F, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC204, type="u16le", condition="eq", value=0X23, action="LOSE_LIFE", desc="Geology Studies" },
+        { address=0XC204, type="u16le", condition="eq", value=0X24, action="LOSE_LIFE", desc="General Studies" },
+        { address=0XC204, type="u16le", condition="eq", value=0X25, action="LOSE_LIFE", desc="Religious Studies" },
+        { address=0XC204, type="u16le", condition="eq", value=0X42, action="LOSE_LIFE", desc="You Died" },
+      },
+    },
+  },
+}

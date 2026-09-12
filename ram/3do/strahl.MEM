@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Strahl",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "strahl",
+    hashes = {
+      { hash = "7df7061b2830e9d95e5f822a68cd2188", label = "Strahl (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X97EFC, type="u8", condition="change", action="CONTINUE_SCREEN", desc="<8-bit> number of continues left when level selection" },
+        { address=0X97F00, type="u8", condition="eq", value=0X2, action="CONTINUE_SCREEN", desc="max" },
+        { address=0X97F00, type="u8", condition="eq", value=0X90, action="CONTINUE_SCREEN", desc="continue screen or level select" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X97F04, type="u8", condition="increase", action="GAIN_LIFE", desc="<8-bit> number of lives increased" },
+        { address=0X97F04, type="u8", condition="decrease", action="LOSE_LIFE", desc="<8-bit> number of lives decreased" },
+        { address=0X97F04, type="u8", condition="eq", value=0X0, action="LIVES_STATE", desc="last life" },
+        { address=0X97F04, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="3 (max)" },
+        { address=0X97F10, type="u8", condition="increase", action="GAIN_LIFE", desc="<8-bit> number of lives left during level selection increased" },
+        { address=0X97F10, type="u8", condition="decrease", action="LOSE_LIFE", desc="<8-bit> number of lives left during level selection decreased" },
+        { address=0X97F34, type="u8", condition="eq", value=0X1, action="LOSE_LIFE", desc="died in final level" },
+      },
+    },
+  },
+}

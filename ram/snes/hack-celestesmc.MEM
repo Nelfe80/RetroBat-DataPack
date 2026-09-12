@@ -1,0 +1,93 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Celeste.smc",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-celestesmc",
+    hashes = {
+      { hash = "510680c44d00073dd3c3e7196b504c82", label = "SMW - Celeste.smc (MarkAlarm).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause status" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13D9, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Status" },
+        { address=0X18CC, type="u8", condition="change", action="NEW_LEVEL", desc="Number of strawberries currently following Mario (these are collected upon being on the ground f" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exits cleared on current save" },
+        { address=0X2008C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exits cleared on save A" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level ID of most recently entered stage or sometimes changes when reading a text box; switches b" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B405, type="u8", condition="change", action="LOSE_LIFE", desc="Mario's death flag; also 0x01 on overworld" },
+        { address=0X2050B, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ten Thousands place) [Save A]" },
+        { address=0X2050C, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Thousands place) [Save A]" },
+        { address=0X2050D, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Hundreds place) [Save A]" },
+        { address=0X2050E, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Tens place) [Save A]" },
+        { address=0X2050F, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ones place) [Save A]" },
+        { address=0X2060B, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ten Thousands place) [Save B]" },
+        { address=0X2060C, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Thousands place) [Save B]" },
+        { address=0X2060D, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Hundreds place) [Save B]" },
+        { address=0X2060E, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Tens place) [Save B]" },
+        { address=0X2060F, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ones place) [Save B]" },
+        { address=0X2070B, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ten Thousands place) [Save C]" },
+        { address=0X2070C, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Thousands place) [Save C]" },
+        { address=0X2070D, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Hundreds place) [Save C]" },
+        { address=0X2070E, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Tens place) [Save C]" },
+        { address=0X2070F, type="u8", condition="change", action="LOSE_LIFE", desc="Overall File Death Count (Ones place) [Save C]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X13CE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Midway checkpoint status" },
+      },
+      collectibles = {
+        { address=0X010B, type="u24le", condition="increase", action="COIN_GAIN", desc="Most recent screen ID loaded (Does not change when entering the overworld until a new level is s" },
+        { address=0X13CC, type="u8", condition="increase", action="COIN_GAIN", desc="Amount of coins collected during the current session (hex); rolls back over to 0x00 after 0xff i" },
+        { address=0X1837B, type="u8", condition="increase", action="COIN_GAIN", desc="Interacting with an object; turns to 0x10 for a single frame upon picking up a coin, dash refres" },
+        { address=0X1B403, type="u32le", condition="increase", action="COIN_GAIN", desc="Current checkpoint - Checkpoint changes to the currently selected stage while in overworld selec" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X14AF, type="u8", condition="change", action="SHIELD_LOST", desc="On / Off Switch status; changed by hitting a switch block or touching a floating shield icon" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1924, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Inside Old Site dream block" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1DE9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Amount of times player exits to overworld from map in the current session" },
+        { address=0X20504, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Tens place)(Decimal) [Save A]" },
+        { address=0X20505, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Ones place)(Decimal) [Save A]" },
+        { address=0X20506, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Tens place)(Decimal) [Save A]" },
+        { address=0X20507, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Ones place)(Decimal 0-9) [Save A]" },
+        { address=0X20604, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Tens place)(Decimal) [Save B]" },
+        { address=0X20605, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Ones place)(Decimal) [Save B]" },
+        { address=0X20606, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Tens place)(Decimal) [Save B]" },
+        { address=0X20607, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Ones place)(Decimal 0-9) [Save B]" },
+        { address=0X20704, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Tens place)(Decimal) [Save C]" },
+        { address=0X20705, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Overall File Time - Minutes (Ones place)(Decimal) [Save C]" },
+        { address=0X20706, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Tens place)(Decimal) [Save C]" },
+        { address=0X20707, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Overall File Time - Seconds (Ones place)(Decimal 0-9) [Save C]" },
+      },
+    },
+  },
+}

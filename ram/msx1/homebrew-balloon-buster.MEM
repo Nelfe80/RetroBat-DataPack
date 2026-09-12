@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Balloon Buster",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-balloon-buster",
+    hashes = {
+      { hash = "2f35dd613b36690251aeb5c6cd5ecf1f", label = "Balloon Buster (2022) (v1.0) (Hakogame).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0229, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0237, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0237, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

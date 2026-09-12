@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Super Angry Birds",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-super-angry-birds",
+    hashes = {
+      { hash = "afd08feb5b1cd3594c4f2b7b2e669b61", label = "Angry Birds (Asia) (En) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0442, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (02:beaten, 01:unlocked)" },
+        { address=0X0446, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 1-5)" },
+        { address=0X044B, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 1-10)" },
+        { address=0X0450, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 1-15)" },
+        { address=0X0456, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 1-21)" },
+        { address=0X0457, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 2-1)" },
+        { address=0X045B, type="u8", condition="change", action="NEW_LEVEL", desc="Level Beaten Flags (Level 2-5)" },
+        { address=0X0470, type="u8", condition="change", action="NEW_LEVEL", desc="current level" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0551, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer for next value to change" },
+      },
+    },
+  },
+}

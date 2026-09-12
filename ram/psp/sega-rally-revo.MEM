@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sega Rally Revo",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sega-rally-revo",
+    hashes = {
+      { hash = "ab2d549b7188789084007c7c2134b247", label = "Sega Rally Revo (USA).iso" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X11C2EFC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Premier Points" },
+        { address=0X11C37A0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Modified Points" },
+        { address=0X11C4044, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Masters Points" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X11BFB08, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Boolean] Race / Time Attack Finished (stays true until loading a new event)" },
+      },
+    },
+  },
+}

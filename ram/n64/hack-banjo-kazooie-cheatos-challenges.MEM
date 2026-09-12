@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: Cheato's Challenges",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-cheatos-challenges",
+    hashes = {
+      { hash = "42f8e2099041ce38942b887ce39b7478", label = "Banjo-Kazooie - Cheato's Challenges (v1.0).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X385F60, type="u8", condition="change", action="PROGRESSION_ZONE", desc="amount of notes collected in the current world" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X385F88, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X385F88, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+      health = {
+        { address=0X385F80, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X385F80, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X385F70, type="u8", condition="increase", action="COIN_GAIN", desc="amount of gold feathers increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3831AC, type="u8", condition="eq", value=0XB2, action="DOOR_OPENED", desc="door 20" },
+        { address=0X3831AC, type="u8", condition="eq", value=0XB3, action="DOOR_OPENED", desc="door 30" },
+        { address=0X3831AC, type="u8", condition="eq", value=0XB4, action="DOOR_OPENED", desc="door 50" },
+        { address=0X3831AC, type="u8", condition="eq", value=0XB5, action="DOOR_OPENED", desc="door 70" },
+        { address=0X3831AC, type="u8", condition="eq", value=0XB6, action="DOOR_OPENED", desc="door 100" },
+        { address=0X3831B7, type="u8", condition="change", action="DOOR_OPENED", desc="completed puzzle and opened the door" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Alien vs. Predator",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "prototype-alien-vs-predator",
+    hashes = {
+      { hash = "8ce6c739d30d6c5ba197fcdd73d5ead5", label = "Alien vs Predator (USA) (Proto) (1993-12-17).lnx" },
+    }
+  },
+
+  events = {
+  },
+}

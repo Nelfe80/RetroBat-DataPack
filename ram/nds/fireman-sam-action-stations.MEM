@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fireman Sam: Action Stations",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "fireman-sam-action-stations",
+    hashes = {
+      { hash = "4a41e4fd2dcfeb03f8a760d0ea5aae97", label = "Fireman Sam - Action Stations (Europe).nds" },
+    }
+  },
+
+  events = {
+  },
+}

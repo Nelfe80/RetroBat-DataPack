@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Neopets: Puzzle Adventure",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "neopets-puzzle-adventure",
+    hashes = {
+      { hash = "fb8e183a227d12e53cce875dcdfafa66", label = "Neopets Puzzle Adventure (Europe) (En,Fr,De,Es,Nl).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XEBE14, type="u16le", condition="eq", value=0XE03, action="GAME_OVER", desc="reversi game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XEBE14, type="u16le", condition="change", action="NEW_LEVEL", desc="Top screen background game state" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="game startup" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X07, action="NEW_LEVEL", desc="blue clouds" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X1997, action="NEW_LEVEL", desc="main menu" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X2387, action="NEW_LEVEL", desc="training" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X2407, action="NEW_LEVEL", desc="blue clouds" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X29B, action="NEW_LEVEL", desc="overworld" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X39F, action="NEW_LEVEL", desc="quick draw" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X403, action="NEW_LEVEL", desc="reversi" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X703, action="NEW_LEVEL", desc="forging" },
+        { address=0XEBE14, type="u16le", condition="eq", value=0X87, action="NEW_LEVEL", desc="opening logos" },
+      },
+    },
+  },
+}

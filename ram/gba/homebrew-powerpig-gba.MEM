@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ POWERPIG GBA",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-powerpig-gba",
+    hashes = {
+      { hash = "ba7dda66edd51fb758aa1f61af584c1f", label = "Powerpig (World) (NEO Coding Compo 2013) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D21, type="u8", condition="change", action="GAME_OVER", desc="Heart [8-bit] 0x00 : Game Over, 0x03 : 3 Hearts" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X14B8, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID [8-bit] not accurate" },
+      },
+    },
+  },
+}

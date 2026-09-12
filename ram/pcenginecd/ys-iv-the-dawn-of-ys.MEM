@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ys IV: The Dawn of Ys",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "ys-iv-the-dawn-of-ys",
+    hashes = {
+      { hash = "b77ae59195812ed30d1d5dd29cee1510", label = "Ys IV - The Dawn of Ys (Japan) (Rev 3)" },
+      { hash = "f17f1c4108d55ca132515fa0bab27088", label = "Ys IV - The Dawn of Ys - English (Japan) (En) (v0.95) (NightWolve)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13C55, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X13C4E, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X13C4E, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X13C50, type="u16le", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X13C50, type="u16le", condition="decrease", action="HIT", desc="Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X13C27, type="u8", condition="change", action="WEAPON_STATE", desc="Weapons obtained" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X13C2B, type="u8", condition="increase", action="COIN_GAIN", desc="Rings obtained increased" },
+        { address=0X13C45, type="u8", condition="increase", action="COIN_GAIN", desc="bit 4 - Gold City restored increased" },
+        { address=0X13C47, type="u8", condition="increase", action="COIN_GAIN", desc="bit 2 - Lava frozen (clears when you leave room) increased" },
+        { address=0X13C62, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+        { address=0X13C64, type="u8", condition="increase", action="COIN_GAIN", desc="Gold overflow increased" },
+        { address=0X13C6A, type="u8", condition="increase", action="COIN_GAIN", desc="Equipped Ring increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X13C30, type="u8", condition="change", action="BOSS_DEFEATED", desc="bit 0 - Mines boss defeated, Lemnos rescued" },
+        { address=0X30E52, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X30E54, type="u8", condition="change", action="BOSS_HIT", desc="Boss max HP" },
+        { address=0X3841B, type="u8", condition="change", action="BOSS_HIT", desc="Boss health 2?" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X13C29, type="u8", condition="change", action="SHIELD_GAIN", desc="Shields obtained" },
+        { address=0X13C67, type="u8", condition="change", action="SHIELD_GAIN", desc="Equipped Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13C42, type="u8", condition="change", action="DOOR_OPENED", desc="bit 0 - find Tim, he locks the door" },
+        { address=0X13C48, type="u8", condition="change", action="OBJECT_DESTROYED", desc="bit 2 - Leo destroys the door, cannon is destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X13C33, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="bit 2 - another door unlocked" },
+      },
+    },
+  },
+}

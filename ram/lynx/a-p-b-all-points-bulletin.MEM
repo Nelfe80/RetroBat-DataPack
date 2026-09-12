@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "A.P.B.: All Points Bulletin",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Action, Racing"
+  },
+
+  rom = {
+    name = "a-p-b-all-points-bulletin",
+    hashes = {
+      { hash = "b425941149874c6371c40e85cc5b6241", label = "A.P.B. (USA, Europe).lnx" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X00CA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Cones / score" },
+      },
+    },
+  },
+}

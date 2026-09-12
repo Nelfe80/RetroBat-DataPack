@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Catapult",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "catapult",
+    hashes = {
+      { hash = "b0cb507cfdf9f5a4d4ee49ddddb31fe2", label = "Catapult (Europe) (ESS-010-5).tvc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X1761, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Left-Player Recovery Time" },
+      },
+    },
+  },
+}

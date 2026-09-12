@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Renny Blaster",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "renny-blaster",
+    hashes = {
+      { hash = "d290a0f72defa899d1fb44b456f77d3f", label = "Renny Blaster (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Game is paused" },
+        { address=0X0228, type="u8", condition="bit_true", mask=0X08, action="PAUSE_ON", desc="Run (Pause)" },
+        { address=0X0232, type="u8", condition="bit_true", mask=0X08, action="PAUSE_ON", desc="Run (Pause)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1F9D, type="u8", condition="change", action="NEW_LEVEL", desc="Second paper on the ground (Zurich)" },
+        { address=0X1F9D, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Taken" },
+        { address=0X1F9F, type="u8", condition="change", action="NEW_LEVEL", desc="First paper on the ground (Genéve)" },
+        { address=0X1F9F, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Picked" },
+        { address=0X1FA0, type="u8", condition="change", action="NEW_LEVEL", desc="First paper on the ground (Zurich)" },
+        { address=0X1FA0, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Taken" },
+        { address=0X1FA2, type="u8", condition="change", action="NEW_LEVEL", desc="Second paper on the ground (Genéve)" },
+        { address=0X1FA2, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Picked" },
+        { address=0X13ADE, type="u8", condition="change", action="NEW_LEVEL", desc="Power Level" },
+      },
+      stage = {
+        { address=0X1F83, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0X1F83, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Chinatown" },
+        { address=0X1F83, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Airport" },
+        { address=0X1F83, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Genéve" },
+        { address=0X1F83, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Copenaghen" },
+        { address=0X1F83, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Zurich" },
+        { address=0X1F9C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Paper on the ground (Airport) [Stage 1]" },
+        { address=0X1F9C, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Taken" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DEB, type="u8", condition="increase", action="GAIN_LIFE", desc="Enemy's lifebar [HUD] increased" },
+        { address=0X0DEB, type="u8", condition="decrease", action="LOSE_LIFE", desc="Enemy's lifebar [HUD] decreased" },
+        { address=0X0E32, type="u8", condition="increase", action="GAIN_LIFE", desc="Player's Life increased" },
+        { address=0X0E32, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player's Life decreased" },
+        { address=0X1F86, type="u8", condition="increase", action="GAIN_LIFE", desc="Player's lifes increased" },
+        { address=0X1F86, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player's lifes decreased" },
+        { address=0X1FA8, type="u8", condition="increase", action="GAIN_LIFE", desc="Player's lifebar (HUD) increased" },
+        { address=0X1FA8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player's lifebar (HUD) decreased" },
+      },
+      health = {
+        { address=0X1FA5, type="u8", condition="decrease", action="HIT", desc="Yellow Power Up decreased" },
+        { address=0X1FA6, type="u8", condition="decrease", action="HIT", desc="Blue Power Up decreased" },
+        { address=0X1FA7, type="u8", condition="decrease", action="HIT", desc="Red Power Up decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1FA5, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Suizui Tenuchi" },
+        { address=0X1FA5, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Suitenuchi" },
+        { address=0X1FA5, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Spinning Kesa Kick" },
+        { address=0X1FA6, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Arath Beating" },
+        { address=0X1FA6, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Uknown Wall" },
+        { address=0X1FA6, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Izuna Tobi" },
+        { address=0X1FA7, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Earth Green Blasting" },
+        { address=0X1FA7, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Taiyuan Law" },
+        { address=0X1FA7, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Rokumei Law" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0DF8, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Beaten" },
+        { address=0X0DF8, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Alive" },
+        { address=0X0DF8, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Alive" },
+      },
+    },
+  },
+}

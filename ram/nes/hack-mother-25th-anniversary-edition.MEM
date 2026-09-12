@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mother: 25th Anniversary Edition",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mother-25th-anniversary-edition",
+    hashes = {
+      { hash = "f4fd2f9b5d02f09905fb125ee76fae37", label = "Mother - 25th Anniversary Edition (v1.11) (DragonDePlatino).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X7450, type="u8", condition="change", action="NEW_LEVEL", desc="(8 bit) 1st player - level" },
+      },
+      stage = {
+        { address=0X7490, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) 3rd character (girl) - level" },
+        { address=0X74D0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) 2nd character - level" },
+        { address=0X7550, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) 2nd character - level???" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X7481, type="u8", condition="change", action="LOSE_LIFE", desc="(8 bit) 3rd player status 8:dead (ghost)" },
+        { address=0X74C1, type="u8", condition="change", action="LOSE_LIFE", desc="(8 bit) 2nd player status 8:dead (ghost)" },
+      },
+      health = {
+        { address=0X1683, type="u8", condition="increase", action="HEAL", desc="(8 bit) enemy hp increased" },
+        { address=0X1683, type="u8", condition="decrease", action="HIT", desc="(8 bit) enemy hp decreased" },
+        { address=0X16A3, type="u8", condition="increase", action="HEAL", desc="(8 bit) enemy hp increased" },
+        { address=0X16A3, type="u8", condition="decrease", action="HIT", desc="(8 bit) enemy hp decreased" },
+        { address=0X7443, type="u8", condition="increase", action="HEAL", desc="(8 bit) 1st player - Max HP 1/2 increased" },
+        { address=0X7443, type="u8", condition="decrease", action="HIT", desc="(8 bit) 1st player - Max HP 1/2 decreased" },
+        { address=0X7444, type="u8", condition="increase", action="HEAL", desc="(8 bit) 1st player - Max HP 2/2 increased" },
+        { address=0X7444, type="u8", condition="decrease", action="HIT", desc="(8 bit) 1st player - Max HP 2/2 decreased" },
+        { address=0X7454, type="u8", condition="increase", action="HEAL", desc="(8 bit) 1st player - Current HP 1/2 increased" },
+        { address=0X7454, type="u8", condition="decrease", action="HIT", desc="(8 bit) 1st player - Current HP 1/2 decreased" },
+        { address=0X7455, type="u8", condition="increase", action="HEAL", desc="(8 bit) 1st player - Current HP 2/2 increased" },
+        { address=0X7455, type="u8", condition="decrease", action="HIT", desc="(8 bit) 1st player - Current HP 2/2 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X7620, type="u8", condition="change", action="TREASURE", desc="(8 bit) Treasure Chests ID" },
+      },
+      weapon = {
+        { address=0X7468, type="u8", condition="change", action="WEAPON_STATE", desc="(8 bit) 1st player - weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X7410, type="u16le", condition="increase", action="COIN_GAIN", desc="(16 bit) money increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X7613, type="u8", condition="change", action="OBJECT_DESTROYED", desc="upper4 : F [this give the broken glass effect in screen]" },
+      },
+    },
+  },
+}

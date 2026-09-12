@@ -1,0 +1,589 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "sonicfgt",
+  "game_name": "sonicfgt",
+  "meta": {
+    "players": 1,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy2way",
+          "type": "unknown",
+          "raw": "joy2way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {
+            "left": {
+              "function": "",
+              "color": "Blue",
+              "output": "",
+              "mame": {
+                "input": "JOYSTICK_LEFT",
+                "input_id": "P1_JOYSTICK_LEFT",
+                "label": "P1 Left",
+                "function": "p1_left",
+                "control_type": "joy8way",
+                "joystick_way": "",
+                "port_block": "sonicfgt",
+                "tag": "P1",
+                "mask": "0x80",
+                "mask_int": 128,
+                "defvalue": "0x80",
+                "defvalue_int": 128,
+                "default_raw": "IP_ACTIVE_LOW",
+                "ipt": "IPT_JOYSTICK_LEFT",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 1,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "P1 Left",
+                "mame_type": "49",
+                "mame_tag": ":P1",
+                "cfg_tag": ":P1",
+                "input_label": "P1 Left",
+                "input_function": "p1_left",
+                "type": "JOYSTICK_LEFT",
+                "normalized_type": "JOYSTICK_LEFT",
+                "tag_raw": ":P1",
+                "mask_dec": 128,
+                "mask_hex": "0x0080",
+                "defvalue_dec": 128,
+                "defvalue_hex": "0x0080",
+                "runtime_tag": ":P1",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "LEFT",
+                "retropad_id": 6,
+                "libretro_button": "left",
+                "fbneo_button": "left"
+              }
+            },
+            "right": {
+              "function": "",
+              "color": "Blue",
+              "output": "",
+              "mame": {
+                "input": "JOYSTICK_RIGHT",
+                "input_id": "P1_JOYSTICK_RIGHT",
+                "label": "P1 Right",
+                "function": "p1_right",
+                "control_type": "joy8way",
+                "joystick_way": "",
+                "port_block": "sonicfgt",
+                "tag": "P1",
+                "mask": "0x40",
+                "mask_int": 64,
+                "defvalue": "0x40",
+                "defvalue_int": 64,
+                "default_raw": "IP_ACTIVE_LOW",
+                "ipt": "IPT_JOYSTICK_RIGHT",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 1,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "P1 Right",
+                "mame_type": "50",
+                "mame_tag": ":P1",
+                "cfg_tag": ":P1",
+                "input_label": "P1 Right",
+                "input_function": "p1_right",
+                "type": "JOYSTICK_RIGHT",
+                "normalized_type": "JOYSTICK_RIGHT",
+                "tag_raw": ":P1",
+                "mask_dec": 64,
+                "mask_hex": "0x0040",
+                "defvalue_dec": 64,
+                "defvalue_hex": "0x0040",
+                "runtime_tag": ":P1",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "RIGHT",
+                "retropad_id": 7,
+                "libretro_button": "right",
+                "fbneo_button": "right"
+              }
+            }
+          },
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "sonicfgt",
+            "tag": "SERVICE",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":SERVICE",
+            "cfg_tag": ":SERVICE",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":SERVICE",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":SERVICE",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "shot",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "shot",
+            "function": "shot",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "sonicfgt",
+            "tag": "P1",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "shot",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":P1",
+            "cfg_tag": ":P1",
+            "input_label": "shot",
+            "input_function": "shot",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":P1",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":P1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 0,
+              "retropad_button": "b",
+              "descriptor": "Button 1",
+              "matched_by": "order"
+            }
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "transform",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P1_BUTTON2",
+            "label": "transform",
+            "function": "transform",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "sonicfgt",
+            "tag": "P1",
+            "mask": "0x2",
+            "mask_int": 2,
+            "defvalue": "0x2",
+            "defvalue_int": 2,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "transform",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 2",
+            "mame_type": "61",
+            "mame_tag": ":P1",
+            "cfg_tag": ":P1",
+            "input_label": "transform",
+            "input_function": "transform",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":P1",
+            "mask_dec": 2,
+            "mask_hex": "0x0002",
+            "defvalue_dec": 2,
+            "defvalue_hex": "0x0002",
+            "runtime_tag": ":P1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 8,
+              "retropad_button": "a",
+              "descriptor": "Button 2",
+              "matched_by": "order"
+            }
+          }
+        },
+        "3": {
+          "game_button": 3,
+          "logical_name": "3",
+          "function": "lever",
+          "color": "Green",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON3",
+            "input_id": "P1_BUTTON3",
+            "label": "lever",
+            "function": "lever",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "sonicfgt",
+            "tag": "P1",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON3",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "lever",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 3",
+            "mame_type": "62",
+            "mame_tag": ":P1",
+            "cfg_tag": ":P1",
+            "input_label": "lever",
+            "input_function": "lever",
+            "type": "BUTTON3",
+            "normalized_type": "BUTTON3",
+            "tag_raw": ":P1",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":P1",
+            "source": "outputs_mame"
+          },
+          "libretro": {
+            "FinalBurn Neo": {
+              "retropad_id": 1,
+              "retropad_button": "y",
+              "descriptor": "Button 3",
+              "matched_by": "order"
+            }
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {},
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_3_bottom",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            },
+            "3": {
+              "panel_slot": 6
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": [],
+  "libretro_probe": {
+    "FinalBurn Neo": {
+      "core": "fbneo_libretro.dll",
+      "library_version": "v1.0.0.03 260421 GIT5cd2221",
+      "probed_utc": "2026-09-06T17:26:11.5967105Z",
+      "matched_by_name": 0,
+      "matched_by_order": 3
+    }
+  }
+}

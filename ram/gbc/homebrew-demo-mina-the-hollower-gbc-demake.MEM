@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Mina the Hollower GBC Demake",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-mina-the-hollower-gbc-demake",
+    hashes = {
+      { hash = "ae74b0c434f0097cfd674a66d47062cc", label = "Mina the Hollower GBC Demake (World) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCB2A, type="u8", condition="change", action="LOSE_LIFE", desc="Health (5 Max, 0 is death and restart). (System RAM)" },
+        { address=0XEB2A, type="u8", condition="change", action="LOSE_LIFE", desc="Health (5 Max, 0 is death and restart). (Echo RAM)" },
+      },
+    },
+  },
+}

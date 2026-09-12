@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Battlezone 2000",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "battlezone-2000",
+    hashes = {
+      { hash = "d405ea54b77390b06222f9dac7cea827", label = "Battlezone 2000 (USA, Europe).lnx" },
+    }
+  },
+
+  events = {
+  },
+}

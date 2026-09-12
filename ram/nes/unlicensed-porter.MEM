@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Porter",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-porter",
+    hashes = {
+      { hash = "34d9717c6db71bcde0e73e2c84fb47e6", label = "Porter (Asia) (En) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

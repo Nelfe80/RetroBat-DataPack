@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Notte Luminosa",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-notte-luminosa",
+    hashes = {
+      { hash = "6d96b7245bdf925dd558adab065960e8", label = "SMW - Notte Luminosa (2010-01-25) (Yanama).sfc" },
+      { hash = "8b6e3e5a345372b473980164452cc3d9", label = "SMW - Notte Luminosa - Epilogue (2010-01-25) (Yanama).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1ED3, type="u8", condition="change", action="NEW_LEVEL", desc="Secret Lotto #1 overworld settings." },
+        { address=0X1F02, type="u8", condition="change", action="NEW_LEVEL", desc="Level exits." },
+        { address=0X1F0C, type="u8", condition="change", action="NEW_LEVEL", desc="Level exits." },
+        { address=0X1F11, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld level ID." },
+        { address=0X1F11, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Lumissa" },
+        { address=0X1F11, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Sandria" },
+        { address=0X1F11, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Space" },
+        { address=0X1F11, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Frostia" },
+        { address=0X1F11, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Space" },
+        { address=0X1F11, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Crateria" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F2E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Power Stars in possession. Stars that don't trigger an overworld event won't increment the count" },
+      },
+    },
+  },
+}

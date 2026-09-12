@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Transcending the Rainbow",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-transcending-the-rainbow",
+    hashes = {
+      { hash = "9f3bccc2d9b3f5ededcae5eef77df14d", label = "SM64 - Transcending the Rainbow (v1.0.6) (amsixx, Serium).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X1929, action="LIVES_STATE", desc="Losing a life and Regening Health" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Mario HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X08, action="HEALTH_STATE", no_log=true, desc="Full HP" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X1307, action="MONEY_STATE", desc="Star Dance 100 Coins" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0880, action="JUMPING", no_log=true, no_survey=true, desc="1st Jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0881, action="JUMPING", no_log=true, no_survey=true, desc="2nd Jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0882, action="JUMPING", no_log=true, no_survey=true, desc="3rd Jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0888, action="JUMPING", no_log=true, no_survey=true, desc="Long Jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X088A, action="JUMPING", no_log=true, no_survey=true, desc="Jump Dive" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X08AC, action="JUMPING", no_log=true, no_survey=true, desc="Jump Kick" },
+      },
+    },
+  },
+}

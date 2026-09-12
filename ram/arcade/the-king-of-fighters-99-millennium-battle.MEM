@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The King of Fighters '99: Millennium Battle",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "the-king-of-fighters-99-millennium-battle",
+    hashes = {
+      { hash = "1653c67c602403333d94dd921737ce8e", label = "kof99h.7z <The King of Fighters '99 - Millennium Battle (NGH-2510)>" },
+      { hash = "31de2d3eeb556034f322aa06453cf0d1", label = "kof99.7z <The King of Fighters '99 - Millennium Battle (NGM-2510)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8502, type="u16le", condition="eq", value=0XD11A, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+      },
+      events = {
+        { address=0X82B1, type="u8", condition="change", action="COMBO_HIT", desc="P2 - Hit Combo" },
+        { address=0X84B1, type="u8", condition="change", action="COMBO_HIT", desc="< HIT COMBOS >" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA806, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Rounds Won" },
+        { address=0XA807, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds Won" },
+      },
+      stage = {
+        { address=0XA7AF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="< BATTLES STAGES >" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X8238, type="u8", condition="increase", action="HEAL", desc="P1 - HP increased" },
+        { address=0X8238, type="u8", condition="decrease", action="HIT", desc="P1 - HP decreased" },
+        { address=0X8438, type="u8", condition="increase", action="HEAL", desc="P2 - HP increased" },
+        { address=0X8438, type="u8", condition="decrease", action="HIT", desc="P2 - HP decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X81FD, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X8458, type="u8", condition="eq", value=0X20, action="BOSS_HIT", desc="FINAL BOSS" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XFD83, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game - MVS Flag [Bit7] // switches between AES or MVS mode" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X82EE, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="P1 - Mode Flag [8 bits]" },
+        { address=0XA7E7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round - Timer [8 bits]" },
+      },
+    },
+  },
+}

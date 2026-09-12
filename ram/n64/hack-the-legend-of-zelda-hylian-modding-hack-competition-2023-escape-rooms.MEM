@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Hylian Modding Hack Competition - 2023 Escape Rooms",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-hylian-modding-hack-competition-2023-escape-rooms",
+    hashes = {
+      { hash = "8a04780af3353e0b31c99097de7e348a", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Bedtime Story (Pontius Stone).z64" },
+      { hash = "1cd1faaff9b38de77360d446d3ce9db5", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Crystal Clocks (SuperZambezi).z64" },
+      { hash = "274730b49b34cba49498831d6614f045", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Dampe's Hut (Dampe's Hut Team).z64" },
+      { hash = "4a1086383e1949103a02768b4b6e8e46", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Escape Eventide (Polish_Salad,Dingledorf).z64" },
+      { hash = "c8514a9f55bb8e9750acc33dbe64e57b", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Escape Room (jerm).z64" },
+      { hash = "aea2fbd0eb1bb8914ab227b66422d3c1", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Escaping Souls (Picasso).z64" },
+      { hash = "0ec43d5455eb3f979e77e6169b25a511", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Fortress of Agony (hadahlia).z64" },
+      { hash = "d6ad69dfa648c2afe0a175f1c60f4ec7", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Romhack Thing (aegiker).z64" },
+      { hash = "639c3543a2f3705ffe0459a8ed5745f2", label = "Legend of Zelda, The - 2023 Escape Room Comp. - The Worst Torture (ShuggyTheBuggy).z64" },
+      { hash = "8b732d48e2d7d1655e66e80ae400eef0", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Trials and Tribulations (The Sour OG).z64" },
+      { hash = "bf0aab7467c0dfec5b88d1d7e003b697", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Conspiracy (T_nytro_T).z64" },
+      { hash = "6b0e037bb23c42261562ab85f4346c9d", label = "Legend of Zelda, The - 2023 Escape Room Comp. - The Withering Mind (v1.2) (Asahi).z64" },
+      { hash = "9a011d1ad38da8d3c20852203529ec54", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Ganon's Resurrection (v1.2) (Nokaubure).z64" },
+      { hash = "504113a03db308afcd71bfdf4a3a0494", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Escape from the Facility (v1.4.1) (CDi-Fails).z64" },
+      { hash = "7fa4fb031c99652aa86922a9b7039002", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Cosmic Goddess (Fixed) (Aria Hiro 64).z64" },
+      { hash = "ecdaad07a5b254eed55986774217709e", label = "Legend of Zelda, The - 2023 Escape Room Comp. - A Link Between Rooms (v1.1) (FidgetBear).z64" },
+      { hash = "2613eab7266a18f3ba3c6801de7eafee", label = "Legend of Zelda, The - 2023 Escape Room Comp. - Burger Quest (Final) (skip).z64" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X15E785, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Burger Quest]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Digital Cube",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-digital-cube",
+    hashes = {
+      { hash = "3cd29a01a07d08e3f41f2c84dd35f476", label = "Super Metroid - Digital Cube (v0.8) (Cloud12).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

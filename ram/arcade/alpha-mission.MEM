@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alpha Mission",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "alpha-mission",
+    hashes = {
+      { hash = "1061bb40ea99675d095192c6ea8f9f54", label = "arian.7z <Arian Mission>" },
+      { hash = "70e84b059c577f9523c0a25aa8046ad9", label = "alphamis.7z <Alpha Mission>" },
+      { hash = "d77e52c972dd92c6fa6934ab5641d10c", label = "aso.7z <ASO - Armored Scrum Object>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4776, type="u8", condition="eq", value=0X80, action="TITLE_SCREEN", desc="Title Screen: ASO: Armored Scrum Object" },
+        { address=0X4776, type="u8", condition="eq", value=0X88, action="CONTINUE_SCREEN", desc="Game continued" },
+        { address=0X4776, type="u8", condition="eq", value=0X8A, action="CONTINUE_SCREEN", desc="Game did not continue" },
+        { address=0X4779, type="u8", condition="eq", value=0X80, action="TITLE_SCREEN", desc="Title Screen: Arian Mission | Alpha Mission" },
+        { address=0X4779, type="u8", condition="eq", value=0X88, action="CONTINUE_SCREEN", desc="Game continued" },
+        { address=0X4779, type="u8", condition="eq", value=0X8A, action="CONTINUE_SCREEN", desc="Game did not continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2CC9, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="Nuclear" },
+        { address=0X2CEA, type="u8", condition="eq", value=0X20, action="LEVEL_CLEAR", desc="Nuclear" },
+        { address=0X2D04, type="u8", condition="bit_true", mask=0X20, action="LEVEL_CLEAR", desc="Nuclear" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2CEB, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 lives increased" },
+        { address=0X2CEB, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 lives decreased" },
+      },
+      health = {
+        { address=0X2D07, type="u8", condition="increase", action="HEAL", desc="Energy Bar Content increased" },
+        { address=0X2D07, type="u8", condition="decrease", action="HIT", desc="Energy Bar Content decreased" },
+        { address=0X2D08, type="u8", condition="increase", action="HEAL", desc="Energy Bar Slots increased" },
+        { address=0X2D08, type="u8", condition="decrease", action="HIT", desc="Energy Bar Slots decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2CEC, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2CD5, type="u8", condition="eq", value=0X68, action="OBJECT_DESTROYED", desc="SYD ship destroyed (First frame of the explosion)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ TwinBee",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-twinbee",
+    hashes = {
+      { hash = "8c2c0d7e8415ae7b0c577cf947e89e78", label = "TwinBee (Taiwan) (Unl).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2000, type="u8", condition="bit_true", mask=0X02, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+  },
+}

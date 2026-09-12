@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Clever Frog",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-clever-frog",
+    hashes = {
+      { hash = "8ca8c92835bf4c8599e09468cbf35414", label = "Clever Frog (v2011-02-08) (vanek-ridal)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA8206C, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit Float] Level - RALibretro" },
+        { address=0XA91CDC, type="u32le", condition="change", action="NEW_LEVEL", desc="[32 Bit Float] Level - PPSSPP" },
+      },
+    },
+  },
+}

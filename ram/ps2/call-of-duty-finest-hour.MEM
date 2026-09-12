@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Call of Duty: Finest Hour",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "call-of-duty-finest-hour",
+    hashes = {
+      { hash = "65cf50525aad8917a91e20139b4b2af8", label = "Call of Duty - Finest Hour 2.02 (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X113E10, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Level Playing" },
+        { address=0X113E5C, type="u32le", condition="change", action="NEW_LEVEL", desc="Level Unlocked ID" },
+        { address=0X4B9EEC, type="u8", condition="change", action="NEW_LEVEL", desc="[bitflags] Level Objective Flags" },
+      },
+    },
+  },
+}

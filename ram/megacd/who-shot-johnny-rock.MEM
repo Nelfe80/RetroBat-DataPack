@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Who Shot Johnny Rock?",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "who-shot-johnny-rock",
+    hashes = {
+      { hash = "cc2f05e730a2a04b51946b17dd83c7b0", label = "Who Shot Johnny Rock (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

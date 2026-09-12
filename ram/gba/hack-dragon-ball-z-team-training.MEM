@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Dragon Ball Z Team Training",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-dragon-ball-z-team-training",
+    hashes = {
+      { hash = "a75cc0c8d8c8aca6ccf1bf3abf7a1c95", label = "Pokemon - FireRed Version - Dragon Ball Z Team Training (v7.0) (Z-Max).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C080, type="u8", condition="change", action="NEW_LEVEL", desc="fighter enemy level" },
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="1st fighter level" },
+        { address=0X2C33C, type="u8", condition="change", action="NEW_LEVEL", desc="2nd fighter level?" },
+        { address=0X2C3A0, type="u8", condition="change", action="NEW_LEVEL", desc="3rd pokemon level" },
+        { address=0X2C404, type="u8", condition="change", action="NEW_LEVEL", desc="4th pokemon level" },
+        { address=0X2C468, type="u8", condition="change", action="NEW_LEVEL", desc="5th pokemon level" },
+        { address=0X2C4CC, type="u8", condition="change", action="NEW_LEVEL", desc="6th pokemon level" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="active fighter level" },
+        { address=0X2BC66, type="u8", condition="change", action="PROGRESSION_STAGE", desc="enemy fighter activate level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="current fighter hp increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="current fighter hp decreased" },
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="enemy 1 hp increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="enemy 1 hp decreased" },
+        { address=0X2C082, type="u8", condition="increase", action="HEAL", desc="enemy current hp increased" },
+        { address=0X2C082, type="u8", condition="decrease", action="HIT", desc="enemy current hp decreased" },
+        { address=0X2C084, type="u8", condition="increase", action="HEAL", desc="enemy max hp increased" },
+        { address=0X2C084, type="u8", condition="decrease", action="HIT", desc="enemy max hp decreased" },
+      },
+    },
+  },
+}

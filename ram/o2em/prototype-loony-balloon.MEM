@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Loony Balloon",
+    system = "o2em",
+    system_name = "Magnavox Odyssey 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-loony-balloon",
+    hashes = {
+      { hash = "f7a034b2fca71a6d1a4ebba0b7af5870", label = "Loony Balloon (Europe) (Proto).bin" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0031, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo" },
+        { address=0X0031, type="u8", condition="eq", value=0X09, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+  },
+}

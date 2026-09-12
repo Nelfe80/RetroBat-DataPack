@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Melting Apartment",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-melting-apartment",
+    hashes = {
+      { hash = "8f325b05c4d5cb9b98fe8ac87e310525", label = "Melting Apartment, The (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

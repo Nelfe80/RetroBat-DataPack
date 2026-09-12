@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sensible Soccer: European Club Edition",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "sensible-soccer-european-club-edition",
+    hashes = {
+      { hash = "2171f8b7c8e7ab8bc8616f64c5bcae76", label = "Sensible Soccer (Europe) (En,Fr,De,Es,It,Nl)" },
+    }
+  },
+
+  events = {
+  },
+}

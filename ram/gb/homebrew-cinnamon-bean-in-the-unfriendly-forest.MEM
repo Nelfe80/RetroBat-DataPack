@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cinnamon & Bean in the Unfriendly Forest",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cinnamon-bean-in-the-unfriendly-forest",
+    hashes = {
+      { hash = "505cfa1ebfb2257e62fd424d41856e8a", label = "Cinnamon & Bean in the Unfriendly Forest (World) (v4.0) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCC12, type="u8", condition="change", action="NEW_LEVEL", desc="Current level minus one" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCC0E, type="u8", condition="increase", action="HEAL", desc="Player HP increased" },
+        { address=0XCC0E, type="u8", condition="decrease", action="HIT", desc="Player HP decreased" },
+      },
+    },
+  },
+}

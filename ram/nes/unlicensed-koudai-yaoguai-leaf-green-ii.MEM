@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Koudai Yaoguai: Leaf Green II",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-koudai-yaoguai-leaf-green-ii",
+    hashes = {
+      { hash = "b5ceee67b556921a23da780d21e6af63", label = "Koudai Yaoguai - Leaf Green II (China) (Aftermarket) (Pirate).nes" },
+      { hash = "6181a11800395b1ba409960e468037d1", label = "Pokemon - Leaf Green 2 (World) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X04BC, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 1 Level [8bit]" },
+        { address=0X04BD, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 2 Level [8bit]" },
+        { address=0X04BE, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 3 Level [8bit]" },
+        { address=0X04BF, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 4 Level [8bit]" },
+        { address=0X04C0, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 5 Level [8bit]" },
+        { address=0X04C1, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 6 Level [8bit]" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X04C2, type="u8", condition="increase", action="HEAL", desc="Party - Pokemon 1 Current HP [8bit] increased" },
+        { address=0X04C2, type="u8", condition="decrease", action="HIT", desc="Party - Pokemon 1 Current HP [8bit] decreased" },
+        { address=0X04C3, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 2 HP [8bit] increased" },
+        { address=0X04C3, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 2 HP [8bit] decreased" },
+        { address=0X04C4, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 3 HP [8bit] increased" },
+        { address=0X04C4, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 3 HP [8bit] decreased" },
+        { address=0X04C5, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 4 HP [8bit] increased" },
+        { address=0X04C5, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 4 HP [8bit] decreased" },
+        { address=0X04C6, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 5 HP [8bit] increased" },
+        { address=0X04C6, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 5 HP [8bit] decreased" },
+        { address=0X04C7, type="u8", condition="increase", action="HEAL", desc="Party Pokemon 6 HP [8bit] increased" },
+        { address=0X04C7, type="u8", condition="decrease", action="HIT", desc="Party Pokemon 6 HP [8bit] decreased" },
+        { address=0X0621, type="u8", condition="increase", action="HEAL", desc="Rival Pokemon HP [8bit] increased" },
+        { address=0X0621, type="u8", condition="decrease", action="HIT", desc="Rival Pokemon HP [8bit] decreased" },
+        { address=0X0623, type="u8", condition="increase", action="HEAL", desc="Rival Pokemon Max HP [8bit] increased" },
+        { address=0X0623, type="u8", condition="decrease", action="HIT", desc="Rival Pokemon Max HP [8bit] decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00FA, type="u16le", condition="increase", action="COIN_GAIN", desc="Money [16bit] increased" },
+      },
+    },
+  },
+}

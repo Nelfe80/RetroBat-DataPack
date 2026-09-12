@@ -1,0 +1,101 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man X: Hard-Type",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-x-hard-type",
+    hashes = {
+      { hash = "41024f8470edcd682702d535db63dd84", label = "Mega Man X - Hard Type (2.2.2) (Rev 1) (Hart-Hunt).sfc" },
+      { hash = "c1343e798e6bb0cb15059b5b5bf6db98", label = "Mega Man X - Hard Type (2.2.2) (Hart-Hunt) (MSU-1-Guitar Legends) (JUD6MENT).sfc" },
+      { hash = "e09728d226394f22a6bca489427fbb96", label = "Mega Man X - Hard Type (2.2.2) (Hart-Hunt).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X003C, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen, no password entered" },
+        { address=0X003C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Password screen" },
+        { address=0X003C, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Options" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X23, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X24, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X1F7A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Highway intro" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Launch Octopus" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Sting Chameleon" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Armored Armadillo" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Flame Mammoth" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Storm Eagle" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Spark Mandrill" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Boomer Kuwanger" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Chill Penguin" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Sigma 1" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Sigma 2" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Sigma 3" },
+        { address=0X1F7A, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="Sigma 4" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0BAA, type="u8", condition="eq", value=0X0C, action="LOSE_LIFE", desc="death" },
+      },
+      health = {
+        { address=0X0BCF, type="u8", condition="increase", action="HEAL", desc="X's Current Health. increased" },
+        { address=0X0BCF, type="u8", condition="decrease", action="HIT", desc="X's Current Health. decreased" },
+        { address=0X0ECF, type="u8", condition="increase", action="HEAL", desc="Another Health Slot. MAtches 0x000eb2 increased" },
+        { address=0X0ECF, type="u8", condition="decrease", action="HIT", desc="Another Health Slot. MAtches 0x000eb2 decreased" },
+        { address=0X1F88, type="u8", condition="increase", action="HEAL", desc="Homing Torpedo Energy increased" },
+        { address=0X1F88, type="u8", condition="decrease", action="HIT", desc="Homing Torpedo Energy decreased" },
+        { address=0X1F8A, type="u8", condition="increase", action="HEAL", desc="Chameleon Sting Energy increased" },
+        { address=0X1F8A, type="u8", condition="decrease", action="HIT", desc="Chameleon Sting Energy decreased" },
+        { address=0X1F8C, type="u8", condition="increase", action="HEAL", desc="Rolling Shield energy increased" },
+        { address=0X1F8C, type="u8", condition="decrease", action="HIT", desc="Rolling Shield energy decreased" },
+        { address=0X1F8E, type="u8", condition="increase", action="HEAL", desc="Fire Thrower Energy increased" },
+        { address=0X1F8E, type="u8", condition="decrease", action="HIT", desc="Fire Thrower Energy decreased" },
+        { address=0X1F90, type="u8", condition="increase", action="HEAL", desc="Storm Tornado Energy increased" },
+        { address=0X1F90, type="u8", condition="decrease", action="HIT", desc="Storm Tornado Energy decreased" },
+        { address=0X1F92, type="u8", condition="increase", action="HEAL", desc="Electric Spark Energy increased" },
+        { address=0X1F92, type="u8", condition="decrease", action="HIT", desc="Electric Spark Energy decreased" },
+        { address=0X1F94, type="u8", condition="increase", action="HEAL", desc="Boomerang Cutter Energy increased" },
+        { address=0X1F94, type="u8", condition="decrease", action="HIT", desc="Boomerang Cutter Energy decreased" },
+        { address=0X1F96, type="u8", condition="increase", action="HEAL", desc="Shutgun Ice Energy increased" },
+        { address=0X1F96, type="u8", condition="decrease", action="HIT", desc="Shutgun Ice Energy decreased" },
+        { address=0X1F9A, type="u8", condition="increase", action="HEAL", desc="X's Maximum health. increased" },
+        { address=0X1F9A, type="u8", condition="decrease", action="HIT", desc="X's Maximum health. decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0E72, type="u8", condition="eq", value=0X0C, action="AMMO_STATE", no_log=true, desc="Flame Mammoth" },
+        { address=0X1F99, type="u8", condition="bit_true", mask=0X80, action="AMMO_STATE", no_log=true, desc="E-Tank (Flame Mammoth)" },
+        { address=0X1F9C, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Bitflags for hearttanks. 0 : penguin, 1 : armadillo, 2 : eagle, 3 : chameleon, 4 : mammoth, 5 :" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0E8F, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health (Only in boss rooms, unstable elsewhere!)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0BAA, type="u8", condition="eq", value=0X1C, action="DOOR_OPENED", desc="transitioning through door" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1FB8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter, hundreds digit." },
+        { address=0X1FB9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter, Tens digit" },
+        { address=0X1FBA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Death Counter, 1's digit." },
+      },
+    },
+  },
+}

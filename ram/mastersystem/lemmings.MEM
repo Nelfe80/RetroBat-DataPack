@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lemmings",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "lemmings",
+    hashes = {
+      { hash = "b190f17a46ba9cc66676e7174209c24e", label = "Lemmings (Europe, Brazil) (En).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1AD0, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1AE5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Complete Screen Flag" },
+        { address=0X1AE6, type="u8", condition="change", action="NEW_LEVEL", desc="Level Info" },
+        { address=0X1B9D, type="u8", condition="change", action="NEW_LEVEL", desc="Level Number (1-30) Same for All difficulties" },
+        { address=0X1BA7, type="u8", condition="change", action="NEW_LEVEL", desc="Last Level Played Pass Flag" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1B75, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blockers" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1AD1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer - Minutes" },
+        { address=0X1AD2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds (Tens)" },
+        { address=0X1AD3, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds (Ones)" },
+        { address=0X1AD9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="In Game Timer (Runs through all 256 values of Hex)" },
+      },
+    },
+  },
+}

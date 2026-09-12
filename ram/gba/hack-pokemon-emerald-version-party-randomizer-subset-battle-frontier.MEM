@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Version: Party Randomizer [Subset - Battle Frontier]",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-version-party-randomizer-subset-battle-frontier",
+    hashes = {
+      { hash = "fa6e5e03d041501c72db930474754305", label = "Pokemon Emerald - Party Randomizer Plus [Subset - Bonus].gba" },
+    }
+  },
+
+  events = {
+  },
+}

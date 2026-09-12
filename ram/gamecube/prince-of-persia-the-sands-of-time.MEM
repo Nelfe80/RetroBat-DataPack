@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Prince of Persia: The Sands of Time",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Adventure, Platform"
+  },
+
+  rom = {
+    name = "prince-of-persia-the-sands-of-time",
+    hashes = {
+      { hash = "094beb6cb576af009b54b17837540aff", label = "Prince of Persia - The Sands of Time (USA) (En,Fr,Es) (Rev 1)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCCE22C, type="u32be", condition="increase", action="HEAL", desc="Prince HP (32-bit BE) [Should be Dynamic, Doesn't Seem to Move?] increased" },
+        { address=0XCCE22C, type="u32be", condition="decrease", action="HIT", desc="Prince HP (32-bit BE) [Should be Dynamic, Doesn't Seem to Move?] decreased" },
+      },
+    },
+  },
+}

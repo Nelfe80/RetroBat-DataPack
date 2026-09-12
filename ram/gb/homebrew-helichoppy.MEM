@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Helichoppy",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-helichoppy",
+    hashes = {
+      { hash = "30e8f62dc1aceabdf14229a59d6853c0", label = "Helichoppy (World) (v1.1) (Aftermarket) (Vivian Video).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC33F, type="u8", condition="change", action="TITLE_SCREEN", desc="1 on title screen, 0 otherwise" },
+        { address=0XC354, type="u16be", condition="change", action="GAME_OVER", desc="1 on Game Over screen, 0 otherwise (16-bit BE)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC34A, type="u16be", condition="change", action="NEW_LEVEL", desc="Level (16-bit BE)" },
+        { address=0XC352, type="u16be", condition="change", action="LEVEL_CLEAR", desc="1 on level clear screen, 0 otherwise (16-bit BE)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC342, type="u16be", condition="increase", action="GAIN_LIFE", desc="Lives (16-bit BE) increased" },
+        { address=0XC342, type="u16be", condition="decrease", action="LOSE_LIFE", desc="Lives (16-bit BE) decreased" },
+      },
+      health = {
+        { address=0XC340, type="u16be", condition="increase", action="HEAL", desc="HP (16-bit BE) increased" },
+        { address=0XC340, type="u16be", condition="decrease", action="HIT", desc="HP (16-bit BE) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC345, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (16-bit)" },
+      },
+      collectibles = {
+        { address=0XC350, type="u16be", condition="increase", action="COIN_GAIN", desc="1 during boss death animation (16-bit BE) increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Mario Red Coins",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-mario-red-coins",
+    hashes = {
+      { hash = "0197d421b19ecd3719d8d2867e3d63d7", label = "Super Mario Red Coins DS (World) (v1.5) (Aftermarket) (Unl) (rockleeace).nds" },
+    }
+  },
+
+  events = {
+  },
+}

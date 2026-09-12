@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "StarPilot W",
+    system = "wasm4",
+    system_name = "WASM-4",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "starpilot-w",
+    hashes = {
+      { hash = "335808621244e3519259d656c6531e08", label = "StarPilot W (World) (Spaceman1701).wasm" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X95AA, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X942D, type="u8", condition="increase", action="HEAL", desc="Ship Health increased" },
+        { address=0X942D, type="u8", condition="decrease", action="HIT", desc="Ship Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9584, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X93AC, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Gates Left (0 : Destroy, 1 >: Avoid)" },
+      },
+    },
+  },
+}

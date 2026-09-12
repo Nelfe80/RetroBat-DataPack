@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Heracles no Eikou: Toujin Makyou Den",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "heracles-no-eikou-toujin-makyou-den",
+    hashes = {
+      { hash = "49b62f40ba2caa368555fc9a5d0005a8", label = "Glory of Heracles, The - Labors of the Divine Hero (Japan) (En) (Rev B) (DvD Translations).nes" },
+      { hash = "74018bff7fd303079eabb8964b31a393", label = "Gloria de Heracles, La - Los Doce Trabajos (Japan) (Es) (v1.0) (Wu Traducciones).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0071, type="u8", condition="change", action="NEW_LEVEL", desc="Player Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0072, type="u8", condition="increase", action="HEAL", desc="Player health increased" },
+        { address=0X0072, type="u8", condition="decrease", action="HIT", desc="Player health decreased" },
+        { address=0X0499, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X0499, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0078, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped Weapon Durability" },
+        { address=0X0079, type="u8", condition="change", action="WEAPON_STATE", desc="Inventory Weapon 1 Durability" },
+        { address=0X007A, type="u8", condition="change", action="WEAPON_STATE", desc="Inventory Weapon 2 Durability" },
+        { address=0X007F, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped Weapon:" },
+        { address=0X0080, type="u8", condition="change", action="WEAPON_STATE", desc="Inventory Weapon 1" },
+        { address=0X0081, type="u8", condition="change", action="WEAPON_STATE", desc="Inventory Weapon 2" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X007D, type="u16le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0082, type="u8", condition="change", action="SHIELD_GAIN", desc="Equipped Shield:" },
+      },
+    },
+  },
+}

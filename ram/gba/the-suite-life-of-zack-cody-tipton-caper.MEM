@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Suite Life of Zack & Cody: Tipton Caper",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "the-suite-life-of-zack-cody-tipton-caper",
+    hashes = {
+      { hash = "37811411c46cf9a5ee91b418c6e67930", label = "Suite Life of Zack & Cody, The - Tipton Caper (USA) (En,Fr).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XB291, type="u8", condition="increase", action="HEAL", desc="[8bit] Health increased" },
+        { address=0XB291, type="u8", condition="decrease", action="HIT", desc="[8bit] Health decreased" },
+      },
+    },
+  },
+}

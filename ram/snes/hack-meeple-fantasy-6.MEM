@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Meeple Fantasy 6",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-meeple-fantasy-6",
+    hashes = {
+      { hash = "ca1b45d2b2fd3eed0d43e4a5547446bb", label = "FFVI - Meeple Fantasy 6 (v1.7) (Meeplelard).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1E96, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Cid died" },
+        { address=0X1ED1, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Helped dying soldier send letters" },
+      },
+      health = {
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="Enemy 4 HP increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="Enemy 4 HP decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="Enemy 5 HP increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="Enemy 5 HP decreased" },
+        { address=0X3C06, type="u16le", condition="increase", action="HEAL", desc="Enemy 6 HP increased" },
+        { address=0X3C06, type="u16le", condition="decrease", action="HIT", desc="Enemy 6 HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1E40, type="u32le", condition="change", action="TREASURE", desc="[Array] [32 bytes] [Bitflags] Treasures" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1D2A, type="u8", condition="bit_true", mask=0X80, action="SHIELD_GAIN", desc="Chaos Shield" },
+        { address=0X1DD5, type="u8", condition="change", action="SHIELD_GAIN", desc="Cursed Shield Uses" },
+      },
+    },
+  },
+}

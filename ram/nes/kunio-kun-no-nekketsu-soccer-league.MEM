@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kunio-kun no Nekketsu Soccer League",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "kunio-kun-no-nekketsu-soccer-league",
+    hashes = {
+      { hash = "8bdc944fa785466ea2cb81e148ff86e6", label = "Kunio-kun no Nekketsu Soccer League (Japan).nes" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Pocket Monster",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-pocket-monster",
+    hashes = {
+      { hash = "d8b11e1a10d874671ead76e355b95b59", label = "Pocket Monster (Taiwan) (Pirate) (Cracked).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01FC, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="3" },
+        { address=0X01FC, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="4" },
+        { address=0X01FC, type="u8", condition="eq", value=0X04, action="CONTINUE_SCREEN", desc="5" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0172, type="u8", condition="change", action="PROGRESSION_STAGE", desc="This tells you what stage you are on." },
+        { address=0X0172, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="5" },
+        { address=0X0172, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="1" },
+        { address=0X0172, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="2" },
+        { address=0X0172, type="u8", condition="eq", value=0X8, action="PROGRESSION_STAGE", desc="3" },
+        { address=0X0172, type="u8", condition="eq", value=0XC, action="PROGRESSION_STAGE", desc="4" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X01FA, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives selected in option increased" },
+        { address=0X01FA, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives selected in option decreased" },
+        { address=0X01FA, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="3" },
+        { address=0X01FA, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="4" },
+        { address=0X01FA, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="5" },
+        { address=0X01FC, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives continues selected in option increased" },
+        { address=0X01FC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives continues selected in option decreased" },
+        { address=0X1722, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0X1722, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+        { address=0X172A, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X172A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0X1E168, type="u8", condition="increase", action="HEAL", desc="This is for Gangars Health increased" },
+        { address=0X1E168, type="u8", condition="decrease", action="HIT", desc="This is for Gangars Health decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1E068, type="u8", condition="change", action="BOSS_HIT", desc="This is for boss health level 2" },
+        { address=0X1E268, type="u8", condition="change", action="BOSS_HIT", desc="This is for the final boss health." },
+        { address=0X1E2E8, type="u8", condition="change", action="BOSS_HIT", desc="This is for boss 3 health" },
+        { address=0X1E368, type="u8", condition="change", action="BOSS_HIT", desc="This is for boss 3 health" },
+        { address=0X1E468, type="u8", condition="change", action="BOSS_HIT", desc="This for boss 1 snorlax health" },
+      },
+    },
+  },
+}

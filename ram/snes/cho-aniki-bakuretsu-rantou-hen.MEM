@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cho Aniki: Bakuretsu Rantou Hen",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "cho-aniki-bakuretsu-rantou-hen",
+    hashes = {
+      { hash = "a110a863dd8440806956667c83179b72", label = "Chou Aniki - Bakuretsu Rantou Hen (Japan).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1A10, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Countdown for Continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X593C, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of rounds won by player" },
+        { address=0X593E, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of rounds won by opponent" },
+        { address=0X595E, type="u8", condition="change", action="NEW_LEVEL", desc="Level Progression" },
+        { address=0X595E, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Mirror/Final Fight" },
+        { address=0X595E, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Game Won" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X66F5, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player HP [Editable]" },
+        { address=0X66F5, type="u8", condition="eq", value=0X70, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X66F7, type="u8", condition="increase", action="HEAL", desc="Enemy HP increased" },
+        { address=0X66F7, type="u8", condition="decrease", action="HIT", desc="Enemy HP decreased" },
+        { address=0X66F9, type="u8", condition="increase", action="HEAL", desc="Player HP Graphical Indicator increased" },
+        { address=0X66F9, type="u8", condition="decrease", action="HIT", desc="Player HP Graphical Indicator decreased" },
+        { address=0X66FB, type="u8", condition="increase", action="HEAL", desc="Enemy HP Graphical Indicator increased" },
+        { address=0X66FB, type="u8", condition="decrease", action="HIT", desc="Enemy HP Graphical Indicator decreased" },
+      },
+    },
+  },
+}

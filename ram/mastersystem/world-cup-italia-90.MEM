@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "World Cup Italia 90",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "world-cup-italia-90",
+    hashes = {
+      { hash = "a19d4a16be24106cd48b283b5bad5023", label = "World Cup Italia '90 (Europe, Brazil) (En).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0067, type="u8", condition="change", action="PAUSE_ON", desc="variando mto pause" },
+        { address=0X0088, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+  },
+}

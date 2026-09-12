@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Walt Disney World Quest: Magical Racing Tour",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "walt-disney-world-quest-magical-racing-tour",
+    hashes = {
+      { hash = "d66413658a114080ff179cc9f89c9335", label = "Walt Disney World Quest - Magical Racing Tour (USA)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X1CF33C, type="u8", condition="increase", action="COIN_GAIN", desc="Number of coins collected in current race (US) increased" },
+        { address=0X1CF3BC, type="u8", condition="increase", action="COIN_GAIN", desc="Number of coins collected in current race (EU) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1CF55C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32 Bit] Game Mode" },
+        { address=0X1CF55C, type="u16le", condition="eq", value=0X03, action="GENERAL_TIMER", desc="Time Trial" },
+      },
+    },
+  },
+}

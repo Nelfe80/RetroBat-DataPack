@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Anguna: Warriors of Virtue",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-anguna-warriors-of-virtue",
+    hashes = {
+      { hash = "9d3a663de5228414d7e6cda7244c5d91", label = "Anguna - Warriors of Virtue (World) (v0.95) (Aftermarket) (Unl).gba" },
+      { hash = "c369cdee8afa8a6a7163bdadddf74c69", label = "Anguna - Warriors of Virtue (World) (v0.95) (Itch.io) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

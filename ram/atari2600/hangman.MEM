@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hangman",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "hangman",
+    hashes = {
+      { hash = "f16c709df0a6c52f47ff52b9d95b7d8d", label = "Hangman ~ Spelling (USA).a26" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X006B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Times Won" },
+        { address=0X006C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Times Lost" },
+        { address=0X007E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer" },
+      },
+    },
+  },
+}

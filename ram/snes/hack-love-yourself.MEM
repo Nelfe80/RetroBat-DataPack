@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Love Yourself",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-love-yourself",
+    hashes = {
+      { hash = "08459aa214460dbca4c438d5a38ef80d", label = "SMW - Love Yourself (v1.0) (Chondontore).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X010B, type="u16le", condition="change", action="NEW_LEVEL", desc="Screen ID The first two bytes is the current level number in most hacks, can used for secret roo" },
+        { address=0X010B, type="u16le", condition="eq", value=0X119, action="NEW_LEVEL", desc="Cold and Spooked - Secret" },
+        { address=0X010B, type="u16le", condition="eq", value=0X11B, action="NEW_LEVEL", desc="Buzzed - Secret" },
+        { address=0X010B, type="u16le", condition="eq", value=0X12D, action="NEW_LEVEL", desc="Round The Bend - Secret" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exits cleared on current save" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power-Up Status" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="get the checkpoint : 01" },
+        { address=0X1403, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="current checkpoint" },
+        { address=0X1426, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Text Block On [0->1]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Invinco",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "invinco",
+    hashes = {
+      { hash = "587d8c3a8e2f29c74a076a70fe1ddc56", label = "invinco.7z <>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1381, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13BC, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (03 : Starting, 00 : Game Over) increased" },
+        { address=0X13BC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (03 : Starting, 00 : Game Over) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1388, type="u48le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

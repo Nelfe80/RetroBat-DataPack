@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tony Hawk's Pro Skater 2",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "tony-hawks-pro-skater-2",
+    hashes = {
+      { hash = "0454b25266d645990b63b5b406672dc2", label = "Tony Hawk's Pro Skater 2 (USA, Europe).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0XC28D, type="u8", condition="change", action="COMBO_HIT", desc="- Best Combo" },
+        { address=0XC353, type="u8", condition="change", action="COMBO_HIT", desc="The next 49 bytes incrementally change with each trick that is performed in a single combo move." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC5F6, type="u8", condition="change", action="NEW_LEVEL", desc="- Level Selected" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC27F, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit] - Score" },
+        { address=0XC282, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="- Best Score in Free Skate" },
+        { address=0XC285, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="- Points for last landed trick - Career Mode" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC6D1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Time - Milliseconds" },
+        { address=0XC6D2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Time - Seconds" },
+        { address=0XC6D3, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="- Time - Minutes" },
+      },
+    },
+  },
+}

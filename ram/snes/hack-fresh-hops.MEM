@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fresh Hops",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fresh-hops",
+    hashes = {
+      { hash = "f0ef3fa54c08d1f8b27c18a870259afb", label = "SMW - Fresh Hops (v1.1) (MorrieTheMagpie).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="exit level flag" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="main exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="secret eixt" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="NEW_LEVEL", desc="start+select" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Serendipity" },
+        { address=0X13BF, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Bellaire Brown" },
+        { address=0X13BF, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Falls Tannin" },
+        { address=0X13BF, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Barbaric Yamp" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Blooming Desert" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="Rubaeus" },
+        { address=0X13BF, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="Huma lupa Licious" },
+        { address=0X13BF, type="u8", condition="eq", value=0X15, action="NEW_LEVEL", desc="Presque Ale" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Toshiba's Abode" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2D, action="NEW_LEVEL", desc="Low Hanging Fruit" },
+        { address=0X13BF, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="Diabolical" },
+        { address=0X13BF, type="u8", condition="eq", value=0X32, action="NEW_LEVEL", desc="Two-Hearted" },
+        { address=0X13BF, type="u8", condition="eq", value=0X34, action="NEW_LEVEL", desc="Borealis Broo" },
+        { address=0X13BF, type="u8", condition="eq", value=0X35, action="NEW_LEVEL", desc="Widowmaker" },
+        { address=0X13BF, type="u8", condition="eq", value=0X36, action="NEW_LEVEL", desc="Laughing Fish" },
+        { address=0X1EB3, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Level completed" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1EB3, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway checkpoint active" },
+      },
+    },
+  },
+}

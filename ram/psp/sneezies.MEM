@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sneezies",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sneezies",
+    hashes = {
+      { hash = "5a6b20cbba210f364c2a7abb9d703f15", label = "Sneezies (Europe) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XAD03F8, type="u16le", condition="eq", value=0X03, action="SCORE_STATE", desc="Score EX" },
+      },
+    },
+  },
+}

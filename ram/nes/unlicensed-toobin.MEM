@@ -1,0 +1,87 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Toobin'",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "unlicensed-toobin",
+    hashes = {
+      { hash = "6d87b3cb41d36eba79e6e5cc3a6666f1", label = "Toobin' (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0007, type="u8", condition="eq", value=0X0B, action="PAUSE_OFF", desc="Pause (includes things like in-between level screens)" },
+        { address=0X0007, type="u8", condition="eq", value=0X0D, action="PAUSE_OFF", desc="Play" },
+        { address=0X0100, type="u8", condition="eq", value=0X11, action="CREDITS_SCREEN", desc="Get Ready Screen / Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X006F, type="u8", condition="change", action="NEW_LEVEL", desc="Class level" },
+        { address=0X006F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Class 1" },
+        { address=0X006F, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Class 2" },
+        { address=0X006F, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Class 3" },
+        { address=0X006F, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Class 4" },
+        { address=0X006F, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Class 5" },
+        { address=0X006F, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Class 6" },
+        { address=0X006F, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Class 7" },
+        { address=0X006F, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Class 8" },
+        { address=0X006F, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Class 9" },
+        { address=0X0071, type="u8", condition="change", action="NEW_LEVEL", desc="Used to index into ROM to read level data" },
+        { address=0X0071, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Colorado, Yukon, Brontosauri, Nevada, Yukon 2, Brontosauri 2, Snake, Yukon 3, Rio Grande 4" },
+        { address=0X0071, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Okefenokee, Nile, Rio del Oro, Amazon, Cuprum 2, Rio Grande 2, Amazon 2, Argentum 3, Yukon 4" },
+        { address=0X0071, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Rio Grande, Cuprum, Black Forest, Argentum, Okefenokee 2, Black Forest 2, Argentum 2, Mississipp" },
+        { address=0X0071, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Jurassic, Mississippi, Canals of Mars, American, Styx 2, Canals of Mars 2, Okefenokee 3, Styx 3," },
+        { address=0X0071, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Warp Zone I, Nightmare, Styx, Beach Party, Nile 2, Nightmare 2, Rio Grande 3, Nile 3, Canals of" },
+        { address=0X0071, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Warp Zone II, Canals of Mars 3, American 2" },
+        { address=0X0071, type="u8", condition="eq", value=0X18, action="NEW_LEVEL", desc="Nightmare 3, Beach Party 2" },
+        { address=0X0071, type="u8", condition="eq", value=0X1C, action="NEW_LEVEL", desc="Warp Zone III" },
+        { address=0X0100, type="u8", condition="change", action="NEW_LEVEL", desc="Level/Screens" },
+        { address=0X0100, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Tengen, Black Forest, American" },
+        { address=0X0100, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Okefenokee, Jurassic, Mississippi, Brontisauri, Amazon" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Nightmare / Warp Screen / Styx" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="NEW_LEVEL", desc="Player Select" },
+        { address=0X0100, type="u8", condition="eq", value=0X16, action="NEW_LEVEL", desc="Canals of Mars" },
+        { address=0X0100, type="u8", condition="eq", value=0X20, action="NEW_LEVEL", desc="Colorado, Nile, Nevada, Beach Party, Snake" },
+        { address=0X0100, type="u8", condition="eq", value=0X27, action="NEW_LEVEL", desc="Rio Grande, Rio Del Oro" },
+        { address=0X0100, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="Cuprum, Argentum" },
+        { address=0X0100, type="u8", condition="eq", value=0X31, action="NEW_LEVEL", desc="Yukon" },
+      },
+      stage = {
+        { address=0X02D9, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Level Skip Active" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X006E, type="u8", condition="increase", action="GAIN_LIFE", desc="Patches (lives) remaining increased" },
+        { address=0X006E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Patches (lives) remaining decreased" },
+        { address=0X0553, type="u32le", condition="eq", value=0X10, action="LOSE_LIFE", desc="death sound" },
+        { address=0X086E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Remaining (mirror ram) increased" },
+        { address=0X086E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Remaining (mirror ram) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0069, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score (BCD)" },
+        { address=0X0553, type="u32le", condition="eq", value=0X11, action="SCORE_STATE", desc="New High Score!!!" },
+        { address=0X0869, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score (BCD) (mirror ram)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X007B, type="u8", condition="eq", value=0X0, action="OBJECT_DESTROYED", desc="stick destroyed" },
+        { address=0X007B, type="u8", condition="eq", value=0X14, action="OBJECT_INTERACTION", desc="stick to shoot with can" },
+        { address=0X0083, type="u8", condition="eq", value=0X0, action="OBJECT_DESTROYED", desc="stick destroyed" },
+        { address=0X0083, type="u8", condition="eq", value=0X14, action="OBJECT_INTERACTION", desc="stick to shoot with can" },
+        { address=0X0562, type="u8", condition="eq", value=0X2A, action="OBJECT_INTERACTION", desc="Yukon (switches to 06 halfway)" },
+      },
+    },
+  },
+}

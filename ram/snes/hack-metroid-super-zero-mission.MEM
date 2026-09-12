@@ -1,0 +1,91 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: Super Zero Mission",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-super-zero-mission",
+    hashes = {
+      { hash = "8c04220c2e0f78abb9bb7cbbc7cfbbde", label = "Super Metroid - Super Zero Mission (v2.3) (SBniconico).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0998, type="u8", condition="eq", value=0X27, action="GAME_OVER", desc="Ending" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0E52, type="u8", condition="change", action="LOSE_LIFE", desc="Number of Enemy Deaths Required to Clear Current Room" },
+      },
+      health = {
+        { address=0X09C2, type="u16le", condition="increase", action="HEAL", desc="Current health increased" },
+        { address=0X09C2, type="u16le", condition="decrease", action="HIT", desc="Current health decreased" },
+        { address=0X09C4, type="u16le", condition="increase", action="HEAL", desc="Max health increased" },
+        { address=0X09C4, type="u16le", condition="decrease", action="HIT", desc="Max health decreased" },
+        { address=0X09D4, type="u16le", condition="increase", action="HEAL", desc="Max reserve health increased" },
+        { address=0X09D4, type="u16le", condition="decrease", action="HIT", desc="Max reserve health decreased" },
+        { address=0X09D6, type="u16le", condition="increase", action="HEAL", desc="Current reserve health increased" },
+        { address=0X09D6, type="u16le", condition="decrease", action="HIT", desc="Current reserve health decreased" },
+        { address=0X0A06, type="u16le", condition="increase", action="HEAL", desc="Samus's Previous Frame Health increased" },
+        { address=0X0A06, type="u16le", condition="decrease", action="HIT", desc="Samus's Previous Frame Health decreased" },
+        { address=0X0A12, type="u16le", condition="increase", action="HEAL", desc="Samus's Previous Frame Health increased" },
+        { address=0X0A12, type="u16le", condition="decrease", action="HIT", desc="Samus's Previous Frame Health decreased" },
+        { address=0X0FCC, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 health (used for Mother Brain in jar) increased" },
+        { address=0X0FCC, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 health (used for Mother Brain in jar) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XD880, type="u8", condition="bit_true", mask=0X20, action="DYNAMIC_INVENTORY", desc="Varia Suit (Room ID 0xa051)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0F8C, type="u16le", condition="change", action="BOSS_HIT", desc="Enemy 1 health (used for all bosses)" },
+        { address=0XD828, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Bomb Torizo" },
+        { address=0XD829, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Kraid" },
+        { address=0XD829, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Spore Spawn" },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Ridley" },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Crocomire" },
+        { address=0XD82B, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Mecha Ridley (dynamic)" },
+        { address=0XD82C, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Botwoon" },
+        { address=0XD82C, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Chozo" },
+        { address=0XD82D, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Mother Brain ghost" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09A3, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Hi-Jump Boots" },
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Hi-Jump Boots (Room ID 0xa9e5)" },
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Space Jump" },
+        { address=0XD880, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Hi-Jump Boots (Room ID 0xa9e5)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0998, type="u8", condition="eq", value=0X09, action="DOOR_OPENED", desc="Door transition" },
+        { address=0XD821, type="u8", condition="bit_true", mask=0X08, action="OBJECT_DESTROYED", desc="Pirate Ship tube broken" },
+        { address=0XD8CF, type="u8", condition="bit_true", mask=0X08, action="DOOR_OPENED", desc="L-4" },
+        { address=0XD8CF, type="u8", condition="bit_true", mask=0X10, action="DOOR_OPENED", desc="L-3" },
+        { address=0XD8CF, type="u8", condition="bit_true", mask=0X20, action="DOOR_OPENED", desc="L-2" },
+        { address=0XD8CF, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="L-1" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0946, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Escape timer - seconds" },
+        { address=0X0947, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Escape timer - minutes" },
+        { address=0X09DC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="In game timer - seconds" },
+        { address=0X09DE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="In game timer - minutes" },
+        { address=0X0A68, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Shinespark charge timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,479 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "core",
+  "core": "neko_project_ii_kai",
+  "display_name": "NEC - PC-98 Neko Project II Kai",
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "mame_button": "P1_BUTTON1",
+        "rmp_button_by_layout": {
+          "2-Button": "b",
+          "4-Button": "b",
+          "6-Button": "b",
+          "8-Button": "b"
+        }
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "mame_button": "P1_BUTTON2",
+        "rmp_button_by_layout": {
+          "2-Button": "a",
+          "4-Button": "a",
+          "6-Button": "a",
+          "8-Button": "a"
+        }
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "mame_button": "P1_BUTTON6",
+        "rmp_button_by_layout": {
+          "6-Button": "r",
+          "8-Button": "r"
+        }
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "mame_button": "P1_BUTTON8",
+        "rmp_button_by_layout": {
+          "8-Button": "r2"
+        }
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "mame_button": "P1_BUTTON4",
+        "rmp_button_by_layout": {
+          "4-Button": "y",
+          "6-Button": "y",
+          "8-Button": "y"
+        }
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "mame_button": "P1_BUTTON3",
+        "rmp_button_by_layout": {
+          "4-Button": "x",
+          "6-Button": "x",
+          "8-Button": "x"
+        }
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "mame_button": "P1_BUTTON5",
+        "rmp_button_by_layout": {
+          "6-Button": "l",
+          "8-Button": "l"
+        }
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "mame_button": "P1_BUTTON7",
+        "rmp_button_by_layout": {
+          "8-Button": "l2"
+        }
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start"
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select"
+      }
+    },
+    "rmp_slots_by_layout": {
+      "2-Button": {
+        "1": "b",
+        "2": "a"
+      },
+      "4-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y"
+      },
+      "6-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r"
+      },
+      "8-Button": {
+        "1": "b",
+        "2": "a",
+        "3": "x",
+        "4": "y",
+        "5": "l",
+        "6": "r",
+        "7": "l2",
+        "8": "r2"
+      }
+    },
+    "rmp_system_buttons": {
+      "start": "start",
+      "select": "select",
+      "coin": "select"
+    }
+  },
+  "core_template": {
+    "retropad": {
+      "buttons": {
+        "b": {
+          "retropad_id": 0,
+          "label": "Z key"
+        },
+        "y": {
+          "retropad_id": 1,
+          "label": "Left control key"
+        },
+        "select": {
+          "retropad_id": 2,
+          "label": "Escape key"
+        },
+        "start": {
+          "retropad_id": 3,
+          "label": "Return key"
+        },
+        "dpad_up": {
+          "retropad_id": 4,
+          "label": "Up arrow key"
+        },
+        "dpad_down": {
+          "retropad_id": 5,
+          "label": "Down arrow key"
+        },
+        "dpad_left": {
+          "retropad_id": 6,
+          "label": "Left arrow key"
+        },
+        "dpad_right": {
+          "retropad_id": 7,
+          "label": "Right arrow key"
+        },
+        "a": {
+          "retropad_id": 8,
+          "label": "X key"
+        },
+        "x": {
+          "retropad_id": 9,
+          "label": "Space key"
+        },
+        "l1": {
+          "retropad_id": 10,
+          "label": "Backspace key"
+        },
+        "r1": {
+          "retropad_id": 11,
+          "label": "Right shift key"
+        },
+        "l2": {
+          "retropad_id": 12,
+          "label": "NP2 menu key"
+        }
+      }
+    },
+    "default_group": "joy2key-arrows",
+    "groups": {
+      "joy2key-arrows": {
+        "name": "Joy2Key Arrows",
+        "mappings": [
+          {
+            "retropad_key": "b",
+            "retropad_id": 0,
+            "label": "Z key",
+            "system_entry": "Z key"
+          },
+          {
+            "retropad_key": "y",
+            "retropad_id": 1,
+            "label": "Left control key",
+            "system_entry": "Left control key"
+          },
+          {
+            "retropad_key": "select",
+            "retropad_id": 2,
+            "label": "Escape key",
+            "system_entry": "Escape key"
+          },
+          {
+            "retropad_key": "start",
+            "retropad_id": 3,
+            "label": "Return key",
+            "system_entry": "Return key"
+          },
+          {
+            "retropad_key": "dpad_up",
+            "retropad_id": 4,
+            "label": "Up arrow key",
+            "system_entry": "Up arrow key"
+          },
+          {
+            "retropad_key": "dpad_down",
+            "retropad_id": 5,
+            "label": "Down arrow key",
+            "system_entry": "Down arrow key"
+          },
+          {
+            "retropad_key": "dpad_left",
+            "retropad_id": 6,
+            "label": "Left arrow key",
+            "system_entry": "Left arrow key"
+          },
+          {
+            "retropad_key": "dpad_right",
+            "retropad_id": 7,
+            "label": "Right arrow key",
+            "system_entry": "Right arrow key"
+          },
+          {
+            "retropad_key": "a",
+            "retropad_id": 8,
+            "label": "X key",
+            "system_entry": "X key"
+          },
+          {
+            "retropad_key": "x",
+            "retropad_id": 9,
+            "label": "Space key",
+            "system_entry": "Space key"
+          },
+          {
+            "retropad_key": "l1",
+            "retropad_id": 10,
+            "label": "Backspace key",
+            "system_entry": "Backspace key"
+          },
+          {
+            "retropad_key": "r1",
+            "retropad_id": 11,
+            "label": "Right shift key",
+            "system_entry": "Right shift key"
+          },
+          {
+            "retropad_key": "l2",
+            "retropad_id": 12,
+            "label": "NP2 menu key",
+            "system_entry": "NP2 menu key"
+          }
+        ]
+      },
+      "joy2key-keypad": {
+        "name": "Joy2Key Keypad",
+        "mappings": [
+          {
+            "retropad_key": "b",
+            "retropad_id": 0,
+            "label": "Z key",
+            "system_entry": "Z key"
+          },
+          {
+            "retropad_key": "y",
+            "retropad_id": 1,
+            "label": "Left control key",
+            "system_entry": "Left control key"
+          },
+          {
+            "retropad_key": "select",
+            "retropad_id": 2,
+            "label": "Escape key",
+            "system_entry": "Escape key"
+          },
+          {
+            "retropad_key": "start",
+            "retropad_id": 3,
+            "label": "Return key",
+            "system_entry": "Return key"
+          },
+          {
+            "retropad_key": "dpad_up",
+            "retropad_id": 4,
+            "label": "Keypad Up arrow key 8",
+            "system_entry": "Keypad Up arrow key 8"
+          },
+          {
+            "retropad_key": "dpad_down",
+            "retropad_id": 5,
+            "label": "Keypad down arrow key 2",
+            "system_entry": "Keypad down arrow key 2"
+          },
+          {
+            "retropad_key": "dpad_left",
+            "retropad_id": 6,
+            "label": "Keypad left arrow key 4",
+            "system_entry": "Keypad left arrow key 4"
+          },
+          {
+            "retropad_key": "dpad_right",
+            "retropad_id": 7,
+            "label": "Keypad right arrow key 6",
+            "system_entry": "Keypad right arrow key 6"
+          },
+          {
+            "retropad_key": "a",
+            "retropad_id": 8,
+            "label": "X key",
+            "system_entry": "X key"
+          },
+          {
+            "retropad_key": "x",
+            "retropad_id": 9,
+            "label": "Space key",
+            "system_entry": "Space key"
+          },
+          {
+            "retropad_key": "l1",
+            "retropad_id": 10,
+            "label": "Backspace key",
+            "system_entry": "Backspace key"
+          },
+          {
+            "retropad_key": "r1",
+            "retropad_id": 11,
+            "label": "Right shift key",
+            "system_entry": "Right shift key"
+          },
+          {
+            "retropad_key": "l2",
+            "retropad_id": 12,
+            "label": "NP2 menu key",
+            "system_entry": "NP2 menu key"
+          }
+        ]
+      },
+      "joy2mouse": {
+        "name": "Joy2Mouse",
+        "mappings": [
+          {
+            "retropad_key": "b",
+            "retropad_id": 0,
+            "label": "Mouse left button",
+            "system_entry": "Mouse left button"
+          },
+          {
+            "retropad_key": "y",
+            "retropad_id": 1,
+            "label": "Y",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "select",
+            "retropad_id": 2,
+            "label": "SELECT",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "start",
+            "retropad_id": 3,
+            "label": "START",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "dpad_up",
+            "retropad_id": 4,
+            "label": "Move mouse up",
+            "system_entry": "Move mouse up"
+          },
+          {
+            "retropad_key": "dpad_down",
+            "retropad_id": 5,
+            "label": "Move mouse down",
+            "system_entry": "Move mouse down"
+          },
+          {
+            "retropad_key": "dpad_left",
+            "retropad_id": 6,
+            "label": "Move mouse left",
+            "system_entry": "Move mouse left"
+          },
+          {
+            "retropad_key": "dpad_right",
+            "retropad_id": 7,
+            "label": "Move mouse right",
+            "system_entry": "Move mouse right"
+          },
+          {
+            "retropad_key": "a",
+            "retropad_id": 8,
+            "label": "Mouse right button",
+            "system_entry": "Mouse right button"
+          },
+          {
+            "retropad_key": "x",
+            "retropad_id": 9,
+            "label": "X",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "l1",
+            "retropad_id": 10,
+            "label": "Increase mouse speed",
+            "system_entry": "Increase mouse speed"
+          },
+          {
+            "retropad_key": "r1",
+            "retropad_id": 11,
+            "label": "R1",
+            "system_entry": ""
+          },
+          {
+            "retropad_key": "l2",
+            "retropad_id": 12,
+            "label": "NP2 menu key",
+            "system_entry": "NP2 menu key"
+          }
+        ]
+      }
+    },
+    "content_databases": []
+  },
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  }
+}

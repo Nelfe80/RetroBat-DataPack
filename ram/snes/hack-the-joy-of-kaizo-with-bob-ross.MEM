@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Joy of Kaizo with Bob Ross",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-joy-of-kaizo-with-bob-ross",
+    hashes = {
+      { hash = "cf5f089c1d27aea35fc72adf9c6eac5f", label = "SMW - Joy of Kaizo, The (v1.6) (NaroGugul).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

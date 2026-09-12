@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Shutsudou! Miniskirt Police",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Board Game"
+  },
+
+  rom = {
+    name = "shutsudou-miniskirt-police",
+    hashes = {
+      { hash = "faaf159f0856d4317a75d867e6b67090", label = "Shutsudou! Miniskirt Police (Japan) (2M)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X14FC2C, type="u16le", condition="increase", action="GAIN_LIFE", desc="Panchira Block / Panchira Shooter increased" },
+        { address=0X14FC2C, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Panchira Block / Panchira Shooter decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X14FC24, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Panchira Block" },
+      },
+    },
+  },
+}

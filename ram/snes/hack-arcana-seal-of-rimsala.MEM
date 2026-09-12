@@ -1,0 +1,116 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Arcana: Seal of Rimsala",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-arcana-seal-of-rimsala",
+    hashes = {
+      { hash = "c697210491fede2b282ecee2dce7b8c2", label = "Arcana - Seal of Rimsala (v3.0) (Sarah Shinespark).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1095, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="text is paused" },
+        { address=0X11C1, type="u16le", condition="eq", value=0XFFFF, action="GAME_OVER", desc="Seems used for Game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1363, type="u16le", condition="change", action="NEW_LEVEL", desc="Rooks' EXP to next level (16-bit)" },
+        { address=0X1367, type="u16le", condition="change", action="NEW_LEVEL", desc="Guest1's EXP to next level (16 bit)" },
+        { address=0X1369, type="u16le", condition="change", action="NEW_LEVEL", desc="Guest2's EXP to next level (16 bit)" },
+      },
+      stage = {
+        { address=0X18D5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage select button count (8 bit)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1127, type="u8", condition="eq", value=0X1C, action="LIVES_STATE", desc="Drain Life" },
+        { address=0X1127, type="u8", condition="eq", value=0X27, action="LOSE_LIFE", desc="Death" },
+        { address=0X1213, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Undead" },
+      },
+      health = {
+        { address=0X1066, type="u16le", condition="eq", value=0X07, action="HIT", desc="Damage" },
+        { address=0X12F3, type="u16le", condition="increase", action="HEAL", desc="Rooks current HP (16-bit) increased" },
+        { address=0X12F3, type="u16le", condition="decrease", action="HIT", desc="Rooks current HP (16-bit) decreased" },
+        { address=0X12F5, type="u16le", condition="increase", action="HEAL", desc="Spirit current HP (16-bit) increased" },
+        { address=0X12F5, type="u16le", condition="decrease", action="HIT", desc="Spirit current HP (16-bit) decreased" },
+        { address=0X12F7, type="u16le", condition="increase", action="HEAL", desc="Guest1 current HP (16-bit) increased" },
+        { address=0X12F7, type="u16le", condition="decrease", action="HIT", desc="Guest1 current HP (16-bit) decreased" },
+        { address=0X12F9, type="u16le", condition="increase", action="HEAL", desc="Guest2 current HP (16-bit) increased" },
+        { address=0X12F9, type="u16le", condition="decrease", action="HIT", desc="Guest2 current HP (16-bit) decreased" },
+        { address=0X12FB, type="u16le", condition="increase", action="HEAL", desc="Enemy1 current HP (16-bit) increased" },
+        { address=0X12FB, type="u16le", condition="decrease", action="HIT", desc="Enemy1 current HP (16-bit) decreased" },
+        { address=0X12FD, type="u16le", condition="increase", action="HEAL", desc="Enemy2 current HP (16-bit) increased" },
+        { address=0X12FD, type="u16le", condition="decrease", action="HIT", desc="Enemy2 current HP (16-bit) decreased" },
+        { address=0X1309, type="u16le", condition="increase", action="HEAL", desc="Enemy8 current HP (16-bit) increased" },
+        { address=0X1309, type="u16le", condition="decrease", action="HIT", desc="Enemy8 current HP (16-bit) decreased" },
+        { address=0X1353, type="u16le", condition="increase", action="HEAL", desc="Sylph current HP (16-bit) increased" },
+        { address=0X1353, type="u16le", condition="decrease", action="HIT", desc="Sylph current HP (16-bit) decreased" },
+        { address=0X1355, type="u16le", condition="increase", action="HEAL", desc="Dao current HP (16-bit) increased" },
+        { address=0X1355, type="u16le", condition="decrease", action="HIT", desc="Dao current HP (16-bit) decreased" },
+        { address=0X1357, type="u16le", condition="increase", action="HEAL", desc="Marid current HP (16-bit) increased" },
+        { address=0X1357, type="u16le", condition="decrease", action="HIT", desc="Marid current HP (16-bit) decreased" },
+        { address=0X1359, type="u16le", condition="increase", action="HEAL", desc="Ifrit current HP (16-bit) increased" },
+        { address=0X1359, type="u16le", condition="decrease", action="HIT", desc="Ifrit current HP (16-bit) decreased" },
+        { address=0X1393, type="u16le", condition="increase", action="HEAL", desc="Rooks' max HP (16 bit) increased" },
+        { address=0X1393, type="u16le", condition="decrease", action="HIT", desc="Rooks' max HP (16 bit) decreased" },
+        { address=0X1395, type="u16le", condition="increase", action="HEAL", desc="Current Spirit's max HP (16 bit) increased" },
+        { address=0X1395, type="u16le", condition="decrease", action="HIT", desc="Current Spirit's max HP (16 bit) decreased" },
+        { address=0X1397, type="u16le", condition="increase", action="HEAL", desc="Guest1's max HP (16 bit) increased" },
+        { address=0X1397, type="u16le", condition="decrease", action="HIT", desc="Guest1's max HP (16 bit) decreased" },
+        { address=0X1399, type="u16le", condition="increase", action="HEAL", desc="Guest2's max HP (16 bit) increased" },
+        { address=0X1399, type="u16le", condition="decrease", action="HIT", desc="Guest2's max HP (16 bit) decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1284, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon character ID, Rooks (8 bit)" },
+        { address=0X1287, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon ID, Guest1 (8 bit)" },
+        { address=0X1288, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon character ID, Guest1 (8 bit)" },
+        { address=0X1289, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon ID, Guest2 (8 bit)" },
+        { address=0X128A, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon character ID, Guest2 (8 bit)" },
+        { address=0X128B, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon ID, Enemy1 (8 bit)" },
+        { address=0X128D, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon ID, Enemy2 (8 bit)" },
+        { address=0X1299, type="u8", condition="change", action="WEAPON_STATE", desc="Equipped weapon ID, Enemy8 (8 bit)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X139B, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Rooks' max MP (Magic points) (16 bit)" },
+      },
+      collectibles = {
+        { address=0X1066, type="u16le", condition="eq", value=0X18, action="MONEY_STATE", desc="Return Ring woosh" },
+        { address=0X12CF, type="u8", condition="increase", action="COIN_GAIN", desc="Guest1 equipped ring ID (8 bit) increased" },
+        { address=0X12D1, type="u8", condition="increase", action="COIN_GAIN", desc="Guest2 equipped ring ID (8 bit) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1213, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Boss" },
+        { address=0X18DF, type="u8", condition="change", action="BOSS_HIT", desc="Boss array (8 bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1066, type="u16le", condition="eq", value=0X0E, action="DOOR_OPENED", desc="Door slam" },
+        { address=0X1066, type="u16le", condition="eq", value=0X0F, action="DOOR_OPENED", desc="Low door slam" },
+        { address=0X1066, type="u16le", condition="eq", value=0X2B, action="DOOR_OPENED", desc="Door slam 2" },
+        { address=0X1066, type="u16le", condition="eq", value=0X2D, action="DOOR_OPENED", desc="Door open" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E10, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Program counter (24-bit pointer)" },
+      },
+    },
+  },
+}

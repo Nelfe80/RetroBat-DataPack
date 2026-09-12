@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cakewalk",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "cakewalk",
+    hashes = {
+      { hash = "7f6533386644c7d6358f871666c86e79", label = "Cakewalk (USA).a26" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X003C, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="Complete X Level" },
+        { address=0X003C, type="u8", condition="eq", value=0X6, action="LEVEL_CLEAR", desc="Finish X Level" },
+      },
+    },
+  },
+}

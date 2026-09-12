@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "O-chan no Oekaki Logic",
+    system = "wswan",
+    system_name = "WonderSwan",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "o-chan-no-oekaki-logic",
+    hashes = {
+      { hash = "5e92e316ce0998edbec00b31a6f2e112", label = "Ou-chan no Oekaki Logic (Japan).ws" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X05CD, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Beginner puzzle 1 clear time" },
+      },
+    },
+  },
+}

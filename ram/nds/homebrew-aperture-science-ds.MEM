@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Aperture Science DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-aperture-science-ds",
+    hashes = {
+      { hash = "a8f8e22097e2cd193e91eb0ebae2da37", label = "Aperture Science DS (World) (v1.1) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X140254, type="u32le", condition="change", action="NEW_LEVEL", desc="Select Level - Level Index [32bit]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XE7768, type="u8", condition="increase", action="COIN_GAIN", desc="Level String increased" },
+      },
+    },
+  },
+}

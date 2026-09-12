@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Grooverider: Slot Car Thunder",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "grooverider-slot-car-thunder",
+    hashes = {
+      { hash = "a71e59252027dbac2ced40067ea3eb19", label = "Grooverider - Slot Car Thunder (USA)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X3A8A84, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32 Bit BE Pointer] Game Root" },
+      },
+    },
+  },
+}

@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ DeathTrap",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-deathtrap",
+    hashes = {
+      { hash = "e82230f90504c966610a31b8186ff419", label = "Deathtrap (World) (v1.1) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X04EB, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 1 State (1 : Dead)" },
+        { address=0X04EC, type="u8", condition="change", action="LOSE_LIFE", desc="Enemy 2 State (1 : Dead)" },
+      },
+      health = {
+        { address=0X04E9, type="u8", condition="increase", action="HEAL", desc="Health (3 Initally, 0 : Gameover) increased" },
+        { address=0X04E9, type="u8", condition="decrease", action="HIT", desc="Health (3 Initally, 0 : Gameover) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X04E0, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0X04E2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score" },
+      },
+    },
+  },
+}

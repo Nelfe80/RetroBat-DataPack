@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Euchre",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Board Game, Strategy"
+  },
+
+  rom = {
+    name = "homebrew-euchre",
+    hashes = {
+      { hash = "7df982e438db67c206e229d4bc05f717", label = "Euchre (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X003C, type="u8", condition="change", action="NEW_LEVEL", desc="Your team's tricks for current round" },
+        { address=0X003D, type="u8", condition="change", action="NEW_LEVEL", desc="Opponent tricks for current round" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X004B, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Suit of card on the table" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X003E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Your team's score" },
+        { address=0X003F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Opponent's score" },
+      },
+    },
+  },
+}

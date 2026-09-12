@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong Racing",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-racing",
+    hashes = {
+      { hash = "6814f12935f3607f6cb25fc0e92b4a64", label = "DK64 - Donkey Kong Racing (v1.0) (GloriousLiar).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X2D4CC6, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins: Spaceport Delta increased" },
+        { address=0X2D7656, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins: Spaceport Delta increased" },
+        { address=0X360EF6, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins: Crystal Caverns increased" },
+        { address=0X3C4336, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins: Ancient Japes increased" },
+        { address=0X3C53B6, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins: Smokey Castle increased" },
+        { address=0X750AC6, type="u16be", condition="increase", action="COIN_GAIN", desc="Current Race Coins increased" },
+        { address=0X7FC954, type="u16be", condition="increase", action="COIN_GAIN", desc="DK Coins increased" },
+        { address=0X7FC9B6, type="u16be", condition="increase", action="COIN_GAIN", desc="Diddy Coins increased" },
+        { address=0X7FCA10, type="u16be", condition="increase", action="COIN_GAIN", desc="Lanky Coins increased" },
+        { address=0X7FCA72, type="u16be", condition="increase", action="COIN_GAIN", desc="Tiny Coins increased" },
+        { address=0X7FCACC, type="u16be", condition="increase", action="COIN_GAIN", desc="Chunky Coins increased" },
+      },
+    },
+  },
+}

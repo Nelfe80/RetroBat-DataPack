@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "J. B. Harold: Blue Chicago Blues",
+    system = "pcfx",
+    system_name = "PC-FX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "j-b-harold-blue-chicago-blues",
+    hashes = {
+      { hash = "4eaaad6532c74a9ffdff85a971afe43c", label = "J. B. Harold - Blue Chicago Blues (Japan) (Disc 1)" },
+    }
+  },
+
+  events = {
+  },
+}

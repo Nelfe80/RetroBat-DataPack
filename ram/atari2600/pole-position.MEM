@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pole Position",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Racing, Driving"
+  },
+
+  rom = {
+    name = "pole-position",
+    hashes = {
+      { hash = "a4ff39d513b993159911efe01ac12eba", label = "Pole Position (USA).a26" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X005C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Time Countdown" },
+        { address=0X005D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time XX00" },
+        { address=0X005E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time 00XX" },
+      },
+    },
+  },
+}

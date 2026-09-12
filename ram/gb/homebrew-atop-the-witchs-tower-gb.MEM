@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Atop the Witch's Tower GB",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-atop-the-witchs-tower-gb",
+    hashes = {
+      { hash = "35773ac09080e95e9dec4b4b2777480f", label = "Atop the Witch's Tower (World) (v1.1) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDAE2, type="u8", condition="bit_true", mask=0X80, action="PAUSE_ON", desc="start (stops registering inputs correctly in pause menu)" },
+        { address=0XDFDF, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="continue" },
+        { address=0XDFDF, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="restart" },
+        { address=0XDFDF, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="about" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA011, type="u8", condition="eq", value=0X08, action="LOSE_LIFE", desc="death chamber as lucy" },
+        { address=0XA155, type="u8", condition="eq", value=0X3C, action="LOSE_LIFE", desc="'... witch's unjust death' (book 2)" },
+        { address=0XD97A, type="u8", condition="eq", value=0XD3, action="LOSE_LIFE", desc="book 2 (unjust death)" },
+      },
+      health = {
+        { address=0XC0C4, type="u8", condition="increase", action="HEAL", desc="player health increased" },
+        { address=0XC0C4, type="u8", condition="decrease", action="HIT", desc="player health decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC0CD, type="u8", condition="eq", value=0X03, action="DOOR_OPENED", desc="'watch out for your doppelganger!' message when door is opened" },
+        { address=0XD190, type="u16le", condition="change", action="DOOR_OPENED", desc="spider pen door" },
+        { address=0XD74E, type="u24le", condition="eq", value=0X0924, action="DOOR_OPENED", desc="closed" },
+        { address=0XD74E, type="u24le", condition="eq", value=0X0F00, action="DOOR_OPENED", desc="open" },
+        { address=0XD752, type="u24le", condition="eq", value=0X0924, action="DOOR_OPENED", desc="closed" },
+        { address=0XD752, type="u24le", condition="eq", value=0X0F00, action="DOOR_OPENED", desc="open" },
+        { address=0XD756, type="u24le", condition="eq", value=0X0924, action="DOOR_OPENED", desc="closed" },
+        { address=0XD756, type="u24le", condition="eq", value=0X0F00, action="DOOR_OPENED", desc="open" },
+        { address=0XD75A, type="u24le", condition="eq", value=0X0924, action="DOOR_OPENED", desc="closed" },
+        { address=0XD75A, type="u24le", condition="eq", value=0X0F00, action="DOOR_OPENED", desc="open" },
+        { address=0XD75E, type="u24le", condition="eq", value=0X0924, action="DOOR_OPENED", desc="closed" },
+        { address=0XD75E, type="u24le", condition="eq", value=0X0F00, action="DOOR_OPENED", desc="open" },
+      },
+    },
+  },
+}

@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Flintstones: Burgertime in Bedrock",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-flintstones-burgertime-in-bedrock",
+    hashes = {
+      { hash = "50e6d9d88450932743161b7512838ccc", label = "Flintstones, The - Burgertime in Bedrock (USA).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC720, type="u8", condition="change", action="CONTINUE_SCREEN", desc="remaining continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC71D, type="u8", condition="change", action="NEW_LEVEL", desc="current level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC559, type="u8", condition="change", action="LOSE_LIFE", desc="[285 bytes] ingredient details (15 bytes each)" },
+        { address=0XC717, type="u8", condition="increase", action="GAIN_LIFE", desc="remaining lives increased" },
+        { address=0XC717, type="u8", condition="decrease", action="LOSE_LIFE", desc="remaining lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC715, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="score x100" },
+      },
+    },
+  },
+}

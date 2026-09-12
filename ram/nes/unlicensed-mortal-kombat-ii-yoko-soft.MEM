@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Mortal Kombat II (Yoko Soft)",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-mortal-kombat-ii-yoko-soft",
+    hashes = {
+      { hash = "1316673f6e6eea8ab30b9df648c71f08", label = "MKII - Mortal Kombat V 1996 - Turbo 30 Peoples (China) (Ru) (Bootleg) (Unl) (YOKO).nes" },
+      { hash = "14f38a6506687dd7fed7c78d3840c086", label = "MKII - Mortal Kombat V Turbo - 30 People (China) (Ru) (v1.1) (Bootleg) (Unl) (YOKO).nes" },
+      { hash = "35ea6ae830189f2522635a754e907c2c", label = "Mortal Kombat II (Asia) (En) (YOKO) (Pirate).nes" },
+      { hash = "448e681940e2f4809e6bb4af3cda099a", label = "Mortal Kombat II (Yoko Soft) - MK V Pro (China) (En) (Bootleg) (Unl).unf" },
+      { hash = "4c73a251e911c7b5125a43962fd755f7", label = "Mortal Kombat II (Yoko Soft) (China) (Ru) (Bootleg) (Unl).unf" },
+      { hash = "6bb012862372524563a5e7436c849cc0", label = "Mortal Kombat V Pro (Asia) (En) (Pirate).nes" },
+      { hash = "a367b35069674588214518679b4c7da5", label = "Mortal Kombat V Turbo - 30 People (Asia) (En) (VT-482) (Pirate).nes" },
+      { hash = "b972f5a3bea9a35e5299360fb3b0623e", label = "Mortal Kombat V Turbo - 30 People (Asia) (En) (V1995) (Pirate).nes" },
+      { hash = "dfaa720ae4b1670c0e6f0d5a0449b03b", label = "Mortal Kombat II (Yoko Soft) (China) (En) (Bootleg) (Unl).unf" },
+      { hash = "e1407884d380c88905c52b72c4adb1f6", label = "Mortal Kombat II (Yoko Soft) - MK V Pro (China) (Ru) (Bootleg) (Unl).unf" },
+      { hash = "ef809a757cf0568e69dd0d85bfe61f83", label = "Mortal Kombat V Turbo - 30 People (Asia) (Ru).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0076, type="u8", condition="change", action="NEW_LEVEL", desc="How many rounds one player 1 has" },
+        { address=0X0077, type="u8", condition="change", action="NEW_LEVEL", desc="This tells how many rounds player 2 has won" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0074, type="u8", condition="increase", action="HEAL", desc="This value is for health player 1 increased" },
+        { address=0X0074, type="u8", condition="decrease", action="HIT", desc="This value is for health player 1 decreased" },
+        { address=0X0075, type="u8", condition="increase", action="HEAL", desc="This value is for health player 2 increased" },
+        { address=0X0075, type="u8", condition="decrease", action="HIT", desc="This value is for health player 2 decreased" },
+      },
+    },
+  },
+}

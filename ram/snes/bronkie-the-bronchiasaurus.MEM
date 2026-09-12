@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bronkie the Bronchiasaurus",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "bronkie-the-bronchiasaurus",
+    hashes = {
+      { hash = "41888f7cf544899c51d2ec5ccfdf95d7", label = "Bronkie the Bronchiasaurus (USA) (En,Es).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0F98, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X0F98, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X1B20, type="u8", condition="increase", action="HEAL", desc="Health in hud increased" },
+        { address=0X1B20, type="u8", condition="decrease", action="HIT", desc="Health in hud decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00CC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0X1B14, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score in hud" },
+      },
+    },
+  },
+}

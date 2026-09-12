@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Punch-Out!!",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Boxing"
+  },
+
+  rom = {
+    name = "punch-out",
+    hashes = {
+      { hash = "43c56bb8dfe01a55a5fea5dd4bf06d6f", label = "punchoutj.7z <Punch-Out!! (Japan)>" },
+      { hash = "ba86b176b5bf031c77861126dab4eff7", label = "punchouta.7z <Punch-Out!! (Rev A)>" },
+      { hash = "c196e3119590ab1959c6bcdf50c846fd", label = "punchout.7z <Punch-Out!! (Rev B)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X07DB, type="u8", condition="change", action="CREDITS_SCREEN", desc="Player Credits - 8-Bit" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X000A, type="u8", condition="change", action="PROGRESSION_ZONE", desc="0x01:Little Mac is the World Champion/Oponnents are Gloves Blue" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0022, type="u8", condition="increase", action="HEAL", desc="Player Health - 8-Bit increased" },
+        { address=0X0022, type="u8", condition="decrease", action="HIT", desc="Player Health - 8-Bit decreased" },
+        { address=0X0023, type="u8", condition="increase", action="HEAL", desc="Player Health - 8-Bit increased" },
+        { address=0X0023, type="u8", condition="decrease", action="HIT", desc="Player Health - 8-Bit decreased" },
+        { address=0X0024, type="u8", condition="increase", action="HEAL", desc="Oponnent Health - 8-Bit increased" },
+        { address=0X0024, type="u8", condition="decrease", action="HIT", desc="Oponnent Health - 8-Bit decreased" },
+        { address=0X0025, type="u8", condition="increase", action="HEAL", desc="Oponnent Health - 8-Bit increased" },
+        { address=0X0025, type="u8", condition="decrease", action="HIT", desc="Oponnent Health - 8-Bit decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X7E3, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X002D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Countdown Timer:" },
+        { address=0X002D, type="u8", condition="eq", value=0X10, action="GENERAL_TIMER", no_log=true, desc="Match Countdown Starts" },
+        { address=0X002D, type="u8", condition="eq", value=0X90, action="GENERAL_TIMER", no_log=true, desc="KO Countdown Starts" },
+        { address=0X07EB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Bonus Timer Countdown (00.0XX)" },
+        { address=0X07EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Bonus Timer Countdown (0X.X00)" },
+        { address=0X07ED, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Bonus Timer Countdown (X0.000)" },
+        { address=0X07F1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Round Timer - Seconds" },
+        { address=0X07F2, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Round Timer - Minutes" },
+      },
+    },
+  },
+}

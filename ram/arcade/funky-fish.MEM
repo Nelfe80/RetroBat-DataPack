@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "fnkyfish",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "funky-fish",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X6B, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X63, type="u24be", condition="change", action="SCORE_STATE", min=10, max=30, desc="Score delta 10-30: Score delta 10-30" },
+        { address=0X63, type="u24be", condition="change", action="SCORE_STATE", color="green", min=210, max=500, desc="Score delta 210-500: Score delta 210-500" },
+        { address=0X63, type="u24be", condition="change", action="SCORE_STATE", color="orange", min=40, max=80, desc="Score delta 40-80: Score delta 40-80" },
+        { address=0X63, type="u24be", condition="change", action="SCORE_STATE", color="blue", min=510, max=2000, desc="Score delta 510-2000: Score delta 510-2000" },
+        { address=0X63, type="u24be", condition="change", action="SCORE_STATE", color="cyan", min=90, max=200, desc="Score delta 90-200: Score delta 90-200" },
+      },
+    },
+  },
+}

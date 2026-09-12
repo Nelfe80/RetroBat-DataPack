@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pete's Gauntlet",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-petes-gauntlet",
+    hashes = {
+      { hash = "1fa1d4faddb3aae591f654329dd1dae0", label = "Spyro the Dragon - Pete's Gauntlet (Husbjorn)" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X75964, type="u16le", condition="eq", value=0X1E, action="PROGRESSION_ZONE", desc="Gnasty's World Gnorc Gnexus" },
+      },
+    },
+  },
+}

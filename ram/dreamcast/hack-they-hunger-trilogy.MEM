@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ They Hunger Trilogy",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-they-hunger-trilogy",
+    hashes = {
+      { hash = "b441f630067259186117c58dcdb37402", label = "Half-Life - They Hunger (Dreammatrix, Deprogrammer)" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Aladdin in Nasira's Revenge",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "aladdin-in-nasiras-revenge",
+    hashes = {
+      { hash = "926046ae3515893b718242552878b9e9", label = "Disney's Aladdin in Nasira's Revenge (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X81292, type="u8", condition="eq", value=0X0F, action="TITLE_SCREEN", desc="Title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X87D2A, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="blue gem" },
+      },
+      stage = {
+        { address=0X81292, type="u8", condition="change", action="PROGRESSION_STAGE", desc="--STAGE LEVEL/PROGRESSION--" },
+        { address=0X81292, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Open Game" },
+        { address=0X81292, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="New Game/Load Game" },
+        { address=0X81292, type="u8", condition="eq", value=0X15, action="PROGRESSION_STAGE", desc="Bonus Nimbus" },
+        { address=0X81292, type="u8", condition="eq", value=0X1B, action="PROGRESSION_STAGE", desc="Level 1 - Agrabah" },
+        { address=0X81292, type="u8", condition="eq", value=0X1E, action="PROGRESSION_STAGE", desc="Enter Level" },
+      },
+    },
+  },
+}

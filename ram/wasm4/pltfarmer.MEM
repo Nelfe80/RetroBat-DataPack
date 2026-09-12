@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pl¢tfarmer",
+    system = "wasm4",
+    system_name = "WASM-4",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "pltfarmer",
+    hashes = {
+      { hash = "9280d1d157f0eb4eeda9e1dacedcf4b6", label = "Plctformer (World) (Proto) (pfg).wasm" },
+    }
+  },
+
+  events = {
+  },
+}

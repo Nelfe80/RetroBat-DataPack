@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VI: Omega-A",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-vi-omega-a",
+    hashes = {
+      { hash = "68411ebb05de528c5002ae6ce39316ff", label = "Final Fantasy VI - Omega-A (Final) (6vOWP2tBUM).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X11A2, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Only target dead or undead" },
+        { address=0X1E96, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Cid died" },
+      },
+      health = {
+        { address=0X11A2, type="u8", condition="bit_true", mask=0X08, action="HIT", desc="Make heal spells damage" },
+        { address=0X11A2, type="u8", condition="bit_true", mask=0X40, action="HIT", desc="Don't split damage if multi-target" },
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="Enemy 4 HP increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="Enemy 4 HP decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="Enemy 5 HP increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="Enemy 5 HP decreased" },
+        { address=0X3C06, type="u16le", condition="increase", action="HEAL", desc="Enemy 6 HP increased" },
+        { address=0X3C06, type="u16le", condition="decrease", action="HIT", desc="Enemy 6 HP decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1DD5, type="u8", condition="change", action="SHIELD_GAIN", desc="Cursed Shield Uses" },
+      },
+    },
+  },
+}

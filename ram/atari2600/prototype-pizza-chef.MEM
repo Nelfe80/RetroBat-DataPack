@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Pizza Chef",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Education"
+  },
+
+  rom = {
+    name = "prototype-pizza-chef",
+    hashes = {
+      { hash = "d9fbf1113114fb3a3c97550a0689f10f", label = "Pizza Chef (USA) (Proto).a26" },
+    }
+  },
+
+  events = {
+  },
+}

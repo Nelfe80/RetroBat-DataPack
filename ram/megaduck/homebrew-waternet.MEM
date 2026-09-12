@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Waternet",
+    system = "megaduck",
+    system_name = "Mega Duck",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-waternet",
+    hashes = {
+      { hash = "34d48f05d6be1d64b22732fc03b19301", label = "Waternet (World) (Aftermarket) (Unl).bin" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC0C9, type="u8", condition="change", action="NEW_LEVEL", desc="[8-Bits] Level ID: 0x01 through 0x19" },
+        { address=0XC0CE, type="u8", condition="change", action="NEW_LEVEL", desc="0 - playing a level" },
+        { address=0XC0DE, type="u8", condition="change", action="LEVEL_CLEAR", desc="bit 0 flips to 1 when you have completed a level" },
+        { address=0XC0E1, type="u8", condition="change", action="NEW_LEVEL", desc="level set chosen" },
+      },
+    },
+  },
+}

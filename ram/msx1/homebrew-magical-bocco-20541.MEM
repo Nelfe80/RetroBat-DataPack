@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Magical Bocco 20541",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-magical-bocco-20541",
+    hashes = {
+      { hash = "d15d2c5f4915c892fff2aee62d90f55e", label = "Magical Bocco 20541 (2024) (meichnpp).dsk" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X01ED, type="u8", condition="eq", value=0X42, action="NEW_LEVEL", desc="'Northern Underground Grid'" },
+        { address=0X01ED, type="u8", condition="eq", value=0X43, action="NEW_LEVEL", desc="'Underground Labyrinth'" },
+        { address=0X1141, type="u8", condition="change", action="NEW_LEVEL", desc="Northern Underground Grid: Two Turtles Guarding Double Chest Room Defeated" },
+        { address=0X1151, type="u8", condition="change", action="NEW_LEVEL", desc="Northern Underground Grid: Banana Obtained" },
+        { address=0X1161, type="u8", condition="change", action="NEW_LEVEL", desc="Northern Underground Grid: Herb Chest" },
+        { address=0X1161, type="u8", condition="eq", value=0XFE, action="NEW_LEVEL", desc="Opened" },
+        { address=0X1181, type="u8", condition="change", action="NEW_LEVEL", desc="Underground Labyrinth: Water Chest" },
+        { address=0X1191, type="u8", condition="change", action="NEW_LEVEL", desc="Underground Labyrinth: Apple Chest" },
+      },
+      stage = {
+        { address=0X1141, type="u8", condition="eq", value=0XFE, action="PROGRESSION_STAGE", desc="Activated" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0206, type="u8", condition="increase", action="HEAL", desc="Boco HP increased" },
+        { address=0X0206, type="u8", condition="decrease", action="HIT", desc="Boco HP decreased" },
+        { address=0X0207, type="u8", condition="increase", action="HEAL", desc="Cat HP increased" },
+        { address=0X0207, type="u8", condition="decrease", action="HIT", desc="Cat HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1111, type="u8", condition="eq", value=0XFE, action="OBJECT_INTERACTION", desc="Defeated" },
+      },
+    },
+  },
+}

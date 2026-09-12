@@ -1,0 +1,1269 @@
+{
+  "$comment": "GENERE par tools/mem-curator/mame_banks_gen.py - blob FBNeo (MemIndex) -> espace programme MAME (map .ram/.share). Ne pas editer a la main.",
+  "1943-the-battle-of-midway": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80Ram1"
+    },
+    {
+      "from": "0x2000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvSpriteRam"
+    }
+  ],
+  "1943-the-battle-of-midway-mark-ii": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80Ram1"
+    },
+    {
+      "from": "0x2000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvSpriteRam"
+    }
+  ],
+  "air-buster-trouble-specialty-raid-unit": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xD000",
+      "bank": "DrvZ80RAM0"
+    },
+    {
+      "from": "0x6000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvDevRAM"
+    }
+  ],
+  "ajax": [
+    {
+      "from": "0x2000",
+      "size": "0x2000",
+      "base": "0x2000",
+      "bank": "DrvKonRAM"
+    }
+  ],
+  "alien-storm": [
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x100000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "alien-syndrome": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "alpha-mission": [
+    {
+      "from": "0x2800",
+      "size": "0x1800",
+      "base": "0xD000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "altered-beast": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    },
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x440000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "arkanoid": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0xC000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x0880",
+      "size": "0x0800",
+      "base": "0xE000",
+      "bank": "DrvVidRAM"
+    },
+    {
+      "from": "0x1080",
+      "size": "0x0800",
+      "base": "0xE800",
+      "bank": "DrvSprRAM"
+    }
+  ],
+  "athena": [
+    {
+      "from": "0x2800",
+      "size": "0x1800",
+      "base": "0xD000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "aurail": [
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x440000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "bank-panic": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "batman": [
+    {
+      "from": "0x3000",
+      "size": "0x10000",
+      "base": "0x100000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "battle-shark": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x100000",
+      "bank": "Taito68KRam1"
+    }
+  ],
+  "bay-route": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    },
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x440000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "berzerk": [
+    {
+      "from": "0x0000",
+      "size": "0x2000",
+      "base": "0x4000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "big-karnak": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x200000",
+      "bank": "DrvPalRAM"
+    },
+    {
+      "from": "0x0800",
+      "size": "0x10000",
+      "base": "0xFF0000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "blasteroids": [
+    {
+      "from": "0x2400",
+      "size": "0x2000",
+      "base": "0x806000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "boblbobl": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "bomber-man-world": [
+    {
+      "from": "0x0800",
+      "size": "0x10000",
+      "base": "0xD0000",
+      "bank": "DrvVidRAM"
+    },
+    {
+      "from": "0x10800",
+      "size": "0x4000",
+      "base": "0xA0000",
+      "bank": "DrvV30RAM"
+    }
+  ],
+  "bonanza-bros": [
+    {
+      "from": "0x0000",
+      "size": "0x40000",
+      "base": "0x80000",
+      "bank": "DrvShareRAM3"
+    },
+    {
+      "from": "0x40000",
+      "size": "0x40000",
+      "base": "0xF80000",
+      "bank": "DrvShareRAM2"
+    }
+  ],
+  "bub68705": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "bubble-bobble": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    },
+    {
+      "from": "0x3300",
+      "size": "0x1800",
+      "base": "0xE000",
+      "bank": "DrvSharedRam"
+    }
+  ],
+  "bubble-bobble-lost-cave-v1-0": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "bubble-bobble-lost-cave-v1-1": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "bubble-bobble-lost-cave-v1-2": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "carnival": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "centipede": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x0000",
+      "bank": "Drv6502RAM"
+    },
+    {
+      "from": "0x0400",
+      "size": "0x0400",
+      "base": "0x0400",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "chameleon": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x0000",
+      "bank": "DrvM6502RAM0"
+    },
+    {
+      "from": "0x1800",
+      "size": "0x0400",
+      "base": "0x0800",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "commando": [
+    {
+      "from": "0x0000",
+      "size": "0x0200",
+      "base": "0xFE00",
+      "bank": "DrvSprRAM"
+    }
+  ],
+  "continental-circus": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x100000",
+      "bank": "Taito68KRam1"
+    }
+  ],
+  "cotton-fantastic-night-dreams": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "crazy-kong": [
+    {
+      "from": "0x0000",
+      "size": "0x0C00",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM0"
+    },
+    {
+      "from": "0x3500",
+      "size": "0x0400",
+      "base": "0x9000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "crazy-kong-part-ii": [
+    {
+      "from": "0x0000",
+      "size": "0x0C00",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM0"
+    },
+    {
+      "from": "0x3500",
+      "size": "0x0400",
+      "base": "0x9000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "depthcharge-sub-hunter": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "donkey-kong": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1B00",
+      "size": "0x0400",
+      "base": "0x7400",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "dyna-gear": [
+    {
+      "from": "0x0100",
+      "size": "0x80000",
+      "base": "0x100000",
+      "bank": "st0020SprRAM"
+    }
+  ],
+  "eyes": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1010",
+      "size": "0x0400",
+      "base": "0x8400",
+      "bank": "DrvColRAM"
+    },
+    {
+      "from": "0x1410",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "fantasy-zone": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "frogs": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "funky-bee": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "g-i-joe-a-real-american-hero": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x180000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "gain-ground": [
+    {
+      "from": "0x0000",
+      "size": "0x40000",
+      "base": "0x80000",
+      "bank": "DrvShareRAM3"
+    }
+  ],
+  "galaga-3": [
+    {
+      "from": "0x0800",
+      "size": "0x1800",
+      "base": "0x0800",
+      "bank": "DrvSprRAM"
+    }
+  ],
+  "gals-panic": [
+    {
+      "from": "0x30000",
+      "size": "0x20000",
+      "base": "0x500000",
+      "bank": "DrvFgRAM"
+    }
+  ],
+  "gals-panic-s-extra-edition": [
+    {
+      "from": "0xA0000",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "gals-panic-s3": [
+    {
+      "from": "0xA0000",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "gaplus": [
+    {
+      "from": "0x0800",
+      "size": "0x1800",
+      "base": "0x0800",
+      "bank": "DrvSprRAM"
+    }
+  ],
+  "gauntlet": [
+    {
+      "from": "0x0000",
+      "size": "0x3000",
+      "base": "0x902000",
+      "bank": "Drv68KRam"
+    }
+  ],
+  "golden-axe": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    },
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x440000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "gradius-ii-gofer-no-yabou": [
+    {
+      "from": "0x1C000",
+      "size": "0x4000",
+      "base": "0x40000",
+      "bank": "Drv68KRAM0"
+    }
+  ],
+  "green-beret": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xD000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "gunbarich": [
+    {
+      "from": "0x30200",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "hack-tempest-tubes": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x0000",
+      "bank": "DrvM6502RAM"
+    }
+  ],
+  "hal21": [
+    {
+      "from": "0x2800",
+      "size": "0x1800",
+      "base": "0xD000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "head-on-n": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "heavyweight-champ": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "hexion": [
+    {
+      "from": "0x6800",
+      "size": "0x2000",
+      "base": "0xA000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "highway-chase": [
+    {
+      "from": "0x0000",
+      "size": "0x6000",
+      "base": "0x0000",
+      "bank": "DrvMainRAM"
+    }
+  ],
+  "hole-land": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "bank": "DrvZ80RAM0"
+    }
+  ],
+  "hustle": [
+    {
+      "from": "0x0100",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "invinco": [
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "jack-rabbit": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "jojos-bizarre-adventure-heritage-for-the-future": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "jojos-venture": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "jump-shot": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1410",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "king-balloon": [
+    {
+      "from": "0x1000",
+      "size": "0x0400",
+      "base": "0x9000",
+      "bank": "GalVideoRam"
+    }
+  ],
+  "lady-bug": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM0"
+    }
+  ],
+  "mario-bros": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x6800",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "metamorphic-force": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x600000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "michael-jacksons-moonwalker": [
+    {
+      "from": "0x2000",
+      "size": "0x0800",
+      "base": "0x100000",
+      "bank": "System16Z80Ram2"
+    }
+  ],
+  "millipede": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x0000",
+      "bank": "Drv6502RAM"
+    }
+  ],
+  "monster-bash": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0xC800",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "moon-patrol": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "mr-do": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1800",
+      "size": "0x0800",
+      "base": "0x8800",
+      "bank": "DrvBGVidRAM"
+    }
+  ],
+  "mr-goemon": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xD000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "ms-pac-man": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1410",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "mtv-rock-n-roll-trivia": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1410",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "mystic-warriors-wrath-of-the-ninjas": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x600000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "narc": [
+    {
+      "from": "0x84000",
+      "size": "0x20000",
+      "base": "0x1800000",
+      "bank": "DrvMainRAM"
+    }
+  ],
+  "nibbler": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x0000",
+      "bank": "DrvM6502RAM"
+    },
+    {
+      "from": "0x0400",
+      "size": "0x0400",
+      "base": "0x0400",
+      "bank": "DrvVidRAM2"
+    }
+  ],
+  "night-driver": [
+    {
+      "from": "0x0000",
+      "size": "0x0100",
+      "base": "0x0000",
+      "bank": "DrvM6502RAM"
+    },
+    {
+      "from": "0x0180",
+      "size": "0x0080",
+      "base": "0x0200",
+      "bank": "DrvHVCRAM"
+    }
+  ],
+  "night-striker": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x100000",
+      "bank": "Taito68KRam1"
+    }
+  ],
+  "numan-athletics": [
+    {
+      "from": "0x0000",
+      "size": "0x80000",
+      "base": "0x0000",
+      "bank": "Drv68KRAM"
+    },
+    {
+      "from": "0xCA000",
+      "size": "0xE000",
+      "base": "0xFF0000",
+      "bank": "DrvVideoRAM"
+    }
+  ],
+  "orius": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x80000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "pachinko-sexy-reaction": [
+    {
+      "from": "0x0100",
+      "size": "0x80000",
+      "base": "0x100000",
+      "bank": "st0020SprRAM"
+    }
+  ],
+  "pachinko-sexy-reaction-2": [
+    {
+      "from": "0x0100",
+      "size": "0x80000",
+      "base": "0x100000",
+      "bank": "st0020SprRAM"
+    }
+  ],
+  "pengo": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x8000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "penguin-kun-wars": [
+    {
+      "from": "0x1000",
+      "size": "0x0800",
+      "base": "0xB000",
+      "bank": "DrvSprRAM"
+    },
+    {
+      "from": "0x1800",
+      "size": "0x0800",
+      "base": "0xE000",
+      "bank": "DrvMainRAM"
+    }
+  ],
+  "peter-pack-rat": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0xB00000",
+      "bank": "DrvPalRAM"
+    },
+    {
+      "from": "0x0800",
+      "size": "0x2000",
+      "base": "0x400000",
+      "bank": "DrvPfRAM"
+    }
+  ],
+  "plump-pop-jumping-pop": [
+    {
+      "from": "0x2404",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "pooyan": [
+    {
+      "from": "0x0200",
+      "size": "0x0800",
+      "base": "0x8800",
+      "bank": "DrvZ80RAM0"
+    }
+  ],
+  "popeye": [
+    {
+      "from": "0x0000",
+      "size": "0x0C00",
+      "base": "0x8000",
+      "bank": "DrvZ80RAM"
+    }
+  ],
+  "puzz-loop": [
+    {
+      "from": "0xA0000",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "puzzle-action-tant-r": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0xE00000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "qix": [
+    {
+      "from": "0x0580",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "rampage": [
+    {
+      "from": "0x0400",
+      "size": "0x0800",
+      "base": "0xF000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "rampart": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x3E0000",
+      "bank": "DrvMobRAM"
+    }
+  ],
+  "rastan": [
+    {
+      "from": "0x18000",
+      "size": "0x1000",
+      "base": "0x200000",
+      "bank": "TaitoZ80Ram1"
+    }
+  ],
+  "red-earth": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "riot-city": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "robocop": [
+    {
+      "from": "0x7E00",
+      "size": "0x4000",
+      "base": "0x318000",
+      "bank": "DrvCharRam"
+    }
+  ],
+  "sboblbobl": [
+    {
+      "from": "0x0200",
+      "size": "0x1D00",
+      "base": "0xC000",
+      "bank": "DrvVideoRam"
+    }
+  ],
+  "scramble-spirits": [
+    {
+      "from": "0x0000",
+      "size": "0x40000",
+      "base": "0x80000",
+      "bank": "DrvShareRAM3"
+    }
+  ],
+  "shinobi": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "space-dungeon": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x8400",
+      "bank": "DrvM6809RAM0"
+    },
+    {
+      "from": "0x0580",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "space-harrier": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xC68000",
+      "bank": "System16RoadRam"
+    },
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xA00000",
+      "bank": "System16RoadRamBuff"
+    }
+  ],
+  "space-invaders": [
+    {
+      "from": "0x0000",
+      "size": "0x2000",
+      "base": "0x2000",
+      "bank": "DrvMainRAM"
+    }
+  ],
+  "spatter-sanrin-san-chan-tricycle-san": [
+    {
+      "from": "0x4900",
+      "size": "0x0800",
+      "base": "0xD000",
+      "bank": "System1SpriteRam"
+    },
+    {
+      "from": "0x5100",
+      "size": "0x0800",
+      "base": "0xD800",
+      "bank": "System1PaletteRam"
+    }
+  ],
+  "star-wars": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x5000",
+      "bank": "DrvM6809RAM0"
+    }
+  ],
+  "street-fighter": [
+    {
+      "from": "0x0800",
+      "size": "0x1000",
+      "base": "0x800000",
+      "bank": "Drv68kVidRam"
+    },
+    {
+      "from": "0x1800",
+      "size": "0x8000",
+      "base": "0xFF8000",
+      "bank": "Drv68kRam"
+    }
+  ],
+  "street-fighter-iii-2nd-impact-giant-attack": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "street-fighter-iii-3rd-strike-fight-for-the-future": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "street-fighter-iii-new-generation": [
+    {
+      "from": "0x0800",
+      "size": "0x80000",
+      "base": "0x2000000",
+      "bank": "RamMain"
+    }
+  ],
+  "strikers-1945-iii": [
+    {
+      "from": "0x30200",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "super-chase-criminal-termination": [
+    {
+      "from": "0x0000",
+      "size": "0x20000",
+      "base": "0x100000",
+      "bank": "Taito68KRam1"
+    }
+  ],
+  "tapper": [
+    {
+      "from": "0x0000",
+      "size": "0x0200",
+      "base": "0xE000",
+      "bank": "DrvSprRAM"
+    },
+    {
+      "from": "0x0200",
+      "size": "0x0800",
+      "base": "0xE800",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "target-hits": [
+    {
+      "from": "0x4800",
+      "size": "0x8000",
+      "base": "0xFE0000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "tempest": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x0000",
+      "bank": "DrvM6502RAM"
+    }
+  ],
+  "terminator-2-judgment-day": [
+    {
+      "from": "0x84000",
+      "size": "0x20000",
+      "base": "0x1800000",
+      "bank": "DrvMainRAM"
+    }
+  ],
+  "tetris": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x840000",
+      "bank": "System16RoadRam"
+    }
+  ],
+  "tetris-the-absolute-the-grand-master-2": [
+    {
+      "from": "0x30200",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "tetris-the-absolute-the-grand-master-2-plus": [
+    {
+      "from": "0x30200",
+      "size": "0x100000",
+      "base": "0x6000000",
+      "bank": "DrvSh2RAM"
+    }
+  ],
+  "the-newzealand-story": [
+    {
+      "from": "0x2404",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "time-pilot": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xA000",
+      "bank": "DrvZ80RAM0"
+    }
+  ],
+  "tinkle-pit": [
+    {
+      "from": "0x0000",
+      "size": "0x80000",
+      "base": "0x0000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "turtle-ship": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xD000",
+      "bank": "DrvVidRAM"
+    },
+    {
+      "from": "0x1000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvSprBuf"
+    }
+  ],
+  "unlicensed-pacman-club-club-lambada": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xF000",
+      "bank": "DrvZ80RAM"
+    },
+    {
+      "from": "0x1410",
+      "size": "0x0400",
+      "base": "0x8000",
+      "bank": "DrvVidRAM"
+    }
+  ],
+  "violent-storm": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x600000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "xaind-sleena": [
+    {
+      "from": "0x0000",
+      "size": "0x2000",
+      "base": "0x0000",
+      "bank": "DrvShareRAM"
+    }
+  ],
+  "xybots": [
+    {
+      "from": "0x2800",
+      "size": "0x2000",
+      "base": "0x801000",
+      "bank": "Drv68KRAM"
+    }
+  ],
+  "zippy-bug-noboranka": [
+    {
+      "from": "0x5100",
+      "size": "0x0800",
+      "base": "0xD800",
+      "bank": "System1PaletteRam"
+    }
+  ]
+}

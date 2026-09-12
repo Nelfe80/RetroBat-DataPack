@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Rinne Tsukihime",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-rinne-tsukihime",
+    hashes = {
+      { hash = "ece8c562ebd71eae03c9862d30c04da3", label = "Rinne Tsukihime - Box Edition (World) (v5.0) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

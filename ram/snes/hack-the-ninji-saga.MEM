@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Ninji Saga",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-ninji-saga",
+    hashes = {
+      { hash = "03e1fb12f214955f3c325f29a377c125", label = "SMW - The Ninji Saga (The Kins).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X0D, action="GAME_PLAYING", desc="Pre-Level Select" },
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="GAME_PLAYING", desc="Level Select" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In Level" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen&Intro" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="[8bit] Pause Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0020, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit]SubZone?" },
+        { address=0X0020, type="u8", condition="eq", value=0XC0, action="NEW_LEVEL", desc="Yes" },
+        { address=0X0064, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pretty sure this is part of Screen ID? Level 4 (Mt. Mystic)" },
+        { address=0X0064, type="u8", condition="eq", value=0X30, action="NEW_LEVEL", desc="Long Pit" },
+        { address=0X0065, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Pretty sure this is Screen ID? Level 4 (Mt. Mystic)" },
+        { address=0X0065, type="u8", condition="eq", value=0X8E, action="NEW_LEVEL", desc="Before Door" },
+        { address=0X0065, type="u8", condition="eq", value=0XD8, action="NEW_LEVEL", desc="After Potion" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="Prologue" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="1.Bupty Country" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2C, action="NEW_LEVEL", desc="2. 1-1 Generations" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2E, action="NEW_LEVEL", desc="3. Mt. Mystic" },
+        { address=0X13BF, type="u8", condition="eq", value=0X31, action="NEW_LEVEL", desc="4. Subconian Spy!" },
+        { address=0X13BF, type="u8", condition="eq", value=0X33, action="NEW_LEVEL", desc="5. ???" },
+        { address=0X13BF, type="u8", condition="eq", value=0X35, action="NEW_LEVEL", desc="6. Galaxy Zoo East" },
+        { address=0X13BF, type="u8", condition="eq", value=0X38, action="NEW_LEVEL", desc="7. Galazy Zoo West" },
+        { address=0X13BF, type="u8", condition="eq", value=0X39, action="NEW_LEVEL", desc="Final. Zookeeper" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Lives Counter Display increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Lives Counter Display decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Lives Counter increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Lives Counter decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Coin Counter increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0015, type="u8", condition="eq", value=0XB7, action="JUMPING", no_log=true, no_survey=true, desc="Jump/SpinJump" },
+      },
+    },
+  },
+}

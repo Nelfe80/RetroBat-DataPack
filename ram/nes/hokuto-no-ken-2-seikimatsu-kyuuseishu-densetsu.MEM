@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hokuto no Ken 2: Seikimatsu Kyuuseishu Densetsu",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "hokuto-no-ken-2-seikimatsu-kyuuseishu-densetsu",
+    hashes = {
+      { hash = "4b1d0b67638c81551c111759914a8973", label = "Hokuto no Ken 2 (Japan).nes" },
+      { hash = "e3a0ad4a2ac4f64da129e1f9f0ae5a28", label = "Hokuto no Ken 2 - Seikimatsu Kyuuseishu Densetsu (Japan) (En) (v0.5) (Extreme Fun).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X000E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE" },
+        { address=0X000F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Sub Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X000B, type="u8", condition="increase", action="GAIN_LIFE", desc="LIVES increased" },
+        { address=0X000B, type="u8", condition="decrease", action="LOSE_LIFE", desc="LIVES decreased" },
+      },
+      health = {
+        { address=0X0073, type="u8", condition="increase", action="HEAL", desc="ENERGY: 38:MAX increased" },
+        { address=0X0073, type="u8", condition="decrease", action="HIT", desc="ENERGY: 38:MAX decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X006A, type="u8", condition="change", action="BOSS_HIT", desc="BOSS ENERGY: 38:max" },
+        { address=0X006B, type="u8", condition="change", action="BOSS_HIT", desc="a0:Boss Battle" },
+      },
+    },
+  },
+}

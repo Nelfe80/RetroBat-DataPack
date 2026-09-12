@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Eggs",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "eggs",
+    hashes = {
+      { hash = "ab92d9fae5ee7975c7735376ec60851b", label = "eggs.7z <Eggs>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0055, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0055, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

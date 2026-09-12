@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Portal",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-portal",
+    hashes = {
+      { hash = "a375198073297139a26db57347f93e90", label = "Portal in Applesoft BASIC (2017)(VMW Software).dsk" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X06D0, type="u32be", condition="eq", value=0XD9CFD5A0, action="GAME_OVER", desc="game over" },
+        { address=0X5CB8, type="u16le", condition="eq", value=0X498A, action="TITLE_SCREEN", desc="Title" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X001B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Displaying Stage Check" },
+        { address=0X001B, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Playing Stage" },
+        { address=0X001B, type="u8", condition="eq", value=0X40, action="PROGRESSION_STAGE", desc="Drawing Stage" },
+        { address=0X5CB8, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X5CB8, type="u16le", condition="eq", value=0X0081, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X5CB8, type="u16le", condition="eq", value=0X1885, action="PROGRESSION_STAGE", desc="Stage 19" },
+      },
+    },
+  },
+}

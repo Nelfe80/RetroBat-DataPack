@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Austin Powers: Welcome to My Underground Lair!",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "austin-powers-welcome-to-my-underground-lair",
+    hashes = {
+      { hash = "1b2190911db606dce58d694e8b591e69", label = "Austin Powers - Welcome to my Underground Lair! (USA).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

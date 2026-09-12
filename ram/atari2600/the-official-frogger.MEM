@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Official Frogger",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "the-official-frogger",
+    hashes = {
+      { hash = "c73ae5ba5a0a3f3ac77f0a9e14770e73", label = "Official Frogger, The (USA).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X005A, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X0064, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0004, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="1st goal" },
+        { address=0X0004, type="u8", condition="eq", value=0X31, action="LEVEL_CLEAR", desc="2nd goal" },
+        { address=0X0004, type="u8", condition="eq", value=0X4F, action="LEVEL_CLEAR", desc="3rd goal" },
+        { address=0X0004, type="u8", condition="eq", value=0X70, action="LEVEL_CLEAR", desc="4th goal" },
+        { address=0X0004, type="u8", condition="eq", value=0X91, action="LEVEL_CLEAR", desc="5th goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="1st goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="2nd goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="3rd goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X6, action="LEVEL_CLEAR", desc="4th goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X8, action="LEVEL_CLEAR", desc="5th goal" },
+        { address=0X0005, type="u8", condition="eq", value=0X9, action="LEVEL_CLEAR", desc="Crocodile is half emerged" },
+        { address=0X0005, type="u8", condition="eq", value=0XD, action="LEVEL_CLEAR", desc="Crocodile has fully emerged" },
+        { address=0X0005, type="u8", condition="eq", value=0XF, action="LEVEL_CLEAR", desc="Fly has appeared" },
+        { address=0X0015, type="u8", condition="eq", value=0X08, action="LEVEL_CLEAR", desc="Goal 1" },
+        { address=0X0015, type="u8", condition="eq", value=0X09, action="LEVEL_CLEAR", desc="Goal 2" },
+        { address=0X0015, type="u8", condition="eq", value=0X0A, action="LEVEL_CLEAR", desc="Goal 3" },
+        { address=0X0015, type="u8", condition="eq", value=0X0B, action="LEVEL_CLEAR", desc="Goal 4" },
+        { address=0X0015, type="u8", condition="eq", value=0X0C, action="LEVEL_CLEAR", desc="Goal 5" },
+        { address=0X0049, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Current Player Game B (wrap around allowed)" },
+        { address=0X0049, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Current Player Game A (no wrap around allowed)" },
+        { address=0X0060, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit BCD] Current level" },
+        { address=0X0061, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Goal 5" },
+        { address=0X0061, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="Goal 4" },
+        { address=0X0061, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="Goal 3" },
+        { address=0X0061, type="u8", condition="bit_true", mask=0X08, action="LEVEL_CLEAR", desc="Goal 2" },
+        { address=0X0061, type="u8", condition="bit_true", mask=0X10, action="LEVEL_CLEAR", desc="Goal 1" },
+        { address=0X0063, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Goal 1" },
+        { address=0X0063, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Goal 2" },
+        { address=0X0063, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Goal 3" },
+        { address=0X0063, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="Goal 4" },
+        { address=0X0063, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="Goal 5" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X003E, type="u8", condition="increase", action="GAIN_LIFE", desc="Max row this life increased" },
+        { address=0X003E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Max row this life decreased" },
+        { address=0X005A, type="u8", condition="increase", action="GAIN_LIFE", desc="Current player lives increased" },
+        { address=0X005A, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current player lives decreased" },
+        { address=0X0064, type="u8", condition="increase", action="GAIN_LIFE", desc="Other player's lives increased" },
+        { address=0X0064, type="u8", condition="decrease", action="LOSE_LIFE", desc="Other player's lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X004A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0", score_encoding="bcd", desc="[16-bit BCD] High-Score [xxxx0]" },
+        { address=0X005C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0", score_encoding="bcd", desc="[16-bit BCD] Current player score [xxxx0]" },
+        { address=0X0066, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0", score_encoding="bcd", desc="[16-bit BCD] Other player's score [xxxx0]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0032, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time remaining" },
+        { address=0X0033, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="[8-bit BCD] Time remaining" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Evelonth",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-evelonth",
+    hashes = {
+      { hash = "8b07f0a9a6853207d68900677e603d4d", label = "Evelonth (World) (v0.99) (Aftermarket) (Unl) (copete23).nds" },
+    }
+  },
+
+  events = {
+  },
+}

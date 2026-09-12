@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Capcom Sports Club",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Mini-Games"
+  },
+
+  rom = {
+    name = "capcom-sports-club",
+    hashes = {
+      { hash = "5f0defd4ca6e5801b29ad9df6c3887d3", label = "csclub.7z <Capcom Sports Club (971017 Euro)>" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8BA1, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8 Bit] Full Run Game Clear" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8C1E, type="u16le", condition="increase", action="GAIN_LIFE", desc="[16 Bit] Lifetime Credit inserted Upper half) increased" },
+        { address=0X8C1E, type="u16le", condition="decrease", action="LOSE_LIFE", desc="[16 Bit] Lifetime Credit inserted Upper half) decreased" },
+        { address=0X8C20, type="u16le", condition="increase", action="GAIN_LIFE", desc="[16 Bit] Lifetime Credit inserted (Lower half) increased" },
+        { address=0X8C20, type="u16le", condition="decrease", action="LOSE_LIFE", desc="[16 Bit] Lifetime Credit inserted (Lower half) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XAE14, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0995, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8 Bit] Football - Timer Countdown Player Select" },
+        { address=0X0CAB, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8 Bit] Tennis - Timer Countdown Player Select" },
+        { address=0X0E3F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="[8 Bit] Basketball - Timer Countdown Player Select" },
+        { address=0X8C92, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[8 Bit] Football / Basketball - Match Timer Seconds * 10" },
+        { address=0X8C93, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="[8 Bit] Football / Basketball - Match Timer Minute" },
+        { address=0X8C95, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[8 Bit] Football / Basketball - Match Timer Seconds" },
+      },
+    },
+  },
+}

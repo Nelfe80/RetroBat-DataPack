@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ I Wanna Flip the Sky",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-i-wanna-flip-the-sky",
+    hashes = {
+      { hash = "1ec00d2d30d2e55acfe160f8028c7931", label = "I Wanna Flip the Sky (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X01FC, type="u8", condition="change", action="TITLE_SCREEN", desc="20 when Title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X01FE, type="u8", condition="change", action="LEVEL_CLEAR", desc="0xbe when level finished" },
+        { address=0X039D, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+  },
+}

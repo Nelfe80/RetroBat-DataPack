@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Blazing Emerald",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-blazing-emerald",
+    hashes = {
+      { hash = "902a47ab1b6592cab6a9ea746aacb3b8", label = "Pokemon Emerald - Blazing Emerald (v1.0.4) (struedelmuffin1).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pinball",
+    system = "intellivision",
+    system_name = "Intellivision",
+    genre = "Pinball"
+  },
+
+  rom = {
+    name = "pinball",
+    hashes = {
+      { hash = "2828ce0b76c7f8a5e3a4569fac5c8eb9", label = "Pinball (USA).int" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0614, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="title" },
+        { address=0X0614, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="demo" },
+        { address=0X075C, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="title screen" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X06AC, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="gold ball" },
+      },
+    },
+  },
+}

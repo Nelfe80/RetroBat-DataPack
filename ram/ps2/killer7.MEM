@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Killer7",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Adventure, Puzzle, Shooter"
+  },
+
+  rom = {
+    name = "killer7",
+    hashes = {
+      { hash = "1d50ff73e97c412936457902fc3725fe", label = "Killer7 (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

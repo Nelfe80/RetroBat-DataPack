@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Das Haus Anubis: Im Bann der Isis",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "das-haus-anubis-im-bann-der-isis",
+    hashes = {
+      { hash = "d9e933d75b8c07cdbf075e682d3b19ad", label = "Haus Anubis, Das - Im Bann der Isis (Germany).nds" },
+    }
+  },
+
+  events = {
+  },
+}

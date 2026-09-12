@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puyo Puyo",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "puyo-puyo",
+    hashes = {
+      { hash = "b03daf0c9756a52a8323ca3ba1abe354", label = "arcade\puyo.zip" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XE00A, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [24-bit BE]" },
+      },
+    },
+  },
+}

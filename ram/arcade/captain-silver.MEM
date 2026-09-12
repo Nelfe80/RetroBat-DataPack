@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Captain Silver",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "captain-silver",
+    hashes = {
+      { hash = "2ce5cc9dfe1c7fa8fd0645ca4db384b1", label = "csilver.7z <Captain Silver (World)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X000C, type="u8", condition="change", action="CREDITS_SCREEN", desc="- Credits" },
+        { address=0X0016, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo Mode after reset" },
+        { address=0X0016, type="u8", condition="eq", value=0X80, action="DEMO_MODE", desc="Demo Mode after play at least once" },
+        { address=0X0031, type="u8", condition="eq", value=0X0, action="CONTINUE_SCREEN", desc="continues allowed" },
+        { address=0X0031, type="u8", condition="eq", value=0X1, action="CONTINUE_SCREEN", desc="no continues" },
+        { address=0X0054, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X0055, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Main Screen (NOT demo mode)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0054, type="u8", condition="increase", action="GAIN_LIFE", desc="- Player Lives increased" },
+        { address=0X0054, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Player Lives decreased" },
+        { address=0X0C4E, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Captain Silver is dead" },
+        { address=0X0C4F, type="u8", condition="eq", value=0X1, action="LOSE_LIFE", desc="dead" },
+        { address=0X0D68, type="u8", condition="increase", action="GAIN_LIFE", desc="- DIP Initial Lives increased" },
+        { address=0X0D68, type="u8", condition="decrease", action="LOSE_LIFE", desc="- DIP Initial Lives decreased" },
+        { address=0X0D68, type="u8", condition="eq", value=0XFF, action="LIVES_STATE", desc="255 lives (cheat)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0A1B, type="u8", condition="eq", value=0X00, action="TREASURE", desc="crown is in screen" },
+        { address=0X0A1B, type="u8", condition="eq", value=0X05, action="TREASURE", desc="crown was gathered by player" },
+        { address=0X0AAB, type="u8", condition="eq", value=0X05, action="TREASURE", desc="crown was gathered by player" },
+        { address=0X0B9B, type="u8", condition="eq", value=0X00, action="TREASURE", desc="crown is in screen" },
+        { address=0X0B9B, type="u8", condition="eq", value=0X05, action="TREASURE", desc="crown was gathered by player" },
+        { address=0X0C7B, type="u8", condition="eq", value=0X00, action="TREASURE", desc="out of time" },
+        { address=0X0C7B, type="u8", condition="eq", value=0X14, action="TREASURE", desc="starting time" },
+        { address=0X0CB2, type="u8", condition="eq", value=0X00, action="TREASURE", desc="no treasure gathered" },
+        { address=0X0CB2, type="u8", condition="eq", value=0X61, action="TREASURE", desc="all treasure gathered" },
+        { address=0X0CF1, type="u8", condition="eq", value=0X00, action="TREASURE", desc="can enter the room" },
+        { address=0X0CF1, type="u8", condition="eq", value=0X01, action="TREASURE", desc="exit treasure room / cannot enter again" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0C22, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="red flag destroyed" },
+        { address=0X0C22, type="u8", condition="eq", value=0X02, action="OBJECT_DESTROYED", desc="black flag destroyed" },
+        { address=0X0C22, type="u8", condition="eq", value=0X03, action="OBJECT_DESTROYED", desc="both flags destroyed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X003D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Time (1/2)" },
+        { address=0X003D, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="255 seconds" },
+        { address=0X003E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Time (2/2)" },
+        { address=0X003E, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="1 second" },
+        { address=0X0C16, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Temporary Sword Time" },
+        { address=0X0C16, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="no temporary sword" },
+        { address=0X0C16, type="u8", condition="eq", value=0X30, action="GENERAL_TIMER", desc="permanent sword" },
+        { address=0X0C16, type="u8", condition="eq", value=0X3C, action="GENERAL_TIMER", desc="initial value in seconds" },
+        { address=0X0C18, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="- Temporary Boots Time" },
+        { address=0X0C18, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="no boots" },
+        { address=0X0C18, type="u8", condition="eq", value=0X30, action="GENERAL_TIMER", desc="permanent boots" },
+        { address=0X0C18, type="u8", condition="eq", value=0X3C, action="GENERAL_TIMER", desc="initial value in seconds" },
+        { address=0X0C1A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="- Temporary Potion Time" },
+        { address=0X0C7B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="- Treasure Room Time" },
+      },
+    },
+  },
+}

@@ -1,0 +1,116 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wonder Boy",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "wonder-boy",
+    hashes = {
+      { hash = "c0a789113bf696c1f7bcb46044568a0b", label = "wboy.7z <Wonder Boy (set 1, 315-5177)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002D, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="On" },
+        { address=0X0081, type="u8", condition="eq", value=0X62, action="TITLE_SCREEN", desc="Title" },
+        { address=0X0081, type="u8", condition="eq", value=0XC4, action="DEMO_MODE", desc="Demo Mode" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X030F, type="u8", condition="change", action="NEW_LEVEL", desc="Ground Sprite" },
+        { address=0X030F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Start" },
+        { address=0X030F, type="u8", condition="eq", value=0X40, action="LEVEL_CLEAR", desc="Goal" },
+        { address=0X0310, type="u8", condition="change", action="NEW_LEVEL", desc="Current Round of the Area" },
+        { address=0X0310, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+        { address=0X0310, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="2" },
+        { address=0X0310, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="3" },
+        { address=0X0310, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="4" },
+        { address=0X0312, type="u8", condition="change", action="NEW_LEVEL", desc="Doll Collected on Current Level" },
+        { address=0X0312, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="False" },
+        { address=0X0312, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="True" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0027, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip Setting - Starting Lives increased" },
+        { address=0X0027, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip Setting - Starting Lives decreased" },
+        { address=0X0027, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3 Lives - Default" },
+        { address=0X0027, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X0027, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="5 Lives" },
+        { address=0X0029, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip Setting - Bonus Life Setting increased" },
+        { address=0X0029, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip Setting - Bonus Life Setting decreased" },
+        { address=0X0029, type="u8", condition="eq", value=0X70, action="LIVES_STATE", desc="30k then every 70k to 240k" },
+        { address=0X0029, type="u8", condition="eq", value=0X90, action="LIVES_STATE", desc="30k then every 90k to 300k" },
+        { address=0X00DA, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="Reset / Life" },
+        { address=0X0302, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Remaining Count (Including Current Life) increased" },
+        { address=0X0302, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Remaining Count (Including Current Life) decreased" },
+        { address=0X0302, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="0 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1 Life" },
+        { address=0X0302, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="2 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="5 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X06, action="LIVES_STATE", desc="6 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X07, action="LIVES_STATE", desc="7 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X08, action="LIVES_STATE", desc="8 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X09, action="LIVES_STATE", desc="9 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X0A, action="LIVES_STATE", desc="10 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X0B, action="LIVES_STATE", desc="11 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X0C, action="LIVES_STATE", desc="12 Lives" },
+        { address=0X0302, type="u8", condition="eq", value=0X0D, action="LIVES_STATE", desc="13 Lives" },
+        { address=0X046B, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death" },
+        { address=0X085F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Not in Game, Between Levels, and Between Deaths" },
+        { address=0X085F, type="u8", condition="eq", value=0X81, action="LOSE_LIFE", desc="Player Died by Collision or Health Loss" },
+        { address=0X085F, type="u8", condition="eq", value=0X85, action="LOSE_LIFE", desc="Collision with Rock" },
+        { address=0X085F, type="u8", condition="eq", value=0XB1, action="LOSE_LIFE", desc="Fall in Water" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X303, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X091D, type="u8", condition="eq", value=0X5C, action="BOSS_HIT", desc="Final Boss Head Looking Right" },
+        { address=0X091D, type="u8", condition="eq", value=0X96, action="BOSS_HIT", desc="Entering Boss Area L1" },
+        { address=0X091D, type="u8", condition="eq", value=0XE1, action="BOSS_HIT", desc="Value Prior to Area Item Appearing" },
+        { address=0X091D, type="u8", condition="eq", value=0XF4, action="BOSS_HIT", desc="Area 1 Item" },
+        { address=0X091D, type="u8", condition="eq", value=0XF5, action="BOSS_HIT", desc="Area 3 Item" },
+        { address=0X091D, type="u8", condition="eq", value=0XF6, action="BOSS_HIT", desc="Area 5 Item" },
+        { address=0X091D, type="u8", condition="eq", value=0XF7, action="BOSS_HIT", desc="Area 2 Item" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0085, type="u8", condition="eq", value=0X01, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+        { address=0X0085, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Axe" },
+        { address=0X0085, type="u8", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="Both at Same Time" },
+        { address=0X0086, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Axe" },
+        { address=0X0086, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+        { address=0X0086, type="u8", condition="eq", value=0X06, action="JUMPING", no_log=true, no_survey=true, desc="Both" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0475, type="u8", condition="eq", value=0X00, action="OBJECT_DESTROYED", desc="Resets Every Time You Get a New Fairy" },
+        { address=0X0475, type="u8", condition="eq", value=0X15, action="OBJECT_DESTROYED", desc="10000 pt Bonus" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0085, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Player Input - Axe and Jump" },
+        { address=0X0475, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="second", desc="Destroyed Item Count While Fairy Active" },
+        { address=0X0477, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Fairy Freeze" },
+        { address=0X0960, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Elevator Behind Boss" },
+      },
+    },
+  },
+}

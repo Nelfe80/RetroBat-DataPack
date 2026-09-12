@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Red Moon Lost Days",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-red-moon-lost-days",
+    hashes = {
+      { hash = "ddc390cdc5778f2f697c01b755f0fd6d", label = "Red Moon Lost Days (USA) (Aftermarket) (Unl) (RAHash Fix) (Disc 1)" },
+      { hash = "f98d35ba8e91bd0376bd10eb5b27453b", label = "Red Moon Lost Days (USA) (Aftermarket) (Unl) (RAHash Fix) (Disc 2)" },
+    }
+  },
+
+  events = {
+  },
+}

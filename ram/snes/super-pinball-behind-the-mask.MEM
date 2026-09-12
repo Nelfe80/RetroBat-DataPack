@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Pinball: Behind the Mask",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Pinball"
+  },
+
+  rom = {
+    name = "super-pinball-behind-the-mask",
+    hashes = {
+      { hash = "bba4b5494fee0bc353ea691804b4991f", label = "Super Pinball - Behind the Mask (USA).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

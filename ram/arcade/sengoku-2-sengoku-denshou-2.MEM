@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sengoku 2 | Sengoku Denshou 2",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "sengoku-2-sengoku-denshou-2",
+    hashes = {
+      { hash = "d0479c49e9cdaf32d9cd6cf39f8883fd", label = "sengoku2.7z <Sengoku 2 / Sengoku Denshou 2>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFD8C, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - demo sound" },
+        { address=0XFD90, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X01F6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X0B40, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage progress" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X01AE, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0X01AE, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0XFD89, type="u8", condition="increase", action="GAIN_LIFE", desc="Soft Dip Setup - lives increased" },
+        { address=0XFD89, type="u8", condition="decrease", action="LOSE_LIFE", desc="Soft Dip Setup - lives decreased" },
+        { address=0XFD89, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1(min)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3(default)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X63, action="LIVES_STATE", desc="99(max)" },
+      },
+      health = {
+        { address=0X2CF2, type="u8", condition="increase", action="HEAL", desc="P1Health increased" },
+        { address=0X2CF2, type="u8", condition="decrease", action="HIT", desc="P1Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X2D28, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1B2, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0B3D, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Screen block (number of enemies needed to defeat for release)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2D1F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Weapon tremeining time" },
+        { address=0X2D5E, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="P1 Ninja spirit remaining time" },
+        { address=0X2D60, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="P1 Okami spirit remaining time" },
+        { address=0X2D61, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="P1 Tengu spirit remaining time" },
+      },
+    },
+  },
+}

@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tetris: The Absolute - The Grand Master 2 Plus",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "tetris-the-absolute-the-grand-master-2-plus",
+    hashes = {
+      { hash = "8db1903d29deae4b52b4cbdcaa48c3c7", label = "tgm2p.7z <Tetris the Absolute The Grand Master 2 Plus>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X94961, type="u8", condition="change", action="CREDITS_SCREEN", desc="Number of credits (0-9)" },
+        { address=0X94A7C, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demonstration Mode off" },
+        { address=0X94A7C, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demonstration Mode on" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X12, action="CREDITS_SCREEN", desc="Credits rolling" },
+        { address=0X9634A, type="u8", condition="change", action="GAME_OVER", desc="Game Over screen" },
+        { address=0XE189D, type="u8", condition="eq", value=0X00, action="CREDITS_SCREEN", desc="Master credits completed (fading or invisible)" },
+        { address=0XE189D, type="u8", condition="eq", value=0X12, action="CREDITS_SCREEN", desc="Master credits rolling (fading or invisible)" },
+        { address=0XE189D, type="u8", condition="eq", value=0X13, action="CREDITS_SCREEN", desc="Master credits (fading or invisible) close to completion (Arika logo)" },
+        { address=0XE189D, type="u8", condition="eq", value=0X68, action="CREDITS_SCREEN", desc="Normal credits rolling" },
+        { address=0XE189D, type="u8", condition="eq", value=0X69, action="CREDITS_SCREEN", desc="Normal credits completed" },
+        { address=0X100094, type="u8", condition="eq", value=0X28, action="CREDITS_SCREEN", desc="Select Mode screen" },
+        { address=0X100094, type="u8", condition="eq", value=0X3F, action="CREDITS_SCREEN", desc="Normal Credits complete ?" },
+        { address=0X100094, type="u8", condition="eq", value=0X54, action="CREDITS_SCREEN", desc="M-Roll" },
+        { address=0X100094, type="u8", condition="eq", value=0XA0, action="CREDITS_SCREEN", desc="Normal Credits (just for a second)" },
+        { address=0X130264, type="u8", condition="eq", value=0X3F, action="TITLE_SCREEN", desc="Cheat enabled" },
+        { address=0X130264, type="u8", condition="eq", value=0X5F, action="TITLE_SCREEN", desc="Cheat disabled" },
+        { address=0X130266, type="u8", condition="eq", value=0X3F, action="TITLE_SCREEN", desc="Cheat enabled" },
+        { address=0X130266, type="u8", condition="eq", value=0X5F, action="TITLE_SCREEN", desc="Cheat disabled" },
+        { address=0X130313, type="u8", condition="change", action="GAME_OVER", desc="Secret Grade indicator, active on Game Over:" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X94DB8, type="u16le", condition="change", action="NEW_LEVEL", desc="Level, goes from 0 up to 999" },
+        { address=0X94DDB, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total amount of Tetrises (4-line clears) the player has done since the match started, useful for" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X94DA6, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="T.A. Death" },
+        { address=0X94E24, type="u8", condition="change", action="LOSE_LIFE", desc="Grade that only works in Master & T.A. Death Modes, useful for mode checking" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X94DC8, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="Hi-Score, goes from 0 to 999999" },
+      },
+      collectibles = {
+        { address=0X94DD0, type="u8", condition="increase", action="COIN_GAIN", desc="Section Medal (1 for bronze, 2 for silver, 3 for gold) increased" },
+        { address=0X94DD1, type="u8", condition="increase", action="COIN_GAIN", desc="All Clear Medal (1 for bronze, 2 for silver, 3 for gold) increased" },
+        { address=0X94DD4, type="u8", condition="increase", action="COIN_GAIN", desc="Combo Medal (1 for bronze, 2 for silver, 3 for gold) increased" },
+        { address=0X94DD6, type="u8", condition="increase", action="COIN_GAIN", desc="Recovery Medal (1 for bronze, 2 for silver, 3 for gold) increased" },
+        { address=0X94DD7, type="u8", condition="increase", action="COIN_GAIN", desc="Skill Medal (1 for bronze, 2 for silver, 3 for gold) increased" },
+        { address=0X94E35, type="u8", condition="increase", action="COIN_GAIN", desc="Lines cleared during the M-Roll increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X94DF5, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Rainbow" },
+        { address=0X94DF5, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Big mode" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X90208, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Game timer." },
+        { address=0X94DD8, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Combo counter" },
+        { address=0X94DDE, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Counter (seconds * 60)" },
+        { address=0X94DE4, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="Game timer." },
+        { address=0X94DE8, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Counter (seconds * 60)" },
+        { address=0X94E26, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="unknown", desc="Hundreds Counter (increments each 100 levels, partially prevents cheating)" },
+      },
+    },
+  },
+}

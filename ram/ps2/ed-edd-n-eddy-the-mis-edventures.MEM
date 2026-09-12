@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ed, Edd n Eddy: The Mis-Edventures",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "ed-edd-n-eddy-the-mis-edventures",
+    hashes = {
+      { hash = "4872f829068fe2e220ec584b9e90066c", label = "Ed, Edd n Eddy - The Mis-Edventures (USA) (En,Fr)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X79FB80, type="u8", condition="change", action="PAUSE_ON", desc="when bit 0 is flipped, player does not have control (like when game is paused)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X79C874, type="u8", condition="change", action="LEVEL_CLEAR", desc="pin the tail on the ed level clear flag" },
+        { address=0X79C880, type="u8", condition="change", action="LEVEL_CLEAR", desc="must be something i ed level clear flag" },
+        { address=0X79C884, type="u8", condition="change", action="LEVEL_CLEAR", desc="ed on arrival level clear flag" },
+        { address=0X79C888, type="u8", condition="change", action="LEVEL_CLEAR", desc="nightmare on ed street level clear flag" },
+        { address=0X79C8D8, type="u8", condition="change", action="LEVEL_CLEAR", desc="edzilla level clear flag" },
+        { address=0X79C8E8, type="u8", condition="change", action="LEVEL_CLEAR", desc="till ed do us part level clear bitflag" },
+        { address=0X79C8EC, type="u8", condition="change", action="LEVEL_CLEAR", desc="rebel robot ranch bitflag level clear 2 (most levels seem to have mulitple flags associated with" },
+      },
+      stage = {
+        { address=0X79CB94, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage id" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X79FC20, type="u8", condition="increase", action="HEAL", desc="health(max is 0a) increased" },
+        { address=0X79FC20, type="u8", condition="decrease", action="HIT", desc="health(max is 0a) decreased" },
+        { address=0XAF6C68, type="u8", condition="increase", action="HEAL", desc="giant robot health 1 increased" },
+        { address=0XAF6C68, type="u8", condition="decrease", action="HIT", desc="giant robot health 1 decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X79CBA4, type="u32le", condition="increase", action="COIN_GAIN", desc="money - yes, money is stored as a 32-bit integer, even though there you can only hold up to 999" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X79FC14, type="u8", condition="change", action="OBJECT_INTERACTION", desc="tracks whatever the current objective is (ice cubes, pinatas, etc)" },
+      },
+    },
+  },
+}

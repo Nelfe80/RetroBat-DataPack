@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Spider Solitaire DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-spider-solitaire-ds",
+    hashes = {
+      { hash = "06b7d1651f6b9848f51d5bdaacfe3841", label = "Spider Solitaire DS (World) (v3.1.1) (Aftermarket) (Unl) (Jess Telford).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X1451EC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32bit]" },
+      },
+    },
+  },
+}

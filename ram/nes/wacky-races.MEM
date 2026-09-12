@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wacky Races",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "wacky-races",
+    hashes = {
+      { hash = "9ca3418958e5d58e8e2fbb9abf13be51", label = "Wacky Races (USA).nes" },
+      { hash = "e742e459e30284d3ab715d4deb9cbfc0", label = "Wacky Races (USA) (Ru) (v1.0) (PSCD).nes" },
+      { hash = "f5bd4cfe5b0a4f82431513d5e5deddf5", label = "Wacky Races (USA) (Ru) (Boogerman).nes" },
+      { hash = "fa73e53168c6f77813c2e0457f778c60", label = "Wacky Races (USA) (Fr) (v1.0) (Terminus).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X045D, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0X045D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+        { address=0X053B, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Boss (ff) increased" },
+        { address=0X053B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Boss (ff) decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X046A, type="u8", condition="change", action="BOSS_HIT", desc="01 - Boss Cheat Activated" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00A4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer - Seconds: XX (BCD 1)" },
+        { address=0X00A5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer - Minutes: 1" },
+      },
+    },
+  },
+}

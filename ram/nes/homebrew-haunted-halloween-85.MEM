@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Haunted: Halloween '85",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-haunted-halloween-85",
+    hashes = {
+      { hash = "8e4b66ca5840605ef61e65717f6a4a69", label = "Haunted - Halloween '85 (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

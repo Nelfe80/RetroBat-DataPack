@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Traumatic Tick Tock Tower",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-traumatic-tick-tock-tower",
+    hashes = {
+      { hash = "db241dac800fa6612ab62253b524900f", label = "SM64 - Traumatic Tick Tock Tower (v1.0) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+  },
+}

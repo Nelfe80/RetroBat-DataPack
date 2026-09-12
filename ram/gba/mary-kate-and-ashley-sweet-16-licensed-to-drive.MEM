@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mary-Kate and Ashley: Sweet 16 - Licensed to Drive",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "mary-kate-and-ashley-sweet-16-licensed-to-drive",
+    hashes = {
+      { hash = "e7ea7a7570b301ae1cfab5531c7a3941", label = "Mary-Kate and Ashley - Sweet 16 - Licensed to Drive (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X1D6E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="time - ff(ending)" },
+      },
+    },
+  },
+}

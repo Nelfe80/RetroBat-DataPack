@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Chip-chan Kick!",
+    system = "pcfx",
+    system_name = "PC-FX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "chip-chan-kick",
+    hashes = {
+      { hash = "a83a3f08d17c4da8ac8f8e8e370c7b53", label = "Chip-chan Kick! (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1FBA01, type="u8", condition="eq", value=0X06, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1FBA0C, type="u8", condition="eq", value=0X09, action="CONTINUE_SCREEN", desc="Easy (Free Play, infinite continues)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1FBA02, type="u8", condition="change", action="NEW_LEVEL", desc="Round (0-9)" },
+        { address=0X1FBA04, type="u8", condition="change", action="NEW_LEVEL", desc="Levels unlocked" },
+      },
+      zone = {
+        { address=0X1FBA01, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Stage (World)" },
+      },
+      stage = {
+        { address=0X1850, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Enemies on screen/stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XEE3B2, type="u8", condition="increase", action="GAIN_LIFE", desc="[Options Menu] Lives per Continue (0-4) increased" },
+        { address=0XEE3B2, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Options Menu] Lives per Continue (0-4) decreased" },
+        { address=0X1FBA09, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives increased" },
+        { address=0X1FBA09, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives decreased" },
+        { address=0X1FBA09, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="dead" },
+        { address=0X1FBA0B, type="u8", condition="increase", action="GAIN_LIFE", desc="[Options] Lives x continue (0-4) increased" },
+        { address=0X1FBA0B, type="u8", condition="decrease", action="LOSE_LIFE", desc="[Options] Lives x continue (0-4) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1FBA1C, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up] Boots Upgrade (0-1)" },
+        { address=0X1FBA1D, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up] Blob Upgrade (0-1)" },
+        { address=0X1FBA1E, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up] Arrow Upgrade (0-1)" },
+        { address=0X1FBA1F, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="[Power Up] Star Upgrade (0-1)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1FBA10, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="hex", desc="P1 Score 32-bit (Hex)" },
+        { address=0X1FBA18, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Hi-Score 32-bit (Hex)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1FBA02, type="u8", condition="eq", value=0X9, action="BOSS_HIT", desc="Boss Stage" },
+      },
+    },
+  },
+}

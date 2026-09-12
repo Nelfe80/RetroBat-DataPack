@@ -1,0 +1,84 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Densetsu no Stafy 4",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "densetsu-no-stafy-4",
+    hashes = {
+      { hash = "16d84d649609188c84b7f67825012c97", label = "Densetsu no Stafy 4 (Japan).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9A178, type="u8", condition="eq", value=0X23, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X9A178, type="u8", condition="eq", value=0X43, action="GAME_OVER", desc="Game Over" },
+        { address=0X9DD16, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X285C60, type="u8", condition="eq", value=0X65, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9A178, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="In a Lobber's Villa Level" },
+        { address=0X9A178, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Lobber's Villa Overworld" },
+        { address=0X9A178, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="In a Tree of Beginning Level" },
+        { address=0X9A178, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Tree of Beginning Overworld" },
+        { address=0X9A178, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="In a Cupid Village Level" },
+        { address=0X9A178, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="Cupid Village Overworld" },
+        { address=0X9A178, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="In a Tear Lake Level" },
+        { address=0X9A178, type="u8", condition="eq", value=0X8, action="NEW_LEVEL", desc="Tear Lake Overworld" },
+        { address=0X9DD17, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID (File 1)" },
+        { address=0X256ACC, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pearls" },
+        { address=0X256ACD, type="u8", condition="change", action="NEW_LEVEL", desc="Level Pearls Overflow" },
+      },
+      stage = {
+        { address=0X9DD16, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID (File 1)" },
+        { address=0X9DD16, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Lobber's Villa" },
+        { address=0X9DD16, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Tree of Beginning" },
+        { address=0X9DD16, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Cupid Village" },
+        { address=0X9DD16, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Tear Lake" },
+        { address=0X9DD18, type="u8", condition="eq", value=0XFF, action="PROGRESSION_STAGE", desc="Stage Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2A93DC, type="u8", condition="eq", value=0X6, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X256AC4, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X256AC4, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X256AF8, type="u8", condition="eq", value=0X0B, action="HIT", desc="Taking Damage" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X9DE82, type="u8", condition="bit_true", mask=0X80, action="DYNAMIC_INVENTORY", desc="Rider Suit (Clothes) (Maniankou's Shop - Batch 2)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2A544E, type="u8", condition="eq", value=0X0, action="BOSS_DEFEATED", desc="Dead" },
+        { address=0X2A544E, type="u8", condition="eq", value=0X1E, action="BOSS_HIT", desc="Konk Max" },
+        { address=0X2A544E, type="u8", condition="eq", value=0X23, action="BOSS_HIT", desc="Choking Max" },
+        { address=0X2A544E, type="u8", condition="eq", value=0X28, action="BOSS_HIT", desc="Akureima Max" },
+        { address=0X2A544E, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="Not Fighting" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X9DE81, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="Shimashima Swimsuit (Clothes) (1-1)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X256AF8, type="u8", condition="eq", value=0X11, action="DOOR_OPENED", desc="Entering a Door" },
+      },
+    },
+  },
+}

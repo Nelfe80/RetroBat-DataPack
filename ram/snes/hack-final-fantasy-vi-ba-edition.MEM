@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VI: BA Edition",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-vi-ba-edition",
+    hashes = {
+      { hash = "4259b3c92df4a20044c0124624c7a4ad", label = "Final Fantasy VI - BA Version (Ja) (v3.36c) (Haiyoru Konton).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1608, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Tina's Level" },
+        { address=0X162D, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Lock's Level" },
+        { address=0X169C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Edgar's Level" },
+        { address=0X16C1, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Mash's Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1E96, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Cid died" },
+        { address=0X2E98, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 1 Health increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 1 Health decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 2 Health increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 2 Health decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 3 Health increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 3 Health decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 4 Health increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 4 Health decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 5 Health increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 5 Health decreased" },
+        { address=0X3C06, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 6 Health increased" },
+        { address=0X3C06, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 6 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1E40, type="u8", condition="change", action="TREASURE", desc="[Bitflags] Treasures" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1DD5, type="u8", condition="change", action="SHIELD_GAIN", desc="[8bit] Cursed Shield Uses" },
+      },
+    },
+  },
+}

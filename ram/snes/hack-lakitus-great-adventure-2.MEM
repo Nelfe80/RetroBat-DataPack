@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Lakitu's Great Adventure 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-lakitus-great-adventure-2",
+    hashes = {
+      { hash = "e08cac4e717b398f9e82877a7e234e39", label = "SMW - Lakitu's Great Adventure 2 (Gamet2004).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of Stages Cleared" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Powerup: 01 : Mushroom, 02 : Feather, 03 : Flower" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Number of Coins increased" },
+      },
+    },
+  },
+}

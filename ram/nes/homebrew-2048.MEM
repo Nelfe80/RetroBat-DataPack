@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 2048",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-2048",
+    hashes = {
+      { hash = "be1063151f68c58d712138c568c73c8b", label = "2048 (World) (Rev 5) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X025F, type="u8", condition="eq", value=0X05, action="GAME_OVER", desc="Stuck! (game over)" },
+      },
+    },
+  },
+}

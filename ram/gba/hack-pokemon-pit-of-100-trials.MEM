@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Pit of 100 Trials",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-pit-of-100-trials",
+    hashes = {
+      { hash = "63af39f8aca4b554de5ab19a9be82b85", label = "Pokemon Emerald - Pit of 100 Trials (v1.8.0 - No Debug) (Archie).gba" },
+    }
+  },
+
+  events = {
+  },
+}

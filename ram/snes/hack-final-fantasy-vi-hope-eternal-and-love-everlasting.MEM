@@ -1,0 +1,114 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VI: Hope Eternal and Love Everlasting",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-vi-hope-eternal-and-love-everlasting",
+    hashes = {
+      { hash = "1960361d6799e0159b82c1a922b3e426", label = "FFVI - Hope Eternal and Love Everlasting (v1.1) (Piggy Chan!).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1626, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X11E2, type="u16le", condition="change", action="NEW_LEVEL", desc="Battle Backgrounds" },
+      },
+      zone = {
+        { address=0X07FB, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Char data not on world map" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X11B0, type="u16le", condition="change", action="HIT", desc="Battle Damage" },
+        { address=0X2D74, type="u16le", condition="change", action="HIT", desc="Actual Damage dealt by last blow" },
+        { address=0X2D78, type="u16le", condition="change", action="HIT", desc="Actual Damage dealt by last blow" },
+        { address=0X2D7C, type="u16le", condition="change", action="HIT", desc="Actual Damage dealt by last blow" },
+        { address=0X3BF4, type="u16le", condition="increase", action="HEAL", desc="Char 1 in battle hP increased" },
+        { address=0X3BF4, type="u16le", condition="decrease", action="HIT", desc="Char 1 in battle hP decreased" },
+        { address=0X3BF6, type="u16le", condition="increase", action="HEAL", desc="Char 2 in battle hP increased" },
+        { address=0X3BF6, type="u16le", condition="decrease", action="HIT", desc="Char 2 in battle hP decreased" },
+        { address=0X3BF8, type="u16le", condition="increase", action="HEAL", desc="Char 3 in battle hP increased" },
+        { address=0X3BF8, type="u16le", condition="decrease", action="HIT", desc="Char 3 in battle hP decreased" },
+        { address=0X3BFA, type="u16le", condition="increase", action="HEAL", desc="Char 4 in battle hP increased" },
+        { address=0X3BFA, type="u16le", condition="decrease", action="HIT", desc="Char 4 in battle hP decreased" },
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 Health increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 Health decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="Enemy 2 Health increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="Enemy 2 Health decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="Enemy 3 Health increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="Enemy 3 Health decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="Enemy 4 Health increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="Enemy 4 Health decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="Enemy 5 Health increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="Enemy 5 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1E41, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E43, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E44, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E45, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E46, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E4A, type="u8", condition="change", action="TREASURE", desc="Treasures" },
+        { address=0X1E4B, type="u8", condition="change", action="TREASURE", desc="Treasures" },
+        { address=0X1E4C, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E4D, type="u8", condition="change", action="TREASURE", desc="Treasures" },
+        { address=0X1E50, type="u8", condition="change", action="TREASURE", desc="treasures" },
+        { address=0X1E51, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E53, type="u8", condition="change", action="TREASURE", desc="Treasure Bits" },
+        { address=0X1E59, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E5B, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E5E, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E5F, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E60, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+        { address=0X1E62, type="u8", condition="change", action="TREASURE", desc="Treasure Bits" },
+        { address=0X1E64, type="u8", condition="change", action="TREASURE", desc="Treasure bits" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1DD5, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit- Battles with curesed ring equipped increased" },
+        { address=0X1E40, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E42, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E47, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E48, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E4E, type="u8", condition="increase", action="COIN_GAIN", desc="Treasures increased" },
+        { address=0X1E4F, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E54, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure Bits increased" },
+        { address=0X1E55, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E56, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E57, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E58, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E5A, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure bits increased" },
+        { address=0X1E5C, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure Bits increased" },
+        { address=0X1E61, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure Bits increased" },
+        { address=0X1E63, type="u8", condition="increase", action="COIN_GAIN", desc="Treasure Bits increased" },
+        { address=0X1ECB, type="u8", condition="increase", action="COIN_GAIN", desc="Events - Treasure increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X00B5, type="u8", condition="eq", value=0X16, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X021C, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time(Minutes)" },
+        { address=0X021D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Time(Seconds)" },
+        { address=0X1E52, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Treasures bit" },
+      },
+    },
+  },
+}

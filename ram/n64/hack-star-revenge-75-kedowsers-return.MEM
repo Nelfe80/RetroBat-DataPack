@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Star Revenge 7.5: Kedowser's Return",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-star-revenge-75-kedowsers-return",
+    hashes = {
+      { hash = "05371aeaab97f5a02baa6bb286f5e541", label = "Star Revenge 7.5 - Kedowser's Revenge (Hack) (BroDute) (1.1).z64" },
+      { hash = "479f1e7ed8da3dc35256e517360e00a9", label = "Star Revenge 7.5 - Kedowser's Revenge (Hack) (BroDute) (1.0).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="Game paused or not" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X207713, type="u8", condition="change", action="LOSE_LIFE", desc="Course 5: Deadly Cave stars" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Mario's Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Mario's Health decreased" },
+        { address=0X33D60C, type="u8", condition="increase", action="HEAL", desc="Kedowser health increased" },
+        { address=0X33D60C, type="u8", condition="decrease", action="HIT", desc="Kedowser health decreased" },
+        { address=0X34376C, type="u8", condition="increase", action="HEAL", desc="Dorcha Wiggler health increased" },
+        { address=0X34376C, type="u8", condition="decrease", action="HIT", desc="Dorcha Wiggler health decreased" },
+        { address=0X343E8C, type="u8", condition="increase", action="HEAL", desc="Cirno (Big Boo) health increased" },
+        { address=0X343E8C, type="u8", condition="decrease", action="HIT", desc="Cirno (Big Boo) health decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X207706, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump Badge" },
+        { address=0X207706, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Triple Jump Badge" },
+        { address=0X207776, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump Badge" },
+        { address=0X207776, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Triple Jump Badge" },
+        { address=0X2077E6, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump Badge" },
+        { address=0X2077E6, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Triple Jump Badge" },
+        { address=0X207856, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Wall Jump Badge" },
+        { address=0X207856, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Triple Jump Badge" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Magenta Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Magenta Switch" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Magenta Switch" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Magenta Switch" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X34058C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timerock right hand HP" },
+        { address=0X3407EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timerock left hand HP" },
+      },
+    },
+  },
+}

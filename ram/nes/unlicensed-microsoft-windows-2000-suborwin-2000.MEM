@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Microsoft Windows 2000 | SuborWin 2000",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-microsoft-windows-2000-suborwin-2000",
+    hashes = {
+      { hash = "ed2d19f4a969e15f976dbdb4d9f625c5", label = "SuborWin 2000 (Russia) (Subor Keyboard) (Pirate).nes" },
+      { hash = "304b43929aca0213dc1290bcca3eb3a6", label = "Bravesoft Windows 2000 (Russia) (En) (v1.1) (Garrett Gilchrist).nes" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X01B4, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Screen Most of the Time" },
+      },
+    },
+  },
+}

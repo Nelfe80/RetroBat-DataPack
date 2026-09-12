@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ The Panda Prince",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-the-panda-prince",
+    hashes = {
+      { hash = "36c041fbdd93d53ae024a41244fef080", label = "Panda Prince, The (Asia) (En) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X006E, type="u8", condition="increase", action="GAIN_LIFE", desc="lives (BCD) max of 09 increased" },
+        { address=0X006E, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives (BCD) max of 09 decreased" },
+      },
+    },
+  },
+}

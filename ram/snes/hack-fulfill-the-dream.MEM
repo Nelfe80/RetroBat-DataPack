@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Fulfill the Dream",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-fulfill-the-dream",
+    hashes = {
+      { hash = "f2a9ee6fafc936562edaf6199ac81e35", label = "SMW - Fulfill the Dream (v2024-06-08) (Abstract).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X010B, type="u16le", condition="eq", value=0X00C7, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0153, action="CREDITS_SCREEN", desc="Credits screen 2" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0156, action="CREDITS_SCREEN", desc="Credits screen 3" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0157, action="CREDITS_SCREEN", desc="Credits screen 4" },
+        { address=0X010B, type="u16le", condition="eq", value=0X015E, action="CREDITS_SCREEN", desc="Credits screen 1" },
+        { address=0X010B, type="u16le", condition="eq", value=0X015F, action="CREDITS_SCREEN", desc="Credits screen 6 (ascending to heaven)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0906, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="Unfinished" },
+        { address=0X0906, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Finished" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="eq", value=0X06, action="LOSE_LIFE", desc="Loading after room transition/death" },
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Dead" },
+        { address=0X1B424, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X010B, type="u16le", condition="eq", value=0X0125, action="BOSS_HIT", desc="Intro boss" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X010B, type="u16le", condition="eq", value=0X00C5, action="JUMPING", no_log=true, no_survey=true, desc="Intro jump off cliff" },
+        { address=0X010B, type="u16le", condition="eq", value=0X0158, action="JUMPING", no_log=true, no_survey=true, desc="Credits screen 5 (jumping off cliff)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1434, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Keyhole timer" },
+      },
+    },
+  },
+}

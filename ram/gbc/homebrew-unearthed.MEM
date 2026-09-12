@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Unearthed",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-unearthed",
+    hashes = {
+      { hash = "09bc56a467f95a19a357174c5710db74", label = "Unearthed (World) (v1.3) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XCCE8, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level Moves" },
+        { address=0XCCED, type="u8", condition="change", action="LEVEL_CLEAR", desc="0 - Level can be complete" },
+        { address=0XCD04, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0XCD78, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 1 Moves" },
+        { address=0XCD79, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 2 Moves" },
+        { address=0XCD7A, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 3 Moves" },
+        { address=0XCD7B, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 4 Moves" },
+        { address=0XCD7C, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 5 Moves" },
+        { address=0XCD7D, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 6 Moves" },
+        { address=0XCD7E, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 12 Moves" },
+        { address=0XCD7F, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 12 Moves" },
+        { address=0XCD80, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 12 Moves" },
+        { address=0XCD85, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 7 Moves" },
+        { address=0XCD86, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 8 Moves" },
+        { address=0XCD87, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 9 Moves" },
+        { address=0XCD88, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 10 Moves" },
+        { address=0XCD89, type="u8", condition="change", action="NEW_LEVEL", desc="Neo-Taliv Level 11 Moves" },
+        { address=0XCD8A, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 1 Moves" },
+        { address=0XCD8B, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 2 Moves" },
+        { address=0XCD8C, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 3 Moves" },
+        { address=0XCD8D, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 4 Moves" },
+        { address=0XCD8E, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 5 Moves" },
+        { address=0XCD8F, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 6 Moves" },
+        { address=0XCD90, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 7 Moves" },
+        { address=0XCD91, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 8 Moves" },
+        { address=0XCD92, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 9 Moves" },
+        { address=0XCD93, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 10 Moves" },
+        { address=0XCD94, type="u8", condition="change", action="NEW_LEVEL", desc="Tov-6 Level 11 Moves" },
+        { address=0XCD95, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 1 Moves" },
+        { address=0XCD96, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 2 Moves" },
+        { address=0XCD97, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 3 Moves" },
+        { address=0XCD98, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 4 Moves" },
+        { address=0XCD99, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 5 Moves" },
+        { address=0XCD9A, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 6 Moves" },
+        { address=0XCD9B, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 7 Moves" },
+        { address=0XCD9C, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 8 Moves" },
+        { address=0XCD9D, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 9 Moves" },
+        { address=0XCD9E, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 10 Moves" },
+        { address=0XCD9F, type="u8", condition="change", action="NEW_LEVEL", desc="Gunpei Level 11 Moves" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCD72, type="u8", condition="increase", action="HEAL", desc="Neo-Taliv Energy Crystals increased" },
+        { address=0XCD72, type="u8", condition="decrease", action="HIT", desc="Neo-Taliv Energy Crystals decreased" },
+        { address=0XCD73, type="u8", condition="increase", action="HEAL", desc="Tov-6 Energy Crystals increased" },
+        { address=0XCD73, type="u8", condition="decrease", action="HIT", desc="Tov-6 Energy Crystals decreased" },
+        { address=0XCD84, type="u8", condition="increase", action="HEAL", desc="Gunpei Energy Crystals increased" },
+        { address=0XCD84, type="u8", condition="decrease", action="HIT", desc="Gunpei Energy Crystals decreased" },
+      },
+    },
+  },
+}

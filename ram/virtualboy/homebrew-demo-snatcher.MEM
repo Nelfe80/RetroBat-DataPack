@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Snatcher",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-snatcher",
+    hashes = {
+      { hash = "2999c7db49198890d5f1d4002563804e", label = "Snatcher (World) (Demo) (Aftermarket) (Unl).vb" },
+    }
+  },
+
+  events = {
+  },
+}

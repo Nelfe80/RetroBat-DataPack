@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Shudu",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-shudu",
+    hashes = {
+      { hash = "723a293e8a150a713e0eefef178b3685", label = "Shudo (China) (Bootleg) (Unl).unf" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X077F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Sudoku Timer - Minutes (Tens)" },
+        { address=0X0780, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] Sudoku Timer - Minutes (Ones)" },
+        { address=0X0781, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Sudoku Timer - Seconds (Tens)" },
+        { address=0X0782, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] Sudoku Timer - Seconds (Ones)" },
+      },
+    },
+  },
+}

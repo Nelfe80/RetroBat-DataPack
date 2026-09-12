@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pop Flamer",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "pop-flamer",
+    hashes = {
+      { hash = "7f841aa0c225662e26ca7a8df20b2eb8", label = "Pop Flamer (Japan, Europe, Australia, New Zealand) (En).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0004, type="u8", condition="eq", value=0X21, action="GAME_OVER", desc="Game Over" },
+        { address=0X0007, type="u8", condition="change", action="PAUSE_ON", desc="[Bit0] Game is Pause (Pressing Start)" },
+        { address=0X0012, type="u8", condition="bit_true", mask=0X20, action="GAME_OVER", desc="2P - P1 Game Over" },
+        { address=0X0012, type="u8", condition="bit_true", mask=0X40, action="GAME_OVER", desc="2P - P2 Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X001D, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit BCD] Current Level" },
+        { address=0X0031, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Last Balloon Check for the 1st level" },
+        { address=0X0034, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Last Balloon Check for the 3rd level" },
+        { address=0X0037, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Last Balloon Check for the 2nd level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0013, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Life +1 increased" },
+        { address=0X0013, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Life +1 decreased" },
+        { address=0X0015, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Lives increased" },
+        { address=0X0015, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0000, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16 Bit BE BCD] Top Score" },
+        { address=0X000C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[16 Bit BE BCD] Current Score" },
+        { address=0X0074, type="u8", condition="eq", value=0X20, action="SCORE_STATE", desc="Score" },
+      },
+    },
+  },
+}

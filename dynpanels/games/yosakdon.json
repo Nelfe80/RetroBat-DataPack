@@ -1,0 +1,809 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "yosakdon",
+  "game_name": "Yosaku To Donbei (set 1)",
+  "meta": {
+    "players": 2,
+    "alternating": 1,
+    "mirrored": 1,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "2-way Joystick (Horizontal)",
+          "type": "joy2wayhorizontal",
+          "raw": "2-way Joystick (Horizontal)+joy2way",
+          "codes": [
+            "joy2way"
+          ],
+          "color": "Blue",
+          "inputs": {
+            "left": {
+              "function": "Left",
+              "color": "Blue",
+              "output": "",
+              "mame": {
+                "input": "P1_LEFT",
+                "input_id": "P1_LEFT",
+                "label": "P1 Left",
+                "function": "p1_left",
+                "control_type": "misc",
+                "joystick_way": "",
+                "port_block": "runtime",
+                "tag": "CONTP1",
+                "mask": "0x2",
+                "mask_int": 2,
+                "defvalue": "0x2",
+                "defvalue_int": 2,
+                "default_raw": "",
+                "ipt": "",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 1,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "",
+                "mame_type": "49",
+                "mame_tag": ":CONTP1",
+                "cfg_tag": ":CONTP1",
+                "input_label": "P1 Left",
+                "input_function": "p1_left",
+                "type": "P1_LEFT",
+                "normalized_type": "P1_LEFT",
+                "tag_raw": ":CONTP1",
+                "mask_dec": 2,
+                "mask_hex": "0x0002",
+                "defvalue_dec": 2,
+                "defvalue_hex": "0x0002",
+                "runtime_tag": ":CONTP1",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "LEFT",
+                "retropad_id": 6,
+                "libretro_button": "left",
+                "fbneo_button": "left"
+              }
+            },
+            "right": {
+              "function": "Right",
+              "color": "Blue",
+              "output": "",
+              "mame": {
+                "input": "P1_RIGHT",
+                "input_id": "P1_RIGHT",
+                "label": "P1 Right",
+                "function": "p1_right",
+                "control_type": "misc",
+                "joystick_way": "",
+                "port_block": "runtime",
+                "tag": "CONTP1",
+                "mask": "0x4",
+                "mask_int": 4,
+                "defvalue": "0x4",
+                "defvalue_int": 4,
+                "default_raw": "",
+                "ipt": "",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 1,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "",
+                "mame_type": "50",
+                "mame_tag": ":CONTP1",
+                "cfg_tag": ":CONTP1",
+                "input_label": "P1 Right",
+                "input_function": "p1_right",
+                "type": "P1_RIGHT",
+                "normalized_type": "P1_RIGHT",
+                "tag_raw": ":CONTP1",
+                "mask_dec": 4,
+                "mask_hex": "0x0004",
+                "defvalue_dec": 4,
+                "defvalue_hex": "0x0004",
+                "runtime_tag": ":CONTP1",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "RIGHT",
+                "retropad_id": 7,
+                "libretro_button": "right",
+                "fbneo_button": "right"
+              }
+            }
+          },
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "yosakdon",
+            "tag": "IN0",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN0",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "yosakdon",
+            "tag": "IN0",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN0",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Fire",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "P1_BUTTON_1",
+            "input_id": "P1_BUTTON_1",
+            "label": "P1 Button 1",
+            "function": "p1_button_1",
+            "control_type": "misc",
+            "joystick_way": "",
+            "port_block": "runtime",
+            "tag": "CONTP1",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "",
+            "ipt": "",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "",
+            "mame_type": "60",
+            "mame_tag": ":CONTP1",
+            "cfg_tag": ":CONTP1",
+            "input_label": "P1 Button 1",
+            "input_function": "p1_button_1",
+            "type": "P1_BUTTON_1",
+            "normalized_type": "P1_BUTTON_1",
+            "tag_raw": ":CONTP1",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":CONTP1",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "2-way Joystick (Horizontal)",
+          "type": "joy2wayhorizontal",
+          "raw": "2-way Joystick (Horizontal)+joy2way",
+          "codes": [
+            "joy2way"
+          ],
+          "color": "Red",
+          "inputs": {
+            "left": {
+              "function": "Left",
+              "color": "Red",
+              "output": "",
+              "mame": {
+                "input": "P2_LEFT",
+                "input_id": "P2_LEFT",
+                "label": "P2 Left",
+                "function": "p2_left",
+                "control_type": "misc",
+                "joystick_way": "",
+                "port_block": "runtime",
+                "tag": "CONTP2",
+                "mask": "0x2",
+                "mask_int": 2,
+                "defvalue": "0x2",
+                "defvalue_int": 2,
+                "default_raw": "",
+                "ipt": "",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 2,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "",
+                "mame_type": "49",
+                "mame_tag": ":CONTP2",
+                "cfg_tag": ":CONTP2",
+                "input_label": "P2 Left",
+                "input_function": "p2_left",
+                "type": "P2_LEFT",
+                "normalized_type": "P2_LEFT",
+                "tag_raw": ":CONTP2",
+                "mask_dec": 2,
+                "mask_hex": "0x0002",
+                "defvalue_dec": 2,
+                "defvalue_hex": "0x0002",
+                "runtime_tag": ":CONTP2",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "LEFT",
+                "retropad_id": 6,
+                "libretro_button": "left",
+                "fbneo_button": "left"
+              }
+            },
+            "right": {
+              "function": "Right",
+              "color": "Red",
+              "output": "",
+              "mame": {
+                "input": "P2_RIGHT",
+                "input_id": "P2_RIGHT",
+                "label": "P2 Right",
+                "function": "p2_right",
+                "control_type": "misc",
+                "joystick_way": "",
+                "port_block": "runtime",
+                "tag": "CONTP2",
+                "mask": "0x4",
+                "mask_int": 4,
+                "defvalue": "0x4",
+                "defvalue_int": 4,
+                "default_raw": "",
+                "ipt": "",
+                "keycode": "",
+                "keycode_dec": "",
+                "keycode_inc": "",
+                "comment": "",
+                "player": 2,
+                "min": null,
+                "max": null,
+                "sensitivity": null,
+                "keydelta": null,
+                "centerdelta": null,
+                "full_turn_count": null,
+                "impulse": null,
+                "reverse": false,
+                "invert": false,
+                "reset": false,
+                "toggle": false,
+                "condition": "",
+                "mame_label": "",
+                "mame_type": "50",
+                "mame_tag": ":CONTP2",
+                "cfg_tag": ":CONTP2",
+                "input_label": "P2 Right",
+                "input_function": "p2_right",
+                "type": "P2_RIGHT",
+                "normalized_type": "P2_RIGHT",
+                "tag_raw": ":CONTP2",
+                "mask_dec": 4,
+                "mask_hex": "0x0004",
+                "defvalue_dec": 4,
+                "defvalue_hex": "0x0004",
+                "runtime_tag": ":CONTP2",
+                "source": "outputs_mame"
+              },
+              "panel_joystick": null,
+              "mapping": {
+                "retrobat_button": "RIGHT",
+                "retropad_id": 7,
+                "libretro_button": "right",
+                "fbneo_button": "right"
+              }
+            }
+          },
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {
+            "input": "START2",
+            "input_id": "START2",
+            "label": "2 Players Start",
+            "function": "2_players_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "yosakdon",
+            "tag": "IN0",
+            "mask": "0x2",
+            "mask_int": 2,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "IP_ACTIVE_HIGH",
+            "ipt": "IPT_START2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "2 Players Start",
+            "mame_type": "8",
+            "mame_tag": ":IN0",
+            "cfg_tag": ":IN0",
+            "input_label": "2 Players Start",
+            "input_function": "2_players_start",
+            "type": "START2",
+            "normalized_type": "START2",
+            "tag_raw": ":IN0",
+            "mask_dec": 2,
+            "mask_hex": "0x0002",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN0",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Fire",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "P2_BUTTON_1",
+            "input_id": "P2_BUTTON_1",
+            "label": "P2 Button 1",
+            "function": "p2_button_1",
+            "control_type": "misc",
+            "joystick_way": "",
+            "port_block": "runtime",
+            "tag": "CONTP2",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "",
+            "ipt": "",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "",
+            "mame_type": "60",
+            "mame_tag": ":CONTP2",
+            "cfg_tag": ":CONTP2",
+            "input_label": "P2 Button 1",
+            "input_function": "p2_button_1",
+            "type": "P2_BUTTON_1",
+            "normalized_type": "P2_BUTTON_1",
+            "tag_raw": ":CONTP2",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":CONTP2",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

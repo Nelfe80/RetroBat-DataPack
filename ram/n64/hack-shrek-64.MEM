@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shrek 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shrek-64",
+    hashes = {
+      { hash = "ff0a0ba7df2f9224da11da64da253b85", label = "SM64 - Shrek 64 (v1.1) (Blakeoramo).z64" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Batman: Revenge of the Joker",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "prototype-batman-revenge-of-the-joker",
+    hashes = {
+      { hash = "ac85c4f7a23eb02b87a9900e6538b84c", label = "Batman - Revenge of the Joker (USA) (Proto).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0003, type="u8", condition="eq", value=0X01, action="GAME_PLAYING", desc="Stage Clear" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0003, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Stage Clear" },
+        { address=0X1151, type="u8", condition="change", action="NEW_LEVEL", desc="Batman Power Level" },
+        { address=0X1152, type="u8", condition="change", action="NEW_LEVEL", desc="Batman Power Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0353, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Bar / Power Level increased" },
+        { address=0X0353, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Bar / Power Level decreased" },
+        { address=0X0355, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Bar / Power Level increased" },
+        { address=0X0355, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Bar / Power Level decreased" },
+        { address=0X0356, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0356, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0BB2, type="u8", condition="increase", action="GAIN_LIFE", desc="Joker Boss Life increased" },
+        { address=0X0BB2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Joker Boss Life decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1142, type="u8", condition="change", action="BOSS_HIT", desc="Boss Power Level" },
+        { address=0X1154, type="u8", condition="change", action="BOSS_HIT", desc="Final Boss Power Level" },
+      },
+    },
+  },
+}

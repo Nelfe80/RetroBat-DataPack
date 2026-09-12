@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Where in Hell is Carmen Santiago?",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-where-in-hell-is-carmen-santiago",
+    hashes = {
+      { hash = "fd57e7627fec7a3e889d2342653fc180", label = "Where in Hell is Carmen Santiago (1990) (St. John M. Morrison).po" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X6AC2, type="u32le", condition="eq", value=0X6, action="MONEY_STATE", desc="Plutus the God of Money" },
+      },
+    },
+  },
+}

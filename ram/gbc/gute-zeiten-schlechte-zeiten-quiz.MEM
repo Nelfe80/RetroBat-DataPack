@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gute Zeiten, Schlechte Zeiten: Quiz",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Quiz"
+  },
+
+  rom = {
+    name = "gute-zeiten-schlechte-zeiten-quiz",
+    hashes = {
+      { hash = "a9cc81bffb2d1d3a9caa38f04e6f6c1d", label = "Gute Zeiten Schlechte Zeiten Quiz (Germany) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC39D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscores - 1st Place" },
+        { address=0XC3AD, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscores - 2nd Place" },
+        { address=0XC3BD, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscores - 3rd Place" },
+        { address=0XC3CD, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscores - 4th Place" },
+        { address=0XC3DD, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Highscores - 5th Place" },
+      },
+    },
+  },
+}

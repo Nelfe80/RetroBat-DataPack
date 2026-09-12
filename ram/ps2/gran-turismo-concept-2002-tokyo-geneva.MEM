@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gran Turismo Concept: 2002 Tokyo-Geneva",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "gran-turismo-concept-2002-tokyo-geneva",
+    hashes = {
+      { hash = "8bce53fb86f93ff68e4ff2063a8dfc6f", label = "Gran Turismo Concept - 2002 Tokyo-Geneva (Europe) (En,Fr,De,Es,It,Pt)" },
+      { hash = "afde813b3c828acb49dccaaf46ef8358", label = "Gran Turismo - Concept 2002 Tokyo-Geneva (Asia) (En,Zh)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2BC5FC, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X2BC5FC, type="u16le", condition="change", action="RANK_STATE", desc="[PAL] [32 Bit] Pointers" },
+        { address=0X2BCB7C, type="u16le", condition="change", action="RANK_STATE", desc="[NTSC] [32 Bit] Pointer" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X336A68, type="u32le", condition="eq", value=0X1D, action="MONEY_STATE", desc="Gold - License" },
+        { address=0X337268, type="u32le", condition="eq", value=0X1D, action="MONEY_STATE", desc="Gold - License" },
+        { address=0XA31F70, type="u32le", condition="eq", value=0X00, action="COIN_GAIN", desc="Gold (Increase Percentage for obtaining gold)" },
+        { address=0XA333C0, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Normal Trophy - Autumn Ring increased" },
+        { address=0XA33424, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Normal Trophy - Autumn Ring II increased" },
+        { address=0XA33488, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Professional Trophy - Autumn Ring increased" },
+        { address=0XA334EC, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Professional Trophy - Autumn Ring II increased" },
+        { address=0XA33550, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Ace Trophy - Autumn Ring increased" },
+        { address=0XA335B4, type="u32le", condition="increase", action="COIN_GAIN", desc="[PAL] [32 Bit] Ace Trophy - Autumn Ring II increased" },
+        { address=0XA40540, type="u16le", condition="eq", value=0X04, action="MONEY_STATE", desc="Autumn Ring" },
+        { address=0XA40540, type="u16le", condition="eq", value=0X09, action="MONEY_STATE", desc="Autumn Ring II" },
+        { address=0XA76C80, type="u16le", condition="eq", value=0X04, action="MONEY_STATE", desc="Autumn Ring" },
+        { address=0XA76C80, type="u16le", condition="eq", value=0X09, action="MONEY_STATE", desc="Autumn Ring II" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3373A0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[PAL] [32 Bit] Pointers" },
+        { address=0X337BA0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[NTSC] [32 Bit] Pointers" },
+      },
+    },
+  },
+}

@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 2nd Hacking Competition: Slide",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-2nd-hacking-competition-slide",
+    hashes = {
+      { hash = "8374a7103a911c1fd03d24192c54c614", label = "SM64 - Astroslide (v1.1) (Nebula).z64" },
+      { hash = "34102d56d499520fffdd37d8025cd5ee", label = "SM64 - Bowser Revenge Slide (Abel_Rivera).z64" },
+      { hash = "1213636bd8ea3c4ecea908c78316a904", label = "SM64 - Bowser's Castle Break-In (v1.1) (Daniel_EDC).z64" },
+      { hash = "8a0f309c4b44bc7d9ec424e27fa39a38", label = "SM64 - Bowser's Castle Slide (LowPolySM64).z64" },
+      { hash = "5ac9f73e0c81d8959ae08fe876940599", label = "SM64 - Cascade Slide (GomePlayTV).z64" },
+      { hash = "29d3b06382577c95446f68405c149b08", label = "SM64 - Casino Bingo Slide (aglab2).z64" },
+      { hash = "b5252a36f1fbddcda40190925b4fc1b1", label = "SM64 - Crab's Carniva (CrabsForBreakfast).z64" },
+      { hash = "d8a4d26bbd6381d4142e74b5c9a7a3ae", label = "SM64 - Desert Bus 64 (JustSwell).z64" },
+      { hash = "9fd3620b342af51eb6c682f6cb6dfd59", label = "SM64 - Dragon Slide (Janja).z64" },
+      { hash = "0f9475bb6c12bde8994f710885271841", label = "SM64 - Egg Slide (Felegg).z64" },
+      { hash = "d7473a51e56fc3e490355644c0babff0", label = "SM64 - Nataniel Bendi but Is for the Other Competition (Davide).z64" },
+      { hash = "c6533ba2a4b825ac94cf7827d41454e2", label = "SM64 - Night of Knights (FireMario74).z64" },
+      { hash = "730ccfd7f9bd76e0bcbd9524d4f3cb67", label = "SM64 - Sand Bird's Water Slide (Dreadnought).z64" },
+      { hash = "b92d255c70d26dcbe409a6a73605f7dd", label = "SM64 - Sandy Spire Slide (v1.1) (usernamesarespiders).z64" },
+      { hash = "363569f928a9a5a30646634c5db36667", label = "SM64 - Scuttle Slide (jesusyoshi54).z64" },
+      { hash = "b2d53b82691c46a658aa6ee9ca1d4a45", label = "SM64 - ScuttlePirate Bandy's Revenge (Alkamyst).z64" },
+      { hash = "8d9c49fc58dc78ffe96acc677e2e9dd5", label = "SM64 - Simple Slide 64 (Cheezepin).z64" },
+      { hash = "31658c432ea4ba25771b0389639c7515", label = "SM64 - Simple's Nightmare (MrComit).z64" },
+      { hash = "a799a5073662b6bacffd3bacdaa5c862", label = "SM64 - SimpleSlips (RomanNoodles).z64" },
+      { hash = "5339e98340fd9bca1d2d6ece6fcabf29", label = "SM64 - Slide (Cramer).z64" },
+      { hash = "2094fd89f4e19b1f6c7491fd7284c11b", label = "SM64 - Slide from Upside-Down Land (addq24).z64" },
+      { hash = "0d1c0277f7251fe1535cf019e0631f23", label = "SM64 - Slide Skies (Console Compatible) (Buggy).z64" },
+      { hash = "a91c4e1b8f032ba0c1913a78f9e6f84c", label = "SM64 - Super Mario 64 Racing (Kaze).z64" },
+      { hash = "74c19b85fc3b11bd67479e82b1ccbb23", label = "SM64 - Super Mario and the Land of Sliding Stars (Cilletix).z64" },
+      { hash = "5e1d00edc5041db0c50aca481dde2271", label = "SM64 - Super Simple Slide (AwesomeAugust).z64" },
+      { hash = "74544c87204618fb15cdb12389b52bf2", label = "SM64 - Weird Snake Dimension (Rycuda).z64" },
+    }
+  },
+
+  events = {
+  },
+}

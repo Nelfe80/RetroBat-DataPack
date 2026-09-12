@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Imperium",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-imperium",
+    hashes = {
+      { hash = "b1cf145a9c92303a7990e1904602c1e1", label = "Pokemon Emerald - Emerald Imperium (v1.3.1) (iriv24).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0B6A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="In-game Timer" },
+      },
+    },
+  },
+}

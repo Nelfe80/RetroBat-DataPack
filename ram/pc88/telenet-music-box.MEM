@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Telenet Music Box",
+    system = "pc88",
+    system_name = "PC-8000/8800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "telenet-music-box",
+    hashes = {
+      { hash = "0e03bc5a0ca5d3756d154f1de40f9876", label = "Telenet Music Box (Disk B).d88" },
+      { hash = "bbfdb481c69c5f58a227da667adbcd16", label = "Telenet Music Box (Disk A).d88" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X8FD4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="current track playtime (secs, hex)" },
+        { address=0XCF38, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Repeat time second digit" },
+      },
+    },
+  },
+}

@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ I Wanna Be The ROM Hack: Prototype",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-i-wanna-be-the-rom-hack-prototype",
+    hashes = {
+      { hash = "7189e66ef464746173a15907c1f42a56", label = "SMW - I Wanna Be the ROM Hack (v1.01) (Stivi).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2010B, type="u16le", condition="change", action="NEW_LEVEL", desc="Screen ID; this can mostly be used as a level identifier. 'Screens' consist of multiple rooms; a" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2A420, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths; ten thousands place (x10,000)" },
+        { address=0X2A421, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths; thousands place (x1,000)" },
+        { address=0X2A422, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths; hundreds place (x100)" },
+        { address=0X2A423, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths; tens place (x10)" },
+        { address=0X2A424, type="u8", condition="change", action="LOSE_LIFE", desc="Deaths; ones place (x1)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X20DD9, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP display" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X20F42, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Boss checkpoint status" },
+        { address=0X2A403, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Current checkpoint" },
+        { address=0X3A002, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint of saved game" },
+      },
+    },
+  },
+}

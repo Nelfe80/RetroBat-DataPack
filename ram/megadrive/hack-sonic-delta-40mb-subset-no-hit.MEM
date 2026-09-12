@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic Delta 40Mb [Subset - No Hit]",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-delta-40mb-subset-no-hit",
+    hashes = {
+      { hash = "6492890bcd9d64aac7da004ac1252296", label = "Sonic Delta (v064) [Subset - Bonus].md" },
+    }
+  },
+
+  events = {
+  },
+}

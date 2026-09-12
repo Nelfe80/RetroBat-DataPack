@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Animal Crossing Clock",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "animal-crossing-clock",
+    hashes = {
+      { hash = "8d59002da89726d6550e76a39b201ea3", label = "Animal Crossing Clock (Europe, Australia) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X463F54, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Energy Saving" },
+        { address=0X463F54, type="u16le", condition="eq", value=0X12C, action="HEALTH_STATE", no_log=true, desc="5 min." },
+        { address=0X463F54, type="u16le", condition="eq", value=0XE10, action="HEALTH_STATE", no_log=true, desc="1 hr." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X463FA0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Screen ID" },
+      },
+    },
+  },
+}

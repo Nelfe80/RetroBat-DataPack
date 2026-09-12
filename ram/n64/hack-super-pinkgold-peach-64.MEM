@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Pinkgold Peach 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-pinkgold-peach-64",
+    hashes = {
+      { hash = "2092672334710b0244418810c8a98cc0", label = "SM64 - Pinkgold Peach (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+  },
+}

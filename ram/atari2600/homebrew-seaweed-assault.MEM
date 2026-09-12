@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Seaweed Assault",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-seaweed-assault",
+    hashes = {
+      { hash = "3034532daf80997f752aee680d2e7fc3", label = "Seaweed Assault (NTSC) (Aftermarket) (Duane Alan Hahn).a26" },
+      { hash = "c7765a3af7ff156e18a970d5b9eb4f85", label = "Seaweed Assault (PAL60) (Aftermarket) (Duane Alan Hahn).a26" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X0013, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Score [24-bit BE BCD]" },
+      },
+    },
+  },
+}

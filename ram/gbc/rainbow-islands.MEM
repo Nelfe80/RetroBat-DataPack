@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rainbow Islands",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "rainbow-islands",
+    hashes = {
+      { hash = "3c3f9f06b791df796b55ac94f2188ff2", label = "Rainbow Islands (Europe) (En,Fr,De,Es,It).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XC156, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage value" },
+      },
+    },
+  },
+}

@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 16-Bit Rhythm Land",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-16-bit-rhythm-land",
+    hashes = {
+      { hash = "43d1341ba30dc3a19ecf8a3cd75245cb", label = "16Bit Rhythm Land (Japan) (En) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X04EF, type="u8", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="credits" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X01FA, type="u8", condition="change", action="SHIELD_GAIN", desc="melodian shield" },
+        { address=0X01FC, type="u8", condition="change", action="SHIELD_GAIN", desc="melodian shield" },
+        { address=0X01FE, type="u8", condition="change", action="SHIELD_GAIN", desc="melodian shield" },
+        { address=0X0200, type="u8", condition="change", action="SHIELD_GAIN", desc="melodian shield" },
+        { address=0X03D6, type="u8", condition="eq", value=0X00, action="SHIELD_GAIN", desc="battle of glory" },
+        { address=0X03D6, type="u8", condition="eq", value=0X01, action="SHIELD_GAIN", desc="silver lining" },
+        { address=0X03D6, type="u8", condition="eq", value=0X02, action="SHIELD_GAIN", desc="ryusei kumikyoku" },
+        { address=0X03D6, type="u8", condition="eq", value=0X03, action="SHIELD_GAIN", desc="final defence" },
+        { address=0X03D6, type="u8", condition="eq", value=0X04, action="SHIELD_GAIN", desc="technogizer" },
+        { address=0X03D9, type="u8", condition="change", action="SHIELD_GAIN", desc="melodian shield difficulty" },
+        { address=0X052B, type="u8", condition="eq", value=0X02, action="SHIELD_GAIN", desc="melodain shield" },
+      },
+    },
+  },
+}

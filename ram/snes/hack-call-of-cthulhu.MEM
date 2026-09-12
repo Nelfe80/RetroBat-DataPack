@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Call of Cthulhu",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-call-of-cthulhu",
+    hashes = {
+      { hash = "eab81eff615b4fa1a2f16c8048daf03a", label = "SMW - Call of Cthulhu (Yashum).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X141A, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of Areas loaded in the same Level (when you enter a level)" },
+        { address=0X19C5, type="u8", condition="change", action="NEW_LEVEL", desc="Next Level ID to Load (Used just in a few IDs)" },
+        { address=0X19C5, type="u8", condition="eq", value=0X6A, action="NEW_LEVEL", desc="The End" },
+        { address=0X19C5, type="u8", condition="eq", value=0X6B, action="NEW_LEVEL", desc="Bad Ending" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0F34, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Player Score (32-bit)" },
+      },
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X13D3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="cooldown", timer_direction="unknown", timer_unit="unknown", desc="Pause Cooldown Timer (used handle not spamming pausing the game)" },
+        { address=0X14AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer - P Switch" },
+      },
+    },
+  },
+}

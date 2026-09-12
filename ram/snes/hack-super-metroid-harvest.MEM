@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Harvest",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-harvest",
+    hashes = {
+      { hash = "44a95ad23b31d1387dccf5a1a3b8b15f", label = "Super Metroid - Harvest (1.9.2) (Oi27).sfc" },
+      { hash = "9151ba6df15cd2bd14665dcb6df18684", label = "Super Metroid - Harvest (1.9.2) (No Copyright Music) (Oi27).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X09C2, type="u8", condition="increase", action="HEAL", desc="[8bit] Current Energy increased" },
+        { address=0X09C2, type="u8", condition="decrease", action="HIT", desc="[8bit] Current Energy decreased" },
+        { address=0X09C3, type="u8", condition="increase", action="HEAL", desc="[8bit] Current Energy (Roll overs) increased" },
+        { address=0X09C3, type="u8", condition="decrease", action="HIT", desc="[8bit] Current Energy (Roll overs) decreased" },
+        { address=0X09C4, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Energy increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Energy decreased" },
+        { address=0X09C5, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Energy (Roll overs) increased" },
+        { address=0X09C5, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Energy (Roll overs) decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X09D2, type="u8", condition="eq", value=0X1, action="WEAPON_STATE", no_log=true, desc="Missiles" },
+        { address=0X09D2, type="u8", condition="eq", value=0X2, action="WEAPON_STATE", no_log=true, desc="Super Missiles" },
+        { address=0X09D2, type="u8", condition="eq", value=0X3, action="WEAPON_STATE", no_log=true, desc="Power Bomb" },
+        { address=0X09D2, type="u8", condition="eq", value=0X4, action="WEAPON_STATE", no_log=true, desc="Grappling Beam" },
+        { address=0X09D2, type="u8", condition="eq", value=0X5, action="WEAPON_STATE", no_log=true, desc="X-Ray" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0998, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Game State" },
+      },
+    },
+  },
+}

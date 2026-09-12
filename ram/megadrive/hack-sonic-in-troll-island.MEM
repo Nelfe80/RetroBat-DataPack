@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic in Troll Island",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-in-troll-island",
+    hashes = {
+      { hash = "20b006eef4f75d655bf02f72d13a03f2", label = "Sonic 1 - Sonic in Troll Island (MatheusBrancoBS).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD049, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continue screen flag." },
+        { address=0XFB40, type="u32be", condition="change", action="CREDITS_SCREEN", desc="Placeholder addr 2 (Screen ID): An addr which turns to be useful to differ very similar screens" },
+        { address=0XFE0E, type="u16be", condition="change", action="PAUSE_ON", desc="Internal FPS of the game. It works even with the game paused and resets after value 0xFFFF. It m" },
+        { address=0XFFF0, type="u8", condition="change", action="DEMO_MODE", desc="Demo Mode flag." },
+        { address=0XFFF4, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits cutscene sequence ID:" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFF82, type="u8", condition="change", action="NEW_LEVEL", desc="Line tracker select on Level Select screen:" },
+        { address=0XFFE1, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select flag." },
+      },
+      stage = {
+        { address=0XAA01, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Act loading flag." },
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Act ID cycle. Usually, value range is 0x00 (Act 1) to 0x02 (Act 3):" },
+        { address=0XFE11, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Zone ID cycle. Usually, value range is 0x00 (Troll Hill Zone) to 0x05 (The Factory Zone):" },
+        { address=0XFE17, type="u8", condition="change", action="STAGE_SELECT", desc="Special Stage ID cycle:" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD003, type="u8", condition="change", action="LOSE_LIFE", desc="Sonic death detector." },
+        { address=0XF01A, type="u16le", condition="increase", action="GAIN_LIFE", desc="Background Music string ID. Changes everytime when BGM gets changed. increased" },
+        { address=0XF01A, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Background Music string ID. Changes everytime when BGM gets changed. decreased" },
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Sonic Life Indicator left. increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Sonic Life Indicator left. decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFE56, type="u8", condition="change", action="TREASURE", desc="Carica Emerald count." },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFE28, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Sonic CURRENT score. Value on HUD (Heads Up Display) is multiplied by 10 in comparison to value" },
+      },
+      collectibles = {
+        { address=0XF7CC, type="u8", condition="increase", action="COIN_GAIN", desc="Ending stage flag AFTER entered Special Stage: Get the Big Ring. increased" },
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="Sonic ring count. increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XFE2D, type="u8", condition="change", action="SHIELD_GAIN", desc="Sonic shield flag." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF7D0, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Bounce Combo Counter." },
+        { address=0XFE14, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Sonic remaining Air time. Resets when a bubble is caught." },
+        { address=0XFE19, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continue remaining counter." },
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time on HUD indicating Minutes." },
+        { address=0XFE24, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time indicating Centiseconds but isn't showed on game's HUD. It's counting internallly to define" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time on HUD indicating Seconds." },
+        { address=0XFFF2, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Demo cycle ID. It memorizes which demoplay will come next time when idling on Title Screen:" },
+      },
+    },
+  },
+}

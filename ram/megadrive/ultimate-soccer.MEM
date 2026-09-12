@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ultimate Soccer",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "ultimate-soccer",
+    hashes = {
+      { hash = "3426fc8802e1a385dc227b9dde59cbe4", label = "Ultimate Soccer (Europe) (En,Fr,De,Es,It).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFFFF, type="u8", condition="change", action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X10EA, type="u8", condition="change", action="LEVEL_CLEAR", desc="1P Goals" },
+        { address=0X10EC, type="u8", condition="change", action="LEVEL_CLEAR", desc="2P/CPU Goals" },
+      },
+    },
+  },
+}

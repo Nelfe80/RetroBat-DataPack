@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Green Demon Challenge",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-green-demon-challenge",
+    hashes = {
+      { hash = "e9dd0b7adf0193f444a718be230e565b", label = "SM64 - Green Demon Challenge (v2.0) (IngoH).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X20777C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="same stars per stage as above; file B" },
+        { address=0X2077EC, type="u8", condition="change", action="PROGRESSION_STAGE", desc="same stars per stage as above; file C" },
+        { address=0X20785C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="same stars per stage as above; file D" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X207718, type="u8", condition="increase", action="COIN_GAIN", desc="BitDW red coins bit 0 increased" },
+        { address=0X20771C, type="u8", condition="increase", action="COIN_GAIN", desc="CotMC red coins bit 0 increased" },
+        { address=0X20771E, type="u8", condition="increase", action="COIN_GAIN", desc="BitS red coins bit 0 increased" },
+        { address=0X20771F, type="u8", condition="increase", action="COIN_GAIN", desc="BitFS red coins bit 0 increased" },
+        { address=0X207720, type="u8", condition="increase", action="COIN_GAIN", desc="SA red coins bit 0 increased" },
+        { address=0X207721, type="u8", condition="increase", action="COIN_GAIN", desc="WMOtR red coins bit 0 increased" },
+        { address=0X207722, type="u8", condition="increase", action="COIN_GAIN", desc="VCUtM red coins bit 0 increased" },
+        { address=0X207723, type="u8", condition="increase", action="COIN_GAIN", desc="TotWC red coins bit 0 increased" },
+        { address=0X333223, type="u8", condition="increase", action="COIN_GAIN", desc="when a blue coin switch is active, 01 increased" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="coin count increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 1 - wing switch" },
+      },
+    },
+  },
+}

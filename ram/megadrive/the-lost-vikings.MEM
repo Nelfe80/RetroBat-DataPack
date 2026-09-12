@@ -1,0 +1,69 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Lost Vikings",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "the-lost-vikings",
+    hashes = {
+      { hash = "89215f8bda92b66bf50f6aeed4dcf3aa", label = "Lost Vikings, The (USA) (November, 1993) (Ru) (Shedevr).md" },
+      { hash = "a8dcb5476855a83702e2f49ebd4e2d57", label = "Lost Vikings, The (USA) (November, 1993).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X83B9, type="u8", condition="change", action="DEMO_MODE", desc="Bit 7:1 - demo mode" },
+        { address=0XFEEF, type="u8", condition="change", action="PAUSE_ON", desc="Pause/item menu detect (for 150 frame-aim achievement)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9A3E, type="u8", condition="change", action="NEW_LEVEL", desc="Level number (00-29)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1F70, type="u8", condition="increase", action="HEAL", desc="Erik - Full normal HP detect (f6:full) increased" },
+        { address=0X1F70, type="u8", condition="decrease", action="HIT", desc="Erik - Full normal HP detect (f6:full) decreased" },
+        { address=0X1F82, type="u8", condition="increase", action="HEAL", desc="Baleog - Full normal HP detect (f6:full) increased" },
+        { address=0X1F82, type="u8", condition="decrease", action="HIT", desc="Baleog - Full normal HP detect (f6:full) decreased" },
+        { address=0X1F94, type="u8", condition="increase", action="HEAL", desc="Olaf - Full normal HP detect (f6:full) increased" },
+        { address=0X1F94, type="u8", condition="decrease", action="HIT", desc="Olaf - Full normal HP detect (f6:full) decreased" },
+        { address=0X8414, type="u8", condition="increase", action="HEAL", desc="Erik - shield HP increased" },
+        { address=0X8414, type="u8", condition="decrease", action="HIT", desc="Erik - shield HP decreased" },
+        { address=0X8416, type="u8", condition="increase", action="HEAL", desc="Baleog - shield HP increased" },
+        { address=0X8416, type="u8", condition="decrease", action="HIT", desc="Baleog - shield HP decreased" },
+        { address=0X8418, type="u8", condition="increase", action="HEAL", desc="Olaf - shield HP increased" },
+        { address=0X8418, type="u8", condition="decrease", action="HIT", desc="Olaf - shield HP decreased" },
+        { address=0X908E, type="u8", condition="increase", action="HEAL", desc="Erik HP (normal plus shield) increased" },
+        { address=0X908E, type="u8", condition="decrease", action="HIT", desc="Erik HP (normal plus shield) decreased" },
+        { address=0X9090, type="u8", condition="increase", action="HEAL", desc="Baleog HP (normal plus shield) increased" },
+        { address=0X9090, type="u8", condition="decrease", action="HIT", desc="Baleog HP (normal plus shield) decreased" },
+        { address=0X9092, type="u8", condition="increase", action="HEAL", desc="Olaf HP (normal plus shield) increased" },
+        { address=0X9092, type="u8", condition="decrease", action="HIT", desc="Olaf HP (normal plus shield) decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X832C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X832E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X832F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8330, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8331, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8332, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8333, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8334, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8335, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8336, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X8337, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Active objects bits (0:active, 1:not active)" },
+        { address=0X9AB1, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switches (bits)" },
+      },
+    },
+  },
+}

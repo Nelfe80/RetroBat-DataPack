@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Pokémon Stadium",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-pokemon-stadium",
+    hashes = {
+      { hash = "9bbb0854eed833fb3f7bbe34346782fe", label = "Pokemon Stadium (Taiwan) (En) (Unl) (Crash Fix).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XEB06, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Versus (Demo when 0xeb02 is 0)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XD2CC, type="u8", condition="increase", action="HEAL", desc="Opponent Max Health increased" },
+        { address=0XD2CC, type="u8", condition="decrease", action="HIT", desc="Opponent Max Health decreased" },
+        { address=0XD2D0, type="u8", condition="increase", action="HEAL", desc="Opponent Current Health increased" },
+        { address=0XD2D0, type="u8", condition="decrease", action="HIT", desc="Opponent Current Health decreased" },
+        { address=0XDCCC, type="u8", condition="increase", action="HEAL", desc="Player Max Health increased" },
+        { address=0XDCCC, type="u8", condition="decrease", action="HIT", desc="Player Max Health decreased" },
+        { address=0XDCD0, type="u8", condition="increase", action="HEAL", desc="Player Current Health increased" },
+        { address=0XDCD0, type="u8", condition="decrease", action="HIT", desc="Player Current Health decreased" },
+      },
+    },
+  },
+}

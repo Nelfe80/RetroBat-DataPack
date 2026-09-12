@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Bomba Patch 4",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-bomba-patch-4",
+    hashes = {
+      { hash = "7122bc41e5ceac719aee1e261bc615de", label = "World Soccer Winning Eleven 10 - Bomba Patch (v4.1) (GeoMatrix)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC8054C, type="u8", condition="change", action="LEVEL_CLEAR", desc="GOAL" },
+      },
+    },
+  },
+}

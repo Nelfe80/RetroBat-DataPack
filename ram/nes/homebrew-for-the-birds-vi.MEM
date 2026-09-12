@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ For the Birds VI",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-for-the-birds-vi",
+    hashes = {
+      { hash = "3d7cc776f49e770a914ff62994457278", label = "For the Birds VI (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0014, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X0014, type="u8", condition="change", action="HEALTH_STATE", desc="Health" },
+        { address=0X0014, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", desc="1HP" },
+        { address=0X0014, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", desc="Full Health" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0007, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="First Boss" },
+        { address=0X0007, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Second Boss" },
+        { address=0X0007, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Third Boss (negabird)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00B4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time Remaining (0X)" },
+      },
+    },
+  },
+}

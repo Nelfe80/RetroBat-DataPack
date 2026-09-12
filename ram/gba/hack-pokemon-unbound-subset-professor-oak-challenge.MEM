@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Unbound [Subset - Professor Oak Challenge]",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-unbound-subset-professor-oak-challenge",
+    hashes = {
+      { hash = "ba7c443cf7da00e1bbf7d3ffce305dcf", label = "Pokemon Unbound [Subset - Professor Oak Challenge].gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8014, type="u16le", condition="change", action="NEW_LEVEL", desc="Safari Zone Pokemon ID (16-bit)" },
+        { address=0X3EE0E, type="u16le", condition="eq", value=0X00BB, action="NEW_LEVEL", desc="Safari Zone" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="Pokemon Slot 1 Current Health (16-bit) increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="Pokemon Slot 1 Current Health (16-bit) decreased" },
+      },
+    },
+  },
+}

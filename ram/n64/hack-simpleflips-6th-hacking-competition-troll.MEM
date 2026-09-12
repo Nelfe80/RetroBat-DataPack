@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ SimpleFlips' 6th Hacking Competition: Troll",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-simpleflips-6th-hacking-competition-troll",
+    hashes = {
+      { hash = "044a26b0cd5d948ff2780e38292b120a", label = "02 - Hackerman 64 (falcobuster).z64" },
+      { hash = "0d69e985bc926b117f2a59705aaaa6b8", label = "08 - Jet Eriksen's GBJ Kingdom (1 2 luma).z64" },
+      { hash = "0fff2ed8f039a35486d72a65744ad18f", label = "18 - BS (64) (GraymonDGT).z64" },
+      { hash = "1096f77438e26cf1ba406c2e0cc7e858", label = "04 - SimpleTricks (anonymous_moose).z64" },
+      { hash = "53625bf3b30e1cf9b5e2da19c6f704f5", label = "14 - Lost in the Hole (Scyhigh).z64" },
+      { hash = "59a99eee090fb6670b9776bdbb5c0403", label = "15 - A Troll Hack (IngoH).z64" },
+      { hash = "6df16a3f7e9980b7f93b0f43aa21f041", label = "09 - Note Block Troll Run (ANewChallengerApproaches).z64" },
+      { hash = "75fdc4ca82d857f9be88a6ba2adb331c", label = "12 - Shadow the Hedgehog (Myleszey).z64" },
+      { hash = "7886caef4427b47e95ce06df1a407bcf", label = "03 - The 2000 IQ Super Quiz! (Biobak).z64" },
+      { hash = "7bd652f42b880e689994e8151c930cb8", label = "01 - romhackdotexe (Felegg).z64" },
+      { hash = "7f4e65ed9745ada799509dc386a91c66", label = "17 - Thing I Threw Together in 2 Hours (Omega_Merk).z64" },
+      { hash = "7fd781983133a617586bc7d98cf2437a", label = "11 - Troll Museum (hamius8000).z64" },
+      { hash = "811381a28f5c79eb98386e342efa9dad", label = "10 - Sand Temple Scamper (usernamesarespiders).z64" },
+      { hash = "99638256f1b1fb83ee72c15d1d977e9a", label = "16 - Super Mario Colorless (RainbowKappaMC).z64" },
+      { hash = "cc3917c0228c7975cc846580f666c9a9", label = "06 - GBJ Fortress (Luigiman04).z64" },
+      { hash = "f1531d805b8917b18da17be2acc210a9", label = "07 - Softboy's Playground (Kahan).z64" },
+      { hash = "f97c925ab41604467af91eb9ed943cad", label = "13 - Bridge City (Addq24).z64" },
+      { hash = "fd16b7bbfa78dfc4f91089bf27f117c1", label = "05 - You BLJ'd to the Wrong Hack (MrComit).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coins (16bit) increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+      },
+    },
+  },
+}

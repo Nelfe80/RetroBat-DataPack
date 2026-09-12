@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tiny Toon Adventures: Plucky's Big Adventure",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "tiny-toon-adventures-pluckys-big-adventure",
+    hashes = {
+      { hash = "894970cedb468331b16d9bf019792796", label = "Tiny Toon Adventures - Plucky's Big Adventure (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X7CB12, type="u32le", condition="increase", action="HEAL", desc="Babs Health increased" },
+        { address=0X7CB12, type="u32le", condition="decrease", action="HIT", desc="Babs Health decreased" },
+        { address=0X7D8FA, type="u32le", condition="increase", action="HEAL", desc="Hampton Health increased" },
+        { address=0X7D8FA, type="u32le", condition="decrease", action="HIT", desc="Hampton Health decreased" },
+        { address=0X7DE8A, type="u32le", condition="increase", action="HEAL", desc="Buster Health increased" },
+        { address=0X7DE8A, type="u32le", condition="decrease", action="HIT", desc="Buster Health decreased" },
+        { address=0X7E152, type="u32le", condition="increase", action="HEAL", desc="Plucky Health increased" },
+        { address=0X7E152, type="u32le", condition="decrease", action="HIT", desc="Plucky Health decreased" },
+      },
+    },
+  },
+}

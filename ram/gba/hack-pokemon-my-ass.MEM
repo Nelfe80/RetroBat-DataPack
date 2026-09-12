@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon My Ass",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-my-ass",
+    hashes = {
+      { hash = "853451d18a38183cfd20403fc3f10ed0", label = "Pokemon FireRed - My Ass (Complete) (Lucas Urso e Bobby).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0F9C, type="u8", condition="change", action="PAUSE_ON", desc="0x01:Pause Player Movement" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X809E, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Ground" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player Active Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X8F12, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="HP UP" },
+        { address=0X8F6E, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="Hidden Item (HP UP)" },
+        { address=0X2BC64, type="u16le", condition="increase", action="HEAL", desc="Enemy Pokemon Current HP increased" },
+        { address=0X2BC64, type="u16le", condition="decrease", action="HIT", desc="Enemy Pokemon Current HP decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2BD68, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Last Pokeball Type Used" },
+        { address=0X406AE, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Current Enemy Trainer ID" },
+      },
+    },
+  },
+}

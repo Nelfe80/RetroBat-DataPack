@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kung-Fu Street",
+    system = "supervision",
+    system_name = "Watara Supervision",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "kung-fu-street",
+    hashes = {
+      { hash = "bcfc1c956d7fd886ae0fd9dd6de4bef3", label = "Kung-Fu Street (USA, Europe).sv" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X005B, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X005C, type="u8", condition="increase", action="GAIN_LIFE", desc="LIVES!!! increased" },
+        { address=0X005C, type="u8", condition="decrease", action="LOSE_LIFE", desc="LIVES!!! decreased" },
+      },
+    },
+  },
+}

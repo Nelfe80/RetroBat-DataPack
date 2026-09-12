@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Spawn: The Eternal",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "spawn-the-eternal",
+    hashes = {
+      { hash = "ff2185fcf702f1d2c748e259230cc8ee", label = "Spawn - The Eternal (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA0404, type="u8", condition="change", action="PAUSE_ON", desc="Paused" },
+        { address=0X1FFDDE, type="u16le", condition="eq", value=0X2E53, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1FFDDE, type="u16le", condition="eq", value=0X5453, action="DEMO_MODE", desc="Demo Video" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X744EC, type="u16le", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7F051, type="u16le", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X7F051, type="u16le", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X7F160, type="u16le", condition="increase", action="HEAL", desc="Enemy Health increased" },
+        { address=0X7F160, type="u16le", condition="decrease", action="HIT", desc="Enemy Health decreased" },
+      },
+    },
+  },
+}

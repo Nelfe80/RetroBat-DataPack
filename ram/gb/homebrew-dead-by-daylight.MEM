@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Dead by Daylight",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-dead-by-daylight",
+    hashes = {
+      { hash = "38be0b6e675f1f5780c71163190c5c6c", label = "Dead By Daylight (World) (Retro Jam 2021) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC6BF, type="u8", condition="eq", value=0X58, action="TITLE_SCREEN", desc="Title" },
+        { address=0XC6BF, type="u8", condition="eq", value=0X5D, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XC6BF, type="u8", condition="eq", value=0X5E, action="PROGRESSION_STAGE", desc="Grounds" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC6BF, type="u8", condition="eq", value=0X5A, action="LOSE_LIFE", desc="Death" },
+      },
+    },
+  },
+}

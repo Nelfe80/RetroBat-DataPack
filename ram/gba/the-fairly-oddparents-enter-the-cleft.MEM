@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Fairly OddParents! Enter the Cleft",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-fairly-oddparents-enter-the-cleft",
+    hashes = {
+      { hash = "e4ac9d76d7153c94919ce5a73dc984a4", label = "Fairly OddParents!, The - Enter the Cleft (USA).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0018, type="u8", condition="eq", value=0X53, action="PROGRESSION_STAGE", desc="Restarting stage" },
+        { address=0X1AD8, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_STAGE", desc="2-1" },
+        { address=0X1AD8, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_STAGE", desc="2-2" },
+        { address=0X1AD8, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="2-3" },
+        { address=0X1BAD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage (Updates when actually starting the stage)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2604, type="u8", condition="increase", action="GAIN_LIFE", desc="Amount of Lives Left increased" },
+        { address=0X2604, type="u8", condition="decrease", action="LOSE_LIFE", desc="Amount of Lives Left decreased" },
+        { address=0X2605, type="u8", condition="increase", action="GAIN_LIFE", desc="Follow-up addr Amount of Lives Left increased" },
+        { address=0X2605, type="u8", condition="decrease", action="LOSE_LIFE", desc="Follow-up addr Amount of Lives Left decreased" },
+      },
+      health = {
+        { address=0X2600, type="u8", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X2600, type="u8", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X2601, type="u8", condition="increase", action="HEAL", desc="Follow-up addr Current HP increased" },
+        { address=0X2601, type="u8", condition="decrease", action="HIT", desc="Follow-up addr Current HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X16A4, type="u8", condition="increase", action="COIN_GAIN", desc="Current Stage (Updates when hovering in level select) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X6144, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X6344, type="u8", condition="change", action="BOSS_HIT", desc="Visual Indicator Boss HP" },
+      },
+    },
+  },
+}

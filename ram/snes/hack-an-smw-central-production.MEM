@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ An SMW Central Production",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-an-smw-central-production",
+    hashes = {
+      { hash = "d796272a0697d43acc7cf2f160bed94d", label = "SMW - SMW Central Production, An (v1.6) (smwcentral.net).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0100, type="u8", condition="change", action="HIT", desc="Loadings Very Used In One Session And No Damage" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power Up" },
+        { address=0X0DC2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario Backup Power-Up" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0F34, type="u16le", condition="increase", action="COIN_GAIN", desc="[16 bits] Coins increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi Coins increased" },
+      },
+    },
+  },
+}

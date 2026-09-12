@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Maxie's Island",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-maxies-island",
+    hashes = {
+      { hash = "fda6da784e212eee9d6dc7c1314b7509", label = "Pokemon Emerald - Maxie's Island (v1.4) (wiz1989).gba" },
+    }
+  },
+
+  events = {
+  },
+}

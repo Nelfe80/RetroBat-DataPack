@@ -1,0 +1,61 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alien Sector",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "alien-sector",
+    hashes = {
+      { hash = "14178286e1c963d8d523452e3a8c4285", label = "aliensec.7z <Alien Sector>" },
+      { hash = "ec14bd60bf585ced03f0a611fd246164", label = "baraduke.7z <Baraduke>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] Credits Inserted 1" },
+        { address=0X0001, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8bit] Credits Inserted 2" },
+        { address=0X0002, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo Mode" },
+        { address=0X0119, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="On" },
+        { address=0X3140, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0115, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Round Select Setting" },
+        { address=0X0115, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="On" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0143, type="u8", condition="bit_true", mask=0X20, action="LIVES_STATE", desc="2 Lives" },
+        { address=0X0143, type="u8", condition="bit_true", mask=0X40, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X0146, type="u8", condition="increase", action="GAIN_LIFE", desc="Bonus Life Settings [Bits] increased" },
+        { address=0X0146, type="u8", condition="decrease", action="LOSE_LIFE", desc="Bonus Life Settings [Bits] decreased" },
+        { address=0X0146, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="10k And Every 20k" },
+        { address=0X0146, type="u8", condition="eq", value=0X08, action="LIVES_STATE", desc="Every 10k (Bit3)" },
+        { address=0X0146, type="u8", condition="eq", value=0X10, action="LIVES_STATE", desc="Every 20k (Bit4)" },
+        { address=0X0146, type="u8", condition="eq", value=0X18, action="LIVES_STATE", desc="None (Bit3 & 4)" },
+        { address=0X3140, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Counter [8bit] increased" },
+        { address=0X3140, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Counter [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3142, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3141, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Floor Counter [8bit]" },
+        { address=0X3155, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Shields Amount Counter [8bit]" },
+        { address=0X3156, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Shield Energy Counter [8bit]" },
+      },
+    },
+  },
+}

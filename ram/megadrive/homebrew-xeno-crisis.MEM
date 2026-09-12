@@ -1,0 +1,88 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Xeno Crisis",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-xeno-crisis",
+    hashes = {
+      { hash = "50cca5273cdb6d6df36cbd29dbd3ff7f", label = "Xeno Crisis (World) (En,Ja,Fr,De,Es,It,Nl,Pt) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[CHEAT] Infinite Continues" },
+        { address=0X000B, type="u8", condition="change", action="PAUSE_ON", desc="Paused : 1" },
+        { address=0X03F5, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues Used" },
+        { address=0X10BA, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Menu Options (0-2)" },
+        { address=0X10C7, type="u8", condition="change", action="PAUSE_ON", desc="Paused : 1" },
+        { address=0X46FC, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3410, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="new stage title" },
+        { address=0X3410, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="cutscene/briefly when entering a new room" },
+        { address=0X3410, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="current room cleared" },
+        { address=0X3410, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="room transition" },
+        { address=0X3410, type="u8", condition="eq", value=0X05, action="LEVEL_CLEAR", desc="dead" },
+        { address=0X3410, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="wheelchair man cutscene (before last boss)" },
+        { address=0X3410, type="u8", condition="eq", value=0X07, action="LEVEL_CLEAR", desc="boss room intro" },
+        { address=0X3410, type="u8", condition="eq", value=0X08, action="LEVEL_CLEAR", desc="boss room fighting" },
+        { address=0X3410, type="u8", condition="eq", value=0X09, action="LEVEL_CLEAR", desc="stage/area clear" },
+        { address=0X3410, type="u8", condition="eq", value=0X0A, action="LEVEL_CLEAR", desc="bad ending" },
+        { address=0X4B3D, type="u8", condition="change", action="LEVEL_CLEAR", desc="Rooms Cleared (Boss Doesn't Count)" },
+      },
+      stage = {
+        { address=0X01C9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Rooms visited in a stage?" },
+        { address=0X0FC2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Hostages in current room (0-2)" },
+        { address=0X3305, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID (0-6)" },
+        { address=0X470C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="CHEATS: Stage select" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0014, type="u8", condition="increase", action="HEAL", desc="[CHEAT] Infinite health increased" },
+        { address=0X0014, type="u8", condition="decrease", action="HIT", desc="[CHEAT] Infinite health decreased" },
+        { address=0X22B4, type="u8", condition="increase", action="HEAL", desc="P1 HP increased" },
+        { address=0X22B4, type="u8", condition="decrease", action="HIT", desc="P1 HP decreased" },
+        { address=0X4715, type="u8", condition="increase", action="HEAL", desc="Health Upgrades increased" },
+        { address=0X4715, type="u8", condition="decrease", action="HIT", desc="Health Upgrades decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X330F, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon:" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X046C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Score (hex, 16-bit)" },
+        { address=0X046E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Score (hex, 16-bit)" },
+      },
+      collectibles = {
+        { address=0X000D, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[CHEAT] Infinite Ammo" },
+        { address=0X4716, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo Upgrades" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X36D8, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0X4305, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+        { address=0XFE00, type="u8", condition="change", action="BOSS_HIT", desc="0xff:boss fight" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X22BC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Times hit in a level - Decides Rank:" },
+        { address=0X3312, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="P1 Special Weapon Timer (Hex)" },
+      },
+    },
+  },
+}

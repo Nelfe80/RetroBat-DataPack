@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic 1: Return to the Origin",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-1-return-to-the-origin",
+    hashes = {
+      { hash = "013dd39934f83e9ab160215584c93b85", label = "Sonic 1 - Return to the Origin (v2.0) (carretero).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF028, type="u16be", condition="eq", value=0X0507, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XF63A, type="u8", condition="change", action="PAUSE_ON", desc="8-Bit - Paused?" },
+        { address=0XFFF0, type="u8", condition="change", action="DEMO_MODE", desc="8-Bit - Demo Replay Active/Playing? (0x04)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFE11, type="u8", condition="change", action="NEW_LEVEL", desc="8-Bit - Zone You Are In" },
+      },
+      stage = {
+        { address=0X400F, type="u8", condition="change", action="STAGE_SELECT", desc="8-Bit - Special Stage" },
+        { address=0XFE10, type="u8", condition="change", action="PROGRESSION_STAGE", desc="8-Bit - Current Act of Zone (0x00-2)" },
+        { address=0XFE17, type="u8", condition="change", action="STAGE_SELECT", desc="8-Bit - Current Special Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="8-Bit - Lives increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="8-Bit - Lives decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XFE56, type="u8", condition="change", action="TREASURE", desc="8-Bit - Emerald Inventory (0x00-6)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFE28, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="32-Bit - Score (Also part of 0xfe26/27?)" },
+      },
+      collectibles = {
+        { address=0XFE20, type="u16le", condition="increase", action="COIN_GAIN", desc="16-Bit - Ring Count increased" },
+      },
+    },
+  },
+}

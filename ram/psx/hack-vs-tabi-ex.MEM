@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ VS. Tabi EX",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-vs-tabi-ex",
+    hashes = {
+      { hash = "83de4d3545112c75989be92ce184bd07", label = "PSXFunkin' - VS. Tabi EX (GoombaKungFu, UNSTOP4BLE, IgorSou30000)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E3B74, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E3B74, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1E3B75, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E3B75, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+      events = {
+        { address=0X1E3D76, type="u16le", condition="change", action="COMBO_HIT", desc="[16 Bit] Combo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1E3D74, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X1E3D74, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="[16 Bit] Player's HP" },
+        { address=0X1E3D74, type="u16le", condition="eq", value=0X4E20, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1E3D7C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E3D3A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16 Bit] Song Duration" },
+      },
+    },
+  },
+}

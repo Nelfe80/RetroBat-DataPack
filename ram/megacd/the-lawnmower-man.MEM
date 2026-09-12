@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Lawnmower Man",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-lawnmower-man",
+    hashes = {
+      { hash = "8b4d90416e102bfee7449d5e18947030", label = "Lawnmower Man, The (Europe)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X3C9E, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Countdown Time 1 of 2 (8-Bit)" },
+        { address=0X3C9F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Countdown Time 2 of 2 (8-Bit)" },
+        { address=0X1E82C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Quick Time Event Input Result (8-Bit)" },
+      },
+    },
+  },
+}

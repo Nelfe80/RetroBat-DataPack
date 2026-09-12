@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fluidity",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "fluidity",
+    hashes = {
+      { hash = "ace246625ffa7b4789c053e841c40caf", label = "Fluidity (USA) (WiiWare).wad" },
+    }
+  },
+
+  events = {
+    state = {
+      player = {
+        { address=0X4B7D24, type="u32be", condition="eq", value=0X74BA, action="JUMPING", no_log=true, no_survey=true, desc="Playroom 2(Long Jump)" },
+      },
+    },
+  },
+}

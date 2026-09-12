@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Psychonauts",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "psychonauts",
+    hashes = {
+      { hash = "dd72e2c1e6d14f27516dc5cf2fea01cb", label = "Psychonauts (USA) (Anti-Cheat) (v1.0) (Manako)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X369C90, type="u32le", condition="increase", action="GAIN_LIFE", desc="According to GameHacking this is where the game stores lives, but I'm skeptical given its locati" },
+        { address=0X369C90, type="u32le", condition="decrease", action="LOSE_LIFE", desc="According to GameHacking this is where the game stores lives, but I'm skeptical given its locati" },
+        { address=0X1170474, type="u32le", condition="increase", action="GAIN_LIFE", desc="Current Lives (32bits) increased" },
+        { address=0X1170474, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Current Lives (32bits) decreased" },
+      },
+      health = {
+        { address=0X1460FC0, type="u8", condition="increase", action="HEAL", desc="Health Indicator (float) increased" },
+        { address=0X1460FC0, type="u8", condition="decrease", action="HIT", desc="Health Indicator (float) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X14613C4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Figment Score?" },
+      },
+      collectibles = {
+        { address=0X113CC36, type="u8", condition="eq", value=0X05, action="COIN_GAIN", desc="Not collected" },
+        { address=0X113CC36, type="u8", condition="eq", value=0X06, action="COIN_GAIN", desc="Collected" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X368956, type="u8", condition="change", action="SHIELD_GAIN", desc="0x01 PSI Power Unlocked - Shield" },
+        { address=0X13B9928, type="u32le", condition="eq", value=0X06, action="SHIELD_GAIN", desc="Shield" },
+        { address=0X13B999C, type="u32le", condition="eq", value=0X06, action="SHIELD_GAIN", desc="Shield" },
+        { address=0X13B9A10, type="u32le", condition="eq", value=0X06, action="SHIELD_GAIN", desc="Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1170848, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Indicator on Coach oleander BB (ASCII)" },
+        { address=0X1170848, type="u8", condition="eq", value=0XDED, action="GENERAL_TIMER", desc="XX. Time given" },
+      },
+    },
+  },
+}

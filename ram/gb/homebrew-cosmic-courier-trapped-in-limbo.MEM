@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cosmic Courier: Trapped in Limbo",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Visual Novel"
+  },
+
+  rom = {
+    name = "homebrew-cosmic-courier-trapped-in-limbo",
+    hashes = {
+      { hash = "a17431d0f77f14fa8339d6f9fde0f006", label = "Cosmic Courier - Trapped in Limbo (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

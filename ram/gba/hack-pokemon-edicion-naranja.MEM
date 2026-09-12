@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Edicion Naranja",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-edicion-naranja",
+    hashes = {
+      { hash = "44b5e18bb226cc98c2fbb0ea5be32484", label = "Pokemon - Ruby Version - Pokemon Edicion Naranja (Sergio, salvadorc17).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0C29, type="u8", condition="change", action="NEW_LEVEL", desc="Level Up Sound Check" },
+        { address=0X43B4, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 1 level" },
+        { address=0X4418, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 2 level" },
+        { address=0X447C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 3 level" },
+        { address=0X44E0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 4 level" },
+        { address=0X4544, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 5 level" },
+        { address=0X45A8, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 6 level" },
+        { address=0X4614, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy pokemon level" },
+        { address=0X23261, type="u8", condition="change", action="NEW_LEVEL", desc="Switching Pokeon Around" },
+        { address=0X23261, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Switch in progress" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X43B6, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 current hp increased" },
+        { address=0X43B6, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 current hp decreased" },
+        { address=0X43B8, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 max hp increased" },
+        { address=0X43B8, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 max hp decreased" },
+        { address=0X4616, type="u8", condition="increase", action="HEAL", desc="Enemy pokemon Hp increased" },
+        { address=0X4616, type="u8", condition="decrease", action="HIT", desc="Enemy pokemon Hp decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2DBC4, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2CEB4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Play time minutes" },
+      },
+    },
+  },
+}

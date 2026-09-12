@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Soul of the Samurai",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Beat 'em Up, Horror"
+  },
+
+  rom = {
+    name = "soul-of-the-samurai",
+    hashes = {
+      { hash = "9de7299834fac3855d5cdee40d70a6e1", label = "Soul of the Samurai (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X98110, type="u32le", condition="increase", action="HEAL", desc="Kotaro & Lin HP increased" },
+        { address=0X98110, type="u32le", condition="decrease", action="HIT", desc="Kotaro & Lin HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X98150, type="u8", condition="change", action="WEAPON_STATE", desc="Current weapon equipped" },
+        { address=0X99638, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 1" },
+        { address=0X9963A, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 2" },
+        { address=0X9963C, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 3" },
+        { address=0X9963E, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 4" },
+        { address=0X99640, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 5" },
+        { address=0X99642, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 6" },
+        { address=0X99644, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 7" },
+        { address=0X99646, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 8" },
+        { address=0X99648, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 9" },
+        { address=0X9964A, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 10" },
+        { address=0X9964C, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 11" },
+        { address=0X9964E, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 12" },
+        { address=0X99650, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 13" },
+        { address=0X99652, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 14" },
+        { address=0X99654, type="u8", condition="change", action="WEAPON_STATE", desc="Weapon Slot 15" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X9853C, type="u32le", condition="change", action="BOSS_HIT", desc="Boss HP/Enemy HP 1/Kurenai HP" },
+        { address=0X98968, type="u32le", condition="change", action="BOSS_HIT", desc="Boss HP/Enemy HP 2" },
+        { address=0X98D94, type="u32le", condition="change", action="BOSS_HIT", desc="Boss HP/Enemy HP 3" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X9812E, type="u16le", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Frontflip while jumping/Check if Lin/Kotaro is on floor?" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X975B1, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Seconds timer in-game" },
+        { address=0XDEABD, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time on load game screen (Minutes Tens)" },
+        { address=0XDEAE1, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time on load game screen (Minutes Ones)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Jabberwocky",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-jabberwocky",
+    hashes = {
+      { hash = "d051557317b202cfb9b6667fc64a5426", label = "Jabberwocky (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

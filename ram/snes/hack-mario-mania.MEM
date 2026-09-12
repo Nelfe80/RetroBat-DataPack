@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Mania",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-mania",
+    hashes = {
+      { hash = "2a9656bfac18fca56c7a5536b5a4b019", label = "SMW - Mario Mania (Sonic) (BlooberryPi) (1.1).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

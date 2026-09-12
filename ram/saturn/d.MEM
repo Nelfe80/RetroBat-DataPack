@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "D",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "d",
+    hashes = {
+      { hash = "303519c55cbd74fd2dfa64f976d2183d", label = "D (USA) (Disc II)" },
+      { hash = "a3a553c7655e0cfe3026e487b2e50c7d", label = "D (USA) (Disc I)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X11F853, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Single-time Event Bitflags" },
+      },
+    },
+  },
+}

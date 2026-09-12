@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mother 2 Deluxe",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "hack-mother-2-deluxe",
+    hashes = {
+      { hash = "dfc4a4740bb1aa27d16c5a89a25e3566", label = "EarthBound (USA) (patched)" },
+      { hash = "42b38539dbcb59ef10605e0ccc849575", label = "EarthBound (USA) (patched)(1)" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X99D8, type="u8", condition="increase", action="HEAL", desc="[8bit] Ness Total HP increased" },
+        { address=0X99D8, type="u8", condition="decrease", action="HIT", desc="[8bit] Ness Total HP decreased" },
+        { address=0X9A15, type="u8", condition="increase", action="HEAL", desc="[8bit] Ness Total HP in Battle increased" },
+        { address=0X9A15, type="u8", condition="decrease", action="HIT", desc="[8bit] Ness Total HP in Battle decreased" },
+      },
+    },
+  },
+}

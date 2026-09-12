@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Petals Around the Rose",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-petals-around-the-rose",
+    hashes = {
+      { hash = "fc837a8a99829a4879dc37adb3435e5e", label = "Petals Around the Rose (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

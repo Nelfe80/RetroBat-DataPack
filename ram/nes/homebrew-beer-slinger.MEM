@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Beer Slinger",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-beer-slinger",
+    hashes = {
+      { hash = "4388d6eb5058146c461c801a0a87fb8b", label = "Beer Slinger (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0348, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Second customer's timer" },
+      },
+    },
+  },
+}

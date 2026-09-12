@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "2010 FIFA World Cup: South Africa",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "2010-fifa-world-cup-south-africa",
+    hashes = {
+      { hash = "fa002fcf177a2300ccfabce353f928f6", label = "2010 FIFA World Cup South Africa (USA) (En,Es)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X90284F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Goals Scored" },
+      },
+    },
+  },
+}

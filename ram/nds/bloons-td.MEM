@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bloons TD",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "bloons-td",
+    hashes = {
+      { hash = "57f68bce367094b601266709ab9afa3a", label = "Bloons TD (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XF3102, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Round Related Value" },
+        { address=0X3A3B08, type="u16le", condition="change", action="NEW_LEVEL", desc="Number of Balloons spawned - Round" },
+        { address=0X3A3B0C, type="u32le", condition="change", action="NEW_LEVEL", desc="Current Round" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2FD7E8, type="u32le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X2FD7E8, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2FD7E0, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Moémon FireRed",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-moemon-firered",
+    hashes = {
+      { hash = "ea2f02239d29aacd2c7fadc427073580", label = "Pokemon FireRed - Mega Moemon FireRed (v1.4c) (Septentrion).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X2BC64, type="u16le", condition="increase", action="HEAL", desc="[16bit] Current Enemy Moemon HP increased" },
+        { address=0X2BC64, type="u16le", condition="decrease", action="HIT", desc="[16bit] Current Enemy Moemon HP decreased" },
+        { address=0X2C082, type="u8", condition="increase", action="HEAL", desc="Enemy Moemon - Current HP increased" },
+        { address=0X2C082, type="u8", condition="decrease", action="HIT", desc="Enemy Moemon - Current HP decreased" },
+        { address=0X2C2DA, type="u8", condition="increase", action="HEAL", desc="Party - Moemon 1 HP increased" },
+        { address=0X2C2DA, type="u8", condition="decrease", action="HIT", desc="Party - Moemon 1 HP decreased" },
+      },
+    },
+  },
+}

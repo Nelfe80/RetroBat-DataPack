@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Challenger",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "challenger",
+    hashes = {
+      { hash = "199c1ff0b775e14e714afd5dc2ae7a96", label = "Challenger (Japan).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00AE, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="title and demo" },
+        { address=0X00AE, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="in-game" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0088, type="u8", condition="change", action="NEW_LEVEL", desc="difficulty setting - initial ('Round 1')" },
+        { address=0X0088, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="max. does not change" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0087, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X0087, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+        { address=0X0087, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="last life" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0083, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="current score in hundreds" },
+        { address=0X0083, type="u24le", condition="eq", value=0X024A, action="SCORE_STATE", desc="586 x 100 : 58600" },
+      },
+    },
+  },
+}

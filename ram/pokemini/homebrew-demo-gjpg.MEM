@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ gjpg",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-gjpg",
+    hashes = {
+      { hash = "86756b56e0d2e6c40a9e746f67a2d1c0", label = "GJPG (World) (Demo) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0FEA, type="u8", condition="change", action="NEW_LEVEL", desc="level id" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Pokémon Orange",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-pokemon-orange",
+    hashes = {
+      { hash = "de89be869046a1cd60ea469c6df8a2b3", label = "Pokemon Orange (World) (Demo) (v0.54) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+  },
+}

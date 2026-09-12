@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pong: The Next Level",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "pong-the-next-level",
+    hashes = {
+      { hash = "0a3da06446d9a2c7e1ea8149c9026434", label = "Pong - The Next Level (USA, Europe).gbc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XC24C, type="u8", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="p1 points" },
+        { address=0XC24D, type="u8", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="p2 points" },
+        { address=0XC24E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Tournament stages combined score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Barbie: Pet Rescue",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "barbie-pet-rescue",
+    hashes = {
+      { hash = "dccb2adec6b97ac35614414a427abdbb", label = "Barbie - Pet Rescue (Europe) (En,Fr,De,Es,It).gbc" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XC112, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Timer (Rascal Run-Around)" },
+      },
+    },
+  },
+}

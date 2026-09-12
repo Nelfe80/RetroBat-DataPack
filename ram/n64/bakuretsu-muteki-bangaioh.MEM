@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bakuretsu Muteki Bangaioh",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Shoot'em Up, Action"
+  },
+
+  rom = {
+    name = "bakuretsu-muteki-bangaioh",
+    hashes = {
+      { hash = "8107825ac2a522057422463ed81e276b", label = "Bakuretsu Muteki Bangaioh (Japan).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X147DEA, type="u8", condition="change", action="NEW_LEVEL", desc="Level?" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1E4B3A, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X1E4B3A, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1CA51C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="32-bit Score (Hex)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1E5BB8, type="u8", condition="change", action="BOSS_HIT", desc="Boss - Max Health" },
+        { address=0X1E5BBA, type="u8", condition="change", action="BOSS_HIT", desc="Boss - Current Health" },
+      },
+    },
+  },
+}

@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Resident Evil 2",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Horror"
+  },
+
+  rom = {
+    name = "prototype-resident-evil-2",
+    hashes = {
+      { hash = "e9385f1a0876c563dc42a0ee9c8700ce", label = "Resident Evil 2 (Unknown) (Proto).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5CF2, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Selecting File/Map/Item/Exit" },
+        { address=0X5CF2, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Item - Selecting Item" },
+        { address=0X5CF2, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Item - Equip/Check/Combine Box Popping up" },
+        { address=0X5CF2, type="u8", condition="eq", value=0X07, action="PAUSE_ON", desc="Item - Equip/Check/Combine Options" },
+        { address=0X5CF2, type="u8", condition="eq", value=0X11, action="PAUSE_ON", desc="Item - Leaving Equip/Check/Combine" },
+        { address=0X5CF3, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="File" },
+        { address=0X5CF3, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Map" },
+        { address=0X5CF3, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Item" },
+        { address=0X5CF3, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Exit" },
+        { address=0X6AF0, type="u8", condition="eq", value=0X10, action="PAUSE_OFF", desc="Opening Cutscene Chapter 3 (Note: If you pause and unpause during gameplay, value will turn into" },
+        { address=0X6AF0, type="u8", condition="eq", value=0XE0, action="PAUSE_ON", desc="Pause Screen" },
+        { address=0X7E84, type="u8", condition="eq", value=0XA8, action="PAUSE_ON", desc="Lighter" },
+        { address=0X7E84, type="u8", condition="eq", value=0XB4, action="PAUSE_ON", desc="Handgun" },
+        { address=0X7E84, type="u8", condition="eq", value=0XC0, action="PAUSE_ON", desc="Knife" },
+        { address=0X7E84, type="u8", condition="eq", value=0XCC, action="PAUSE_ON", desc="Bullets" },
+        { address=0X7EA0, type="u8", condition="eq", value=0XB9, action="PAUSE_ON", desc="Item slots: Left side" },
+        { address=0X7EA0, type="u8", condition="eq", value=0XD4, action="PAUSE_ON", desc="File/Map/Item/Exit" },
+        { address=0X7EA0, type="u8", condition="eq", value=0XD9, action="PAUSE_ON", desc="Item slots: Right side" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="File/Map/Item/Exit" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X1E, action="PAUSE_ON", desc="Lighter" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X3D, action="PAUSE_ON", desc="Item slot 1 & 2" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X55, action="PAUSE_ON", desc="Item slot 3 & 4" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X6D, action="PAUSE_ON", desc="Item slot 5 & 6" },
+        { address=0X7EA2, type="u8", condition="eq", value=0X85, action="PAUSE_ON", desc="Item slot 7 & 8" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="File/Lighter" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Map/Gun/Equip" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Item/Knife/Check" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Exit/Bullets/Combine" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Empty Slot #1" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X05, action="PAUSE_ON", desc="Empty Slot #2" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="Empty Slot #3" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X07, action="PAUSE_ON", desc="Empty Slot #4" },
+        { address=0X7EAC, type="u8", condition="eq", value=0X08, action="PAUSE_ON", desc="Empty Slot #8" },
+        { address=0X7EAC, type="u8", condition="eq", value=0XD4, action="PAUSE_ON", desc="Selection Made" },
+        { address=0X8A10, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Gameplay is inactive or paused." },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X5EA0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player in Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1EB44, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Fallen/Dead (Has to fall twice before being dead)" },
+        { address=0X1EB54, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Fallen Over/Dead (Needs to fall over twice before being dead)" },
+        { address=0X1ED08, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Knocked Over/Dead (Needs to be knocked over twice to be killed)" },
+        { address=0X1EEBC, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Fallen Over/Dead (Needs to fall over twice before being dead)" },
+      },
+      health = {
+        { address=0X5EA4, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player Health." },
+        { address=0X5EA4, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X5EA4, type="u8", condition="eq", value=0XE8, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X1EB44, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="[16bit] Alley Zombie Health" },
+        { address=0X1EB44, type="u16le", condition="eq", value=0X12C, action="HEALTH_STATE", no_log=true, desc="Full health" },
+        { address=0X1EB44, type="u16le", condition="eq", value=0XFF9C, action="HEALTH_STATE", no_log=true, desc="Corpse shot/ Double tap" },
+        { address=0X1EB54, type="u16le", condition="eq", value=0X12C, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X1ED00, type="u16le", condition="increase", action="HEAL", desc="(16 bit) - restaraunt zombie 2 health increased" },
+        { address=0X1ED00, type="u16le", condition="decrease", action="HIT", desc="(16 bit) - restaraunt zombie 2 health decreased" },
+        { address=0X1ED08, type="u16le", condition="eq", value=0X12C, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+        { address=0X1EEBC, type="u16le", condition="eq", value=0X12C, action="HEALTH_STATE", no_log=true, desc="Full Health" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X5EC6, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Handgun Ammo %" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EB4C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="(16 bit) - Restaurant Zombie 1 Health" },
+      },
+    },
+  },
+}

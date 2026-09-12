@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ The Legend of Zelda: Triforce of the Gods | San Shen Zhi Li",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-the-legend-of-zelda-triforce-of-the-gods-san-shen-zhi-li",
+    hashes = {
+      { hash = "27c2f42fc219e0360e4d3ae448cb0f29", label = "Legend of Zelda, The - Triforce of the Gods (China) (Bootleg) (Unl).unf" },
+      { hash = "cba5237bdd24506d75e7b4a194b3c097", label = "Legend of Zelda, The - Triforce of the Gods (China) (En) (v1.1) (pacsnacdave).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0620, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Area ID (Mirror. Real is 0x60F8)" },
+        { address=0X6061, type="u8", condition="change", action="NEW_LEVEL", desc="X Coordinates (Overworld)" },
+        { address=0X6062, type="u8", condition="change", action="NEW_LEVEL", desc="Y Coordinates (Overworld)" },
+        { address=0X60F8, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Map ID" },
+        { address=0X60F8, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="outside links house" },
+        { address=0X60F8, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="hyrule Castle" },
+        { address=0X60F8, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="castle 1" },
+        { address=0X60F8, type="u8", condition="eq", value=0X1A, action="NEW_LEVEL", desc="Inside links house" },
+        { address=0X62E1, type="u8", condition="change", action="NEW_LEVEL", desc="Glove level" },
+        { address=0X62E3, type="u8", condition="change", action="NEW_LEVEL", desc="Armor level" },
+      },
+      zone = {
+        { address=0X60F9, type="u8", condition="change", action="PROGRESSION_ZONE", desc="This Determines if you in the dark world or not." },
+        { address=0X617B, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Sword slash Sounds on the over world map." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X60FD, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0X60FD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+        { address=0X62EA, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="Life" },
+        { address=0X62EB, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="Life" },
+        { address=0X62EC, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="Life" },
+        { address=0X62ED, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="Life" },
+        { address=0X62EE, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="Life" },
+        { address=0X645B, type="u8", condition="change", action="LOSE_LIFE", desc="Death boss death changes after you leave the boss room." },
+      },
+      health = {
+        { address=0X6432, type="u8", condition="increase", action="HEAL", desc="Ganon Health increased" },
+        { address=0X6432, type="u8", condition="decrease", action="HIT", desc="Ganon Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X62B1, type="u8", condition="increase", action="COIN_GAIN", desc="coin counter increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X64E1, type="u8", condition="change", action="BOSS_HIT", desc="Skull Woods Boss Door" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X617F, type="u8", condition="change", action="SHIELD_GAIN", desc="Got Sword and Shield from Uncle Flag (FF)" },
+        { address=0X62E4, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X64F8, type="u8", condition="change", action="DOOR_OPENED", desc="Skull Woods Locked Door" },
+        { address=0X64F9, type="u8", condition="change", action="DOOR_OPENED", desc="Skull Woods Locked Door" },
+        { address=0X64FA, type="u8", condition="change", action="DOOR_OPENED", desc="Skull Woods Locked Door" },
+      },
+    },
+  },
+}

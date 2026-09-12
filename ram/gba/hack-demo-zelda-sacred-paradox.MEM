@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Zelda: Sacred Paradox",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-zelda-sacred-paradox",
+    hashes = {
+      { hash = "afb458a7e60113c702d864388bd4be5c", label = "Zelda - Sacred Paradox (Pokemon FireRed Hack) (InnerMobius).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3EE10, type="u16le", condition="eq", value=0XAA, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="Poke Health 16 bits increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="Poke Health 16 bits decreased" },
+      },
+    },
+  },
+}

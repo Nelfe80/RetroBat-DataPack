@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Buzz Lightyear of Star Command",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "buzz-lightyear-of-star-command",
+    hashes = {
+      { hash = "560e27a4d80b88280d8ad7358467c301", label = "Buzz Lightyear of Star Command (USA, Europe).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCCC8, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits on hand" },
+        { address=0XCCE9, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits in total" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XCD10, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0XCD18, type="u8", condition="change", action="NEW_LEVEL", desc="level 2 medals" },
+        { address=0XCD19, type="u8", condition="change", action="NEW_LEVEL", desc="level 3 medals" },
+        { address=0XCD1A, type="u8", condition="change", action="NEW_LEVEL", desc="level 4 medals" },
+        { address=0XCD1B, type="u8", condition="change", action="NEW_LEVEL", desc="level 5 medals" },
+        { address=0XCD1C, type="u8", condition="change", action="NEW_LEVEL", desc="level 6 medals" },
+        { address=0XCD1D, type="u8", condition="change", action="NEW_LEVEL", desc="level 7 medals" },
+        { address=0XCD1E, type="u8", condition="change", action="NEW_LEVEL", desc="level 8 medals" },
+        { address=0XCD1F, type="u8", condition="change", action="NEW_LEVEL", desc="level 9 medals" },
+        { address=0XCD20, type="u8", condition="change", action="NEW_LEVEL", desc="level 10 medals" },
+        { address=0XCD21, type="u8", condition="change", action="NEW_LEVEL", desc="level 11 medals" },
+        { address=0XCD22, type="u8", condition="change", action="NEW_LEVEL", desc="level 12 medals" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCCDA, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XCCDA, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCCDB, type="u8", condition="change", action="SHIELD_GAIN", desc="shields" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCD17, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="level 1 medals" },
+      },
+    },
+  },
+}

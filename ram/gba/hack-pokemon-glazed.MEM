@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Glazed",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-glazed",
+    hashes = {
+      { hash = "6279166857cea1b52eb93543c6668ff1", label = "Pokemon - Emerald Version - Glazed (v7.0) (Lucbui).gba" },
+      { hash = "c381103f45cba2c5357150292b1be794", label = "Pokemon - Emerald Version - Glazed (Beta 7b) (Lucbui).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7427, type="u8", condition="change", action="PAUSE_ON", desc="pause music flag : bit 7 (short fanfares for obtaining items" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2C540, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 1 level" },
+        { address=0X2C5A4, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 2 level" },
+        { address=0X2C608, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 3 level" },
+        { address=0X2C66C, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 4 level" },
+        { address=0X2C6D0, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 5 level" },
+        { address=0X2C734, type="u8", condition="change", action="NEW_LEVEL", desc="pokemon 6 level" },
+        { address=0X2C798, type="u8", condition="change", action="NEW_LEVEL", desc="enemy pokemon 1 level" },
+        { address=0X42050, type="u8", condition="change", action="NEW_LEVEL", desc="Safari Zone Pokemon Caught (8-bit)" },
+        { address=0X44A6C, type="u8", condition="change", action="NEW_LEVEL", desc="final pokemon level?" },
+      },
+      stage = {
+        { address=0X3F360, type="u8", condition="change", action="RANK_STATE", desc="player position, player x coordination and collisions" },
+        { address=0X3F362, type="u8", condition="change", action="RANK_STATE", desc="player position, player y coordination and collision" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C79A, type="u8", condition="increase", action="HEAL", desc="enemy pokemon 1 hp increased" },
+        { address=0X2C79A, type="u8", condition="decrease", action="HIT", desc="enemy pokemon 1 hp decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X46022, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time Spent on the Ski Race (Minutes) (16-bit)" },
+        { address=0X46024, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time Spent on the Ski Race (Seconds) (16-bit)" },
+      },
+    },
+  },
+}

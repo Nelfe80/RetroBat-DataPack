@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cheril Perils Classic",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "homebrew-cheril-perils-classic",
+    hashes = {
+      { hash = "dea9e4e5891fbdcd3e0df16fc840afbe", label = "Cheril Perils Classic (World) (NTSC) (Aftermarket) (Unl).sg" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X01B7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stages" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X006E, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X006E, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+        { address=0X01C3, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X01C3, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0016, type="u8", condition="change", action="OBJECT_INTERACTION", desc="kill switch hit" },
+        { address=0X02B0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="kill switch hit" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X02B1, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="kill switch timer" },
+      },
+    },
+  },
+}

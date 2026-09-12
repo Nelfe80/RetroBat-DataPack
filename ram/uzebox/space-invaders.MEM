@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Invaders",
+    system = "uzebox",
+    system_name = "Uzebox",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "space-invaders",
+    hashes = {
+      { hash = "3f8ee1de7481b0d34da51a07c96786fa", label = "Space Invaders (World) (Paul McPhee).uze" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0A8B, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Number of Lives Left increased" },
+        { address=0X0A8B, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Number of Lives Left decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0A8D, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24bit] Current Score" },
+      },
+    },
+  },
+}

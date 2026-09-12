@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Deep Dungeon",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-deep-dungeon",
+    hashes = {
+      { hash = "4f9b77afb81d66e6af1bd54b7b06351f", label = "Deep Dungeon (World) (v1.3) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XCCE6, type="u24le", condition="eq", value=0X4E55, action="LOSE_LIFE", desc="Undead" },
+        { address=0XCCEC, type="u16le", condition="eq", value=0X4E55, action="LOSE_LIFE", desc="Undead" },
+        { address=0XCCF2, type="u16le", condition="eq", value=0X4E55, action="LOSE_LIFE", desc="Undead" },
+      },
+      health = {
+        { address=0XCD20, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Healthy" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCD90, type="u8", condition="eq", value=0X15, action="MONEY_STATE", desc="Ring of Regeneration" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XCD07, type="u8", condition="eq", value=0X02, action="SHIELD_GAIN", desc="Shield" },
+        { address=0XCD90, type="u8", condition="eq", value=0X0E, action="SHIELD_GAIN", desc="Shield" },
+        { address=0XCD90, type="u8", condition="eq", value=0X0F, action="SHIELD_GAIN", desc="Tower Shield" },
+      },
+    },
+  },
+}

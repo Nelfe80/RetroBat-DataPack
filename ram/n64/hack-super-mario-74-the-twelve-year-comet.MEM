@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 74: The Twelve Year Comet",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-74-the-twelve-year-comet",
+    hashes = {
+      { hash = "bca1f04bd3c2efcd710dce1749896f3e", label = "SM64 - SM74 The Twelve Year Comet (v1.3.2) (Lincrash,Lugmillord,Ozsef).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2076B1, type="u8", condition="change", action="NEW_LEVEL", desc="Training Grounds stars (bit0-bit2)" },
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] warpDest level id" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin COUNT increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33D694, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[0] behavior script" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0000, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="::::: Notable Object Slot Structure Members (size: 0x260 b.ytes) :::::" },
+        { address=0X33B220, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="[8bit] hp increment counter" },
+        { address=0X33B221, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8bit] hp decrement counter" },
+      },
+    },
+  },
+}

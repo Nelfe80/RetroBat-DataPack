@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Thinking With Boxes",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-thinking-with-boxes",
+    hashes = {
+      { hash = "5db9d07fc98706d0e2f89e11708dcfa7", label = "Thinking With Boxes (World) (GMTK Game Jam 2021) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

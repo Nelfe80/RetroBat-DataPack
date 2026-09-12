@@ -1,0 +1,104 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Pika Land Ultra: Chocolate Version",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-pika-land-ultra-chocolate-version",
+    hashes = {
+      { hash = "24db127a6c833182cb5728065c01b810", label = "SMW - Super Pika Land Ultra - Chocolate Version (Doownayr89) (4.3).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0DBE, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="On the Overworld" },
+        { address=0X0101, type="u8", condition="change", action="NEW_LEVEL", desc="Room ID - Level Specific" },
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="How Level was beaten" },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Can walk to the right." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Can walk to the left." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Can walk down." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Can walk up." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Converted to 'open Save Prompt when beaten' flag." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Converted to 'cannot enter level again' flag." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="Passed midpoint." },
+        { address=0X1EA2, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Level beaten in some form." },
+        { address=0X1EA3, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Leafy Greens [8-bit flags] (see 0x1ea2)" },
+        { address=0X1EA4, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Rhubarb Ridge [8-bit flags] (see 0x1ea2)" },
+        { address=0X1EA5, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Birch Bridge [8-bit flags] (see 0x1ea2)" },
+        { address=0X1EA6, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Dewer Or Later [8-bit flags] (see 0x1ea2)" },
+        { address=0X1EA7, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Platinum Plains [8-bit flags] (see 0x1ea2)" },
+        { address=0X1ECB, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for Another Empty Hut [8-bit flags] (see 0x1ea2)" },
+        { address=0X1EE5, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Setting Flags for haahaaheeheehoohoo [8-bit flags] (see 0x1ea2)" },
+        { address=0X1F02, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F03, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F04, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F05, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F06, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F07, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F08, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits" },
+        { address=0X1F0B, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+        { address=0X1F10, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exits:" },
+      },
+      stage = {
+        { address=0X13CE, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Midpoint - 01 when activated in Level. (also 01 on overworld)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives: (Hexidecimal) increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives: (Hexidecimal) decreased" },
+        { address=0X0DBE, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="1" },
+        { address=0X161F, type="u8", condition="increase", action="GAIN_LIFE", desc="Relic Rapids 1-up Mushroom increased" },
+        { address=0X161F, type="u8", condition="decrease", action="LOSE_LIFE", desc="Relic Rapids 1-up Mushroom decreased" },
+        { address=0X1623, type="u8", condition="increase", action="GAIN_LIFE", desc="1-4 - Sewer or Later 1-up Mushroom increased" },
+        { address=0X1623, type="u8", condition="decrease", action="LOSE_LIFE", desc="1-4 - Sewer or Later 1-up Mushroom decreased" },
+        { address=0X16E6, type="u8", condition="increase", action="GAIN_LIFE", desc="0d : 1up increased" },
+        { address=0X16E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="0d : 1up decreased" },
+      },
+      health = {
+        { address=0X0019, type="u8", condition="decrease", action="HIT", desc="Pikachu :'s Forms (Power-Ups): decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0019, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Pikachu" },
+        { address=0X0019, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Raichu" },
+        { address=0X0019, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Raichu with Double-Jump" },
+        { address=0X0019, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Raichu with Thunderbolt" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Poke Coins Total increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00CB, type="u8", condition="change", action="BOSS_HIT", desc="Kirby Health (Rockhead Temple Boss)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="01 - Amber Switch Activated" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="01 - Sapphire Switch Activated" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Ruby Switch Activated" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F0A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level Exits:" },
+      },
+    },
+  },
+}

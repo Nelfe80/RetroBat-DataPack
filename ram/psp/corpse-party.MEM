@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Corpse Party",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "corpse-party",
+    hashes = {
+      { hash = "64608bcf2fb8f5914a051d2cbc527591", label = "Corpse Party (USA) (PSN).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCF3610, type="u8", condition="change", action="TITLE_SCREEN", desc="Title screen validation" },
+        { address=0XD08438, type="u8", condition="change", action="TITLE_SCREEN", desc="Max HP? Will be used for title validation" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XD0843C, type="u8", condition="increase", action="HEAL", desc="Char HP increased" },
+        { address=0XD0843C, type="u8", condition="decrease", action="HIT", desc="Char HP decreased" },
+      },
+    },
+  },
+}

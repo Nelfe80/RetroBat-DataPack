@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Star Soldier",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "unlicensed-star-soldier",
+    hashes = {
+      { hash = "cb95017c8d13d95c91129f9b3b1f6798", label = "Star Soldier (Taiwan) (Unl).sg" },
+    }
+  },
+
+  events = {
+  },
+}

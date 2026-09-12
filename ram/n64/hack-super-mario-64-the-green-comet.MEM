@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: The Green Comet",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-the-green-comet",
+    hashes = {
+      { hash = "fff346b40ecb4c9f67a6d5b5e063d03b", label = "SM64 - The Green Comet (Arthurtilly) (1.0.1).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Titlescreen/File Select" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="On titlescreen/file select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X1924, action="NEW_LEVEL", desc="Starting a Level" },
+      },
+      zone = {
+        { address=0X207718, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="The Dark World Green Star 1" },
+        { address=0X207718, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="The Dark World Green Star 2" },
+        { address=0X207718, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="The Dark World Green Star 3" },
+        { address=0X207718, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="The Dark World Green Star 4" },
+        { address=0X207788, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="The Dark World Green Star 1" },
+        { address=0X207788, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="The Dark World Green Star 2" },
+        { address=0X207788, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="The Dark World Green Star 3" },
+        { address=0X207788, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="The Dark World Green Star 4" },
+        { address=0X2077F8, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="The Dark World Green Star 1" },
+        { address=0X2077F8, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="The Dark World Green Star 2" },
+        { address=0X2077F8, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="The Dark World Green Star 3" },
+        { address=0X2077F8, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="The Dark World Green Star 4" },
+        { address=0X207868, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="The Dark World Green Star 1" },
+        { address=0X207868, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="The Dark World Green Star 2" },
+        { address=0X207868, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="The Dark World Green Star 3" },
+        { address=0X207868, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="The Dark World Green Star 4" },
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="Wet-Dry World" },
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X11, action="PROGRESSION_ZONE", desc="Bowser in the Dark World" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Mario's Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Mario's Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X32DDFA, type="u24be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", desc="Map ID" },
+      },
+    },
+  },
+}

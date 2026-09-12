@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Labyrinth",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "labyrinth",
+    hashes = {
+      { hash = "1cd8cfb7fbcd9d5ab146337873914986", label = "Labyrinth (Europe) (ESS-009-6).tvc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X17C6, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="blue background (opening)" },
+        { address=0X17C6, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="green background" },
+        { address=0X17C6, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="red background" },
+        { address=0X17C6, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="magenta background" },
+        { address=0X17C6, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="yellow background" },
+        { address=0X17C6, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="white background" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X171F, type="u8", condition="eq", value=0X6, action="WEAPON_STATE", no_log=true, desc="weapon that kills dragons" },
+        { address=0X1753, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="weapon location" },
+        { address=0X17AD, type="u8", condition="eq", value=0X4, action="WEAPON_STATE", no_log=true, desc="east of red castle/west of magenta castle (A4) (weapon normally found here)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X17C8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="minutes place ending time (aa until you enter the white castle with the princess)" },
+        { address=0X17C9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="seconds place ending time (aa until you enter the white castle with the princess)" },
+      },
+    },
+  },
+}

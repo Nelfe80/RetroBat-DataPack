@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Beyond Good & Evil",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "beyond-good-evil",
+    hashes = {
+      { hash = "4be27490bb0f2bc3fef2d1384b8c8863", label = "Beyond Good & Evil (Europe) (Fr,Nl)" },
+      { hash = "90ee12ade47037dc5696e4e8279c4437", label = "Beyond Good & Evil (Europe) (En,Es)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2DD7EB, type="u8", condition="change", action="PAUSE_ON", desc="pause :1" },
+        { address=0X887C78, type="u32be", condition="change", action="CREDITS_SCREEN", desc="32b BE Credits" },
+        { address=0X887C79, type="u32be", condition="change", action="CREDITS_SCREEN", desc="32b BE Credits" },
+        { address=0X887C7A, type="u32be", condition="change", action="CREDITS_SCREEN", desc="32b BE Credits" },
+        { address=0X887C7B, type="u32be", condition="change", action="CREDITS_SCREEN", desc="32b BE Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2DEA25, type="u8", condition="change", action="NEW_LEVEL", desc="value becomes 0 if load or zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X888A3B, type="u8", condition="increase", action="GAIN_LIFE", desc="text doubl h 'he devoted his life...' increased" },
+        { address=0X888A3B, type="u8", condition="decrease", action="LOSE_LIFE", desc="text doubl h 'he devoted his life...' decreased" },
+      },
+      health = {
+        { address=0X887C49, type="u8", condition="increase", action="HEAL", desc="HP Pey'j increased" },
+        { address=0X887C49, type="u8", condition="decrease", action="HIT", desc="HP Pey'j decreased" },
+        { address=0X887C4D, type="u8", condition="increase", action="HEAL", desc="HP 'Hub' increased" },
+        { address=0X887C4D, type="u8", condition="decrease", action="HIT", desc="HP 'Hub' decreased" },
+        { address=0X887C68, type="u8", condition="increase", action="HEAL", desc="HP Jade increased" },
+        { address=0X887C68, type="u8", condition="decrease", action="HIT", desc="HP Jade decreased" },
+        { address=0X887C6C, type="u8", condition="increase", action="HEAL", desc="HP beluga increased" },
+        { address=0X887C6C, type="u8", condition="decrease", action="HIT", desc="HP beluga decreased" },
+        { address=0X887C70, type="u8", condition="increase", action="HEAL", desc="HP hovercraft increased" },
+        { address=0X887C70, type="u8", condition="decrease", action="HIT", desc="HP hovercraft decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X888A2F, type="u8", condition="change", action="BOSS_HIT", desc="4e -> 6e factory boss down" },
+        { address=0X888A33, type="u8", condition="change", action="BOSS_HIT", desc="b4 cutscene, factory boss pop" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X888A50, type="u8", condition="eq", value=0XB4, action="DOOR_OPENED", desc="beluga hiding spot on/off" },
+        { address=0X888AF2, type="u8", condition="change", action="OBJECT_DESTROYED", desc="b2 : egg broken" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ TMT 1",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-tmt-1",
+    hashes = {
+      { hash = "8e2d64c8b6a65ea989a41aac7152bb26", label = "SMW - TMT 1 (v2008) (SR5000).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1422, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch Bitflag" },
+      },
+    },
+  },
+}

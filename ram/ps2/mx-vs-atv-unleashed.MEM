@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "MX vs. ATV Unleashed",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "mx-vs-atv-unleashed",
+    hashes = {
+      { hash = "fb31c3a3280a96e94553c4e49871d6fd", label = "MX vs. ATV Unleashed (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

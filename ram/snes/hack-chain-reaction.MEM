@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Chain Reaction",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-chain-reaction",
+    hashes = {
+      { hash = "672cf07438693acd3a90514df0ced274", label = "SMW - Chain Reaction (Sweetdude).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_HIT", desc="Combo" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0DC4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage 3 Timer sec" },
+        { address=0X0DC5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Stage 3 Timer m-sec" },
+      },
+    },
+  },
+}

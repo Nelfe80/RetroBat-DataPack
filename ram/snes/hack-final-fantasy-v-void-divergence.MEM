@@ -1,0 +1,119 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy V: Void Divergence",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-v-void-divergence",
+    hashes = {
+      { hash = "43d2d41eed0fad3e19b65678256c08a7", label = "FFV - Void Divergence (v1.658) (praetarius5018).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0502, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Party Slot 1 Level" },
+        { address=0X0552, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Party Slot 2 Level" },
+        { address=0X05A2, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Party Slot 1 Level" },
+        { address=0X05F2, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Party Slot 4 Level" },
+        { address=0X0A44, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Piano Level in Bits" },
+        { address=0X0ADC, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Overworld Sprite" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Walking" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Chocobo" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Black Chocobo" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Hiryu" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Submarine" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="Ship" },
+        { address=0X0ADC, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="Airship" },
+      },
+      zone = {
+        { address=0X0A4D, type="u8", condition="eq", value=0XB2, action="PROGRESSION_ZONE", desc="Gotten World Map" },
+        { address=0X0A53, type="u8", condition="eq", value=0XB3, action="PROGRESSION_ZONE", desc="Gotten World Map" },
+        { address=0X0A53, type="u8", condition="eq", value=0XB6, action="PROGRESSION_ZONE", desc="Crayclaw Defeated/Captured in Galuf's World" },
+      },
+      stage = {
+        { address=0X053A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Character Slot 1 Job Level" },
+        { address=0X08F3, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Character Slot 1 Job Levels Done" },
+        { address=0X0ADA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Character sprite represented on overworld" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Mini Bartz" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Frog" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Bartz" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Lenna" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Galuf" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Faris" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Krile" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X7, action="PROGRESSION_STAGE", desc="Boko" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X8, action="PROGRESSION_STAGE", desc="Moogle" },
+        { address=0X0ADA, type="u8", condition="eq", value=0X9, action="PROGRESSION_STAGE", desc="Ship" },
+        { address=0X0ADA, type="u8", condition="eq", value=0XA, action="PROGRESSION_STAGE", desc="Airship" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0953, type="u8", condition="eq", value=0XB6, action="LIVES_STATE", desc="Life" },
+        { address=0X095B, type="u8", condition="eq", value=0XB6, action="LIVES_STATE", desc="Life Song" },
+        { address=0X0A1F, type="u8", condition="eq", value=0XB0, action="LOSE_LIFE", desc="Released from exdeath's prison" },
+        { address=0X0A1F, type="u8", condition="eq", value=0XB1, action="LOSE_LIFE", desc="Released from exdeath's prison" },
+      },
+      health = {
+        { address=0X2006, type="u16le", condition="increase", action="HEAL", desc="[16bit] Bartz Current HP increased" },
+        { address=0X2006, type="u16le", condition="decrease", action="HIT", desc="[16bit] Bartz Current HP decreased" },
+        { address=0X2008, type="u16le", condition="increase", action="HEAL", desc="[16bit] Bartz Max HP increased" },
+        { address=0X2008, type="u16le", condition="decrease", action="HIT", desc="[16bit] Bartz Max HP decreased" },
+        { address=0X2206, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 1 Health increased" },
+        { address=0X2206, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 1 Health decreased" },
+        { address=0X220D, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy 1 Health increased" },
+        { address=0X220D, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy 1 Health decreased" },
+        { address=0X2286, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 2 Health increased" },
+        { address=0X2286, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 2 Health decreased" },
+        { address=0X228D, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy 2 Health increased" },
+        { address=0X228D, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy 2 Health decreased" },
+        { address=0X2306, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 3 Health increased" },
+        { address=0X2306, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 3 Health decreased" },
+        { address=0X230D, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy 3 Health increased" },
+        { address=0X230D, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy 3 Health decreased" },
+        { address=0X2386, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 4 Health increased" },
+        { address=0X2386, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 4 Health decreased" },
+        { address=0X2406, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 5 Health increased" },
+        { address=0X2406, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 5 Health decreased" },
+        { address=0X2486, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 6 Health increased" },
+        { address=0X2486, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 6 Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X09DA, type="u8", condition="eq", value=0XB4, action="TREASURE", desc="Walse Tower - Emerald" },
+      },
+      weapon = {
+        { address=0X0AD6, type="u16le", condition="eq", value=0X25, action="WEAPON_STATE", desc="Tule Weapon Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0X38, action="WEAPON_STATE", desc="Carwen Weapon/Armor Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0X42, action="WEAPON_STATE", desc="Walse Weapon Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0X98, action="WEAPON_STATE", desc="Karnak Weapon/Armor Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0XB3, action="WEAPON_STATE", desc="Jacole Weapon/Armor Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0XBA, action="WEAPON_STATE", desc="Crescent Weapon Shop" },
+        { address=0X0AD6, type="u16le", condition="eq", value=0XCD, action="WEAPON_STATE", desc="Lix Weapon/Armor Shop" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X09DE, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Ancient Library - Stealth Ring" },
+        { address=0X09DE, type="u8", condition="eq", value=0XB7, action="MONEY_STATE", desc="Lonka Ruins - Gold Bangle" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X09DF, type="u8", condition="eq", value=0XB2, action="SHIELD_GAIN", desc="Lonka Ruins - Poison Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0970, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Config Bits" },
+      },
+    },
+  },
+}

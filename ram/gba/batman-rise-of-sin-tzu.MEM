@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Batman: Rise of Sin Tzu",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Racing, Driving, Action, Platform, Fighting"
+  },
+
+  rom = {
+    name = "batman-rise-of-sin-tzu",
+    hashes = {
+      { hash = "294d2e2e0782a347a04eb438185d805f", label = "Batman - Rise of Sin Tzu (USA) (En,Fr,Es).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8091, type="u8", condition="change", action="PAUSE_ON", desc="Screen type? 0 : paused" },
+      },
+    },
+  },
+}

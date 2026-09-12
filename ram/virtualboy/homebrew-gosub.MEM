@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ GoSub",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-gosub",
+    hashes = {
+      { hash = "907c7f10093cfcab371754efae8ed279", label = "GoSub (USA) (Aftermarket) (Unl) (VirtualChris).vb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X001C, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0X001C, type="u8", condition="eq", value=0X21, action="NEW_LEVEL", desc="Ending" },
+        { address=0X0048, type="u8", condition="change", action="NEW_LEVEL", desc="01:Level Select" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0018, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0018, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

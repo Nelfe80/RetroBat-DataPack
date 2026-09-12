@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Puyo Pop",
+    system = "ngp",
+    system_name = "Neo Geo Pocket",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "puyo-pop",
+    hashes = {
+      { hash = "d40dc57b9cc3a30a2400f8cfd8724578", label = "Puyo Pop (World) (En,Ja) (v06).ngc" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X00A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (32bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00A4, type="u32le", condition="change", action="OBJECT_DESTROYED", desc="Puyos destroyed (32bit)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2429, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Margin Time" },
+        { address=0X2429, type="u8", condition="eq", value=0X06, action="GENERAL_TIMER", desc="96 sec (default)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Godzilla Balls",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-godzilla-balls",
+    hashes = {
+      { hash = "d0645d0eb478c48b50737243b8da8f3d", label = "Godzilla Balls - 70th Anniversary (2024) (Paxanga Software).rom" },
+      { hash = "ed7bdaa4fbefc1b84ec5492ae3649191", label = "Godzilla Balls - 70th Anniversary Level Pack (2024) (Paxanga Software).rom" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3890, type="u8", condition="change", action="LEVEL_CLEAR", desc="[In Single Bits] Stage Cleared - Half" },
+      },
+      stage = {
+        { address=0X3881, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Stages" },
+        { address=0X3881, type="u8", condition="eq", value=0X24, action="PROGRESSION_STAGE", desc="Ending" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X15E2, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Balls Remaining increased" },
+        { address=0X15E2, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Balls Remaining decreased" },
+        { address=0X3882, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Lives increased" },
+        { address=0X3882, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Lives decreased" },
+      },
+    },
+  },
+}

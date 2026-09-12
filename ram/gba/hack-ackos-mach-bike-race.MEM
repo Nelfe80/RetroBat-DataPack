@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Acko's Mach-Bike Race",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ackos-mach-bike-race",
+    hashes = {
+      { hash = "47d9c4f0caf302994998de362006905c", label = "Pokemon Emerald - Acko's Mach-Bike Race (v1.1) (ackolade).gba" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X28004, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Bullet Time Remaining" },
+        { address=0X28004, type="u16le", condition="eq", value=0X01F4, action="GENERAL_TIMER", desc="500" },
+      },
+    },
+  },
+}

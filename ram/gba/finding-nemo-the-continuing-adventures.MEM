@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Finding Nemo: The Continuing Adventures",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Adventure, Puzzle"
+  },
+
+  rom = {
+    name = "finding-nemo-the-continuing-adventures",
+    hashes = {
+      { hash = "89c2af08fb993266d8cd79af28aabce2", label = "Finding Nemo - The Continuing Adventures (Europe) (En,Es,It,Sv,Da).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0DE0, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="World Map" },
+        { address=0X0DE0, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Password" },
+        { address=0X0DE0, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="Gallery" },
+        { address=0X0DE0, type="u8", condition="eq", value=0X3, action="TITLE_SCREEN", desc="Multiplayer" },
+        { address=0X0DE0, type="u8", condition="eq", value=0X4, action="TITLE_SCREEN", desc="Options" },
+        { address=0X0DE0, type="u8", condition="eq", value=0X5, action="TITLE_SCREEN", desc="Back to main title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1DC8, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Character unlocked, no stages complete" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="Character's escape stage complete" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="Character's first minigame complete" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="Character's second minigame complete" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X5, action="LEVEL_CLEAR", desc="Character's last minigame complete" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Character unlocked, no stages complete" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="Character's escape stage complete" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="Character's first minigame complete" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="Character's second minigame complete" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X5, action="LEVEL_CLEAR", desc="Character's last minigame complete" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X1, action="LEVEL_CLEAR", desc="Character unlocked, no stages complete" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X2, action="LEVEL_CLEAR", desc="Character's escape stage complete" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X3, action="LEVEL_CLEAR", desc="Character's first minigame complete" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="Character's second minigame complete" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X5, action="LEVEL_CLEAR", desc="Character's last minigame complete" },
+      },
+      stage = {
+        { address=0X0DC2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="During Escape stages, which character you're playing as" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Bubbles" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Bloat" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Peach" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Jacques" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Deb" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Gurgle" },
+        { address=0X0DC2, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Gill" },
+        { address=0X1DC8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Every 3 bits represents the completion of a character's stages" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Character locked" },
+        { address=0X1DC9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Every 3 bits represents the completion of a character's stages" },
+        { address=0X1DC9, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Character locked" },
+        { address=0X1DCA, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Every 3 bits represents the completion of a character's stages" },
+        { address=0X1DCA, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Character locked" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3E6B, type="u8", condition="eq", value=0X2, action="SCORE_STATE", desc="The Story/Extra Play mode minigame is failed (or the Time Attack/Score Attack mode minigame is f" },
+        { address=0X3E6B, type="u8", condition="eq", value=0X3, action="SCORE_STATE", desc="The Story/Extra Play minigame is completed successfully (or the Score Attack mode of Bubble Puzz" },
+        { address=0X3E6C, type="u8", condition="eq", value=0X3, action="SCORE_STATE", desc="The Story mode minigame is completed successfully (or the Score Attack mode of Crab Challenge is" },
+        { address=0X3E6E, type="u8", condition="eq", value=0X2, action="SCORE_STATE", desc="The Story mode minigame is failed (or the Score Attack mode minigame is finished)" },
+      },
+      collectibles = {
+        { address=0X1DCE, type="u8", condition="eq", value=0XB1, action="MONEY_STATE", desc="Bubble Rings!" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1DCE, type="u8", condition="eq", value=0XB7, action="OBJECT_INTERACTION", desc="Crush the Blocks" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3E6B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Game state in all minigames except EAC, Crab Challenge, and Bubble Burst" },
+        { address=0X3E6C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Game state in EAC and Crab Challenge" },
+      },
+    },
+  },
+}

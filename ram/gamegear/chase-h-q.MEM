@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Chase H.Q.",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "chase-h-q",
+    hashes = {
+      { hash = "c72556c76d431b545dd56bdcc536a89f", label = "Chase H.Q. (USA).gg" },
+    }
+  },
+
+  events = {
+  },
+}

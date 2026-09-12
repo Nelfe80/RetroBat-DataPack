@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Robot Alchemic Drive: RAD",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "robot-alchemic-drive-rad",
+    hashes = {
+      { hash = "d248f7e8ff3945aa72c055fca8cb322b", label = "Robot Alchemic Drive (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X248044, type="u16le", condition="eq", value=0X26, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X248044, type="u16le", condition="eq", value=0X31, action="TITLE_SCREEN", desc="Title screen main menu" },
+        { address=0X248044, type="u16le", condition="eq", value=0X66, action="TITLE_SCREEN", desc="Episode 4 title screen/BNN intro" },
+        { address=0X248044, type="u16le", condition="eq", value=0X69, action="TITLE_SCREEN", desc="Episode 3 title screen/BNN intro" },
+        { address=0X248044, type="u16le", condition="eq", value=0X6A, action="TITLE_SCREEN", desc="Episode title screen/BNN intro" },
+        { address=0X27E716, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not paused" },
+        { address=0X27E716, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X28E2A0, type="u16le", condition="eq", value=0X615A, action="TITLE_SCREEN", desc="Mission title (ep3)" },
+        { address=0X28E2A0, type="u16le", condition="eq", value=0X8D23, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X28E2B8, type="u32le", condition="eq", value=0X0028E8D0, action="TITLE_SCREEN", desc="Mission title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X28E2A0, type="u16le", condition="eq", value=0XAB3E, action="LEVEL_CLEAR", desc="Mission clear (ep3)" },
+      },
+    },
+  },
+}

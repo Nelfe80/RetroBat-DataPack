@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ CHIP-8 Emulator",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-chip-8-emulator",
+    hashes = {
+      { hash = "3d4c70cba51a5c1f0e2fc3c1acb4be50", label = "CHIP-8 Emulator (World) (Aftermarket) (Unl).lnx" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X747F, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title" },
+        { address=0X747F, type="u8", condition="eq", value=0X0B, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+  },
+}

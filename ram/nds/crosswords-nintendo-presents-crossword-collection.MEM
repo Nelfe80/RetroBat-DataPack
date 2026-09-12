@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "CrossworDS | Nintendo Presents: Crossword Collection",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "crosswords-nintendo-presents-crossword-collection",
+    hashes = {
+      { hash = "d588cab87b36a813736170703deb5552", label = "Nintendo Presents - Crossword Collection (Europe).nds" },
+    }
+  },
+
+  events = {
+  },
+}

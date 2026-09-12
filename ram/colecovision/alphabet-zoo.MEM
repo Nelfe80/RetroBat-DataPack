@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alphabet Zoo",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Miscellaneous, Ludo-Educatif"
+  },
+
+  rom = {
+    name = "alphabet-zoo",
+    hashes = {
+      { hash = "d2b2efd04ef3e2596bfca82262f98664", label = "Alphabet Zoo (USA).col" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0064, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Settings" },
+      },
+    },
+  },
+}

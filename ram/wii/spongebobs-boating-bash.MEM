@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SpongeBob's Boating Bash",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "spongebobs-boating-bash",
+    hashes = {
+      { hash = "3865918f01e99ca2a73dc2851564f5b5", label = "Nickelodeon SpongeBob's Boating Bash (USA)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X1010464C, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[32-bit BE] Game Options - Floor It" },
+        { address=0X1010464C, type="u32be", condition="eq", value=0X02, action="GENERAL_TIMER", desc="All The Time" },
+      },
+    },
+  },
+}

@@ -1,0 +1,142 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Radical Red",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-radical-red",
+    hashes = {
+      { hash = "8529f3a45d32bce4da637976fcf269d4", label = "Pokemon - FireRed Version - Radical Red (v4.1) (soupercell).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2C2D8, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="[Safari Zone] Max Potion" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="[Safari Zone] Heracronite" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="[Safari Zone] TM 011 - Sunny Day //Changed to TM76 Earth Power in 4.1" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="[Safari Zone[ Leaf Stone" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="[Safari Zone] Pidgeotite" },
+        { address=0X2E43C, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="[Safari Zone] TM 047 - Steel Wing //Changed in 4.1, changed to Dragon Pulse 059 now" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="[Safari Zone] Gold Teeth" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="[Safari Zone] Lopunnite" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="[Safari Zone] Max Revive" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="[Silph CO] Hyper Potion" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="[Silph CO] Max Revive" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="[Silph CO] Garbodorite" },
+        { address=0X2E43D, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="[Silph CO} Full Heal" },
+        { address=0X2E446, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="[Safari Zone] Beedrilite" },
+        { address=0X2E449, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="[Berry Forest] Ground Gem" },
+        { address=0X2E453, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="[Fuchsia City] HM Strength" },
+        { address=0X2E455, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Carvinine trade in cerulean city" },
+        { address=0X2E455, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Eiscue trade in route 5 underground path" },
+        { address=0X2E455, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Farfetch trade in Vermilion City" },
+        { address=0X2E468, type="u8", condition="change", action="NEW_LEVEL", desc="bit2:[Three Isle Path] Groundium Z]" },
+        { address=0X2E48B, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="[Safari Zone] Leaf Stone" },
+        { address=0X2E48B, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="[Safari Zone] Revive" },
+        { address=0X42D62, type="u8", condition="change", action="NEW_LEVEL", desc="8bit Raid Den Level" },
+        { address=0X43182, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="[Underground Path] TM 104 - Psyshock" },
+        { address=0X43255, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="[Safari Zone] TM 054 - Grassy Glide" },
+        { address=0X43255, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="[Safari Zone] TM 055 - Expanding Force" },
+        { address=0X43255, type="u8", condition="bit_true", mask=0X40, action="NEW_LEVEL", desc="[Safari Zone] TM 058 - Rising Voltage" },
+        { address=0X4326B, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="[Safari Zone] Magmarizer" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2E43A, type="u8", condition="bit_true", mask=0X10, action="LIVES_STATE", desc="[Rocket Hideout] TM 049 - Leech Life" },
+        { address=0X2E4B8, type="u8", condition="bit_true", mask=0X02, action="LOSE_LIFE", desc="[Route 11] Youngster Eddie" },
+      },
+      health = {
+        { address=0X2BC0C, type="u16le", condition="increase", action="HEAL", desc="Current HP Mirror increased" },
+        { address=0X2BC0C, type="u16le", condition="decrease", action="HIT", desc="Current HP Mirror decreased" },
+        { address=0X2BC10, type="u16le", condition="increase", action="HEAL", desc="Own Pokemon HP increased" },
+        { address=0X2BC10, type="u16le", condition="decrease", action="HIT", desc="Own Pokemon HP decreased" },
+        { address=0X2BC64, type="u16le", condition="increase", action="HEAL", desc="Enemy Pokemon HP increased" },
+        { address=0X2BC64, type="u16le", condition="decrease", action="HIT", desc="Enemy Pokemon HP decreased" },
+        { address=0X2C2CC, type="u8", condition="increase", action="HEAL", desc="bit1-4:Pokemon 1 HP IVs increased" },
+        { address=0X2C2CC, type="u8", condition="decrease", action="HIT", desc="bit1-4:Pokemon 1 HP IVs decreased" },
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="Max HP decreased" },
+        { address=0X2E43E, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="[Silph CO] HP Up" },
+        { address=0X2E443, type="u8", condition="bit_true", mask=0X02, action="HEALTH_STATE", desc="[Fuchsia City] Rare Candy" },
+        { address=0X2E443, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", desc="[Two Island] TM 066 - Steel Beam" },
+        { address=0X2E443, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", desc="[Three Island] Grass Gem" },
+        { address=0X2E443, type="u8", condition="bit_true", mask=0X40, action="HEALTH_STATE", desc="[Viridian Forest] Potion" },
+        { address=0X2E443, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="[Mt. Moon] Revive" },
+        { address=0X2E445, type="u8", condition="bit_true", mask=0X10, action="HEALTH_STATE", desc="[Pokemon Mansion] HP Up" },
+        { address=0X2E49A, type="u8", condition="bit_true", mask=0X80, action="HEALTH_STATE", desc="[SIlph CO] HP Up" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X2E4F0, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="[Kindle Road] Swimmer Maria" },
+        { address=0X2E4F0, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="[Kindle Road] Swimmer Abigail" },
+        { address=0X2E4F0, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="[Kindle Road] Swimmer Finn" },
+        { address=0X2E4F0, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="[Kindle Road] Swimmer Garrett" },
+        { address=0X2E4F0, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="[Kindle Road] Fisherman Tommy" },
+        { address=0X30479, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="bit2:[Route 4] TM101 - Power-Up Punch (This isn't the actual flag as the game literally inventor" },
+        { address=0X4325F, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="[Treasure Beach] Rock Gem" },
+        { address=0X4325F, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="[Treasure Beach] Red. Mewtwonite X" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X435F2, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Battle Points" },
+      },
+      collectibles = {
+        { address=0X2D7BC, type="u32le", condition="increase", action="COIN_GAIN", desc="Money increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X2E4C9, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Richard" },
+        { address=0X2E4C9, type="u8", condition="bit_true", mask=0X10, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Reece" },
+        { address=0X2E4C9, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Matthew" },
+        { address=0X2E4C9, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Douglas" },
+        { address=0X2E4C9, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer David" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Axle" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Barry" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Dean" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X10, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Darrin" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 21] Swimmer Spencer" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 21] Swimmer Jack" },
+        { address=0X2E4CA, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 21] Swimmer Jerome" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 16] Cue Ball Koji" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 16] Cue Ball Luke" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X08, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 16] Cue Ball Camron" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X10, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 17] Cue Ball Raul" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 17] Cue Ball Isaiah" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 17] Cue Ball Zeek" },
+        { address=0X2E4CB, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 17] Cue Ball Jamal" },
+        { address=0X2E4CD, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Tiffany" },
+        { address=0X2E4CD, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Nora" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 15] Beauty Grace" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X04, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 15] Beauty Olivia" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X10, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Anya" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X20, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Alice" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X40, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 19] Swimmer Connie" },
+        { address=0X2E4CE, type="u8", condition="bit_true", mask=0X80, action="SWIMMING", no_log=true, no_survey=true, desc="[Route 20] Swimmer Shirley" },
+        { address=0X2E4F2, type="u8", condition="bit_true", mask=0X02, action="SWIMMING", no_log=true, no_survey=true, desc="[Bond Bridge] Swimmer Tisha" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2E510, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Thunder Badge [TM 092 - Volt Switch]" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X2C598, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Time - Minutes" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Oath Under the Stars",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-oath-under-the-stars",
+    hashes = {
+      { hash = "56c4952af7419dd70e52ea3c45b26e4a", label = "Oath Under the Stars, The (2025) (meichnpp).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

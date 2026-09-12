@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Arkanoid: Doh It Again",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "arkanoid-doh-it-again",
+    hashes = {
+      { hash = "03d30ca9aaa89738640cf14532ddfe6c", label = "Arkanoid - Doh It Again (USA).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X046B, type="u8", condition="decrease", action="HIT", desc="Red Player - Last Power-Up Collected decreased" },
+        { address=0X046D, type="u8", condition="decrease", action="HIT", desc="Blue Player - Last Power-Up Collected decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X046B, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Duplicate (Multiball)" },
+        { address=0X046B, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Extend" },
+        { address=0X046B, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Laser" },
+        { address=0X046B, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Player (Extra Life!)" },
+        { address=0X046B, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Standard" },
+        { address=0X046B, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Bonus! (Warp Out)" },
+        { address=0X046B, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Catch" },
+        { address=0X046B, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Missile (Pierces Blocks)" },
+        { address=0X046B, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Tennis? (One-Time Ball Saver)" },
+        { address=0X046D, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Duplicate (Multiball)" },
+        { address=0X046D, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Extend" },
+        { address=0X046D, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Laser" },
+        { address=0X046D, type="u8", condition="eq", value=0X05, action="DYNAMIC_INVENTORY", desc="Player (Extra Life!)" },
+        { address=0X046D, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Standard" },
+        { address=0X046D, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Bonus! (Warp Out)" },
+        { address=0X046D, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Catch" },
+        { address=0X046D, type="u8", condition="eq", value=0X09, action="DYNAMIC_INVENTORY", desc="Missile (Pierces Blocks)" },
+        { address=0X046D, type="u8", condition="eq", value=0X0A, action="DYNAMIC_INVENTORY", desc="Tennis? (One-Time Ball Saver)" },
+      },
+    },
+  },
+}

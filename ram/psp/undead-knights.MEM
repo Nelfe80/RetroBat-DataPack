@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Undead Knights",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "undead-knights",
+    hashes = {
+      { hash = "ff0f7099afa2779cd6799b8bc0db4dd5", label = "Undead Knights (Europe).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0XEB0CE8, type="u16le", condition="change", action="COMBO_HIT", desc="Number of killed in a combo" },
+        { address=0XEB0CEC, type="u16le", condition="change", action="COMBO_HIT", desc="Number of killed in a combo" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X1F4C0D4, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X98AED8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Number of Dark Points" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X98AEA0, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="[Float] Chronometer in stage" },
+        { address=0X1C9BF68, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="[Float] Clear Time" },
+      },
+    },
+  },
+}

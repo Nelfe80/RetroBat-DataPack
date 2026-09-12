@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Subversion",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-subversion",
+    hashes = {
+      { hash = "4eedb485d1916dbeb9103fff11e67d74", label = "Super Metroid - Subversion (v1.2) (TestRunner,AmoebaOfDoom).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1FE46, type="u8", condition="eq", value=0XB0, action="LIVES_STATE", desc="Life Temple" },
+        { address=0X1FE7E, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] Deaths" },
+        { address=0X20870, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] Deaths" },
+      },
+      health = {
+        { address=0X09C2, type="u8", condition="increase", action="HEAL", desc="[8bit] Current Health increased" },
+        { address=0X09C2, type="u8", condition="decrease", action="HIT", desc="[8bit] Current Health decreased" },
+        { address=0X09C4, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Health increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Health decreased" },
+        { address=0X09D8, type="u8", condition="change", action="HIT", desc="[8bit] Damage Amplifications" },
+        { address=0X0F8C, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy One Health increased" },
+        { address=0X0F8C, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy One Health decreased" },
+        { address=0X0FCC, type="u8", condition="increase", action="HEAL", desc="[8bit] Enemy Two Health increased" },
+        { address=0X0FCC, type="u8", condition="decrease", action="HIT", desc="[8bit] Enemy Two Health decreased" },
+        { address=0X1FE45, type="u8", condition="eq", value=0XB2, action="HEALTH_STATE", no_log=true, desc="Energy Plant" },
+        { address=0X1FE4F, type="u8", condition="eq", value=0XB2, action="HEALTH_STATE", no_log=true, desc="Energy Tank" },
+        { address=0X1FE50, type="u8", condition="eq", value=0XB2, action="HIT", desc="Damage Amp" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X09A4, type="u8", condition="eq", value=0XB0, action="DYNAMIC_INVENTORY", desc="Varia Suit" },
+        { address=0X09A4, type="u8", condition="eq", value=0XB1, action="DYNAMIC_INVENTORY", desc="Speed Ball" },
+        { address=0X09A4, type="u8", condition="eq", value=0XB2, action="DYNAMIC_INVENTORY", desc="Morphing Ball" },
+        { address=0X09A4, type="u8", condition="eq", value=0XB3, action="DYNAMIC_INVENTORY", desc="Screw Attack" },
+        { address=0X09A4, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Metroid Suit" },
+        { address=0X09A4, type="u8", condition="eq", value=0XB5, action="DYNAMIC_INVENTORY", desc="Aqua Suit" },
+        { address=0X1FE4D, type="u8", condition="eq", value=0XB0, action="DYNAMIC_INVENTORY", desc="--Suit--" },
+        { address=0X1FE4D, type="u8", condition="eq", value=0XB2, action="DYNAMIC_INVENTORY", desc="Aqua Suit" },
+        { address=0X1FE4D, type="u8", condition="eq", value=0XB4, action="DYNAMIC_INVENTORY", desc="Varia Suit" },
+        { address=0X1FE4D, type="u8", condition="eq", value=0XB6, action="DYNAMIC_INVENTORY", desc="Metroid" },
+      },
+      weapon = {
+        { address=0X1FE49, type="u8", condition="eq", value=0XB6, action="WEAPON_STATE", no_log=true, desc="--Weapons--" },
+        { address=0X1FE59, type="u8", condition="eq", value=0XB2, action="WEAPON_STATE", no_log=true, desc="Weapons" },
+        { address=0X1FE5A, type="u8", condition="eq", value=0XB2, action="WEAPON_STATE", no_log=true, desc="More Weapons" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X09C6, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[8bit] Current Ammo" },
+        { address=0X09C8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="[8bit] Max Ammo" },
+        { address=0X1FE4F, type="u8", condition="eq", value=0XB6, action="AMMO_STATE", no_log=true, desc="Small Ammo Tank" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09CA, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="[8bit] Space Jump Boosts" },
+        { address=0X1FE49, type="u8", condition="eq", value=0XB0, action="JUMPING", no_log=true, no_survey=true, desc="Space Jump" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0945, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="[8bit] Countdown Timer Milliseconds" },
+        { address=0X0946, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="[8bit] Countdown Timer Seconds" },
+        { address=0X0947, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", desc="[8bit] Countdown Timer Minutes" },
+      },
+    },
+  },
+}

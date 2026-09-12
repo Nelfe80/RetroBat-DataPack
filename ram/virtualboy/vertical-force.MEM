@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Vertical Force",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "vertical-force",
+    hashes = {
+      { hash = "87c38f66d5b9ead72af22f515a3a5f51", label = "Vertical Force (USA).vb" },
+      { hash = "c1f23aa9a6b5130a4971b4566dc19289", label = "Vertical Force (USA) (Debug Menu) (v1.0) (Parasyte).vb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1F3D, type="u8", condition="eq", value=0X19, action="CONTINUE_SCREEN", desc="continue screen" },
+        { address=0X1F46, type="u8", condition="change", action="PAUSE_ON", desc="[Settings] Pause/Rest scene between stages" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3F89, type="u8", condition="change", action="NEW_LEVEL", desc="Drone Weapon Level" },
+      },
+      stage = {
+        { address=0X1F3C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="1a:Stage Transition Scene" },
+        { address=0X1F3C, type="u8", condition="eq", value=0X001F3D, action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X1F3C, type="u8", condition="eq", value=0X22, action="PROGRESSION_STAGE", desc="Stage Select Menu" },
+        { address=0X1F3D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X1F3D, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="main menu" },
+        { address=0X1F3D, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="stage 5" },
+        { address=0X1F3D, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="endgame screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3F6D, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Lifebar increased" },
+        { address=0X3F6D, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Lifebar decreased" },
+        { address=0X3F88, type="u8", condition="increase", action="GAIN_LIFE", desc="Drone Lifebar (0-8) increased" },
+        { address=0X3F88, type="u8", condition="decrease", action="LOSE_LIFE", desc="Drone Lifebar (0-8) decreased" },
+      },
+      health = {
+        { address=0X3F6F, type="u8", condition="decrease", action="HIT", desc="Power Up - Type decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X3F6E, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Power Up - Level (0-3)" },
+        { address=0X3F6F, type="u8", condition="eq", value=0X0, action="DYNAMIC_INVENTORY", desc="wide" },
+        { address=0X3F6F, type="u8", condition="eq", value=0X1, action="DYNAMIC_INVENTORY", desc="laser" },
+        { address=0X3F6F, type="u8", condition="eq", value=0X2, action="DYNAMIC_INVENTORY", desc="shield" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1EF8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXXXX00", score_encoding="hex", desc="Score: xxxxxx00 (32-bit, hex)" },
+      },
+    },
+  },
+}

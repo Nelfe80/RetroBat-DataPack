@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Majora's Mask - Master Quest",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-majoras-mask-master-quest",
+    hashes = {
+      { hash = "0ccf7d5c1c3d18ce0ed2e2e49dd89a27", label = "Legend of Zelda, The - Majora's Mask - Master Quest (DeathbBasket) (1.2).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D66AF, type="u8", condition="bit_true", mask=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X1F3318, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X74, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X0097, action="TITLE_SCREEN", desc="You traded the Moon's Tear for a Land Title Deed!" },
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X153F, action="CONTINUE_SCREEN", desc="continue dialogue captain keeta" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X2A33, action="LOSE_LIFE", desc="Sakon death" },
+      },
+      health = {
+        { address=0X1EF6A4, type="u8", condition="increase", action="HEAL", desc="Link HP increased" },
+        { address=0X1EF6A4, type="u8", condition="decrease", action="HIT", desc="Link HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X17, action="TREASURE", desc="Treasure Chest Shop" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1EF6F1, type="u24be", condition="eq", value=0X22, action="MONEY_STATE", desc="Gold Dust" },
+        { address=0X1F054C, type="u16be", condition="increase", action="COIN_GAIN", desc="Total Money in Bank (16-bit) increased" },
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X006A, action="MONEY_STATE", desc="You got a bottle of gold Dust" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Odolwa's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Goht's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Gyorg's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Twinmold's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Sonata of Awakening" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Goron Lullaby" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X38, action="BOSS_HIT", desc="Sub Boss Battle" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X69, action="BOSS_HIT", desc="Majoras Boss Fight III" },
+        { address=0X2050D7, type="u8", condition="eq", value=0X6A, action="BOSS_HIT", desc="Majoras Boss Fight II" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X0B, action="BOSS_HIT", desc="Majora's Boss Fight Area" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X1F, action="BOSS_HIT", desc="Woodfall Temple Boss Fight" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X36, action="BOSS_HIT", desc="Stone Tower Temple Boss Fight" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X44, action="BOSS_HIT", desc="Snowhead Temple Boss Fight" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X5F, action="BOSS_HIT", desc="Great Bay Temple Boss Fight" },
+        { address=0X3E6BC6, type="u32be", condition="eq", value=0X69, action="BOSS_DEFEATED", desc="Guardians Area after defeat boss" },
+        { address=0X3E898B, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Chest - Boss Key" },
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X1BA0, action="BOSS_HIT", desc="You learned the New Wave Bossa Nova!" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="Kokiri Sword" },
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="Razor Sword" },
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Hero's Shield" },
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Mirror Shield" },
+        { address=0X3FD32E, type="u32be", condition="eq", value=0X0033, action="SHIELD_GAIN", desc="You got a Mirror Shield!" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EF680, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Day Time" },
+        { address=0X2050D7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Music ID" },
+        { address=0X3E6BC6, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="inverted_countdown", timer_unit="unknown", no_log=true, desc="Map ID" },
+        { address=0X3FD32E, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", no_log=true, desc="Dialogue ID Test 16-bit" },
+      },
+    },
+  },
+}

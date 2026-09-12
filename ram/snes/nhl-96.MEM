@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "NHL 96",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "nhl-96",
+    hashes = {
+      { hash = "5558aa840d9f842b7a6c97b26c80c244", label = "NHL 96 (USA).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lucky Luke",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Platform, Action"
+  },
+
+  rom = {
+    name = "lucky-luke",
+    hashes = {
+      { hash = "466940840196f36a855668fcf84fb94b", label = "Lucky Luke (Europe) (En,Fr,De,Es).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0497, type="u8", condition="change", action="PAUSE_ON", desc="pause flag" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X056D, type="u8", condition="change", action="NEW_LEVEL", desc="level/screen id (cutscene preceding level will have corresponding level id)" },
+        { address=0X05AE, type="u8", condition="change", action="NEW_LEVEL", desc="level screen (what part of the level you are in, increments as you go further in the level)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X05A0, type="u8", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X05A0, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+      health = {
+        { address=0X059F, type="u8", condition="increase", action="HEAL", desc="health increased" },
+        { address=0X059F, type="u8", condition="decrease", action="HIT", desc="health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X05A2, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="ammo chambers in reserve" },
+      },
+    },
+  },
+}

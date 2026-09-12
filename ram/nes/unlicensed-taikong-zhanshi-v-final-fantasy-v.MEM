@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Taikong Zhanshi V | Final Fantasy V",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-taikong-zhanshi-v-final-fantasy-v",
+    hashes = {
+      { hash = "d0b3550605ee5b1b287a930e72bb477a", label = "Final Fantasy - Taikong Zhanshi V (China) (v1.0) (Pirate).nes" },
+      { hash = "6c30e3af39cdf047768f466cdeceae56", label = "Final Fantasy - Taikong Zhanshi V (China) (En+Extras) (v1.1) (Cubear).nes" },
+    }
+  },
+
+  events = {
+    inventory = {
+      items = {
+        { address=0X0629, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="First Dungeon Treasure" },
+        { address=0X062A, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Dungeon Treasure" },
+        { address=0X062B, type="u8", condition="bit_true", mask=0X01, action="TREASURE", desc="Forest Treasure" },
+        { address=0X062B, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Minecart Treasure" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X059B, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Red Bird (boss)" },
+        { address=0X059B, type="u8", condition="eq", value=0X0F, action="BOSS_HIT", desc="Barsaka (boss)" },
+        { address=0X059B, type="u8", condition="eq", value=0X12, action="BOSS_HIT", desc="Red Knight (boss)" },
+        { address=0X059B, type="u8", condition="eq", value=0X15, action="BOSS_HIT", desc="Giant Worm (boss)" },
+        { address=0X062A, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Bird Boss Treasure" },
+      },
+    },
+  },
+}

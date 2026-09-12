@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Driving Force",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "driving-force",
+    hashes = {
+      { hash = "b1b4b52fc0e199cdd532b74ba21a329a", label = "drivfrcp.7z <Driving Force (Pac-Man conversion)>" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X0179, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Time Remainig [16-bit BE]" },
+      },
+    },
+  },
+}

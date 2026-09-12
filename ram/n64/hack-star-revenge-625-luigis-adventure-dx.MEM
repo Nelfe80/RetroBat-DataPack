@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Star Revenge 6.25: Luigi's Adventure DX",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-star-revenge-625-luigis-adventure-dx",
+    hashes = {
+      { hash = "1b61e2d31b6c00fcc4985db449549d7f", label = "SM64 - Star Revenge 6.25 - Luigi's Adventure DX (BroDute) (1.1).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="Overworld cannon star (From Timerock)" },
+      },
+      zone = {
+        { address=0X2233E2, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Equals 22 when distortion world switch is pressed" },
+        { address=0X32DDFA, type="u24be", condition="eq", value=0X0F, action="PROGRESSION_ZONE", desc="Distortion World" },
+        { address=0X343BF4, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Top Right Switch distortion world" },
+        { address=0X343E54, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Bottom Right Switch Distortion world" },
+        { address=0X3440B4, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Top left ! Switch distortion world" },
+        { address=0X344314, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Bottom Left ! Switch distortion world" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Player health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Player health decreased" },
+        { address=0X33EDCC, type="u8", condition="increase", action="HEAL", desc="Frosty- Omb health increased" },
+        { address=0X33EDCC, type="u8", condition="decrease", action="HIT", desc="Frosty- Omb health decreased" },
+        { address=0X33F28C, type="u8", condition="increase", action="HEAL", desc="Wiggler health increased" },
+        { address=0X33F28C, type="u8", condition="decrease", action="HIT", desc="Wiggler health decreased" },
+        { address=0X3516AC, type="u8", condition="increase", action="HEAL", desc="Big Boo health increased" },
+        { address=0X3516AC, type="u8", condition="decrease", action="HIT", desc="Big Boo health decreased" },
+        { address=0X3529AC, type="u8", condition="increase", action="HEAL", desc="Tartar Type B health increased" },
+        { address=0X3529AC, type="u8", condition="decrease", action="HIT", desc="Tartar Type B health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Vanish Cap" },
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Metal Cap" },
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Wing Cap" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coin Count increased" },
+        { address=0X33E87C, type="u8", condition="increase", action="COIN_GAIN", desc="Number of collected red coins in Toursome Trouble increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X20771E, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Star for Boss 2 Cannon (from Bowser)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Red Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Blue Switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X40, action="DOOR_OPENED", desc="Door to Section 2 unlocked" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X80, action="DOOR_OPENED", desc="Door to Section 3 unlocked" },
+        { address=0X207709, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X349F04, type="u8", condition="change", action="OBJECT_INTERACTION", desc="0 When switch in Daystar Sanctuary is pressed" },
+        { address=0X34B204, type="u8", condition="change", action="OBJECT_INTERACTION", desc="0 when the submerged switch in Sakura Cliff is pressed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X331486, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[16 Bit] Dialog ID" },
+        { address=0X34D8EC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timerock HP (one hand)" },
+        { address=0X34DB4C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timerock HP (other hand)" },
+      },
+    },
+  },
+}

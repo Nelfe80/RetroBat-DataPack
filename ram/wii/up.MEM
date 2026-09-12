@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Up",
+    system = "wii",
+    system_name = "Wii",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "up",
+    hashes = {
+      { hash = "637f38537071a7e2c4f37b2583c91bd1", label = "Disney-Pixar Up (USA) (En,Fr)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X81FA74, type="u32be", condition="eq", value=0X05, action="PAUSE_ON", desc="Pause/Level complete" },
+        { address=0X84622C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="In-pause/Loading screen" },
+        { address=0X84AEE0, type="u32be", condition="change", action="PAUSE_ON", desc="[32-bit BE] [Boolean] Menu/Pause/Credits flags" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X828828, type="u32be", condition="change", action="NEW_LEVEL", desc="[32-bit BE] [ASCII] Level ID" },
+        { address=0X84622C, type="u8", condition="change", action="NEW_LEVEL", desc="[Boolean] Flag when a level is played" },
+        { address=0X84622C, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Playing a level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X81AB9C, type="u8", condition="increase", action="HEAL", desc="[Float BE] Health increased" },
+        { address=0X81AB9C, type="u8", condition="decrease", action="HIT", desc="[Float BE] Health decreased" },
+      },
+    },
+  },
+}

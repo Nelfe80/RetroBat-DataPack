@@ -1,0 +1,11 @@
+# L'etat local d'une synchronisation, s'il venait a etre copie par erreur.
+.community-sync.json
+.datapack-sync.json
+# La couche perso d'une borne : jamais publiee.
+ram/.user/
+# Les bases par systeme partent en release, pas dans l'historique.
+gamelist/systems/
+# Sorties de travail
+*.bak
+*.tmp
+.temp/

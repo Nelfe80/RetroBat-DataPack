@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Barbie: Vacation Adventure",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "prototype-barbie-vacation-adventure",
+    hashes = {
+      { hash = "22c61c5030cb934ebeea07c20c9eaa49", label = "Barbie Vacation Adventure (USA) (Proto) (Hacked Header).sfc" },
+      { hash = "e0d0b07b27a2703cc69fbb3db4ccbf13", label = "Barbie Vacation Adventure (USA) (Proto).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0218, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="2p" },
+      },
+    },
+  },
+}

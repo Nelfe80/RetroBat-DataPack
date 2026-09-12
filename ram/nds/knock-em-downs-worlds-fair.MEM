@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Knock 'Em Downs: World's Fair",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "knock-em-downs-worlds-fair",
+    hashes = {
+      { hash = "39ca5c3f47248c318d28320301f93921", label = "Knock 'Em Downs - World's Fair (Europe) (En,Es).nds" },
+    }
+  },
+
+  events = {
+  },
+}

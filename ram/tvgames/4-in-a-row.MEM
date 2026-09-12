@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "4 in a Row",
+    system = "tvgames",
+    system_name = "Elektor TV Games Computer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "4-in-a-row",
+    hashes = {
+      { hash = "663eed15fd2a7a39c21622d09e21fbf9", label = "4 in a Row (Europe) (ESS-007-7).tvc" },
+    }
+  },
+
+  events = {
+  },
+}

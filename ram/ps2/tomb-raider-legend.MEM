@@ -1,0 +1,142 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tomb Raider: Legend",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "tomb-raider-legend",
+    hashes = {
+      { hash = "1695f00f7b3edc961542d0fc8325c3dc", label = "Lara Croft Tomb Raider - Legend (USA) (En,Fr,Es)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3B9C38, type="u8", condition="change", action="PAUSE_ON", desc="Pause, but stays 'Paused' when others do not" },
+        { address=0X3B9CF0, type="u8", condition="change", action="PAUSE_ON", desc="Pause, but goes to Zero on disc-access" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X391FF8, type="u8", condition="change", action="NEW_LEVEL", desc="Replay Level-ID as Float; if in Story Mode, this is Zero" },
+        { address=0X3927D4, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level ID 1" },
+        { address=0X3927D6, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level ID 2" },
+        { address=0X3927D8, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level ID 3" },
+        { address=0X3927DA, type="u8", condition="change", action="NEW_LEVEL", desc="Sub-Level ID 4" },
+        { address=0X3B9C90, type="u8", condition="change", action="NEW_LEVEL", desc="Disc Access for Level-Load or Reload" },
+        { address=0X96319E, type="u8", condition="change", action="NEW_LEVEL", desc="LEVEL-REPLAY Area ID(always zero otherwise):" },
+        { address=0X96319E, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Main Menu;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Bolivia;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Croft Manor;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Peru;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Croft Manor to Japan;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Japan;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="West Africa;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Croft Manor to Kazakhstan;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Kazakhstan;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="England;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Croft Manor to Nepal;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Nepal;" },
+        { address=0X96319E, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Bolivia Redux;" },
+        { address=0X9631A0, type="u8", condition="change", action="NEW_LEVEL", desc="ASCII Level-File Text 96-bit" },
+        { address=0X9631B8, type="u8", condition="change", action="NEW_LEVEL", desc="ASCII Level-File Text 96-bit (Replay Level)" },
+        { address=0X964BFC, type="u8", condition="change", action="LEVEL_CLEAR", desc="GOAL!!!!!" },
+        { address=0X1FFFC10, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level-complete" },
+      },
+      stage = {
+        { address=0X391FE0, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Actual Level-ID but stored as Float" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X392028, type="u32le", condition="change", action="LOSE_LIFE", desc="32-bit HP (can control the other addres, but will not go to zero on death)" },
+        { address=0X3BA420, type="u32le", condition="change", action="LOSE_LIFE", desc="32-bit Death Check(whether HP goes down or not)" },
+        { address=0X3BC0DC, type="u24le", condition="change", action="LOSE_LIFE", desc="24-bit death check" },
+        { address=0X48DCE4, type="u8", condition="change", action="LOSE_LIFE", desc="0x04 on death or cutscene" },
+      },
+      health = {
+        { address=0X48DC38, type="u8", condition="increase", action="HEAL", desc="bit6 : See Enemy Health increased" },
+        { address=0X48DC38, type="u8", condition="decrease", action="HIT", desc="bit6 : See Enemy Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X963208, type="u24le", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Legend;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X0D, action="DYNAMIC_INVENTORY", desc="Winter;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X0E, action="DYNAMIC_INVENTORY", desc="Biker;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X10, action="DYNAMIC_INVENTORY", desc="Evening, Ripped;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X11, action="DYNAMIC_INVENTORY", desc="Biker, Red Jacket;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X12, action="DYNAMIC_INVENTORY", desc="Goth;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X13, action="DYNAMIC_INVENTORY", desc="Goth, Lace Shirt;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X14, action="DYNAMIC_INVENTORY", desc="Classic;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X15, action="DYNAMIC_INVENTORY", desc="Sport;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X16, action="DYNAMIC_INVENTORY", desc="Catsuit;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X17, action="DYNAMIC_INVENTORY", desc="Snowsuit;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X18, action="DYNAMIC_INVENTORY", desc="Legend, Union Jack;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X19, action="DYNAMIC_INVENTORY", desc="Legend, Black;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X1A, action="DYNAMIC_INVENTORY", desc="Legend, Blue;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X1B, action="DYNAMIC_INVENTORY", desc="Legend, Pink;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X1C, action="DYNAMIC_INVENTORY", desc="Evening, Red;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X1E, action="DYNAMIC_INVENTORY", desc="Sport, Green;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X1F, action="DYNAMIC_INVENTORY", desc="Classic, Gray;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X20, action="DYNAMIC_INVENTORY", desc="Suit;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X21, action="DYNAMIC_INVENTORY", desc="Winter, Orange;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X22, action="DYNAMIC_INVENTORY", desc="Winter, Pink;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X24, action="DYNAMIC_INVENTORY", desc="Special Forces;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X25, action="DYNAMIC_INVENTORY", desc="Suit, Cream;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X27, action="DYNAMIC_INVENTORY", desc="Special Forces, Urban;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X28, action="DYNAMIC_INVENTORY", desc="Amanda;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X29, action="DYNAMIC_INVENTORY", desc="Amanda, Winter" },
+        { address=0X963208, type="u24le", condition="eq", value=0X2A, action="DYNAMIC_INVENTORY", desc="Winter, No Coat;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X2B, action="DYNAMIC_INVENTORY", desc="Winter, Orange No Coat;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X2C, action="DYNAMIC_INVENTORY", desc="Winter, Pink No Coat;" },
+        { address=0X963208, type="u24le", condition="eq", value=0X2D, action="DYNAMIC_INVENTORY", desc="Biker, No Jacket;" },
+      },
+      weapon = {
+        { address=0X392048, type="u8", condition="change", action="WEAPON_STATE", desc="Float Cheated Weapon" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X392050, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Float Offhand Ammo Count" },
+        { address=0X392058, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Float Ammo Count" },
+        { address=0X963702, type="u8", condition="increase", action="COIN_GAIN", desc="Bolivia Gold Artifact Counter increased" },
+        { address=0X96371A, type="u8", condition="increase", action="COIN_GAIN", desc="Croft Manor Gold Artifact Counter increased" },
+        { address=0X963732, type="u8", condition="increase", action="COIN_GAIN", desc="Peru Gold Artifact Counter increased" },
+        { address=0X963762, type="u8", condition="increase", action="COIN_GAIN", desc="Japan Gold Artifact Counter increased" },
+        { address=0X96377A, type="u8", condition="increase", action="COIN_GAIN", desc="Ghana Gold Artifact Counter increased" },
+        { address=0X9637AA, type="u8", condition="increase", action="COIN_GAIN", desc="Kazakhstan Gold Artifact Counter increased" },
+        { address=0X9637C2, type="u8", condition="increase", action="COIN_GAIN", desc="England Gold Artifact Counter increased" },
+        { address=0X9637F2, type="u8", condition="increase", action="COIN_GAIN", desc="Nepal Gold Artifact Counter increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X392138, type="u32le", condition="change", action="BOSS_HIT", desc="Common Boss HP 32-bit Float" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3927D2, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Level-Major-Checkpoint-ID; this is a starting-addr, the 16-bit addres past this point slowly fil" },
+        { address=0X48E0E0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="256-bit block of ASCII text for loading music" },
+        { address=0X9631CC, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="16-bit Current Checkpoint?" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X391FD8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Actual Difficulty; same as decimal difficulty levels, but stored in FLOAT because that's sane;" },
+        { address=0X392120, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Float Seconds Remaining in Time Trial" },
+        { address=0X392128, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Float Seconds Remaining in Time Trial; copy of previous except on-Death and some cutscenes it's" },
+        { address=0X9631EC, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="32-bit All Game Timer(seconds)(accumulative)" },
+        { address=0X96320C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Selected Difficulty - not working between hard-loads, but it works fine for Time Trial at the mo" },
+        { address=0X963710, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="32-bit Bolivia seconds Timer" },
+        { address=0X963728, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Croft Manor 32-bit Seconds Timer" },
+      },
+    },
+  },
+}

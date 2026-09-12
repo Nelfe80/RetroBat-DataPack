@@ -1,0 +1,110 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Junkoid",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-junkoid",
+    hashes = {
+      { hash = "f0466279dfbd8d333d78eeb1ab183bc1", label = "Super Metroid - Super Junkoid (v1.3) (P Yoshi).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0998, type="u24le", condition="eq", value=0X02, action="TITLE_SCREEN", desc="option menu" },
+        { address=0X0998, type="u24le", condition="eq", value=0X04, action="TITLE_SCREEN", desc="menus," },
+        { address=0X0998, type="u24le", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Load area," },
+        { address=0X0998, type="u24le", condition="eq", value=0X06, action="TITLE_SCREEN", desc="Loading game," },
+        { address=0X0998, type="u24le", condition="eq", value=0X07, action="TITLE_SCREEN", desc="saving," },
+        { address=0X0998, type="u24le", condition="eq", value=0X08, action="TITLE_SCREEN", desc="normal gameplay," },
+        { address=0X0998, type="u24le", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="door trans" },
+        { address=0X0998, type="u24le", condition="eq", value=0X0B, action="TITLE_SCREEN", desc="door transition" },
+        { address=0X0998, type="u24le", condition="eq", value=0X0C, action="TITLE_SCREEN", desc="pausing," },
+        { address=0X0998, type="u24le", condition="eq", value=0X0F, action="TITLE_SCREEN", desc="paused," },
+        { address=0X0998, type="u24le", condition="eq", value=0X12, action="TITLE_SCREEN", desc="unpausing," },
+        { address=0X0998, type="u24le", condition="eq", value=0X1E, action="TITLE_SCREEN", desc="Intro Cutscene" },
+        { address=0X0998, type="u24le", condition="eq", value=0X1F, action="TITLE_SCREEN", desc="intro cutscene transition" },
+        { address=0X0998, type="u24le", condition="eq", value=0X23, action="TITLE_SCREEN", desc="Timer up." },
+        { address=0X0998, type="u24le", condition="eq", value=0X24, action="TITLE_SCREEN", desc="blackout and gameover (Ceres explodes if not escaping Zebes)." },
+        { address=0X0998, type="u24le", condition="eq", value=0X26, action="GAME_OVER", desc="trans to ending creds" },
+        { address=0X0998, type="u24le", condition="eq", value=0X27, action="TITLE_SCREEN", desc="end cutscene/creds," },
+        { address=0X0998, type="u24le", condition="eq", value=0X2A, action="DEMO_MODE", desc="intro demos" },
+        { address=0X1F57, type="u8", condition="change", action="DEMO_MODE", desc="Currently Playing Scene in Demo" },
+        { address=0XCD65, type="u8", condition="eq", value=0X3B, action="DEMO_MODE", desc="Everything after you've beaten Phantoon on Wrecked Ship," },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X09A7, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Death Gem" },
+        { address=0X09A9, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Death Gem" },
+        { address=0X0A79, type="u8", condition="change", action="LOSE_LIFE", desc="Death Status? - 0x00 : Alive, 0x80 : Dead" },
+      },
+      health = {
+        { address=0X09C2, type="u16le", condition="increase", action="HEAL", desc="16-Bit - Current Energy increased" },
+        { address=0X09C2, type="u16le", condition="decrease", action="HIT", desc="16-Bit - Current Energy decreased" },
+        { address=0X09C4, type="u16le", condition="increase", action="HEAL", desc="16-Bit - Max Energy increased" },
+        { address=0X09C4, type="u16le", condition="decrease", action="HIT", desc="16-Bit - Max Energy decreased" },
+        { address=0X09D4, type="u8", condition="increase", action="HEAL", desc="8-Bit - Reserve Tank current maximum stored energy count increased" },
+        { address=0X09D4, type="u8", condition="decrease", action="HIT", desc="8-Bit - Reserve Tank current maximum stored energy count decreased" },
+        { address=0X09D6, type="u8", condition="increase", action="HEAL", desc="Reserve Tank's currently stored energy increased" },
+        { address=0X09D6, type="u8", condition="decrease", action="HIT", desc="Reserve Tank's currently stored energy decreased" },
+        { address=0X0FCC, type="u8", condition="increase", action="HEAL", desc="Mother Brain's Health - 0x0bb8:Protected First Phase, 0x4650:Second Phase, 0x8ca0:Stone 3rd Phas" },
+        { address=0X0FCC, type="u8", condition="decrease", action="HIT", desc="Mother Brain's Health - 0x0bb8:Protected First Phase, 0x4650:Second Phase, 0x8ca0:Stone 3rd Phas" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X09D2, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Nothing" },
+        { address=0X09D2, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", desc="Missiles" },
+        { address=0X09D2, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="Super Missiles" },
+        { address=0X09D2, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", desc="PowerBomb" },
+        { address=0X09D2, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", desc="GrapplingBeam" },
+        { address=0X09D2, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", desc="XRay" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XD826, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Killed" },
+        { address=0XD827, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Killed" },
+        { address=0XD828, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Activated" },
+        { address=0XD828, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Killed" },
+        { address=0XD829, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Phandoom Killed" },
+        { address=0XD829, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Spore Spawn Killed," },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="1:RidleyDead" },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="1:CrocomireDead," },
+        { address=0XD82A, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="1:GoldenTorizoDead," },
+        { address=0XD82B, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Kraid Killed" },
+        { address=0XD82B, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="PhantoonKilled" },
+        { address=0XD82C, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="DraygonDead" },
+        { address=0XD82C, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="BotwoonDead," },
+        { address=0XD82D, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Killed" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09CE, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="8-Bit - Spark Swimsuit - Current amount" },
+        { address=0X09D0, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="8-Bit - Spark Swimsuit - Current Max Amount" },
+        { address=0X0A11, type="u8", condition="eq", value=0X12, action="JUMPING", no_log=true, no_survey=true, desc="ball jump" },
+        { address=0X0A11, type="u8", condition="eq", value=0X14, action="JUMPING", no_log=true, no_survey=true, desc="wall jump" },
+        { address=0X0A11, type="u8", condition="eq", value=0X2, action="JUMPING", no_log=true, no_survey=true, desc="jump" },
+        { address=0X0A11, type="u8", condition="eq", value=0X3, action="JUMPING", no_log=true, no_survey=true, desc="spin jump" },
+        { address=0X0A1F, type="u8", condition="eq", value=0X1B, action="JUMPING", no_log=true, no_survey=true, desc="performing a Super Jump" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0998, type="u24le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Game state. 01 : Title screen," },
+        { address=0X09C3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="8-Bit - Current Energy" },
+        { address=0X09D5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Reserve Tank current maximum stored energy count" },
+        { address=0X09D7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Reserve Tank current stored energy Part 2 - Amount of times it can roll over when it hits 0" },
+        { address=0X0A68, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Shinespark Current Charge countdown timer 16bit" },
+      },
+    },
+  },
+}

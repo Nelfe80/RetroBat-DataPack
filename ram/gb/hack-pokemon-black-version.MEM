@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon: Black Version",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-black-version",
+    hashes = {
+      { hash = "45ff4e34868e32d638f5db2fc36bdebd", label = "Pokemon Red - Pokemon Black (v0.07) (Ax461).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC002, type="u8", condition="change", action="PAUSE_ON", desc="bit7:pause music for jingles" },
+        { address=0XCFCB, type="u8", condition="change", action="TITLE_SCREEN", desc="FF when Full Screen box(?) intro, title, hall of fame, diploma, stats / 01 else (ingame)" },
+        { address=0XFFE2, type="u8", condition="change", action="PAUSE_ON", desc="Pause : 02" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA599, type="u8", condition="change", action="NEW_LEVEL", desc="HOF Pokemon 1 Level" },
+        { address=0XD05A, type="u8", condition="change", action="NEW_LEVEL", desc="Battle Type (01:Old Man, 02:Safari Zone)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCCD7, type="u8", condition="increase", action="HEAL", desc="Player Substitute HP increased" },
+        { address=0XCCD7, type="u8", condition="decrease", action="HIT", desc="Player Substitute HP decreased" },
+        { address=0XCCD8, type="u8", condition="increase", action="HEAL", desc="Enemy Substitute HP increased" },
+        { address=0XCCD8, type="u8", condition="decrease", action="HIT", desc="Enemy Substitute HP decreased" },
+        { address=0XCFE6, type="u8", condition="increase", action="HEAL", desc="Enemy Current HP increased" },
+        { address=0XCFE6, type="u8", condition="decrease", action="HIT", desc="Enemy Current HP decreased" },
+        { address=0XD0D8, type="u8", condition="change", action="HIT", desc="Amount of damage attack is about to do. Max possible damage may appear one frame before actual d" },
+        { address=0XD16C, type="u16le", condition="increase", action="HEAL", desc="(16-bit) Pokemon 1 Current HP increased" },
+        { address=0XD16C, type="u16le", condition="decrease", action="HIT", desc="(16-bit) Pokemon 1 Current HP decreased" },
+        { address=0XD18E, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 Max HP increased" },
+        { address=0XD18E, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCCE5, type="u8", condition="increase", action="COIN_GAIN", desc="Money Earned By Pay-Day (xx0000) increased" },
+        { address=0XCCE6, type="u8", condition="increase", action="COIN_GAIN", desc="Money Earned By Pay-Day (00xx00) increased" },
+        { address=0XCCE7, type="u8", condition="increase", action="COIN_GAIN", desc="Money Earned By Pay-Day (0000xx) increased" },
+        { address=0XD347, type="u8", condition="increase", action="COIN_GAIN", desc="Money (xx0000) increased" },
+        { address=0XD348, type="u8", condition="increase", action="COIN_GAIN", desc="Money (00xx00) increased" },
+        { address=0XD349, type="u8", condition="increase", action="COIN_GAIN", desc="Money (0000xx) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XDA43, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Playtime (Minutes)" },
+        { address=0XDA44, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Playtime (Seconds)" },
+      },
+    },
+  },
+}

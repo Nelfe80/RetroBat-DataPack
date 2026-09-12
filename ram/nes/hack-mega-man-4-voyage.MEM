@@ -1,0 +1,114 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mega Man 4: Voyage",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mega-man-4-voyage",
+    hashes = {
+      { hash = "8222d31091c323bebee12d33c6b479c1", label = "Mega Man 4 Voyage (DurfarC) (1.06).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0022, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+        { address=0X0028, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Screen ID (Stage Exclusive)" },
+        { address=0X00A9, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Wily Stage Indicator" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00A1, type="u8", condition="increase", action="GAIN_LIFE", desc="Mega Man's Lives increased" },
+        { address=0X00A1, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mega Man's Lives decreased" },
+      },
+      health = {
+        { address=0X0073, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Energy Balancer" },
+        { address=0X0073, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not Collected" },
+        { address=0X0073, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="Collected" },
+        { address=0X00B0, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Mega Man HP" },
+        { address=0X00B0, type="u8", condition="eq", value=0X81, action="HEALTH_STATE", no_log=true, desc="1HP" },
+        { address=0X00B0, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B1, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Rush Coil Energy" },
+        { address=0X00B1, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B1, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B2, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Rush Jet Collected/Energy" },
+        { address=0X00B2, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B2, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B2, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B3, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Rush Marine Collected/Energy" },
+        { address=0X00B3, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B3, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B3, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B4, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Rain Flush Collected/Energy" },
+        { address=0X00B4, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B4, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B4, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B5, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Speed Boost Collected/Energy" },
+        { address=0X00B5, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B5, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B5, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B6, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Safe Guard Collected/Energy" },
+        { address=0X00B6, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B6, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B6, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B7, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Dive Missile Collected/Energy" },
+        { address=0X00B7, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B7, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B7, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00B9, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Drill Blaster Collected/Energy" },
+        { address=0X00B9, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00B9, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00B9, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00BA, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Dust Spread Collected/Energy" },
+        { address=0X00BA, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00BA, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00BA, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00BB, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Pharaoh Gust Collected/Energy" },
+        { address=0X00BB, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00BB, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00BB, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00BC, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Flash Stopper Collected/Energy" },
+        { address=0X00BC, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00BC, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00BC, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X00BD, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Skull Barrier Collected/Energy" },
+        { address=0X00BD, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="Not collected" },
+        { address=0X00BD, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Empty" },
+        { address=0X00BD, type="u8", condition="eq", value=0X9C, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X0317, type="u8", condition="change", action="HIT", desc="Enemy value on screen. May be usfeul on damageless boss fights!" },
+        { address=0X0466, type="u8", condition="increase", action="HEAL", desc="Wily Machine HP increased" },
+        { address=0X0466, type="u8", condition="decrease", action="HIT", desc="Wily Machine HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0016, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Start (Weapon Menu)" },
+        { address=0X0016, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", no_log=true, desc="Select (Weapon Swap)" },
+        { address=0X0017, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="A (previous weapon)" },
+        { address=0X0017, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="B (next weapon)" },
+        { address=0X0131, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Current Weapon" },
+        { address=0X0138, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Current Weapon 2" },
+        { address=0X0301, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Weapon Shot" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X00B8, type="u8", condition="eq", value=0X00, action="COIN_GAIN", desc="Not collected" },
+        { address=0X00B8, type="u8", condition="eq", value=0X80, action="COIN_GAIN", desc="Empty" },
+        { address=0X00B8, type="u8", condition="eq", value=0X9C, action="COIN_GAIN", desc="Max" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0316, type="u8", condition="change", action="BOSS_HIT", desc="Boss ID" },
+        { address=0X0467, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+  },
+}

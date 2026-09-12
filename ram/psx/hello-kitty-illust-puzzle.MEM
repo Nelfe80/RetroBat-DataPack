@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hello Kitty: Illust Puzzle",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hello-kitty-illust-puzzle",
+    hashes = {
+      { hash = "f3618287eb1be75e7c07694f747eb761", label = "Simple 1500 Series - Hello Kitty Vol. 02 - Illust Puzzle (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1FFA8E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="This determins if you in the stage select menu." },
+      },
+    },
+  },
+}

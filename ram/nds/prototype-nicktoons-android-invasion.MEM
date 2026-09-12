@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Nicktoons: Android Invasion",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Education, Platform"
+  },
+
+  rom = {
+    name = "prototype-nicktoons-android-invasion",
+    hashes = {
+      { hash = "6866e8ae6f7b76ad362dd84b6504dd11", label = "Nicktoons - Android Invasion (USA) (Proto) (2007-10-19).nds" },
+    }
+  },
+
+  events = {
+  },
+}

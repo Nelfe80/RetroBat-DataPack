@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Batty Zabella 2 XOXO XMAS",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-batty-zabella-2-xoxo-xmas",
+    hashes = {
+      { hash = "6503cb7859073a0097daa8ed34766468", label = "Batty Zabella 2 XOXO XMAS (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XCBA5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Outside Snow Cover Counter" },
+        { address=0XCBB9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Crash Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hippodrome",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "hippodrome",
+    hashes = {
+      { hash = "1e1e72ac0bfbac90416b2832a1e72f10", label = "hippodrm.7z <Hippodrome (US)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0003, type="u8", condition="eq", value=0X20, action="DEMO_MODE", desc="Demo Mode" },
+        { address=0X005F, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X000C, type="u8", condition="change", action="NEW_LEVEL", desc="- Level from 1 to 9" },
+        { address=0X000C, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="first enemy (no matter what enemy the player choose to fight)" },
+        { address=0X000C, type="u8", condition="eq", value=0X9, action="NEW_LEVEL", desc="last enemy" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0033, type="u8", condition="increase", action="GAIN_LIFE", desc="- Player 1 Life Bar increased" },
+        { address=0X0033, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Player 1 Life Bar decreased" },
+        { address=0X005C, type="u8", condition="increase", action="GAIN_LIFE", desc="- Player 1 Life Pendants increased" },
+        { address=0X005C, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Player 1 Life Pendants decreased" },
+        { address=0X005D, type="u8", condition="increase", action="GAIN_LIFE", desc="- Player 1 Life Containers increased" },
+        { address=0X005D, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Player 1 Life Containers decreased" },
+        { address=0X005F, type="u8", condition="increase", action="GAIN_LIFE", desc="- Player 1 Lives per Game increased" },
+        { address=0X005F, type="u8", condition="decrease", action="LOSE_LIFE", desc="- Player 1 Lives per Game decreased" },
+        { address=0X005F, type="u8", condition="eq", value=0X0, action="LIVES_STATE", desc="Last Life" },
+        { address=0X005F, type="u8", condition="eq", value=0X1, action="LIVES_STATE", desc="1 Life left" },
+        { address=0X005F, type="u8", condition="eq", value=0X2, action="LIVES_STATE", desc="2 Lives left" },
+        { address=0X02F5, type="u8", condition="increase", action="GAIN_LIFE", desc="- CPU Life increased" },
+        { address=0X02F5, type="u8", condition="decrease", action="LOSE_LIFE", desc="- CPU Life decreased" },
+        { address=0X0325, type="u8", condition="increase", action="GAIN_LIFE", desc="- CPU Life Second Assassin increased" },
+        { address=0X0325, type="u8", condition="decrease", action="LOSE_LIFE", desc="- CPU Life Second Assassin decreased" },
+        { address=0X0BC5, type="u8", condition="change", action="LOSE_LIFE", desc="- Player 1 Death Stab move with sword" },
+        { address=0X0BC6, type="u8", condition="change", action="LOSE_LIFE", desc="- Player 1 Death Stab move with battle-axe, mace and halberd" },
+      },
+      health = {
+        { address=0X07FB, type="u8", condition="bit_true", mask=0X40, action="HEALTH_STATE", no_log=true, desc="Energy Power Decrease on" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X083D, type="u8", condition="change", action="WEAPON_STATE", desc="- Player 1 Weapons (i.e. if the value is 7 it means P1 has all weapons)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X58, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X0050, type="u8", condition="increase", action="COIN_GAIN", desc="- Player 1 Money 2/3 (hundreds) increased" },
+        { address=0X0051, type="u8", condition="increase", action="COIN_GAIN", desc="- Player 1 Money 3/3 (thousands) increased" },
+        { address=0X0053, type="u8", condition="increase", action="COIN_GAIN", desc="- Player 1 Money 1/3 (tens) increased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0946, type="u8", condition="change", action="SHIELD_GAIN", desc="- Lizard Man Shield status 1/2" },
+        { address=0X5AA9, type="u8", condition="change", action="SHIELD_GAIN", desc="- Lizard Man Shield status 2/2" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X07FA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="DIP Switches" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X07FC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="- Fight Time 2/3 (seconds)" },
+        { address=0X07FD, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="- Fight Time 1/3 (minutes)" },
+        { address=0X07FE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="- Fight Time 3/3 (tenths of second)" },
+      },
+    },
+  },
+}

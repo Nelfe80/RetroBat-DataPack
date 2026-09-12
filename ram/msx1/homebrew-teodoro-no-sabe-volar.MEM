@@ -1,0 +1,90 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Teodoro no sabe volar",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-teodoro-no-sabe-volar",
+    hashes = {
+      { hash = "bf5fc1e33109289475084b5033edc87a", label = "Teodoro no sabe volar (2012) (En) (Retroworks, Dimension Z).rom" },
+      { hash = "88a8cbd98141026aec62fafc91357f3c", label = "Teodoro no sabe volar (2012) (Es) (Retroworks, Dimension Z).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0A01, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="main menu / cinematics / ending" },
+        { address=0X139C, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="menu / game over" },
+        { address=0X1B3F, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="MSX blue screen" },
+        { address=0X1B3F, type="u8", condition="eq", value=0X06, action="PAUSE_ON", desc="game paused / cinematics" },
+        { address=0X1B3F, type="u8", condition="eq", value=0X07, action="PAUSE_ON", desc="main menu / not paused" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X139C, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives: increased" },
+        { address=0X139C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives: decreased" },
+        { address=0X139C, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="one live remaining" },
+        { address=0X139C, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="two lives remaining" },
+      },
+      health = {
+        { address=0X12E0, type="u8", condition="decrease", action="HIT", desc="Punch: decreased" },
+        { address=0X12F9, type="u8", condition="decrease", action="HIT", desc="Super jump: decreased" },
+        { address=0X12FC, type="u8", condition="decrease", action="HIT", desc="High jump: decreased" },
+        { address=0X1327, type="u8", condition="decrease", action="HIT", desc="Hook: decreased" },
+        { address=0X138B, type="u8", condition="decrease", action="HIT", desc="Room ID: decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X12E0, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="power-up obtained" },
+        { address=0X12E0, type="u8", condition="eq", value=0X91, action="DYNAMIC_INVENTORY", desc="to be found" },
+        { address=0X12F9, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="power-up obtained" },
+        { address=0X12F9, type="u8", condition="eq", value=0X74, action="DYNAMIC_INVENTORY", desc="to be found" },
+        { address=0X12FC, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="power-up obtained" },
+        { address=0X12FC, type="u8", condition="eq", value=0X92, action="DYNAMIC_INVENTORY", desc="to be found" },
+        { address=0X1327, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="power-up obtained" },
+        { address=0X1327, type="u8", condition="eq", value=0X15, action="DYNAMIC_INVENTORY", desc="to be found" },
+        { address=0X138B, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="blue key room" },
+        { address=0X138B, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="punch power-up room" },
+        { address=0X138B, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="starting room" },
+        { address=0X138B, type="u8", condition="eq", value=0X0C, action="DYNAMIC_INVENTORY", desc="yellow padlock room" },
+        { address=0X138B, type="u8", condition="eq", value=0X0D, action="DYNAMIC_INVENTORY", desc="super jump power-up room" },
+        { address=0X138B, type="u8", condition="eq", value=0X0E, action="DYNAMIC_INVENTORY", desc="high jump power-up room" },
+        { address=0X138B, type="u8", condition="eq", value=0X10, action="DYNAMIC_INVENTORY", desc="yellow key room" },
+        { address=0X138B, type="u8", condition="eq", value=0X12, action="DYNAMIC_INVENTORY", desc="green key room" },
+        { address=0X138B, type="u8", condition="eq", value=0X15, action="DYNAMIC_INVENTORY", desc="red key room" },
+        { address=0X138B, type="u8", condition="eq", value=0X16, action="DYNAMIC_INVENTORY", desc="green padlock room" },
+        { address=0X138B, type="u8", condition="eq", value=0X1B, action="DYNAMIC_INVENTORY", desc="blue padlock room" },
+        { address=0X138B, type="u8", condition="eq", value=0X1C, action="DYNAMIC_INVENTORY", desc="red padlock room" },
+        { address=0X138B, type="u8", condition="eq", value=0X1F, action="DYNAMIC_INVENTORY", desc="hook power-up room" },
+        { address=0X138B, type="u8", condition="eq", value=0X26, action="DYNAMIC_INVENTORY", desc="useless 'Go up' warning room" },
+        { address=0X138B, type="u8", condition="eq", value=0X2A, action="DYNAMIC_INVENTORY", desc="matches room" },
+        { address=0X138B, type="u8", condition="eq", value=0X2D, action="DYNAMIC_INVENTORY", desc="bonfire room" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X139E, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="no coins found" },
+        { address=0X139E, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="1 coin found" },
+        { address=0X139E, type="u8", condition="eq", value=0X38, action="MONEY_STATE", desc="38 coins found (max)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X138B, type="u8", condition="eq", value=0X0D, action="TRANSFORMATION_SUPER", desc="Transformed into super jump power-up room" },
+        { address=0X138B, type="u8", condition="eq", value=0X2D, action="TRANSFORMATION_FIRE", desc="Transformed into bonfire room" },
+      },
+      player = {
+        { address=0X13A7, type="u8", condition="eq", value=0X1C, action="JUMPING", no_log=true, no_survey=true, desc="default jump" },
+        { address=0X13A7, type="u8", condition="eq", value=0X26, action="JUMPING", no_log=true, no_survey=true, desc="high jump" },
+        { address=0X13A7, type="u8", condition="eq", value=0X3A, action="JUMPING", no_log=true, no_survey=true, desc="super jump" },
+      },
+    },
+  },
+}

@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hokuto no Ken: Shinpan no Sousousei Kengo Retsuden",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hokuto-no-ken-shinpan-no-sousousei-kengo-retsuden",
+    hashes = {
+      { hash = "f553be9d14341f5d4b8351715ecdeaef", label = "Hokuto no Ken - Shinpan no Sousousei - Kengou Retsuden (Japan)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X30B714, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue?" },
+        { address=0X30B768, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="Continue?" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XA8E0B8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Arcade Mode Current Stage (8-bit)" },
+        { address=0XA8E0B8, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Final Battle" },
+        { address=0XA8E0B8, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="End" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X30B714, type="u8", condition="eq", value=0X05, action="SCORE_STATE", desc="High Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3924C9, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Options - Time Limit (8-bit)" },
+      },
+    },
+  },
+}

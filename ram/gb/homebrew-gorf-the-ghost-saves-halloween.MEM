@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Gorf the Ghost Saves Halloween",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-gorf-the-ghost-saves-halloween",
+    hashes = {
+      { hash = "1b9515262a8a57ef1366bed635c604e4", label = "Gorf the Ghost Saves Halloween (World) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC6AE, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="(Title screen)" },
+        { address=0XC6AE, type="u8", condition="eq", value=0X12, action="CREDITS_SCREEN", desc="(Credits 1)" },
+        { address=0XC6AE, type="u8", condition="eq", value=0X15, action="CREDITS_SCREEN", desc="(Credits 2)" },
+        { address=0XCC15, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="New Game" },
+        { address=0XCC15, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Continue" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC95A, type="u16le", condition="eq", value=0X6A59, action="LIVES_STATE", desc="Winston - Life is Strange" },
+      },
+      health = {
+        { address=0XCCEB, type="u8", condition="increase", action="HEAL", desc="Garf Health (Graveyard) [8 bit] increased" },
+        { address=0XCCEB, type="u8", condition="decrease", action="HIT", desc="Garf Health (Graveyard) [8 bit] decreased" },
+        { address=0XCCEC, type="u8", condition="increase", action="HEAL", desc="Skeleton Health (Graveyard) [8 bit] increased" },
+        { address=0XCCEC, type="u8", condition="decrease", action="HIT", desc="Skeleton Health (Graveyard) [8 bit] decreased" },
+      },
+    },
+  },
+}

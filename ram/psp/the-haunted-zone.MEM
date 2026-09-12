@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Haunted Zone",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "the-haunted-zone",
+    hashes = {
+      { hash = "a0d064c91023f15a10a3fb05f7d95337", label = "Haunted Zone, The (Japan) (En) (v1.0) (Mugi).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X93D678, type="u32le", condition="eq", value=0X00000000, action="PAUSE_ON", desc="Pause during screen transition" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X93D546, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16bit] Active Word Progress" },
+        { address=0X93D54A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16bit] Page On Screen" },
+      },
+    },
+  },
+}

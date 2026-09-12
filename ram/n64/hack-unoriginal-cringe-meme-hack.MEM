@@ -1,0 +1,97 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Unoriginal CRINGE Meme Hack",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-unoriginal-cringe-meme-hack",
+    hashes = {
+      { hash = "27ca052ee95c5ff9442ee67c985625d4", label = "SM64 - Unoriginal Cringe Meme Hack (v1.2) (GraymonDgt).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X331473, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1A7D13, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="if you enter a level or starting the game or selecting a file" },
+        { address=0X33B1E4, type="u8", condition="change", action="NEW_LEVEL", desc="Ground - Horizontal Angle" },
+        { address=0X33B1E6, type="u8", condition="change", action="NEW_LEVEL", desc="Ground - Vertical Angle" },
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] warpDest level id" },
+        { address=0X33BAC8, type="u8", condition="change", action="NEW_LEVEL", desc="Sublevel area ID (8-bit)" },
+        { address=0X361188, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bit] water level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (goes down to 0 until game over) increased" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (goes down to 0 until game over) decreased" },
+      },
+      health = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X020A, action="HEALTH_STATE", no_log=true, desc="Losing HP from toxic gas" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0471, action="HIT", desc="Fall damage" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X08B4, action="HIT", desc="Fire damage" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X08B7, action="HIT", desc="Lava damage" },
+        { address=0X33B21D, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Health (8-bit)" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", no_log=true, desc="0 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X01, action="HEALTH_STATE", no_log=true, desc="1 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", no_log=true, desc="2 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X03, action="HEALTH_STATE", no_log=true, desc="3 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X04, action="HEALTH_STATE", no_log=true, desc="4 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X05, action="HEALTH_STATE", no_log=true, desc="5 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X06, action="HEALTH_STATE", no_log=true, desc="6 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X07, action="HEALTH_STATE", no_log=true, desc="7 HP" },
+        { address=0X33B21D, type="u8", condition="eq", value=0X08, action="HEALTH_STATE", no_log=true, desc="8 HP" },
+        { address=0X33B221, type="u8", condition="change", action="HIT", desc="(8-bit) Damage Frames" },
+        { address=0X33B268, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", no_log=true, desc="Health" },
+        { address=0X361442, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X361442, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins (8-bit) increased" },
+        { address=0X33B268, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Coins" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red coin counter increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0880, action="JUMPING", no_log=true, no_survey=true, desc="Single jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0881, action="JUMPING", no_log=true, no_survey=true, desc="Double jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0882, action="JUMPING", no_log=true, no_survey=true, desc="Triple jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0886, action="JUMPING", no_log=true, no_survey=true, desc="Wall jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X0888, action="JUMPING", no_log=true, no_survey=true, desc="Long jump" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X24D0, action="SWIMMING", no_log=true, no_survey=true, desc="Swimming" },
+        { address=0X33B17C, type="u24be", condition="eq", value=0X24D2, action="SWIMMING", no_log=true, no_survey=true, desc="Swimming with A button held" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X33D270, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="Total Objects on the Map [32bit]" },
+        { address=0X33D488, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object-Slot °1" },
+        { address=0X33D6E8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object-Slot °2" },
+        { address=0X33D948, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Object-Slot °3" },
+        { address=0X342B54, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Activates" },
+        { address=0X342B54, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X342B54, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="Deactivates" },
+        { address=0X342B54, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Deactivates while still pressed" },
+        { address=0X400003, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="red - ON; blue - OFF" },
+        { address=0X400003, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="blue - ON: red - OFF" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B23E, type="u16be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pause Menu + Exit Course fadeout timer" },
+      },
+    },
+  },
+}

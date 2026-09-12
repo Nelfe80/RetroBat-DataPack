@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gran Turismo 4: Prologue",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "gran-turismo-4-prologue",
+    hashes = {
+      { hash = "7170e508085938a1515c1ecb876c66e0", label = "Gran Turismo 4 - Prologue (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1FCE1F8, type="u32le", condition="change", action="RANK_STATE", desc="Arcade - displayed current position in race [32-bit] (value behind pointers, see 0x9c1a9c)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X5ACB70, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pointer WITHIN STACK DO NOT USE" },
+        { address=0X9C1A9C, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Pointer" },
+        { address=0X9C2518, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Read only player's time in msec after license/race finish" },
+      },
+    },
+  },
+}

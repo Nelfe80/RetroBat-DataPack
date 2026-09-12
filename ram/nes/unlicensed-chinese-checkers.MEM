@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Chinese Checkers",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Board Game"
+  },
+
+  rom = {
+    name = "unlicensed-chinese-checkers",
+    hashes = {
+      { hash = "36b3a02bbe3df58782d786e266182461", label = "Chinese Checkers (Asia) (En) (60 pin cart) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

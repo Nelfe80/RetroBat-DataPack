@@ -1,0 +1,69 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros.: Chaos Control",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-chaos-control",
+    hashes = {
+      { hash = "42f5d6945de0879546205a7d5974bf95", label = "SMB3 - Chaos Control (v1.3) (Schwa).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0376, type="u8", condition="eq", value=0X01, action="PAUSE_OFF", desc="paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7B50, type="u16le", condition="change", action="NEW_LEVEL", desc="(16bit) Level ID" },
+      },
+      zone = {
+        { address=0X0727, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World ID" },
+        { address=0X0727, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="1" },
+        { address=0X0727, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="2" },
+        { address=0X0727, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="3" },
+        { address=0X0727, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="4" },
+        { address=0X0727, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="5" },
+        { address=0X0727, type="u8", condition="eq", value=0X05, action="PROGRESSION_ZONE", desc="6" },
+        { address=0X0727, type="u8", condition="eq", value=0X06, action="PROGRESSION_ZONE", desc="7" },
+        { address=0X0727, type="u8", condition="eq", value=0X07, action="PROGRESSION_ZONE", desc="8" },
+        { address=0X0727, type="u8", condition="eq", value=0X08, action="PROGRESSION_ZONE", desc="9 (Warp world)" },
+        { address=0X7D06, type="u8", condition="bit_true", mask=0X01, action="PROGRESSION_ZONE", desc="World 1 South mushroom house done" },
+        { address=0X7D06, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="1-3 done" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X00ED, type="u8", condition="decrease", action="HIT", desc="Power Ups decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X00ED, type="u8", condition="eq", value=0X0, action="DYNAMIC_INVENTORY", desc="Small Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X1, action="DYNAMIC_INVENTORY", desc="Big Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X2, action="DYNAMIC_INVENTORY", desc="Fire" },
+        { address=0X00ED, type="u8", condition="eq", value=0X3, action="DYNAMIC_INVENTORY", desc="Raccoon" },
+        { address=0X00ED, type="u8", condition="eq", value=0X4, action="DYNAMIC_INVENTORY", desc="Frog" },
+        { address=0X00ED, type="u8", condition="eq", value=0X5, action="DYNAMIC_INVENTORY", desc="Tanooki" },
+        { address=0X00ED, type="u8", condition="eq", value=0X6, action="DYNAMIC_INVENTORY", desc="Hammer" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X00ED, type="u8", condition="eq", value=0X1, action="TRANSFORMATION_SUPER", desc="Transformed into Big Mario" },
+        { address=0X00ED, type="u8", condition="eq", value=0X2, action="TRANSFORMATION_FIRE", desc="Transformed into Fire" },
+        { address=0X00ED, type="u8", condition="eq", value=0X3, action="TRANSFORMATION_RACCOON", desc="Transformed into Raccoon" },
+        { address=0X00ED, type="u8", condition="eq", value=0X4, action="TRANSFORMATION_FROG", desc="Transformed into Frog" },
+        { address=0X00ED, type="u8", condition="eq", value=0X5, action="TRANSFORMATION_TANOOKI", desc="Transformed into Tanooki" },
+        { address=0X00ED, type="u8", condition="eq", value=0X6, action="TRANSFORMATION_HAMMER", desc="Transformed into Hammer" },
+      },
+    },
+  },
+}

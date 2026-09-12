@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Defender",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "defender",
+    hashes = {
+      { hash = "975ecb719692fa2bc7255b0c2dd2f3a4", label = "defender.7z <Defender (Red label)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XE237, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XE2BA, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Game Playing or Transitioning to Attract Mode" },
+        { address=0XE2BA, type="u8", condition="eq", value=0XD9, action="DEMO_MODE", desc="Attract Mode" },
+        { address=0XE2BA, type="u8", condition="eq", value=0XFB, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XE2BA, type="u8", condition="eq", value=0XFF, action="DEMO_MODE", desc="Game Over, Showing High Score List, Transitioning to Attract Mode" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XE2FF, type="u8", condition="change", action="NEW_LEVEL", desc="Count of Swarmers in the Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA1C9, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0XE2BA, type="u8", condition="eq", value=0X7F, action="LOSE_LIFE", desc="Game Starting or Player Dead and Exploding or Wave First Loading" },
+        { address=0XE3C9, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1 on-screen lives remaining increased" },
+        { address=0XE3C9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1 on-screen lives remaining decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA1C3, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0XA037, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XA1CB, type="u8", condition="decrease", action="BOMB_FIRED", desc="bomb: smart bombs" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA1C3, type="u24be", condition="change", action="OBJECT_DESTROYED", color="white", min=200, max=200, desc="Score delta 200-200: mistery ship" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE317, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Standard Enemy Spawn Timer" },
+        { address=0XE318, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Baiter Spawn Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Toadally Awesome Game",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-toadally-awesome-game",
+    hashes = {
+      { hash = "49682b2d7fb8a0953f7a88a7fd33eb73", label = "Toadally Awesome (World) (GBA Jam 2021) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3DB0, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 1 Status" },
+        { address=0X3DB1, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 2 Status" },
+        { address=0X3DB2, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 3 Status" },
+        { address=0X3DB3, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 4 Status" },
+        { address=0X3DB4, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 5 Status" },
+        { address=0X3DB5, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 6 Status" },
+        { address=0X3DB6, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 7 Status" },
+        { address=0X3DB7, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level 8 Status" },
+        { address=0X3DC0, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Level Select ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X5DDC, type="u8", condition="increase", action="HEAL", desc="[8 Bit] Health increased" },
+        { address=0X5DDC, type="u8", condition="decrease", action="HIT", desc="[8 Bit] Health decreased" },
+      },
+    },
+  },
+}

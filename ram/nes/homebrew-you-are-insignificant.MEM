@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ You Are Insignificant",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Adventure, Platform"
+  },
+
+  rom = {
+    name = "homebrew-you-are-insignificant",
+    hashes = {
+      { hash = "362b152f507aa93d1e31ff149cf854f5", label = "You Are Insignificant (World) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0401, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage currently on:" },
+        { address=0X0401, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X0401, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 2" },
+        { address=0X0401, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage 3" },
+        { address=0X0401, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage 4" },
+        { address=0X0401, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 5" },
+        { address=0X040D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 2 Treasure:" },
+        { address=0X040D, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collected" },
+        { address=0X040E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 3 Leftmost Treasure:" },
+        { address=0X040E, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collected" },
+        { address=0X040F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 3 Rightmost Treasure:" },
+        { address=0X040F, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collected" },
+        { address=0X0410, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 5 Bottom Left Treasure:" },
+        { address=0X0410, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collect" },
+        { address=0X0411, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 5 Bottom Right Treasure:" },
+        { address=0X0411, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collected" },
+        { address=0X0412, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage 5 Top Treasure:" },
+        { address=0X0412, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Collected" },
+      },
+    },
+  },
+}

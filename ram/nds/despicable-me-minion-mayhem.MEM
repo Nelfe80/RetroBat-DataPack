@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Despicable Me: Minion Mayhem",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "despicable-me-minion-mayhem",
+    hashes = {
+      { hash = "89b08e31e425fe577eef8f9049064ae0", label = "Despicable Me - Minion Mayhem (Europe) (En,Fr,De,Es,It,Sv,No,Da,Fi).nds" },
+    }
+  },
+
+  events = {
+  },
+}

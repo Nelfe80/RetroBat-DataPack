@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Clueless: Fashion!",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-clueless-fashion",
+    hashes = {
+      { hash = "91dfd503b08a6360be69e6dc3f515c2a", label = "Clueless Fashion (Europe) (Proto).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X15D880, type="u32le", condition="change", action="NEW_LEVEL", desc="Can Walk around (32bit)" },
+      },
+      stage = {
+        { address=0X19D8DA, type="u8", condition="change", action="RANK_STATE", desc="Current Rank" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X19D8F0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Shopping! (32bit)" },
+        { address=0X19D8F8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Shorten Dionne's Skirt (32bit)" },
+        { address=0X19D900, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Hem Pants for Dad (32bit)" },
+        { address=0X19D908, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Tai's Alternation (32bit)" },
+        { address=0X19D910, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Cher's Alternation (32bit)" },
+        { address=0X19D918, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Cher's Tennis Skirt (32bit)" },
+        { address=0X19D920, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Cher's Tennis Shirt (32bit)" },
+        { address=0X19D928, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Softball Uniform (32bit)" },
+        { address=0X19D930, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Skirt for Mrs. Moore (32bit)" },
+        { address=0X19D938, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Ms. Pendergrass' Blouse (32bit)" },
+        { address=0X19D940, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Shirt for Betty's Boutique (32bit)" },
+        { address=0X19D948, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Flared Shirt (32bit)" },
+        { address=0X19D950, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Short Skirt (32bit)" },
+        { address=0X19D958, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Short Shorts (32bit)" },
+        { address=0X19D960, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Slacks for H and S (32bit)" },
+        { address=0X19D968, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress for Betty's Boutique (32bit)" },
+        { address=0X19D970, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Skirt for Betty's Boutique (32bit)" },
+        { address=0X19D978, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Short Sleeve Blouse (32bit)" },
+        { address=0X19D980, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Tight Pants (32bit)" },
+        { address=0X19D988, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - No Sleeve Shirt (32bit)" },
+        { address=0X19D990, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 1 (32bit)" },
+        { address=0X19D998, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 2 (32bit)" },
+        { address=0X19D9A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 3 (32bit)" },
+        { address=0X19D9A8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 4 (32bit)" },
+        { address=0X19D9B0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 5 (32bit)" },
+        { address=0X19D9B8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Task - Highscore - Dress 6 (32bit)" },
+      },
+    },
+  },
+}

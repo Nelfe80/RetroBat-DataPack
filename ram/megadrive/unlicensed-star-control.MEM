@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Star Control",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Strategy"
+  },
+
+  rom = {
+    name = "unlicensed-star-control",
+    hashes = {
+      { hash = "de54c1ae7099b15d6c6ccb31932927b3", label = "Star Control (USA, Europe) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

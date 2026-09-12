@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Goldie",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Education, Puzzle"
+  },
+
+  rom = {
+    name = "goldie",
+    hashes = {
+      { hash = "9a0c53b12f3583b14b669cc0e4da4a21", label = "Goldie (Europe) (En,Fr,De,Nl)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X429B4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Movie Timer" },
+        { address=0X4CA30, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Puzzle time (20 : 1 second)" },
+      },
+    },
+  },
+}

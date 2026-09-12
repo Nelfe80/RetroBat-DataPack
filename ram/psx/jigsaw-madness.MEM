@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Jigsaw Madness",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "jigsaw-madness",
+    hashes = {
+      { hash = "ec7f1de6e4dcfc4cb3d2cbd42455e5ed", label = "Jigsaw Madness (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

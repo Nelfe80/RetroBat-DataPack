@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Ocarina of Time",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-ocarina-of-time",
+    hashes = {
+      { hash = "b5490ac87a3467b11baa2b586a310f4d", label = "Super Mario 64 - Ocarina of Time (Hack) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="2 if pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X207701, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Super Ground Pound" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XF6944, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Black Boo Life increased" },
+        { address=0XF6944, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Black Boo Life decreased" },
+        { address=0X207704, type="u8", condition="bit_true", mask=0X04, action="LIVES_STATE", desc="Life Trader" },
+        { address=0X33D60E, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Giant Bowser Life increased" },
+        { address=0X33D60E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Giant Bowser Life decreased" },
+        { address=0X33D82C, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Blargg Life increased" },
+        { address=0X33D82C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Blargg Life decreased" },
+        { address=0X33DAD3, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Manta Life increased" },
+        { address=0X33DAD3, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Manta Life decreased" },
+        { address=0X33E1AC, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Amp Life increased" },
+        { address=0X33E1AC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Amp Life decreased" },
+        { address=0X33E90C, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Scuttlebug Life increased" },
+        { address=0X33E90C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Scuttlebug Life decreased" },
+        { address=0X33F28C, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Koopa Life increased" },
+        { address=0X33F28C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Koopa Life decreased" },
+        { address=0X33F70C, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - King Bob-omb Life increased" },
+        { address=0X33F70C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - King Bob-omb Life decreased" },
+        { address=0X34B084, type="u8", condition="increase", action="GAIN_LIFE", desc="Boss - Thwomp Life increased" },
+        { address=0X34B084, type="u8", condition="decrease", action="LOSE_LIFE", desc="Boss - Thwomp Life decreased" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Marios Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Marios Health decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X207701, type="u8", condition="bit_true", mask=0X10, action="DYNAMIC_INVENTORY", desc="Fire Suit" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X207702, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X207703, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Coin Wallet (Hyrule)" },
+        { address=0X207703, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Coin Wallet (Kakariko)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X20770C, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Black Boo Boss" },
+        { address=0X20770D, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Amp Boss" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X20, action="BOSS_HIT", desc="King Bob-omb Boss" },
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Scuttlebug Boss" },
+        { address=0X207710, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Koopa Boss" },
+        { address=0X207711, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Manta Boss" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Thwomp Boss" },
+        { address=0X207716, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Giant Bowser Boss" },
+        { address=0X207717, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Bowser Boss" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33FD4A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time Travel?" },
+      },
+    },
+  },
+}

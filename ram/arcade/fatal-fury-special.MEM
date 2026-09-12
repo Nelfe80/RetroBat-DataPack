@@ -1,0 +1,127 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Fatal Fury Special",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fighter"
+  },
+
+  rom = {
+    name = "fatal-fury-special",
+    hashes = {
+      { hash = "3020ffcb129267e20384fe60aa59f355", label = "fatfursp.7z <Fatal Fury Special / Garou Densetsu Special (set 1)(NGM-058)(NGH-058)>" },
+      { hash = "b6e6d63bb0fd46c5e0345323f8126b6a", label = "fatfurspa.7z <Fatal Fury Special / Garou Densetsu Special (set 2)(NGM-058)(NGH-058)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0010, type="u16le", condition="eq", value=0X36B4, action="DEMO_MODE", desc="Demo" },
+        { address=0X0010, type="u16le", condition="eq", value=0X3AA2, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0010, type="u16le", condition="eq", value=0X4D64, action="CONTINUE_SCREEN", desc="Continue Screen" },
+        { address=0X0010, type="u16le", condition="eq", value=0X5922, action="GAME_OVER", desc="GAME OVER Screen" },
+        { address=0X0020, type="u16le", condition="change", action="DEMO_MODE", desc="[16Bit] Attract mode Runtimes - Demo/Ranking" },
+        { address=0XFD8A, type="u8", condition="change", action="DEMO_MODE", desc="[8bit] Soft Dip Setup - toggle demo sound" },
+        { address=0XFD8B, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[8bit] Soft Dip Setup - toggle continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0050, type="u8", condition="change", action="NEW_LEVEL", desc="Tells you who won the most recent round" },
+        { address=0X0050, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="On hold" },
+        { address=0X0050, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Terry Bogard" },
+        { address=0X0050, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Andy Bogard" },
+        { address=0X0050, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Joe Higashi" },
+        { address=0X0050, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Big Bear" },
+        { address=0X0050, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Jubei Yamada" },
+        { address=0X0050, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Cheng Sinzan" },
+        { address=0X0050, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Kim Kaphwan" },
+        { address=0X0050, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Mai Shiranui" },
+        { address=0X0050, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Duck King" },
+        { address=0X0050, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Tung Fu Rue" },
+        { address=0X0050, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Billy Kane" },
+        { address=0X0050, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Axel Hawk" },
+        { address=0X0050, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="Laurence Blood" },
+        { address=0X0050, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Geese Howard" },
+        { address=0X0050, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Wolfgang Krauser" },
+        { address=0X0056, type="u8", condition="change", action="NEW_LEVEL", desc="Round Won" },
+        { address=0X0056, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="(Reset in new round)" },
+        { address=0X0056, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="P1" },
+        { address=0X0056, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="CPU/P2" },
+        { address=0X005A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] P1 Won Rounds" },
+        { address=0X005B, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] P2 Won Rounds" },
+        { address=0X0080, type="u16le", condition="change", action="NEW_LEVEL", desc="[16Bit] Round Flag" },
+        { address=0XB2F0, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Number of Rounds" },
+        { address=0XB2F0, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Round 1" },
+        { address=0XB2F0, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Round 2" },
+        { address=0XB2F0, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Round 3" },
+        { address=0XB2F0, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="FINAL ROUND (If draw games/ double K.O. occurs)" },
+        { address=0XFD90, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Soft Dip Setup - toggle level indicator" },
+      },
+      stage = {
+        { address=0X0502, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Interaction on Billy Kane, Axel Hawk and Laurence Blood Stage" },
+        { address=0X0502, type="u16le", condition="eq", value=0XA390, action="PROGRESSION_STAGE", desc="Hit the opponent" },
+        { address=0X0502, type="u16le", condition="eq", value=0XA444, action="PROGRESSION_STAGE", desc="Impact on the obstacle" },
+        { address=0X0502, type="u16le", condition="eq", value=0XA492, action="PROGRESSION_STAGE", desc="Return to the foreground" },
+        { address=0X0524, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Hazard Interaction" },
+        { address=0X0524, type="u8", condition="eq", value=0X20, action="PROGRESSION_STAGE", desc="Enemy hit into 2nd plane, returns to 1st plane" },
+        { address=0X3405, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Interaction? (Jubei Stage)" },
+        { address=0XB2F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8Bit] Stage ID" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="1st Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="2nd Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="3rd Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="4th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="5th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="6th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="7th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="8th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="9th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="10th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="11th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0C, action="PROGRESSION_STAGE", desc="12th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0D, action="PROGRESSION_STAGE", desc="13th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0E, action="PROGRESSION_STAGE", desc="14th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X0F, action="PROGRESSION_STAGE", desc="15th Fight" },
+        { address=0XB2F2, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="16th Fight - Dream Match" },
+        { address=0XB764, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Panels on the Jubei Yamada stage" },
+        { address=0XC792, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Interaction (Andy Bogard Stage)" },
+        { address=0XC792, type="u16le", condition="eq", value=0XD185, action="PROGRESSION_STAGE", desc="Scooter falling into water" },
+        { address=0XC91C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8Bit] Stage Interaction? (Kim Kaphwan Stage)" },
+        { address=0XC91C, type="u8", condition="eq", value=0X4D, action="PROGRESSION_STAGE", desc="Biker gets hit when changing planes?" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X04F9, type="u8", condition="eq", value=0X40, action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0X04FD, type="u8", condition="eq", value=0X80, action="HEALTH_STATE", no_log=true, desc="Throw 1 (HP) - Normal Throw" },
+        { address=0X059B, type="u8", condition="increase", action="HEAL", desc="[8bit] P2 Health increased" },
+        { address=0X059B, type="u8", condition="decrease", action="HIT", desc="[8bit] P2 Health decreased" },
+        { address=0X3405, type="u8", condition="eq", value=0X2E, action="HIT", desc="No painting damaged?" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE00C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB764, type="u8", condition="eq", value=0X7A, action="OBJECT_DESTROYED", desc="Destroying the panels" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X005E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8Bit] Continue Timer" },
+        { address=0X092A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8Bit] Round Time Oscillator" },
+        { address=0X092B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8Bit] Round Timer" },
+        { address=0XFD89, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8bit] Soft Dip Setup - Play Time" },
+      },
+    },
+  },
+}

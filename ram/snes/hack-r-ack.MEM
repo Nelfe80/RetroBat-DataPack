@@ -1,0 +1,107 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ R-ACK",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-r-ack",
+    hashes = {
+      { hash = "fca3122fc939555f6878a2afe9bd4d86", label = "SMW - R-ACK (v10.0.0) (Daizo Dee Von, Team JANK).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13C6, type="u8", condition="eq", value=0X08, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="seen title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID [8bit]" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Normal Exit" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Secret Exit 1" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Secret Exit 2" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Secret Exit 3" },
+        { address=0X0DD5, type="u8", condition="eq", value=0XE0, action="NEW_LEVEL", desc="Show Save Prompt" },
+        { address=0X1F02, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Event Flags [8 bit]" },
+        { address=0X1FF0, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="This level has EVERY Switch Palace Switch" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="stage 1" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X02, action="LEVEL_CLEAR", desc="stage 2" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X04, action="LEVEL_CLEAR", desc="stage 3" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X08, action="LEVEL_CLEAR", desc="stage 4" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X10, action="LEVEL_CLEAR", desc="stage 5" },
+        { address=0X1C7FA, type="u8", condition="bit_true", mask=0X20, action="LEVEL_CLEAR", desc="stage 6" },
+      },
+      stage = {
+        { address=0X1FF3, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_STAGE", desc="The Coin Hunters stage 5" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario Lives [8 bit] increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario Lives [8 bit] decreased" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="Start+Select / Death" },
+        { address=0X1F29, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="death switch" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0DC2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player Item Box [8 bit]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Current Coin Count [8 bit] increased" },
+        { address=0X0DC0, type="u8", condition="increase", action="COIN_GAIN", desc="Coins Collected in Current Level [8 bit] increased" },
+        { address=0X0F04, type="u8", condition="increase", action="COIN_GAIN", desc="The Coin Hunters Coin Count [8 bit] increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins in Current Level Collected [8 bit] increased" },
+        { address=0X1422, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins [8 bit] increased" },
+        { address=0X1C7F8, type="u8", condition="increase", action="COIN_GAIN", desc="The Coin Hunters Current Stage [8 bit] increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13C6, type="u8", condition="eq", value=0X01, action="OBJECT_DESTROYED", desc="Castle #1 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X02, action="OBJECT_DESTROYED", desc="Castle #2 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X03, action="OBJECT_DESTROYED", desc="Castle #3 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X04, action="OBJECT_DESTROYED", desc="Castle #4 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X05, action="OBJECT_DESTROYED", desc="Castle #5 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X06, action="OBJECT_DESTROYED", desc="Castle #6 destroyed" },
+        { address=0X13C6, type="u8", condition="eq", value=0X07, action="OBJECT_DESTROYED", desc="Castle #7 destroyed" },
+        { address=0X13CE, type="u8", condition="eq", value=0X0, action="OBJECT_INTERACTION_CHECKPOINT", desc="no, 1 : yes" },
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Started from Midway Point [8 bit]" },
+        { address=0X1F27, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Green" },
+        { address=0X1F27, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Grey" },
+        { address=0X1F27, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Lime" },
+        { address=0X1F27, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Pink" },
+        { address=0X1F27, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="White" },
+        { address=0X1F28, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Yellow" },
+        { address=0X1F28, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="rainbow switch" },
+        { address=0X1F28, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Turquoise" },
+        { address=0X1F28, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Maroon" },
+        { address=0X1F28, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Light Grey" },
+        { address=0X1F29, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Blue" },
+        { address=0X1F29, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Flashing Yellow" },
+        { address=0X1F29, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Light Blue" },
+        { address=0X1F29, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Orange" },
+        { address=0X1F2A, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Red" },
+        { address=0X1F2A, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Olive" },
+        { address=0X1F2A, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Trans Rights" },
+        { address=0X1F2A, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Red with Green Outline" },
+        { address=0X1F2A, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="barb switch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Blue P-Switch Timer [8 bit]" },
+        { address=0X14AE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Silver P-Switch Timer [8 bit]" },
+      },
+    },
+  },
+}

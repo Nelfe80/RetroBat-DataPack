@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Skate Boardin'",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Sports, Skateboard"
+  },
+
+  rom = {
+    name = "skate-boardin",
+    hashes = {
+      { hash = "f847fb8dba6c6d66d13724dbe5d95c4d", label = "Skate Boardin' (USA).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X005E, type="u8", condition="eq", value=0XFB, action="DEMO_MODE", desc="Demo Playing" },
+        { address=0X005E, type="u8", condition="eq", value=0XFC, action="TITLE_SCREEN", desc="Title Screen (Info at top of screen)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0010, type="u8", condition="change", action="LEVEL_CLEAR", desc="[8-bit BCD] Number of Obstacles Left to Clear" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X005D, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time - Minutes" },
+        { address=0X005E, type="u8", condition="eq", value=0XFD, action="GENERAL_TIMER", desc="Reached the School" },
+        { address=0X005E, type="u8", condition="eq", value=0XFE, action="GENERAL_TIMER", desc="Start of run/playing" },
+        { address=0X0061, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8-bit BCD] Time - Seconds" },
+      },
+    },
+  },
+}

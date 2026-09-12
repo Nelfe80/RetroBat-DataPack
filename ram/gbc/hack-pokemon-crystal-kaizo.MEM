@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Crystal Kaizo",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-crystal-kaizo",
+    hashes = {
+      { hash = "5f2ec6aa0cc32882cdaa6da4c2912f09", label = "Pokemon - Crystal Version - Crystal Kaizo (v3.0) (SinisterHoodedFigure).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

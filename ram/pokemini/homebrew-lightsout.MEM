@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ LightsOut",
+    system = "pokemini",
+    system_name = "Pokemon Mini",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-lightsout",
+    hashes = {
+      { hash = "43dbd3bda79b2e72276ef444152b695f", label = "LightsOut (World) (v1.1) (Aftermarket) (Unl).min" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0316, type="u8", condition="change", action="NEW_LEVEL", desc="Level X0 - 8-bit" },
+        { address=0X031A, type="u8", condition="change", action="NEW_LEVEL", desc="Level 0X - 8-bit" },
+      },
+    },
+  },
+}

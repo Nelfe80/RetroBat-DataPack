@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rugrats: Go Wild",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "rugrats-go-wild",
+    hashes = {
+      { hash = "95ecb39a21e97ba21b1a992ead24767e", label = "Rugrats - Go Wild (USA, Europe).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X94EC, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Demo mode not in progress and player is in control" },
+        { address=0X94EC, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo mode is in progress and AI is in control." },
+        { address=0X3132C, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Not in Pause Menu" },
+        { address=0X3132C, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="In Pause menu" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1D704, type="u8", condition="change", action="HEALTH_STATE", desc="Player Health" },
+        { address=0X1D704, type="u8", condition="eq", value=0X64, action="HEALTH_STATE", desc="100 health(max health)" },
+      },
+    },
+  },
+}

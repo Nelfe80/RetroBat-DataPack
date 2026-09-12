@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Super Luigi Fighter",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-super-luigi-fighter",
+    hashes = {
+      { hash = "6f7e9ffcbb5ee51aeb4c689a156e5b22", label = "Super Luigi Fighter (v2.0) (luigi2498).iso" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1E9C21E, type="u24le", condition="increase", action="GAIN_LIFE", desc="Lives [16bit] increased" },
+        { address=0X1E9C21E, type="u24le", condition="decrease", action="LOSE_LIFE", desc="Lives [16bit] decreased" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X0000, action="LIVES_STATE", desc="0 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X3FF0, action="LIVES_STATE", desc="1 Life" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4000, action="LIVES_STATE", desc="2 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4008, action="LIVES_STATE", desc="3 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4010, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4014, action="LIVES_STATE", desc="5 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4018, action="LIVES_STATE", desc="6 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X401C, action="LIVES_STATE", desc="7 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4020, action="LIVES_STATE", desc="8 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4022, action="LIVES_STATE", desc="9 Lives" },
+        { address=0X1E9C21E, type="u24le", condition="eq", value=0X4024, action="LIVES_STATE", desc="10+ Lives" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1FFA43D, type="u8", condition="increase", action="COIN_GAIN", desc="Coins Collected (100s) [ASCII, Lower4] increased" },
+        { address=0X1FFA43E, type="u8", condition="increase", action="COIN_GAIN", desc="Coins Collected (Tens) [ASCII, Lower4] increased" },
+        { address=0X1FFA43F, type="u8", condition="increase", action="COIN_GAIN", desc="Coins Collected (Ones) [ASCII, Lower4] increased" },
+      },
+    },
+  },
+}

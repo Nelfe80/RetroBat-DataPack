@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Fantasy",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-fantasy",
+    hashes = {
+      { hash = "c3c787700c800f34ec3ed44c599640ea", label = "SM64 - Super Mario Fantasy 64 (don camilo).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X32DDFA, type="u8", condition="eq", value=0X1A, action="NEW_LEVEL", desc="Overworld 1" },
+      },
+    },
+  },
+}

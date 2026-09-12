@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mission: Impossible: Operation Surma",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "mission-impossible-operation-surma",
+    hashes = {
+      { hash = "54068c4366ce9072837003184b361a68", label = "Mission Impossible - Operation Surma (Europe) (En,Fr,De,Es,It).gba" },
+    }
+  },
+
+  events = {
+  },
+}

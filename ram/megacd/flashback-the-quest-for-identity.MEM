@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Flashback: The Quest for Identity",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Adventure, Platform"
+  },
+
+  rom = {
+    name = "flashback-the-quest-for-identity",
+    hashes = {
+      { hash = "9e622c639d62cebd0a027ff788fb820d", label = "Flashback - The Quest for Identity (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X184C8, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits (Jungle)" },
+        { address=0X1B0A9, type="u8", condition="change", action="DEMO_MODE", desc="Demo - FF" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1B05F, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X18556, type="u8", condition="change", action="LOSE_LIFE", desc="Master Brain Status - 13 : dead?" },
+      },
+      health = {
+        { address=0X18342, type="u8", condition="increase", action="HEAL", desc="Auxillary Brain Health? increased" },
+        { address=0X18342, type="u8", condition="decrease", action="HIT", desc="Auxillary Brain Health? decreased" },
+        { address=0X1856A, type="u8", condition="change", action="HIT", desc="Master Brain Damage? (+03 Per hit)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1B1B0, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Pt 2 (16-Bit)" },
+        { address=0X1B1B2, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Pt 1 (16-Bit)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X17D2A, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield Strength (+1)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1832C, type="u8", condition="change", action="DOOR_OPENED", desc="Auxillary Brain Trap Door Coordinates" },
+        { address=0X183FE, type="u8", condition="change", action="DOOR_OPENED", desc="Master Brain Exit Door 2 Coordinates" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X18EDC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Escape Timer - Level 7" },
+        { address=0X19708, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Timer Active - Reactor Mission Level 2 (12)" },
+        { address=0X19710, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Timer - Reactor Mission, Level 2" },
+      },
+    },
+  },
+}

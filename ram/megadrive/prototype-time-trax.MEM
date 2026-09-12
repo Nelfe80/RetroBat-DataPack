@@ -1,0 +1,70 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Time Trax",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "prototype-time-trax",
+    hashes = {
+      { hash = "d45f98bea74f605640fd8e9e9eb578ce", label = "Time Trax (USA) (Proto).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X066C, type="u32be", condition="eq", value=0X00FF0000, action="TITLE_SCREEN", desc="Credits" },
+        { address=0X066C, type="u32be", condition="eq", value=0X00FF0001, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XFFFE, type="u8", condition="eq", value=0XFF, action="DEMO_MODE", desc="On" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0BD0, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level Skip" },
+        { address=0XFFFC, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level Skip" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0BD0, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="Six Lives" },
+        { address=0X4EFD, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Player Life increased" },
+        { address=0X4EFD, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Player Life decreased" },
+        { address=0X4EFF, type="u8", condition="increase", action="GAIN_LIFE", desc="Player Life Meter increased" },
+        { address=0X4EFF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player Life Meter decreased" },
+        { address=0X4F02, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X4F02, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XFFFC, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="Six Lives" },
+      },
+      health = {
+        { address=0X0BD0, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", desc="Full Energy" },
+        { address=0XFFFC, type="u8", condition="eq", value=0X02, action="HEALTH_STATE", desc="Full Energy" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X373C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0000XXXX", desc="Score 0000XXXX (x65536)" },
+        { address=0X373E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0000", desc="Score XXXX0000" },
+      },
+      collectibles = {
+        { address=0X374A, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Token increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X4EF8, type="u8", condition="change", action="BOSS_HIT", desc="Bosses Health" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X383A, type="u8", condition="change", action="INVINCIBILITY_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Invulnerability Timer" },
+        { address=0X4F01, type="u8", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X4F01, type="u8", condition="change", action="SPEED_TIMER", no_log=true, desc="Metal Power Meter" },
+        { address=0X4F01, type="u8", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+      },
+    },
+  },
+}

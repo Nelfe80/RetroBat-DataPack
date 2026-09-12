@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: So Little Bubble",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-so-little-bubble",
+    hashes = {
+      { hash = "7318829b1db783970a4a9c67b89275a7", label = "Metroid - Zero Mission - So Little Bubble (v1.0) (Conner).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0C70, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="Title, 3:Select Scren 4:InGame, 5:Map, 6:GameOver 8:Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1530, type="u16le", condition="increase", action="GAIN_LIFE", desc="Life Max Upgrade : 16-Bits increased" },
+        { address=0X1530, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Life Max Upgrade : 16-Bits decreased" },
+        { address=0X1536, type="u16le", condition="increase", action="GAIN_LIFE", desc="Life : 16-Bits increased" },
+        { address=0X1536, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Life : 16-Bits decreased" },
+        { address=0X3FE03, type="u8", condition="change", action="LOSE_LIFE", desc="Mua dead : Bit 4" },
+        { address=0X3FE04, type="u8", condition="eq", value=0X1, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X153E, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Suit & Misc" },
+      },
+      weapon = {
+        { address=0X153D, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Weapon and Misc" },
+      },
+    },
+  },
+}

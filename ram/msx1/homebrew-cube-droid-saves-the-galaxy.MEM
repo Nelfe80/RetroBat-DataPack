@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Cube Droid Saves the Galaxy",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-cube-droid-saves-the-galaxy",
+    hashes = {
+      { hash = "68a51418081e4ea60402b436625a5c5e", label = "Cube Droid Saves the Galaxy (2024) (MSX2) (bitsofbas).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0016, type="u8", condition="eq", value=0X07, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0016, type="u8", condition="eq", value=0X10, action="GAME_PLAYING", desc="playing level" },
+        { address=0X0016, type="u8", condition="eq", value=0X22, action="GAME_PLAYING", desc="select starting level" },
+        { address=0X001D, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Title Card" },
+        { address=0X001D, type="u8", condition="eq", value=0X2, action="TITLE_SCREEN", desc="Story" },
+        { address=0X001D, type="u8", condition="eq", value=0X3, action="TITLE_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0022, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level [8 bit]" },
+        { address=0X0026, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Level Ended" },
+      },
+      stage = {
+        { address=0X0130, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Round Active [8 bit]" },
+        { address=0X0130, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Round Starting" },
+        { address=0X0130, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="In Game" },
+        { address=0X0130, type="u8", condition="eq", value=0XFF, action="PROGRESSION_STAGE", desc="Out of Game (victory, loading)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kikansha Thomas: DS de Hajimeru Chiiku Gakushuu",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Education"
+  },
+
+  rom = {
+    name = "kikansha-thomas-ds-de-hajimeru-chiiku-gakushuu",
+    hashes = {
+      { hash = "1fd11e1dc8f5efc2c7e426461caffa28", label = "Kikansha Thomas - DS de Hajimeru Chiiku Gakushuu (Japan).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1D3718, type="u16le", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen/Hints/Gordon and Spencer Racing" },
+        { address=0X1E48C8, type="u32le", condition="eq", value=0X021D3B6C, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X75318, type="u8", condition="bit_true", mask=0X04, action="LOSE_LIFE", desc="Freddie" },
+        { address=0X75318, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Diesel" },
+        { address=0X75319, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Diesel 10" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X75208, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="State change" },
+      },
+    },
+  },
+}

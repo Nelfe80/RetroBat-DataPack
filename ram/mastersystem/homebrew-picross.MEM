@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Picross",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-picross",
+    hashes = {
+      { hash = "880815f8e899055e536b3a987c92855e", label = "Picross (World) (v1.01) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X072A, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused/In Menu" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X01D5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Determines if you beat a stage or not." },
+        { address=0X030E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="This determine what stage you have selected" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0312, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Game time in mili seconds" },
+        { address=0X0313, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="time in seconds" },
+        { address=0X0314, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="time in minutes" },
+      },
+    },
+  },
+}

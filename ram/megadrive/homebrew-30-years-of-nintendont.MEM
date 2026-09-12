@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 30 Years of Nintendon't",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Quiz"
+  },
+
+  rom = {
+    name = "homebrew-30-years-of-nintendont",
+    hashes = {
+      { hash = "8eff2078a60dcb22f45ef7fd8dabfd88", label = "30 Years of Nintendon't (World) (Digital) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

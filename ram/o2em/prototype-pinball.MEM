@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Pinball",
+    system = "o2em",
+    system_name = "Magnavox Odyssey 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-pinball",
+    hashes = {
+      { hash = "b93f4ce768cf934774fdd895eab59323", label = "Pinball (USA) (Proto).bin" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X00BC, type="u8", condition="eq", value=0X65, action="LOSE_LIFE", desc="dead" },
+        { address=0X00BD, type="u8", condition="eq", value=0XF7, action="LOSE_LIFE", desc="dead" },
+      },
+    },
+  },
+}

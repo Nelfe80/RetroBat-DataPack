@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sure Shot ~ DELUXE EDITION [Subset - featuring Miles "Tails" Prower]",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sure-shot-deluxe-edition-subset-featuring-miles-tails-prower",
+    hashes = {
+      { hash = "371af0905202f6fef76785b5581a2193", label = "SMW - Sure Shot (v1.3) [Subset - featuring Miles 'Tails' Prower].sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause status" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0F70, type="u8", condition="change", action="NEW_LEVEL", desc="Background shader" },
+        { address=0X1EC8, type="u8", condition="change", action="NEW_LEVEL", desc="Saying Words - Level status" },
+        { address=0X1ECA, type="u8", condition="change", action="NEW_LEVEL", desc="Sure Not - Level status" },
+        { address=0X1ECB, type="u8", condition="change", action="NEW_LEVEL", desc="Living on the Knife - Level status" },
+        { address=0X1ECC, type="u8", condition="change", action="NEW_LEVEL", desc="Sure Shot - Level status" },
+        { address=0X1ECD, type="u8", condition="change", action="NEW_LEVEL", desc="Thrice Ghosted - Level status" },
+        { address=0X1ED2, type="u8", condition="change", action="NEW_LEVEL", desc="The Big Midway in the Sky - Level status" },
+        { address=0X1ED6, type="u8", condition="change", action="NEW_LEVEL", desc="Hanging by a Thread - Level status" },
+        { address=0X1ED7, type="u8", condition="change", action="NEW_LEVEL", desc="Trans Fights Are Human Fights - Level status" },
+        { address=0X1EE6, type="u8", condition="change", action="NEW_LEVEL", desc="Stop Running - Level status" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Exits cleared on current save" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBF, type="u8", condition="increase", action="GAIN_LIFE", desc="Amount of rings picked up on the current life increased" },
+        { address=0X0DBF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Amount of rings picked up on the current life decreased" },
+        { address=0X1B424, type="u8", condition="change", action="LOSE_LIFE", desc="[8-bit BCD] Session Death Count (Ones place)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X13CE, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Midway checkpoint status" },
+      },
+      collectibles = {
+        { address=0X010B, type="u16le", condition="increase", action="COIN_GAIN", desc="Most recent screen ID loaded (Does not change when entering the overworld until a new level is s" },
+        { address=0X1B403, type="u32le", condition="increase", action="COIN_GAIN", desc="Current checkpoint - Checkpoint changes to the currently selected stage while in overworld selec" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1E479, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block - Thrice Ghosted" },
+        { address=0X1E94B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block - Living on the Knife #1" },
+        { address=0X1F3F0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 1 - Living on the Knife #2" },
+        { address=0X1F3F1, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Kaizo block 2 - Living on the Knife #2" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0F60, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Switch hit in timer levels" },
+        { address=0X0F61, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer levels - Milliseconds" },
+        { address=0X0F62, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer levels - Seconds" },
+        { address=0X0F63, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Timer levels - Time shown" },
+        { address=0X13BF, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level ID of most recently entered stage" },
+        { address=0X1ED4, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Atomic Clock - Level status" },
+        { address=0X1ED5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Anatomically Clocked - Level status" },
+      },
+    },
+  },
+}

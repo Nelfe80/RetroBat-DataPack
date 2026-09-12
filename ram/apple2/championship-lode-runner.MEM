@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Championship Lode Runner",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "championship-lode-runner",
+    hashes = {
+      { hash = "e325257fba1fe7e149ff314cb9decf5c", label = "Championship Lode Runner.woz" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X007E, type="u8", condition="change", action="DEMO_MODE", desc="[8 Bit] Demo Indicator" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0078, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Treasure Needed for Next Level" },
+        { address=0X0089, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Displayed Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X007D, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Life Counter increased" },
+        { address=0X007D, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Life Counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0073, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="000XXXX", score_encoding="bcd", desc="[16 Bit] Score BCD 000XXXX" },
+        { address=0X0075, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XXXX0000", score_encoding="bcd", desc="[16 Bit] Score BCD XXXX0000" },
+      },
+    },
+  },
+}

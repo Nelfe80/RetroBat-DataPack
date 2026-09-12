@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Dreamworld Pogie",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "unlicensed-dreamworld-pogie",
+    hashes = {
+      { hash = "27948dd484177fa4502e9c87afc897f3", label = "Dreamworld Pogie (World) (v1.1) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0014, type="u8", condition="change", action="PAUSE_ON", desc="Pause:" },
+        { address=0X0378, type="u8", condition="change", action="PAUSE_ON", desc="In game tick (considers pause)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0015, type="u8", condition="change", action="NEW_LEVEL", desc="On a level" },
+        { address=0X00E0, type="u8", condition="change", action="NEW_LEVEL", desc="Collected stars on a level - 1 player" },
+        { address=0X00E1, type="u8", condition="change", action="NEW_LEVEL", desc="Collected stars on a level - 2 player" },
+        { address=0X04BF, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level (changes in the same frame when level is finished):" },
+        { address=0X04C9, type="u8", condition="change", action="NEW_LEVEL", desc="bit1 - Level 1 clown box 1" },
+        { address=0X04CD, type="u8", condition="change", action="NEW_LEVEL", desc="bit2 - Level 1 clown box 2" },
+        { address=0X04CF, type="u8", condition="change", action="NEW_LEVEL", desc="bit6 - Level 1 clown box 3" },
+        { address=0X04D9, type="u8", condition="change", action="NEW_LEVEL", desc="bit7 - Level 1 clown box 4" },
+        { address=0X04DA, type="u8", condition="change", action="NEW_LEVEL", desc="bit2 - Level 1 clown box 6" },
+        { address=0X04DB, type="u8", condition="change", action="NEW_LEVEL", desc="bit0 - Level 1 clown box 9" },
+        { address=0X04DC, type="u8", condition="change", action="NEW_LEVEL", desc="bit6 - Level 1 clown box 10" },
+        { address=0X04EB, type="u8", condition="change", action="NEW_LEVEL", desc="Another player level" },
+        { address=0X0584, type="u8", condition="change", action="NEW_LEVEL", desc="Level ended:" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04E7, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X04E7, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0513, type="u8", condition="increase", action="GAIN_LIFE", desc="Another player lives (while inactive) increased" },
+        { address=0X0513, type="u8", condition="decrease", action="LOSE_LIFE", desc="Another player lives (while inactive) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X04E0, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 100'000s hud" },
+        { address=0X04E1, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 10'000s hud" },
+        { address=0X04E2, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 1'000s hud" },
+        { address=0X04E3, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 100s hud" },
+        { address=0X04E4, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 10s hud" },
+        { address=0X04E5, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score 1s hud" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X04BC, type="u16le", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint PosX 16 bit" },
+        { address=0X04BE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint PosY" },
+      },
+    },
+  },
+}

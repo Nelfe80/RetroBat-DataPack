@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Pac-Mania",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "pac-mania",
+    hashes = {
+      { hash = "d68df697de93f84f45a85a0e5dbd1b1e", label = "Pac-Mania (USA) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X00E2, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Round 1" },
+        { address=0X00E2, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Round 2" },
+        { address=0X00E3, type="u8", condition="change", action="NEW_LEVEL", desc="Changes at the beginning of a level" },
+      },
+    },
+  },
+}

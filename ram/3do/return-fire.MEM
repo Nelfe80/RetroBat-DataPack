@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Return Fire",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Shooter, Strategy"
+  },
+
+  rom = {
+    name = "return-fire",
+    hashes = {
+      { hash = "d0fcd6e42a7b838f970fd84352a8a512", label = "Return Fire (USA)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0XD4AFC, type="u8", condition="change", action="AMMO_STATE", desc="8-bit Player 1 - Tank - Ammo Remaining" },
+      },
+    },
+  },
+}

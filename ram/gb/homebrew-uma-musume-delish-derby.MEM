@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Uma Musume Delish Derby",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-uma-musume-delish-derby",
+    hashes = {
+      { hash = "a6d142742d41b624217123bd020f8391", label = "Uma Musume Delish Derby (World) (Aftermarket) (shiki).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC520, type="u32le", condition="eq", value=0X105E0314, action="TITLE_SCREEN", desc="'Title Screen'," },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCB98, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Portal Advance",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-portal-advance",
+    hashes = {
+      { hash = "65080cc9ae25fc558c6fb0a1eb0a3b2b", label = "Portal Advance (World) (v20161112) (Aftermarket) (Ashley Samuelson).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X004C, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+  },
+}

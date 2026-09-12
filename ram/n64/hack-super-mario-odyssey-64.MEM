@@ -1,0 +1,94 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Odyssey 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-odyssey-64",
+    hashes = {
+      { hash = "515ed8622915bd22be84f2a0a5f430de", label = "SM64 - Super Mario Odyssey 64 (1.0).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B23A, type="u8", condition="change", action="PAUSE_ON", desc="2: Pause?" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X32DD87, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Collected Moon in the World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21D, type="u8", condition="change", action="LOSE_LIFE", desc="Mario's Power (Health): 8:Full, 0:death" },
+      },
+      health = {
+        { address=0X33B221, type="u8", condition="change", action="HIT", desc="Damage taken" },
+        { address=0X33EB6C, type="u8", condition="increase", action="HEAL", desc="Bowser's Health (starts at 0 to 3) increased" },
+        { address=0X33EB6C, type="u8", condition="decrease", action="HIT", desc="Bowser's Health (starts at 0 to 3) decreased" },
+        { address=0X33F28C, type="u8", condition="increase", action="HEAL", desc="Whomp's Health 1 increased" },
+        { address=0X33F28C, type="u8", condition="decrease", action="HIT", desc="Whomp's Health 1 decreased" },
+        { address=0X343511, type="u8", condition="increase", action="HEAL", desc="Knucklotec's Health increased" },
+        { address=0X343511, type="u8", condition="decrease", action="HIT", desc="Knucklotec's Health decreased" },
+        { address=0X343E91, type="u8", condition="increase", action="HEAL", desc="Knucklotec's Health (Sand Kingdom Dark) 1 increased" },
+        { address=0X343E91, type="u8", condition="decrease", action="HIT", desc="Knucklotec's Health (Sand Kingdom Dark) 1 decreased" },
+        { address=0X346E11, type="u8", condition="increase", action="HEAL", desc="Knucklotec's Health (Sand Kingdom Dark) 2 increased" },
+        { address=0X346E11, type="u8", condition="decrease", action="HIT", desc="Knucklotec's Health (Sand Kingdom Dark) 2 decreased" },
+        { address=0X3472CC, type="u8", condition="increase", action="HEAL", desc="Big Boo's Health (starts at 3 to 0) increased" },
+        { address=0X3472CC, type="u8", condition="decrease", action="HIT", desc="Big Boo's Health (starts at 3 to 0) decreased" },
+        { address=0X355DEC, type="u8", condition="increase", action="HEAL", desc="Whomp's Health 2 increased" },
+        { address=0X355DEC, type="u8", condition="decrease", action="HIT", desc="Whomp's Health 2 decreased" },
+        { address=0X35604C, type="u8", condition="increase", action="HEAL", desc="Whomp's Health 3 increased" },
+        { address=0X35604C, type="u8", condition="decrease", action="HIT", desc="Whomp's Health 3 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Cap Kingdom - Captain Toads Treasure" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20770C, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Wooded Kingdom - Go Nuts for 100 Coins" },
+        { address=0X20770D, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Sand Kingdom - 100 Coins Between Dunes" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Cascade Kingdom - Coins and Cascades" },
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Cap Kingdom - Coins and Top Hats" },
+        { address=0X207713, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Bowser Kingdom - Red Coins Along Walls" },
+        { address=0X207718, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Secret Water Area - Secret Moon" },
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins Grabbed increased" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins Grabbed increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X207712, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - Hat Magic Trick" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - The Frog Rescue" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - Box Breaker" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X10, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - The Lonely Moon" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X20, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - Hat Climb" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X40, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - Hiding Above The Abyss" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="Cap Kingdom Dark - Scarecrow Tricks" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Cascade Kingdom - Break The Blocks" },
+        { address=0X207717, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Wooded Kingdom Dark - Hidden Between Stepblocks" },
+        { address=0X331486, type="u8", condition="eq", value=0X0005, action="OBJECT_INTERACTION_CHECKPOINT", desc="Koopa (Start)" },
+        { address=0X331486, type="u8", condition="eq", value=0X0006, action="OBJECT_INTERACTION_CHECKPOINT", desc="Koopa (Loose)" },
+        { address=0X331486, type="u8", condition="eq", value=0X0007, action="OBJECT_INTERACTION_CHECKPOINT", desc="Koopa (Win)" },
+        { address=0X331486, type="u8", condition="eq", value=0X008C, action="OBJECT_INTERACTION_CHECKPOINT", desc="Peach" },
+        { address=0X331486, type="u8", condition="eq", value=0X0093, action="OBJECT_INTERACTION_CHECKPOINT", desc="Bowser" },
+        { address=0X331486, type="u8", condition="eq", value=0X009E, action="OBJECT_INTERACTION_CHECKPOINT", desc="Black Bob-Omb Pirates" },
+        { address=0X331486, type="u8", condition="eq", value=0X009F, action="OBJECT_INTERACTION_CHECKPOINT", desc="Big Boo" },
+      },
+    },
+  },
+}

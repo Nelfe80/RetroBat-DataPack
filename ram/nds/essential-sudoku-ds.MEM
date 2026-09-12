@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Essential Sudoku DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "essential-sudoku-ds",
+    hashes = {
+      { hash = "4fd526387c960ad913c345b6fb2360c3", label = "Essential Sudoku DS (Europe).nds" },
+    }
+  },
+
+  events = {
+  },
+}

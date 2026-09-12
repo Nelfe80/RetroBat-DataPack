@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Friday Night Pikmin",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-friday-night-pikmin",
+    hashes = {
+      { hash = "fcc17c7d5ba68b2e6f17c818a5f9d092", label = "Friday Night Funkin' - Friday Night Pikmin" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X6B5359, type="u8", condition="eq", value=0X2, action="COMBO_HIT", desc="Pink Flower (Full Combo)" },
+        { address=0X6B5359, type="u8", condition="eq", value=0X3, action="COMBO_HIT", desc="Pink Flower (Perfect Full Combo)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X6B5359, type="u8", condition="eq", value=0X0, action="LEVEL_CLEAR", desc="Leaf (Uncleared)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X522D1C, type="u8", condition="increase", action="HEAL", desc="[Float BE] Health increased" },
+        { address=0X522D1C, type="u8", condition="decrease", action="HIT", desc="[Float BE] Health decreased" },
+      },
+    },
+  },
+}

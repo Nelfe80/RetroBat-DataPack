@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Alice's Mom's Rescue!",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Platform, Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-alices-moms-rescue",
+    hashes = {
+      { hash = "4d18fba4b15fda9e5ed96f4f18427a2d", label = "Alice's Mom's Rescue (World) (En,Fr,De,Es,It) (Aftermarket) (Unl).j64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1CC473, type="u8", condition="change", action="NEW_LEVEL", desc="Number of Perfect Levels this Playthrough" },
+        { address=0X1CC473, type="u8", condition="eq", value=0X019, action="NEW_LEVEL", desc="All 25" },
+        { address=0X1CC8B7, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Level Complete" },
+        { address=0X1CC8CF, type="u24be", condition="change", action="NEW_LEVEL", desc="Gems in Level" },
+      },
+      zone = {
+        { address=0X1CC46B, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+        { address=0X1CC46B, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Grass" },
+        { address=0X1CC46B, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Cave" },
+        { address=0X1CC46B, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Mountain" },
+        { address=0X1CC46F, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Level in World" },
+        { address=0X1CC46F, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="First Level in World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1CC8B7, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X1CC90B, type="u8", condition="increase", action="HEAL", desc="Health/Hearts increased" },
+        { address=0X1CC90B, type="u8", condition="decrease", action="HIT", desc="Health/Hearts decreased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ Donkey Kong Jungle Climber 64 DS",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-donkey-kong-jungle-climber-64-ds",
+    hashes = {
+      { hash = "fe5c48e71a3de2645db1a413bc61c8ab", label = "SM64DS - Donkey Kong Jungle Climber 64 DS (Demo) (Shugabush).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u16le", condition="eq", value=0X2360, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9CAD1, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Secret Star - On The Top" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Overworld" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9CAC9, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Secret Star - 8 Yellow Coins" },
+        { address=0X9CACC, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Secret Star - 8 Yellow Coins" },
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Yellow Coins increased" },
+        { address=0X9F358, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+  },
+}

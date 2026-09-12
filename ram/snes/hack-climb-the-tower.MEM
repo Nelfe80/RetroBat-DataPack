@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Climb the Tower",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-climb-the-tower",
+    hashes = {
+      { hash = "d130729bd57f4993eabafe3dee78eaed", label = "SMW - Climb the Tower (Sweetdude).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0906, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Completed/Troll Orb: Single bit" },
+      },
+      stage = {
+        { address=0X13C5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="BAD addr Stage 2 Moon: Single Bit:0" },
+        { address=0X1426, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Hidden Message Block in Stage 3: Single Bit" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+      },
+    },
+  },
+}

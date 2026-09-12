@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ AV Mei Shaonu Zhanshi | AV Bishoujo Senshi Girl Fighting",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "unlicensed-av-mei-shaonu-zhanshi-av-bishoujo-senshi-girl-fighting",
+    hashes = {
+      { hash = "d07b996329b9fffb52535100c82e0916", label = "AV Mei Shaonu Zhanshi (Asia) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X00B2, type="u8", condition="increase", action="HEAL", desc="player 1 health increased" },
+        { address=0X00B2, type="u8", condition="decrease", action="HIT", desc="player 1 health decreased" },
+        { address=0X00B3, type="u8", condition="increase", action="HEAL", desc="Player 2 health increased" },
+        { address=0X00B3, type="u8", condition="decrease", action="HIT", desc="Player 2 health decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00AC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="The round timer" },
+      },
+    },
+  },
+}

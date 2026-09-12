@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Jump Shot",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Basketball"
+  },
+
+  rom = {
+    name = "jump-shot",
+    hashes = {
+      { hash = "becc70a20fd6b6185662f625a1f60a0e", label = "jumpshot.7z <Jump Shot>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X442, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X16D1, type="u8", condition="change", action="OBJECT_INTERACTION", desc="K in BLOCKED" },
+        { address=0X16F1, type="u8", condition="change", action="OBJECT_INTERACTION", desc="C in BLOCKED" },
+        { address=0X1711, type="u8", condition="change", action="OBJECT_INTERACTION", desc="O in BLOCKED" },
+        { address=0X1731, type="u8", condition="change", action="OBJECT_INTERACTION", desc="L in BLOCKED" },
+        { address=0X1751, type="u8", condition="change", action="OBJECT_INTERACTION", desc="B in BLOCKED" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X04EB, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time Setting" },
+        { address=0X04EB, type="u8", condition="eq", value=0X00, action="GENERAL_TIMER", desc="2 Minutes" },
+        { address=0X04EB, type="u8", condition="eq", value=0X01, action="GENERAL_TIMER", desc="3 Minutes" },
+        { address=0X04EB, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="4 Minutes" },
+      },
+    },
+  },
+}

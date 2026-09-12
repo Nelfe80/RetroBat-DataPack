@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ MANTLE",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-mantle",
+    hashes = {
+      { hash = "1b237dad2776c11740323b3a58f71542", label = "Mantle (World) (v1.1) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X006A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Initial Value (Death)" },
+      },
+      health = {
+        { address=0X006A, type="u8", condition="change", action="HEALTH_STATE", desc="HP" },
+        { address=0X006A, type="u8", condition="eq", value=0X10, action="HEALTH_STATE", desc="Max HP" },
+      },
+    },
+  },
+}

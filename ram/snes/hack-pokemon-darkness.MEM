@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Darkness",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-darkness",
+    hashes = {
+      { hash = "644d668ac376bd2cbea2e250a0b9adc2", label = "SMW - Pokemon Darkness (French) (Final) (Lexator).sfc" },
+      { hash = "79b66055349a488955f7c8b67acbbac9", label = "SMW - Pokemon Darkness (Partiallly English) (Final) (Lexator).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID (8-bit)" },
+        { address=0X13BF, type="u8", condition="eq", value=0X1, action="NEW_LEVEL", desc="Temple de Mew" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2, action="NEW_LEVEL", desc="Foret de Jade 1" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3, action="NEW_LEVEL", desc="Foret de Jade 2" },
+        { address=0X13BF, type="u8", condition="eq", value=0X4, action="NEW_LEVEL", desc="Foret de Jade 3" },
+        { address=0X13BF, type="u8", condition="eq", value=0X5, action="NEW_LEVEL", desc="[Machoke Fight]" },
+        { address=0X13BF, type="u8", condition="eq", value=0X6, action="NEW_LEVEL", desc="Route Selenite" },
+        { address=0X13BF, type="u8", condition="eq", value=0X7, action="NEW_LEVEL", desc="Mont Selenite 1" },
+        { address=0X13BF, type="u8", condition="eq", value=0X8, action="NEW_LEVEL", desc="Mont Selenite 2" },
+      },
+    },
+  },
+}

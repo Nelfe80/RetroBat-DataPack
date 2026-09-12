@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Test Kit~ Lynx Test Cart V0.02",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "test-kit-lynx-test-cart-v0-02",
+    hashes = {
+      { hash = "5d8fdfb15441cdfb8a1c66c243c486da", label = "Lynx II Production Test Program (USA).lnx" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0020, type="u8", condition="change", action="PAUSE_ON", desc="01 : Pause is currently pressed in Joy Test" },
+        { address=0X0021, type="u8", condition="bit_true", mask=0X01, action="PAUSE_ON", desc="Pause" },
+      },
+    },
+  },
+}

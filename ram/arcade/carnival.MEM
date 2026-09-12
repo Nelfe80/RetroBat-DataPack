@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Carnival",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "carnival",
+    hashes = {
+      { hash = "fd7d02101d1e2e15045a1e8fd2433459", label = "carnival.7z <Carnival (upright)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1381, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits inserted" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1389, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

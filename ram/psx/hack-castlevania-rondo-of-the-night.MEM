@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Rondo of the Night",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-rondo-of-the-night",
+    hashes = {
+      { hash = "b297e23755c185b36c8372e191b8d781", label = "Castlevania - Rondo of the Night (v1.3) (mazenk5456)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X97979, type="u8", condition="change", action="DEMO_MODE", desc="Demon Card" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X97BA0, type="u32le", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X97BA0, type="u32le", condition="decrease", action="HIT", desc="Current Health decreased" },
+        { address=0X97BA4, type="u32le", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X97BA4, type="u32le", condition="decrease", action="HIT", desc="Max Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X97980, type="u8", condition="increase", action="COIN_GAIN", desc="Ring of Vlad increased" },
+        { address=0X97BF0, type="u32le", condition="increase", action="COIN_GAIN", desc="Current Gold increased" },
+      },
+    },
+  },
+}

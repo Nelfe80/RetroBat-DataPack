@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Moon Finder",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-moon-finder",
+    hashes = {
+      { hash = "1a78de337e6f59e54c3f2810dcc7c820", label = "SMW - Moon Finder (Fyre150,Mega).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID [8 bit]" },
+        { address=0X18C7, type="u8", condition="change", action="NEW_LEVEL", desc="Ground Pound Hit [8 bit]" },
+      },
+      stage = {
+        { address=0X18C5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Ground Pound Action [8 bit]" },
+        { address=0X18C5, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="starting ground pound [16f]" },
+        { address=0X18C5, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="falling" },
+        { address=0X18C6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Ground Pound Active Frames [8 bit]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario Lives [8 bit] increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario Lives [8 bit] decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X14AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Blue P-Switch Timer [8 bit]" },
+      },
+    },
+  },
+}

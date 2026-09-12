@@ -1,0 +1,89 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario 64: Shining Stars Repainted",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-64-shining-stars-repainted",
+    hashes = {
+      { hash = "c86a61133aa0003c42eb7e386a7d1112", label = "SM64 - Shining Stars Repainted (v2.1) (sm64pie).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X331473, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="unpaused" },
+        { address=0X331473, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Level Pause Screen" },
+        { address=0X331473, type="u8", condition="eq", value=0X02, action="PAUSE_ON", desc="Castle Pause Screen" },
+        { address=0X367057, type="u8", condition="eq", value=0X4, action="PAUSE_ON", desc="Pause button" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1A7D13, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="file 1 overworld first visit" },
+        { address=0X1A7D13, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="file 2 overworld first visit" },
+        { address=0X1A7D13, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="file 3 overworld first visit" },
+        { address=0X1A7D13, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="file 4 overworld first visit" },
+        { address=0X1A7D13, type="u8", condition="eq", value=0XFF, action="NEW_LEVEL", desc="if you enter a level or starting the game or selecting a file" },
+        { address=0X32DDFA, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X1302, action="NEW_LEVEL", desc="Star collected on ground" },
+        { address=0X33BAC8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Selecting a file, Overworld and some other areas" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X33B21E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (This hack has infinite lives but the lives counter are just invisible and if you die at 0" },
+        { address=0X33B21E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (This hack has infinite lives but the lives counter are just invisible and if you die at 0" },
+      },
+      health = {
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0449, action="HIT", desc="Running with smoke by fire damage" },
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X33B221, type="u8", condition="change", action="HIT", desc="Got damage if higher than 00" },
+        { address=0X33B268, type="u8", condition="bit_true", mask=0X08, action="HEALTH_STATE", no_log=true, desc="Health" },
+        { address=0X33E44C, type="u8", condition="increase", action="HEAL", desc="King Bob-omb's health in Course 1 increased" },
+        { address=0X33E44C, type="u8", condition="decrease", action="HIT", desc="King Bob-omb's health in Course 1 decreased" },
+        { address=0X346BAC, type="u8", condition="increase", action="HEAL", desc="King Bob-omb's health in Course 1 increased" },
+        { address=0X346BAC, type="u8", condition="decrease", action="HIT", desc="King Bob-omb's health in Course 1 decreased" },
+        { address=0X34810C, type="u8", condition="increase", action="HEAL", desc="King Bob-omb's health in Course 1 increased" },
+        { address=0X34810C, type="u8", condition="decrease", action="HIT", desc="King Bob-omb's health in Course 1 decreased" },
+        { address=0X34966C, type="u8", condition="increase", action="HEAL", desc="King Bob-omb's health in Course 1 increased" },
+        { address=0X34966C, type="u8", condition="decrease", action="HIT", desc="King Bob-omb's health in Course 1 decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Vanish" },
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X04, action="DYNAMIC_INVENTORY", desc="Metal" },
+        { address=0X33B174, type="u8", condition="bit_true", mask=0X08, action="DYNAMIC_INVENTORY", desc="Wing" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X33B268, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Coins" },
+        { address=0X3613FD, type="u8", condition="increase", action="COIN_GAIN", desc="Red coins increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X33B17C, type="u16be", condition="eq", value=0X0888, action="JUMPING", no_log=true, no_survey=true, desc="Longjump" },
+        { address=0X367057, type="u8", condition="eq", value=0X7, action="JUMPING", no_log=true, no_survey=true, desc="A (Jump button)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing cap switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal cap switch" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish cap switch" },
+        { address=0X400003, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Red activated" },
+        { address=0X400003, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Blue activated" },
+      },
+    },
+  },
+}

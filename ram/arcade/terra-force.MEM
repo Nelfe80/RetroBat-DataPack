@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "terraf",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "terra-force",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X606BE, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X606B6, type="u32be", condition="change", action="SCORE_STATE", color="orange", min=200, max=200, desc="Score delta 200-200: Score delta 200-200" },
+        { address=0X606B6, type="u32be", condition="change", action="SCORE_STATE", color="cyan", min=300, max=400, desc="Score delta 300-400: Score delta 300-400" },
+        { address=0X606B6, type="u32be", condition="change", action="SCORE_STATE", min=50, max=100, desc="Score delta 50-100: Score delta 50-100" },
+        { address=0X606B6, type="u32be", condition="change", action="SCORE_STATE", color="green", min=500, max=1000, desc="Score delta 500-1000: Score delta 500-1000" },
+      },
+    },
+  },
+}

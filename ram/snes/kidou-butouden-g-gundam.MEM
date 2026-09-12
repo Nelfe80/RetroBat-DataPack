@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Kidou Butouden G-Gundam",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "kidou-butouden-g-gundam",
+    hashes = {
+      { hash = "b226578d92e09d16a08f49a8adcb4953", label = "Kidou Butouden G Gundam (Japan).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X05B4, type="u8", condition="change", action="NEW_LEVEL", desc="P1 Rounds Won" },
+        { address=0X05B5, type="u8", condition="change", action="NEW_LEVEL", desc="P2 Rounds Won" },
+      },
+      stage = {
+        { address=0X05B7, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0X05B7, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Ending" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X07D4, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="P1 HP" },
+        { address=0X07D4, type="u8", condition="eq", value=0X60, action="HEALTH_STATE", no_log=true, desc="Full" },
+        { address=0X0A00, type="u8", condition="increase", action="HEAL", desc="P2 HP increased" },
+        { address=0X0A00, type="u8", condition="decrease", action="HIT", desc="P2 HP decreased" },
+      },
+    },
+  },
+}

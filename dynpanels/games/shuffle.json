@@ -1,0 +1,696 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "shuffle",
+  "game_name": "Shuffleboard",
+  "meta": {
+    "players": 2,
+    "alternating": 1,
+    "mirrored": 1,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": "Please note that the actual cpo shows the generic arrows shooting out from the trackball with the caption 'control puck'  this has been left out for length reasons.  Also the button caption may not exactly be 'game select' but this cpo was screened directly over the metal, and thus it's very difficult to find a completely readable one."
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Trackball",
+          "type": "trackball",
+          "raw": "Trackball+trackball",
+          "codes": [
+            "trackball"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN1",
+            "mask": "0x2",
+            "mask_int": 2,
+            "defvalue": "0x2",
+            "defvalue_int": 2,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN1",
+            "mask_dec": 2,
+            "mask_hex": "0x0002",
+            "defvalue_dec": 2,
+            "defvalue_hex": "0x0002",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN1",
+            "mask": "0x1",
+            "mask_int": 1,
+            "defvalue": "0x1",
+            "defvalue_int": 1,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN1",
+            "mask_dec": 1,
+            "mask_hex": "0x0001",
+            "defvalue_dec": 1,
+            "defvalue_hex": "0x0001",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Game Select",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "Game Select",
+            "function": "game_select",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN1",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Game Select",
+            "mame_type": "60",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Game Select",
+            "input_function": "game_select",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":IN1",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [
+        {
+          "id": "P1_TRACKBALL_Y",
+          "input": "TRACKBALL_Y",
+          "label": "Trackball Y",
+          "function": "trackball_y",
+          "short": "TBY",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "TRACKBALL_Y",
+            "input_id": "P1_TRACKBALL_Y",
+            "label": "Trackball Y",
+            "function": "trackball_y",
+            "control_type": "trackball",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN2",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0",
+            "ipt": "IPT_TRACKBALL_Y",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 10,
+            "keydelta": 50,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Trackball Y",
+            "mame_type": "164",
+            "mame_tag": ":IN2",
+            "cfg_tag": ":IN2",
+            "input_label": "Trackball Y",
+            "input_function": "trackball_y",
+            "type": "TRACKBALL_Y",
+            "normalized_type": "TRACKBALL_Y",
+            "tag_raw": ":IN2",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN2",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        },
+        {
+          "id": "P1_TRACKBALL_X",
+          "input": "TRACKBALL_X",
+          "label": "Trackball X",
+          "function": "trackball_x",
+          "short": "TBX",
+          "color": "Gray",
+          "output": "",
+          "mame": {
+            "input": "TRACKBALL_X",
+            "input_id": "P1_TRACKBALL_X",
+            "label": "Trackball X",
+            "function": "trackball_x",
+            "control_type": "trackball",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN3",
+            "mask": "0xff",
+            "mask_int": 255,
+            "defvalue": "0x0",
+            "defvalue_int": 0,
+            "default_raw": "0",
+            "ipt": "IPT_TRACKBALL_X",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": 10,
+            "keydelta": 10,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": true,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Trackball X",
+            "mame_type": "163",
+            "mame_tag": ":IN3",
+            "cfg_tag": ":IN3",
+            "input_label": "Trackball X",
+            "input_function": "trackball_x",
+            "type": "TRACKBALL_X",
+            "normalized_type": "TRACKBALL_X",
+            "tag_raw": ":IN3",
+            "mask_dec": 255,
+            "mask_hex": "0x00FF",
+            "defvalue_dec": 0,
+            "defvalue_hex": "0x0000",
+            "runtime_tag": ":IN3",
+            "source": "outputs_mame"
+          },
+          "physical_joystick": "",
+          "joystick": {
+            "negative": "",
+            "positive": ""
+          },
+          "physical_axis": "",
+          "panel_joystick": null
+        }
+      ],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "Trackball",
+          "type": "trackball",
+          "raw": "Trackball+trackball",
+          "codes": [
+            "trackball"
+          ],
+          "color": "",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "Red",
+          "output": "",
+          "mame": {
+            "input": "START2",
+            "input_id": "START2",
+            "label": "2 Players Start",
+            "function": "2_players_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN1",
+            "mask": "0x4",
+            "mask_int": 4,
+            "defvalue": "0x4",
+            "defvalue_int": 4,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "2 Players Start",
+            "mame_type": "8",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "2 Players Start",
+            "input_function": "2_players_start",
+            "type": "START2",
+            "normalized_type": "START2",
+            "tag_raw": ":IN1",
+            "mask_dec": 4,
+            "mask_hex": "0x0004",
+            "defvalue_dec": 4,
+            "defvalue_hex": "0x0004",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Red",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Game Select",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "Game Select",
+            "function": "game_select",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "shuffle",
+            "tag": "IN1",
+            "mask": "0x8",
+            "mask_int": 8,
+            "defvalue": "0x8",
+            "defvalue_int": 8,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Game Select",
+            "mame_type": "60",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Game Select",
+            "input_function": "game_select",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":IN1",
+            "mask_dec": 8,
+            "mask_hex": "0x0008",
+            "defvalue_dec": 8,
+            "defvalue_hex": "0x0008",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_1",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

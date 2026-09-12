@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Knight Owls",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-knight-owls",
+    hashes = {
+      { hash = "6d2a68e6c7511a55b0e47ebb8d880dda", label = "Knight Owls (World) (Alpha v1.3) (GBA Jam 2021) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X45DD4, type="u32le", condition="increase", action="GAIN_LIFE", desc="Player Current Lives increased" },
+        { address=0X45DD4, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Player Current Lives decreased" },
+        { address=0X45DD8, type="u32le", condition="increase", action="GAIN_LIFE", desc="Player Max Lives increased" },
+        { address=0X45DD8, type="u32le", condition="decrease", action="LOSE_LIFE", desc="Player Max Lives decreased" },
+      },
+      health = {
+        { address=0X7694, type="u32be", condition="eq", value=0X454E4552, action="HEALTH_STATE", no_log=true, desc="Energy Knight (ENER)" },
+        { address=0X45DC8, type="u32le", condition="increase", action="HEAL", desc="Player Current Energy increased" },
+        { address=0X45DC8, type="u32le", condition="decrease", action="HIT", desc="Player Current Energy decreased" },
+        { address=0X45DDC, type="u32le", condition="increase", action="HEAL", desc="Player Max Energy increased" },
+        { address=0X45DDC, type="u32le", condition="decrease", action="HIT", desc="Player Max Energy decreased" },
+        { address=0X45E24, type="u32le", condition="eq", value=0X05, action="HEALTH_STATE", no_log=true, desc="Energy Knight" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X45DFC, type="u32le", condition="eq", value=0X09, action="BOSS_HIT", desc="Boss" },
+        { address=0X45DFC, type="u32le", condition="eq", value=0X15, action="BOSS_HIT", desc="Boss" },
+        { address=0X45DFC, type="u32le", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss" },
+      },
+    },
+  },
+}

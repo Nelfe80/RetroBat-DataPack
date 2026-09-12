@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ POWDER",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-powder",
+    hashes = {
+      { hash = "f219e9f3fe97addb0fc65a32226f38d2", label = "POWDER (World) (r118) (Aftermarket) (Unl) (Jeff Lait).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X1F8FBC, type="u16le", condition="change", action="LOSE_LIFE", desc="Death Slugs killed" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1F9A5C, type="u8", condition="bit_true", mask=0X01, action="SCORE_STATE", desc="have heart" },
+        { address=0X1F9A5C, type="u8", condition="bit_true", mask=0X02, action="SCORE_STATE", desc="won" },
+        { address=0X1F9A5C, type="u8", condition="bit_true", mask=0X04, action="SCORE_STATE", desc="no one (empty)" },
+        { address=0X1F9B92, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Hiscore entry index 14, turns count" },
+        { address=0X1F9B92, type="u16le", condition="eq", value=0X0000, action="SCORE_STATE", desc="No hiscore here, advance mode not active" },
+        { address=0X1FAA18, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 bytes] God points" },
+      },
+      collectibles = {
+        { address=0X1F8FA2, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold Beetles killed increased" },
+      },
+    },
+  },
+}

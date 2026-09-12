@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Uncle Poo",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "uncle-poo",
+    hashes = {
+      { hash = "a09fc2c8366b370ebd9a65f394ee140d", label = "unclepoo.7z <Uncle Poo>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13CA, type="u8", condition="change", action="GAME_OVER", desc="Challenging round amount of enemies hit. Doesn't refresh until you enter another challenging sta" },
+        { address=0X1418, type="u8", condition="eq", value=0X40, action="TITLE_SCREEN", desc="Title screen and demos" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1422, type="u8", condition="change", action="NEW_LEVEL", desc="Current round, 10s digit" },
+        { address=0X1423, type="u8", condition="change", action="NEW_LEVEL", desc="Current round, 1s digit" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X143E, type="u8", condition="increase", action="GAIN_LIFE", desc="Current lives. Goes down to 0, then game over when dying once more increased" },
+        { address=0X143E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current lives. Goes down to 0, then game over when dying once more decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1432, type="u40le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X130C, type="u8", condition="increase", action="COIN_GAIN", desc="Money bags collected on each level. Collect 10 for a 'perfection'. Goes up to 0A. increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shellab",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shellab",
+    hashes = {
+      { hash = "4debc01e51e1c3f2d7b2381a13e59837", label = "SMW - Shellab (v1.0) (Various).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X010B, type="u16le", condition="eq", value=0X12D, action="CREDITS_SCREEN", desc="Credits room in Shell House" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="01 if paused" },
+      },
+      events = {
+        { address=0X010B, type="u16le", condition="eq", value=0X0D, action="COMBO_HIT", desc="shell combo hidden room" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0E, action="COMBO_HIT", desc="Shell Combo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Shell Silverstein" },
+        { address=0X13BF, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Monochromatic" },
+        { address=0X13BF, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Shell Lab" },
+        { address=0X13BF, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Cryo Shellspace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Modern Boomer Level" },
+        { address=0X13BF, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Cavern Conundrum" },
+        { address=0X13BF, type="u8", condition="eq", value=0X12, action="NEW_LEVEL", desc="Clingy Koopa Cavern" },
+        { address=0X13BF, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="The Key To Success" },
+        { address=0X13BF, type="u8", condition="eq", value=0X50, action="NEW_LEVEL", desc="Shell house" },
+        { address=0X1F02, type="u8", condition="change", action="LEVEL_CLEAR", desc="bitflags for levels clears" },
+        { address=0X1F03, type="u8", condition="change", action="LEVEL_CLEAR", desc="bitflags for levels clears" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="lives count increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="lives count decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X010B, type="u16le", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Room ID" },
+      },
+    },
+  },
+}

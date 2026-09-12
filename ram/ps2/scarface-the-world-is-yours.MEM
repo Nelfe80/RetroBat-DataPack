@@ -1,0 +1,99 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Scarface: The World Is Yours",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "scarface-the-world-is-yours",
+    hashes = {
+      { hash = "320c9c8495acc6defba9d94f0d891e01", label = "Scarface - The World Is Yours (USA)" },
+      { hash = "a39a825bed46bec76c9ff330fc0b1903", label = "Scarface - The World Is Yours (USA) (60FPS) (v1.0) (Souzooka)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X80A778, type="u32le", condition="eq", value=0X0, action="PAUSE_ON", desc="false" },
+        { address=0X80A778, type="u32le", condition="eq", value=0X1, action="PAUSE_ON", desc="true" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2870E8, type="u32le", condition="change", action="NEW_LEVEL", desc="HUD : Background Respect Bar boolean (32-bit)" },
+        { address=0X2870E8, type="u32le", condition="eq", value=0X0, action="NEW_LEVEL", desc="hidden" },
+        { address=0X2870E8, type="u32le", condition="eq", value=0X1, action="NEW_LEVEL", desc="shown" },
+        { address=0XB48170, type="u32le", condition="change", action="NEW_LEVEL", desc="PLAYER : Reputation level (32-bit)" },
+      },
+      zone = {
+        { address=0X81CD56, type="u16le", condition="eq", value=0X0101, action="PROGRESSION_ZONE", desc="Freeze world during mission success screen" },
+        { address=0X8291A0, type="u8", condition="change", action="PROGRESSION_ZONE", desc="WORLD : Zone ID (256-bit ASCII)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB47E10, type="u32le", condition="change", action="LOSE_LIFE", desc="PLAYER : Number of death (32-bit)" },
+        { address=0XB482F0, type="u32le", condition="change", action="LOSE_LIFE", desc="STATS : Death number (32-bit)" },
+      },
+      health = {
+        { address=0XB47E20, type="u32le", condition="increase", action="HEAL", desc="PLAYER : Health (32-bit) increased" },
+        { address=0XB47E20, type="u32le", condition="decrease", action="HIT", desc="PLAYER : Health (32-bit) decreased" },
+        { address=0XB47E30, type="u32le", condition="increase", action="HEAL", desc="PLAYER : Health Max (32-bit) increased" },
+        { address=0XB47E30, type="u32le", condition="decrease", action="HIT", desc="PLAYER : Health Max (32-bit) decreased" },
+        { address=0XB47E40, type="u8", condition="increase", action="HEAL", desc="PLAYER : Car HP (float) increased" },
+        { address=0XB47E40, type="u8", condition="decrease", action="HIT", desc="PLAYER : Car HP (float) decreased" },
+        { address=0XB47E50, type="u8", condition="increase", action="HEAL", desc="PLAYER : Car HP Max (float) increased" },
+        { address=0XB47E50, type="u8", condition="decrease", action="HIT", desc="PLAYER : Car HP Max (float) decreased" },
+        { address=0XB48520, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 1 HP (float) increased" },
+        { address=0XB48520, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 1 HP (float) decreased" },
+        { address=0XB48530, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 1 HP MAX (float) increased" },
+        { address=0XB48530, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 1 HP MAX (float) decreased" },
+        { address=0XB48540, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 2 HP (float) increased" },
+        { address=0XB48540, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 2 HP (float) decreased" },
+        { address=0XB48550, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 2 HP Max (float) increased" },
+        { address=0XB48550, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 2 HP Max (float) decreased" },
+        { address=0XB48560, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 3 HP (float) increased" },
+        { address=0XB48560, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 3 HP (float) decreased" },
+        { address=0XB48570, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 3 HP MAX (float) increased" },
+        { address=0XB48570, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 3 HP MAX (float) decreased" },
+        { address=0XB48580, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 4 HP (float) increased" },
+        { address=0XB48580, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 4 HP (float) decreased" },
+        { address=0XB48590, type="u8", condition="increase", action="HEAL", desc="NPC : NPC 4 HP Max (float) increased" },
+        { address=0XB48590, type="u8", condition="decrease", action="HIT", desc="NPC : NPC 4 HP Max (float) decreased" },
+        { address=0XB48750, type="u32le", condition="change", action="HEALTH_STATE", desc="CHEAT : Refill Health (32-bit)" },
+        { address=0XB48750, type="u32le", condition="eq", value=0X0, action="HEALTH_STATE", desc="activated in cheat menu" },
+        { address=0XB48750, type="u32le", condition="eq", value=0XFFFFFFFF, action="HEALTH_STATE", desc="disabled in cheat menu" },
+        { address=0XBF4B00, type="u32le", condition="increase", action="HEAL", desc="Tony health (pointed to?) increased" },
+        { address=0XBF4B00, type="u32le", condition="decrease", action="HIT", desc="Tony health (pointed to?) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XB47CB0, type="u32le", condition="increase", action="COIN_GAIN", desc="PLAYER : Dirty Money (32-bit) increased" },
+        { address=0XB48300, type="u32le", condition="change", action="AMMO_STATE", no_log=true, desc="Stats - Total ammo used" },
+        { address=0XB484E0, type="u32le", condition="change", action="AMMO_STATE", no_log=true, desc="PLAYER : AMMO SMG (32-bit)" },
+        { address=0XB48770, type="u32le", condition="eq", value=0X0, action="AMMO_STATE", no_log=true, desc="activated in cheat menu" },
+        { address=0XB48770, type="u32le", condition="eq", value=0XFFFFFFFF, action="AMMO_STATE", no_log=true, desc="disabled in cheat menu" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XB487C0, type="u32le", condition="eq", value=0X0, action="OBJECT_INTERACTION", desc="activated in cheat menu" },
+        { address=0XB487C0, type="u32le", condition="eq", value=0XFFFFFFFF, action="OBJECT_INTERACTION", desc="disabled in cheat menu" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XB482D0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="STATS : Game time (32-bit)" },
+        { address=0XB482D0, type="u32le", condition="eq", value=0X1, action="GENERAL_TIMER", desc="1 seconds" },
+        { address=0XB482E0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="STATS : Rage time (32-bit)" },
+        { address=0XB482E0, type="u32le", condition="eq", value=0X1, action="GENERAL_TIMER", desc="1 seconds" },
+        { address=0XB487C0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="CHEAT : Switch Time of day (32-bit)" },
+      },
+    },
+  },
+}

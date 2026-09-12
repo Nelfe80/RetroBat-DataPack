@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Baldur's Gate",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-baldurs-gate",
+    hashes = {
+      { hash = "45c56c16c2d2c34f10862ddf7627f6bf", label = "Baldur's Gate (Unknown) (Disc 1) (Proto) (2000-10-04)" },
+    }
+  },
+
+  events = {
+    inventory = {
+      weapon = {
+        { address=0XAFFDC, type="u8", condition="change", action="WEAPON_STATE", desc="Blunt weapons" },
+        { address=0XAFFDD, type="u8", condition="change", action="WEAPON_STATE", desc="Spiked weapons" },
+        { address=0XAFFDF, type="u8", condition="change", action="WEAPON_STATE", desc="Missile weapons" },
+      },
+    },
+  },
+}

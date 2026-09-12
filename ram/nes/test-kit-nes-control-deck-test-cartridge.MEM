@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Test Kit~ NES Control Deck Test Cartridge",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "test-kit-nes-control-deck-test-cartridge",
+    hashes = {
+      { hash = "51d17a6f9eeb0f8ced992de5df979e92", label = "Nintendo World Class Service - Control Deck Test Cartridge (USA) (Test Program).nes" },
+    }
+  },
+
+  events = {
+  },
+}

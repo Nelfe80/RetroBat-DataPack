@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Vanilla World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-vanilla-world",
+    hashes = {
+      { hash = "373ec2d0de2ed6f03d36898ce67fd39d", label = "SMW - Super Vanilla World (De) (Mario Brand) (1.1).sfc" },
+      { hash = "cee7922a2c1bcbf204df4ad4412fb223", label = "SMW - Super Vanilla World (En) (Mario Brand) (1.1).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u8", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u8", condition="eq", value=0XECCF, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u8", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage" },
+        { address=0X1411, type="u8", condition="change", action="NEW_LEVEL", desc="01 : Any level gameplay" },
+        { address=0X1411, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Back to overview" },
+        { address=0X1493, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear stage" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Stages cleared" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario's Lives increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario's Lives decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="HIT", desc="Death" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins increased" },
+        { address=0X1F2F, type="u8", condition="increase", action="COIN_GAIN", desc="Chocolate Mountain 2-5 Morton's Castle all Dragon Coins Bit0 increased" },
+        { address=0X1F33, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi's Island 1-5 Iggy's Castle all Dragon Coins Bit2 increased" },
+        { address=0X1F34, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi's Island 1-1 Here we go! and 1-2 Fire Plants! all Dragon Coins Bit5 and Bit6 increased" },
+        { address=0X1F35, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi's Island 1-4 Far above! all Dragon Coins Bit0 increased" },
+        { address=0X1F36, type="u8", condition="increase", action="COIN_GAIN", desc="Valley of Bowser 3-1 The Water Cave! all Dragon Coins Bit3 increased" },
+        { address=0X1F37, type="u8", condition="increase", action="COIN_GAIN", desc="Chocolate Mountain 2-3 Labyrinth and 2-4 Clouds Fever! all all Dragon Coins Bit3 and Bit4 increa" },
+        { address=0X1F38, type="u8", condition="increase", action="COIN_GAIN", desc="Yoshi's Island 1-3 Underwater all Dragon Coins Bit2 increased" },
+        { address=0X1F39, type="u8", condition="increase", action="COIN_GAIN", desc="Chocolate Mountain 2-1 Sumo-Brother all Dragon Coins Bit3 increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Start at checkpoint" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch" },
+      },
+    },
+  },
+}

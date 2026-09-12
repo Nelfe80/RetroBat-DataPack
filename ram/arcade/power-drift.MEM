@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Power Drift",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Driving"
+  },
+
+  rom = {
+    name = "power-drift",
+    hashes = {
+      { hash = "b87c0a78f4490dbd664d7234d276af82", label = "pdrift.7z <>" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XFF62, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16-Bit - Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XE8A0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="16-Bit - Time" },
+      },
+    },
+  },
+}

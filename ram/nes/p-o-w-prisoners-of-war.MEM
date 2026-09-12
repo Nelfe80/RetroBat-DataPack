@@ -1,0 +1,87 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "P.O.W.: Prisoners of War",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Beat 'em Up"
+  },
+
+  rom = {
+    name = "p-o-w-prisoners-of-war",
+    hashes = {
+      { hash = "3575eb3971ba67970021d94185316416", label = "P.O.W. - Prisoners of War (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X004F, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="paused" },
+        { address=0X0600, type="u8", condition="change", action="TITLE_SCREEN", desc="Title screen : 01, In game : 80, Tank/Chopper explosion :00" },
+        { address=0X0604, type="u8", condition="change", action="TITLE_SCREEN", desc="title screen cursor" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X040A, type="u8", condition="change", action="NEW_LEVEL", desc="Level progression. (level areas)" },
+        { address=0X06D0, type="u8", condition="change", action="NEW_LEVEL", desc="background graphics beginning" },
+        { address=0X20AF, type="u8", condition="change", action="NEW_LEVEL", desc="Background graphics" },
+      },
+      stage = {
+        { address=0X002C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="stage progression" },
+        { address=0X0047, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Level ID (Skip to any stage by changing this 00-05 at the cutscene.)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X043A, type="u8", condition="increase", action="GAIN_LIFE", desc="number of lives increased" },
+        { address=0X043A, type="u8", condition="decrease", action="LOSE_LIFE", desc="number of lives decreased" },
+        { address=0X043A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="last life and death" },
+      },
+      health = {
+        { address=0X0424, type="u8", condition="increase", action="HEAL", desc="health increased" },
+        { address=0X0424, type="u8", condition="decrease", action="HIT", desc="health decreased" },
+        { address=0X04BE, type="u8", condition="change", action="HIT", desc="enemy gets hurt" },
+        { address=0X04BF, type="u8", condition="change", action="HIT", desc="enemy gets hurt" },
+        { address=0X0513, type="u8", condition="increase", action="HEAL", desc="5th enemy HP increased" },
+        { address=0X0513, type="u8", condition="decrease", action="HIT", desc="5th enemy HP decreased" },
+        { address=0X0514, type="u8", condition="increase", action="HEAL", desc="4th enemy HP increased" },
+        { address=0X0514, type="u8", condition="decrease", action="HIT", desc="4th enemy HP decreased" },
+        { address=0X0515, type="u8", condition="increase", action="HEAL", desc="3rd enemy HP increased" },
+        { address=0X0515, type="u8", condition="decrease", action="HIT", desc="3rd enemy HP decreased" },
+        { address=0X0516, type="u8", condition="increase", action="HEAL", desc="2nd enemy HP increased" },
+        { address=0X0516, type="u8", condition="decrease", action="HIT", desc="2nd enemy HP decreased" },
+        { address=0X0517, type="u8", condition="increase", action="HEAL", desc="1st enemy HP increased" },
+        { address=0X0517, type="u8", condition="decrease", action="HIT", desc="1st enemy HP decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0081, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="BCD Player Score - 100,000s" },
+        { address=0X0082, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="BCD Player Score - 1,000s" },
+        { address=0X0083, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="BCD Player Score - 10s" },
+        { address=0X0084, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score - 1,000,000's and 100,000s" },
+        { address=0X0085, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score - 10,000's and 1,000s" },
+        { address=0X0086, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="HighScore - 100's and 10s" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0510, type="u8", condition="change", action="BOSS_HIT", desc="Final Boss Health" },
+        { address=0X0794, type="u8", condition="change", action="BOSS_HIT", desc="tank boss health 08" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0000, type="u32le", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="32 second part of the jump kick" },
+        { address=0X0036, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="jump kicks 10" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0603, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Title screen timer" },
+      },
+    },
+  },
+}

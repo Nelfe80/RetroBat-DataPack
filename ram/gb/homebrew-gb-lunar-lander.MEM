@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ GB Lunar Lander",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-gb-lunar-lander",
+    hashes = {
+      { hash = "c6ae0dee7a42b51caeae2c7e3d20eb9b", label = "GB Lunar Lander (World) (GB Showdown 2023) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0BF, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0XC0BF, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="In-Game" },
+      },
+    },
+  },
+}

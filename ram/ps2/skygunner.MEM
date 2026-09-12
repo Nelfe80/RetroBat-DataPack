@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SkyGunner",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Flight Simulator, Shooter"
+  },
+
+  rom = {
+    name = "skygunner",
+    hashes = {
+      { hash = "cab5c1a7a393af5e1690aeabc25c02e7", label = "SkyGunner (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X17E6E6, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X17F890, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Stage 1 enemies shot down" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1669BC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Surival score" },
+        { address=0X166A9C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Survival score" },
+        { address=0X17E30C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current score multiplier" },
+      },
+      collectibles = {
+        { address=0X166AA0, type="u32le", condition="increase", action="COIN_GAIN", desc="Prize money increased" },
+      },
+    },
+  },
+}

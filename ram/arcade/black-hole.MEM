@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "blkhole",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "black-hole",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X40F0, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X40F7, type="u24be", condition="change", action="SCORE_STATE", min=10, max=200, desc="Score delta 10-200: Score delta 10-200" },
+        { address=0X40F7, type="u24be", condition="change", action="SCORE_STATE", color="blue", min=2000, max=1000, desc="Score delta 2000-1000: Score delta 2000-1000" },
+        { address=0X40F7, type="u24be", condition="change", action="SCORE_STATE", color="orange", min=210, max=400, desc="Score delta 210-400: Score delta 210-400" },
+        { address=0X40F7, type="u24be", condition="change", action="SCORE_STATE", color="cyan", min=410, max=800, desc="Score delta 410-800: Score delta 410-800" },
+        { address=0X40F7, type="u24be", condition="change", action="SCORE_STATE", color="green", min=8100, max=2000, desc="Score delta 8100-2000: Score delta 8100-2000" },
+      },
+      collectibles = {
+        { address=0X4003, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+        { address=0X400A, type="u16be", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

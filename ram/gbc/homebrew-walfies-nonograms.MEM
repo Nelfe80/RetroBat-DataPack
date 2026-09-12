@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Walfie's Nonograms",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-walfies-nonograms",
+    hashes = {
+      { hash = "f5fdffc669c29483760655c7f5ff90f4", label = "Walfie's Nonograms (World) (v1.1.0) (Aftermarket) (Walfie).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD14F, type="u8", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XD14F, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XD150, type="u8", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XD150, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XD162, type="u8", condition="eq", value=0X02, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XD162, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD14F, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level Select" },
+        { address=0XD150, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level Select" },
+        { address=0XD162, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level Select" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA004, type="u24le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="elapsed", timer_unit="second", desc="Puzzle Time Array" },
+      },
+    },
+  },
+}

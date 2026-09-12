@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mario Kart: Virtual Cup",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "homebrew-mario-kart-virtual-cup",
+    hashes = {
+      { hash = "4b8c8b6a7711a005dd896b3ee9b8d0f1", label = "Mario Kart - Virtual Cup (World) (Aftermarket) (Unl).vb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X04C0, type="u8", condition="change", action="PAUSE_OFF", desc="Pause Off?" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFF54, type="u8", condition="change", action="NEW_LEVEL", desc="Ground?" },
+      },
+    },
+  },
+}

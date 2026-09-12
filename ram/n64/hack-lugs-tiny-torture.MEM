@@ -1,0 +1,90 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Lug's Tiny Torture",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-lugs-tiny-torture",
+    hashes = {
+      { hash = "6b788ecaa4cb1ad53a6f84216dcdd1db", label = "SM64 - Lug's Tiny Torture (Hardcore) (En) (v1.0) (Lugmillord).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X33B23E, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Overworld 1 Toad" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Overworld 2 Toad" },
+        { address=0X20770B, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Overworld 3 Toad" },
+        { address=0X20777B, type="u8", condition="change", action="NEW_LEVEL", desc="File B Overworld Stars" },
+        { address=0X2077EB, type="u8", condition="change", action="NEW_LEVEL", desc="File C Overworld Stars" },
+        { address=0X20785B, type="u8", condition="change", action="NEW_LEVEL", desc="File D Overworld Stars" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20770F, type="u8", condition="bit_true", mask=0X02, action="LIVES_STATE", desc="Wildlife Assistant" },
+      },
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X33B220, type="u8", condition="increase", action="HEAL", desc="Flickers when you get health back increased" },
+        { address=0X33B220, type="u8", condition="decrease", action="HIT", desc="Flickers when you get health back decreased" },
+        { address=0X33B221, type="u8", condition="change", action="HIT", desc="flickers when damage is taken" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20770C, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="8 treacherous Coins -100-" },
+        { address=0X20770C, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20770D, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X20770E, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207711, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Silver Coins of the Abyss" },
+        { address=0X207711, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207712, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207713, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="100 Coins" },
+        { address=0X207718, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Flying for Silver Coins" },
+        { address=0X20771D, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Silver Coins of the ice" },
+        { address=0X20771F, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Silver Coins of Carnage" },
+        { address=0X207720, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Silver Coins of the silver void" },
+        { address=0X207721, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Silver Coins of the Twisted Flower" },
+        { address=0X33B17C, type="u16be", condition="eq", value=0X1307, action="MONEY_STATE", desc="Star Dance 100 Coins" },
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="Coin Counter increased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X207712, type="u8", condition="bit_true", mask=0X08, action="JUMPING", no_log=true, no_survey=true, desc="Crazier Jumps with Crazier Boxes" },
+        { address=0X207713, type="u8", condition="bit_true", mask=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Shady Jumps" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X207698, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing Cap" },
+        { address=0X207698, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal Cap" },
+        { address=0X207698, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish Cap" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing Cap" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal Cap" },
+        { address=0X207708, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish Cap" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing Cap" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal Cap" },
+        { address=0X207778, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish Cap" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing Cap" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal Cap" },
+        { address=0X2077E8, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish Cap" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Wing Cap" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Metal Cap" },
+        { address=0X207858, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Vanish Cap" },
+      },
+    },
+  },
+}

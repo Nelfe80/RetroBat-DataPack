@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ @PARAMO.YERMO",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-paramoyermo",
+    hashes = {
+      { hash = "1cf039797685a45f5ed64babf9890d77", label = "Paramo Yermo (World) (En) (Aftermarket) (GB Studio).gbc" },
+      { hash = "e26455fae5f0d9b03d33126809369e75", label = "Paramo Yermo (World) (Es) (Aftermarket) (GB Studio).gbc" },
+      { hash = "edb99083d0260d3c0ab9446725d4f3fa", label = "Paramo Yermo (World) (Ca) (Aftermarket) (GB Studio).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

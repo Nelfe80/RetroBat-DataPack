@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Bible Adventures",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Education, Platform"
+  },
+
+  rom = {
+    name = "unlicensed-bible-adventures",
+    hashes = {
+      { hash = "aa7d0c04976a94b8ad4ae9e26ee42bb8", label = "Bible Adventures (USA) (v1.4) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="change", action="GAME_OVER", desc="8bit current state (0:menu, 1-4:noah, 5-a:moses, b-f:david, 10:text, 11:game over, 12-13:noah ta" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0090, type="u8", condition="change", action="LEVEL_CLEAR", desc="1f if level is cleared" },
+        { address=0X00B0, type="u8", condition="change", action="LEVEL_CLEAR", desc="1f if level is cleared" },
+        { address=0X0163, type="u8", condition="change", action="NEW_LEVEL", desc="Level backup value" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0166, type="u8", condition="increase", action="GAIN_LIFE", desc="Life backup value between levels increased" },
+        { address=0X0166, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life backup value between levels decreased" },
+        { address=0X0521, type="u8", condition="increase", action="GAIN_LIFE", desc="8bit life increased" },
+        { address=0X0521, type="u8", condition="decrease", action="LOSE_LIFE", desc="8bit life decreased" },
+        { address=0X0524, type="u8", condition="increase", action="GAIN_LIFE", desc="8bit Noah's life (level 4 only) increased" },
+        { address=0X0524, type="u8", condition="decrease", action="LOSE_LIFE", desc="8bit Noah's life (level 4 only) decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0122, type="u8", condition="change", action="OBJECT_INTERACTION", desc="8bit object being carried noah?" },
+        { address=0X03C8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="8bit type of object carried" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0533, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="8bit timer after goliaths death" },
+      },
+    },
+  },
+}

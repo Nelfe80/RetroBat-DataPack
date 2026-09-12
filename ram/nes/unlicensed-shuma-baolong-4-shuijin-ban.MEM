@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Shuma Baolong 4: Shuijin Ban",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-shuma-baolong-4-shuijin-ban",
+    hashes = {
+      { hash = "4fe8a16e337f1bac601ba939a4f32037", label = "Shuma Baolong 4 - Shuijing Ban (China) (Pirate).nes" },
+    }
+  },
+
+  events = {
+  },
+}

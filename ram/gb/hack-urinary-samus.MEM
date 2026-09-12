@@ -1,0 +1,65 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Urinary Samus",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-urinary-samus",
+    hashes = {
+      { hash = "4f5a6019ef3b9ccff1af75cf35169d3f", label = "Metroid 2 - Urinary Samus (v1.1) (MarioFan2468).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCEC1, type="u16le", condition="eq", value=0X1E, action="PAUSE_OFF", desc="unpause" },
+        { address=0XCF2F, type="u8", condition="eq", value=0X70, action="TITLE_SCREEN", desc="Title Theme" },
+        { address=0XCF2F, type="u8", condition="eq", value=0X74, action="CREDITS_SCREEN", desc="Staff Credits" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCED6, type="u16le", condition="eq", value=0X2, action="LOSE_LIFE", desc="tiny death" },
+        { address=0XCED6, type="u16le", condition="eq", value=0X4, action="LOSE_LIFE", desc="block death" },
+      },
+      health = {
+        { address=0XCEC1, type="u16le", condition="eq", value=0X17, action="HEALTH_STATE", no_log=true, desc="big hp" },
+        { address=0XCEC1, type="u16le", condition="eq", value=0X18, action="HIT", desc="max hp ball/damage from queen" },
+        { address=0XCEC1, type="u16le", condition="eq", value=0XE, action="HEALTH_STATE", no_log=true, desc="small health" },
+        { address=0XCED6, type="u16le", condition="eq", value=0X6, action="HIT", desc="take damage" },
+        { address=0XCED6, type="u16le", condition="eq", value=0X8, action="HIT", desc="metal door damaged" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XCEDD, type="u16le", condition="eq", value=0X2, action="BOSS_HIT", desc="queen boss fight" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XCEC1, type="u16le", condition="eq", value=0X1, action="JUMPING", no_log=true, no_survey=true, desc="jump, ball bounce" },
+        { address=0XCEC1, type="u16le", condition="eq", value=0X2, action="JUMPING", no_log=true, no_survey=true, desc="hi-jump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCEC1, type="u16le", condition="eq", value=0X10, action="DOOR_OPENED", desc="metal door open" },
+        { address=0XCEC1, type="u16le", condition="eq", value=0X15, action="OBJECT_INTERACTION", desc="missile switch" },
+        { address=0XCEC1, type="u16le", condition="eq", value=0XF, action="DOOR_OPENED", desc="metal door plink" },
+        { address=0XCEDD, type="u16le", condition="eq", value=0X6, action="DOOR_OPENED", desc="Caverns 2 (area 2, area 1 one bugged door)" },
+        { address=0XD07D, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Checkpoint Displayed" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD098, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Until Calamity Timer - Minutes" },
+        { address=0XD099, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Until Calamity Timer - Seconds" },
+      },
+    },
+  },
+}

@@ -1,0 +1,114 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Boogie Wings",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "boogie-wings",
+    hashes = {
+      { hash = "9b519c4dceb4327521e6af1ab03f9ec1", label = "ragtime.7z <The Great Ragtime Show (Japan v1.5, 92.12.07)>" },
+      { hash = "d05c0636f31eded00e13a0051db1ed37", label = "boogwing.7z <Boogie Wings (Euro v1.5, 92.12.07)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X802A, type="u8", condition="change", action="DEMO_MODE", desc="Stage? (00 : 1st/opening stage, 01 : Konyi Island, 02 : Transporter, 03 : Imperial Science Museu" },
+        { address=0X8044, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X80AD, type="u8", condition="change", action="DEMO_MODE", desc="01 - Demo mode?" },
+        { address=0X83B3, type="u8", condition="change", action="DEMO_MODE", desc="01 - Demo mode?" },
+        { address=0X9874, type="u8", condition="change", action="DEMO_MODE", desc="01 - Demo mode?" },
+        { address=0X1031F, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X1031F, type="u8", condition="eq", value=0X07, action="DEMO_MODE", desc="Attract mode and Stage Select Screen" },
+        { address=0X1031F, type="u8", condition="eq", value=0X11, action="CONTINUE_SCREEN", desc="Continue Timer during Stage" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X823A, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 Speed level?" },
+        { address=0X825A, type="u8", condition="change", action="NEW_LEVEL", desc="Player 1 POW level?" },
+        { address=0X82FA, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 Speed level?" },
+        { address=0X831A, type="u8", condition="change", action="NEW_LEVEL", desc="Player 2 POW level?" },
+      },
+      stage = {
+        { address=0XBB62, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Shot Count 100,000's and 10,000's (XX0000)" },
+        { address=0XBB64, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Shot Count 10's and 1's (0000XX)" },
+        { address=0XBB65, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Shot Count 1,000's and 100's (00XX00)" },
+        { address=0XBB66, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Shot Count 100,000's and 10,000's (XX0000)" },
+        { address=0XBB68, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Shot Count 10's and 1's (0000XX)" },
+        { address=0XBB69, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Shot Count 1,000's and 100's (00XX00)" },
+        { address=0XBB6C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's and Player 2's Stage Stats: Kill Percentage, Total Enemies in Stage - 10's and 1's (0" },
+        { address=0XBB6D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's and Player 2's Stage Stats: Kill Percentage, Total Enemies in Stage - 1,000's and 100" },
+        { address=0XBB6E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Kill Count 100,000's and 10,000's (XX0000)" },
+        { address=0XBB70, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Kill Count 10's and 1's (0000XX)" },
+        { address=0XBB71, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Kill Count 1,000's and 100's (00XX00)" },
+        { address=0XBB72, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Kill Count 100,000's and 10,000's (XX0000)" },
+        { address=0XBB74, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Kill Count 10's and 1's (0000XX)" },
+        { address=0XBB75, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Kill Count 1,000's and 100's (00XX00)" },
+        { address=0XBB8C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Kill Percentage, Actual Percentage killed in Stage - 10's and 1's (0XX)" },
+        { address=0XBB8D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 1's Stage Stats: Kill Percentage, Actual Percentage killed in Stage - 100's (X00)" },
+        { address=0XBB90, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Kill Percentage, Actual Percentage killed in Stage - 10's and 1's (0XX)" },
+        { address=0XBB91, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Player 2's Stage Stats: Kill Percentage, Actual Percentage killed in Stage - 100's (X00)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X803B, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch Setting: Difficulty, Lives, and Stage Reset (80 : Normal, 2 Lives, and Player Continue" },
+        { address=0X803B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch Setting: Difficulty, Lives, and Stage Reset (80 : Normal, 2 Lives, and Player Continue" },
+        { address=0X80C9, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1's Lives increased" },
+        { address=0X80C9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1's Lives decreased" },
+        { address=0X80E3, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2's Lives increased" },
+        { address=0X80E3, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2's Lives decreased" },
+        { address=0X2080C8, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0X208247, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: select shot power" },
+      },
+      health = {
+        { address=0X8260, type="u8", condition="increase", action="HEAL", desc="Player 1's health? increased" },
+        { address=0X8260, type="u8", condition="decrease", action="HIT", desc="Player 1's health? decreased" },
+        { address=0X8320, type="u8", condition="increase", action="HEAL", desc="Player 2's health? increased" },
+        { address=0X8320, type="u8", condition="decrease", action="HIT", desc="Player 2's health? decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X2080CA, type="u32be", condition="change", action="TREASURE", color="white", min=5000, max=5000, desc="Score delta 5000-5000: Score 5000" },
+        { address=0X2080CA, type="u32be", condition="change", action="TREASURE", color="white", min=7000, max=7000, desc="Score delta 7000-7000: Score 7000" },
+        { address=0X2080CA, type="u32be", condition="change", action="TREASURE", color="white", min=8000, max=8000, desc="Score delta 8000-8000: Score 8000" },
+        { address=0X2080CA, type="u32be", condition="change", action="TREASURE", color="white", min=9000, max=9000, desc="Score delta 9000-9000: Score 9000" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2080CA, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X20804E, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X991C, type="u16le", condition="eq", value=0XFFFF, action="BOSS_DEFEATED", desc="Boss Dead" },
+        { address=0X9936, type="u16le", condition="eq", value=0XFFFF, action="BOSS_DEFEATED", desc="Boss Dead" },
+        { address=0X9A36, type="u8", condition="change", action="BOSS_HIT", desc="Stage 6 (Detroit) boss 2nd (tank) form" },
+        { address=0XA336, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="Boss Dead" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X803A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dipswitch Settings: Coinage" },
+        { address=0X2080CA, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=100, max=100, desc="Score delta 100-100: Planes" },
+        { address=0X2080CA, type="u32be", condition="change", action="OBJECT_DESTROYED", color="white", min=10000, max=10000, desc="Score delta 10000-10000: Flying ship" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1031F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="BGM/Music ID? (most likely candidate)" },
+      },
+    },
+  },
+}

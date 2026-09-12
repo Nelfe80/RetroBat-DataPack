@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tapper",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "tapper",
+    hashes = {
+      { hash = "baa866c80409d9ec9972273210b96132", label = "Tapper (1983)(Bally Midway)[cr M.B.P.A.].do" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X006E, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X006E, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X006E, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

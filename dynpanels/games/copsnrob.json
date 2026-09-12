@@ -1,0 +1,1225 @@
+{
+  "schema": "api_expose.panel.v1",
+  "scope": "game",
+  "system": "mame",
+  "rom": "copsnrob",
+  "game_name": "copsnrob",
+  "meta": {
+    "players": 4,
+    "alternating": 0,
+    "mirrored": 0,
+    "tilt": 0,
+    "cocktail": 0,
+    "uses_service": 0,
+    "misc_details": ""
+  },
+  "panel": {
+    "convention": "retrobat_standard",
+    "slots": {
+      "1": {
+        "retrobat_button": "A",
+        "retropad_id": 0,
+        "libretro_button": "b",
+        "fbneo_button": "a",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON1"
+      },
+      "2": {
+        "retrobat_button": "B",
+        "retropad_id": 8,
+        "libretro_button": "a",
+        "fbneo_button": "b",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON2"
+      },
+      "6": {
+        "retrobat_button": "PAGEDOWN",
+        "retropad_id": 11,
+        "libretro_button": "r",
+        "fbneo_button": "rightshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON6"
+      },
+      "8": {
+        "retrobat_button": "R2",
+        "retropad_id": 13,
+        "libretro_button": "r2",
+        "fbneo_button": "righttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON8"
+      },
+      "4": {
+        "retrobat_button": "Y",
+        "retropad_id": 1,
+        "libretro_button": "y",
+        "fbneo_button": "x",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON4"
+      },
+      "3": {
+        "retrobat_button": "X",
+        "retropad_id": 9,
+        "libretro_button": "x",
+        "fbneo_button": "y",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON3"
+      },
+      "5": {
+        "retrobat_button": "PAGEUP",
+        "retropad_id": 10,
+        "libretro_button": "l",
+        "fbneo_button": "leftshoulder",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON5"
+      },
+      "7": {
+        "retrobat_button": "L2",
+        "retropad_id": 12,
+        "libretro_button": "l2",
+        "fbneo_button": "lefttrigger",
+        "rmp_button": null,
+        "mame_button": "P1_BUTTON7"
+      }
+    },
+    "system_slots": {
+      "start": {
+        "retrobat_button": "START",
+        "retropad_id": 3,
+        "libretro_button": "start",
+        "fbneo_button": "start",
+        "rmp_button": "start",
+        "mame_button": ""
+      },
+      "coin": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      },
+      "select": {
+        "retrobat_button": "SELECT",
+        "retropad_id": 2,
+        "libretro_button": "select",
+        "fbneo_button": "back",
+        "rmp_button": "select",
+        "mame_button": ""
+      }
+    }
+  },
+  "players": {
+    "1": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Blue",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "led0",
+          "mame": {
+            "input": "START1",
+            "input_id": "START1",
+            "label": "1 Player Start",
+            "function": "1_player_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "IN1",
+            "mask": "0x40",
+            "mask_int": 64,
+            "defvalue": "0x40",
+            "defvalue_int": 64,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "1 Player Start",
+            "mame_type": "7",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "1 Player Start",
+            "input_function": "1_player_start",
+            "type": "START1",
+            "normalized_type": "START1",
+            "tag_raw": ":IN1",
+            "mask_dec": 64,
+            "mask_hex": "0x0040",
+            "defvalue_dec": 64,
+            "defvalue_hex": "0x0040",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN1",
+            "input_id": "COIN1",
+            "label": "Coin 1",
+            "function": "coin_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "IN1",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 1",
+            "mame_type": "17",
+            "mame_tag": ":IN1",
+            "cfg_tag": ":IN1",
+            "input_label": "Coin 1",
+            "input_function": "coin_1",
+            "type": "COIN1",
+            "normalized_type": "COIN1",
+            "tag_raw": ":IN1",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":IN1",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [
+        {
+          "name": "led0",
+          "label": "One Start",
+          "function": "one_start",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp",
+            "start"
+          ],
+          "group": "start_lamps",
+          "usage": "start",
+          "player": 1,
+          "index": 0,
+          "panel_index": 1,
+          "color": "Gray",
+          "side": "",
+          "id": "led0#1",
+          "input_ref": "",
+          "panel_joystick": null
+        },
+        {
+          "name": "led1",
+          "label": "Multi Player Start",
+          "function": "multi_player_start",
+          "physical_type": "lamp",
+          "value_type": "boolean",
+          "families": [
+            "lamp",
+            "start"
+          ],
+          "group": "start_lamps",
+          "usage": "start",
+          "player": 1,
+          "index": 1,
+          "panel_index": 2,
+          "color": "Gray",
+          "side": "",
+          "id": "led1#2",
+          "input_ref": "",
+          "panel_joystick": null
+        }
+      ],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P1_BUTTON1",
+            "label": "P1 Button 1",
+            "function": "p1_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "DSW",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":DSW",
+            "cfg_tag": ":DSW",
+            "input_label": "P1 Button 1",
+            "input_function": "p1_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":DSW",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":DSW",
+            "source": "outputs_mame"
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Button 2",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P1_BUTTON2",
+            "label": "P1 Button 2",
+            "function": "p1_button_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "CTRL1",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P1 Button 2",
+            "mame_type": "61",
+            "mame_tag": ":CTRL1",
+            "cfg_tag": ":CTRL1",
+            "input_label": "P1 Button 2",
+            "input_function": "p1_button_2",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":CTRL1",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":CTRL1",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "2": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Red",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "led1",
+          "mame": {
+            "input": "START2",
+            "input_id": "START2",
+            "label": "2 Players Start",
+            "function": "2_players_start",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "IN2",
+            "mask": "0x40",
+            "mask_int": 64,
+            "defvalue": "0x40",
+            "defvalue_int": 64,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_START2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "2 Players Start",
+            "mame_type": "8",
+            "mame_tag": ":IN2",
+            "cfg_tag": ":IN2",
+            "input_label": "2 Players Start",
+            "input_function": "2_players_start",
+            "type": "START2",
+            "normalized_type": "START2",
+            "tag_raw": ":IN2",
+            "mask_dec": 64,
+            "mask_hex": "0x0040",
+            "defvalue_dec": 64,
+            "defvalue_hex": "0x0040",
+            "runtime_tag": ":IN2",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {
+            "input": "COIN2",
+            "input_id": "COIN2",
+            "label": "Coin 2",
+            "function": "coin_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "IN2",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_COIN2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 1,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "Coin 2",
+            "mame_type": "18",
+            "mame_tag": ":IN2",
+            "cfg_tag": ":IN2",
+            "input_label": "Coin 2",
+            "input_function": "coin_2",
+            "type": "COIN2",
+            "normalized_type": "COIN2",
+            "tag_raw": ":IN2",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":IN2",
+            "source": "outputs_mame"
+          },
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P2_BUTTON1",
+            "label": "P2 Button 1",
+            "function": "p2_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "DSW",
+            "mask": "0x40",
+            "mask_int": 64,
+            "defvalue": "0x40",
+            "defvalue_int": 64,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P2 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":DSW",
+            "cfg_tag": ":DSW",
+            "input_label": "P2 Button 1",
+            "input_function": "p2_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":DSW",
+            "mask_dec": 64,
+            "mask_hex": "0x0040",
+            "defvalue_dec": 64,
+            "defvalue_hex": "0x0040",
+            "runtime_tag": ":DSW",
+            "source": "outputs_mame"
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Button 2",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P2_BUTTON2",
+            "label": "P2 Button 2",
+            "function": "p2_button_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "CTRL2",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 2,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P2 Button 2",
+            "mame_type": "61",
+            "mame_tag": ":CTRL2",
+            "cfg_tag": ":CTRL2",
+            "input_label": "P2 Button 2",
+            "input_function": "p2_button_2",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":CTRL2",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":CTRL2",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "3": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Green",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P3_BUTTON1",
+            "label": "P3 Button 1",
+            "function": "p3_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "DSW",
+            "mask": "0x20",
+            "mask_int": 32,
+            "defvalue": "0x20",
+            "defvalue_int": 32,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 3,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P3 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":DSW",
+            "cfg_tag": ":DSW",
+            "input_label": "P3 Button 1",
+            "input_function": "p3_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":DSW",
+            "mask_dec": 32,
+            "mask_hex": "0x0020",
+            "defvalue_dec": 32,
+            "defvalue_hex": "0x0020",
+            "runtime_tag": ":DSW",
+            "source": "outputs_mame"
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Button 2",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P3_BUTTON2",
+            "label": "P3 Button 2",
+            "function": "p3_button_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "CTRL3",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 3,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P3 Button 2",
+            "mame_type": "61",
+            "mame_tag": ":CTRL3",
+            "cfg_tag": ":CTRL3",
+            "input_label": "P3 Button 2",
+            "input_function": "p3_button_2",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":CTRL3",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":CTRL3",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        }
+      }
+    },
+    "4": {
+      "devices": [
+        {
+          "id": "D1",
+          "label": "joy8way",
+          "type": "joy8way",
+          "raw": "joy8way",
+          "codes": [],
+          "color": "Violet",
+          "inputs": {},
+          "axes": {}
+        }
+      ],
+      "system_inputs": {
+        "start": {
+          "label": "Start",
+          "color": "White",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        },
+        "coin": {
+          "label": "Coin",
+          "color": "Yellow",
+          "output": "",
+          "mame": {},
+          "panel_joystick": null,
+          "slots_by_layout": {
+            "2-Button": null,
+            "4-Button": null,
+            "6-Button": null,
+            "8-Button": null
+          }
+        }
+      },
+      "system_outputs": [],
+      "buttons": {
+        "1": {
+          "game_button": 1,
+          "logical_name": "1",
+          "function": "Button 1",
+          "color": "Red",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON1",
+            "input_id": "P4_BUTTON1",
+            "label": "P4 Button 1",
+            "function": "p4_button_1",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "DSW",
+            "mask": "0x10",
+            "mask_int": 16,
+            "defvalue": "0x10",
+            "defvalue_int": 16,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON1",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 4,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P4 Button 1",
+            "mame_type": "60",
+            "mame_tag": ":DSW",
+            "cfg_tag": ":DSW",
+            "input_label": "P4 Button 1",
+            "input_function": "p4_button_1",
+            "type": "BUTTON1",
+            "normalized_type": "BUTTON1",
+            "tag_raw": ":DSW",
+            "mask_dec": 16,
+            "mask_hex": "0x0010",
+            "defvalue_dec": 16,
+            "defvalue_hex": "0x0010",
+            "runtime_tag": ":DSW",
+            "source": "outputs_mame"
+          }
+        },
+        "2": {
+          "game_button": 2,
+          "logical_name": "2",
+          "function": "Button 2",
+          "color": "Yellow",
+          "output": "",
+          "panel_joystick": null,
+          "mame": {
+            "input": "BUTTON2",
+            "input_id": "P4_BUTTON2",
+            "label": "P4 Button 2",
+            "function": "p4_button_2",
+            "control_type": "only_buttons",
+            "joystick_way": "",
+            "port_block": "copsnrob",
+            "tag": "CTRL4",
+            "mask": "0x80",
+            "mask_int": 128,
+            "defvalue": "0x80",
+            "defvalue_int": 128,
+            "default_raw": "IP_ACTIVE_LOW",
+            "ipt": "IPT_BUTTON2",
+            "keycode": "",
+            "keycode_dec": "",
+            "keycode_inc": "",
+            "comment": "",
+            "player": 4,
+            "min": null,
+            "max": null,
+            "sensitivity": null,
+            "keydelta": null,
+            "centerdelta": null,
+            "full_turn_count": null,
+            "impulse": null,
+            "reverse": false,
+            "invert": false,
+            "reset": false,
+            "toggle": false,
+            "condition": "",
+            "mame_label": "P4 Button 2",
+            "mame_type": "61",
+            "mame_tag": ":CTRL4",
+            "cfg_tag": ":CTRL4",
+            "input_label": "P4 Button 2",
+            "input_function": "p4_button_2",
+            "type": "BUTTON2",
+            "normalized_type": "BUTTON2",
+            "tag_raw": ":CTRL4",
+            "mask_dec": 128,
+            "mask_hex": "0x0080",
+            "defvalue_dec": 128,
+            "defvalue_hex": "0x0080",
+            "runtime_tag": ":CTRL4",
+            "source": "outputs_mame"
+          }
+        }
+      },
+      "axes": [],
+      "panel_joystick": {},
+      "mame_inputs_extra": [],
+      "layouts": {
+        "2-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "4-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "6-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        },
+        "8-Button": {
+          "pattern": "line_2",
+          "system_inputs": {},
+          "system_outputs": {},
+          "buttons": {
+            "1": {
+              "panel_slot": 1
+            },
+            "2": {
+              "panel_slot": 2
+            }
+          },
+          "axes": {}
+        }
+      }
+    }
+  },
+  "system_template": {},
+  "events": {
+    "lamps": [],
+    "groups": [],
+    "events": [],
+    "lifecycle": [],
+    "sequences": []
+  },
+  "context": []
+}

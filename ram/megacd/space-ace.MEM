@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Space Ace",
+    system = "megacd",
+    system_name = "Sega CD",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "space-ace",
+    hashes = {
+      { hash = "bee946414656974b365b1a2955437d7d", label = "Space Ace (USA)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X30CF, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X30CF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+  },
+}

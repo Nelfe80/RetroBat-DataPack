@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Quarth",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "quarth",
+    hashes = {
+      { hash = "de2236723c8d218e04c93849ebcda72d", label = "Quarth (USA, Europe).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC40B, type="u8", condition="eq", value=0X0, action="PAUSE_ON", desc="In-game" },
+        { address=0XC40B, type="u8", condition="eq", value=0X1, action="PAUSE_ON", desc="Pause" },
+        { address=0XC5CA, type="u8", condition="eq", value=0X0, action="GAME_OVER", desc="false" },
+        { address=0XC5CA, type="u8", condition="eq", value=0X1, action="GAME_OVER", desc="true" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC41E, type="u8", condition="change", action="NEW_LEVEL", desc="GLOBAL : Level (8-bit)" },
+      },
+      stage = {
+        { address=0XC41F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="GLOBAL : Stage (8-bit)" },
+        { address=0XC41F, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Random" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XC490, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="PLAYER : Score (24-bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC5D8, type="u8", condition="change", action="OBJECT_DESTROYED", desc="BLOCK : Size of last broken block (8-bit)" },
+      },
+    },
+  },
+}

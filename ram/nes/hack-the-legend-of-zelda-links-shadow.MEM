@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Link's Shadow",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-links-shadow",
+    hashes = {
+      { hash = "43240295be74faa24c588889b8ca3bfd", label = "Legend of Zelda, The - Link's Shadow (v1.5) (The3Dude).nes" },
+      { hash = "797e6ca2eaad8585fbf0bebf38a14814", label = "Legend of Zelda, The - Link's Shadow (v1.5) (Updated GFX) (The3Dude).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0012, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="file select/title" },
+        { address=0X0012, type="u8", condition="eq", value=0X08, action="GAME_OVER", desc="game over" },
+        { address=0X0012, type="u8", condition="eq", value=0X13, action="GAME_OVER", desc="ending sequence (sometimes: core dependent?)" },
+        { address=0X0609, type="u8", condition="bit_true", mask=0X80, action="TITLE_SCREEN", desc="Title Theme" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0012, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="entering overworld via door" },
+        { address=0X0012, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="in overworld OR dungeon" },
+        { address=0X0609, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X0609, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="The Final Level" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0350, type="u8", condition="eq", value=0X31, action="BOSS_HIT", desc="Dodongos (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X33, action="BOSS_HIT", desc="Blue Gohma (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X34, action="BOSS_HIT", desc="Red Gohma (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X3A, action="BOSS_HIT", desc="Red Lanmolas (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X3B, action="BOSS_HIT", desc="Blue Lanmolas (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X3C, action="BOSS_HIT", desc="Manhandla (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X3D, action="BOSS_HIT", desc="Aquamentus (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X43, action="BOSS_HIT", desc="Two Headed Gleeok (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X44, action="BOSS_HIT", desc="Three Headed Gleeok (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X45, action="BOSS_HIT", desc="Four Headed Gleeok (BOSS)" },
+        { address=0X0350, type="u8", condition="eq", value=0X56, action="BOSS_DEFEATED", desc="Temporary Boss Sprite? (Never respawns after the boss is defeated)" },
+        { address=0X0350, type="u8", condition="eq", value=0X68, action="BOSS_HIT", desc="Unknown (Maybe a Boss Sprite?)" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0350, type="u8", condition="eq", value=0X77, action="SHIELD_GAIN", desc="Male Merchant (NPC Room: Shield, Key, Arrow)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0012, type="u8", condition="eq", value=0X10, action="DOOR_OPENED", desc="Walking into a door" },
+        { address=0X0350, type="u8", condition="eq", value=0X71, action="DOOR_OPENED", desc="Old Man (Door Repair, NPC Room)" },
+      },
+    },
+  },
+}

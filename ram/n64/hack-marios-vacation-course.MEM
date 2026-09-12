@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Vacation Course",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-vacation-course",
+    hashes = {
+      { hash = "0806a73f79c1e7a99491b5edfa1081e4", label = "SM64 - Mario's Vacation Course (v1.7.2) (Renou).z64" },
+    }
+  },
+
+  events = {
+  },
+}

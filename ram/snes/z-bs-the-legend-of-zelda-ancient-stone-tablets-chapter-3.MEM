@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ BS The Legend of Zelda: Ancient Stone Tablets - Chapter 3",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-bs-the-legend-of-zelda-ancient-stone-tablets-chapter-3",
+    hashes = {
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X040A, type="u8", condition="change", action="NEW_LEVEL", desc="link's overworld location" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XF3FB, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16-bit f3fb : points week 3 (pts/10)" },
+        { address=0XF3FC, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="16-bit f3fb : points week 3 (pts/10)" },
+      },
+    },
+  },
+}

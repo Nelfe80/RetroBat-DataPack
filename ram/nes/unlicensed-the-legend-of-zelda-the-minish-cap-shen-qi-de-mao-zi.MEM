@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ The Legend of Zelda: The Minish Cap | Shen Qi De Mao Zi",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-the-legend-of-zelda-the-minish-cap-shen-qi-de-mao-zi",
+    hashes = {
+      { hash = "2b99330a18a48d103654070f5e1d3b94", label = "Menghuan Shalou (China) (Aftermarket) (Pirate).nes" },
+      { hash = "b4b8c6a5e17a8e31e9bf40298fb2ab43", label = "Legend of Zelda - The Minish Cap (World) (Aftermarket) (Pirate).nes" },
+      { hash = "b5afe6d43abfce5a4a59d578bd1f9642", label = "Zelda Chuanshuo - Shenqi de Maozi (China) (Aftermarket) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X60CA, type="u8", condition="change", action="NEW_LEVEL", desc="This determines the Level in the game you are." },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X60D4, type="u8", condition="increase", action="HEAL", desc="Link's HP increased" },
+        { address=0X60D4, type="u8", condition="decrease", action="HIT", desc="Link's HP decreased" },
+        { address=0X60D6, type="u8", condition="increase", action="HEAL", desc="Link's Max HP increased" },
+        { address=0X60D6, type="u8", condition="decrease", action="HIT", desc="Link's Max HP decreased" },
+        { address=0X7E04, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X7E04, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0X7E05, type="u8", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0X7E05, type="u8", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X6022, type="u16le", condition="increase", action="COIN_GAIN", desc="Money (16-Bit) increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X006D, type="u8", condition="change", action="DOOR_OPENED", desc="This tells if the key opens the door after obtaining the fire element." },
+      },
+    },
+  },
+}

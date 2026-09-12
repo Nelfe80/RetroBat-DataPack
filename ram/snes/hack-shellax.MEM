@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shellax",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shellax",
+    hashes = {
+      { hash = "694fd3b305296d85816ee9b365b1f207", label = "SMW - Shellax (v1.1) (Fryinb).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="01 if paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X13BF, type="u8", condition="eq", value=0X40, action="NEW_LEVEL", desc="Home" },
+        { address=0X13BF, type="u8", condition="eq", value=0X41, action="NEW_LEVEL", desc="Goomba Gushin" },
+        { address=0X13BF, type="u8", condition="eq", value=0X42, action="NEW_LEVEL", desc="Kick Start" },
+        { address=0X13BF, type="u8", condition="eq", value=0X43, action="NEW_LEVEL", desc="Wrong Turn" },
+        { address=0X13BF, type="u8", condition="eq", value=0X54, action="NEW_LEVEL", desc="Puppy Palace" },
+        { address=0X13BF, type="u8", condition="eq", value=0X61, action="NEW_LEVEL", desc="Hangin On" },
+        { address=0X13BF, type="u8", condition="eq", value=0X74, action="NEW_LEVEL", desc="Keenzwood" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+  },
+}

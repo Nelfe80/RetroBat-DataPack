@@ -1,0 +1,86 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Clash at Demonhead",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action, Adventure, Platform"
+  },
+
+  rom = {
+    name = "clash-at-demonhead",
+    hashes = {
+      { hash = "f339fdaeaff14639d46a947b5018c1b3", label = "Dengeki - Big Bang! (Japan).nes" },
+      { hash = "fd2677e07cff48d5236a1ddc92dca342", label = "Clash at Demonhead (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0030, type="u16le", condition="eq", value=0X1E, action="DEMO_MODE", desc="demo story (reset game)" },
+        { address=0X0030, type="u16le", condition="eq", value=0X1F, action="TITLE_SCREEN", desc="title/continue/the end" },
+        { address=0X005D, type="u8", condition="eq", value=0X55, action="DEMO_MODE", desc="demon room" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X00B5, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Enter Stage" },
+        { address=0X0104, type="u8", condition="change", action="PROGRESSION_STAGE", desc="05:stage" },
+        { address=0X0104, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="main screen/password" },
+        { address=0X0104, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="transition" },
+        { address=0X0104, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="map" },
+        { address=0X0104, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="talk" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X001F, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="empty 01:alive 2b:dead" },
+        { address=0X00B5, type="u8", condition="eq", value=0X19, action="LOSE_LIFE", desc="Die" },
+        { address=0X045A, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Not In/Dead" },
+        { address=0X060A, type="u16le", condition="eq", value=0X15, action="LOSE_LIFE", desc="Joe Dead" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0036, type="u8", condition="eq", value=0X02, action="TREASURE", desc="Underwater Treasure" },
+        { address=0X0545, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Normal" },
+        { address=0X0545, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="Power Boots" },
+        { address=0X0545, type="u8", condition="eq", value=0X02, action="DYNAMIC_INVENTORY", desc="Jet Pak" },
+        { address=0X0545, type="u8", condition="eq", value=0X03, action="DYNAMIC_INVENTORY", desc="Aqua Lung" },
+        { address=0X0545, type="u8", condition="eq", value=0X04, action="DYNAMIC_INVENTORY", desc="Supersuit" },
+      },
+      weapon = {
+        { address=0X053D, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="normal, 01 : rolling star" },
+        { address=0X053D, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="powerball, 03 : thunder shot" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0036, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Shark Boss Room" },
+        { address=0X035D, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="No Boss" },
+        { address=0X035D, type="u8", condition="eq", value=0X0F, action="BOSS_HIT", desc="Exploding Boss" },
+        { address=0X035E, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="No Boss" },
+        { address=0X035E, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="All of Max's minions out" },
+        { address=0X035E, type="u8", condition="eq", value=0X0F, action="BOSS_HIT", desc="Exploding Boss" },
+        { address=0X0584, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="When locked inside boss room" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0545, type="u8", condition="eq", value=0X04, action="TRANSFORMATION_SUPER", desc="Transformed into Supersuit" },
+      },
+      player = {
+        { address=0X00B5, type="u8", condition="eq", value=0X14, action="JUMPING", no_log=true, no_survey=true, desc="Jump" },
+        { address=0X00B5, type="u8", condition="eq", value=0X1B, action="SWIMMING", no_log=true, no_survey=true, desc="Swim" },
+        { address=0X00FA, type="u8", condition="eq", value=0X5E, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+        { address=0X00FA, type="u8", condition="eq", value=0X92, action="SWIMMING", no_log=true, no_survey=true, desc="Swimming" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X035D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Boss Health (counts up)" },
+      },
+    },
+  },
+}

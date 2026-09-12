@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "V-Tetris",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "v-tetris",
+    hashes = {
+      { hash = "262bbae465f851ded3bb7cf46e375224", label = "V-Tetris (Japan).vb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0004, type="u8", condition="eq", value=0X25, action="DEMO_MODE", desc="Regular Gameplay" },
+        { address=0X0004, type="u8", condition="eq", value=0X27, action="DEMO_MODE", desc="Demo Gameplay" },
+        { address=0X0201, type="u8", condition="eq", value=0X56, action="DEMO_MODE", desc="Demo" },
+        { address=0X0201, type="u8", condition="eq", value=0X5A, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X0201, type="u8", condition="eq", value=0X64, action="TITLE_SCREEN", desc="Title Jingle" },
+        { address=0X0201, type="u8", condition="eq", value=0X6F, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0203, type="u8", condition="eq", value=0X2E, action="GAME_OVER", desc="Game Over" },
+        { address=0X0210, type="u8", condition="eq", value=0X7F, action="PAUSE_ON", desc="Paused" },
+        { address=0X0210, type="u8", condition="eq", value=0XFF, action="PAUSE_ON", desc="Game active" },
+        { address=0X1C40, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Off" },
+        { address=0X1C40, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="On" },
+        { address=0X2A09, type="u8", condition="eq", value=0X03, action="PAUSE_ON", desc="Automatic Pause/BPS Logo" },
+        { address=0X2A09, type="u8", condition="eq", value=0X05, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X2A09, type="u8", condition="eq", value=0X5A, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2850, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="When a block lands and no lines are cleared" },
+        { address=0X2869, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0X286A, type="u16le", condition="change", action="LEVEL_CLEAR", desc="Number of Lines Cleared/Remaining" },
+        { address=0X286C, type="u8", condition="change", action="NEW_LEVEL", desc="Mode B - Round" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X2870, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0X2888, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Top Score" },
+        { address=0X289C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Type A - Rank 1 High Score" },
+        { address=0X2914, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Type B - Rank 1 High Score" },
+        { address=0X298C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Type C - Rank 1 High Score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0203, type="u8", condition="eq", value=0X2D, action="OBJECT_INTERACTION", desc="Block landing" },
+        { address=0X27E4, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="T Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Backwards L Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="L Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="S Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Z Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X05, action="OBJECT_INTERACTION", desc="Line Block" },
+        { address=0X27E4, type="u8", condition="eq", value=0X06, action="OBJECT_INTERACTION", desc="Square Block" },
+        { address=0X27E5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Current Block's Rotation" },
+        { address=0X281C, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="T Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Backwards L Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="L Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="S Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Z Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X05, action="OBJECT_INTERACTION", desc="Line Block" },
+        { address=0X281C, type="u8", condition="eq", value=0X06, action="OBJECT_INTERACTION", desc="Square Block" },
+      },
+    },
+  },
+}

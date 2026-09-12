@@ -1,0 +1,44 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pikmin 1²",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pikmin-12",
+    hashes = {
+      { hash = "f45d751b8a2131de52cbcdb98e4ac227", label = "Pikmin 2 - Pikmin 1^2 (v1.1) (PikHacker)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X9527D4, type="u32be", condition="change", action="PAUSE_ON", desc="[32bit BE] Total Ship Parts (pause menu)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9C7F7C, type="u32be", condition="change", action="NEW_LEVEL", desc="[32bit BE] Challenge Mode Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X952AAF, type="u8", condition="change", action="LOSE_LIFE", desc="[8bit] Total pikmin dead from bulbax" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X952834, type="u8", condition="change", action="TREASURE", desc="[8bit] Treasure Ship Parts" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X95271B, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Olimar" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tron: Deadly Discs",
+    system = "intellivision",
+    system_name = "Intellivision",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "tron-deadly-discs",
+    hashes = {
+      { hash = "a0ae3c350acb9b9bc51128011483d4be", label = "TRON Deadly Discs (USA, Europe).int" },
+    }
+  },
+
+  events = {
+  },
+}

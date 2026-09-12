@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Incredible Crash Dummies",
+    system = "gamegear",
+    system_name = "Game Gear",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "the-incredible-crash-dummies",
+    hashes = {
+      { hash = "4d7fafe13d1aa4c9ea893bd4ec2f8332", label = "Incredible Crash Dummies, The (World).gg" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X008B, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1's Lives increased" },
+        { address=0X008B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1's Lives decreased" },
+        { address=0X0093, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2's Lives increased" },
+        { address=0X0093, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2's Lives decreased" },
+      },
+    },
+  },
+}

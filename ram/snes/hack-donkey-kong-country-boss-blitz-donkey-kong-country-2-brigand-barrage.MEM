@@ -1,0 +1,110 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Donkey Kong Country: Boss Blitz | Donkey Kong Country 2: Brigand Barrage",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-donkey-kong-country-boss-blitz-donkey-kong-country-2-brigand-barrage",
+    hashes = {
+      { hash = "47bc16428dac534fa9729f97b2e9b5a9", label = "Donkey Kong Country 2 - Brigand Barrage (v1.4) (Mattrizzle).sfc" },
+      { hash = "a4a3e8f035c6b0feb2eb42cc59512ffe", label = "Donkey Kong Country - Boss Blitz (v1.5) (Mattrizzle).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X001C, type="u16le", condition="eq", value=0X14, action="GAME_OVER", desc="Game Over" },
+        { address=0X001C, type="u16le", condition="eq", value=0X16, action="TITLE_SCREEN", desc="Title and Menu Music" },
+        { address=0X08C2, type="u8", condition="change", action="PAUSE_ON", desc="[Brigand Barrage] Bit6 : Pause" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X1017, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[Brigand Barrage] Squawks Health? (King Zing Stage)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X08C3, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="DEAD" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0008, type="u24le", condition="eq", value=0X05, action="BOSS_HIT", desc="Main Menu/Options" },
+        { address=0X0008, type="u24le", condition="eq", value=0X24, action="BOSS_HIT", desc="Rare logo" },
+        { address=0X0008, type="u24le", condition="eq", value=0X37, action="BOSS_HIT", desc="DED" },
+        { address=0X0008, type="u24le", condition="eq", value=0X65, action="BOSS_HIT", desc="Retry" },
+        { address=0X0008, type="u24le", condition="eq", value=0X78, action="BOSS_HIT", desc="Godzilla dance" },
+        { address=0X0008, type="u24le", condition="eq", value=0XB2, action="BOSS_HIT", desc="Victory music" },
+        { address=0X0008, type="u24le", condition="eq", value=0XE6, action="BOSS_HIT", desc="Fighting a normal boss" },
+        { address=0X0008, type="u24le", condition="eq", value=0XF4, action="BOSS_HIT", desc="Fighting K. Rool" },
+        { address=0X0008, type="u24le", condition="eq", value=0XFA, action="BOSS_HIT", desc="Game Over" },
+        { address=0X001C, type="u16le", condition="eq", value=0X15, action="BOSS_HIT", desc="Boss Music" },
+        { address=0X001C, type="u16le", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Music (For Kleever and King Zing)" },
+        { address=0X003E, type="u8", condition="eq", value=0X68, action="BOSS_HIT", desc="King K. Rool" },
+        { address=0X003E, type="u8", condition="eq", value=0XE0, action="BOSS_HIT", desc="Very Gnawty" },
+        { address=0X003E, type="u8", condition="eq", value=0XE1, action="BOSS_HIT", desc="Master Necky" },
+        { address=0X003E, type="u8", condition="eq", value=0XE2, action="BOSS_HIT", desc="Really Gnawty" },
+        { address=0X003E, type="u8", condition="eq", value=0XE3, action="BOSS_HIT", desc="Dumb Drum" },
+        { address=0X003E, type="u8", condition="eq", value=0XE4, action="BOSS_HIT", desc="Master Necky Snr." },
+        { address=0X003E, type="u8", condition="eq", value=0XE5, action="BOSS_HIT", desc="Queen Bee" },
+        { address=0X0042, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="1P" },
+        { address=0X0042, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="2P Team" },
+        { address=0X0094, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="King Zing" },
+        { address=0X0094, type="u8", condition="eq", value=0X07, action="BOSS_HIT", desc="Kleever" },
+        { address=0X0094, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Kreepy Krow" },
+        { address=0X0094, type="u8", condition="eq", value=0X0D, action="BOSS_HIT", desc="Krow" },
+        { address=0X0094, type="u8", condition="eq", value=0X10, action="BOSS_HIT", desc="Kudgel" },
+        { address=0X0094, type="u8", condition="eq", value=0X14, action="BOSS_HIT", desc="Kaptain K. Rool [Battle 2]" },
+        { address=0X0094, type="u8", condition="eq", value=0X19, action="BOSS_HIT", desc="Kaptain K. Rool [Battle 1]" },
+        { address=0X0501, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Blitz] P1 Controller Input: Bit0- Right; Bit1- Left; Bit2- Down; Bit3- Up; Bit4- Start; Bi" },
+        { address=0X0569, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Donkey and Diddy" },
+        { address=0X0569, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Diddy and Donkey" },
+        { address=0X0569, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Donkey only" },
+        { address=0X0569, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Diddy only" },
+        { address=0X056F, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="DK" },
+        { address=0X056F, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Diddy" },
+        { address=0X0573, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="ALL" },
+        { address=0X0573, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Very Gnawty" },
+        { address=0X0573, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Master Necky" },
+        { address=0X0573, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Queen Bee" },
+        { address=0X0573, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Very Gnawty" },
+        { address=0X0573, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Dumb Drum" },
+        { address=0X0573, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Master Necky Snr." },
+        { address=0X0573, type="u8", condition="eq", value=0X07, action="BOSS_HIT", desc="King K. Rool" },
+        { address=0X0579, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Has Two Kongs" },
+        { address=0X0579, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Game is Paused" },
+        { address=0X0652, type="u8", condition="change", action="BOSS_HIT", desc="[Brigand Barrage] Boss Health" },
+        { address=0X08CA, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="ALL" },
+        { address=0X08CA, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Krow" },
+        { address=0X08CA, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Kleever" },
+        { address=0X08CA, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Kudgel" },
+        { address=0X08CA, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="King Zing" },
+        { address=0X08CA, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Kreepy Krow" },
+        { address=0X08CA, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Kaptain K. Rool [Battle 1]" },
+        { address=0X08CA, type="u8", condition="eq", value=0X07, action="BOSS_HIT", desc="Kaptain K. Rool [Battle 2]" },
+        { address=0X1175, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Blitz] Queen Bee Health" },
+        { address=0X1501, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Blitz] Both Neckys' Health" },
+        { address=0X1503, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Blitz] Both Gnawtys' Health" },
+        { address=0X1E3D, type="u8", condition="change", action="BOSS_HIT", desc="[Boss Blitz] 01 : Paused" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0028, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Boss Blitz] 16-Bit Real Time Timer" },
+        { address=0X0047, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Boss Blitz] Timer Miliseconds" },
+        { address=0X0048, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Boss Blitz] Timer Seconds" },
+        { address=0X00D7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[Brigand Barrage] Timer: Seconds" },
+        { address=0X0422, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Boss Blitz and Brigand Barrage] Ammount of times the player got hit" },
+        { address=0X0567, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[Boss Blitz] Timer: Minutes" },
+        { address=0X0617, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[Brigand Barrage] Timer: Minutes" },
+        { address=0X091F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[Brigand Barrage] Ammount of times that you need to press buttons to get out of the freeze effec" },
+      },
+    },
+  },
+}

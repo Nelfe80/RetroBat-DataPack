@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Golden Nugget 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Casino"
+  },
+
+  rom = {
+    name = "golden-nugget-64",
+    hashes = {
+      { hash = "231bac1afb3de138072c2d697783059b", label = "Golden Nugget 64 (USA).z64" },
+    }
+  },
+
+  events = {
+  },
+}

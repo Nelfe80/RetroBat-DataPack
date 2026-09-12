@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Somari",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-somari",
+    hashes = {
+      { hash = "1cc79c31d41adfbde8c531d1f14b3f39", label = "Somari (Asia) (En) (NT-616) (Pirate).nes" },
+      { hash = "55a6b56cbf201c1eefea7f476ef4892b", label = "Somari (Hummer Team) (Aftermarket) (Bootleg).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X04EC, type="u8", condition="change", action="TITLE_SCREEN", desc="01 : Level Intros, Title Screen, Ending and other stuff where Somari do not appears" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X04EA, type="u8", condition="change", action="NEW_LEVEL", desc="Zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X033C, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X033C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0338, type="u8", condition="increase", action="COIN_GAIN", desc="Rings increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X00CC, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health?" },
+      },
+    },
+  },
+}

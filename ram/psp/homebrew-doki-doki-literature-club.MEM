@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Doki Doki Literature Club",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-doki-doki-literature-club",
+    hashes = {
+      { hash = "54852692d652176ed2d7ab5f17f0b1ee", label = "Doki Doki Literature Club (Fan Port) (v1.2.4) (FLS Gaming Projects)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X104C420, type="u32le", condition="eq", value=0X0901EBF0, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+  },
+}

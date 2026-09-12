@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWF Royal Rumble",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Fighting, Sports"
+  },
+
+  rom = {
+    name = "wwf-royal-rumble",
+    hashes = {
+      { hash = "471b7c1125bf108f9811da0dbb289996", label = "WWF Royal Rumble (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1848E8, type="u8", condition="change", action="CONTINUE_SCREEN", desc="RR Continue" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XB1DD9C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Weapon use in backstage brawl. Unfortunately also tracks cars that come past in the parking lot" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB1E2FC, type="u8", condition="increase", action="GAIN_LIFE", desc="Wrestlers Eliminated (during current life) increased" },
+        { address=0XB1E2FC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Wrestlers Eliminated (during current life) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2C688C, type="u8", condition="increase", action="COIN_GAIN", desc="Elimination countdown (lying on ring apron - Rikishi) increased" },
+        { address=0X4B3B8C, type="u8", condition="increase", action="COIN_GAIN", desc="Elimination countdown (lying on ring apron. Only for Mankind?) increased" },
+        { address=0XB1E5A0, type="u8", condition="increase", action="COIN_GAIN", desc="Number of wrestlers in ring counter (RR). Can't be lower than 02 increased" },
+        { address=0XB33474, type="u8", condition="increase", action="COIN_GAIN", desc="Potential player active note? 01 in ring, 00 eliminted increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X398E29, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="This is some sort of timer that updates every second, but doesn't seem to be the countdown timer" },
+        { address=0XB1E5AC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="unknown", desc="Stage counter - Arcade mode (increments as soon as the pin's been made)" },
+      },
+    },
+  },
+}

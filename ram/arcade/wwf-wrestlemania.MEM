@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WWF WrestleMania",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "wwf-wrestlemania",
+    hashes = {
+      { hash = "9d9b7d8599ca71f7c670d56c3d8937da", label = "wwfmania.zip <WWF: Wrestlemania (rev 1.30 08/10/95)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X2C6BC, type="u8", condition="increase", action="HEAL", desc="P1 Health (8-bit) increased" },
+        { address=0X2C6BC, type="u8", condition="decrease", action="HIT", desc="P1 Health (8-bit) decreased" },
+      },
+    },
+  },
+}

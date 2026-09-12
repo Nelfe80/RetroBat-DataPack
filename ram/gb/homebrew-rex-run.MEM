@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Rex Run",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-rex-run",
+    hashes = {
+      { hash = "41eab5d6f3d462b9e6a933a4c47bc61d", label = "Rex Run (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XFFAE, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+        { address=0XFFBE, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score" },
+      },
+    },
+  },
+}

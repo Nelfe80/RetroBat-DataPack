@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Deathtrap Dungeon",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-deathtrap-dungeon",
+    hashes = {
+      { hash = "513b06746ff952898731b1f18480b31f", label = "Deathtrap Dungeon (World) (v0.15) (Aftermarket) (Unl).sms" },
+      { hash = "b5042f1f8334faa84e48d47a0886ccdf", label = "Labyrinthe de la Mort, Le (World) (Fr) (v0.15) (Demo) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X002E, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] Gold Count increased" },
+      },
+    },
+  },
+}

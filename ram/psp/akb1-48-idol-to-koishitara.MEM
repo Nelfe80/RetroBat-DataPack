@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "AKB1/48: Idol to Koishitara",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "akb1-48-idol-to-koishitara",
+    hashes = {
+      { hash = "edc6617517201093e2631bb545a274f8", label = "AKB1-48 - Idol to Koishitara... (Japan).iso" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,98 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Claymates",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "claymates",
+    hashes = {
+      { hash = "40b89fa020786f323ab5a36dde4686eb", label = "Claymates (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2E28, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Outside demo" },
+        { address=0X2E28, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="During demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X1015A, type="u16le", condition="change", action="NEW_LEVEL", desc="Some Graphical Background" },
+        { address=0X1015A, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="From reset to game start" },
+        { address=0X1015A, type="u16le", condition="eq", value=0X0693, action="NEW_LEVEL", desc="2-3" },
+        { address=0X1015A, type="u16le", condition="eq", value=0X0893, action="NEW_LEVEL", desc="2-4" },
+      },
+      zone = {
+        { address=0X8441, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current World" },
+        { address=0X8441, type="u8", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Village" },
+        { address=0X8441, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Pacific" },
+        { address=0X8441, type="u8", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Japan" },
+        { address=0X8441, type="u8", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Africa" },
+        { address=0X8441, type="u8", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Space" },
+        { address=0X8447, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Number of levels beaten in the current world" },
+      },
+      stage = {
+        { address=0X8443, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current Stage" },
+        { address=0X8443, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X8443, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Stage 2" },
+        { address=0X8443, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Stage 3" },
+        { address=0X8443, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage 4" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XF6FC, type="u8", condition="eq", value=0X03, action="GAIN_LIFE", desc="Golden star (1up)" },
+        { address=0XF706, type="u8", condition="increase", action="GAIN_LIFE", desc="Life counter increased" },
+        { address=0XF706, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X7F7D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Number of checkpoints activated in the current level" },
+        { address=0XF6FE, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[8-bit BCD] Score digits 1 and 2" },
+        { address=0XF6FF, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[8-bit BCD] Score digits 3 and 4" },
+        { address=0XF700, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[8-bit BCD] Score digits 5 and 6" },
+        { address=0XF701, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="[8-bit BCD] Score digits 7 and 8" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X025A, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="Dead" },
+        { address=0X02E8, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="Dead" },
+        { address=0X0376, type="u8", condition="change", action="BOSS_HIT", desc="Alternate boss hp adress (dog)" },
+        { address=0X0404, type="u8", condition="eq", value=0XFF, action="BOSS_DEFEATED", desc="Dead" },
+        { address=0X0492, type="u8", condition="change", action="BOSS_HIT", desc="Alternate boss hp adress (dog)" },
+        { address=0X05AE, type="u8", condition="change", action="BOSS_HIT", desc="Alternate boss hp adress (dog)" },
+        { address=0X063C, type="u8", condition="change", action="BOSS_HIT", desc="Alternate boss hp adress (dog)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1DC0, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DC0, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+        { address=0X1DC2, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DC2, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+        { address=0X1DC4, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DC4, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+        { address=0X1DC6, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DC6, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DC8, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+        { address=0X1DCE, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Active" },
+        { address=0X1DCE, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Inactive (Pressed)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0572, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continue timer" },
+        { address=0XF702, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="bcd", desc="[16-bit BCD] Stage timer" },
+      },
+    },
+  },
+}

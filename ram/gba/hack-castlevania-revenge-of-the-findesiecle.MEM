@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Castlevania: Revenge of the Findesiecle",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-castlevania-revenge-of-the-findesiecle",
+    hashes = {
+      { hash = "cbeac65a8a95ccb05dc88b1060252ee9", label = "Castlevania - HoD - Revenge of the Findesiecle (Final) (PUNKEMNX & TonyJih).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X20770, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8068, type="u16le", condition="eq", value=0X4288, action="LOSE_LIFE", desc="Death Fight Room" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="You're dead don't be surprised (Death)" },
+      },
+      health = {
+        { address=0X8338, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0X8338, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+        { address=0X20542, type="u16le", condition="increase", action="HEAL", desc="Current HP (16-Bit) increased" },
+        { address=0X20542, type="u16le", condition="decrease", action="HIT", desc="Current HP (16-Bit) decreased" },
+        { address=0X2077A, type="u16le", condition="increase", action="HEAL", desc="Max HP (16 Bit) increased" },
+        { address=0X2077A, type="u16le", condition="decrease", action="HIT", desc="Max HP (16 Bit) decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20815, type="u8", condition="change", action="TREASURE", desc="Goods: Emerald Cloak" },
+      },
+      weapon = {
+        { address=0X20772, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Current Subweapon: 00:Nothing, 01:Dagger, 02:Axe, 03:Cross, 04:Holy Water, 05:Bible, 06:Holy Fis" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20790, type="u16le", condition="increase", action="COIN_GAIN", desc="Gold (16-bits) increased" },
+        { address=0X2082E, type="u8", condition="increase", action="COIN_GAIN", desc="Goods: Logoth's Ring increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X8358, type="u8", condition="change", action="BOSS_DEFEATED", desc="Bosses Defeated flags 1" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Maxim(Max) Slime" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X02, action="BOSS_DEFEATED", desc="Peeping Big" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X04, action="BOSS_DEFEATED", desc="Legion/Granfaloon (Saint)" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Noob Saibot... i mean Shadow" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Minotaur... again (Castle A)" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Legion/Granfaloon... again (Corpse)" },
+        { address=0X8359, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Talos" },
+        { address=0X835A, type="u8", condition="change", action="BOSS_DEFEATED", desc="Bosses Defeated flags 3" },
+        { address=0X83A8, type="u8", condition="eq", value=0X19, action="BOSS_HIT", desc="Easy" },
+        { address=0X83A8, type="u8", condition="eq", value=0X1A, action="BOSS_HIT", desc="Normal" },
+        { address=0X83A8, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Hard" },
+        { address=0X83DC, type="u8", condition="change", action="BOSS_HIT", desc="Boss Rush In-Game : 01" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X20842, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Key Config Jump (B or A)" },
+        { address=0X20843, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Key Config Jump (L or R)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X8339, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="HP" },
+        { address=0X833A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="HP" },
+        { address=0X833B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="HP" },
+      },
+    },
+  },
+}

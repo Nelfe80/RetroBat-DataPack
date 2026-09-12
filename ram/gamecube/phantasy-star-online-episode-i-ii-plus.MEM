@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Phantasy Star Online Episode I & II Plus",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "phantasy-star-online-episode-i-ii-plus",
+    hashes = {
+      { hash = "7d18357b73109df6c37fecac69f97a91", label = "Phantasy Star Online Episode I & II Plus (USA) (En,Ja,Fr,De,Es) (Rev 2)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XDA6FF0, type="u32be", condition="change", action="NEW_LEVEL", desc="[32-bit BE] [Episode I] Current Level" },
+      },
+    },
+  },
+}

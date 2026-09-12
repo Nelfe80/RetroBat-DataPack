@@ -1,0 +1,34 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Black Out!",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-black-out",
+    hashes = {
+      { hash = "f3f81e5c5ab19410d683d11d1cbb85f2", label = "Black Out! (World) (Aftermarket) (Unl).j64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X20C09, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Number of Continues Remaining" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X20BE5, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X20BE3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Time Remaining" },
+      },
+    },
+  },
+}

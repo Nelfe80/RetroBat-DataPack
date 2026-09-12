@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cyber Core",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Shoot'em Up, Shoot'em up, Vertical"
+  },
+
+  rom = {
+    name = "cyber-core",
+    hashes = {
+      { hash = "c16b1aee2d7023b410dd5e513c4aec0b", label = "Cyber-Core (USA).pce" },
+    }
+  },
+
+  events = {
+  },
+}

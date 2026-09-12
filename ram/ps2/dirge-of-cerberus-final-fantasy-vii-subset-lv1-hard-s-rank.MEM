@@ -1,0 +1,85 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dirge of Cerberus: Final Fantasy VII [Subset - Lv1 Hard S Rank]",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Role-Playing, Shooter"
+  },
+
+  rom = {
+    name = "dirge-of-cerberus-final-fantasy-vii-subset-lv1-hard-s-rank",
+    hashes = {
+      { hash = "b2f76747250c9c1daa68ebd7001d6390", label = "Dirge of Cerberus - Final Fantasy VII [Subset - Lv1 Hard S-Rank]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X47CC84, type="u32le", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X4B6D86, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D87, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D88, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D89, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8A, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8B, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8C, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8D, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8E, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0X4B6D8F, type="u8", condition="change", action="LEVEL_CLEAR", desc="[bitflags] Extra Missions - Cleared" },
+        { address=0XA0B74E, type="u16le", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+      stage = {
+        { address=0XA0B490, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="Stage Missions" },
+        { address=0XA0B4A4, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Accuracy Rate Stage Rank" },
+        { address=0XA0B4A8, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Critical Hits Stage Rank" },
+        { address=0XA0B4AC, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Items Used Stage Rank" },
+        { address=0XA0B4B0, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Magic Casted Stage Rank" },
+        { address=0XA0B4B8, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Mako Collected Stage Rank" },
+        { address=0XA0B4CC, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Mission Stage Rank" },
+        { address=0XA0B4EC, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Mission Stage Rank" },
+        { address=0XA0B4F0, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Mission Stage Rank" },
+        { address=0XA0B4F4, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Mission Stage Rank" },
+        { address=0XA0B524, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Killchains Stage Rank" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XA0B470, type="u32le", condition="change", action="HIT", desc="Damage Sustained" },
+        { address=0XA0B4BC, type="u16le", condition="change", action="HIT", desc="Damage Sustained Stage Rank" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X2329EC, type="u32le", condition="increase", action="COIN_GAIN", desc="Changes to 0x04 when entering a shop in a level. Can be used for finding items to block out buyi" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X234008, type="u16le", condition="change", action="BOSS_HIT", desc="Boss State" },
+        { address=0X238BD8, type="u32le", condition="change", action="BOSS_HIT", desc="ASCII Boss Name Part 1" },
+        { address=0X238BDC, type="u32le", condition="change", action="BOSS_HIT", desc="ASCII Boss Name Part 2" },
+        { address=0X238BE0, type="u32le", condition="change", action="BOSS_HIT", desc="ASCII Boss Name Part 3" },
+        { address=0X238C59, type="u8", condition="change", action="BOSS_HIT", desc="Boss Healthbar Active" },
+        { address=0X238C5C, type="u32le", condition="change", action="BOSS_HIT", desc="Boss Healthbar" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA0B450, type="u32le", condition="change", action="OBJECT_DESTROYED", desc="Targets Destroyed" },
+        { address=0XA0B4A0, type="u16le", condition="change", action="OBJECT_DESTROYED", desc="Targets Destroyed Stage Rank" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA0B4C0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Times KO'd Stage Rank" },
+        { address=0XA0B4C4, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Time Expired Stage Rank" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Grand Poo World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-grand-poo-world",
+    hashes = {
+      { hash = "df38b2967e185ac64f4609e73c55e37c", label = "SMW - Grand Poo World (v1.2) (Barbarian).sfc" },
+    }
+  },
+
+  events = {
+  },
+}

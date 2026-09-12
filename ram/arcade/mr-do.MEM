@@ -1,0 +1,83 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mr. Do!",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "mr-do",
+    hashes = {
+      { hash = "811b4a59b7163b53b663ce7a0209469a", label = "mrdo.7z <Mr. Do!>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0006, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X01A1, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Hide a Previusly Displayed Game ? (Including Demo)" },
+        { address=0X01A1, type="u8", condition="bit_true", mask=0X20, action="DEMO_MODE", desc="Credits Available" },
+        { address=0X01A1, type="u8", condition="bit_true", mask=0X80, action="DEMO_MODE", desc="Attract Mode Active" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X009B, type="u8", condition="change", action="NEW_LEVEL", desc="[BCD] Level" },
+        { address=0X009B, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Scene 1" },
+        { address=0X009B, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Scene 2" },
+        { address=0X009B, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Scene 10" },
+        { address=0X009B, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="Scene 11" },
+        { address=0X00C7, type="u8", condition="eq", value=0X00, action="LEVEL_CLEAR", desc="<Not Cleared Yet>" },
+        { address=0X00C7, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="All Enemies Killed" },
+        { address=0X00C7, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="All Cherries Collected" },
+        { address=0X00C7, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Diamond Picked Up" },
+        { address=0X00C7, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="Extra Mr.Do (from Letters)" },
+        { address=0X1883, type="u8", condition="change", action="NEW_LEVEL", desc="background color? 28 : muncher attack" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0097, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X0097, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X0097, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1 Life" },
+        { address=0X0097, type="u8", condition="eq", value=0X02, action="LIVES_STATE", desc="2 Lives" },
+        { address=0X0097, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3 Lives" },
+        { address=0X0097, type="u8", condition="eq", value=0X04, action="LIVES_STATE", desc="4 Lives" },
+        { address=0X0F76, type="u8", condition="change", action="LOSE_LIFE", desc="04 : death" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X007E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Hundreds scored for food ate or apple dropped" },
+        { address=0X0098, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX0000", score_encoding="bcd", desc="[BCD] Score xx0000" },
+        { address=0X0099, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX00", score_encoding="bcd", desc="[BCD] Score 00xx00" },
+        { address=0X009A, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="0000XX", score_encoding="bcd", desc="[BCD] Score 0000xx" },
+        { address=0X00B3, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX0000", score_encoding="bcd", desc="[BCD] Previous 2 Scene Score XX0000" },
+        { address=0X00B4, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX00", score_encoding="bcd", desc="[BCD] Previous 2 Scene Score 00XX00" },
+        { address=0X00B5, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'a' tens" },
+        { address=0X00B6, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'a' mins" },
+        { address=0X00B7, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'a' secs" },
+        { address=0X00B8, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'a' 1/60secs" },
+        { address=0X00B9, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'a' Clear method 01 : enemies 02 : cherries" },
+        { address=0X00BA, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX0000", score_encoding="bcd", desc="[BCD] Previous 1 Scene Score XX0000" },
+        { address=0X00BB, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX00", score_encoding="bcd", desc="[BCD] Previous 1 Scene Score 00XX00" },
+        { address=0X00C0, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Score Scene 'b' Clear method 01 : enemies 02 : cherries" },
+        { address=0X00C1, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="XX0000", score_encoding="bcd", desc="[BCD] Current Scene Score XX0000" },
+        { address=0X00C2, type="u8", condition="change", action="SCORE_STATE", score_kind="game", score_mask="00XX00", score_encoding="bcd", desc="[BCD] Current Scene Score 00XX00" },
+        { address=0X00C3, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Scene score tens" },
+        { address=0X0C26, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Misc sounds, 25 : highscore Cherry collect chain : 8 if 500 bonus awarded" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X009D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="gametime secs" },
+        { address=0X009E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="gametime 1/60 sec" },
+        { address=0X00C5, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Current Scene time secs" },
+        { address=0X00C6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="second", no_log=true, desc="Current Scene time 1/60 secs" },
+      },
+    },
+  },
+}

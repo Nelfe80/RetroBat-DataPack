@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ MeteoRain",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-meteorain",
+    hashes = {
+      { hash = "a0149ff775d81a1d82e9c5d7dbb63ed9", label = "MeteoRain (World) (GBA Jam 2021) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X115A0, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title" },
+        { address=0X115A0, type="u8", condition="eq", value=0X02, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X11350, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Hi Score" },
+        { address=0X11350, type="u32le", condition="eq", value=0XFFFFFFFF, action="SCORE_STATE", desc="No High Score Yet" },
+        { address=0X116D0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+      },
+    },
+  },
+}

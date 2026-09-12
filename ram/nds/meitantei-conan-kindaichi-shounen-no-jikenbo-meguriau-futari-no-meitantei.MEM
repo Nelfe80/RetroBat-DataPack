@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Meitantei Conan & Kindaichi Shounen no Jikenbo: Meguriau Futari no Meitantei",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "meitantei-conan-kindaichi-shounen-no-jikenbo-meguriau-futari-no-meitantei",
+    hashes = {
+      { hash = "72994e416bcf5280287ca7f41d2225aa", label = "Meitantei Conan & Kindaichi Shounen no Jikenbo - Meguriau Futari no Meitantei (Japan) (En) (v1.0) (DCTP).nds" },
+      { hash = "b38ffaeba2d974c5488eb75e8ffcef8d", label = "Meitantei Conan & Kindaichi Shounen no Jikenbo - Meguriau Futari no Meitantei (Japan).nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X5949A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Logic Points [16bit]" },
+      },
+    },
+  },
+}

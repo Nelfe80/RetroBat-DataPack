@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Korogashi Puzzle Katamari Damacy",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "korogashi-puzzle-katamari-damacy",
+    hashes = {
+      { hash = "1acaf4c7431cd940cdd2a79573e5a181", label = "Korogashi Puzzle Katamari Damacy (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X3CC750, type="u32le", condition="change", action="NEW_LEVEL", desc="Level [32bit]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3CC764, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score [32bit]" },
+      },
+    },
+  },
+}

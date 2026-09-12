@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Flappy Boy",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-flappy-boy",
+    hashes = {
+      { hash = "4c0b53fd1fe4923d880e2fc70418d101", label = "Flappy Boy (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XC568, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Not Alive Boy" },
+        { address=0XC568, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", desc="Alive Boy" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XE013, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

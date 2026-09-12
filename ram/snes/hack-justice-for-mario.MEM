@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Justice for Mario",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-justice-for-mario",
+    hashes = {
+      { hash = "249c1ce1eba6c7e0d00726def896399e", label = "SMW - Justice for Mario (2021-02-09) (Centipede).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X5555, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X00CE, type="u16le", condition="eq", value=0XDA60, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X00CE, type="u16le", condition="eq", value=0X0000, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X1FF1, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Over n' Underground" },
+      },
+    },
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Vampire Night Shift",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "homebrew-vampire-night-shift",
+    hashes = {
+      { hash = "8f86db5ca5019627325f722761db3015", label = "Vampire Night Shift (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC0E5, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XC8CA, type="u24le", condition="eq", value=0X5FDB, action="HEALTH_STATE", desc="Blood - Energy" },
+      },
+    },
+  },
+}

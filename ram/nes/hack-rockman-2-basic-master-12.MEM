@@ -1,0 +1,119 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rockman 2: Basic Master (1.2)",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rockman-2-basic-master-12",
+    hashes = {
+      { hash = "a4b6728bd51fe9b8913525267c209f32", label = "Rockman 2 - Basic Master (v1.2) (Tatsu).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0029, type="u8", condition="eq", value=0X0D, action="PAUSE_ON", desc="Not playing a stage/Paused" },
+        { address=0X0580, type="u8", condition="eq", value=0X0D, action="TITLE_SCREEN", desc="Title screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0029, type="u8", condition="eq", value=0X09, action="LEVEL_CLEAR", desc="After stage finishes, change to 09 and fade to 'You Got' screen (1-frame)" },
+        { address=0X0033, type="u8", condition="change", action="NEW_LEVEL", desc="Player - Ground Type Colliding [8 bit]" },
+        { address=0X0033, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Spike" },
+      },
+      stage = {
+        { address=0X0029, type="u8", condition="eq", value=0X0E, action="PROGRESSION_STAGE", desc="Playing a stage" },
+        { address=0X002A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Game - Stage [8 bits]" },
+        { address=0X002A, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stone Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Tornado Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Snake Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Gemini Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Blade Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Plug Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Ring Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Flame Man" },
+        { address=0X002A, type="u8", condition="eq", value=0X08, action="PROGRESSION_STAGE", desc="Wily Castle 1" },
+        { address=0X002A, type="u8", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Wily Castle 2" },
+        { address=0X002A, type="u8", condition="eq", value=0X0A, action="PROGRESSION_STAGE", desc="Wily Castle 3" },
+        { address=0X002A, type="u8", condition="eq", value=0X0B, action="PROGRESSION_STAGE", desc="Wily Castle 4" },
+        { address=0X002A, type="u8", condition="eq", value=0X0D, action="PROGRESSION_STAGE", desc="Wily Castle 6" },
+        { address=0X0037, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage - Screen Transition [8 bits]" },
+        { address=0X0037, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Transition (Next Screen)" },
+        { address=0X0037, type="u8", condition="eq", value=0X02, action="PROGRESSION_STAGE", desc="Transition (Next Screen, Backtrack Locked)" },
+        { address=0X0037, type="u8", condition="eq", value=0X03, action="PROGRESSION_STAGE", desc="Transition (Previous Screen)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00A9, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Item 1 (Eddie)" },
+        { address=0X043F, type="u8", condition="eq", value=0X40, action="LOSE_LIFE", desc="Don't Exist (Despawn, Death)" },
+      },
+      health = {
+        { address=0X0400, type="u8", condition="eq", value=0X18, action="HIT", desc="Damaged" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X009A, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Tornado Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Blade Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Flame Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Snake Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", no_log=true, desc="Stone Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", no_log=true, desc="Plug Man" },
+        { address=0X009A, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Gemini Man" },
+        { address=0X00A9, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", no_log=true, desc="Mega Buster" },
+        { address=0X00A9, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", no_log=true, desc="Tornado" },
+        { address=0X00A9, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", no_log=true, desc="Blade" },
+        { address=0X00A9, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", no_log=true, desc="Flame" },
+        { address=0X00A9, type="u8", condition="eq", value=0X05, action="WEAPON_STATE", no_log=true, desc="Snake" },
+        { address=0X00A9, type="u8", condition="eq", value=0X06, action="WEAPON_STATE", no_log=true, desc="Stone" },
+        { address=0X00A9, type="u8", condition="eq", value=0X07, action="WEAPON_STATE", no_log=true, desc="Plug" },
+        { address=0X00A9, type="u8", condition="eq", value=0X08, action="WEAPON_STATE", no_log=true, desc="Gemini" },
+        { address=0X00A9, type="u8", condition="eq", value=0X0A, action="WEAPON_STATE", no_log=true, desc="Item 2 (Free Movement)" },
+        { address=0X00A9, type="u8", condition="eq", value=0X0B, action="WEAPON_STATE", no_log=true, desc="Item 3 (Self-Destruct)" },
+        { address=0X0580, type="u8", condition="eq", value=0X15, action="WEAPON_STATE", no_log=true, desc="Weapon Get" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X009A, type="u8", condition="bit_true", mask=0X01, action="MONEY_STATE", desc="Ring Man" },
+        { address=0X00A9, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="Ring" },
+        { address=0X0440, type="u8", condition="eq", value=0X25, action="MONEY_STATE", desc="Ring Man" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X002A, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Wily Castle 5 (Boss Rush)" },
+        { address=0X00B3, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Stone Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Tornado Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X02, action="BOSS_HIT", desc="Snake Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X03, action="BOSS_HIT", desc="Gemini Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X04, action="BOSS_HIT", desc="Blade Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X05, action="BOSS_HIT", desc="Plug Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X06, action="BOSS_HIT", desc="Ring Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X07, action="BOSS_HIT", desc="Flame Man" },
+        { address=0X00B3, type="u8", condition="eq", value=0X08, action="BOSS_HIT", desc="Rounder II" },
+        { address=0X00B3, type="u8", condition="eq", value=0X09, action="BOSS_HIT", desc="Purple Devil" },
+        { address=0X00B3, type="u8", condition="eq", value=0X0A, action="BOSS_HIT", desc="Porygon & Porygon2" },
+        { address=0X00B3, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Bass.EXE" },
+        { address=0X00B3, type="u8", condition="eq", value=0X0C, action="BOSS_HIT", desc="Original Robot Masters" },
+        { address=0X00B3, type="u8", condition="eq", value=0X0D, action="BOSS_HIT", desc="Dr. Wily" },
+        { address=0X0440, type="u8", condition="eq", value=0X13, action="BOSS_HIT", desc="Boss Room of Plug" },
+        { address=0X0440, type="u8", condition="eq", value=0X15, action="BOSS_HIT", desc="Boss Room of Ring, Tornado, Gemini, Flame" },
+        { address=0X0440, type="u8", condition="eq", value=0X17, action="BOSS_HIT", desc="Boss Room of Blade, Snake, Stone" },
+        { address=0X0440, type="u8", condition="eq", value=0X1E, action="BOSS_HIT", desc="Boss Room of WC6" },
+        { address=0X0440, type="u8", condition="eq", value=0X27, action="BOSS_HIT", desc="Boss Room of WC2, WC4" },
+        { address=0X0440, type="u8", condition="eq", value=0X28, action="BOSS_HIT", desc="Boss Room of WC3" },
+        { address=0X0440, type="u8", condition="eq", value=0X2A, action="BOSS_HIT", desc="Boss Room of WC1, WC5" },
+        { address=0X0580, type="u8", condition="eq", value=0X0B, action="BOSS_HIT", desc="Boss fight" },
+        { address=0X06C1, type="u8", condition="eq", value=0X1C, action="BOSS_HIT", desc="Full Health" },
+      },
+    },
+  },
+}

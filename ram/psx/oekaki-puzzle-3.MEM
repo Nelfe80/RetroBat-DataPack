@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Oekaki Puzzle 3",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "oekaki-puzzle-3",
+    hashes = {
+      { hash = "f7a0a3763930f0c2efcdb32675e24e4a", label = "SuperLite 1500 Series - Oekaki Puzzle 3 (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X81B70, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8bit] Selected Stage" },
+      },
+    },
+  },
+}

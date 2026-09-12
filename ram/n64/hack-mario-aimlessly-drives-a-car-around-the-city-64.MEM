@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Aimlessly Drives a Car Around the City 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-aimlessly-drives-a-car-around-the-city-64",
+    hashes = {
+      { hash = "d47d71b6c04d2f781b369f6d1ac05cc5", label = "SM64 - Mario Aimlessly Drives a Car Around the City 64 (RTA Edition) (CowQuack).z64" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mahjong Gokuu Special",
+    system = "pcengine",
+    system_name = "PC Engine/TurboGrafx-16",
+    genre = "Jeu de societe asiatique"
+  },
+
+  rom = {
+    name = "mahjong-gokuu-special",
+    hashes = {
+      { hash = "937699175649a98430a64c20cb19ae60", label = "Mahjong Gokuu Special (Japan).pce" },
+    }
+  },
+
+  events = {
+  },
+}

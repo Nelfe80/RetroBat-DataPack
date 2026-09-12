@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Sesame Street: Ready, Set, Grover!",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "sesame-street-ready-set-grover",
+    hashes = {
+      { hash = "3c337cb95254b22fd3d42349e8d01292", label = "123 Sesame Street - Ready, Set, Grover! - With Elmo - The Videogame (USA) (En,Es).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X235A28, type="u16le", condition="eq", value=0X00, action="PAUSE_ON", desc="False" },
+        { address=0X235A28, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="True" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X25388C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Elmo's Keep It Up - Score" },
+        { address=0X257700, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Grocery Catch - Score" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X9EF50, type="u16le", condition="eq", value=0X0E, action="JUMPING", no_log=true, no_survey=true, desc="Potato Sack Jump" },
+        { address=0X2358E6, type="u16le", condition="eq", value=0X33, action="JUMPING", no_log=true, no_survey=true, desc="Potato Sack Jump" },
+        { address=0X23598C, type="u16le", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="[16bit] Potato Sack Jump - Difficulty" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X9EF50, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Minigame ID" },
+        { address=0X9EF54, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", no_log=true, desc="Minigame Elapsed Time - Hours" },
+        { address=0X9EF58, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Minigame Elapsed Time - Minutes" },
+        { address=0X9EF5C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Minigame Elapsed Time - Seconds" },
+        { address=0X2358E6, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16bit] Play All Games Mode Progress" },
+      },
+    },
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Grim Adventures of Billy & Mandy",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Beat'em Up"
+  },
+
+  rom = {
+    name = "the-grim-adventures-of-billy-mandy",
+    hashes = {
+      { hash = "15e493a90d9b8cc7935f01abd57393b2", label = "Grim Adventures of Billy & Mandy, The (USA).gba" },
+      { hash = "211747564a7e79c5cadcf25068277a26", label = "Grim Adventures of Billy and Mandy, The (USA) (Pt) (v1.0) (Tradu-Gamex).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X983E, type="u8", condition="eq", value=0X10, action="LOSE_LIFE", desc="Death" },
+      },
+    },
+  },
+}

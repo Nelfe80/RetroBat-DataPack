@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mariomon",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mariomon",
+    hashes = {
+      { hash = "90490aa75c2884914d0c13fb94277e04", label = "Pokemon Emerald - Super Mariomon (v1.4.1) (Too Many Productions).gba" },
+      { hash = "8e186ba96a5589890cffdf18a27b1209", label = "Pokemon Emerald - Super Mariomon (v1.4.2) (Too Many Productions).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Level Scaling ON" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2D08E, type="u16le", condition="increase", action="HEAL", desc="1st Party Pokemon - Current HP increased" },
+        { address=0X2D08E, type="u16le", condition="decrease", action="HIT", desc="1st Party Pokemon - Current HP decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Star 2" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Star 3" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Star 4" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Star 5" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Star 6" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Star 7" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Star 8" },
+        { address=0X4BCC, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Star 1" },
+      },
+    },
+  },
+}

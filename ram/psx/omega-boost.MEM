@@ -1,0 +1,73 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Omega Boost",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Shooter"
+  },
+
+  rom = {
+    name = "omega-boost",
+    hashes = {
+      { hash = "b44ee31c7a12d5171f6bc3002d0252d6", label = "Omega Boost (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA7950, type="u8", condition="eq", value=0X04, action="DEMO_MODE", desc="Demo" },
+        { address=0XA7BF0, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Staggering March (0-10 AP)" },
+        { address=0XA7BF0, type="u8", condition="eq", value=0X0E, action="TITLE_SCREEN", desc="Omega Zeus (94+ AP)" },
+        { address=0XA7BF4, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Continues (8-bit)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XA7950, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Zone Play" },
+        { address=0XA7EE0, type="u8", condition="change", action="NEW_LEVEL", desc="Boost Level: 0-d (8-bit)" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X15, action="LEVEL_ZONE_V5", desc="Zone V5" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X16, action="LEVEL_TRAINING", desc="Training" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X18, action="LEVEL_ZONE_1_INTRO", desc="Zone 1 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X19, action="LEVEL_ZONE_6_INTRO", desc="Zone 6 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X1C, action="LEVEL_INTRO_MOVIE", desc="Intro movie" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X1D, action="LEVEL_ENDING", desc="Ending" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X1E, action="LEVEL_CREDITS", desc="Credits" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X1F, action="LEVEL_ZONE_3_INTRO", desc="Zone 3 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X20, action="LEVEL_ZONE_5_INTRO", desc="Zone 5 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X21, action="LEVEL_ZONE_7_INTRO", desc="Zone 7 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X22, action="LEVEL_ZONE_9_INTRO", desc="Zone 9 intro" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X27, action="LEVEL_TITLE_MAIN_MENU", desc="Title/Main Menu" },
+        { address=0X10A1B4, type="u8", condition="eq", value=0X28, action="LEVEL_LOGOS", desc="Logos" },
+        { address=0X10F1EE, type="u8", condition="change", action="LEVEL_CLEAR", desc="Game Over/Level Clear Flag (Bit0)" },
+        { address=0X12D1EC, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Clear Flag (Training) (Bit0)" },
+      },
+      zone = {
+        { address=0X10A1B4, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone (8-bit)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XA7EBC, type="u16le", condition="increase", action="HEAL", desc="Player HP (16-bit) increased" },
+        { address=0XA7EBC, type="u16le", condition="decrease", action="HIT", desc="Player HP (16-bit) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X9C048, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score (32-bit)" },
+        { address=0XA7C04, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Final Score (32-bit)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XA794C, type="u16le", condition="change", action="OBJECT_DESTROYED", desc="Enemies Destroyed (16-bit)" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA7E90, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Zone Time (32-bit)" },
+      },
+    },
+  },
+}

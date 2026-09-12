@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Zelda: Petrie's Challenge",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-zelda-petries-challenge",
+    hashes = {
+      { hash = "3e63f5b4edaa79615f633ec1abc83453", label = "Legend of Zelda, The - Petrie's Challenge (Petrie911).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X119C94, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1189E0, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Key" },
+        { address=0X1189E6, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Key" },
+        { address=0X1189E7, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Boss Key" },
+        { address=0X1237E4, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Boss Battle" },
+        { address=0X1237E4, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+      },
+    },
+  },
+}

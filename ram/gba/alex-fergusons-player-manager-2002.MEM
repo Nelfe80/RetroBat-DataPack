@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alex Ferguson's Player Manager 2002",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "alex-fergusons-player-manager-2002",
+    hashes = {
+      { hash = "e2e9ffe86da23d3cd278d78689bb1fe6", label = "Total Soccer Manager (Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

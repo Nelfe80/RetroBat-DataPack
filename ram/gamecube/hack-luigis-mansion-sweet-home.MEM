@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Luigi's Mansion: Sweet Home",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-luigis-mansion-sweet-home",
+    hashes = {
+      { hash = "74fafc6d9cd34c68e7bbf4ce21fd97c1", label = "Luigi's Mansion - Sweet Home (v1.01) (2022-11-04 Hotfix) (Catley)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4C5763, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XBA6079, type="u8", condition="eq", value=0XBA, action="CREDITS_SCREEN", desc="Watching the Luigi goes to Mansion cinematic and credits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1254DB1, type="u8", condition="change", action="HEALTH_STATE", desc="Health Standard mode" },
+        { address=0X1254DB1, type="u8", condition="eq", value=0X64, action="HEALTH_STATE", desc="Max (100)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X4C5763, type="u8", condition="eq", value=0X06, action="SCORE_STATE", desc="Final Score Portrait" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X3BBB44, type="u16be", condition="eq", value=0X6F59, action="DOOR_OPENED", desc="First text of WC door" },
+        { address=0X3BBB44, type="u16be", condition="eq", value=0X7548, action="DOOR_OPENED", desc="Second text of WC door" },
+        { address=0X4C58E1, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="Door removed with next room loaded" },
+        { address=0X4C58E1, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Door removed with next room not loaded" },
+        { address=0X4C58E1, type="u8", condition="eq", value=0X09, action="DOOR_OPENED", desc="Normal" },
+        { address=0X4C58E2, type="u8", condition="eq", value=0X00, action="DOOR_OPENED", desc="No spike" },
+        { address=0X4C58E2, type="u8", condition="eq", value=0X01, action="DOOR_OPENED", desc="Door spiked" },
+      },
+    },
+  },
+}

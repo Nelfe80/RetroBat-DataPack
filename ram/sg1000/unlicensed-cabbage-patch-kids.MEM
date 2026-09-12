@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Cabbage Patch Kids",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "unlicensed-cabbage-patch-kids",
+    hashes = {
+      { hash = "1c2c5851deb0e9142b5ff19e8dcd8442", label = "Cabbage Patch Kids (Taiwan) (Unl).sg" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u8", condition="eq", value=0X07, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+  },
+}

@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Terranigma: Boss Rush",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-terranigma-boss-rush",
+    hashes = {
+      { hash = "f1fa8991f3d19f1d5dd4153d6502af34", label = "Terranigma - Boss Rush (v0.4) (crediar).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X047E, type="u16le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen Black Screen" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0001, action="TITLE_SCREEN", desc="Titlescreen Enix Logo" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0022, action="TITLE_SCREEN", desc="Titlescreen Cutscene" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0023, action="DEMO_MODE", desc="Demo Underworld" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0024, action="DEMO_MODE", desc="Demo Tower" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0025, action="DEMO_MODE", desc="Demo Crysta" },
+        { address=0X047E, type="u16le", condition="eq", value=0X0026, action="CREDITS_SCREEN", desc="Credits Cutscene" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0656, type="u8", condition="change", action="NEW_LEVEL", desc="Level Count" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X065D, type="u8", condition="increase", action="HEAL", desc="Ark's HP increased" },
+        { address=0X065D, type="u8", condition="decrease", action="HIT", desc="Ark's HP decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1206A, type="u16le", condition="change", action="BOSS_HIT", desc="Boss HP [8-bit] &" },
+        { address=0X120AA, type="u8", condition="change", action="BOSS_HIT", desc="Boss HP" },
+      },
+    },
+  },
+}

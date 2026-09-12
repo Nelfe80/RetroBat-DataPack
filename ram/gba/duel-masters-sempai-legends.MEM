@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Duel Masters: Sempai Legends",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "duel-masters-sempai-legends",
+    hashes = {
+      { hash = "5f412f4e7ed5603152bced92f5b6884a", label = "Duel Masters - Sempai Legends (Europe) (En,Fr,De,Es,It).gba" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X5100, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Current EXP Points" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X17E0, type="u8", condition="change", action="SHIELD_GAIN", desc="Duel - Player's Shields" },
+      },
+    },
+  },
+}

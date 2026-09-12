@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "LEGO Star Wars: The Video Game",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "lego-star-wars-the-video-game",
+    hashes = {
+      { hash = "caa2d80d5c14a76d1f482f7589281c22", label = "LEGO Star Wars - The Video Game (USA, Europe) (En,Fr,De,Es,It,Nl,Da).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X01, action="NEW_LEVEL", desc="Federation Ship" },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X02, action="NEW_LEVEL", desc="Naboo Forest," },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X04, action="NEW_LEVEL", desc="Naboo City" },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="Tatooine" },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Return to Naboo Forest" },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="Return to Tatooine" },
+      },
+      stage = {
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_STAGE", desc="Genosian Droid Factory" },
+        { address=0X6F5C, type="u8", condition="bit_true", mask=0X80, action="PROGRESSION_STAGE", desc="Genosian Factory Rescue" },
+      },
+    },
+  },
+}

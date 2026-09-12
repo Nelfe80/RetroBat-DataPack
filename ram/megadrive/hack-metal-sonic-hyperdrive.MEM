@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metal Sonic Hyperdrive",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metal-sonic-hyperdrive",
+    hashes = {
+      { hash = "1c45dadc7587225593c8462146dae978", label = "Sonic the Hedgehog - Metal Sonic Hyperdrive (LoneDevil).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFFF0, type="u8", condition="change", action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFE10, type="u8", condition="change", action="NEW_LEVEL", desc="Levels" },
+        { address=0XFFE1, type="u8", condition="change", action="NEW_LEVEL", desc="Level Select Cheat" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XFE13, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XFE13, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XFE20, type="u8", condition="increase", action="COIN_GAIN", desc="Rings increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XF335, type="u8", condition="change", action="BOSS_HIT", desc="Hit in the Final Boss?" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0XD184, type="u8", condition="change", action="SHIELD_GAIN", desc="Shield: 00-False; 01-True." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Time: Minutes" },
+        { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Time: Seconds" },
+        { address=0XFE56, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Emerald Counter" },
+      },
+    },
+  },
+}

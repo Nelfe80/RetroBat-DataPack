@@ -1,0 +1,72 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Portal Runner",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Platform, Puzzle, Shooter"
+  },
+
+  rom = {
+    name = "portal-runner",
+    hashes = {
+      { hash = "6365d524a590f5c6d5d7f7ea8092807b", label = "Portal Runner (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X28BA40, type="u32le", condition="change", action="PAUSE_ON", desc="GUI : Gem Collected in Pause Menu" },
+        { address=0X28BA44, type="u32le", condition="change", action="PAUSE_ON", desc="GUI : Gem Total in Pause Menu" },
+        { address=0X28BCA8, type="u32le", condition="change", action="PAUSE_ON", desc="GAME : Pause boolean" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X28BA38, type="u32le", condition="change", action="NEW_LEVEL", desc="GUI : Level percentage completion" },
+        { address=0X28BCD0, type="u32le", condition="change", action="NEW_LEVEL", desc="GAME : Level State" },
+        { address=0X28BD08, type="u32le", condition="change", action="NEW_LEVEL", desc="GAME : Level ID" },
+        { address=0X30B8EC, type="u8", condition="change", action="NEW_LEVEL", desc="CHEAT : Skip Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X28BE40, type="u32le", condition="increase", action="HEAL", desc="PLAYER : HP Max increased" },
+        { address=0X28BE40, type="u32le", condition="decrease", action="HIT", desc="PLAYER : HP Max decreased" },
+        { address=0X28BE44, type="u32le", condition="increase", action="HEAL", desc="PLAYER : HP increased" },
+        { address=0X28BE44, type="u32le", condition="decrease", action="HIT", desc="PLAYER : HP decreased" },
+        { address=0X28BE84, type="u32le", condition="increase", action="HEAL", desc="SARGE : HP Max increased" },
+        { address=0X28BE84, type="u32le", condition="decrease", action="HIT", desc="SARGE : HP Max decreased" },
+        { address=0X28BE88, type="u32le", condition="increase", action="HEAL", desc="SARGE : HP increased" },
+        { address=0X28BE88, type="u32le", condition="decrease", action="HIT", desc="SARGE : HP decreased" },
+        { address=0X30B8E8, type="u8", condition="increase", action="HEAL", desc="CHEAT : Infinite Health boolean increased" },
+        { address=0X30B8E8, type="u8", condition="decrease", action="HIT", desc="CHEAT : Infinite Health boolean decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X28BDD2, type="u8", condition="change", action="WEAPON_STATE", desc="GUI : Weapon block - Blink effect rate" },
+        { address=0X28BE14, type="u32le", condition="change", action="WEAPON_STATE", desc="GUI : Weapon icon - Visibility 'boolean'" },
+        { address=0X28BE1C, type="u8", condition="change", action="WEAPON_STATE", desc="GUI : Weapon icon - Icon ID [float]" },
+        { address=0X28BE20, type="u8", condition="change", action="WEAPON_STATE", desc="GUI : Weapon icon - Size [float]" },
+        { address=0X28BE2C, type="u32le", condition="change", action="WEAPON_STATE", desc="GUI : Weapon Text ID" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X28BF94, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="PLAYER : Score" },
+      },
+      collectibles = {
+        { address=0X28ADBC, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Basic Arrow Ammo" },
+        { address=0X28ADC0, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Fire Arrow Ammo" },
+        { address=0X28ADC4, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Explosive Arrow Ammo" },
+        { address=0X28ADC8, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Lightning Arrow Ammo" },
+        { address=0X28ADCC, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Golden Arrow Ammo" },
+        { address=0X28ADD0, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Piercing Arrow Ammo" },
+        { address=0X28ADD4, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Trident Arrow Ammo" },
+        { address=0X28ADD8, type="u32le", condition="change", action="AMMO_STATE", desc="PLAYER : Water Arrow Ammo" },
+      },
+    },
+  },
+}

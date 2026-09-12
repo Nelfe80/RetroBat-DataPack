@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Ling Huan Daoshi: Super Magican | Elf Wor",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "unlicensed-ling-huan-daoshi-super-magican-elf-wor",
+    hashes = {
+      { hash = "2c22394ea148fcf46b1531784b56d7c9", label = "Super Magican - Ling Huan Daoshi (Taiwan) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

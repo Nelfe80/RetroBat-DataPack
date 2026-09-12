@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Mini MSX",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Compilation"
+  },
+
+  rom = {
+    name = "homebrew-mini-msx",
+    hashes = {
+      { hash = "f8be953adda3e9088739b6086e3bf59d", label = "Mini MSX (World) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X0090, type="u8", condition="decrease", action="HIT", desc="decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X0090, type="u8", condition="eq", value=0X06, action="DYNAMIC_INVENTORY", desc="Normal" },
+        { address=0X0090, type="u8", condition="eq", value=0X07, action="DYNAMIC_INVENTORY", desc="Double" },
+        { address=0X0090, type="u8", condition="eq", value=0X08, action="DYNAMIC_INVENTORY", desc="Triple" },
+      },
+    },
+  },
+}

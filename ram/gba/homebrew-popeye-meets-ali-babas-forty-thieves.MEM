@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Popeye Meets Ali Baba's Forty Thieves",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-popeye-meets-ali-babas-forty-thieves",
+    hashes = {
+      { hash = "564728f953486c7f8af022f7765bcc93", label = "Popeye The Sailor Meets Ali Baba's Forty Thieves (World) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Kanto Expansion Pak",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-kanto-expansion-pak",
+    hashes = {
+      { hash = "185500ff85bd1ea1e87048c14de3b3e4", label = "Pokemon Red - Kanto Expansion Pak (v1.3.0) (MementoMartha).gb" },
+      { hash = "16044ddc9954974ebe308119acfadd44", label = "Pokemon Red - Kanto Expansion Pak (v1.3.1) (MementoMartha).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD19B, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 1st Pokemon Level" },
+        { address=0XD1C7, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 2nd Pokemon Level" },
+        { address=0XD1F3, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 3rd Pokemon Level" },
+        { address=0XD21F, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 4th Pokemon Level" },
+        { address=0XD24B, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 5th Pokemon Level" },
+        { address=0XD277, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] 6th Pokemon Level" },
+        { address=0XD5C3, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5C4, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5C5, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5CB, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5D5, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5D6, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5D9, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD5DB, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD628, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] Overworld Event Flags" },
+        { address=0XD72D, type="u16be", condition="change", action="NEW_LEVEL", desc="[16 Bit BE] Safari Zone Steps" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD182, type="u8", condition="eq", value=0X8D, action="LIVES_STATE", desc="Leech Life" },
+      },
+      health = {
+        { address=0XCFF6, type="u8", condition="increase", action="HEAL", desc="[8 Bit] Enemy Pokemon Current HP increased" },
+        { address=0XCFF6, type="u8", condition="decrease", action="HIT", desc="[8 Bit] Enemy Pokemon Current HP decreased" },
+        { address=0XD025, type="u8", condition="increase", action="HEAL", desc="[8 Bit] Active Player Pokemon Current HP increased" },
+        { address=0XD025, type="u8", condition="decrease", action="HIT", desc="[8 Bit] Active Player Pokemon Current HP decreased" },
+        { address=0XD17C, type="u8", condition="increase", action="HEAL", desc="[8 Bit] 1st Pokemon Current HP increased" },
+        { address=0XD17C, type="u8", condition="decrease", action="HIT", desc="[8 Bit] 1st Pokemon Current HP decreased" },
+        { address=0XD182, type="u8", condition="eq", value=0X74, action="HEALTH_STATE", desc="Focus Energy" },
+        { address=0XD19D, type="u8", condition="increase", action="HEAL", desc="[8 Bit] 1st Pokemon Max HP increased" },
+        { address=0XD19D, type="u8", condition="decrease", action="HIT", desc="[8 Bit] 1st Pokemon Max HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD5BE, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] BCD Casino Coins x100 increased" },
+        { address=0XD5BF, type="u8", condition="increase", action="COIN_GAIN", desc="[8 Bit] BCD Casino Coins increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD182, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8 Bit] 1st Pokemon Attack Slot 1 ID" },
+      },
+    },
+  },
+}

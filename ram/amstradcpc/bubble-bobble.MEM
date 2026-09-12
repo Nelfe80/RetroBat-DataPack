@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bubble Bobble",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "bubble-bobble",
+    hashes = {
+      { hash = "776d58b99c356569145dc55190d2c8ab", label = "Bubble Bobble (1988) (Firebird) (En).dsk" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0398, type="u16le", condition="eq", value=0X07, action="TITLE_SCREEN", desc="title" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5C59, type="u8", condition="change", action="NEW_LEVEL", desc="Round" },
+        { address=0X5C59, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7011, type="u8", condition="eq", value=0X00, action="HIT", desc="00" },
+        { address=0X7011, type="u8", condition="eq", value=0X0F, action="HIT", desc="death" },
+      },
+    },
+  },
+}

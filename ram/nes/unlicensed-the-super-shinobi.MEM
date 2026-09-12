@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ The Super Shinobi",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-the-super-shinobi",
+    hashes = {
+      { hash = "5c6bee47aaae1c76f3b4a5b3e34f10de", label = "Super Shinobi, The (Asia) (En) (Ka Sheng) (Pirate).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X034F, type="u8", condition="change", action="DEMO_MODE", desc="With Demo" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0017, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0007, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0X0007, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+      },
+      health = {
+        { address=0X00F5, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X00F5, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X001A, type="u8", condition="change", action="BOSS_DEFEATED", desc="Stage Finish:D0 / Boss Dead:01" },
+        { address=0X006A, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+  },
+}

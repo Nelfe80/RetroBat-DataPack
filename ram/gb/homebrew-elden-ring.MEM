@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Elden Ring",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Action, Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-elden-ring",
+    hashes = {
+      { hash = "d7fa04a91e492855f549dfe1f2c721f7", label = "Elden Ring GB (World) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC4FC, type="u16le", condition="eq", value=0X71BE, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XCB28, type="u8", condition="eq", value=0X0, action="CONTINUE_SCREEN", desc="Continue" },
+      },
+    },
+  },
+}

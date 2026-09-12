@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Picross X",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-picross-x",
+    hashes = {
+      { hash = "c39e609b35ac787ad92404914047d1a1", label = "Mario's Picross X (v1.0) (TidusRenegade).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA07E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of stages complete Easy Picross" },
+        { address=0XA07F, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of stages complete Easy Picross" },
+        { address=0XA080, type="u8", condition="change", action="LEVEL_CLEAR", desc="Number of stages complete Easy Picross" },
+        { address=0XA2C7, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 A" },
+        { address=0XA2C8, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 B" },
+        { address=0XA2C9, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 C" },
+        { address=0XA2CA, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 D" },
+        { address=0XA2CB, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 E" },
+        { address=0XA2CC, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 F" },
+        { address=0XA2CD, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 G" },
+        { address=0XA2CE, type="u8", condition="change", action="NEW_LEVEL", desc="If you beat Easy Picross level 1 H" },
+      },
+      stage = {
+        { address=0XA38A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Star - Stages Beaten (save slot 1)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Color Some Shit",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-color-some-shit",
+    hashes = {
+      { hash = "2665fb5e04ad44a27ec5ed915cbab756", label = "Color a Dinosaur - Color Some Shit (v0.999) (Jackass).nes" },
+    }
+  },
+
+  events = {
+  },
+}

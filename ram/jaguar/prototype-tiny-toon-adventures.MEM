@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Tiny Toon Adventures",
+    system = "jaguar",
+    system_name = "Atari Jaguar",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "prototype-tiny-toon-adventures",
+    hashes = {
+      { hash = "322e89a674a188f8fddd313d6fe7bf80", label = "Tiny Toon Adventures (USA) (Proto).j64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X10F00, type="u8", condition="eq", value=0X04, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+  },
+}

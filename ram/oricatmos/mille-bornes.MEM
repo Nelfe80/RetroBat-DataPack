@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mille bornes",
+    system = "oricatmos",
+    system_name = "Oric",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "mille-bornes",
+    hashes = {
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X332D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="scores? buffs?" },
+        { address=0X336B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="scores? buffs?" },
+      },
+    },
+  },
+}

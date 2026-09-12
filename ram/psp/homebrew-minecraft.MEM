@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Minecraft",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-minecraft",
+    hashes = {
+      { hash = "ddbd1b314f41e131afbf79c1594c6036", label = "Minecraft PSP (World) (64mb) (v2.0.1) (woolio)" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0XAD8278, type="u16le", condition="change", action="PROGRESSION_ZONE", desc="World Mode (16-bit)" },
+        { address=0XAD8278, type="u16le", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Survival" },
+        { address=0XAD8278, type="u16le", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Creative" },
+        { address=0XAD8278, type="u16le", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Hardcore" },
+        { address=0XAD827C, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World Type (8-bit)" },
+        { address=0XAD827C, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Flat" },
+      },
+    },
+  },
+}

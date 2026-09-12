@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Sonic the Hedgehog 1 @ SAGE 2010",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-sonic-the-hedgehog-1-sage-2010",
+    hashes = {
+      { hash = "fb661551a1113a881b81e1f04d949c5b", label = "Sonic 1 - @ SAGE 2010 (v1.0) (Cinossu).md" },
+    }
+  },
+
+  events = {
+  },
+}

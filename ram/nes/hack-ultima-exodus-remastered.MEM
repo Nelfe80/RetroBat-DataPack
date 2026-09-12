@@ -1,0 +1,95 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Ultima: Exodus Remastered",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-ultima-exodus-remastered",
+    hashes = {
+      { hash = "435a6e52e0cfd36509e70c81303752e8", label = "Ultima - Exodus Remastered (v2.05) (Fox Cunning).nes" },
+      { hash = "80a98ab4e4d963d620a216560cef2fec", label = "Ultima - Exodus Remastered (v2.05) (Font Patch) (Fox Cunning).nes" },
+      { hash = "c6e4242ddf07494080c70ef0cbb8a163", label = "Ultima - Exodus Remastered (v2.06) (Font Patch) (Fox Cunning).nes" },
+      { hash = "dc43838ac197a7c991bc7a6146444929", label = "Ultima - Exodus Remastered (v2.06) (Fox Cunning).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00AC, type="u8", condition="change", action="PAUSE_ON", desc="Pause indicator?" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7233, type="u8", condition="change", action="NEW_LEVEL", desc="PC1 - Level" },
+        { address=0X7273, type="u8", condition="change", action="NEW_LEVEL", desc="PC2 - Level" },
+        { address=0X72B3, type="u8", condition="change", action="NEW_LEVEL", desc="PC3 - Level" },
+        { address=0X72F3, type="u8", condition="change", action="NEW_LEVEL", desc="PC4 - Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X03F1, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP (Row 4, Right) increased" },
+        { address=0X03F1, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP (Row 4, Right) decreased" },
+        { address=0X03F3, type="u8", condition="increase", action="HEAL", desc="Enemy 2 HP (Row 4, Left) increased" },
+        { address=0X03F3, type="u8", condition="decrease", action="HIT", desc="Enemy 2 HP (Row 4, Left) decreased" },
+        { address=0X03F5, type="u8", condition="increase", action="HEAL", desc="Enemy 3 HP (Row 2, Right) increased" },
+        { address=0X03F5, type="u8", condition="decrease", action="HIT", desc="Enemy 3 HP (Row 2, Right) decreased" },
+        { address=0X03F7, type="u8", condition="increase", action="HEAL", desc="Enemy 4 HP (Row 2, Left) increased" },
+        { address=0X03F7, type="u8", condition="decrease", action="HIT", desc="Enemy 4 HP (Row 2, Left) decreased" },
+        { address=0X03F9, type="u8", condition="increase", action="HEAL", desc="Enemy 5 HP (Row 3, Middle) increased" },
+        { address=0X03F9, type="u8", condition="decrease", action="HIT", desc="Enemy 5 HP (Row 3, Middle) decreased" },
+        { address=0X03FB, type="u8", condition="increase", action="HEAL", desc="Enemy 6 HP (Row 1, Middle) increased" },
+        { address=0X03FB, type="u8", condition="decrease", action="HIT", desc="Enemy 6 HP (Row 1, Middle) decreased" },
+        { address=0X03FD, type="u8", condition="increase", action="HEAL", desc="Enemy 7 HP (Row 3, Right) increased" },
+        { address=0X03FD, type="u8", condition="decrease", action="HIT", desc="Enemy 7 HP (Row 3, Right) decreased" },
+        { address=0X03FF, type="u8", condition="increase", action="HEAL", desc="Enemy 8 HP (Row 3, Left) increased" },
+        { address=0X03FF, type="u8", condition="decrease", action="HIT", desc="Enemy 8 HP (Row 3, Left) decreased" },
+        { address=0X722D, type="u16le", condition="increase", action="HEAL", desc="PC1 - Current HP increased" },
+        { address=0X722D, type="u16le", condition="decrease", action="HIT", desc="PC1 - Current HP decreased" },
+        { address=0X7236, type="u16le", condition="increase", action="HEAL", desc="PC1 - Max HP increased" },
+        { address=0X7236, type="u16le", condition="decrease", action="HIT", desc="PC1 - Max HP decreased" },
+        { address=0X726D, type="u16le", condition="increase", action="HEAL", desc="PC2 - Current HP increased" },
+        { address=0X726D, type="u16le", condition="decrease", action="HIT", desc="PC2 - Current HP decreased" },
+        { address=0X7276, type="u16le", condition="increase", action="HEAL", desc="PC2 - Max HP increased" },
+        { address=0X7276, type="u16le", condition="decrease", action="HIT", desc="PC2 - Max HP decreased" },
+        { address=0X72AD, type="u16le", condition="increase", action="HEAL", desc="PC3 - Current HP increased" },
+        { address=0X72AD, type="u16le", condition="decrease", action="HIT", desc="PC3 - Current HP decreased" },
+        { address=0X72B6, type="u16le", condition="increase", action="HEAL", desc="PC3 - Max HP increased" },
+        { address=0X72B6, type="u16le", condition="decrease", action="HIT", desc="PC3 - Max HP decreased" },
+        { address=0X72ED, type="u16le", condition="increase", action="HEAL", desc="PC4 - Current HP increased" },
+        { address=0X72ED, type="u16le", condition="decrease", action="HIT", desc="PC4 - Current HP decreased" },
+        { address=0X72F6, type="u16le", condition="increase", action="HEAL", desc="PC4 - Max HP increased" },
+        { address=0X72F6, type="u16le", condition="decrease", action="HIT", desc="PC4 - Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X721A, type="u8", condition="change", action="WEAPON_STATE", desc="PC1 - Mystic Weapons" },
+        { address=0X7234, type="u8", condition="change", action="WEAPON_STATE", desc="PC1 - Current Weapon:" },
+        { address=0X725A, type="u8", condition="change", action="WEAPON_STATE", desc="PC2 - Mystic Weapons" },
+        { address=0X7274, type="u8", condition="change", action="WEAPON_STATE", desc="PC2 - Current Weapon:" },
+        { address=0X729A, type="u8", condition="change", action="WEAPON_STATE", desc="PC3 - Mystic Weapons" },
+        { address=0X72B4, type="u8", condition="change", action="WEAPON_STATE", desc="PC3 - Current Weapon:" },
+        { address=0X72DA, type="u8", condition="change", action="WEAPON_STATE", desc="PC4 - Mystic Weapons" },
+        { address=0X72F4, type="u8", condition="change", action="WEAPON_STATE", desc="PC4 - Current Weapon:" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X7227, type="u8", condition="increase", action="COIN_GAIN", desc="PC1 - Gold Picks increased" },
+        { address=0X7230, type="u16le", condition="increase", action="COIN_GAIN", desc="PC1 - Gold increased" },
+        { address=0X7267, type="u8", condition="increase", action="COIN_GAIN", desc="PC2 - Gold Picks increased" },
+        { address=0X7270, type="u16le", condition="increase", action="COIN_GAIN", desc="PC2 - Gold increased" },
+        { address=0X72A7, type="u8", condition="increase", action="COIN_GAIN", desc="PC3 - Gold Picks increased" },
+        { address=0X72B0, type="u16le", condition="increase", action="COIN_GAIN", desc="PC3 - Gold increased" },
+        { address=0X72E7, type="u8", condition="increase", action="COIN_GAIN", desc="PC4 - Gold Picks increased" },
+        { address=0X72F0, type="u16le", condition="increase", action="COIN_GAIN", desc="PC4 - Gold increased" },
+      },
+    },
+  },
+}

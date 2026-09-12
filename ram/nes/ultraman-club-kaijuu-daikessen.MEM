@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ultraman Club: Kaijuu Daikessen!!",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "ultraman-club-kaijuu-daikessen",
+    hashes = {
+      { hash = "84e7650f632437116022ac181ef28510", label = "Ultraman Club - Kaijuu Daikessen!! (Japan).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0068, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Active; timer is counting down when unpaused" },
+        { address=0X0137, type="u8", condition="eq", value=0X30, action="PAUSE_ON", desc="paused" },
+        { address=0X0137, type="u8", condition="eq", value=0X53, action="PAUSE_ON", desc="paused" },
+        { address=0X0137, type="u8", condition="eq", value=0XA4, action="PAUSE_OFF", desc="unpaused" },
+        { address=0X0137, type="u8", condition="eq", value=0XCA, action="PAUSE_OFF", desc="unpaused" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0480, type="u8", condition="eq", value=0X90, action="BOSS_HIT", desc="Tyrant's boss room floor" },
+        { address=0X0480, type="u8", condition="eq", value=0XA0, action="BOSS_HIT", desc="Typical boss room floor" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0090, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="jumping" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0068, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8 bit]" },
+        { address=0X008F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8 bit]" },
+        { address=0X0348, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", no_log=true, desc="[8 bit]" },
+      },
+    },
+  },
+}

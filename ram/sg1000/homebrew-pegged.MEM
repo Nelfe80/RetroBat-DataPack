@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Pegged",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-pegged",
+    hashes = {
+      { hash = "54be39abfa98f34f9cfeeeaa75aee054", label = "Pegged (World) (v1.02) (Aftermarket) (Unl) (under4mhz).sg" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0060, type="u8", condition="change", action="NEW_LEVEL", desc="Current level" },
+        { address=0X00A4, type="u8", condition="change", action="NEW_LEVEL", desc="bit 5 - button pressed to reset level" },
+        { address=0X03D8, type="u32le", condition="change", action="LEVEL_CLEAR", desc="[ASCII] Flickers like crazy except when level is completed and shows the text Complete" },
+        { address=0X03DA, type="u16le", condition="change", action="NEW_LEVEL", desc="use for level completion at 100+" },
+        { address=0X03ED, type="u8", condition="change", action="NEW_LEVEL", desc="Level initially selected" },
+      },
+    },
+  },
+}

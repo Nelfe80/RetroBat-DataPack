@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Last Promise",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-last-promise",
+    hashes = {
+      { hash = "485740f0f0036d32bdf7369334be13e0", label = "Fire Emblem - The Last Promise (v2.1) (Blazer).gba" },
+    }
+  },
+
+  events = {
+  },
+}

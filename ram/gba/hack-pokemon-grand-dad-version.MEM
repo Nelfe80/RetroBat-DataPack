@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Grand Dad Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-grand-dad-version",
+    hashes = {
+      { hash = "f421d0eafcb2ff9d286157a84ac91f53", label = "Pokemon - FireRed Version - Grand Dad Version (SiIvaGunner).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0F9C, type="u8", condition="change", action="PAUSE_ON", desc="Pause Player Movement (:01)" },
+        { address=0X7307, type="u8", condition="change", action="PAUSE_ON", desc="Pause Music Flag (Bit7)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2BC66, type="u8", condition="change", action="NEW_LEVEL", desc="Enemy Pokemon Level" },
+      },
+      stage = {
+        { address=0X2B3F2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Active Player Pokemon Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2BC0C, type="u8", condition="increase", action="HEAL", desc="Active Pokemon Current HP increased" },
+        { address=0X2BC0C, type="u8", condition="decrease", action="HIT", desc="Active Pokemon Current HP decreased" },
+        { address=0X2BC64, type="u8", condition="increase", action="HEAL", desc="Enemy Pokemon HP increased" },
+        { address=0X2BC64, type="u8", condition="decrease", action="HIT", desc="Enemy Pokemon HP decreased" },
+      },
+    },
+  },
+}

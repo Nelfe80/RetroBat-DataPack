@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ MAGE and the Grimoire of BEAST",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-mage-and-the-grimoire-of-beast",
+    hashes = {
+      { hash = "afe14eef683f3eb910b67ea2e3feb124", label = "Mage and the Grimoire of Beast (World) (En) (v1.01) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC52A, type="u16le", condition="eq", value=0X5033, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X5680, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X68C8, action="GAME_OVER", desc="Game Over (Slime)" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X6A30, action="GAME_OVER", desc="Game Over (Worm)" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X6B98, action="GAME_OVER", desc="Game Over (Gazer)" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X6D00, action="GAME_OVER", desc="Game Over (Skull)" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X6E68, action="GAME_OVER", desc="Game Over (Kraken)" },
+        { address=0XC52A, type="u16le", condition="eq", value=0X6FD0, action="GAME_OVER", desc="Game Over (None)" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0XCB9D, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage progression." },
+        { address=0XCBC3, type="u16le", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage Select" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCB99, type="u16le", condition="increase", action="HEAL", desc="Player's health. increased" },
+        { address=0XCB99, type="u16le", condition="decrease", action="HIT", desc="Player's health. decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCB9B, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score x10." },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XC91B, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Fighting a boss." },
+        { address=0XC91B, type="u8", condition="eq", value=0XFF, action="BOSS_HIT", desc="Anything else." },
+        { address=0XCBA1, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 1 Boss's health." },
+        { address=0XCBAD, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 6 Boss's health." },
+        { address=0XCC49, type="u16le", condition="change", action="BOSS_HIT", desc="Stage 2 Boss's health." },
+      },
+    },
+  },
+}

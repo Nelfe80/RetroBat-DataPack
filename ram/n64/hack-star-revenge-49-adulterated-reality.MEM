@@ -1,0 +1,62 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Star Revenge 4.9: Adulterated Reality",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-star-revenge-49-adulterated-reality",
+    hashes = {
+      { hash = "63b808504369affe2157e3ed8d96781e", label = "SM64 - Star Revenge 4.9 (v1.1) (BroDute).z64" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X33B24A, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] warp dest level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X33B21C, type="u16be", condition="increase", action="HEAL", desc="[16bit] HP increased" },
+        { address=0X33B21C, type="u16be", condition="decrease", action="HIT", desc="[16bit] HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="[16bit] coin COUNT increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X2076AD, type="u8", condition="change", action="BOSS_HIT", desc="RA Boss 1 (bit0)" },
+        { address=0X2076B7, type="u8", condition="change", action="BOSS_HIT", desc="RA Bosses 2/3 (bit0-bit1)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0000, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="::::: Notable Object Slot Structure Members (size: 0x260 b.ytes) :::::" },
+        { address=0X207698, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bits 1-3 - red/green/blue switch" },
+        { address=0X207699, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit1 - yellow switch" },
+        { address=0X32DF24, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] cutscene object" },
+        { address=0X33D694, type="u32be", condition="change", action="OBJECT_INTERACTION", desc="[32bit] objects[0] behav script" },
+        { address=0X33D8F4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="objects[1] behavior script" },
+        { address=0X400003, type="u8", condition="change", action="OBJECT_INTERACTION", desc="MOP switch" },
+        { address=0X400010, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION_CHECKPOINT", desc="active (any cp flag)" },
+        { address=0X400014, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint x" },
+        { address=0X400018, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint y" },
+        { address=0X40001C, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="[float] checkpoint z" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X33B220, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="[8bit] hp increment counter" },
+        { address=0X33B221, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[8bit] hp decrement counter" },
+      },
+    },
+  },
+}

@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Eurotunnel",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-eurotunnel",
+    hashes = {
+      { hash = "4c590baa892de430b1982075c98ed58e", label = "Eurotunnel (World) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA9164, type="u16le", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0XA9164, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 1" },
+        { address=0XA9164, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 2" },
+        { address=0XA9164, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 3" },
+        { address=0XA9164, type="u16le", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 4" },
+      },
+    },
+  },
+}

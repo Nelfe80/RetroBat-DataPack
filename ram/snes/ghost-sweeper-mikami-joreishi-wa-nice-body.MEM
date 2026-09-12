@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ghost Sweeper Mikami: Joreishi wa Nice Body",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Beat'em Up"
+  },
+
+  rom = {
+    name = "ghost-sweeper-mikami-joreishi-wa-nice-body",
+    hashes = {
+      { hash = "388cffcebcd3155cae2f2c5cec1f92c1", label = "GS Mikami - Joreishi wa Nice Body (Japan).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X008C, type="u8", condition="increase", action="GAIN_LIFE", desc="0x00008a : life meter increased" },
+        { address=0X008C, type="u8", condition="decrease", action="LOSE_LIFE", desc="0x00008a : life meter decreased" },
+        { address=0X008C, type="u8", condition="eq", value=0X00008C, action="LIVES_STATE", desc="life meter" },
+      },
+    },
+  },
+}

@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Chao Bandstand",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-chao-bandstand",
+    hashes = {
+      { hash = "02b27fd2b01576e9273ac90c3a28dddd", label = "SM64 - Chao Bandstand (v1.3) (Gamebun).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2210F2, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X2210F2, type="u8", condition="eq", value=0X32, action="TITLE_SCREEN", desc="File Select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X220FC4, type="u8", condition="eq", value=0X0A, action="NEW_LEVEL", desc="Just entered level" },
+        { address=0X220FC4, type="u8", condition="eq", value=0X1F, action="NEW_LEVEL", desc="Just exited level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X220FC4, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Just Died" },
+      },
+      health = {
+        { address=0X1FCABC, type="u8", condition="increase", action="HEAL", desc="Tails (Bowser) Health increased" },
+        { address=0X1FCABC, type="u8", condition="decrease", action="HIT", desc="Tails (Bowser) Health decreased" },
+        { address=0X20D71C, type="u8", condition="increase", action="HEAL", desc="King Boom Boos' Health increased" },
+        { address=0X20D71C, type="u8", condition="decrease", action="HIT", desc="King Boom Boos' Health decreased" },
+        { address=0X220FD8, type="u8", condition="increase", action="HEAL", desc="Health Texture increased" },
+        { address=0X220FD8, type="u8", condition="decrease", action="HIT", desc="Health Texture decreased" },
+        { address=0X221091, type="u8", condition="increase", action="HEAL", desc="Health in code increased" },
+        { address=0X221091, type="u8", condition="decrease", action="HIT", desc="Health in code decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F13D2, type="u8", condition="eq", value=0X0D, action="MONEY_STATE", desc="100 Rings Message" },
+        { address=0X20434C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Rings (Red Coins) in code increased" },
+        { address=0X220E8F, type="u8", condition="increase", action="COIN_GAIN", desc="Red Rings (Red Coins) texture increased" },
+        { address=0X220FD4, type="u16be", condition="increase", action="COIN_GAIN", desc="Rings Texture increased" },
+        { address=0X22108E, type="u16be", condition="increase", action="COIN_GAIN", desc="Rings in code increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1F13D2, type="u8", condition="eq", value=0X16, action="BOSS_HIT", desc="Final Boss Room Door" },
+        { address=0X1F13D2, type="u8", condition="eq", value=0X4, action="BOSS_HIT", desc="Final Boss Room Sign" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X5003AE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Section addr" },
+      },
+    },
+  },
+}

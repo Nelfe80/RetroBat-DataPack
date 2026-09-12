@@ -1,0 +1,51 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Anteater",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "anteater",
+    hashes = {
+      { hash = "ba25209012c27b19870ac1182709af40", label = "anteater.7z <Anteater>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X065D, type="u8", condition="bit_true", mask=0X02, action="DEMO_MODE", desc="off for no demo sounds, on for demo sounds" },
+        { address=0X06C4, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="attract mode and demos" },
+        { address=0X06C4, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="attract mode and demos, after a game has been played" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0666, type="u8", condition="change", action="NEW_LEVEL", desc="Current level counter" },
+        { address=0X0666, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="level 1" },
+        { address=0X0666, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="level 2, etc" },
+        { address=0X0669, type="u8", condition="change", action="NEW_LEVEL", desc="Amount of eggs eaten in a level." },
+        { address=0X0669, type="u8", condition="eq", value=0XC3, action="NEW_LEVEL", desc="Max eggs in a level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X065D, type="u8", condition="bit_true", mask=0X01, action="LIVES_STATE", desc="off for 3 lives, on for 5 lives" },
+        { address=0X0665, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives counter increased" },
+        { address=0X0665, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives counter decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X12B, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X00EE, type="u8", condition="increase", action="COIN_GAIN", desc="Coin counter increased" },
+        { address=0X065E, type="u8", condition="increase", action="COIN_GAIN", desc="Dipswitches for coin input and cocktail. 0x04 is default increased" },
+      },
+    },
+  },
+}

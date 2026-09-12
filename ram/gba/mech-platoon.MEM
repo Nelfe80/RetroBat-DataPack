@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mech Platoon",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Strategy"
+  },
+
+  rom = {
+    name = "mech-platoon",
+    hashes = {
+      { hash = "1de4ebf40c819e8cfb20b84f6dcdf718", label = "Mech Platoon (Europe) (En,Fr,De,Es,It).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X754C, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Continue" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X9BE0, type="u8", condition="change", action="NEW_LEVEL", desc="Army Base - Build Skill Level - Leon" },
+        { address=0X9BE0, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X9BE0, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X9BE0, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X9BE4, type="u8", condition="change", action="NEW_LEVEL", desc="Army Base - Military Skill Level - Leon" },
+        { address=0X9BE4, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X9BE4, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X9BE4, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3" },
+        { address=0X9BE8, type="u8", condition="change", action="NEW_LEVEL", desc="Army Base - Technology Level - Leon" },
+        { address=0X9BE8, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1" },
+        { address=0X9BE8, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2" },
+        { address=0X9BE8, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X9B6C, type="u16le", condition="increase", action="HEAL", desc="[16bit] Energy Sand - Tutorial increased" },
+        { address=0X9B6C, type="u16le", condition="decrease", action="HIT", desc="[16bit] Energy Sand - Tutorial decreased" },
+        { address=0X9BCC, type="u16le", condition="increase", action="HEAL", desc="[16bit] Energy Sand - Leon increased" },
+        { address=0X9BCC, type="u16le", condition="decrease", action="HIT", desc="[16bit] Energy Sand - Leon decreased" },
+        { address=0XA16C, type="u32le", condition="increase", action="HEAL", desc="[32bit] Energysand - Trampler increased" },
+        { address=0XA16C, type="u32le", condition="decrease", action="HIT", desc="[32bit] Energysand - Trampler decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X326C, type="u8", condition="change", action="SHIELD_GAIN", desc="Parts - Body - Shield" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X995C, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="Objective" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA174, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Timer - Minutes" },
+        { address=0XA178, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer - Seconds" },
+      },
+    },
+  },
+}

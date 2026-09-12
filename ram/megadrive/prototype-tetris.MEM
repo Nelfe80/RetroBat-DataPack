@@ -1,0 +1,64 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Tetris",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "prototype-tetris",
+    hashes = {
+      { hash = "ab307f2a1d9f7b42a49f27445f711ba3", label = "Tetris (Japan).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XEB91, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0XEB91, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Pause" },
+        { address=0XF31A, type="u8", condition="change", action="GAME_OVER", desc="03 : Game Over" },
+        { address=0XF771, type="u8", condition="change", action="DEMO_MODE", desc="04 : Demo" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XEA32, type="u16be", condition="change", action="LEVEL_CLEAR", desc="Display: Lines Cleared" },
+        { address=0XEA37, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+        { address=0XEA3C, type="u16be", condition="change", action="LEVEL_CLEAR", desc="Lines Cleared" },
+        { address=0XEB93, type="u8", condition="change", action="NEW_LEVEL", desc="Starting Level" },
+        { address=0XEB93, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 0" },
+        { address=0XEB93, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 1" },
+        { address=0XEB93, type="u8", condition="eq", value=0X08, action="NEW_LEVEL", desc="Level 2" },
+        { address=0XEB93, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Level 3" },
+        { address=0XEB93, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Level 4" },
+        { address=0XEB97, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XEA2E, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="Player 1 Current Score: Front Half" },
+        { address=0XEA30, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="Player 1 Current Score: Back Half" },
+        { address=0XFF02, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Hi-Score: Back Half" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XEB94, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Yes" },
+        { address=0XEB95, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Yes" },
+        { address=0XEB97, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="See Next Block" },
+        { address=0XEB97, type="u8", condition="eq", value=0X03, action="OBJECT_INTERACTION", desc="Use Item Blocks" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XEB88, type="u16be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Time Trial: Time Left (In Seconds)" },
+        { address=0XFF15, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Select Game" },
+        { address=0XFF15, type="u8", condition="eq", value=0X02, action="GENERAL_TIMER", desc="Time Trial" },
+        { address=0XFF15, type="u8", condition="eq", value=0X04, action="GENERAL_TIMER", desc="Time Trial" },
+      },
+    },
+  },
+}

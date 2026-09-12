@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Metroid: Return to Zebes",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-metroid-return-to-zebes",
+    hashes = {
+      { hash = "4288f29631de443cee689be23f43a056", label = "Metroid ZM - Return to Zebes (v2.5.4) (alexman25).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0C70, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title" },
+        { address=0X0C70, type="u8", condition="eq", value=0X06, action="GAME_OVER", desc="Game Over" },
+        { address=0X0C70, type="u8", condition="eq", value=0X08, action="CREDITS_SCREEN", desc="Credits And Results" },
+        { address=0X0C70, type="u8", condition="eq", value=0X0B, action="DEMO_MODE", desc="Demo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1530, type="u16le", condition="increase", action="GAIN_LIFE", desc="Life Max Upgrade increased" },
+        { address=0X1530, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Life Max Upgrade decreased" },
+        { address=0X1536, type="u16le", condition="increase", action="GAIN_LIFE", desc="Life use increased" },
+        { address=0X1536, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Life use decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0A3B, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Weapon use" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Long Shot" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Ice Beam" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Wave" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Plasma" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Charge" },
+        { address=0X153C, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Bomb" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", no_log=true, desc="Long Shot" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", no_log=true, desc="Ice Beam" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", no_log=true, desc="Wave" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", no_log=true, desc="Plasma" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", no_log=true, desc="Charge" },
+        { address=0X153D, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", no_log=true, desc="Bomb" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X3FE03, type="u8", condition="bit_true", mask=0X10, action="BOSS_DEFEATED", desc="Mua" },
+        { address=0X3FE03, type="u8", condition="bit_true", mask=0X40, action="BOSS_DEFEATED", desc="Kraid" },
+        { address=0X3FE04, type="u8", condition="bit_true", mask=0X01, action="BOSS_DEFEATED", desc="Larvae" },
+        { address=0X3FE04, type="u8", condition="bit_true", mask=0X08, action="BOSS_DEFEATED", desc="Imago" },
+        { address=0X3FE04, type="u8", condition="bit_true", mask=0X20, action="BOSS_DEFEATED", desc="Ridley" },
+        { address=0X3FE09, type="u8", condition="change", action="BOSS_DEFEATED", desc="Boss Defeat" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X0310, type="u8", condition="change", action="SHIELD_GAIN", desc="[8-Bits] Mecha Ridley shield" },
+        { address=0X3FE07, type="u8", condition="change", action="SHIELD_GAIN", desc="Blue shield Generator" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X01D8, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Kraid first time open mouth (start battle)" },
+        { address=0X0951, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Escape Time Second (Tens place)" },
+        { address=0X0960, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Escape Time Second" },
+        { address=0X0961, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Escape Time Second (Tens place)" },
+        { address=0X0962, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Escape Time Minute" },
+        { address=0X0A3A, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time shot" },
+      },
+    },
+  },
+}

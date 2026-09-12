@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Clockwork Knight Puzzle | Pengin War",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-clockwork-knight-puzzle-pengin-war",
+    hashes = {
+      { hash = "2ef67b44248bbccc1f1097fd77c66b2c", label = "Clockwork Knight Puzzle - Pengin War (Japan) (En,Ja) (Beta)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X131DB8, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[8 bit] - number of continues" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X131DC9, type="u8", condition="change", action="NEW_LEVEL", desc="[8 bit] - number of diamonds uncovered in a level" },
+      },
+      stage = {
+        { address=0X131CB6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) - number of seconds still left in a stage (as shown on screen)" },
+        { address=0X131CC2, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) - stage number starting from 00" },
+        { address=0X131DDD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="(8 bit) - number of enemies left in a stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X131CBF, type="u8", condition="change", action="LOSE_LIFE", desc="(bit 7) - no death option (:1 if on) - also after bosses death" },
+        { address=0X131CD1, type="u8", condition="increase", action="GAIN_LIFE", desc="(8 bit) - lives increased" },
+        { address=0X131CD1, type="u8", condition="decrease", action="LOSE_LIFE", desc="(8 bit) - lives decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X131CA8, type="u8", condition="increase", action="COIN_GAIN", desc="(8 bit) - 00 or 01 - gameplay and main menu, 02 - pause during gameplay increased" },
+        { address=0X131CCA, type="u8", condition="increase", action="COIN_GAIN", desc="(8 bit) - timer milliseconds during stages increased" },
+        { address=0X131DB9, type="u8", condition="increase", action="COIN_GAIN", desc="(8 bit) - coins ver.1 increased" },
+        { address=0X13B408, type="u8", condition="increase", action="COIN_GAIN", desc="(8 bit) - coins ver.2 increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X134212, type="u16le", condition="change", action="BOSS_HIT", desc="(16 bit) - health of last boss second phase" },
+        { address=0X135113, type="u8", condition="change", action="BOSS_HIT", desc="(8 bit) - bosses health" },
+      },
+    },
+  },
+}

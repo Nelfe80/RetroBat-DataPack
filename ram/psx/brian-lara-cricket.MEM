@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Brian Lara Cricket",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "brian-lara-cricket",
+    hashes = {
+      { hash = "bc14b12ea4dbd1112d46151b0b1ccbec", label = "Brian Lara Cricket (Europe)" },
+    }
+  },
+
+  events = {
+  },
+}

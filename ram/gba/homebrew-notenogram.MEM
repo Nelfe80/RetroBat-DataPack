@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Notenogram",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-notenogram",
+    hashes = {
+      { hash = "62e016b66f9880a918b37f6e269f4d00", label = "notenogram (World) (v1.1) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB862, type="u8", condition="eq", value=0X04, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X6980, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Another potential timer" },
+      },
+    },
+  },
+}

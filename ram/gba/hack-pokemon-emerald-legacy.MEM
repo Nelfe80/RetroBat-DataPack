@@ -1,0 +1,21 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Emerald Legacy",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-emerald-legacy",
+    hashes = {
+      { hash = "4d2c51b02e8b8a7a32f672511f5ee51b", label = "Pokemon Emerald - Legacy (v1.0.0) (TheSmithPlays).gba" },
+      { hash = "02f10b8aff216d799ef4a3c8555d6cfc", label = "Pokemon Emerald - Legacy (v1.1.0) (TheSmithPlays).gba" },
+      { hash = "87dd1aa6c9e79a6e674282a035ff7015", label = "Pokemon Emerald - Legacy (v1.1.4) (TheSmithPlays).gba" },
+    }
+  },
+
+  events = {
+  },
+}

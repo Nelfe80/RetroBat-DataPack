@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Running Knight",
+    system = "lynx",
+    system_name = "Atari Lynx",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "homebrew-running-knight",
+    hashes = {
+      { hash = "24077ab7bf46300ff02aa4ca78a81c2c", label = "Running Knight (World) (LynxJam 2023) (Aftermarket) (Unl) (Dr. Ludos).lnx" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XADB7, type="u8", condition="change", action="PAUSE_ON", desc="Game Paused Flag" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XB39D, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+        { address=0XB3A1, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="High Score" },
+      },
+    },
+  },
+}

@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Need for Speed: Most Wanted",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "need-for-speed-most-wanted",
+    hashes = {
+      { hash = "0cd601f13be95043eb1bc10e3675f25a", label = "Need for Speed - Most Wanted (USA, Europe) (En,Fr,De,It).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8AA4, type="u16le", condition="change", action="CREDITS_SCREEN", desc="16bit Credits ID" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0064, type="u8", condition="change", action="RANK_STATE", desc="Race Start (affects Current Position)" },
+        { address=0X0168, type="u24le", condition="change", action="RANK_STATE", desc="24bit Hud Data Pointer (Don't Use)" },
+        { address=0X320E4, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Downtown Expressway (Circuit), Downtown Expressway-2 (Sprint)" },
+        { address=0X3224C, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Main & Terminal (Circuit)" },
+        { address=0X32284, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Exchange District (Circuit), Exchange District-2 (Sprint), 06 Sassy Race 3," },
+        { address=0X325F8, type="u8", condition="change", action="RANK_STATE", desc="Current Position if South Central (Circuit), South Central-2 (Sprint), 06 Sassy Race 2" },
+        { address=0X32684, type="u8", condition="change", action="RANK_STATE", desc="Current Position if West Village (Circuit), Hillside (Circuit), West Village-2 (Sprint), Hillsid" },
+        { address=0X326BC, type="u8", condition="change", action="RANK_STATE", desc="Current Position if City Power (Circuit), City Power-2 (Sprint), 07 Earl Race 2, 02 Murff Race 2" },
+        { address=0X326E4, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Riverview (Circuit), Riverview-1 (Sprint), Riverview-2 (Sprint), 02 Murff Ra" },
+        { address=0X3272C, type="u8", condition="change", action="RANK_STATE", desc="Current Position if 5th Precinct (Circuit), 5th Precinct-1 (Sprint), 5th Precinct-2 (Sprint), 08" },
+        { address=0X3274C, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Gr. Northern Way (Circuit), Gr. Northern Way-2 (Sprint), 12 Big Lou Race 2," },
+        { address=0X329EC, type="u8", condition="change", action="RANK_STATE", desc="Current Position in 15 Taz, 14 Ender Race 1, 11 Zoe Race 1, 07 Earl Race 1" },
+        { address=0X32B44, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Main & Terminal-1 (Sprint)" },
+        { address=0X32C20, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Exhange District-1 (Sprint)" },
+        { address=0X32C70, type="u8", condition="change", action="RANK_STATE", desc="Current Position if 09 Izzy" },
+        { address=0X32CF0, type="u8", condition="change", action="RANK_STATE", desc="Current Position if 10 Zoe, 01 Razor Race 1" },
+        { address=0X32EFC, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Downtown Expressway-1 (Sprint), 08 BBB Race 2" },
+        { address=0X32F74, type="u8", condition="change", action="RANK_STATE", desc="Current Position if City Power (Circuit) (Alt) 13 Nick F, 05 Webster, 04 Orca Race 1, 03 Terry R" },
+        { address=0X32F7C, type="u8", condition="change", action="RANK_STATE", desc="Current Position West Village-1 (Sprint), 14 Ender Race 2" },
+        { address=0X33038, type="u8", condition="change", action="RANK_STATE", desc="Current Position if South Central-1 (Sprint)" },
+        { address=0X331AC, type="u8", condition="change", action="RANK_STATE", desc="Current Position Main & Terminal-2 (Sprint), 14 Ender Race 3" },
+        { address=0X332B0, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Hillside-1 (Sprint)" },
+        { address=0X33374, type="u8", condition="change", action="RANK_STATE", desc="Current Position 08 BBB Race 1, 06 Sassy Race 1" },
+        { address=0X33564, type="u8", condition="change", action="RANK_STATE", desc="Current Position if Gr. Northern Way-1 (Sprint), 01 Razor Race 2" },
+        { address=0X33808, type="u8", condition="change", action="RANK_STATE", desc="Current Position if City Power-1 (Sprint), 04 Orca Race 3" },
+        { address=0X339F0, type="u8", condition="change", action="RANK_STATE", desc="Current Position in 12 Big Lou Race 1" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X5898, type="u8", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="Player 1 Points" },
+        { address=0X5899, type="u8", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="Player 2 Points" },
+        { address=0X589A, type="u8", condition="change", action="SCORE_STATE", player=3, score_kind="game", desc="Player 3 Points" },
+        { address=0X589B, type="u8", condition="change", action="SCORE_STATE", player=4, score_kind="game", desc="Player 4 Points" },
+        { address=0X8B20, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Total Points Earned?" },
+      },
+      collectibles = {
+        { address=0X8818, type="u32le", condition="increase", action="COIN_GAIN", desc="32bit Money increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X8873, type="u8", condition="eq", value=0X14, action="BOSS_HIT", desc="Boss Paint" },
+      },
+    },
+  },
+}

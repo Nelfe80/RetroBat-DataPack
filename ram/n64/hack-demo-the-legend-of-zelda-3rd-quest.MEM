@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ ~Demo~ The Legend of Zelda: 3rd Quest",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-demo-the-legend-of-zelda-3rd-quest",
+    hashes = {
+      { hash = "02528df7e491f785b67f77b5a7daf18d", label = "Legend of Zelda, The - 3rd Quest (Demo) (Project 3Q) (0.5).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X15F9BC, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen, Demo" },
+        { address=0X16E9A4, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title" },
+        { address=0X2120C6, type="u8", condition="eq", value=0X51, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2223F2, type="u8", condition="eq", value=0X062F, action="LOSE_LIFE", desc="Dead Hand" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X15E70C, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Yes" },
+        { address=0X16E9A4, type="u8", condition="eq", value=0X1B, action="BOSS_HIT", desc="Boss Fight" },
+        { address=0X16E9A4, type="u8", condition="eq", value=0X21, action="BOSS_HIT", desc="Boss Victory" },
+        { address=0X2120C6, type="u8", condition="eq", value=0X14, action="BOSS_HIT", desc="Earth Labyrinth Boss Fight" },
+        { address=0X2223F2, type="u8", condition="eq", value=0X00C7, action="BOSS_HIT", desc="Boss Key" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X15E6FE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Antique Shield" },
+      },
+    },
+  },
+}

@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Herbie: Fully Loaded",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "herbie-fully-loaded",
+    hashes = {
+      { hash = "9824d54e798f7985d620b41abd722993", label = "Herbie - Fully Loaded (USA).gba" },
+      { hash = "f74baab7b2516b43119d23292033c735", label = "Herbie - Fully Loaded (Europe) (En,Fr,De).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E9D, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Paused" },
+        { address=0X1E9D, type="u8", condition="eq", value=0X01, action="PAUSE_OFF", desc="Unpaused" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X0300, type="u8", condition="change", action="RANK_STATE", desc="Current Position" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X035C, type="u32le", condition="decrease", action="HIT", desc="Red Power-Up decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X035C, type="u32le", condition="eq", value=0XFFFFFFFF, action="DYNAMIC_INVENTORY", desc="Has It" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1EE4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Championship Points - Herbie" },
+        { address=0X1EE8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Championship Points - Chip" },
+        { address=0X1EEC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Championship Points - Rusty" },
+        { address=0X1EF0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Championship Points - Javier" },
+        { address=0X1EF4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Championship Points - Jackson" },
+      },
+    },
+  },
+}

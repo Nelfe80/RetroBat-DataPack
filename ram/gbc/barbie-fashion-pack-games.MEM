@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Barbie: Fashion Pack Games",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "barbie-fashion-pack-games",
+    hashes = {
+      { hash = "45eeade46bd85f80af13af9dce572b9c", label = "Barbie - Fashion Pack Games (USA, Europe) (GB Compatible).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XDE12, type="u8", condition="change", action="NEW_LEVEL", desc="Hanger Minigame - Barbie - Level [8bit]" },
+        { address=0XDE16, type="u8", condition="change", action="NEW_LEVEL", desc="Hanger Minigame - Kira - Level [8bit]" },
+        { address=0XDE1A, type="u8", condition="change", action="NEW_LEVEL", desc="Hanger Minigame - Christie - Level [8bit]" },
+        { address=0XDE1E, type="u8", condition="change", action="NEW_LEVEL", desc="Hanger Minigame - Teresa - Level [8bit]" },
+        { address=0XDE28, type="u8", condition="change", action="LEVEL_CLEAR", desc="Hanger Minigame - Levels completed [8bit]" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XDE13, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Hanger Minigame - Barbie - Score [24bit; BCD]" },
+        { address=0XDE17, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Hanger Minigame - Kira - Score [24bit; BCD]" },
+        { address=0XDE1B, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Hanger Minigame - Christie - Score [24bit; BCD]" },
+        { address=0XDE1F, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Hanger Minigame - Teresa - Score [24bit; BCD]" },
+        { address=0XDE22, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Hanger Minigame - Score of current Friend [24bit; BCD]" },
+      },
+    },
+  },
+}

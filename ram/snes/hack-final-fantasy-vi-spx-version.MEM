@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy VI: SPX Version",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-vi-spx-version",
+    hashes = {
+      { hash = "f267346d29866528330bedd034b566ef", label = "FFVI - Final Fantasy VI SPX (v14.1) (SPARX).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X162D, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Lock's Level" },
+        { address=0X1652, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Cayenne's Level" },
+        { address=0X169C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Edgar's Level" },
+        { address=0X16C1, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Mash's Level" },
+        { address=0X170B, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Stragus's Level" },
+        { address=0X1E8C, type="u8", condition="bit_true", mask=0X20, action="LEVEL_CLEAR", desc="Cleared Soul Shrine" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0014, type="u16le", condition="eq", value=0XC17F, action="LOSE_LIFE", desc="Death rattle on final Kefka" },
+        { address=0X1E96, type="u8", condition="bit_true", mask=0X10, action="LOSE_LIFE", desc="Cid dies" },
+        { address=0X2E98, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Death" },
+        { address=0X2E9C, type="u8", condition="bit_true", mask=0X80, action="LOSE_LIFE", desc="Death" },
+      },
+      health = {
+        { address=0X3BF4, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 1 Current HP increased" },
+        { address=0X3BF4, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 1 Current HP decreased" },
+        { address=0X3BF6, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 2 Current HP increased" },
+        { address=0X3BF6, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 2 Current HP decreased" },
+        { address=0X3BF8, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 3 Current HP increased" },
+        { address=0X3BF8, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 3 Current HP decreased" },
+        { address=0X3BFA, type="u16le", condition="increase", action="HEAL", desc="[16bit] Slot 4 Current HP increased" },
+        { address=0X3BFA, type="u16le", condition="decrease", action="HIT", desc="[16bit] Slot 4 Current HP decreased" },
+        { address=0X3BFC, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 1 HP increased" },
+        { address=0X3BFC, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 1 HP decreased" },
+        { address=0X3BFE, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 2 HP increased" },
+        { address=0X3BFE, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 2 HP decreased" },
+        { address=0X3C00, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 3 HP increased" },
+        { address=0X3C00, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 3 HP decreased" },
+        { address=0X3C02, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 4 HP increased" },
+        { address=0X3C02, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 4 HP decreased" },
+        { address=0X3C04, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 5 HP increased" },
+        { address=0X3C04, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 5 HP decreased" },
+        { address=0X3C06, type="u16le", condition="increase", action="HEAL", desc="[16bit] Enemy 6 HP increased" },
+        { address=0X3C06, type="u16le", condition="decrease", action="HIT", desc="[16bit] Enemy 6 HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1E40, type="u8", condition="change", action="TREASURE", desc="[Bitflags] Treasures" },
+        { address=0X1E61, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Lava area of Dragons' Den" },
+        { address=0X1E61, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="Lava area of Dragons' Den" },
+        { address=0X1E61, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Holy Dragon area of Dragons' Den" },
+        { address=0X1E61, type="u8", condition="bit_true", mask=0X80, action="TREASURE", desc="Switch area of Dragons' Den" },
+        { address=0X1E62, type="u8", condition="bit_true", mask=0X04, action="TREASURE", desc="Green Man room of Dragons' Den" },
+        { address=0X1E62, type="u8", condition="bit_true", mask=0X08, action="TREASURE", desc="Green Man room of Dragons' Den" },
+        { address=0X1E62, type="u8", condition="bit_true", mask=0X10, action="TREASURE", desc="Green Man room of Dragons' Den" },
+        { address=0X1E62, type="u8", condition="bit_true", mask=0X20, action="TREASURE", desc="Bridge room of Dragons' Den" },
+        { address=0X1E62, type="u8", condition="bit_true", mask=0X40, action="TREASURE", desc="Bridge room of Dragons' Den" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1DD5, type="u8", condition="eq", value=0X7F, action="SHIELD_GAIN", desc="Max value" },
+      },
+    },
+  },
+}

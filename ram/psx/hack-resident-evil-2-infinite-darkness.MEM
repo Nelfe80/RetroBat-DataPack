@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Resident Evil 2: Infinite Darkness",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-resident-evil-2-infinite-darkness",
+    hashes = {
+      { hash = "45febc2ad13f50a8cd172abfc28f13c1", label = "Resident Evil 2 - Infinite Darkness (Kawasake09) (Disc 2 - Claire)" },
+      { hash = "59831d3f4912ecce77d3f60dc39e4629", label = "Resident Evil 2 - Infinite Darkness (Kawasake09) (Disc 1 - Leon)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD4876, type="u8", condition="bit_true", mask=0X10, action="NEW_LEVEL", desc="Flame Rounds" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCFD06, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player HP - Tested only with Claire" },
+        { address=0XCFD06, type="u8", condition="eq", value=0XC8, action="HEALTH_STATE", no_log=true, desc="Max" },
+        { address=0X11EBDA, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Enemy HP? 16 bits" },
+        { address=0X11EBDA, type="u16le", condition="eq", value=0X01F4, action="HEALTH_STATE", no_log=true, desc="G-Form 1 - Max" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X1FF262, type="u8", condition="eq", value=0X08, action="WEAPON_STATE", no_log=true, desc="Yes" },
+        { address=0X1FF263, type="u8", condition="eq", value=0X80, action="WEAPON_STATE", no_log=true, desc="Yes" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XD4815, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Door opened with bomb" },
+        { address=0XD481F, type="u8", condition="bit_true", mask=0X01, action="DOOR_OPENED", desc="Door in Basketball Yard opened by zombie" },
+      },
+    },
+  },
+}

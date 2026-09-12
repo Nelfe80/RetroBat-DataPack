@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ring King",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Boxing"
+  },
+
+  rom = {
+    name = "ring-king",
+    hashes = {
+      { hash = "5bd89e3945dcd7212c5e1682f32d3159", label = "ringking.7z <Ring King (US set 1)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0208, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8 Bit] Credits" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X22F, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0108, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Dipswitch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X019A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[8 Bit] Match Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,79 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Nonsense",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-nonsense",
+    hashes = {
+      { hash = "787d6b3621bc50d87fcaef9cdb974b98", label = "SMW - Nonsense (v1.0.2) (MiracleWater).sfc" },
+      { hash = "c9a5dc927cf4e45cf8a6a1c31df68755", label = "SMW - Nonsense (v1.1) (Various).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X010B, type="u8", condition="eq", value=0X1FD, action="LEVEL_CLEAR", desc="fuzzy in the fog goal room" },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="8bit: number of exits cleared" },
+        { address=0X1F39, type="u8", condition="bit_true", mask=0X80, action="NEW_LEVEL", desc="2 Unrelated Levels Stitched Togheter" },
+      },
+      zone = {
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="Bounding Blades" },
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X04, action="PROGRESSION_ZONE", desc="Chateau Glissade" },
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X08, action="PROGRESSION_ZONE", desc="UNPLEASANTSITUATION" },
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X10, action="PROGRESSION_ZONE", desc="The Field - A Saw in My Face" },
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X20, action="PROGRESSION_ZONE", desc="The Bounciest Castle" },
+        { address=0X1A975, type="u8", condition="bit_true", mask=0X40, action="PROGRESSION_ZONE", desc="A Line in the Darkness" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="6 : death" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Getting Closure" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X08, action="MONEY_STATE", desc="Future" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X10, action="MONEY_STATE", desc="Apple Picking Orchard" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Ted Is All Up in My Personal Space!" },
+        { address=0X1F2F, type="u8", condition="bit_true", mask=0X40, action="MONEY_STATE", desc="Donut County" },
+        { address=0X1A960, type="u8", condition="increase", action="COIN_GAIN", desc="8bit Number of big coins collected (the number on overworld) increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X14AF, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switch state in Distres on demand" },
+        { address=0X16A0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="8bit: can be used as switch state in Distress on Demand" },
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green switch pressed" },
+        { address=0X1F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="yellow switch pressed" },
+        { address=0X1F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue switch pressed" },
+        { address=0X1F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="red switch pressed" },
+        { address=0X1F32, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Statues 'n' Switches" },
+        { address=0X1FEE, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Palace Switch Yellow" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1493, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="8bit Goal Timer" },
+      },
+    },
+  },
+}

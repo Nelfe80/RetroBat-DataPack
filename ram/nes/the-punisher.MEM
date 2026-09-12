@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Punisher",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "the-punisher",
+    hashes = {
+      { hash = "4cf403f94afb8fa68b9f7321564b3a16", label = "Punisher, The (USA).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0310, type="u8", condition="change", action="PAUSE_ON", desc="PAUSE" },
+        { address=0X03D6, type="u8", condition="change", action="PAUSE_ON", desc="PAUSE" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X030A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X030B, type="u8", condition="increase", action="GAIN_LIFE", desc="LIVES increased" },
+        { address=0X030B, type="u8", condition="decrease", action="LOSE_LIFE", desc="LIVES decreased" },
+        { address=0X053F, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0307, type="u8", condition="increase", action="COIN_GAIN", desc="Completed Levels Bit String increased" },
+        { address=0X0314, type="u8", condition="change", action="AMMO_STATE", desc="Ammo (Ones)" },
+        { address=0X0315, type="u8", condition="change", action="AMMO_STATE", desc="Ammo (Tens)" },
+        { address=0X0316, type="u8", condition="change", action="AMMO_STATE", desc="Ammo (Hundreds)" },
+        { address=0X0317, type="u8", condition="change", action="AMMO_STATE", desc="Submachine Gun Ammo (Ones)" },
+        { address=0X0318, type="u8", condition="change", action="AMMO_STATE", desc="Submachine Gun Ammo (Tens)" },
+        { address=0X0319, type="u8", condition="change", action="AMMO_STATE", desc="Submachine Gun Ammo (Hundreds)" },
+        { address=0X031D, type="u8", condition="change", action="AMMO_STATE", desc="Supergun Ammo (Ones)" },
+        { address=0X031E, type="u8", condition="change", action="AMMO_STATE", desc="Supergun Ammo (Tens)" },
+        { address=0X031F, type="u8", condition="change", action="AMMO_STATE", desc="Supergun Ammo (Hundreds)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X01DD, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01DE, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01DF, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01E0, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01E1, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01E2, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01E3, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X01E4, type="u8", condition="change", action="BOSS_HIT", desc="code boss kill" },
+        { address=0X030F, type="u8", condition="change", action="BOSS_HIT", desc="Boss Battle Flag" },
+        { address=0X06E5, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X030D, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="COUNTER DEAD" },
+        { address=0X0312, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="COUNTER HEALTH" },
+      },
+    },
+  },
+}

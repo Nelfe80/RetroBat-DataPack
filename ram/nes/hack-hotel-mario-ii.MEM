@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Hotel Mario II",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-hotel-mario-ii",
+    hashes = {
+      { hash = "78c74f737d3e742bc00d621fe277fdca", label = "Bugs Bunny Crazy Castle, The - Hotel Mario II (v1.0) (Megafield64).nes" },
+    }
+  },
+
+  events = {
+  },
+}

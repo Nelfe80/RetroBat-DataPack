@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ The Simpsons Trivia",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-the-simpsons-trivia",
+    hashes = {
+      { hash = "ea829c4a6e9c4f05362979c9b1f3d7be", label = "Simpsons Trivia (Unknown) (v1.02) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0102, type="u8", condition="change", action="NEW_LEVEL", desc="2nd round no." },
+        { address=0X0104, type="u8", condition="change", action="NEW_LEVEL", desc="round no." },
+        { address=0X010E, type="u8", condition="change", action="NEW_LEVEL", desc="amount of rounds select" },
+      },
+    },
+  },
+}

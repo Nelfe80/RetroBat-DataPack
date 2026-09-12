@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Chileno Version",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-chileno-version",
+    hashes = {
+      { hash = "87773f973f9a49afece76fdbf7074dae", label = "Pokemon FireRed - Chileno (v6.2.0) (Claudiomon).gba" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X2C2DA, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] First pokemon in the party Actual HP increased" },
+        { address=0X2C2DA, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] First pokemon in the party Actual HP decreased" },
+        { address=0X2C2DC, type="u16le", condition="increase", action="HEAL", desc="[16 Bits] First pokemon in the party Max HP increased" },
+        { address=0X2C2DC, type="u16le", condition="decrease", action="HIT", desc="[16 Bits] First pokemon in the party Max HP decreased" },
+      },
+    },
+  },
+}

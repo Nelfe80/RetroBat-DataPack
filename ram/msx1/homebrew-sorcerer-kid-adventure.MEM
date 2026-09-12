@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sorcerer Kid Adventure",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sorcerer-kid-adventure",
+    hashes = {
+      { hash = "068a853a664c81d95576f53c85ce4464", label = "Sorcerer Kid Adventure (2024) (v1.02) (Vidaextraretro).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X202A, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X2041, type="u8", condition="eq", value=0X29, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X2041, type="u8", condition="eq", value=0X2A, action="CONTINUE_SCREEN", desc="To Be Continued" },
+        { address=0X2045, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="game over" },
+        { address=0XE02A, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="title screen" },
+        { address=0XE041, type="u8", condition="eq", value=0X29, action="TITLE_SCREEN", desc="title screen" },
+        { address=0XE041, type="u8", condition="eq", value=0X2A, action="CONTINUE_SCREEN", desc="To Be Continued" },
+        { address=0XE045, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="game over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2045, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Alt increased" },
+        { address=0X2045, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives Alt decreased" },
+        { address=0X2045, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="start value" },
+        { address=0X2218, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="died" },
+        { address=0XE045, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XE045, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XE045, type="u8", condition="eq", value=0X05, action="LIVES_STATE", desc="start value" },
+        { address=0XE218, type="u8", condition="eq", value=0X03, action="LOSE_LIFE", desc="died" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X202D, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="collected" },
+        { address=0XE02D, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="collected" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X202A, type="u8", condition="eq", value=0X03, action="DOOR_OPENED", desc="through the trap door" },
+        { address=0X202B, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="wall open" },
+        { address=0X2041, type="u8", condition="eq", value=0X07, action="DOOR_OPENED", desc="secret trap door" },
+        { address=0X2041, type="u8", condition="eq", value=0X08, action="DOOR_OPENED", desc="beneath the trap door" },
+        { address=0X2041, type="u8", condition="eq", value=0X1E, action="OBJECT_INTERACTION", desc="Eastern Tower switch room" },
+        { address=0XE02A, type="u8", condition="eq", value=0X03, action="DOOR_OPENED", desc="through the trap door" },
+        { address=0XE02B, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="wall open" },
+        { address=0XE041, type="u8", condition="eq", value=0X07, action="DOOR_OPENED", desc="secret trap door" },
+        { address=0XE041, type="u8", condition="eq", value=0X08, action="DOOR_OPENED", desc="beneath the trap door" },
+        { address=0XE041, type="u8", condition="eq", value=0X1E, action="OBJECT_INTERACTION", desc="Eastern Tower switch room" },
+      },
+    },
+  },
+}

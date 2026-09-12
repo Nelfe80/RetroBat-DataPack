@@ -1,0 +1,140 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario World: 30th Anniversary Edition",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-world-30th-anniversary-edition",
+    hashes = {
+      { hash = "c6d3ec4da72690585c0c75b44e438b2a", label = "SMW - 30th Anniversary Edition (v20251031) (LadiesMan217).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X213D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu - State in Level" },
+        { address=0X213DE, type="u8", condition="change", action="CREDITS_SCREEN", desc="Current Player - Animation pose on Overworld / Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2010B, type="u16le", condition="change", action="NEW_LEVEL", desc="[16 bit] Level room ID" },
+        { address=0X20DC1, type="u8", condition="change", action="NEW_LEVEL", desc="Player can carry Yoshi over levels flag." },
+        { address=0X20DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID" },
+        { address=0X20F3A, type="u8", condition="change", action="NEW_LEVEL", desc="Used as a flag for when falling offscreen riding Blue Yoshi. Reset on overworld." },
+        { address=0X213BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+        { address=0X213C1, type="u8", condition="change", action="NEW_LEVEL", desc="Current Player - Layer 1 Overworld Tile standing on." },
+        { address=0X213C8, type="u8", condition="change", action="NEW_LEVEL", desc="Used as a flag for when playing bonus levels or in Mario Bros. Classic mode. It stores the bonus" },
+        { address=0X2141C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Current Player - Goal Tape touched" },
+        { address=0X21425, type="u8", condition="change", action="LEVEL_CLEAR", desc="Bonus game flag. If anything is non-zero, the bonus game will commence after the level has been" },
+        { address=0X214C1, type="u8", condition="change", action="NEW_LEVEL", desc="Used in Results Screen as a flag to make sure the save routine code runs only once per level-til" },
+        { address=0X218A7, type="u8", condition="change", action="NEW_LEVEL", desc="Level - Map16 Number of current Block that is being checked." },
+        { address=0X21931, type="u8", condition="change", action="NEW_LEVEL", desc="FG/BG GFX setting from the level header. Also used on the overworld and in cutscenes to determin" },
+        { address=0X21B9B, type="u8", condition="change", action="NEW_LEVEL", desc="Level - Yoshi Flag for next Room" },
+        { address=0X21DE9, type="u8", condition="change", action="NEW_LEVEL", desc="Level - Overworld Event Trigger" },
+        { address=0X21DEA, type="u8", condition="change", action="NEW_LEVEL", desc="Level - Loaded Overworld Event ID" },
+        { address=0X21F2C, type="u8", condition="change", action="NEW_LEVEL", desc="All levels and Bowser have been beaten in hard mode flag." },
+        { address=0X21F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="Total Exits cleared" },
+        { address=0XA005A, type="u8", condition="change", action="NEW_LEVEL", desc="Object Number in the Level Loading Routine" },
+        { address=0XA0085, type="u8", condition="change", action="NEW_LEVEL", desc="Level is Water Level" },
+        { address=0XA0086, type="u8", condition="change", action="NEW_LEVEL", desc="Level is Ice Level" },
+        { address=0XA0140, type="u8", condition="change", action="NEW_LEVEL", desc="[12 bytes] Level passed on hard mode bit flags for each level." },
+        { address=0XA014C, type="u8", condition="change", action="NEW_LEVEL", desc="Total number of levels passed in hard mode." },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X20DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario - Lives increased" },
+        { address=0X20DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario - Lives decreased" },
+        { address=0X20DB5, type="u8", condition="increase", action="GAIN_LIFE", desc="Luigi - Lives increased" },
+        { address=0X20DB5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Luigi - Lives decreased" },
+        { address=0X20DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Player's lives. increased" },
+        { address=0X20DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Player's lives. decreased" },
+        { address=0X21421, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Player - Invisible 1-Up Trigger Progress increased" },
+        { address=0X21421, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Player - Invisible 1-Up Trigger Progress decreased" },
+        { address=0X216E1, type="u8", condition="increase", action="GAIN_LIFE", desc="[6 bytes] Score/1-Up number increased" },
+        { address=0X216E1, type="u8", condition="decrease", action="LOSE_LIFE", desc="[6 bytes] Score/1-Up number decreased" },
+        { address=0X21890, type="u8", condition="increase", action="GAIN_LIFE", desc="How many 1-Ups to spawn (used for bonus game). increased" },
+        { address=0X21890, type="u8", condition="decrease", action="LOSE_LIFE", desc="How many 1-Ups to spawn (used for bonus game). decreased" },
+        { address=0X218E4, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Player - 1-Up Buffer increased" },
+        { address=0X218E4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Player - 1-Up Buffer decreased" },
+        { address=0X218E5, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Player - 1-Up Buffer Cooldown increased" },
+        { address=0X218E5, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Player - 1-Up Buffer Cooldown decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X20DB8, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario - Powerup status" },
+        { address=0X20DB9, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Luigi - Powerup status" },
+        { address=0X20DBC, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Mario - Item in Item Box" },
+        { address=0X20DBD, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Luigi - Item in Item Box" },
+        { address=0X20DC2, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player's item in Item Box." },
+        { address=0XA0019, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Current Player - Powerup" },
+        { address=0XA05F0, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Flag for cape powerup status to become tanooki (Mario)/kitsune (Luigi) status." },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X20DB6, type="u8", condition="increase", action="COIN_GAIN", desc="Mario - Coins increased" },
+        { address=0X20DB7, type="u8", condition="increase", action="COIN_GAIN", desc="Luigi - Coins increased" },
+        { address=0X20DBA, type="u8", condition="increase", action="COIN_GAIN", desc="Mario's Yoshi color while in overworld increased" },
+        { address=0X20DBB, type="u8", condition="increase", action="COIN_GAIN", desc="Luigi's Yoshi color while in overworld increased" },
+        { address=0X20DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Current Player's coins. increased" },
+        { address=0X20DC0, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Collection Counter for current Level. increased" },
+        { address=0X213CC, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Buffer increased" },
+        { address=0X21420, type="u8", condition="increase", action="COIN_GAIN", desc="Current Player - Dragon Coins in Level collected increased" },
+        { address=0X2146C, type="u8", condition="increase", action="COIN_GAIN", desc="[4 bytes] Used by Mario Bros. Classic enemy spawner and non layer 1/2 dragon coins. increased" },
+        { address=0X2186B, type="u8", condition="increase", action="COIN_GAIN", desc="Multiple Coin Block - Timer increased" },
+        { address=0X218C0, type="u8", condition="increase", action="COIN_GAIN", desc="Timer for respawning certain sprites, such as the Boo Buddies Ceiling, Reappearing Boo Buddies," },
+        { address=0X218E3, type="u8", condition="increase", action="COIN_GAIN", desc="Current Player - Coins collected from Coin Game Cloud without getting hit increased" },
+        { address=0X21923, type="u8", condition="increase", action="COIN_GAIN", desc="[2 bytes] Used as collection flag for non layer 1/2 dragon coins. increased" },
+        { address=0X21F3B, type="u8", condition="increase", action="COIN_GAIN", desc="All Yoshi coins collected flag. increased" },
+        { address=0XA0000, type="u8", condition="increase", action="COIN_GAIN", desc="Scratch ram. During the warning or hard mode message screen it is used as a counter for switchin" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X213E4, type="u8", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X213E4, type="u8", condition="change", action="SPEED_TIMER", no_log=true, desc="Current Player - P-Meter Speed" },
+        { address=0X213E4, type="u8", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+        { address=0X21497, type="u8", condition="change", action="INVINCIBILITY_START", desc="Current Player - Invincibility Frames" },
+      },
+      player = {
+        { address=0X213FB, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Player is frozen flag. This includes controls and animation. Other sprites still move and can in" },
+        { address=0X2186A, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="Used to temporarily store player direction when jumping (for SMB physics)." },
+        { address=0X2188A, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Flag when swimming in lava." },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X20D9C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Used to keep track state of POW block in Mario Bros minigame." },
+        { address=0X213CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Midway Point Check" },
+        { address=0X213CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Used to override the castle/ghost house entrance cutscene after you collect the midway point." },
+        { address=0X21471, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Current Player - Special Object Player is standing on." },
+        { address=0X21F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Switch Palace activation flag." },
+        { address=0X21F28, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Yellow Switch Palace activation flag." },
+        { address=0X21F29, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Blue Switch Palace activation flag." },
+        { address=0X21F2A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Red Switch Palace activation flag." },
+        { address=0XA0077, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Player blocked status - Used to check if player is blocked in a certain direction." },
+        { address=0XA03C7, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[22 Bytes] Objects - OAM Tile Properties of Sprite" },
+        { address=0XA05F2, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Used by special triangle block for player orientation." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X213D3, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="cooldown", timer_direction="unknown", timer_unit="unknown", desc="Pause Menu Cooldown timer" },
+        { address=0X213EF, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Player is on ground flag" },
+        { address=0X214AD, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Player - Blue P-Switch Timer" },
+        { address=0X214AE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Current Player - Silver P-Switch Timer" },
+        { address=0X218D8, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer until player dies from hypothermia if standing still." },
+        { address=0X21B89, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level - Message Box Expansion / Shrinking Timer" },
+        { address=0X21B9F, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Level - Broken Tile Pairs Counter in Reznor Fight" },
+      },
+    },
+  },
+}

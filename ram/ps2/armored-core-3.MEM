@@ -1,0 +1,112 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Armored Core 3",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "armored-core-3",
+    hashes = {
+      { hash = "f92177b18697e5176f89d3bc7582b545", label = "Armored Core 3 (USA)" },
+      { hash = "461cbb0d1361cf24de68509a26fd929e", label = "Armored Core 3 (USA) (Analog) (v1.64) (VanLaser)" },
+      { hash = "1520cc660ffa2238f38d2525ce9eaef2", label = "Armored Core 3 (USA) (Inverted Analog) (v1.64) (VanLaser)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X5BE030, type="u32le", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X5BE125, type="u8", condition="change", action="TITLE_SCREEN", desc="Mail - Ace - (No Title)" },
+        { address=0X5BE126, type="u8", condition="change", action="TITLE_SCREEN", desc="Mail - Royal Mist - (No Title)" },
+        { address=0X5BE127, type="u8", condition="change", action="TITLE_SCREEN", desc="Mail - Valkyrie - (No Title)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X5BE062, type="u8", condition="change", action="NEW_LEVEL", desc="Mission - Defend Testing Grounds" },
+        { address=0X5BE0A2, type="u8", condition="change", action="NEW_LEVEL", desc="Rank - Defend Testing Grounds" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5B56A6, type="u8", condition="bit_true", mask=0X01, action="LOSE_LIFE", desc="Mission concluded (abort, death, win)" },
+        { address=0X5B5922, type="u8", condition="increase", action="GAIN_LIFE", desc="Last Loaded Stage ID (persists until new mission is accepted) increased" },
+        { address=0X5B5922, type="u8", condition="decrease", action="LOSE_LIFE", desc="Last Loaded Stage ID (persists until new mission is accepted) decreased" },
+        { address=0X5BE071, type="u8", condition="increase", action="GAIN_LIFE", desc="Mission - Eradicate Life Forms increased" },
+        { address=0X5BE071, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mission - Eradicate Life Forms decreased" },
+        { address=0X5BE0B1, type="u8", condition="increase", action="GAIN_LIFE", desc="Rank - Eradicate Life Forms increased" },
+        { address=0X5BE0B1, type="u8", condition="decrease", action="LOSE_LIFE", desc="Rank - Eradicate Life Forms decreased" },
+        { address=0X5BE190, type="u8", condition="change", action="LOSE_LIFE", desc="Arena - Adieu" },
+        { address=0X5BE2C7, type="u8", condition="change", action="LOSE_LIFE", desc="Extra Arena - Adieu / Apple Boy" },
+      },
+      health = {
+        { address=0X4F7F64, type="u16le", condition="increase", action="HEAL", desc="Mission - 1st non-player AC health increased" },
+        { address=0X4F7F64, type="u16le", condition="decrease", action="HIT", desc="Mission - 1st non-player AC health decreased" },
+        { address=0X4FAE24, type="u16le", condition="increase", action="HEAL", desc="Mission - 2nd non-player AC health increased" },
+        { address=0X4FAE24, type="u16le", condition="decrease", action="HIT", desc="Mission - 2nd non-player AC health decreased" },
+        { address=0X4FDCE4, type="u16le", condition="increase", action="HEAL", desc="3rd non-player AC health increased" },
+        { address=0X4FDCE4, type="u16le", condition="decrease", action="HIT", desc="3rd non-player AC health decreased" },
+        { address=0X5BE077, type="u8", condition="increase", action="HEAL", desc="Mission - Defend Energy Reactor increased" },
+        { address=0X5BE077, type="u8", condition="decrease", action="HIT", desc="Mission - Defend Energy Reactor decreased" },
+        { address=0X5BE0B7, type="u8", condition="increase", action="HEAL", desc="Rank - Defend Energy Reactor increased" },
+        { address=0X5BE0B7, type="u8", condition="decrease", action="HIT", desc="Rank - Defend Energy Reactor decreased" },
+        { address=0X6C63B8, type="u16le", condition="increase", action="HEAL", desc="Cold Heart health in Defend Ruglen Lab increased" },
+        { address=0X6C63B8, type="u16le", condition="decrease", action="HIT", desc="Cold Heart health in Defend Ruglen Lab decreased" },
+        { address=0X102FDF4, type="u16le", condition="change", action="HEALTH_STATE", desc="Transport health in Escort Transport" },
+        { address=0X102FDF4, type="u16le", condition="eq", value=0X2710, action="HEALTH_STATE", desc="Max" },
+        { address=0X12771BA, type="u8", condition="increase", action="HEAL", desc="HUD Options - Enemy Energy Enabled : 0x01 increased" },
+        { address=0X12771BA, type="u8", condition="decrease", action="HIT", desc="HUD Options - Enemy Energy Enabled : 0x01 decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X12771B8, type="u8", condition="change", action="WEAPON_STATE", desc="HUD Options - Enemy Weapon Enabled : 0x01" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X4F5174, type="u32le", condition="increase", action="COIN_GAIN", desc="Timer. Resets during scripted events. Pauses when paused increased" },
+        { address=0X4F5978, type="u16le", condition="change", action="AMMO_STATE", desc="Right Arm Current Ammo" },
+        { address=0X4F597A, type="u16le", condition="change", action="AMMO_STATE", desc="Right Arm Max Ammo" },
+        { address=0X4F59F8, type="u16le", condition="change", action="AMMO_STATE", desc="Back Unit L Current Ammo" },
+        { address=0X4F5A78, type="u16le", condition="change", action="AMMO_STATE", desc="Right Shoulder Weapon Ammo" },
+        { address=0X4F5AF8, type="u16le", condition="change", action="AMMO_STATE", desc="Inside Component Ammo" },
+        { address=0X50810A, type="u16le", condition="change", action="AMMO_STATE", desc="Left Arm Max Ammo" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5BE067, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Kisaragi Forces" },
+        { address=0X5BE069, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Naire Bridge" },
+        { address=0X5BE06A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Escaping MT" },
+        { address=0X5BE074, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Massive MT" },
+        { address=0X5BE076, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Massive Weapon" },
+        { address=0X5BE07A, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy the AC" },
+        { address=0X5BE07C, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Computer" },
+        { address=0X5BE084, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Gun Emplacements" },
+        { address=0X5BE08F, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Mission - Destroy Germ Canisters" },
+        { address=0X5BE0A7, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Kisaragi Forces" },
+        { address=0X5BE0A9, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Naire Bridge" },
+        { address=0X5BE0AA, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Escaping MT" },
+        { address=0X5BE0B4, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Massive MT" },
+        { address=0X5BE0B6, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Massive Weapon" },
+        { address=0X5BE0BA, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy the AC" },
+        { address=0X5BE0BC, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Computer" },
+        { address=0X5BE0C4, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Gun Emplacements" },
+        { address=0X5BE0CF, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Rank - Destroy Germ Canisters" },
+        { address=0X5F09F0, type="u8", condition="change", action="OBJECT_DESTROYED", desc="Non-AC entities destroyed in current sortie" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X427908, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Time in Stage" },
+        { address=0X4B8250, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", desc="Countdown Timer Minutes" },
+        { address=0X4B8254, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", desc="Countdown Timer Seconds" },
+      },
+    },
+  },
+}

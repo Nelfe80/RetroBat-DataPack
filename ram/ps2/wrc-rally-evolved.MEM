@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "WRC Rally Evolved",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "wrc-rally-evolved",
+    hashes = {
+      { hash = "3ff22473a4ed67ee0e72771b18dc492f", label = "WRC - Rally Evolved (Europe, Australia) (En,Fr,De,Es,It,Pt,No,Fi) (v2.00)" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0X589B20, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left for repairs without penalty, 60000 equals 10 mins" },
+        { address=0X589B28, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Time spent on repairs, 60000 equals 10 mins" },
+      },
+    },
+  },
+}

@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Gamocracy One: Legend of Robot",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "gamocracy-one-legend-of-robot",
+    hashes = {
+      { hash = "bc8cfa66a9d609da0e3c788d19bf8d69", label = "Gamocracy One - Legend of Robot (Europe) (minis) (PSN).iso" },
+      { hash = "46a8f9600bf6d199c6132a2d762a36a0", label = "Gamocracy One - Legend of Robot (USA) (minis) (PSN).iso" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1FFF634, type="u32le", condition="change", action="RANK_STATE", desc="Pointer to current position for menu selection" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XD7D200, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", no_log=true, desc="Current Time Remaining in the level (32bits)" },
+      },
+    },
+  },
+}

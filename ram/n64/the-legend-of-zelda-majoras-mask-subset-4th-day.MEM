@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Legend of Zelda: Majora's Mask [Subset - 4th Day]",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "the-legend-of-zelda-majoras-mask-subset-4th-day",
+    hashes = {
+      { hash = "e54fcb0b39a197b22c470d188fafb934", label = "Legend of Zelda, The - Majora's Mask [Subset - 4th Day].z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X1EF6A4, type="u8", condition="increase", action="HEAL", desc="Link HP increased" },
+        { address=0X1EF6A4, type="u8", condition="decrease", action="HIT", desc="Link HP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1EF6F1, type="u24be", condition="eq", value=0X22, action="MONEY_STATE", desc="Gold Dust" },
+        { address=0X3FD32E, type="u16be", condition="eq", value=0X6A, action="MONEY_STATE", desc="Gold Dust" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X01, action="BOSS_HIT", desc="Odolwa's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Goht's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X04, action="BOSS_HIT", desc="Gyorg's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X08, action="BOSS_HIT", desc="Twinmold's Remains" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Sonata of Awakening" },
+        { address=0X1EF72C, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Goron Lullaby" },
+        { address=0X3E898B, type="u8", condition="bit_true", mask=0X40, action="BOSS_HIT", desc="Chest - Boss Key" },
+        { address=0X3FD32E, type="u16be", condition="eq", value=0X1BA0, action="BOSS_HIT", desc="You Learned the New Wave Bossa Nova!" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="Hero's Shield" },
+        { address=0X1EF6DE, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="Mirror Shield" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1EF680, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Day Time" },
+      },
+    },
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 10",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-10",
+    hashes = {
+      { hash = "af561458b08c41ccb8ad7c6fa6544cf1", label = "10 (World) (v1.1 - Bugfix) (Aftermarket) (Unl).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X1C8368, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level clear" },
+        { address=0X1C836C, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1C8376, type="u8", condition="eq", value=0X17, action="OBJECT_INTERACTION", desc="Telephone collected" },
+        { address=0X1C8376, type="u8", condition="eq", value=0X18, action="OBJECT_INTERACTION", desc="Computer collected" },
+      },
+    },
+  },
+}

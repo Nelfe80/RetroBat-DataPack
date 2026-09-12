@@ -1,0 +1,39 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Tomb Raider: Legend",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "tomb-raider-legend",
+    hashes = {
+      { hash = "40949cc800c7072952cdcfabbf55b610", label = "Lara Croft Tomb Raider - Legend (USA) (En,Fr,De,Es,It).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XD5792, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0XD5792, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0XD56EC, type="u8", condition="change", action="WEAPON_STATE", no_log=true, desc="Touch Screen Weapons" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XD56FC, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="SMG Ammo" },
+        { address=0XD5700, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Shotgun Ammo" },
+        { address=0XD5708, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Excalibur Ammo" },
+        { address=0X149547, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Rewards Total increased" },
+        { address=0X3041D8, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo from current gun equipped" },
+      },
+    },
+  },
+}

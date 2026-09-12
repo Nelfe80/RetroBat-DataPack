@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Double Symbol",
+    system = "sega32x",
+    system_name = "32X",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-double-symbol",
+    hashes = {
+      { hash = "4b14e8c22a97b4fd164e077a4980c582", label = "Double Symbol (World) (v1.35) (Aftermarket) (Timur Lyazgiev).32x" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0088, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X00A0, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0056, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer - Seconds" },
+        { address=0X0058, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Timer - Minutes" },
+      },
+    },
+  },
+}

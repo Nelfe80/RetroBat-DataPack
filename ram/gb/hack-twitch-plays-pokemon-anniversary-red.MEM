@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Twitch Plays Pokémon: Anniversary Red",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-twitch-plays-pokemon-anniversary-red",
+    hashes = {
+      { hash = "2bd5f9c939c7980e5138ac6d9a33c61b", label = "Pokemon - Red Version - Twitch Plays Pokemon - Anniversary Red (v4.7.3c) (TPPDevs).gb" },
+      { hash = "eb543a5e89d688f3f00175ce65e8cff9", label = "Pokemon - Red Version - Twitch Plays Pokemon - Anniversary Red (v4.7.3) (TPPDevs).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD18C, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 1 Level" },
+        { address=0XD1B8, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 2 Level" },
+        { address=0XD1E4, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 3 Level" },
+        { address=0XD210, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 4 Level" },
+        { address=0XD23C, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 5 Level" },
+        { address=0XD268, type="u8", condition="change", action="NEW_LEVEL", desc="Party Pokemon 6 Level" },
+      },
+    },
+  },
+}

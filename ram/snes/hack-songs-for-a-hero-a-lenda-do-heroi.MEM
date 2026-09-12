@@ -1,0 +1,52 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Songs for a Hero | A Lenda do Herói",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-songs-for-a-hero-a-lenda-do-heroi",
+    hashes = {
+      { hash = "e1a4fda6e3f7b704d820aa6a80f261d0", label = "SMW - Songs for a Hero - A Lenda do Herio (Pt) (Muramatsu).sfc" },
+      { hash = "f46eef74bd78ccd64a29028dd5bc4943", label = "SMW - Songs for a Hero - A Lenda do Herio (En) (Muramatsu).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="change", action="PAUSE_OFF", desc="Pause flag for levels, and 'look around the map' flag for the overworld. 00 : off; 01 : on." },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="8-Bit Stage" },
+        { address=0XD33E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Moon in first stage on desert" },
+        { address=0XD33E, type="u8", condition="eq", value=0X25, action="PROGRESSION_STAGE", desc="after piking up" },
+        { address=0XD33E, type="u8", condition="eq", value=0X6E, action="PROGRESSION_STAGE", desc="before picking up" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0071, type="u8", condition="change", action="LOSE_LIFE", desc="Player's animation trigger: 09:Death, 1:shrink, d:enter a door" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="{Lives} increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="{Lives} decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="8-bit Coins increased" },
+        { address=0XD533, type="u8", condition="increase", action="COIN_GAIN", desc="coins in quick sand increased" },
+        { address=0XD534, type="u8", condition="increase", action="COIN_GAIN", desc="coins in quick sand increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0DC0, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Green Block" },
+      },
+    },
+  },
+}

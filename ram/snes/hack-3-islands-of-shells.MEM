@@ -1,0 +1,60 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ 3 Islands of Shells",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-3-islands-of-shells",
+    hashes = {
+      { hash = "c29e9b1a5777828fa8de171ae3ca23a3", label = "SMW - 3 Islands of Shells (v2.0) (Gulaschko).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0100, type="u8", condition="eq", value=0X07, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X0100, type="u8", condition="eq", value=0X0A, action="TITLE_SCREEN", desc="titlel screen fade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="GAME_PLAYING", desc="Level feade out" },
+        { address=0X0100, type="u8", condition="eq", value=0X12, action="GAME_PLAYING", desc="loading level" },
+        { address=0X0100, type="u8", condition="eq", value=0X13, action="GAME_PLAYING", desc="transition into level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="In a level (fully loaded)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0E, action="NEW_LEVEL", desc="Overworld" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="8bit level id" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Intro screen" },
+        { address=0X13BF, type="u8", condition="eq", value=0X28, action="NEW_LEVEL", desc="Yoshi's Camp" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2F, action="NEW_LEVEL", desc="Green Switch" },
+        { address=0X13BF, type="u8", condition="eq", value=0X33, action="NEW_LEVEL", desc="Lapislazuli Cavern" },
+        { address=0X13BF, type="u8", condition="eq", value=0X34, action="NEW_LEVEL", desc="Boo's Castle" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3B, action="NEW_LEVEL", desc="Hot Shells" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3C, action="NEW_LEVEL", desc="Shells in Heaven" },
+        { address=0X13BF, type="u8", condition="eq", value=0X3F, action="NEW_LEVEL", desc="Yellow Switch" },
+        { address=0X13BF, type="u8", condition="eq", value=0X4A, action="NEW_LEVEL", desc="Deep in the Forest" },
+        { address=0X13BF, type="u8", condition="eq", value=0X4C, action="NEW_LEVEL", desc="Dinosaur Meadow" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="Death/In pipe" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="0x01: Green Switch active" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="8-bit Combo kill counter" },
+      },
+    },
+  },
+}

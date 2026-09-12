@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ganryu | Musashi Ganryuki",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "ganryu-musashi-ganryuki",
+    hashes = {
+      { hash = "1af6c152fe011df3ec1301b9b07518df", label = "ganryu.7z <Ganryu / Musashi Ganryuki>" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0852, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="Stage Clear Screen" },
+      },
+      stage = {
+        { address=0X0852, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID?" },
+        { address=0X0852, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1" },
+        { address=0X0852, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="Stage 2 (Assassin)" },
+        { address=0X0852, type="u8", condition="eq", value=0X11, action="PROGRESSION_STAGE", desc="Stage 3 (Ambition)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0480, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player 1 Health" },
+        { address=0X0480, type="u8", condition="eq", value=0X0A, action="HEALTH_STATE", no_log=true, desc="Full" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X0496, type="u8", condition="eq", value=0X1A, action="WEAPON_STATE", desc="Fireballs" },
+        { address=0X0496, type="u8", condition="eq", value=0X1E, action="WEAPON_STATE", desc="Full (30?)" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X04F6, type="u8", condition="eq", value=0X00, action="BOSS_DEFEATED", desc="Dead" },
+        { address=0X70EC, type="u8", condition="eq", value=0X00, action="BOSS_DEFEATED", desc="Dead" },
+      },
+    },
+  },
+}

@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Beef Drop",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-beef-drop",
+    hashes = {
+      { hash = "78b1061d651ef806becac1dd3fda29a0", label = "Beef Drop (NTSC) (Final) (Aftermarket) (AtariAge).a78" },
+      { hash = "aefb78276913e8a166e460222e378fec", label = "Beef Drop (NTSC) (Demo) (Aftermarket) (AtariAge).a78" },
+    }
+  },
+
+  events = {
+  },
+}

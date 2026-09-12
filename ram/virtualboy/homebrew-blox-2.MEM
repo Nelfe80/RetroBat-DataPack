@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ BLOX 2",
+    system = "virtualboy",
+    system_name = "Virtual Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-blox-2",
+    hashes = {
+      { hash = "cc91d6389df2c9777919e8e8ab2c0e66", label = "BLOX 2 (World) (En,Fr,De,Es,It,Sv,Fi,Cs,Sl) (Aftermarket) (Unl).vb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X682A, type="u8", condition="change", action="DEMO_MODE", desc="[80 bytes] Demons/Diamonds Pack Entries" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XFE04, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+      },
+    },
+  },
+}

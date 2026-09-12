@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ultracore",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "ultracore",
+    hashes = {
+      { hash = "9cfa000f071866f439c7acdcf0149fea", label = "Ultracore (USA, Europe) (Switch, PS Vita) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+  },
+}

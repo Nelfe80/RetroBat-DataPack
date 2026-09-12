@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Waimanu: Grinding Blocks Adventure",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "homebrew-waimanu-grinding-blocks-adventure",
+    hashes = {
+      { hash = "dd849fc5fe36531624d152c0d17e4799", label = "Waimanu - Grinding Blocks Adventure (World) (Digital) (Aftermarket) (Unl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1C62, type="u8", condition="bit_true", mask=0X08, action="PAUSE_ON", desc="Start (Pause the Game)" },
+        { address=0X7E5C, type="u8", condition="change", action="TITLE_SCREEN", desc="In title screen" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X2448, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages" },
+        { address=0X2448, type="u8", condition="eq", value=0X20, action="PROGRESSION_STAGE", desc="The End" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X22F0, type="u8", condition="increase", action="GAIN_LIFE", desc="Lifes increased" },
+        { address=0X22F0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lifes decreased" },
+        { address=0X2469, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Alive/Playing" },
+      },
+      health = {
+        { address=0X245C, type="u8", condition="decrease", action="HIT", desc="Power Ups decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1C62, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="B (Cancel and Use Power Up)" },
+        { address=0X245C, type="u8", condition="eq", value=0X42, action="DYNAMIC_INVENTORY", desc="Bombs" },
+        { address=0X245C, type="u8", condition="eq", value=0X48, action="DYNAMIC_INVENTORY", desc="Hole" },
+        { address=0X245C, type="u8", condition="eq", value=0X5B, action="DYNAMIC_INVENTORY", desc="Extra Block" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X22F8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Points [32-bits]" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1C62, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="A (Confirm and Push Blocks)" },
+      },
+    },
+  },
+}

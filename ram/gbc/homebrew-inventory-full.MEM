@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Inventory Full",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-inventory-full",
+    hashes = {
+      { hash = "e9bf8b6977020c869dc5f2d3304961c2", label = "Inventory Full (World) (v1.0.3) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XCB96, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Current Stage [16-bit] (persists after completing mode)" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCB94, type="u16le", condition="increase", action="HEAL", desc="Current HP increased" },
+        { address=0XCB94, type="u16le", condition="decrease", action="HIT", desc="Current HP decreased" },
+      },
+    },
+  },
+}

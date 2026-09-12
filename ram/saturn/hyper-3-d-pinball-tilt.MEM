@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hyper 3-D Pinball | Tilt!",
+    system = "saturn",
+    system_name = "Saturn",
+    genre = "Pinball"
+  },
+
+  rom = {
+    name = "hyper-3-d-pinball-tilt",
+    hashes = {
+      { hash = "fbb5948d10449a6444d1306055a382bf", label = "Hyper 3-D Pinball (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

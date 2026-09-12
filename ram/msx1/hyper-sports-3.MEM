@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Hyper Sports 3",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "hyper-sports-3",
+    hashes = {
+      { hash = "01a2c85070d987a1b83f591e83b5bcfe", label = "Hyper Sports 3 (Japan).rom" },
+    }
+  },
+
+  events = {
+  },
+}

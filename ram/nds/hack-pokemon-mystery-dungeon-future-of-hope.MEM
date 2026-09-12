@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Mystery Dungeon: Future of Hope",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-mystery-dungeon-future-of-hope",
+    hashes = {
+      { hash = "caaa080c616ae0da3091063f69f838d0", label = "PMD Explorers of Sky - Future of Hope (v1.0) (baronessfaron#0).nds" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X193BDA, type="u16le", condition="increase", action="HEAL", desc="Hero Current HP increased" },
+        { address=0X193BDA, type="u16le", condition="decrease", action="HIT", desc="Hero Current HP decreased" },
+        { address=0X193BDC, type="u16le", condition="increase", action="HEAL", desc="Hero Max HP increased" },
+        { address=0X193BDC, type="u16le", condition="decrease", action="HIT", desc="Hero Max HP decreased" },
+        { address=0X193C38, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 2 Max HP increased" },
+        { address=0X193C38, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 2 Max HP decreased" },
+        { address=0X1B5B20, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 2 HP increased" },
+        { address=0X1B5B20, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 2 HP decreased" },
+        { address=0X1B5B22, type="u16le", condition="increase", action="HEAL", desc="Party Pokemon 2 Max HP increased" },
+        { address=0X1B5B22, type="u16le", condition="decrease", action="HIT", desc="Party Pokemon 2 Max HP decreased" },
+        { address=0X1B61E0, type="u16le", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0X1B61E0, type="u16le", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+      },
+    },
+  },
+}

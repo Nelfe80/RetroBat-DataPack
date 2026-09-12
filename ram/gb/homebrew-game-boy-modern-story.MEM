@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Game Boy Modern Story",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-game-boy-modern-story",
+    hashes = {
+      { hash = "564c42ae36eda32359cee3021ef17c11", label = "Game Boy Modern Story (World) (v2020-11-02) (Aftermarket) (GB Studio).gb" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC6AC, type="u16le", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title" },
+        { address=0XC6AC, type="u16le", condition="eq", value=0X05, action="GAME_OVER", desc="Game Over" },
+        { address=0XC6AC, type="u16le", condition="eq", value=0X1C, action="CREDITS_SCREEN", desc="Credits 1" },
+        { address=0XC6AC, type="u16le", condition="eq", value=0X1D, action="CREDITS_SCREEN", desc="Credits 2" },
+        { address=0XC6AC, type="u16le", condition="eq", value=0X23, action="CREDITS_SCREEN", desc="Credits 3" },
+        { address=0XCCC0, type="u8", condition="change", action="DEMO_MODE", desc="Demon Orb total" },
+        { address=0XCCD2, type="u8", condition="change", action="DEMO_MODE", desc="Defeat Demon with Cross [bit 0]" },
+        { address=0XCD4D, type="u8", condition="change", action="DEMO_MODE", desc="Get Demon Orb [bit 0]" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XCCBD, type="u8", condition="change", action="LOSE_LIFE", desc="Dead Branch total" },
+        { address=0XCD2B, type="u8", condition="change", action="LOSE_LIFE", desc="DEATH: Give Demon Orb to the Demon [bit 0]" },
+        { address=0XCD46, type="u8", condition="change", action="LOSE_LIFE", desc="DEAD BRANCH [bit 0]" },
+        { address=0XCD49, type="u8", condition="change", action="LOSE_LIFE", desc="Throw away Dead Branch [bit 0]" },
+        { address=0XCD4E, type="u8", condition="change", action="LOSE_LIFE", desc="DEATH: Take Demon Orb without Apple [bit 0]" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCCCE, type="u8", condition="increase", action="COIN_GAIN", desc="Money Total increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCD4F, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Switch Orb with Apple [bit 0]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Rock Band 2 DX: Guitar Hero Live",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-rock-band-2-dx-guitar-hero-live",
+    hashes = {
+      { hash = "850a5b5f4559d911f08a25eee6008027", label = "Rock Band 2 DX - Guitar Hero Live (v1.0) (Proyecto Dj Yohan)" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X77CA94, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] DX Settings | Track Theme - Score" },
+      },
+    },
+  },
+}

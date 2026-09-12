@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Castle Wars",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-castle-wars",
+    hashes = {
+      { hash = "4c90afa3879e307b0cc106d7997cec40", label = "Castle Wars (World) (v0.9) (Aftermarket) (Cravesoft).nds" },
+    }
+  },
+
+  events = {
+  },
+}

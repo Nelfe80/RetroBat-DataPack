@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Lift",
+    system = "atari7800",
+    system_name = "Atari 7800",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-lift",
+    hashes = {
+      { hash = "6765d3723f4256d680d374327f9aa42c", label = "Lift (World) (v20240711) (Aftermarket) (Inufuto).a78" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1B6D, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[8 Bit] Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B6C, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] Total Lives increased" },
+        { address=0X1B6C, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] Total Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1B68, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Current Score" },
+        { address=0X1B6A, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] High Score" },
+      },
+    },
+  },
+}

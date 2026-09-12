@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "5 Star Racing",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "5-star-racing",
+    hashes = {
+      { hash = "c33c78ce14734a20a527fdb310b65e17", label = "5 Star Racing (Europe)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1B7E04, type="u8", condition="change", action="PAUSE_ON", desc="0x01:Pause" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1B7CC0, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Full Timer" },
+        { address=0X1CBC94, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Lap Timer" },
+        { address=0X1CBC98, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Lap Time Minutes" },
+        { address=0X1CBC9C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Lap Time Seconds" },
+        { address=0X1CBCA0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Lap Time Miliseconds" },
+      },
+    },
+  },
+}

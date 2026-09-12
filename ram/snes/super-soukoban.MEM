@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Soukoban",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "super-soukoban",
+    hashes = {
+      { hash = "51c520d15881538d67398ba63f56e0ba", label = "Super Soukoban (Japan).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0BC0, type="u8", condition="change", action="NEW_LEVEL", desc="selected level in menu" },
+      },
+      stage = {
+        { address=0X0B90, type="u8", condition="change", action="PROGRESSION_STAGE", desc="current stage" },
+      },
+    },
+  },
+}

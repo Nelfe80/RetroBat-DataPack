@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Prototype~ The Wit.nes",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-prototype-the-witnes",
+    hashes = {
+      { hash = "24f97a313b03ba9a3bee578ad7015f19", label = "Wit.nes, The (World) (Demo) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

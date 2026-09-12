@@ -1,0 +1,74 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cocoto Funfair",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "cocoto-funfair",
+    hashes = {
+      { hash = "30abfab382c952a1ed3b0fcf23685b45", label = "Cocoto Funfair (Europe) (En,Fr,De,Es,It)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X2189A8, type="u32be", condition="eq", value=0X01, action="NEW_LEVEL", desc="In level" },
+        { address=0X22F234, type="u32be", condition="change", action="NEW_LEVEL", desc="[32-bit BE] Level" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X00, action="NEW_LEVEL", desc="Protect Fairy" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X01, action="NEW_LEVEL", desc="Ball-trap" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X02, action="NEW_LEVEL", desc="One shot" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X04, action="NEW_LEVEL", desc="Explosive ball" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X05, action="NEW_LEVEL", desc="Kill the bad guys" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X06, action="NEW_LEVEL", desc="Targets and traps / Bonus" },
+        { address=0X22F234, type="u32be", condition="eq", value=0X07, action="NEW_LEVEL", desc="Targets and models" },
+      },
+      zone = {
+        { address=0X22F230, type="u32be", condition="change", action="PROGRESSION_ZONE", desc="[32-bit BE] World" },
+        { address=0X22F230, type="u32be", condition="eq", value=0X00, action="PROGRESSION_ZONE", desc="Abyss" },
+        { address=0X22F230, type="u32be", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Volcano" },
+        { address=0X22F230, type="u32be", condition="eq", value=0X02, action="PROGRESSION_ZONE", desc="Atlantis" },
+        { address=0X22F230, type="u32be", condition="eq", value=0X03, action="PROGRESSION_ZONE", desc="Jungle" },
+        { address=0X22F230, type="u32be", condition="eq", value=0X04, action="PROGRESSION_ZONE", desc="Heaven" },
+        { address=0X22F230, type="u32be", condition="eq", value=0XFFFFFFFF, action="PROGRESSION_ZONE", desc="Game beaten" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X22EC98, type="u32be", condition="increase", action="GAIN_LIFE", desc="[32-bit BE] Lives remaining increased" },
+        { address=0X22EC98, type="u32be", condition="decrease", action="LOSE_LIFE", desc="[32-bit BE] Lives remaining decreased" },
+        { address=0X258424, type="u32be", condition="increase", action="GAIN_LIFE", desc="[32-bit BE] Lives remaining at end of game increased" },
+        { address=0X258424, type="u32be", condition="decrease", action="LOSE_LIFE", desc="[32-bit BE] Lives remaining at end of game decreased" },
+        { address=0X258428, type="u32be", condition="increase", action="GAIN_LIFE", desc="[32-bit BE] Life bonus at end of game increased" },
+        { address=0X258428, type="u32be", condition="decrease", action="LOSE_LIFE", desc="[32-bit BE] Life bonus at end of game decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X22EC94, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Total score" },
+        { address=0X22EDCC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Goal score" },
+        { address=0X22F17C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Records - Rank 1 Score" },
+        { address=0X22F188, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Records - Rank 2 Score" },
+        { address=0X22F194, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Records - Rank 3 Score" },
+        { address=0X22F1A0, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Records - Rank 4 Score" },
+        { address=0X22F1AC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Records - Rank 5 Score" },
+        { address=0X258338, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Precision score" },
+        { address=0X25833C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Time score" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X22F234, type="u32be", condition="eq", value=0X03, action="BOSS_HIT", desc="Shoot the boss" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X22F068, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="second", desc="[32-bit BE] Time passed in current level in milliseconds" },
+      },
+    },
+  },
+}

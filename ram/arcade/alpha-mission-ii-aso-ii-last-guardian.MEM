@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Alpha Mission II | ASO II: Last Guardian",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "alpha-mission-ii-aso-ii-last-guardian",
+    hashes = {
+      { hash = "7c13e7edb880e027dffd83dcf522730a", label = "alpham2.7z <Alpha Mission II / ASO II - Last Guardian (NGM-007)(NGH-007)>" },
+      { hash = "f6e6ccb22ebbe8fb1dd9d50a6ee063d1", label = "alpham2p.7z <>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XFD88, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - continue" },
+        { address=0XFD8C, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - toggle demo sound" },
+        { address=0XFDC6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDC6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+        { address=0XFDC7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
+        { address=0XFDC7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X02A6, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear sequence flag" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X10F3, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 Lives increased" },
+        { address=0X10F3, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 Lives decreased" },
+        { address=0XFD89, type="u8", condition="increase", action="GAIN_LIFE", desc="Soft Dip Setup - lives increased" },
+        { address=0XFD89, type="u8", condition="decrease", action="LOSE_LIFE", desc="Soft Dip Setup - lives decreased" },
+        { address=0XFD89, type="u8", condition="eq", value=0X01, action="LIVES_STATE", desc="1(min)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3(default)" },
+        { address=0XFD89, type="u8", condition="eq", value=0X63, action="LIVES_STATE", desc="99(max)" },
+      },
+      health = {
+        { address=0X10DC, type="u8", condition="increase", action="HEAL", desc="P1 Energy increased" },
+        { address=0X10DC, type="u8", condition="decrease", action="HIT", desc="P1 Energy decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X10A8, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X10B0, type="u16le", condition="increase", action="COIN_GAIN", desc="(16bit) Credits (money) increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X02AD, type="u8", condition="change", action="BOSS_HIT", desc="Boss area flag" },
+      },
+    },
+  },
+}

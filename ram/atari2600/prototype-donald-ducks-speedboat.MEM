@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Donald Duck's Speedboat",
+    system = "atari2600",
+    system_name = "Atari 2600",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "prototype-donald-ducks-speedboat",
+    hashes = {
+      { hash = "937736d899337036de818391a87271e0", label = "Donald Duck's Speedboat (USA) (Proto).a26" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0002, type="u8", condition="eq", value=0XFE, action="TITLE_SCREEN", desc="Titlescreen (With Score)" },
+        { address=0X0002, type="u8", condition="eq", value=0XFF, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+  },
+}

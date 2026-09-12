@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Cooking Princess",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-cooking-princess",
+    hashes = {
+      { hash = "18ae5a7a467ba6b351b3e00ddb82f1ed", label = "Paper Mario - Cooking Princess (elDexter) (1.0).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XA094A, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="In game" },
+        { address=0XA094A, type="u8", condition="eq", value=0X02, action="DEMO_MODE", desc="Game Booting" },
+        { address=0X356000, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X40BF03, type="u8", condition="change", action="PAUSE_ON", desc="Pause Byteflag" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X408D23, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Ingredient" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X356038, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level 1 - Highscore" },
+        { address=0X35603C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level 3 - Highscore" },
+        { address=0X35603E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level 2 - Highscore" },
+        { address=0X356040, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level 5 - Highscore" },
+        { address=0X356042, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Level 4 - Highscore" },
+        { address=0X40DA64, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="Current Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X40DA60, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Time Left - Millisecs" },
+        { address=0X40DA61, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="second", no_log=true, desc="Time Left - Secs" },
+        { address=0X40DA62, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="minute", no_log=true, desc="Time Left - Minutes" },
+      },
+    },
+  },
+}

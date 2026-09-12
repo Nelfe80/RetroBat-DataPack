@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros. R",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-r",
+    hashes = {
+      { hash = "245678d1f7856edc9865c7f1282e8243", label = "SMW - Super Mario Bros. R  An 8-Bit Like Hack (LMPuny).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2003, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+        { address=0X143FC, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0051, type="u8", condition="change", action="NEW_LEVEL", desc="ff : In Level" },
+        { address=0X0DD5, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Complete Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (Minus One) increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (Minus One) decreased" },
+        { address=0X16E6, type="u8", condition="increase", action="GAIN_LIFE", desc="1UP on flag : 0d increased" },
+        { address=0X16E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="1UP on flag : 0d decreased" },
+        { address=0X18E4, type="u8", condition="increase", action="GAIN_LIFE", desc="Collecting 1UP increased" },
+        { address=0X18E4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Collecting 1UP decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X212C, type="u8", condition="eq", value=0X01, action="MONEY_STATE", desc="First" },
+        { address=0X212C, type="u8", condition="eq", value=0X02, action="MONEY_STATE", desc="Second" },
+        { address=0X212C, type="u8", condition="eq", value=0X03, action="MONEY_STATE", desc="First and Second" },
+        { address=0X212C, type="u8", condition="eq", value=0X04, action="MONEY_STATE", desc="Third" },
+        { address=0X212C, type="u8", condition="eq", value=0X05, action="MONEY_STATE", desc="First and Third" },
+        { address=0X212C, type="u8", condition="eq", value=0X06, action="MONEY_STATE", desc="Second and Third" },
+        { address=0X212C, type="u8", condition="eq", value=0X07, action="MONEY_STATE", desc="All Coins" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Start at Checkpoint" },
+        { address=0X20006, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Overworld Event Flag (Bit6:Checkpoint Active)" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Deep Dungeon Adventure",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-deep-dungeon-adventure",
+    hashes = {
+      { hash = "7a99efa93c475b1200975f9c36fa22a2", label = "Deep Dungeon Adventure (World) (Aftermarket) (Unl).rom" },
+    }
+  },
+
+  events = {
+  },
+}

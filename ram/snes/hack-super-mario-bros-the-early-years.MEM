@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Bros: The Early Years",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-bros-the-early-years",
+    hashes = {
+      { hash = "0d286f6adbee71da2154fb2ede35783b", label = "SMW - Super Mario Bros - The Early Years (Fixed) (Gamma V).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X13D4, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+        { address=0X13D4, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Paused" },
+      },
+      events = {
+        { address=0X1697, type="u8", condition="change", action="COMBO_HIT", desc="Combo memory for hit a ennemi" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Fading to level" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID indicator" },
+        { address=0X1411, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Any Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Total Counts increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Total Counts decreased" },
+        { address=0X0DC0, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of remaining coins to activate green block 1-UP increased" },
+        { address=0X0DC0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of remaining coins to activate green block 1-UP decreased" },
+      },
+      health = {
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="HIT", desc="Death" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Total Counts increased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X1ECA, type="u8", condition="change", action="BOSS_HIT", desc="boss final" },
+        { address=0X1ECB, type="u8", condition="change", action="BOSS_HIT", desc="boss final (real)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X00CE, type="u16le", condition="change", action="DOOR_OPENED", desc="Enter pipe or door to get next room -> 16-bit !!!" },
+        { address=0X13CF, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Start at checkpoint" },
+      },
+    },
+  },
+}

@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Cosmic Fantasy 3: Bouken Shounen Rei",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "cosmic-fantasy-3-bouken-shounen-rei",
+    hashes = {
+      { hash = "4b6cccb6ed4582ff451b3be2e3d409db", label = "Cosmic Fantasy 3 - Bouken Shounen Rei (Japan)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X030D, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0319, type="u8", condition="increase", action="HEAL", desc="[8bit] Current HP increased" },
+        { address=0X0319, type="u8", condition="decrease", action="HIT", desc="[8bit] Current HP decreased" },
+        { address=0X031A, type="u8", condition="increase", action="HEAL", desc="[8bit] Current HP #*256 increased" },
+        { address=0X031A, type="u8", condition="decrease", action="HIT", desc="[8bit] Current HP #*256 decreased" },
+      },
+    },
+  },
+}

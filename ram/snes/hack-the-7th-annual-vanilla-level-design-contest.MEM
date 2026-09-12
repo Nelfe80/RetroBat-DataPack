@@ -1,0 +1,67 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The 7th Annual Vanilla Level Design Contest",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-7th-annual-vanilla-level-design-contest",
+    hashes = {
+      { hash = "a7bcd665da8b839600dfe22c46623ce1", label = "SMW - 7th Annual Vanilla Level Design Contest, The (SMW Central).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1EDB, type="u8", condition="change", action="TITLE_SCREEN", desc="bit 7 : Untitled Joyride (ICE)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X008B, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld Level Passed" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="In level" },
+        { address=0X0906, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level clear check" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="Complete any stage. Value is 01 when a normal exit is used and value is 02 when a keyhole is use" },
+        { address=0X0DDA, type="u8", condition="change", action="NEW_LEVEL", desc="background music" },
+        { address=0X1EEE, type="u8", condition="change", action="NEW_LEVEL", desc="bit 7 : NONSENS ZONE (NIGHT)" },
+        { address=0X1F16, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld 1" },
+        { address=0X1F20, type="u8", condition="change", action="NEW_LEVEL", desc="Overworld" },
+      },
+      zone = {
+        { address=0X1EE5, type="u8", condition="change", action="PROGRESSION_ZONE", desc="bit 7 : Winter Wrap World (ICE)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X16E6, type="u8", condition="increase", action="GAIN_LIFE", desc="Get 1-UP increased" },
+        { address=0X16E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Get 1-UP decreased" },
+        { address=0X1ECC, type="u8", condition="change", action="LOSE_LIFE", desc="bit 7 : Vanilla Death Keep (BOTTOM 8)" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X1EEC, type="u8", condition="change", action="TREASURE", desc="bit 7 : Emerald Grotto (CAVE)" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="Coins increased" },
+        { address=0X1420, type="u8", condition="increase", action="COIN_GAIN", desc="Dragon Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1EFB, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 7 : Yellow Switch Palace (ICE)" },
+        { address=0X1EFC, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 7 : Green Switch Palace (MOUNTAIN)" },
+        { address=0X1EFD, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 7 : Red Switch Palace (CASTLES)" },
+        { address=0X1EFE, type="u8", condition="change", action="OBJECT_INTERACTION", desc="bit 7 : Blue Switch Palace (CAVE)" },
+      },
+    },
+  },
+}

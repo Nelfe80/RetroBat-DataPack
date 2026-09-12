@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Doki Doki Mario 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-doki-doki-mario-64",
+    hashes = {
+      { hash = "48e3d77e5bc954e06703f7e0c77f35d5", label = "Doki Doki Mario 64 (Hack) (Kaze Emanuar).z64" },
+    }
+  },
+
+  events = {
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u8", condition="increase", action="COIN_GAIN", desc="Coins collected increased" },
+        { address=0X33D5DC, type="u8", condition="increase", action="COIN_GAIN", desc="Timer [pauses on pause and talking to people, resets on entering a different level, dying, etc.]" },
+        { address=0X33FE3C, type="u8", condition="increase", action="COIN_GAIN", desc="Timer [pauses on pause, resets on entering a different level, dying, etc.] increased" },
+      },
+    },
+  },
+}

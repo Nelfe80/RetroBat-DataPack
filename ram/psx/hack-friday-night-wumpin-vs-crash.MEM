@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Friday Night Wumpin' Vs. Crash",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-friday-night-wumpin-vs-crash",
+    hashes = {
+      { hash = "fdb3524e871a8d10c8a2f3e63d2cd638", label = "PSXFunkin' - Friday Night Wumpin' Vs. Crash (Lord Scout)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1E436C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E436C, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X1E436D, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1E436D, type="u8", condition="eq", value=0X05, action="CREDITS_SCREEN", desc="Credits" },
+      },
+      events = {
+        { address=0X1E4526, type="u16le", condition="change", action="COMBO_HIT", desc="[16 Bit] Combo" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1E4524, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Dead" },
+      },
+      health = {
+        { address=0X1E4524, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="[16 Bit] Player's HP" },
+        { address=0X1E4524, type="u16le", condition="eq", value=0X4E20, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1E4528, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1E44FA, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[16 Bit] Song Duration" },
+      },
+    },
+  },
+}

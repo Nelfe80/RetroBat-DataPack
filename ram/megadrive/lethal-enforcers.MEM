@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Lethal Enforcers",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "lethal-enforcers",
+    hashes = {
+      { hash = "849d73aedfd102fae1adc762bfbb6dcd", label = "Lethal Enforcers (USA).md" },
+    }
+  },
+
+  events = {
+  },
+}

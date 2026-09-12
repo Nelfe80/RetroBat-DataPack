@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Escape From Island",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-escape-from-island",
+    hashes = {
+      { hash = "77efd547039fd8a7d5ec6c61287abd3d", label = "Escape From Island (World) (v1.0) (Aftermarket) (Unl) (Ben2303).nds" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X1EB768, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object Data - Flame of Statue - Screen Coordinates [32bit]" },
+        { address=0X1EB9C8, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object Data - Brown Key - Screen Coordinates [32bit]" },
+        { address=0X1EBA48, type="u32le", condition="change", action="OBJECT_INTERACTION", desc="Object Data - Bear in Forest Cave - Screen Coordinates [32bit]" },
+      },
+    },
+  },
+}

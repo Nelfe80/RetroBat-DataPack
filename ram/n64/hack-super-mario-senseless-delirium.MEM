@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Mario Senseless Delirium",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-mario-senseless-delirium",
+    hashes = {
+      { hash = "f6e451fb2c3af81b4f4e102a5b75b182", label = "SM64 - Super Mario Senseless Delirium (v1.0.3) (Redmat527).z64" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X33B21D, type="u8", condition="increase", action="HEAL", desc="Current Health [8bit] increased" },
+        { address=0X33B21D, type="u8", condition="decrease", action="HIT", desc="Current Health [8bit] decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X33B21A, type="u16be", condition="increase", action="COIN_GAIN", desc="Current Coins [16bit] increased" },
+      },
+    },
+  },
+}

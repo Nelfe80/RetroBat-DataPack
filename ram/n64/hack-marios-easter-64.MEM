@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Easter 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-easter-64",
+    hashes = {
+      { hash = "2c008352c1b3fb20dc59ca40508262d5", label = "SM64 - Mario's Easter 64 (v1.0) (Devpool).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1B19CB, type="u8", condition="bit_true", mask=0X02, action="PAUSE_ON", desc="Paused?" },
+        { address=0X1B19CB, type="u8", condition="bit_true", mask=0X04, action="PAUSE_ON", desc="Load Level?" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1B26E6, type="u8", condition="increase", action="GAIN_LIFE", desc="Mario's Life Count (Irrelevant: unlimited lives this game) increased" },
+        { address=0X1B26E6, type="u8", condition="decrease", action="LOSE_LIFE", desc="Mario's Life Count (Irrelevant: unlimited lives this game) decreased" },
+      },
+      health = {
+        { address=0X1B26E5, type="u8", condition="increase", action="HEAL", desc="Mario's Remaining Health increased" },
+        { address=0X1B26E5, type="u8", condition="decrease", action="HIT", desc="Mario's Remaining Health decreased" },
+      },
+    },
+  },
+}

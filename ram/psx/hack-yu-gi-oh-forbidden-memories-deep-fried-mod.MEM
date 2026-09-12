@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Yu-Gi-Oh! Forbidden Memories: Deep Fried Mod",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-yu-gi-oh-forbidden-memories-deep-fried-mod",
+    hashes = {
+      { hash = "9a66dbbd63d2b1f703a7e6b4405cbac8", label = "Yu-Gi-Oh! Forbidden Memories - Deep Fried Mod (v1.1.0) (Hdot, Mentro)" },
+    }
+  },
+
+  events = {
+  },
+}

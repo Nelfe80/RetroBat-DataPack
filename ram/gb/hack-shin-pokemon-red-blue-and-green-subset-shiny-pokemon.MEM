@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shin Pokémon Red, Blue, and Green [Subset - Shiny Pokémon]",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shin-pokemon-red-blue-and-green-subset-shiny-pokemon",
+    hashes = {
+      { hash = "64d2e3dd5b33d3c8a61ab762c962683b", label = "Pokemon Red - Shin Pokemon Red (v1.25.0.260318) (jojobear13) [Subset - Shiny Pokemon].gb" },
+      { hash = "d4efcd2da823484f7ade154858415208", label = "Pokemon Blue - Shin Pokemon Blue (v1.25.0.260318) (jojobear13) [Subset - Shiny Pokemon].gb" },
+      { hash = "c7f9854029de65757b4b42ba4ee31b66", label = "Pokemon Blue - Shin Pokemon Green (v1.25.0.260318) (jojobear13) [Subset - Shiny Pokemon].gb" },
+      { hash = "2307287d1a5ea5e49bc80d5e4599f43c", label = "Pokemon Red - Shin Pokemon Red-JP (v1.25.0.260318) (jojobear13) [Subset - Shiny Pokemon].gb" },
+      { hash = "86ace1f244eb1b352981bb22213c70bd", label = "Pokemon Blue - Shin Pokemon Blue-JP (v1.25.0.260318) (jojobear13) [Subset - Shiny Pokemon].gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCF92, type="u8", condition="increase", action="HEAL", desc="[wWhichPokemon] increased" },
+        { address=0XCF92, type="u8", condition="decrease", action="HIT", desc="[wWhichPokemon] decreased" },
+      },
+    },
+  },
+}

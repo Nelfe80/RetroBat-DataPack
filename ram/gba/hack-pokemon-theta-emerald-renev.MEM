@@ -1,0 +1,71 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon Theta Emerald Renev",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-theta-emerald-renev",
+    hashes = {
+      { hash = "463515a7c47e716cb66c92b5d8857cf2", label = "Pokemon - Emerald Version - Theta Emerald Renev (LCCoolJ95).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7427, type="u8", condition="change", action="PAUSE_ON", desc="Pause music flag : bit7 (used to play short fanfares)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2C540, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 1 Level" },
+        { address=0X2C5A4, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 2 Level" },
+        { address=0X2C608, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 3 Level" },
+        { address=0X2C66C, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 4 Level" },
+        { address=0X2C6D0, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 5 Level" },
+        { address=0X2C734, type="u8", condition="change", action="NEW_LEVEL", desc="Pokemon 6 Level" },
+      },
+      stage = {
+        { address=0X5D60, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Battle Stage (16-bit)" },
+        { address=0X5D60, type="u16le", condition="eq", value=0X7589, action="PROGRESSION_STAGE", desc="Pokemon out, choose between Fight, Bag, Pokemon and Run." },
+        { address=0X2C0A5, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Normal, 01:Fighting, 02:Flying, 03:Poison, 04:Ground, 05:Rock, 06:Bug, 07:Ghost, 08:Steel, 0a:Fi" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X2C104, type="u8", condition="increase", action="HEAL", desc="Enemy Pokemon (Right in double battle) Current HP increased" },
+        { address=0X2C104, type="u8", condition="decrease", action="HIT", desc="Enemy Pokemon (Right in double battle) Current HP decreased" },
+        { address=0X2C1B4, type="u8", condition="increase", action="HEAL", desc="Enemy Pokemon (Left in double battle) Current HP increased" },
+        { address=0X2C1B4, type="u8", condition="decrease", action="HIT", desc="Enemy Pokemon (Left in double battle) Current HP decreased" },
+        { address=0X2C542, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 Current HP increased" },
+        { address=0X2C542, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 Current HP decreased" },
+        { address=0X2C544, type="u8", condition="increase", action="HEAL", desc="Pokemon 1 Max HP increased" },
+        { address=0X2C544, type="u8", condition="decrease", action="HIT", desc="Pokemon 1 Max HP decreased" },
+        { address=0X2C5A6, type="u8", condition="increase", action="HEAL", desc="Pokemon 2 Current HP increased" },
+        { address=0X2C5A6, type="u8", condition="decrease", action="HIT", desc="Pokemon 2 Current HP decreased" },
+        { address=0X2C5A8, type="u8", condition="increase", action="HEAL", desc="Pokemon 2 Max HP increased" },
+        { address=0X2C5A8, type="u8", condition="decrease", action="HIT", desc="Pokemon 2 Max HP decreased" },
+        { address=0X2C60A, type="u8", condition="increase", action="HEAL", desc="Pokemon 3 Current HP increased" },
+        { address=0X2C60A, type="u8", condition="decrease", action="HIT", desc="Pokemon 3 Current HP decreased" },
+        { address=0X2C60C, type="u8", condition="increase", action="HEAL", desc="Pokemon 3 Max HP increased" },
+        { address=0X2C60C, type="u8", condition="decrease", action="HIT", desc="Pokemon 3 Max HP decreased" },
+        { address=0X2C66E, type="u8", condition="increase", action="HEAL", desc="Pokemon 4 Curent HP increased" },
+        { address=0X2C66E, type="u8", condition="decrease", action="HIT", desc="Pokemon 4 Curent HP decreased" },
+        { address=0X2C670, type="u8", condition="increase", action="HEAL", desc="Pokemon 4 Max HP increased" },
+        { address=0X2C670, type="u8", condition="decrease", action="HIT", desc="Pokemon 4 Max HP decreased" },
+        { address=0X2C6D2, type="u8", condition="increase", action="HEAL", desc="Pokemon 5 Current HP increased" },
+        { address=0X2C6D2, type="u8", condition="decrease", action="HIT", desc="Pokemon 5 Current HP decreased" },
+        { address=0X2C6D4, type="u8", condition="increase", action="HEAL", desc="Pokemon 5 Max HP increased" },
+        { address=0X2C6D4, type="u8", condition="decrease", action="HIT", desc="Pokemon 5 Max HP decreased" },
+        { address=0X2C736, type="u8", condition="increase", action="HEAL", desc="Pokemon 6 Current HP increased" },
+        { address=0X2C736, type="u8", condition="decrease", action="HIT", desc="Pokemon 6 Current HP decreased" },
+        { address=0X2C738, type="u8", condition="increase", action="HEAL", desc="Pokemon 6 Max HP increased" },
+        { address=0X2C738, type="u8", condition="decrease", action="HIT", desc="Pokemon 6 Max HP decreased" },
+      },
+    },
+  },
+}

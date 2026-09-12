@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Ryuthela",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "homebrew-ryuthela",
+    hashes = {
+      { hash = "78e224b0448c7dbfc9dfccf3e933bc21", label = "Ryuthela (World) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X005C, type="u8", condition="change", action="PAUSE_ON", desc="Pause Flag [8bit]" },
+        { address=0X0064, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Activated (Yamame Moves Automatically)" },
+        { address=0X00C2, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+        { address=0X79E6, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="In-Game (Applies to Demo)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00C2, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (Internal) [8bit] increased" },
+        { address=0X00C2, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (Internal) [8bit] decreased" },
+        { address=0X2D30, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (Displayed) [8bit] increased" },
+        { address=0X2D30, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (Displayed) [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X007C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Higher 4 Digits) [16bit]" },
+        { address=0X007E, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (Lower 4 Digits) [16bit]" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X0074, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health [8bit]" },
+        { address=0X0086, type="u8", condition="change", action="BOSS_HIT", desc="Pre-Boss Level Orbs Left to Shoot [8bit]" },
+        { address=0X1CA4, type="u8", condition="change", action="BOSS_HIT", desc="Boss Health (Can be Manipulated) [8bit]" },
+      },
+    },
+  },
+}

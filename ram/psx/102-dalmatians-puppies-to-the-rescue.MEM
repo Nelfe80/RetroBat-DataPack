@@ -1,0 +1,96 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "102 Dalmatians: Puppies to the Rescue",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "102-dalmatians-puppies-to-the-rescue",
+    hashes = {
+      { hash = "a8cfa5cc331d972eeb3c11ff6825b453", label = "Disney's 102 Dalmatians - Puppies to the Rescue (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7C170, type="u24le", condition="eq", value=0XD7728, action="TITLE_SCREEN", desc="Title Screen/Main Menu" },
+        { address=0X7CA66, type="u8", condition="change", action="DEMO_MODE", desc="Upcoming Demo Mode level." },
+        { address=0X7CB52, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X7CB52, type="u8", condition="eq", value=0X08, action="GAME_PLAYING", desc="Level Select" },
+        { address=0X7CB52, type="u8", condition="eq", value=0X0A, action="GAME_PLAYING", desc="In-level" },
+        { address=0X7CBF0, type="u24le", condition="eq", value=0XCA360, action="DEMO_MODE", desc="Active" },
+        { address=0X7E678, type="u8", condition="change", action="PAUSE_ON", desc="Pause screen." },
+        { address=0X15D478, type="u8", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X7C184, type="u32le", condition="change", action="NEW_LEVEL", desc="Value increases semi-randomly while in a load screen. Loading a new area within a level doesn't" },
+        { address=0X7CAFE, type="u8", condition="change", action="NEW_LEVEL", desc="[Bits 5-0] Puppies rescued in current level." },
+        { address=0X7CAFF, type="u8", condition="change", action="NEW_LEVEL", desc="Highest number of bones collected in current level." },
+        { address=0X7CB51, type="u8", condition="change", action="NEW_LEVEL", desc="Next level to be loaded." },
+        { address=0X7E1E8, type="u32le", condition="change", action="NEW_LEVEL", desc="Post-level screen." },
+        { address=0X7E22C, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag for collecting every bone." },
+        { address=0X7E230, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag for rescuing every puppy." },
+        { address=0X7E234, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag Bit0." },
+        { address=0X7E238, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag Bit1." },
+        { address=0X7E248, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag Bit2." },
+        { address=0X7E24C, type="u32le", condition="change", action="NEW_LEVEL", desc="In-level sticker flag Bit3." },
+        { address=0X7E5F8, type="u8", condition="change", action="NEW_LEVEL", desc="Number of levels beaten." },
+        { address=0X7E5F8, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="All levels beaten, all levels/minigames unlocked." },
+        { address=0X7E605, type="u8", condition="change", action="NEW_LEVEL", desc="[Bits 5-0] Puppies rescued in The Underground." },
+        { address=0X7E615, type="u8", condition="change", action="NEW_LEVEL", desc="[Bits 3-0] Stickers obtained in The Underground." },
+        { address=0X7E625, type="u8", condition="change", action="NEW_LEVEL", desc="Bone count for The Underground." },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X11C404, type="u32le", condition="increase", action="HEAL", desc="Cruella I HP. increased" },
+        { address=0X11C404, type="u32le", condition="decrease", action="HIT", desc="Cruella I HP. decreased" },
+        { address=0X1223EC, type="u32le", condition="increase", action="HEAL", desc="Cruella III HP. increased" },
+        { address=0X1223EC, type="u32le", condition="decrease", action="HIT", desc="Cruella III HP. decreased" },
+        { address=0X12D15C, type="u32le", condition="increase", action="HEAL", desc="Cruella IV (final phase) HP. increased" },
+        { address=0X12D15C, type="u32le", condition="decrease", action="HIT", desc="Cruella IV (final phase) HP. decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X10B4C4, type="u16le", condition="eq", value=0X02, action="SCORE_STATE", desc="2P/Points" },
+      },
+      collectibles = {
+        { address=0X187CC8, type="u32le", condition="increase", action="COIN_GAIN", desc="(Ice Race) [32-Bit] Number of characters you've earned a gold medal with. Tied to character unlo" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X169BA0, type="u32le", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X169BA0, type="u32le", condition="change", action="SPEED_TIMER", no_log=true, desc="(Minigolf) [32-Bit] Power meter direction." },
+        { address=0X169BA0, type="u32le", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+        { address=0X169BB4, type="u32le", condition="decrease", action="SPEED_STOP", desc="P-meter draining down" },
+        { address=0X169BB4, type="u32le", condition="change", action="SPEED_TIMER", no_log=true, desc="(Minigolf) [32-Bit] Power meter." },
+        { address=0X169BB4, type="u32le", condition="eq", value=0X7F, action="SPEED_START", desc="P-meter fully charged" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XE98A8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="(Tiltmaze) [8-Bit] Switches from 00 to 40 on the arrow as a cue for the victory tune and initial" },
+        { address=0X10AB70, type="u8", condition="change", action="OBJECT_INTERACTION", desc="(Dig Dog) [8-Bit] Switches from 80 to C0 on the last pair as a cue for the victory tune and init" },
+        { address=0X1699F4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="(Minigolf) [8-Bit] Switches from 80 to C0 on the last hole as a cue for the victory tune and ini" },
+        { address=0X187670, type="u8", condition="change", action="OBJECT_INTERACTION", desc="(Ice Race) [8-Bit] Switches from 00 to 40 at the finish line as a cue for the victory tune." },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XDE4BC, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Dig Dog) [32-Bit] Timer/Seconds/Ones." },
+        { address=0XDE4C0, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Dig Dog) [32-Bit] Timer/Seconds/Tenths." },
+        { address=0XDE4C4, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="(Dig Dog) [32-Bit] Timer/Minutes." },
+        { address=0X187C84, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="(Ice Race) [32-Bit] Timer/Seconds." },
+        { address=0X187C88, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="(Ice Race) [32-Bit] Timer/Minutes." },
+      },
+    },
+  },
+}

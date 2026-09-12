@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Elebits: The Adventures of Kai and Zero",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Puzzle"
+  },
+
+  rom = {
+    name = "elebits-the-adventures-of-kai-and-zero",
+    hashes = {
+      { hash = "72e452e9711a5ba8c40c3e7c5cbf4136", label = "Elebits - The Adventures of Kai and Zero (USA) (En,Fr).nds" },
+    }
+  },
+
+  events = {
+    progression = {
+      zone = {
+        { address=0X1185AC, type="u16le", condition="eq", value=0X1D, action="PROGRESSION_ZONE", desc="Ice World" },
+        { address=0X1185AC, type="u16le", condition="eq", value=0X1E, action="PROGRESSION_ZONE", desc="Ruined World" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XE0AE5, type="u8", condition="eq", value=0X00, action="BOSS_HIT", desc="Not fighting a boss" },
+        { address=0XE0AE5, type="u8", condition="eq", value=0X01, action="BOSS_HIT", desc="Fighting a boss" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1442C4, type="u32le", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Stylus + L/R Buttons" },
+        { address=0X1442C4, type="u32le", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Stylus only" },
+        { address=0X1442C4, type="u32le", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="L/R Buttons only" },
+        { address=0X20D39C, type="u32le", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Stylus + L/R buttons" },
+        { address=0X20D39C, type="u32le", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Stylus" },
+        { address=0X20D39C, type="u32le", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="L/R buttons" },
+        { address=0X20E954, type="u32le", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Stylus + L/R buttons" },
+        { address=0X20E954, type="u32le", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Stylus" },
+        { address=0X20E954, type="u32le", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="L/R buttons" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X20C570, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="File 1 - Time Omega Watt Charge" },
+        { address=0X20DB28, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="File 2 - Time Omega Watt Charge" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bob the Builder: Can We Fix It?",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Construction and Management Simulation, Education"
+  },
+
+  rom = {
+    name = "bob-the-builder-can-we-fix-it",
+    hashes = {
+      { hash = "e75fcf3c0904d531c93e962177ff10df", label = "Bob the Builder - Can We Fix It (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

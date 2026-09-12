@@ -1,0 +1,45 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: GBA Edition",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-gba-edition",
+    hashes = {
+      { hash = "0c0450cf5556ddac9de85f04cbee4c00", label = "Metroid - Zero Mission - Super Metroid GBA Edition (v4.0) (The Brothers Crafters).gba" },
+      { hash = "ae340ff5e044ccca4b3efbb61c154c1c", label = "Metroid - Zero Mission - Super Metroid GBA Edition (v3.0) (The Brothers Crafters).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X175C, type="u8", condition="change", action="CREDITS_SCREEN", desc="post-credits scene start" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1530, type="u16le", condition="increase", action="HEAL", desc="(16-bit)Samus Max HP increased" },
+        { address=0X1530, type="u16le", condition="decrease", action="HIT", desc="(16-bit)Samus Max HP decreased" },
+        { address=0X1536, type="u16le", condition="increase", action="HEAL", desc="SAMUS HP!!! increased" },
+        { address=0X1536, type="u16le", condition="decrease", action="HIT", desc="SAMUS HP!!! decreased" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X01C0, type="u16le", condition="change", action="BOSS_HIT", desc="Some Boss HP" },
+        { address=0X0716, type="u16le", condition="change", action="BOSS_HIT", desc="Some Boss HP" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0150, type="u32be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[32-bit BE]Time in Game" },
+        { address=0X0960, type="u24be", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[24-bit BE]escape timer" },
+      },
+    },
+  },
+}

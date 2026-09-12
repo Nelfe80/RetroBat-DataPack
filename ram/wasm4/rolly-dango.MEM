@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Rolly Dango",
+    system = "wasm4",
+    system_name = "WASM-4",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "rolly-dango",
+    hashes = {
+      { hash = "b6a2ad7b7268981e8fa01678588aea83", label = "Rolly Dango (World) (William Gulmont-Martin).wasm" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X7410, type="u8", condition="change", action="RANK_STATE", desc="[780bytes] Memory block containing a pointer that can be used for Player Position" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2DBC, type="u16le", condition="eq", value=0X49E4, action="LOSE_LIFE", desc="Stage 8" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4A54, action="LOSE_LIFE", desc="Stage 7" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4AB4, action="LOSE_LIFE", desc="Stage 6" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4B14, action="LOSE_LIFE", desc="Stage 5" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4B64, action="LOSE_LIFE", desc="Stage 4" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4BB4, action="LOSE_LIFE", desc="Stage 3" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4C04, action="LOSE_LIFE", desc="Stage 2" },
+        { address=0X2DBC, type="u16le", condition="eq", value=0X4C54, action="LOSE_LIFE", desc="Stage 1" },
+      },
+    },
+  },
+}

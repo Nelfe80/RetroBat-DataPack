@@ -1,0 +1,78 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Porklike: Wurst Comes to Worst",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "homebrew-porklike-wurst-comes-to-worst",
+    hashes = {
+      { hash = "654615505816982cdc6446d5af319d6b", label = "Porklike (World) (v1.05) (SGB Enhanced) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0XD70F, type="u8", condition="change", action="LOSE_LIFE", desc="0x03 - You Died" },
+      },
+      health = {
+        { address=0XD30C, type="u8", condition="increase", action="HEAL", desc="Enemy 1 HP increased" },
+        { address=0XD30C, type="u8", condition="decrease", action="HIT", desc="Enemy 1 HP decreased" },
+        { address=0XD30D, type="u8", condition="increase", action="HEAL", desc="Enemy 2 HP increased" },
+        { address=0XD30D, type="u8", condition="decrease", action="HIT", desc="Enemy 2 HP decreased" },
+        { address=0XD30E, type="u8", condition="increase", action="HEAL", desc="Enemy 3 HP increased" },
+        { address=0XD30E, type="u8", condition="decrease", action="HIT", desc="Enemy 3 HP decreased" },
+        { address=0XD30F, type="u8", condition="increase", action="HEAL", desc="Enemy 4 HP increased" },
+        { address=0XD30F, type="u8", condition="decrease", action="HIT", desc="Enemy 4 HP decreased" },
+        { address=0XD310, type="u8", condition="increase", action="HEAL", desc="Enemy 5 HP increased" },
+        { address=0XD310, type="u8", condition="decrease", action="HIT", desc="Enemy 5 HP decreased" },
+        { address=0XD311, type="u8", condition="increase", action="HEAL", desc="Enemy 6 HP increased" },
+        { address=0XD311, type="u8", condition="decrease", action="HIT", desc="Enemy 6 HP decreased" },
+        { address=0XD312, type="u8", condition="increase", action="HEAL", desc="Enemy 7 HP increased" },
+        { address=0XD312, type="u8", condition="decrease", action="HIT", desc="Enemy 7 HP decreased" },
+        { address=0XD313, type="u8", condition="increase", action="HEAL", desc="Enemy 8 HP increased" },
+        { address=0XD313, type="u8", condition="decrease", action="HIT", desc="Enemy 8 HP decreased" },
+        { address=0XD314, type="u8", condition="increase", action="HEAL", desc="Enemy 9 HP increased" },
+        { address=0XD314, type="u8", condition="decrease", action="HIT", desc="Enemy 9 HP decreased" },
+        { address=0XD315, type="u8", condition="increase", action="HEAL", desc="Enemy 10 HP increased" },
+        { address=0XD315, type="u8", condition="decrease", action="HIT", desc="Enemy 10 HP decreased" },
+        { address=0XD316, type="u8", condition="increase", action="HEAL", desc="Enemy 11 HP increased" },
+        { address=0XD316, type="u8", condition="decrease", action="HIT", desc="Enemy 11 HP decreased" },
+        { address=0XD317, type="u8", condition="increase", action="HEAL", desc="Enemy 12 HP increased" },
+        { address=0XD317, type="u8", condition="decrease", action="HIT", desc="Enemy 12 HP decreased" },
+        { address=0XD318, type="u8", condition="increase", action="HEAL", desc="Enemy 13 HP increased" },
+        { address=0XD318, type="u8", condition="decrease", action="HIT", desc="Enemy 13 HP decreased" },
+        { address=0XD319, type="u8", condition="increase", action="HEAL", desc="Enemy 14 HP increased" },
+        { address=0XD319, type="u8", condition="decrease", action="HIT", desc="Enemy 14 HP decreased" },
+        { address=0XD31A, type="u8", condition="increase", action="HEAL", desc="Enemy 15 HP increased" },
+        { address=0XD31A, type="u8", condition="decrease", action="HIT", desc="Enemy 15 HP decreased" },
+        { address=0XD31B, type="u8", condition="increase", action="HEAL", desc="Enemy 16 HP increased" },
+        { address=0XD31B, type="u8", condition="decrease", action="HIT", desc="Enemy 16 HP decreased" },
+        { address=0XD31C, type="u8", condition="increase", action="HEAL", desc="Enemy 17 HP increased" },
+        { address=0XD31C, type="u8", condition="decrease", action="HIT", desc="Enemy 17 HP decreased" },
+        { address=0XD31D, type="u8", condition="increase", action="HEAL", desc="Enemy 18 HP increased" },
+        { address=0XD31D, type="u8", condition="decrease", action="HIT", desc="Enemy 18 HP decreased" },
+        { address=0XD31E, type="u8", condition="increase", action="HEAL", desc="Enemy 19 HP increased" },
+        { address=0XD31E, type="u8", condition="decrease", action="HIT", desc="Enemy 19 HP decreased" },
+        { address=0XD31F, type="u8", condition="increase", action="HEAL", desc="Enemy 20 HP increased" },
+        { address=0XD31F, type="u8", condition="decrease", action="HIT", desc="Enemy 20 HP decreased" },
+        { address=0XD320, type="u8", condition="increase", action="HEAL", desc="Enemy 21 HP increased" },
+        { address=0XD320, type="u8", condition="decrease", action="HIT", desc="Enemy 21 HP decreased" },
+        { address=0XD321, type="u8", condition="increase", action="HEAL", desc="Enemy 22 HP increased" },
+        { address=0XD321, type="u8", condition="decrease", action="HIT", desc="Enemy 22 HP decreased" },
+        { address=0XD322, type="u8", condition="increase", action="HEAL", desc="Enemy 23 HP increased" },
+        { address=0XD322, type="u8", condition="decrease", action="HIT", desc="Enemy 23 HP decreased" },
+        { address=0XD323, type="u8", condition="increase", action="HEAL", desc="Enemy 24 HP increased" },
+        { address=0XD323, type="u8", condition="decrease", action="HIT", desc="Enemy 24 HP decreased" },
+        { address=0XD324, type="u8", condition="increase", action="HEAL", desc="Enemy 25 HP increased" },
+        { address=0XD324, type="u8", condition="decrease", action="HIT", desc="Enemy 25 HP decreased" },
+        { address=0XD325, type="u8", condition="increase", action="HEAL", desc="Enemy 26 HP increased" },
+        { address=0XD325, type="u8", condition="decrease", action="HIT", desc="Enemy 26 HP decreased" },
+      },
+    },
+  },
+}

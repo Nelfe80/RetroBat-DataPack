@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Pokémon FireRed: Rocket Edition",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-pokemon-firered-rocket-edition",
+    hashes = {
+      { hash = "08dec67ed4d8305d45c575050b2efd7a", label = "Pokemon - FireRed Version - Rocket Edition (v1.0) (colonelsalt).gba" },
+      { hash = "e58d5080fb5728d14a2b73f4af487ffa", label = "Pokemon - FireRed Version - Rocket Edition (v1.0.2) (colonelsalt).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8F37, type="u8", condition="bit_true", mask=0X08, action="NEW_LEVEL", desc="sold Gold Teeth in Safari Zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8F37, type="u8", condition="bit_true", mask=0X01, action="LIVES_STATE", desc="gifted Life Orb for high bounty" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0X902C, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="Promotion to Boss" },
+      },
+    },
+  },
+}

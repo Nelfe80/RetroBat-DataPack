@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Inspector Gadget: Mad Robots Invasion",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "inspector-gadget-mad-robots-invasion",
+    hashes = {
+      { hash = "4b13625aca0e39833d8ef0da6e1f5bd5", label = "Inspector Gadget - Mad Robots Invasion (Europe) (En,Fr,De,Es,It,Nl)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X5EDD34, type="u32le", condition="change", action="NEW_LEVEL", desc="32-bit Current Area in a zone" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X5EDBE8, type="u16le", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X5EDBE8, type="u16le", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X6026BC, type="u16le", condition="increase", action="GAIN_LIFE", desc="lives increased" },
+        { address=0X6026BC, type="u16le", condition="decrease", action="LOSE_LIFE", desc="lives decreased" },
+      },
+      health = {
+        { address=0X6026B8, type="u32le", condition="increase", action="HEAL", desc="health (maybe 16bits) increased" },
+        { address=0X6026B8, type="u32le", condition="decrease", action="HIT", desc="health (maybe 16bits) decreased" },
+        { address=0X6026BE, type="u16le", condition="increase", action="HEAL", desc="16-bit Mad Health increased" },
+        { address=0X6026BE, type="u16le", condition="decrease", action="HIT", desc="16-bit Mad Health decreased" },
+      },
+    },
+  },
+}

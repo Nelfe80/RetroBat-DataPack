@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Psy-O-Blade",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "psy-o-blade",
+    hashes = {
+      { hash = "95c456ae960cbfc2e244fe37f06437c1", label = "Psy-O-Blade (Japan) (En) (v1.1) (Elen Ni Hen,tryphon).md" },
+      { hash = "d4e9c54c5dfa5ecfcb4177be7d3934f8", label = "Psy-O-Blade (Japan).md" },
+    }
+  },
+
+  events = {
+  },
+}

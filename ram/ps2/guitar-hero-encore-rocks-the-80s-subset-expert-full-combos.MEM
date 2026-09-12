@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Guitar Hero Encore: Rocks the '80s [Subset - Expert Full Combos]",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Music"
+  },
+
+  rom = {
+    name = "guitar-hero-encore-rocks-the-80s-subset-expert-full-combos",
+    hashes = {
+      { hash = "f41c1710b3804ee2e18c4e096db222ea", label = "Guitar Hero Encore - Rocks the '80s [Subset - Expert Full Combos]" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X470CE0, type="u32le", condition="eq", value=0X00A9DDF0, action="CONTINUE_SCREEN", desc="Continue/Replay" },
+        { address=0X470CE0, type="u32le", condition="eq", value=0X00AA0050, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X470CE0, type="u32le", condition="eq", value=0X00AA1020, action="PAUSE_ON", desc="In Practice Mode (Paused)" },
+      },
+    },
+  },
+}

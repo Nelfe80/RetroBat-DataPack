@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Resident Evil",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Horror, Shooter"
+  },
+
+  rom = {
+    name = "prototype-resident-evil",
+    hashes = {
+      { hash = "c3c3932d5471bc0028ade1cd7a102d43", label = "Resident Evil (World) (Proto 1).gbc" },
+      { hash = "cb0e23b09470002fe33732b1f0e02b06", label = "Resident Evil (USA) (Prototype 2).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XC1C5, type="u8", condition="change", action="DEMO_MODE", desc="Demo Screen" },
+        { address=0XC1D2, type="u8", condition="change", action="DEMO_MODE", desc="Something with demo" },
+        { address=0XDFFD, type="u8", condition="eq", value=0X45, action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XE30E, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0XE30E, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC1C4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Demo Time" },
+      },
+    },
+  },
+}

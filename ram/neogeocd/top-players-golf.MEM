@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Top Player's Golf",
+    system = "neogeocd",
+    system_name = "Neo Geo CD",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "top-players-golf",
+    hashes = {
+      { hash = "28f4d7d34fef1e844c97648e055fedf8", label = "Top Player's Golf (Japan) (En,Ja) [legacy]" },
+      { hash = "f8a0e88822317703359be0df170a73b8", label = "Top Player's Golf (Japan) (En,Ja)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X019E, type="u8", condition="eq", value=0X01, action="LOSE_LIFE", desc="Yes" },
+      },
+    },
+  },
+}

@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Super Othello",
+    system = "apple2",
+    system_name = "Apple II",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "super-othello",
+    hashes = {
+      { hash = "9e059aea68928d80ff77ea225045395b", label = "Super Othello v1.0 (19xx)(-).do" },
+    }
+  },
+
+  events = {
+  },
+}

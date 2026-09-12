@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Numblast",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "numblast",
+    hashes = {
+      { hash = "368890e8f60f22b4ea69ff915d6d6c08", label = "Numblast (Europe) (PSP) (PSN).iso" },
+    }
+  },
+
+  events = {
+  },
+}

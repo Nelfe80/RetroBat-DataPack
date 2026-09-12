@@ -1,0 +1,46 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Pyramid",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-pyramid",
+    hashes = {
+      { hash = "472e4f023b0dccedd343a046679710fe", label = "Pyramid (USA) (NINA-06) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0001, type="u8", condition="change", action="TITLE_SCREEN", desc="Title screen is active or not. 0x98 for title screen, 0xa8 for in game or demo" },
+        { address=0X0013, type="u8", condition="eq", value=0X86, action="TITLE_SCREEN", desc="title screen and demo" },
+        { address=0X04F6, type="u8", condition="change", action="TITLE_SCREEN", desc="Current game level, naturally increases every 20 lines, up to 9, can be set on title screen." },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X0435, type="u8", condition="change", action="LEVEL_CLEAR", desc="# of Lines cleared" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0002, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Down" },
+        { address=0X0002, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Left" },
+        { address=0X0002, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Right" },
+        { address=0X042F, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="two half pieces in the shape of a pyramid" },
+        { address=0X042F, type="u8", condition="eq", value=0X04, action="OBJECT_INTERACTION", desc="half block then full block, half block on the bottom" },
+        { address=0X042F, type="u8", condition="eq", value=0X08, action="OBJECT_INTERACTION", desc="big diagonal block" },
+        { address=0X042F, type="u8", condition="eq", value=0X10, action="OBJECT_INTERACTION", desc="half block then full block, half block on the top" },
+        { address=0X042F, type="u8", condition="eq", value=0X14, action="OBJECT_INTERACTION", desc="Three half blocks in a kind of pinwheel" },
+        { address=0X0433, type="u8", condition="eq", value=0X00, action="OBJECT_INTERACTION", desc="Down" },
+        { address=0X0433, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Left" },
+        { address=0X0433, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Right" },
+      },
+    },
+  },
+}

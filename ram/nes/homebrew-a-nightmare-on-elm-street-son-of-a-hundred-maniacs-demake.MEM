@@ -1,0 +1,26 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ A Nightmare on Elm Street: Son of a Hundred Maniacs Demake",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-a-nightmare-on-elm-street-son-of-a-hundred-maniacs-demake",
+    hashes = {
+      { hash = "b4b3588aec47be77fa34283ddc1b3d5d", label = "Nightmare on Elm Street, A - Son of a Hundred Maniacs (World) (v0.02) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    world_interaction = {
+      objects = {
+        { address=0X00AF, type="u8", condition="change", action="DOOR_OPENED", desc="final area door trigger" },
+        { address=0X00B0, type="u8", condition="change", action="DOOR_OPENED", desc="final area door trigger/quiz option select" },
+        { address=0X00B1, type="u8", condition="change", action="DOOR_OPENED", desc="final area door trigger" },
+      },
+    },
+  },
+}

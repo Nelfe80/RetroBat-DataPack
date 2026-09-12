@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Superpix",
+    system = "amstradcpc",
+    system_name = "Amstrad CPC",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-superpix",
+    hashes = {
+      { hash = "2f465c4c990acb2fb5d2f137db914804", label = "Superpix (2014) (Crack'n'Rom) (En) (v1.2) (Side B - Levels).dsk" },
+      { hash = "d46b20ff002beb4eb9dd27e6df4ee657", label = "Superpix (2014) (Crack'n'Rom) (En) (v1.2) (Side A - Program).dsk" },
+    }
+  },
+
+  events = {
+  },
+}

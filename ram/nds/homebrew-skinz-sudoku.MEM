@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Skinz Sudoku",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-skinz-sudoku",
+    hashes = {
+      { hash = "345c16070c78c2d4e6b81cf950f87a83", label = "Skinz Sudoku (World) (v11 June 2007) (Aftermarket) (Unl) (Mollusk).nds" },
+    }
+  },
+
+  events = {
+  },
+}

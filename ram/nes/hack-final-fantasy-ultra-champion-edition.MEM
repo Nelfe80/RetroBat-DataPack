@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Final Fantasy Ultra Champion Edition",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-final-fantasy-ultra-champion-edition",
+    hashes = {
+      { hash = "834329cb4ea1dc34b6f632dd47d2456b", label = "Final Fantasy - Ultra Champion Edition (v1.1) (Robert August de Meijer).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X00D8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="STAGE" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00BE, type="u8", condition="increase", action="GAIN_LIFE", desc="LIVES increased" },
+        { address=0X00BE, type="u8", condition="decrease", action="LOSE_LIFE", desc="LIVES decreased" },
+      },
+    },
+  },
+}

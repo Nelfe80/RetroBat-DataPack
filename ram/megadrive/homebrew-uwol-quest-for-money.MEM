@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ UWOL: Quest for Money",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Platform"
+  },
+
+  rom = {
+    name = "homebrew-uwol-quest-for-money",
+    hashes = {
+      { hash = "c1bb39180a8ef03683301dd2ac8403e5", label = "UWOL - Quest for Money (World) (v1.2) (Aftermarket) (Unl).md" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X91B9, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X913F, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X91B9, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X91B9, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+        { address=0X91B9, type="u8", condition="eq", value=0X03, action="LIVES_STATE", desc="3 Lives" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X891A, type="u8", condition="increase", action="COIN_GAIN", desc="Coin Count increased" },
+      },
+    },
+  },
+}

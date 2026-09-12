@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Blaster",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "blaster",
+    hashes = {
+      { hash = "1e0ad2ec7e8c3cc595a9ec2e3762b117", label = "blaster.7z <Blaster>" },
+    }
+  },
+
+  events = {
+  },
+}

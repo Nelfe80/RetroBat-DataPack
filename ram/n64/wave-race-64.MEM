@@ -1,0 +1,28 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Wave Race 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "wave-race-64",
+    hashes = {
+      { hash = "2048a640c12d1cf2052ba1629937d2ff", label = "Wave Race 64 - Kawasaki Jet Ski (USA) (Rev 1).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1CE38A, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Continue," },
+        { address=0X1CE38A, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Retire," },
+        { address=0X1CE38A, type="u8", condition="eq", value=0X04, action="PAUSE_ON", desc="Quit" },
+        { address=0X1CE38A, type="u8", condition="eq", value=0X08, action="PAUSE_ON", desc="Restart Circuit," },
+        { address=0X1CE398, type="u8", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Not Ingame/Title Screen," },
+      },
+    },
+  },
+}

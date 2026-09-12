@@ -1,0 +1,50 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Quickie World 2",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-quickie-world-2",
+    hashes = {
+      { hash = "6d21c8d656d526d086d5bca57c7bb005", label = "SMW - Quickie World 2 (Valdio).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0100, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="fade to overworld" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="level loaded, normal play mode" },
+        { address=0X010B, type="u16le", condition="change", action="NEW_LEVEL", desc="16-bit, current level/room ID" },
+        { address=0X0DD5, type="u8", condition="change", action="LEVEL_CLEAR", desc="complete any stage." },
+        { address=0X1F2E, type="u8", condition="change", action="LEVEL_CLEAR", desc="_ of levels cleared" },
+        { address=0X1FEF, type="u8", condition="bit_true", mask=0X20, action="NEW_LEVEL", desc="level 0x0A" },
+      },
+      stage = {
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage id!" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0065, type="u8", condition="increase", action="GAIN_LIFE", desc="Whether player has collected 1-up or checkpoint or coins during current life increased" },
+        { address=0X0065, type="u8", condition="decrease", action="LOSE_LIFE", desc="Whether player has collected 1-up or checkpoint or coins during current life decreased" },
+        { address=0X0100, type="u8", condition="eq", value=0X0F, action="LOSE_LIFE", desc="dead, retry" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="_ of coins through all levels increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X009C, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="3-up Moon & midway post" },
+        { address=0X13CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="Whether checkpoint is activated for current level" },
+      },
+    },
+  },
+}

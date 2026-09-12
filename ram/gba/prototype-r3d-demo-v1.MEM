@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ R3D-Demo V1",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-r3d-demo-v1",
+    hashes = {
+      { hash = "d4a18392c43f57f57224132324b7acbb", label = "R3D Demo (Europe) (Demo).gba" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ ~Demo~ Undertale Gameboy Demake",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-demo-undertale-gameboy-demake",
+    hashes = {
+      { hash = "52b40dc9c628a79da9cd459554e56961", label = "Undertale Game Boy Demake (World) (Aftermarket) (Unl) (Demo).gb" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0XCBAE, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="HP" },
+        { address=0XCBAE, type="u8", condition="eq", value=0X05, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+  },
+}

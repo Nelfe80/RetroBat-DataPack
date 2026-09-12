@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Luigi MasterMind",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-luigi-mastermind",
+    hashes = {
+      { hash = "b247d7eb570d2b69bc48baae4404fc26", label = "Luigi MasterMind (World) (v20060126) (Aftermarket) (N64Francois).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X201E, type="u16le", condition="change", action="NEW_LEVEL", desc="Current Round [16bit]" },
+      },
+    },
+  },
+}

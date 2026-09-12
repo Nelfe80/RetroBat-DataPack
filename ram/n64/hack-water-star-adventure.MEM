@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Water Star Adventure",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-water-star-adventure",
+    hashes = {
+      { hash = "032366b116ce1567ad79af1a1378ecfe", label = "Water Star Adventure (Hack) (jesusyoshi54) (v1.3).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X01, action="CONTINUE_SCREEN", desc="Z Button Challenge" },
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X02, action="CONTINUE_SCREEN", desc="Hardcore" },
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X04, action="DEMO_MODE", desc="Green Demon" },
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X08, action="CONTINUE_SCREEN", desc="Move Badges" },
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X10, action="CONTINUE_SCREEN", desc="Super Mode (anti-challenge)" },
+        { address=0X7A391, type="u8", condition="bit_true", mask=0X20, action="CONTINUE_SCREEN", desc="Daredevil" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen/File Select" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X190F6C, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] Level ID" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Course 5" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Course 4" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="2ndary Hub" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Course 6" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Course 1" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Course 3" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X10, action="NEW_LEVEL", desc="Hub" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X11, action="NEW_LEVEL", desc="Apotheosis" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X14, action="NEW_LEVEL", desc="Secret Aquarium (ending)" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X16, action="NEW_LEVEL", desc="Course 7" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X18, action="NEW_LEVEL", desc="Course 2" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X19, action="NEW_LEVEL", desc="End Cake Picture" },
+        { address=0X190F6C, type="u8", condition="eq", value=0X1E, action="NEW_LEVEL", desc="Bowser Fight" },
+        { address=0X19DAB9, type="u8", condition="change", action="NEW_LEVEL", desc="[8bit] sub-level ID" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X7A390, type="u8", condition="bit_true", mask=0X04, action="HEALTH_STATE", no_log=true, desc="Drain HP" },
+        { address=0X7A390, type="u8", condition="bit_true", mask=0X08, action="HIT", desc="Double Lava Damage" },
+        { address=0X19DA74, type="u32be", condition="increase", action="HEAL", desc="[32bit] mario's health increased" },
+        { address=0X19DA74, type="u32be", condition="decrease", action="HIT", desc="[32bit] mario's health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X7A390, type="u8", condition="bit_true", mask=0X02, action="MONEY_STATE", desc="Coins Don't Heal" },
+        { address=0X19DA72, type="u32be", condition="increase", action="COIN_GAIN", desc="[32bit] coin count increased" },
+      },
+    },
+  },
+}

@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Centipede",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "centipede",
+    hashes = {
+      { hash = "26d7d4485ccf079191f6096383b8b3f1", label = "Centipede (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XB99F8, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="No Lives aka Game Over" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XB99F8, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XB99F8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XB99F8, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="Last Life" },
+      },
+    },
+  },
+}

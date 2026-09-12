@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Olympic IQ",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "unlicensed-olympic-iq",
+    hashes = {
+      { hash = "69169572c387f589d4adcf114736eae4", label = "Olympic I.Q. (Asia) (Ja) (PAL) (Unl).nes" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0531, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X04ED, type="u8", condition="increase", action="GAIN_LIFE", desc="Current Lives increased" },
+        { address=0X04ED, type="u8", condition="decrease", action="LOSE_LIFE", desc="Current Lives decreased" },
+      },
+    },
+  },
+}

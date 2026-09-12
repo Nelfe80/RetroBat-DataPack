@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Retro Game Challenge 2 [Subset - Daily Challenge]",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "retro-game-challenge-2-subset-daily-challenge",
+    hashes = {
+      { hash = "e1dafe59dd33a7bf6e7d514605c8a66a", label = "Retro Game Challenge 2 [Subset - Daily Challenge].nds" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X5ADEC, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Daily Challenge - Current Challenge Score (After the game saves" },
+        { address=0X210C5C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Daily Challenge - Current Challenge Score (When the Score Changes)" },
+      },
+    },
+  },
+}

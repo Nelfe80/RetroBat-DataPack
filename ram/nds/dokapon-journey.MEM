@@ -1,0 +1,122 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dokapon Journey",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Role-Playing"
+  },
+
+  rom = {
+    name = "dokapon-journey",
+    hashes = {
+      { hash = "b643367114a27207c21036d5fb75a8b5", label = "Dokapon Journey (USA).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X14803D, type="u8", condition="bit_true", mask=0X01, action="DEMO_MODE", desc="Demon" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X146FE0, type="u16le", condition="change", action="NEW_LEVEL", desc="Player 1 - Number of Level-Ups" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X146F75, type="u8", condition="eq", value=0X2, action="LOSE_LIFE", desc="Death Match" },
+        { address=0X147024, type="u32le", condition="eq", value=0X0035, action="LOSE_LIFE", desc="Dead Arm" },
+        { address=0X148036, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Skuldier" },
+      },
+      health = {
+        { address=0X146FE4, type="u16le", condition="increase", action="HEAL", desc="Player 1 - Current HP increased" },
+        { address=0X146FE4, type="u16le", condition="decrease", action="HIT", desc="Player 1 - Current HP decreased" },
+        { address=0X146FE6, type="u16le", condition="increase", action="HEAL", desc="Player 1 - Max HP increased" },
+        { address=0X146FE6, type="u16le", condition="decrease", action="HIT", desc="Player 1 - Max HP decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X146FF6, type="u16le", condition="change", action="WEAPON_STATE", desc="Player 1 - Equipped Weapon" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="Knife" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Dagger" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Rapier" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="Stiletto" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="Kris" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Saber" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Knuckles" },
+        { address=0X148024, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Crossbow" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="Mace" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Gladius" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Scimitar" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="Flail" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="Longbow" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Club" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Repeater" },
+        { address=0X148025, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Tonfa" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="HandAxe" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Spear" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Epee" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="IronBall" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="Hammer" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Blowgun" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Machete" },
+        { address=0X148026, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Bearclaw" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="OakCane" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Whip" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Lance" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="Scourge" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="Stonebow" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Smasher" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Cudgel" },
+        { address=0X148027, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Glaive" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="Partisan" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="RobinBow" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="Warmaul" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="RubyFist" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="Halberd" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Lochaber" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Cutlass" },
+        { address=0X148028, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Bastard" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X01, action="WEAPON_STATE", desc="Falchion" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X02, action="WEAPON_STATE", desc="Estoc" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X04, action="WEAPON_STATE", desc="WoeBlade" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X08, action="WEAPON_STATE", desc="Beheader" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X10, action="WEAPON_STATE", desc="DeusEdge" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X20, action="WEAPON_STATE", desc="Flagelle" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X40, action="WEAPON_STATE", desc="Trident" },
+        { address=0X148029, type="u8", condition="bit_true", mask=0X80, action="WEAPON_STATE", desc="Scythe" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X146FD8, type="u32le", condition="increase", action="COIN_GAIN", desc="Player 1 - Gold increased" },
+        { address=0X147034, type="u32le", condition="eq", value=0X0020, action="MONEY_STATE", desc="Sky Ring" },
+        { address=0X147034, type="u32le", condition="eq", value=0X0023, action="MONEY_STATE", desc="AT Ring" },
+        { address=0X147034, type="u32le", condition="eq", value=0X003F, action="MONEY_STATE", desc="Gold Ore" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X146FFA, type="u16le", condition="change", action="SHIELD_GAIN", desc="Player 1 - Equipped Shield" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X01, action="SHIELD_GAIN", desc="StoneSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X02, action="SHIELD_GAIN", desc="AmberSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X04, action="SHIELD_GAIN", desc="CombatSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X08, action="SHIELD_GAIN", desc="ShinySh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X10, action="SHIELD_GAIN", desc="OpalSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X20, action="SHIELD_GAIN", desc="JasperSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X40, action="SHIELD_GAIN", desc="TowerSh" },
+        { address=0X148030, type="u8", condition="bit_true", mask=0X80, action="SHIELD_GAIN", desc="StarSh" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X146F75, type="u8", condition="eq", value=0X0, action="OBJECT_INTERACTION", desc="Beginning of game, defeat big monsters" },
+        { address=0X146F75, type="u8", condition="eq", value=0X1, action="OBJECT_INTERACTION", desc="Obtain the Wellwish Water from Levito Cave" },
+      },
+    },
+  },
+}

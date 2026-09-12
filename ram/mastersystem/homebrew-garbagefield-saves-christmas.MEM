@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Garbagefield Saves Christmas",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-garbagefield-saves-christmas",
+    hashes = {
+      { hash = "0ffc93b603c6599b0dc7db718b6d86bb", label = "Garbagefield Saves Christmas (World) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0000, type="u16le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0000, type="u16le", condition="eq", value=0X0006, action="LOSE_LIFE", desc="Ending (Dead)" },
+        { address=0X0000, type="u16le", condition="eq", value=0X0032, action="LOSE_LIFE", desc="Ending (Not Dead)" },
+        { address=0X0000, type="u16le", condition="eq", value=0XB, action="LOSE_LIFE", desc="transistion to dead ending" },
+      },
+    },
+  },
+}

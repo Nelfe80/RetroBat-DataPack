@@ -1,0 +1,32 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Oddworld Adventures",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Adventure, Platform, Puzzle"
+  },
+
+  rom = {
+    name = "oddworld-adventures",
+    hashes = {
+      { hash = "5ca71cd4ceace3cb6650ff05d679d149", label = "Oddworld Adventures (USA, Europe).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XC015, type="u8", condition="change", action="NEW_LEVEL", desc="00: showing password after completing level" },
+        { address=0XC6C4, type="u8", condition="change", action="NEW_LEVEL", desc="Level 1.1: bit 7: door open" },
+        { address=0XC6CC, type="u8", condition="change", action="NEW_LEVEL", desc="Level 1.1, bit 1: elevator lever pulled" },
+        { address=0XC6CD, type="u8", condition="change", action="NEW_LEVEL", desc="Level 1.2: bit 0: lever pulled" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XC67A, type="u8", condition="change", action="DOOR_OPENED", desc="Area 2.1 completed (door closed)" },
+      },
+    },
+  },
+}

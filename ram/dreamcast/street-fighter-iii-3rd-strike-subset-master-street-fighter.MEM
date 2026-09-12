@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Street Fighter III: 3rd Strike [Subset - Master Street Fighter]",
+    system = "dreamcast",
+    system_name = "Dreamcast",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "street-fighter-iii-3rd-strike-subset-master-street-fighter",
+    hashes = {
+      { hash = "0857e7d0bec7c4fc30450108ea92b51c", label = "Street Fighter III - 3rd Strike [Subset - Master Street Fighter]" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0XE51E7C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Fight score (32-bit)" },
+      },
+    },
+  },
+}

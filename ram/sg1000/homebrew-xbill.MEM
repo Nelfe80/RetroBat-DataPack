@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ XBill",
+    system = "sg1000",
+    system_name = "SG-1000",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-xbill",
+    hashes = {
+      { hash = "9513f61620d628ac6bd7e91d95d8c026", label = "XBill (World) (v20180602) (Aftermarket) (nitrofurano).sg" },
+    }
+  },
+
+  events = {
+  },
+}

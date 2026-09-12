@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dig Dug",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Maze"
+  },
+
+  rom = {
+    name = "dig-dug",
+    hashes = {
+      { hash = "b921a42c761dbfff191c1aebe556d6f7", label = "digdug.7z <Dig Dug (rev 2)>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X05A5, type="u8", condition="change", action="CREDITS_SCREEN", desc="Number of Credits Inserted" },
+        { address=0X0657, type="u8", condition="eq", value=0X00, action="DEMO_MODE", desc="Game Mode" },
+        { address=0X0657, type="u8", condition="eq", value=0X43, action="DEMO_MODE", desc="Demo Mode" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X040D, type="u8", condition="change", action="NEW_LEVEL", desc="Round number" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0409, type="u8", condition="increase", action="GAIN_LIFE", desc="Initial number of lives as set by the dip switches increased" },
+        { address=0X0409, type="u8", condition="decrease", action="LOSE_LIFE", desc="Initial number of lives as set by the dip switches decreased" },
+        { address=0X07CE, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip switches 1: increased" },
+        { address=0X07CE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip switches 1: decreased" },
+        { address=0X0BF6, type="u32le", condition="eq", value=0X32, action="LOSE_LIFE", desc="Dig Dug died" },
+        { address=0X0BF6, type="u32le", condition="eq", value=0X6F, action="LOSE_LIFE", desc="Dig Dug died and game over" },
+        { address=0X840A, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8414, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X07CF, type="u8", condition="increase", action="COIN_GAIN", desc="Dip switches 2: increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0423, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="In-game timer LSB. Starts at 0x00 at the beginning of a new round." },
+        { address=0X0424, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="In-game timer MSB. Starts at 0x00 at the beginning of a new round." },
+        { address=0X061E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Game over timer" },
+        { address=0X07ED, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Timer1 for Bonus Item visability:" },
+      },
+    },
+  },
+}

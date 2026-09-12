@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Sims: Bustin' Out",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Simulation"
+  },
+
+  rom = {
+    name = "the-sims-bustin-out",
+    hashes = {
+      { hash = "e429ce307fe06dbcd7724552ff0339d7", label = "Sims, The - Bustin' Out (USA, Europe) (En,Fr,De,Es,It,Nl).gba" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4340, type="u16le", condition="eq", value=0X5, action="TITLE_SCREEN", desc="TitleScreen" },
+        { address=0X4340, type="u16le", condition="eq", value=0XB, action="PAUSE_ON", desc="PauseMenu" },
+        { address=0X4340, type="u16le", condition="eq", value=0XD, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X3A0B, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Needs: Energy" },
+        { address=0X3A0B, type="u8", condition="eq", value=0X63, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XA08C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Tractor Tune Ups" },
+      },
+    },
+  },
+}

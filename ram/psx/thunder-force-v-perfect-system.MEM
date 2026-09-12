@@ -1,0 +1,82 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Thunder Force V: Perfect System",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Shooter"
+  },
+
+  rom = {
+    name = "thunder-force-v-perfect-system",
+    hashes = {
+      { hash = "b2a45a83019dd560c2409e197a823ba8", label = "Thunder Force V - Perfect System (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XBF092, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="1/3" },
+        { address=0XBF092, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="2/3" },
+        { address=0XBF092, type="u8", condition="eq", value=0X03, action="CONTINUE_SCREEN", desc="3/3" },
+        { address=0XBF0B0, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="1/3" },
+        { address=0XBF0B0, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="2/3" },
+        { address=0XBF0B0, type="u8", condition="eq", value=0X03, action="CONTINUE_SCREEN", desc="3/3" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X837C8, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="in last level" },
+        { address=0X83880, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Game Over" },
+        { address=0X83880, type="u8", condition="eq", value=0X02, action="LEVEL_CLEAR", desc="Paused" },
+        { address=0X83880, type="u8", condition="eq", value=0X04, action="LEVEL_CLEAR", desc="In boss fight" },
+        { address=0X83880, type="u8", condition="eq", value=0X06, action="LEVEL_CLEAR", desc="Paused in boss fight" },
+        { address=0X83880, type="u8", condition="eq", value=0X14, action="LEVEL_CLEAR", desc="Stage Clear screen" },
+        { address=0X83880, type="u8", condition="eq", value=0X54, action="LEVEL_CLEAR", desc="Credits" },
+        { address=0X83880, type="u8", condition="eq", value=0X80, action="LEVEL_CLEAR", desc="Loading into level / Cutscene" },
+        { address=0X838D0, type="u8", condition="change", action="NEW_LEVEL", desc="Current Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X839EC, type="u8", condition="increase", action="GAIN_LIFE", desc="Remaining Lives increased" },
+        { address=0X839EC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Remaining Lives decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X839F0, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Top Right (Twin Shot)" },
+        { address=0X839F0, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", desc="Top Left (Back Shot)" },
+        { address=0X839F0, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="Middle" },
+        { address=0X839F0, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", desc="Bottom Left" },
+        { address=0X839F0, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", desc="Bottom Right" },
+        { address=0X94D44, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Top Right (Twin Shot)" },
+        { address=0X94D44, type="u8", condition="eq", value=0X01, action="WEAPON_STATE", desc="Top Left (Back Shot)" },
+        { address=0X94D44, type="u8", condition="eq", value=0X02, action="WEAPON_STATE", desc="Middle" },
+        { address=0X94D44, type="u8", condition="eq", value=0X03, action="WEAPON_STATE", desc="Bottom Left" },
+        { address=0X94D44, type="u8", condition="eq", value=0X04, action="WEAPON_STATE", desc="Bottom Right" },
+        { address=0X1B0406, type="u8", condition="eq", value=0X00, action="WEAPON_STATE", desc="Waves" },
+        { address=0X1B0406, type="u8", condition="eq", value=0X42, action="WEAPON_STATE", desc="Back Shot" },
+        { address=0X1B0406, type="u8", condition="eq", value=0X54, action="WEAPON_STATE", desc="Twin Shot" },
+        { address=0X1B0406, type="u8", condition="eq", value=0X72, action="WEAPON_STATE", desc="Free Range" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X83840, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Tracks Score" },
+        { address=0X839F4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Tracks Score" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X94D30, type="u8", condition="eq", value=0X02, action="INVINCIBILITY_START", desc="Invinicible" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X83730, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Time Attack Indicator" },
+      },
+    },
+  },
+}

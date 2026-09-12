@@ -1,0 +1,43 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Escape from Monster Manor",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "escape-from-monster-manor",
+    hashes = {
+      { hash = "76d55d10938f936b9707d4578e8440a7", label = "Escape from Monster Manor (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XA0E0B, type="u8", condition="change", action="LEVEL_CLEAR", desc="1:Level Completed" },
+        { address=0XA0E28, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID (0-b)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XA0DA8, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XA0DA8, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+      health = {
+        { address=0XA0DA4, type="u8", condition="increase", action="HEAL", desc="HP (hex) increased" },
+        { address=0XA0DA4, type="u8", condition="decrease", action="HIT", desc="HP (hex) decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA0DB4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="hex", desc="Score, hex, 32 bit" },
+      },
+      collectibles = {
+        { address=0XA0DAC, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Gun Ammo/Charge" },
+      },
+    },
+  },
+}

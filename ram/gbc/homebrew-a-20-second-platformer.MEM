@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ A 20 Second Platformer",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-a-20-second-platformer",
+    hashes = {
+      { hash = "900f66d94349339d3b416b5ff0806314", label = "20 Second Platformer, A (World) (v1.1) (GB Compatible) (Aftermarket) (Unl).gbc" },
+    }
+  },
+
+  events = {
+  },
+}

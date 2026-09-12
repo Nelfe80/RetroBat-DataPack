@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Heads Up: Action Soccer",
+    system = "vectrex",
+    system_name = "Vectrex",
+    genre = "Sports"
+  },
+
+  rom = {
+    name = "heads-up-action-soccer",
+    hashes = {
+      { hash = "501dd2845432f10e4b9531240f409b8c", label = "Heads-Up - Action Soccer (World).vec" },
+    }
+  },
+
+  events = {
+  },
+}

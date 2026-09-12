@@ -1,0 +1,75 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Crystal Clear",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-crystal-clear",
+    hashes = {
+      { hash = "1123cb2949f5bb4d53a3eab8e4805687", label = "Pokemon Crystal - Crystal Clear (v2.5.11) (ShockSlayer).gbc" },
+      { hash = "3737dfc080c16b0ee36db9313186eb79", label = "Pokemon Crystal - Crystal Clear (v2.5.11) (Color Filter) (ShockSlayer).gbc" },
+      { hash = "c0e8119c74ed66f63db381f424a9d16d", label = "Pokemon Crystal - Crystal Clear (v2.5.11) (SGB Mode) (ShockSlayer).gbc" },
+      { hash = "3357b45c4a5756403f29b9a0f316455b", label = "Pokemon Crystal - Crystal Clear (v2.5.11) (Color Filter) (SGB Mode) (ShockSlayer).gbc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X12002, type="u8", condition="bit_true", mask=0X01, action="GAME_OVER", desc="Game over when whiting out" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XC689, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Poke Ball, Friend Ball, Heavy Ball, Fast Ball, Level Ball, Love Ball, Lure Ball, Moon Ball" },
+        { address=0XD6F6, type="u8", condition="bit_true", mask=0X80, action="LEVEL_CLEAR", desc="Snowcap event cleared" },
+        { address=0XD8D8, type="u8", condition="eq", value=0X9F, action="NEW_LEVEL", desc="Level Ball" },
+        { address=0XD9A6, type="u8", condition="bit_true", mask=0X01, action="LEVEL_CLEAR", desc="Suicune event cleared" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XDAAB, type="u8", condition="bit_true", mask=0X20, action="LOSE_LIFE", desc="Rare Candies from Pigy" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XC1C9, type="u8", condition="eq", value=0X6A, action="MONEY_STATE", desc="Phone ring" },
+        { address=0XD1EA, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Chris (Gold)" },
+        { address=0XD22F, type="u8", condition="eq", value=0X3E, action="MONEY_STATE", desc="PKMN Trainer Gold" },
+        { address=0XD22F, type="u8", condition="eq", value=0X60, action="MONEY_STATE", desc="Gold's Mom" },
+        { address=0XD893, type="u8", condition="eq", value=0X4B, action="MONEY_STATE", desc="Gold Leaf" },
+        { address=0XD893, type="u8", condition="eq", value=0X5B, action="MONEY_STATE", desc="Amulet Coin" },
+        { address=0XD8BD, type="u8", condition="eq", value=0X36, action="MONEY_STATE", desc="Coin Case" },
+        { address=0XDA31, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Chris (Gold)" },
+        { address=0XDA3A, type="u8", condition="eq", value=0X0618, action="MONEY_STATE", desc="New Bark Town - Gold's House 1F" },
+        { address=0XDA3A, type="u8", condition="eq", value=0X0E18, action="MONEY_STATE", desc="New Bark Town - Gold's House 2F" },
+        { address=0XDAC3, type="u8", condition="bit_true", mask=0X04, action="MONEY_STATE", desc="Gold's Mom" },
+        { address=0XDACB, type="u8", condition="bit_true", mask=0X20, action="MONEY_STATE", desc="Gold Trophy" },
+      },
+    },
+    combat = {
+      enemies = {
+        { address=0XDAEB, type="u8", condition="bit_true", mask=0X02, action="BOSS_HIT", desc="MMBN4 Boss Theme / BN5 Battle / MMBN6 - Boss (Early SS in Forge, Nuzlocker SS)" },
+        { address=0XDAEB, type="u8", condition="bit_true", mask=0X10, action="BOSS_HIT", desc="Contra Boss (Elite 4 Fibbef)" },
+        { address=0XDB5B, type="u8", condition="bit_true", mask=0X80, action="BOSS_HIT", desc="Mt. Silver boss is spawned" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XD22F, type="u8", condition="eq", value=0X24, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Male" },
+        { address=0XD22F, type="u8", condition="eq", value=0X25, action="SWIMMING", no_log=true, no_survey=true, desc="Swimmer Female" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XDA7A, type="u8", condition="bit_true", mask=0X01, action="OBJECT_DESTROYED", desc="Capsule broken in Pokemon Mansion" },
+        { address=0X12002, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Prevent asking to switch" },
+      },
+    },
+  },
+}

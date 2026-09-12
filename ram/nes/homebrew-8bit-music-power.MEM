@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 8BIT Music Power",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-8bit-music-power",
+    hashes = {
+      { hash = "c58e565af73d4c51ba06f17591765ef3", label = "8Bit Music Power (Japan) (En) (Sansai Mook) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X00AA, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="demo" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0217, type="u8", condition="increase", action="COIN_GAIN", desc="coins collected in collect game 100's increased" },
+        { address=0X0218, type="u8", condition="increase", action="COIN_GAIN", desc="coins collected in collect game 10's increased" },
+        { address=0X0219, type="u8", condition="increase", action="COIN_GAIN", desc="coins collected in collect game units increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X00B5, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="track time minutes" },
+        { address=0X00B6, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="track time tens of seconds" },
+        { address=0X00B7, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="track time seconds" },
+      },
+    },
+  },
+}

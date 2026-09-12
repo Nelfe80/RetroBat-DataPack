@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ Chongwu Gaoda Zhan Ji",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "unlicensed-chongwu-gaoda-zhan-ji",
+    hashes = {
+      { hash = "a646adcf5fbf65860d19e7275a4ddc4e", label = "Chongwu Gaoda Zhan Ji (China) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

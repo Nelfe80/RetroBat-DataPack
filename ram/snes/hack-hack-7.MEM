@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Hack 7",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-hack-7",
+    hashes = {
+      { hash = "f22f4ad89e8747e31fe180e1aab65bcc", label = "SMW - Hack 7 (v1.0) (Golden Yoshi).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID [8bit]" },
+        { address=0X13BF, type="u8", condition="eq", value=0X26, action="NEW_LEVEL", desc="redonk" },
+        { address=0X13BF, type="u8", condition="eq", value=0X27, action="NEW_LEVEL", desc="lit" },
+        { address=0X13BF, type="u8", condition="eq", value=0X29, action="NEW_LEVEL", desc="boujee" },
+        { address=0X13BF, type="u8", condition="eq", value=0X2A, action="NEW_LEVEL", desc="dank" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X1B870, type="u24le", condition="eq", value=0X24, action="COIN_GAIN", desc="once both are collected" },
+      },
+    },
+  },
+}

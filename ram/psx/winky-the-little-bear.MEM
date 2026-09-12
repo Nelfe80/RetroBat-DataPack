@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Winky the Little Bear",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Education, Puzzle"
+  },
+
+  rom = {
+    name = "winky-the-little-bear",
+    hashes = {
+      { hash = "56d7241a5664d714495fb791d657d370", label = "Winky the Little Bear (Europe) (En,Fr,De)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X4D888, type="u8", condition="change", action="PAUSE_ON", desc="Pause" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1F7DF0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="unknown", desc="Puzzle timer" },
+      },
+    },
+  },
+}

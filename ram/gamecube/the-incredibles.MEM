@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "The Incredibles",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "the-incredibles",
+    hashes = {
+      { hash = "ab178205f19b7e563ae76ee74e14ebad", label = "Disney-Pixar The Incredibles (USA)" },
+    }
+  },
+
+  events = {
+  },
+}

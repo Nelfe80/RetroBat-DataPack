@@ -1,0 +1,49 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Magical Quest Starring Mickey & Minnie",
+    system = "gba",
+    system_name = "Game Boy Advance",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "magical-quest-starring-mickey-minnie",
+    hashes = {
+      { hash = "1a97a68ce320fd9eda568a724ea1bfb4", label = "Magical Quest Starring Mickey & Minnie (Europe) (En,Fr,De,Es,It).gba" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X88E6, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+        { address=0X88E7, type="u8", condition="change", action="NEW_LEVEL", desc="Level Section" },
+        { address=0X88E8, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X8985, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of Lives increased" },
+        { address=0X8985, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of Lives decreased" },
+      },
+      health = {
+        { address=0X88E9, type="u8", condition="increase", action="HEAL", desc="Max Health increased" },
+        { address=0X88E9, type="u8", condition="decrease", action="HIT", desc="Max Health decreased" },
+        { address=0X88EA, type="u8", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X88EA, type="u8", condition="decrease", action="HIT", desc="Current Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X88E4, type="u8", condition="increase", action="COIN_GAIN", desc="Coins (BCD) increased" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X897C, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="countdown", timer_unit="unknown", desc="Time left (Tens and Ones Digits)" },
+        { address=0X897E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer Ticker (Time between each second)" },
+      },
+    },
+  },
+}

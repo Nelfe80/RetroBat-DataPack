@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Vectrexagon",
+    system = "vectrex",
+    system_name = "Vectrex",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-vectrexagon",
+    hashes = {
+      { hash = "7fd05f6a7b71e44f8b6b2fc4519e39cb", label = "Vectrexagon (World) (v1.2) (Aftermarket) (Unl).vec" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0114, type="u8", condition="change", action="NEW_LEVEL", desc="Determines level speed increasing from 0x01" },
+        { address=0X0117, type="u8", condition="change", action="NEW_LEVEL", desc="Determines level spin speed increasing from 0x01" },
+      },
+    },
+  },
+}

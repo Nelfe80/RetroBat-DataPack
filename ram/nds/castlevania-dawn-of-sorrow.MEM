@@ -1,0 +1,77 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Castlevania: Dawn of Sorrow",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Action, Adventure, Platform, Role-Playing"
+  },
+
+  rom = {
+    name = "castlevania-dawn-of-sorrow",
+    hashes = {
+      { hash = "02b82366dce96b554440fd0b39b491d3", label = "Castlevania - Dawn of Sorrow (USA).nds" },
+      { hash = "9538d811c4628fc7df447945fc8f1f28", label = "Castlevania - Dawn of Sorrow (USA) (No Touch) (v1.1) (LagoLunatic).nds" },
+      { hash = "1e25eb3683b9ec02ddcf19b5b4f89f6a", label = "Castlevania - Dawn of Sorrow (USA) (Ru) (Magic Team, Owls Group).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XF70E5, type="u8", condition="change", action="DEMO_MODE", desc="Aguni / Flame Demon" },
+        { address=0XF70FF, type="u8", condition="change", action="DEMO_MODE", desc="Arc Demon / Bugbear" },
+        { address=0XF710D, type="u8", condition="change", action="DEMO_MODE", desc="- - - - / Mud Demon" },
+        { address=0XF7213, type="u8", condition="change", action="DEMO_MODE", desc="Silk Robe / Demon`s Mail" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XF70E3, type="u8", condition="change", action="LOSE_LIFE", desc="Dead Mate / Mollusca" },
+        { address=0XF70FC, type="u8", condition="change", action="LOSE_LIFE", desc="Golem / Death" },
+        { address=0XF7103, type="u8", condition="change", action="LOSE_LIFE", desc="Dead Warrior / Skeleton Ape" },
+        { address=0XF7104, type="u8", condition="change", action="LOSE_LIFE", desc="Draghignazzo / Dead Pirate" },
+        { address=0XF7108, type="u8", condition="change", action="LOSE_LIFE", desc="Dead Crusader / Ouija Table" },
+        { address=0XF71FB, type="u8", condition="change", action="LOSE_LIFE", desc="Death Scythe / Golden Axe" },
+        { address=0XF7216, type="u8", condition="change", action="LOSE_LIFE", desc="Death`s Robe / Serenity Robe" },
+      },
+      health = {
+        { address=0XD26E8, type="u8", condition="increase", action="HEAL", desc="Bat Company HP increased" },
+        { address=0XD26E8, type="u8", condition="decrease", action="HIT", desc="Bat Company HP decreased" },
+        { address=0XD2988, type="u8", condition="increase", action="HEAL", desc="Abaddon hp increased" },
+        { address=0XD2988, type="u8", condition="decrease", action="HIT", desc="Abaddon hp decreased" },
+        { address=0XF7410, type="u8", condition="increase", action="HEAL", desc="HP increased" },
+        { address=0XF7410, type="u8", condition="decrease", action="HIT", desc="HP decreased" },
+        { address=0XF7412, type="u8", condition="increase", action="HEAL", desc="Max HP increased" },
+        { address=0XF7412, type="u8", condition="decrease", action="HIT", desc="Max HP decreased" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0XF7209, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Jung Fu Suit / Gym Clothes" },
+        { address=0XF720B, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Three 7s / Ninja Suit" },
+        { address=0XF720D, type="u8", condition="change", action="DYNAMIC_INVENTORY", desc="Orlox Suit / Pitch Black Suit" },
+      },
+      weapon = {
+        { address=0XC07EA, type="u8", condition="change", action="WEAPON_STATE", desc="Have no idea what this, but it useful for detection weapon crafting" },
+        { address=0XF7420, type="u8", condition="change", action="WEAPON_STATE", desc="weapon equipped?" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XF720F, type="u8", condition="increase", action="COIN_GAIN", desc="Ring Mail / Breastplate increased" },
+        { address=0XF7220, type="u8", condition="increase", action="COIN_GAIN", desc="Bloody Stud / Gold Stud increased" },
+        { address=0XF7223, type="u8", condition="increase", action="COIN_GAIN", desc="Rare Ring / Stan's Ring increased" },
+        { address=0XF7224, type="u8", condition="increase", action="COIN_GAIN", desc="Rune Ring / Soul Eater Ring increased" },
+        { address=0XF7225, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Ring / Shaman Ring increased" },
+        { address=0XF7226, type="u8", condition="increase", action="COIN_GAIN", desc="- - - - / Chaos Ring increased" },
+        { address=0XF744C, type="u8", condition="increase", action="COIN_GAIN", desc="Gold increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XF7212, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Eversing / Blocking Mail" },
+      },
+    },
+  },
+}

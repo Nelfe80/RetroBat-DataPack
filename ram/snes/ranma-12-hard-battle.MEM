@@ -1,0 +1,63 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Ranma ½: Hard Battle",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "ranma-12-hard-battle",
+    hashes = {
+      { hash = "070582bb3cb2c3501738d91db530e2b8", label = "Ranma 1-2 - Hard Battle (USA).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0085, type="u8", condition="change", action="TITLE_SCREEN", desc="Title Screen Flag?" },
+        { address=0X00F2, type="u8", condition="eq", value=0X0, action="TITLE_SCREEN", desc="1P, 1:2P, 2:Team Challenge, 3:OPTIONS" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X18FE, type="u8", condition="change", action="NEW_LEVEL", desc="P1 - Rounds won" },
+        { address=0X1900, type="u8", condition="change", action="NEW_LEVEL", desc="P2 - Rounds won" },
+        { address=0X1964, type="u8", condition="change", action="NEW_LEVEL", desc="Option Mode - Game Level: 0:Beginner, 1:Normal, 2:Expert" },
+        { address=0X199C, type="u8", condition="change", action="NEW_LEVEL", desc="Game Level: 0:Beginner, 1:Normal, 2:Expert" },
+      },
+      stage = {
+        { address=0X0072, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage:" },
+        { address=0X0072, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Riverside (morning), 1:Riverside (sunset), 2:Haunted Shrine, 3:Okonomiyaki Ring, 4:Fighting Aren" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X0CC7, type="u8", condition="increase", action="HEAL", desc="P1 - Health increased" },
+        { address=0X0CC7, type="u8", condition="decrease", action="HIT", desc="P1 - Health decreased" },
+        { address=0X0CC9, type="u8", condition="increase", action="HEAL", desc="P2 - Health increased" },
+        { address=0X0CC9, type="u8", condition="decrease", action="HIT", desc="P2 - Health decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X0B7C, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Jump Start" },
+        { address=0X0B7C, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Jump Fall" },
+        { address=0X0B7C, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Grounded" },
+        { address=0X0B7E, type="u8", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="Jump Start" },
+        { address=0X0B7E, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Jump Fall" },
+        { address=0X0B7E, type="u8", condition="eq", value=0X04, action="JUMPING", no_log=true, no_survey=true, desc="Grounded" },
+        { address=0X1934, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="P1 - Jump Rate" },
+        { address=0X1936, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="P2 - Jump Rate" },
+        { address=0X1982, type="u8", condition="change", action="JUMPING", no_log=true, no_survey=true, desc="P1 Jump Setting" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X18FA, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer (Hex:Dec)" },
+      },
+    },
+  },
+}

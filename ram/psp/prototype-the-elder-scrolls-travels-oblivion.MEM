@@ -1,0 +1,69 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ The Elder Scrolls Travels: Oblivion",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "prototype-the-elder-scrolls-travels-oblivion",
+    hashes = {
+      { hash = "6d590dc150971df50b450e99285586ea", label = "Elder Scrolls Travels, The - Oblivion (USA) (Proto) (2007-02-01).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XAE1A10, type="u16le", condition="eq", value=0X02, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0XAE6B48, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Menu is open, game is paused (Applies to all menus, pause, level select, etc)" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XAE56F0, type="u16le", condition="change", action="NEW_LEVEL", desc="Level Up Screen" },
+        { address=0XAE56F0, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="Nothing" },
+        { address=0XAE56F0, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Press Select to see Level Up Screen" },
+        { address=0XAE56F0, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level Up Screen" },
+        { address=0X170EF60, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Strength Stat (Updates at Level Up)" },
+        { address=0X170EF68, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Intelligence Stat (Updates at Level Up)" },
+        { address=0X170EF70, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] WillPower Stat (Updates at Level Up)" },
+        { address=0X170EF78, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Agility Stat (Updates at Level Up)" },
+        { address=0X170EF80, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Speed Stat (Updates at Level Up)" },
+        { address=0X170EF88, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Endurance Stat (Updates at Level Up)" },
+        { address=0X170EF90, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Luck Stat (Updates at Level Up)" },
+        { address=0X170EF98, type="u8", condition="change", action="NEW_LEVEL", desc="[8-bit ASCII] Personality Stat (Updates at Level Up)" },
+        { address=0X170F048, type="u8", condition="change", action="NEW_LEVEL", desc="Strength Stat selected on level up screen" },
+        { address=0X170F048, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Selected" },
+        { address=0X170F068, type="u8", condition="change", action="NEW_LEVEL", desc="Number of selected stats on level up screen" },
+        { address=0X170F068, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Selected" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XC37E40, type="u16le", condition="eq", value=0X00, action="LOSE_LIFE", desc="Death Screen Not Displayed" },
+        { address=0XC37E40, type="u16le", condition="eq", value=0X01, action="LOSE_LIFE", desc="Death Screen Displayed" },
+      },
+      health = {
+        { address=0X16F0F8C, type="u8", condition="increase", action="HEAL", desc="[8-bit ASCII] Health Remaining (Menu) (Digit 1) increased" },
+        { address=0X16F0F8C, type="u8", condition="decrease", action="HIT", desc="[8-bit ASCII] Health Remaining (Menu) (Digit 1) decreased" },
+        { address=0X16F0F94, type="u8", condition="increase", action="HEAL", desc="[8-bit ASCII] Max Health (Menu) (Digit 1) increased" },
+        { address=0X16F0F94, type="u8", condition="decrease", action="HIT", desc="[8-bit ASCII] Max Health (Menu) (Digit 1) decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCC99E4, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (While at a vendor) (Digit 1) increased" },
+        { address=0XCC99E6, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (While at a vendor) (Digit 2) increased" },
+        { address=0XCC99E8, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (While at a vendor) (Digit 3) increased" },
+        { address=0XD14014, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (Loot Window) (Digit 1) increased" },
+        { address=0XD14016, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (Loot Window) (Digit 2) increased" },
+        { address=0XD14018, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Current Gold (Loot Window) (Digit 3) increased" },
+        { address=0XD778BC, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Gold (First Digit) (April Build) increased" },
+        { address=0XD778BE, type="u8", condition="increase", action="COIN_GAIN", desc="[8-bit ASCII] Gold (Second Digit) (April Build) increased" },
+      },
+    },
+  },
+}

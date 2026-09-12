@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Polaris SnoCross",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "polaris-snocross",
+    hashes = {
+      { hash = "24c13d510d3a3314f1ba073ac6934b6c", label = "Polaris SnoCross (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X6051C, type="u8", condition="change", action="LEVEL_CLEAR", desc="Clear or Snow [8bit]" },
+      },
+    },
+  },
+}

@@ -1,0 +1,66 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Touhoumon Ordinary Version",
+    system = "gbc",
+    system_name = "Game Boy Color",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-touhoumon-ordinary-version",
+    hashes = {
+      { hash = "3e19e48ae832620c023f8c5f62129b99", label = "Pokemon Silver - Touhoumon Ordinary Version (v1.3) (GeminiRage).gbc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XD0FC, type="u8", condition="change", action="NEW_LEVEL", desc="Opponent's pokemon's level" },
+        { address=0XD127, type="u8", condition="change", action="NEW_LEVEL", desc="Opponent pokemon's type 1 (00 : Normal, 01 : Fighting, 02 : Flying, 04 : Ground) Switches to 17" },
+        { address=0XD128, type="u8", condition="change", action="NEW_LEVEL", desc="Opponent pokemon's type 2 (04 : Ground)" },
+        { address=0XDA49, type="u8", condition="change", action="NEW_LEVEL", desc="1st slot's current level" },
+        { address=0XDA79, type="u8", condition="change", action="NEW_LEVEL", desc="2nd slot's current level" },
+        { address=0XDAA9, type="u8", condition="change", action="NEW_LEVEL", desc="3rd slot's current level" },
+        { address=0XDAD9, type="u8", condition="change", action="NEW_LEVEL", desc="4th slot's current level" },
+        { address=0XDB09, type="u8", condition="change", action="NEW_LEVEL", desc="5th slot's current level" },
+        { address=0XDB39, type="u8", condition="change", action="NEW_LEVEL", desc="6th slot's current level" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCB1D, type="u8", condition="increase", action="HEAL", desc="Current Pokemon's current health. increased" },
+        { address=0XCB1D, type="u8", condition="decrease", action="HIT", desc="Current Pokemon's current health. decreased" },
+        { address=0XCB1F, type="u8", condition="increase", action="HEAL", desc="Current active Pokemon's maximum health increased" },
+        { address=0XCB1F, type="u8", condition="decrease", action="HIT", desc="Current active Pokemon's maximum health decreased" },
+        { address=0XCFED, type="u24le", condition="eq", value=0X1A, action="HEALTH_STATE", desc="Hp Up" },
+        { address=0XCFED, type="u24le", condition="eq", value=0X79, action="HEALTH_STATE", desc="Energypowder" },
+        { address=0XCFED, type="u24le", condition="eq", value=0X7A, action="HEALTH_STATE", desc="Energy Root" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0XCFED, type="u24le", condition="eq", value=0X36, action="MONEY_STATE", desc="Coin Case" },
+        { address=0XCFED, type="u24le", condition="eq", value=0X4B, action="MONEY_STATE", desc="Gold Leaf" },
+        { address=0XCFED, type="u24le", condition="eq", value=0X5B, action="MONEY_STATE", desc="Amulet Coin" },
+        { address=0XCFED, type="u24le", condition="eq", value=0XAE, action="MONEY_STATE", desc="Gold Berry" },
+        { address=0XD573, type="u8", condition="increase", action="COIN_GAIN", desc="Player's held money. 100,000's and 10,000's digit. increased" },
+        { address=0XD574, type="u8", condition="increase", action="COIN_GAIN", desc="Player's held money. 1000's and 100's digit. increased" },
+        { address=0XD575, type="u8", condition="increase", action="COIN_GAIN", desc="Player's held money. 10's and single digit. increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCEA3, type="u8", condition="change", action="OBJECT_INTERACTION", desc="What's to the south of the player. Does not see NPCs. (FF : out of bounds wall, 07 : misc object" },
+        { address=0XCEA5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="What's to the left of the player (FF : out of bounds wall, 07 : misc object, 70 : exit carpet, 7" },
+        { address=0XCEA6, type="u8", condition="change", action="OBJECT_INTERACTION", desc="What's to the right of the player (FF : out of bounds wall, 07 : misc object, 70 : exit carpet," },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XCEA4, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="What's to the north of the player. Does not see NPCs. (FF : out of bounds wall, 07 : misc object" },
+      },
+    },
+  },
+}

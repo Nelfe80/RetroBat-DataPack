@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Mr. Do!",
+    system = "colecovision",
+    system_name = "ColecoVision",
+    genre = "Action"
+  },
+
+  rom = {
+    name = "mr-do",
+    hashes = {
+      { hash = "de0b1b1ec005bb1765e1ceffdfa3e92e", label = "Mr. Do! (USA, Europe).col" },
+    }
+  },
+
+  events = {
+    scoring = {
+      points = {
+        { address=0X027D, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score" },
+      },
+    },
+  },
+}

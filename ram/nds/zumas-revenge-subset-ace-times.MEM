@@ -1,0 +1,42 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Zuma's Revenge [Subset - Ace Times]",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "zumas-revenge-subset-ace-times",
+    hashes = {
+      { hash = "0ece7a385b2620de0413c0d748f80e60", label = "Zuma's Revenge! (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0XF29F4, type="u32le", condition="change", action="NEW_LEVEL", desc="Bonus - only above 0 if player aced level" },
+        { address=0XF2A0C, type="u8", condition="change", action="NEW_LEVEL", desc="Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2A4C06, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X2A4C06, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XF1198, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Current save block" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XF29EC, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Ace time - only updates upon completion of level" },
+        { address=0XF29F0, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Current time - populates once level completed" },
+      },
+    },
+  },
+}

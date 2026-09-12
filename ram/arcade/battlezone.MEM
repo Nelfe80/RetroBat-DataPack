@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Battlezone",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "battlezone",
+    hashes = {
+      { hash = "f259be1f4ab164a9181d5c36166af0c8", label = "bzone.7z <>" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X00CC, type="u8", condition="increase", action="GAIN_LIFE", desc="Player lives increased" },
+        { address=0X00CC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XB8, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+    },
+  },
+}

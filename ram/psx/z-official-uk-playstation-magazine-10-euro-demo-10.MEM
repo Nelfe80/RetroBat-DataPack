@@ -1,0 +1,41 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ Official UK PlayStation Magazine 10 | Euro Demo 10",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "z-official-uk-playstation-magazine-10-euro-demo-10",
+    hashes = {
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XDF10, type="u8", condition="change", action="DEMO_MODE", desc="00 - Olympic Soccer (Rolling Demo)" },
+        { address=0XDF12, type="u8", condition="change", action="DEMO_MODE", desc="00 - In the demo menu" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X1C712C, type="u8", condition="increase", action="HEAL", desc="[Toshinden 2] P1 health [8bit] increased" },
+        { address=0X1C712C, type="u8", condition="decrease", action="HIT", desc="[Toshinden 2] P1 health [8bit] decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X8813C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Gunship] Score" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X7D498, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Gunship] Demo Time [8bit]" },
+        { address=0X7D4A0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="[Gunship] Demo Timeout. Counts Down [16bit]" },
+      },
+    },
+  },
+}

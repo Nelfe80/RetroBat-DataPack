@@ -1,0 +1,56 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Bloody Roar 4",
+    system = "ps2",
+    system_name = "PlayStation 2",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "bloody-roar-4",
+    hashes = {
+      { hash = "104eb6f4f82a3ac1e54ed206cba29661", label = "Bloody Roar 4 (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3FEEE0, type="u16le", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen" },
+        { address=0X1660568, type="u8", condition="eq", value=0X00, action="PAUSE_ON", desc="Paused" },
+        { address=0X1660568, type="u8", condition="eq", value=0X01, action="PAUSE_ON", desc="Playing" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X3EFDB0, type="u16le", condition="change", action="NEW_LEVEL", desc="Attack Level Setting" },
+        { address=0X3EFDB0, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="1" },
+        { address=0X3EFDB0, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="4 (default)" },
+        { address=0X3EFDB0, type="u16le", condition="eq", value=0X07, action="NEW_LEVEL", desc="8 (Max)" },
+        { address=0X3EFDB2, type="u16le", condition="change", action="NEW_LEVEL", desc="Round setting" },
+        { address=0X3EFDB2, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="1 Round" },
+        { address=0X3EFDB2, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="2 Rounds (Default)" },
+        { address=0X3EFDB2, type="u16le", condition="eq", value=0X05, action="NEW_LEVEL", desc="5 Rounds (Max)" },
+        { address=0X3EFDB6, type="u16le", condition="change", action="NEW_LEVEL", desc="Round Time setting" },
+        { address=0X3EFDB6, type="u16le", condition="eq", value=0X00, action="NEW_LEVEL", desc="20 seconds" },
+        { address=0X3EFDB6, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="40 seconds" },
+        { address=0X3EFDB6, type="u16le", condition="eq", value=0X02, action="NEW_LEVEL", desc="60 seconds (default)" },
+        { address=0X3EFDB6, type="u16le", condition="eq", value=0X03, action="NEW_LEVEL", desc="90 seconds" },
+        { address=0X3EFDB6, type="u16le", condition="eq", value=0X04, action="NEW_LEVEL", desc="Infinite" },
+      },
+      stage = {
+        { address=0X3FEFA8, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Actual current stage in Arcade mode" },
+        { address=0X3FEFA8, type="u16le", condition="eq", value=0X09, action="PROGRESSION_STAGE", desc="Final Stage" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3FEEE0, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Current mode" },
+        { address=0X3FEEE0, type="u16le", condition="eq", value=0X07, action="GENERAL_TIMER", desc="Time Attack mode" },
+        { address=0X3FEF18, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Stage Counter" },
+        { address=0X1660540, type="u32le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="Round timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+	<game id="204330">
+		<path>./2048.libretro</path>
+		<name>2048</name>
+		<desc>2048 es un juego de rompecabezas de bloques deslizantes para un jugador diseñado por el desarrollador web italiano Gabriele Cirulli. El objetivo del juego es deslizar fichas numeradas en una cuadrícula para combinarlas y crear una ficha con el número 2048. Sin embargo, uno puede continuar jugando después de alcanzar la meta, creando fichas con números más grandes.</desc>
+		<genre>Puzzle / Deslizar, 0B00, Puzzle</genre>
+		<marquee>./../../plugins/APIExpose/media/systems/ports/games/2048/ui/wheels/wheel.png</marquee>
+		<thumbnail>./../../plugins/APIExpose/media/systems/ports/games/2048/artwork/box/front.png</thumbnail>
+		<boxart>./../../plugins/APIExpose/media/systems/ports/games/2048/artwork/box/front.png</boxart>
+		<boxback>./../../plugins/APIExpose/media/systems/ports/games/2048/artwork/box/back.png</boxback>
+		<wheel>./../../plugins/APIExpose/media/systems/ports/games/2048/ui/wheels/wheel.png</wheel>
+		<mix>./../../plugins/APIExpose/media/systems/ports/games/2048/artwork/mix/mixrbv2.png</mix>
+		<rating>0.6</rating>
+		<releasedate>20140301T000000</releasedate>
+		<developer>Gabriele Cirulli</developer>
+		<publisher>Libretro</publisher>
+		<players>1</players>
+		<md5>3268ADBB54B3BC17D9C61473CC418403</md5>
+		<lang>es</lang>
+	<gameid>036c563efd13bdb81b4791f3ad842e86</gameid><genres>26, 2891</genres></game>
+	<game>
+		<path>./anarch.libretro</path>
+		<name>Anarch</name>
+		<rating>0.000000</rating>
+		<md5>33effdd7feb7d74b8a8c1988e9f58b65</md5>
+		<lang>en</lang>
+	<gameid>33effdd7feb7d74b8a8c1988e9f58b65</gameid><releasedate>not-a-date-time</releasedate></game>
+	<game>
+		<path>./craft.libretro</path>
+		<name>craft</name>
+		<mix>./../../plugins/APIExpose/media/systems/ports/games/craft/artwork/mix/mixrbv2.png</mix>
+		<rating>0.000000</rating>
+		<md5>a56e54893f9648f826ad54ac33fbe693</md5>
+		<lang>en</lang>
+	<gameid>a56e54893f9648f826ad54ac33fbe693</gameid><releasedate>not-a-date-time</releasedate></game>
+	<game>
+		<path>./gong.libretro</path>
+		<name>Gong</name>
+		<rating>0.000000</rating>
+		<md5>a7ef0f56209a93ce0e3e71664cc0bbe7</md5>
+		<lang>en</lang>
+	<gameid>a7ef0f56209a93ce0e3e71664cc0bbe7</gameid><releasedate>not-a-date-time</releasedate></game>
+	<game id="158167">
+		<path>./mrboom.libretro</path>
+		<name>Mr. Boom</name>
+		<desc>Mr. Boom es un clon de Bomberman. La jugabilidad es exactamente la misma e incluso el estilo gráfico es muy similar. En la versión de MS-DOS solo se podía jugar en modo multijugador, pero la versión para GNU/Linux permite jugar de forma individual contra bots, o en modo multijugador con hasta 8 jugadores.</desc>
+		<genre>Estrategia</genre>
+		<image>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/screentitle.png</image>
+		<marquee>./../../plugins/APIExpose/media/systems/ports/games/mrboom/ui/wheels/wheel.png</marquee>
+		<thumbnail>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/box/front.png</thumbnail>
+		<titleshot>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/screentitle.png</titleshot>
+		<boxart>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/box/front.png</boxart>
+		<boxback>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/box/back.png</boxback>
+		<wheel>./../../plugins/APIExpose/media/systems/ports/games/mrboom/ui/wheels/wheel.png</wheel>
+		<mix>./../../plugins/APIExpose/media/systems/ports/games/mrboom/artwork/mix/mixrbv2.png</mix>
+		<rating>0.8</rating>
+		<releasedate>19990101T000000</releasedate>
+		<developer>Remdy Software</developer>
+		<publisher>Remdy Software</publisher>
+		<family>Bomberman</family>
+		<players>1-8</players>
+		<lastplayed>20260508T093446</lastplayed>
+		<md5>57701B3C699D1B71254789CC9C58C891</md5>
+		<gametime>49</gametime>
+		<lang>es</lang>
+	<gameid>83ab70470bf7e3bdd74e9bb58c7e747e</gameid><genres>27</genres></game>
+	<game>
+		<path>./xrick.libretro</path>
+		<name>XRick</name>
+		<image>./../../plugins/APIExpose/media/systems/ports/games/xrick/artwork/screentitle.png</image>
+		<fanart>./../../plugins/APIExpose/media/systems/ports/games/xrick/artwork/fanart.jpg</fanart>
+		<titleshot>./../../plugins/APIExpose/media/systems/ports/games/xrick/artwork/screentitle.png</titleshot>
+		<mix>./../../plugins/APIExpose/media/systems/ports/games/xrick/artwork/mix/mixrbv2.png</mix>
+		<rating>0.0</rating>
+		<developer>Core Design</developer>
+		<publisher>Microplay Software</publisher>
+		<family>Rick Dangerous</family>
+		<players>1</players>
+		<md5>6ae1ed3e4a598e1ad9125c0a84d69bea</md5>
+		<lang>en</lang>
+	<gameid>6ae1ed3e4a598e1ad9125c0a84d69bea</gameid><releasedate>not-a-date-time</releasedate><desc>XRick est une réimplémentation open source du jeu « Rick Dangerous ». Il s'agit d'un jeu de plateforme populaire initialement publié en 1989 et développé pour la plupart des ordinateurs disponibles au début des années 1990.
+
+Librement inspiré de la série de films Indiana Jones et se déroulant en 1945, l'agent secret Rick Dangerous s'écrase dans la jungle et doit combattre des ennemis et rassembler des trésors.</desc></game>
+</gameList>

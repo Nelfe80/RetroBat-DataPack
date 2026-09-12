@@ -1,0 +1,20 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Do I Pass?",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-do-i-pass",
+    hashes = {
+      { hash = "040056615586a58260910fc9f7cb7f30", label = "Do I Pass (World) (En) (v1.5) (Aftermarket) (Unl).gb" },
+      { hash = "4523452d7dde5e486187b384fee751a7", label = "Do I Pass (World) (Fr) (v1.4.2) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+  },
+}

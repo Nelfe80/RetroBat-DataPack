@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario Kart: Double Dash!! Plus",
+    system = "gamecube",
+    system_name = "GameCube",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-mario-kart-double-dash-plus",
+    hashes = {
+      { hash = "eac6965e4b579397917a72ca108b8a90", label = "Mario Kart - Double Dash!! Plus (v3.3) (That1loser4).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X3B1464, type="u32be", condition="eq", value=0X09, action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X3C9CE0, type="u32be", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen / Intro Movie" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X3CB6A8, type="u32be", condition="eq", value=0X2B, action="PROGRESSION_ZONE", desc="3DS Rosalina's Ice World" },
+      },
+      stage = {
+        { address=0X3C9CE0, type="u32be", condition="eq", value=0X04, action="PROGRESSION_STAGE", desc="Stage Select" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3B11CC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", desc="[32-bit BE] Player Points" },
+      },
+      collectibles = {
+        { address=0X3CB6A8, type="u32be", condition="eq", value=0X23, action="MONEY_STATE", desc="Wii Wario's Gold Mine" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X3B1464, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="unknown", desc="[32-bit BE] GameMode" },
+        { address=0X3CB6A8, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", desc="[32-bit BE] Current Track ID" },
+      },
+    },
+  },
+}

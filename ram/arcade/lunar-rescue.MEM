@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "lrescue",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Shoot'em Up"
+  },
+
+  rom = {
+    name = "lunar-rescue",
+    hashes = {
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X21AC, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="orange", min=10, max=200, desc="Score delta 10-200: Score delta 10-200" },
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="blue", min=1100, max=10000, desc="Score delta 1100-10000: Score delta 1100-10000" },
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="cyan", min=210, max=500, desc="Score delta 210-500: Score delta 210-500" },
+        { address=0X20F8, type="u16be", condition="change", action="SCORE_STATE", color="green", min=510, max=1000, desc="Score delta 510-1000: Score delta 510-1000" },
+      },
+    },
+  },
+}

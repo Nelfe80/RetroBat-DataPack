@@ -1,0 +1,37 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Prototype~ Dragon Sword 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Beat 'em Up, Role-Playing"
+  },
+
+  rom = {
+    name = "prototype-dragon-sword-64",
+    hashes = {
+      { hash = "770d0d2bb08235613569667a284bca2c", label = "Dragon Sword 64 (USA) (Prototype) (1999-08-25).n64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XCAFE1, type="u8", condition="eq", value=0X10, action="CREDITS_SCREEN", desc="credits" },
+        { address=0XCAFE1, type="u8", condition="eq", value=0X7, action="TITLE_SCREEN", desc="title screen" },
+        { address=0X1A62DC, type="u8", condition="change", action="CONTINUE_SCREEN", desc="new proto _ of continues" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X146B24, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="dead" },
+        { address=0X165360, type="u16be", condition="eq", value=0X0, action="LOSE_LIFE", desc="dead" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XCAFE1, type="u8", condition="eq", value=0X12, action="SCORE_STATE", desc="high scores" },
+      },
+    },
+  },
+}

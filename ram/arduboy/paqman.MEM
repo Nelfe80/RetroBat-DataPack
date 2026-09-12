@@ -1,0 +1,55 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Paqman",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "paqman",
+    hashes = {
+      { hash = "6d764ed131ab107fe1e30df996d88bf5", label = "Paqman (World) (Erwin's Collection).hex" },
+      { hash = "e5f1e8878437136dcc9df3651873e829", label = "Paqman (World) (Fixed) (akkera102).hex" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0487, type="u8", condition="change", action="NEW_LEVEL", desc="Level number" },
+        { address=0X0497, type="u8", condition="change", action="NEW_LEVEL", desc="Level number!" },
+        { address=0X06F9, type="u8", condition="change", action="NEW_LEVEL", desc="1 : playing level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X0488, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X0488, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X0498, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives! increased" },
+        { address=0X0498, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives! decreased" },
+        { address=0X06F9, type="u8", condition="eq", value=0X0, action="LOSE_LIFE", desc="complete level/death" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X03AD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ghostscore" },
+        { address=0X03BD, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="Ghostscore!" },
+        { address=0X0489, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="signed score" },
+        { address=0X0499, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="score!" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X03FB, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Deadtimer" },
+        { address=0X03FD, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Yeahtimer" },
+        { address=0X03FD, type="u8", condition="eq", value=0X0, action="GENERAL_TIMER", no_log=true, desc="right" },
+        { address=0X03FD, type="u8", condition="eq", value=0X4, action="GENERAL_TIMER", no_log=true, desc="down" },
+        { address=0X03FD, type="u8", condition="eq", value=0X8, action="GENERAL_TIMER", no_log=true, desc="left" },
+        { address=0X03FD, type="u8", condition="eq", value=0XC, action="GENERAL_TIMER", no_log=true, desc="up" },
+        { address=0X040C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Deadtimer!" },
+      },
+    },
+  },
+}

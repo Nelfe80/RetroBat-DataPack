@@ -1,0 +1,25 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Private Eye dol",
+    system = "pcenginecd",
+    system_name = "PC Engine CD/TurboGrafx-CD",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "private-eye-dol",
+    hashes = {
+      { hash = "456708e57fac0f596cfbb6407a516378", label = "Private Eye dol (Japan)" },
+      { hash = "8b18b024b03f7b1b5870a8e20f131f19", label = "Private Eye Dol (Japan) (En) (v1.0) (Supper)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X175A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Script selected in Continue menu" },
+      },
+    },
+  },
+}

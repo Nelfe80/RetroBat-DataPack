@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Mario's Star Quest",
+    system = "nds",
+    system_name = "Nintendo DS",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-marios-star-quest",
+    hashes = {
+      { hash = "cdd4adff2642a440463a562693a2a8df", label = "SM64DS - Mario's Star Quest (0reo).nds" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X8E43C, type="u8", condition="eq", value=0X15, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u16le", condition="eq", value=0X0000, action="TITLE_SCREEN", desc="Titlescreen" },
+        { address=0X9F5C0, type="u16le", condition="eq", value=0X1AE0, action="GAME_OVER", desc="Game Over" },
+        { address=0X9F5C0, type="u16le", condition="eq", value=0X1B20, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X9CAD1, type="u8", condition="bit_true", mask=0X02, action="PROGRESSION_ZONE", desc="5 Secret Treasures" },
+        { address=0X9F2F8, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="The Hub World" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X9F2F4, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X9F2F4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+      health = {
+        { address=0X92145, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X92145, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X9F30C, type="u8", condition="increase", action="COIN_GAIN", desc="Red Coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X9CAA7, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Activate Red ? Switch" },
+      },
+    },
+  },
+}

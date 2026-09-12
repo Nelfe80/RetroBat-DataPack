@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Z~ ~Hack~ Sonic the Hedgehog 4",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Adventure"
+  },
+
+  rom = {
+    name = "z-hack-sonic-the-hedgehog-4",
+    hashes = {
+      { hash = "d12db58f12ad4b06ea693fd920aca65d", label = "Sonic The Hedgehog (USA) (Pirate) (Alt).sfc" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X08CC, type="u8", condition="increase", action="GAIN_LIFE", desc="Life increased" },
+        { address=0X08CC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X08DE, type="u8", condition="increase", action="COIN_GAIN", desc="Rings increased" },
+      },
+    },
+  },
+}

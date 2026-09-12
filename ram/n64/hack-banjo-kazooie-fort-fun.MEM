@@ -1,0 +1,59 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Banjo-Kazooie: Fort Fun",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-banjo-kazooie-fort-fun",
+    hashes = {
+      { hash = "5cec2ea484464baf61aed4db439557a9", label = "Banjo-Kazooie - Fort Fun (v5.0) (Kurko Mods).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X37E8F6, type="u8", condition="eq", value=0X1F, action="GAME_OVER", desc="Game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X385F68, type="u8", condition="change", action="NEW_LEVEL", desc="Jigsaw pieces in the current level" },
+      },
+      zone = {
+        { address=0X383302, type="u8", condition="change", action="PROGRESSION_ZONE", desc="World" },
+        { address=0X383302, type="u8", condition="eq", value=0X01, action="PROGRESSION_ZONE", desc="Fort Fun" },
+        { address=0X383302, type="u8", condition="eq", value=0X0B, action="PROGRESSION_ZONE", desc="Select file" },
+        { address=0X383302, type="u8", condition="eq", value=0X0D, action="PROGRESSION_ZONE", desc="Main menu (cinematic)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X383160, type="u16be", condition="eq", value=0X0B4B, action="LOSE_LIFE", desc="Ending text with dead count" },
+        { address=0X385F88, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives but it stuck on 09 for this hack increased" },
+        { address=0X385F88, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives but it stuck on 09 for this hack decreased" },
+      },
+      health = {
+        { address=0X385F80, type="u8", condition="increase", action="HEAL", desc="Health increased" },
+        { address=0X385F80, type="u8", condition="decrease", action="HIT", desc="Health decreased" },
+        { address=0X385F84, type="u8", condition="increase", action="HEAL", desc="Max health but it stuck on 03 for this hack increased" },
+        { address=0X385F84, type="u8", condition="decrease", action="HIT", desc="Max health but it stuck on 03 for this hack decreased" },
+      },
+    },
+    state = {
+      temporary = {
+        { address=0X37D234, type="u8", condition="change", action="SPEED_START", desc="Speed shoes" },
+        { address=0X3832C3, type="u8", condition="bit_true", mask=0X20, action="SPEED_START", desc="Speed shoes Jiggie" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X37C5BE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Death counter" },
+      },
+    },
+  },
+}

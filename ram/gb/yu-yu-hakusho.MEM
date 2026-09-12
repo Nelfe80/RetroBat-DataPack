@@ -1,0 +1,57 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Yu Yu Hakusho",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Fighting"
+  },
+
+  rom = {
+    name = "yu-yu-hakusho",
+    hashes = {
+      { hash = "d120872ad4f5b3e67cc5561550f2d142", label = "Yu Yu Hakusho (Japan).gb" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0XCBDD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage. Ranges from 0x0 to 0x8" },
+        { address=0XCBE6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Fight 1" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Fight 2" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Punch/Fight3" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="Fight 3/Door mini game" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="Fight 4" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X6, action="PROGRESSION_STAGE", desc="Rock, paper, scissors/Maze" },
+        { address=0XCBE6, type="u8", condition="eq", value=0X7, action="PROGRESSION_STAGE", desc="Final fight" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0XCC06, type="u8", condition="increase", action="HEAL", desc="Yusuke HP (outside fights) increased" },
+        { address=0XCC06, type="u8", condition="decrease", action="HIT", desc="Yusuke HP (outside fights) decreased" },
+        { address=0XCC0E, type="u8", condition="increase", action="HEAL", desc="Kurama HP (outside fights) increased" },
+        { address=0XCC0E, type="u8", condition="decrease", action="HIT", desc="Kurama HP (outside fights) decreased" },
+        { address=0XCC16, type="u8", condition="increase", action="HEAL", desc="Kuwabara HP (outside fights) increased" },
+        { address=0XCC16, type="u8", condition="decrease", action="HIT", desc="Kuwabara HP (outside fights) decreased" },
+        { address=0XCC1E, type="u8", condition="increase", action="HEAL", desc="Hiei HP (outside fights) increased" },
+        { address=0XCC1E, type="u8", condition="decrease", action="HIT", desc="Hiei HP (outside fights) decreased" },
+        { address=0XCCA0, type="u8", condition="increase", action="HEAL", desc="Player 1 HP increased" },
+        { address=0XCCA0, type="u8", condition="decrease", action="HIT", desc="Player 1 HP decreased" },
+        { address=0XCCD0, type="u8", condition="increase", action="HEAL", desc="Opponent hp increased" },
+        { address=0XCCD0, type="u8", condition="decrease", action="HIT", desc="Opponent hp decreased" },
+        { address=0XEC70, type="u8", condition="increase", action="HEAL", desc="Opponent hp (editable) increased" },
+        { address=0XEC70, type="u8", condition="decrease", action="HIT", desc="Opponent hp (editable) decreased" },
+        { address=0XFFAC, type="u8", condition="change", action="HEALTH_STATE", no_log=true, desc="Player HP (editable)" },
+        { address=0XFFAC, type="u8", condition="eq", value=0XC0, action="HEALTH_STATE", no_log=true, desc="Max" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XCC59, type="u8", condition="eq", value=0X0B, action="DOOR_OPENED", desc="Byakko (CPU episode 2-3) (and door minigame)" },
+      },
+    },
+  },
+}

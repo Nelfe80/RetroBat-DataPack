@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ He Fucked the Girl Out of Me.",
+    system = "gb",
+    system_name = "Game Boy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-he-fucked-the-girl-out-of-me",
+    hashes = {
+      { hash = "7b0182410ff25d7240827bda438ef05f", label = "He Fucked The Girl Out of Me (World) (v1.1) (Aftermarket) (Unl).gb" },
+    }
+  },
+
+  events = {
+    system = {
+      timer = {
+        { address=0XCB2C, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="currency counter in 7-11" },
+      },
+    },
+  },
+}

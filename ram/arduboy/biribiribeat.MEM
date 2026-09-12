@@ -1,0 +1,36 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "BiriBiriBeat",
+    system = "arduboy",
+    system_name = "Arduboy",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "biribiribeat",
+    hashes = {
+      { hash = "5b1c604f166f9023c1b13895228d18f9", label = "BiriBiriBeat (World) (Erwin's Collection).hex" },
+    }
+  },
+
+  events = {
+    flow = {
+      events = {
+        { address=0X093F, type="u8", condition="change", action="COMBO_HIT", desc="Current Combo" },
+        { address=0X0941, type="u16le", condition="change", action="COMBO_HIT", desc="Max Combo" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X0943, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", desc="[24-bit] Total Score" },
+        { address=0X0B14, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Normal Mode] [Easy] High Score" },
+        { address=0X0B18, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Normal Mode] [Medium] High Score" },
+        { address=0X0B1C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Normal Mode] [Hard] High Score" },
+        { address=0X0B20, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Chaos Mode] [Easy] High Score" },
+        { address=0X0B24, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Chaos Mode] [Medium] High Score" },
+        { address=0X0B28, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[Chaos Mode] [Hard] High Score" },
+      },
+    },
+  },
+}

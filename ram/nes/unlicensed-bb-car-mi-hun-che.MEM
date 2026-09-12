@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Unlicensed~ BB Car | Mi Hun Che",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "unlicensed-bb-car-mi-hun-che",
+    hashes = {
+      { hash = "d8ca1531f63184bba7049522b802e405", label = "BB Car (Asia) (En) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

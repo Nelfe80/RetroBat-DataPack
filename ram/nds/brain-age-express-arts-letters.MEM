@@ -1,0 +1,35 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Brain Age Express: Arts & Letters",
+    system = "nds",
+    system_name = "Nintendo DSi",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "brain-age-express-arts-letters",
+    hashes = {
+      { hash = "181fb6d46e025fa7ae8111e4ced2fc2f", label = "Little Bit of... Brain Training, A - Arts Edition (Europe, Australia) (En,Fr,De,Es,It) (Rev 1)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1A134C, type="u16le", condition="eq", value=0X00, action="TITLE_SCREEN", desc="Title Screen" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0XC15474, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Total Time/Number after Program (Best of One Day) [32bit]" },
+        { address=0XC15478, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="Total Time/Number after Program (Best of One Day) [32bit]" },
+        { address=0XC1547C, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Total Time/Number after Program (Best of One Day) [32bit]" },
+        { address=0XC15480, type="u32le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="Total Time/Number after Program (Best of One Day) [32bit]" },
+        { address=0XFFFDEC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", no_log=true, desc="System Timer [8bit BCD]" },
+        { address=0XFFFDED, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", no_log=true, desc="System Timer [8bit BCD]" },
+        { address=0XFFFDEE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", no_log=true, desc="System Timer [8bit BCD]" },
+      },
+    },
+  },
+}

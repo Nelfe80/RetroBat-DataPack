@@ -1,0 +1,48 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Magical Tree",
+    system = "msx1",
+    system_name = "MSX",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "magical-tree",
+    hashes = {
+      { hash = "91181b037e4a772149a00990e9f8b51c", label = "Magical Tree (Japan).rom" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X2000, type="u16le", condition="eq", value=0X07, action="DEMO_MODE", desc="Demo" },
+        { address=0X2000, type="u16le", condition="eq", value=0X105, action="TITLE_SCREEN", desc="Title" },
+        { address=0X2000, type="u16le", condition="eq", value=0X10E, action="GAME_OVER", desc="Game Over" },
+        { address=0X2050, type="u8", condition="eq", value=0X0, action="GAME_OVER", desc="last life and not game over" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2000, type="u16le", condition="eq", value=0X10B, action="LEVEL_CLEAR", desc="Stage Cleared" },
+      },
+      stage = {
+        { address=0X2051, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage ID (BCD)" },
+        { address=0X2051, type="u8", condition="eq", value=0X10, action="PROGRESSION_STAGE", desc="Final and then loops" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X2000, type="u16le", condition="eq", value=0X09, action="LIVES_STATE", desc="When losing an extra lives it goes to hex value 9" },
+        { address=0X2050, type="u8", condition="increase", action="GAIN_LIFE", desc="Extra Lives increased" },
+        { address=0X2050, type="u8", condition="decrease", action="LOSE_LIFE", desc="Extra Lives decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X21B2, type="u8", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+  },
+}

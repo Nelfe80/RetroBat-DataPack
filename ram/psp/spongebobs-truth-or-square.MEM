@@ -1,0 +1,133 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "SpongeBob's Truth or Square",
+    system = "psp",
+    system_name = "PlayStation Portable",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "spongebobs-truth-or-square",
+    hashes = {
+      { hash = "020f70d9459aab23dc17dc17ae549956", label = "Nickelodeon SpongeBob's Truth or Square (USA).iso" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0XD9EDA4, type="u32le", condition="eq", value=0X31304C53, action="TITLE_SCREEN", desc="SL01_bgm (Titlescreen)" },
+        { address=0XDAFB9C, type="u8", condition="eq", value=0X03, action="CREDITS_SCREEN", desc="Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XD88748, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] Level ID" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X00627568, action="NEW_LEVEL", desc="Home Sweet Home!!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X31306C73, action="NEW_LEVEL", desc="Fun times jellyfishing with Patrick." },
+        { address=0XD88748, type="u32le", condition="eq", value=0X31626273, action="NEW_LEVEL", desc="Pretending to be tuff with Patrick." },
+        { address=0XD88748, type="u32le", condition="eq", value=0X32306C73, action="NEW_LEVEL", desc="Meeting Sandy Cheeks!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X32626273, action="NEW_LEVEL", desc="Squidward's first yummy Krabby Patty." },
+        { address=0XD88748, type="u32le", condition="eq", value=0X33306C73, action="NEW_LEVEL", desc="Bikini Bottom" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X33626273, action="NEW_LEVEL", desc="Hey that's not your formula Plankton!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X34306C73, action="NEW_LEVEL", desc="Becoming a FRY COOK!!!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X35306C73, action="NEW_LEVEL", desc="Santa! Santa!! SANTA!!!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X36306C73, action="NEW_LEVEL", desc="Meeting Mermaidman and Barnacleboy!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X37306C73, action="NEW_LEVEL", desc="24 hours of Fun at the Krusty Krab with Squidward." },
+        { address=0XD88748, type="u32le", condition="eq", value=0X38306C73, action="NEW_LEVEL", desc="Kara-TAY with Sandy!" },
+        { address=0XD88748, type="u32le", condition="eq", value=0X39306C73, action="NEW_LEVEL", desc="Krusty Krab" },
+        { address=0XD888A4, type="u32le", condition="change", action="NEW_LEVEL", desc="[32bit] Number Of Enemies Defeated In Current Level" },
+        { address=0XDB0F88, type="u32le", condition="change", action="LEVEL_CLEAR", desc="[32bit] Check Please - Player 1 Goals Stat" },
+      },
+      stage = {
+        { address=0XD88930, type="u32le", condition="change", action="PROGRESSION_STAGE", desc="[32bit] Cheat Active - All Worlds" },
+        { address=0XD88930, type="u32le", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="False" },
+        { address=0XD88930, type="u32le", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="True" },
+        { address=0XD9EDA4, type="u32le", condition="eq", value=0X6F6D656, action="PROGRESSION_STAGE", desc="memobj_m (Level Victory)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XD88898, type="u32le", condition="increase", action="GAIN_LIFE", desc="[32bit] Lives increased" },
+        { address=0XD88898, type="u32le", condition="decrease", action="LOSE_LIFE", desc="[32bit] Lives decreased" },
+        { address=0XE5CCFC, type="u32le", condition="eq", value=0X01, action="LIVES_STATE", desc="Losing A Life" },
+      },
+      health = {
+        { address=0XD88914, type="u32le", condition="change", action="HEALTH_STATE", no_log=true, desc="[32bit] Max Health (Number Of Pants)" },
+        { address=0XD88914, type="u32le", condition="eq", value=0X05, action="HEALTH_STATE", no_log=true, desc="All Health Upgrades Purchased" },
+        { address=0X14C1458, type="u32le", condition="increase", action="HEAL", desc="[32bit] Incoming!! - Player 1 Health increased" },
+        { address=0X14C1458, type="u32le", condition="decrease", action="HIT", desc="[32bit] Incoming!! - Player 1 Health decreased" },
+        { address=0X14C14F0, type="u32le", condition="change", action="HIT", desc="[32bit] Incoming!! - Player 1 Total Damage" },
+        { address=0X14C1644, type="u32le", condition="increase", action="HEAL", desc="[32bit] Incoming!! - Player 2 Health increased" },
+        { address=0X14C1644, type="u32le", condition="decrease", action="HIT", desc="[32bit] Incoming!! - Player 2 Health decreased" },
+        { address=0X14C1830, type="u32le", condition="increase", action="HEAL", desc="[32bit] Incoming!! - Player 3 Health increased" },
+        { address=0X14C1830, type="u32le", condition="decrease", action="HIT", desc="[32bit] Incoming!! - Player 3 Health decreased" },
+        { address=0X14C1A1C, type="u32le", condition="increase", action="HEAL", desc="[32bit] Incoming!! - Player 4 Health increased" },
+        { address=0X14C1A1C, type="u32le", condition="decrease", action="HIT", desc="[32bit] Incoming!! - Player 4 Health decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XD8889C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Happiness Points" },
+        { address=0XD888A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Happiness Points Collected In Current Level" },
+        { address=0XD99B98, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[32bit] Collide & Conch-Er Player 1 Score" },
+        { address=0XD99B9C, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", desc="[32bit] Collide & Conch-Er Player 2 Score" },
+        { address=0XD99BA0, type="u32le", condition="change", action="SCORE_STATE", player=3, score_kind="game", desc="[32bit] Collide & Conch-Er Player 3 Score" },
+        { address=0XD99BA4, type="u32le", condition="change", action="SCORE_STATE", player=4, score_kind="game", desc="[32bit] Collide & Conch-Er Player 4 Score" },
+        { address=0XDB08D0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Red Team Total Score" },
+        { address=0XDB08D4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Blue Team Total Score" },
+        { address=0XDB219C, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Red Team 1st Period Score" },
+        { address=0XDB21A0, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Blue Team 1st Period Score" },
+        { address=0XDB21A4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Red Team 2nd Period Score" },
+        { address=0XDB21A8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Blue Team 2nd Period Score" },
+        { address=0XDB21B4, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Red Team Overtime Score" },
+        { address=0XDB21B8, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32bit] Check Please - Blue Team Overtime Score" },
+      },
+      collectibles = {
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X20, action="COIN_GAIN", desc="Mermaidman & Barnacleboy's Ring Box" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X20, action="COIN_GAIN", desc="The BFF Ring" },
+      },
+    },
+    state = {
+      player = {
+        { address=0XDE74EC, type="u32le", condition="eq", value=0X00, action="JUMPING", no_log=true, no_survey=true, desc="False" },
+        { address=0XDE74EC, type="u32le", condition="eq", value=0X03, action="JUMPING", no_log=true, no_survey=true, desc="True" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="The Magic Conch Shell" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Heart-Shaped Acorn" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="The Mop" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Squidwards Clarinet" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="The Donut Of Shame" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="The Golden Spatula" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="The #1 Soda Drinkin' Hat" },
+        { address=0XD888AB, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Snellie's Pet Carrier" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="A Toy Clarinet" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Paint Palette" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Bellybutton Lint Earnmuffs" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="The Aquaphone" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Mermaidman's Utility Belt" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="A 24-Hour Sign" },
+        { address=0XD888AC, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Patricks Alarm Clock" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="Mr. Krabs First Dollar" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="The Karate Gloves" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="The Picnic Basket" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Volcano Hot Sauce" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Cashie" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Squidward's Blow Horn" },
+        { address=0XD888AD, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Hot Dog" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X01, action="OBJECT_INTERACTION", desc="The Krabby Patty" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="The Secret Recipe" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X04, action="OBJECT_INTERACTION", desc="Fun times jellyfishing with Patrick." },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="Meeting Sandy Cheeks!" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X10, action="OBJECT_INTERACTION", desc="Bikini Bottom" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X20, action="OBJECT_INTERACTION", desc="Becoming a FRY COOK!!!" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Santa! Santa!! SANTA!!!" },
+        { address=0XD888AE, type="u8", condition="bit_true", mask=0X80, action="OBJECT_INTERACTION", desc="Meeting Mermaidman and Barnacleboy!" },
+      },
+    },
+  },
+}

@@ -1,0 +1,40 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Phoenix",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Fruit Machines"
+  },
+
+  rom = {
+    name = "phoenix",
+    hashes = {
+      { hash = "b3d97746dbb45e92dc083db205e1fd14", label = "phoenix.7z <Phoenix (Amstar)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X0390, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Number of Lives increased" },
+        { address=0X0390, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Number of Lives decreased" },
+        { address=0X4390, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+      },
+    },
+    inventory = {
+      items = {
+        { address=0X4380, type="u32be", condition="change", action="TREASURE", color="white", min=1000, max=9000, desc="Score delta 1000-9000: Bonus" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X4380, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+      },
+      collectibles = {
+        { address=0X038F, type="u8", condition="increase", action="COIN_GAIN", desc="[8bit] Number of Coins increased" },
+        { address=0X438F, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
+      },
+    },
+  },
+}

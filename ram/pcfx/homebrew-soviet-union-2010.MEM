@@ -1,0 +1,47 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Soviet Union 2010",
+    system = "pcfx",
+    system_name = "PC-FX",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-soviet-union-2010",
+    hashes = {
+      { hash = "770aaf1214a145ba2b1511b0de752a24", label = "Soviet Union 2010 (World) (Aftermarket) (Matej Horvat)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1FFF7A, type="u16le", condition="eq", value=0X00, action="PAUSE_OFF", desc="No" },
+        { address=0X1FFF7A, type="u16le", condition="eq", value=0X01, action="PAUSE_ON", desc="Yes" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0XEB38, type="u16le", condition="change", action="NEW_LEVEL", desc="ASCII Level (found by Blazekickn)" },
+        { address=0XEB38, type="u16le", condition="eq", value=0X31, action="NEW_LEVEL", desc="Level 1" },
+        { address=0XEB38, type="u16le", condition="eq", value=0X32, action="NEW_LEVEL", desc="Level 2" },
+        { address=0XEB38, type="u16le", condition="eq", value=0X33, action="NEW_LEVEL", desc="Level 3" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0XE9B4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XE9B4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XEB30, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="Score (found by Blazekickn)" },
+      },
+      collectibles = {
+        { address=0XEB18, type="u32le", condition="change", action="AMMO_STATE", no_log=true, desc="32bit Ammo" },
+      },
+    },
+  },
+}

@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Sudoku",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-sudoku",
+    hashes = {
+      { hash = "5de9ac0bee8b66d590e4ae3503b36053", label = "Sudoku (World) (v0.2) (Proto) (Aftermarket) (Unl).sms" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0124, type="u32le", condition="eq", value=0X026050C6, action="TITLE_SCREEN", desc="Titlescreen" },
+      },
+    },
+  },
+}

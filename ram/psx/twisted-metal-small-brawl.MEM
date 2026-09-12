@@ -1,0 +1,58 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Twisted Metal: Small Brawl",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Action, Shooter"
+  },
+
+  rom = {
+    name = "twisted-metal-small-brawl",
+    hashes = {
+      { hash = "123df1e98a3a48a4a8bbe605d44b66d7", label = "Twisted Metal - Small Brawl (USA)" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1ED77C, type="u8", condition="change", action="PAUSE_ON", desc="Paused" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X13F2A, type="u8", condition="change", action="NEW_LEVEL", desc="Level id" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X0, action="NEW_LEVEL", desc="Menu" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X0B, action="NEW_LEVEL", desc="Now slaying" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X0C, action="NEW_LEVEL", desc="Carnomaul" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X0D, action="NEW_LEVEL", desc="Playground" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X0F, action="NEW_LEVEL", desc="Meat maker" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X17, action="NEW_LEVEL", desc="Tree top rumble" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X1A, action="NEW_LEVEL", desc="Minigolf" },
+        { address=0X13F2A, type="u8", condition="eq", value=0X9, action="NEW_LEVEL", desc="Gridiron gorge" },
+        { address=0X160F9A, type="u8", condition="eq", value=0X09, action="NEW_LEVEL", desc="Playground Peril" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X13F2A, type="u8", condition="eq", value=0X12, action="LOSE_LIFE", desc="Easy death" },
+        { address=0X160F8C, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 1 lives increased" },
+        { address=0X160F8C, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 1 lives decreased" },
+        { address=0X160F9A, type="u8", condition="eq", value=0X05, action="LOSE_LIFE", desc="Easy Death Oven" },
+        { address=0X19AD08, type="u8", condition="increase", action="GAIN_LIFE", desc="Player 2 lives increased" },
+        { address=0X19AD08, type="u8", condition="decrease", action="LOSE_LIFE", desc="Player 2 lives decreased" },
+      },
+      health = {
+        { address=0X1504A0, type="u16le", condition="increase", action="HEAL", desc="Player 1 health 16bits increased" },
+        { address=0X1504A0, type="u16le", condition="decrease", action="HIT", desc="Player 1 health 16bits decreased" },
+      },
+    },
+    inventory = {
+      weapon = {
+        { address=0X15050C, type="u8", condition="change", action="WEAPON_STATE", desc="[Cheat] Killer Weapons" },
+        { address=0X15050E, type="u8", condition="change", action="WEAPON_STATE", desc="[Cheat] Infinite Weapons" },
+      },
+    },
+  },
+}

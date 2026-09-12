@@ -1,0 +1,27 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ The Legend of Morrowind",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-the-legend-of-morrowind",
+    hashes = {
+      { hash = "2daad321c4a08ba0922a77fb4b259731", label = "LoZOoT - The Legend of Morrowind (v1.0) (Sunset Tides Interactive).z64" },
+    }
+  },
+
+  events = {
+    state = {
+      temporary = {
+        { address=0X11E5D2, type="u8", condition="eq", value=0X0, action="SHIELD_GAIN", desc="Nothing" },
+        { address=0X11E5D2, type="u8", condition="eq", value=0X1, action="SHIELD_GAIN", desc="Shortsword" },
+        { address=0X11E5D2, type="u8", condition="eq", value=0X2, action="SHIELD_GAIN", desc="LongSword" },
+        { address=0X11E5D2, type="u8", condition="eq", value=0X3, action="SHIELD_GAIN", desc="Claymore" },
+      },
+    },
+  },
+}

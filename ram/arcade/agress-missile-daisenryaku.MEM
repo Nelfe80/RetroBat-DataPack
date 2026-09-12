@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Agress: Missile Daisenryaku",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Puzzle"
+  },
+
+  rom = {
+    name = "agress-missile-daisenryaku",
+    hashes = {
+      { hash = "1acd16a2be0393552648bd6ae2d5e6c0", label = "agress.7z <Agress>" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X002E, type="u8", condition="change", action="CREDITS_SCREEN", desc="[8 Bit] BCD Credits" },
+      },
+    },
+    progression = {
+      level = {
+        { address=0X2E18, type="u8", condition="change", action="NEW_LEVEL", desc="[8 Bit] P1 Level" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X3002, type="u8", condition="increase", action="GAIN_LIFE", desc="[8 Bit] P1 Life Count increased" },
+        { address=0X3002, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8 Bit] P1 Life Count decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X1C0C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Hi Score" },
+        { address=0X1C10, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score" },
+        { address=0X1C18, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score - Copy" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0098, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8 Bit] Dipswitch" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0016, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8 Bit] Mode Select Timer" },
+        { address=0X001E, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="versus", timer_direction="unknown", timer_unit="bcd", desc="[8 Bit] BCD 1P VS 2P Timer" },
+      },
+    },
+  },
+}

@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Micro Machines",
+    system = "mastersystem",
+    system_name = "Master System",
+    genre = "Racing"
+  },
+
+  rom = {
+    name = "micro-machines",
+    hashes = {
+      { hash = "a90cf8d68fa8b1f0ba00f0ddb9d547b7", label = "Micro Machines (Europe).sms" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X1F2A, type="u8", condition="change", action="RANK_STATE", desc="Race position" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1BD8, type="u8", condition="eq", value=0X00, action="LIVES_STATE", desc="qualifer race" },
+      },
+    },
+  },
+}

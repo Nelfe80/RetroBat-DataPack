@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Shotgun Mario 64",
+    system = "n64",
+    system_name = "Nintendo 64",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-shotgun-mario-64",
+    hashes = {
+      { hash = "5104073c930d866287e733c1e7b1c7f5", label = "SM64 - Shotgun Mario 64 (v1.0.5) (Dorrieal).z64" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X1B7B3F, type="u8", condition="eq", value=0X00, action="PAUSE_OFF", desc="Unpaused" },
+      },
+    },
+    progression = {
+      zone = {
+        { address=0X1C71B0, type="u8", condition="eq", value=0X1, action="PROGRESSION_ZONE", desc="Wet-Dry World - Heave-Ho" },
+        { address=0X1C7410, type="u8", condition="eq", value=0X1, action="PROGRESSION_ZONE", desc="Wet-Dry World - Heave-Ho" },
+        { address=0X1C8250, type="u8", condition="eq", value=0X1, action="PROGRESSION_ZONE", desc="Wet-Dry World - Heave-Ho" },
+      },
+      stage = {
+        { address=0X1C9090, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Dire, Dire Docks - Shark (Act 5)" },
+        { address=0X1D1590, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Big Boo's Haunt - Merry-Go-Round (Act 1)" },
+        { address=0X1D1F10, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Big Boo's Haunt - Merry-Go-Round (Act 2+)" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1D0DA8, type="u32be", condition="eq", value=0X00, action="LOSE_LIFE", desc="Dead" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X1D6080, type="u32be", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="Jumping" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X1C4F0E, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="powerup", timer_direction="unknown", timer_unit="tick", desc="[1.0.4]" },
+        { address=0X1D0C10, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", desc="[608 B-ytes] [1.0.4]" },
+        { address=0X1D0DA8, type="u32be", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="tick", desc="State change" },
+        { address=0X1D6650, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="puzzle", timer_direction="unknown", timer_unit="tick", desc="[608 B-ytes] [1.0.4]" },
+      },
+    },
+  },
+}

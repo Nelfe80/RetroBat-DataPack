@@ -1,0 +1,38 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Project Brutality",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-project-brutality",
+    hashes = {
+      { hash = "9a089d286039ee443e6967f5261430a4", label = "SMW - Project Brutality (2019-11-06) (Sweetdude).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="beat level" },
+        { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="level id:" },
+        { address=0X13BF, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Intro Level" },
+        { address=0X13BF, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Bloodfest" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X1697, type="u8", condition="increase", action="GAIN_LIFE", desc="Jump Combo increased" },
+        { address=0X1697, type="u8", condition="decrease", action="LOSE_LIFE", desc="Jump Combo decreased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X13CE, type="u8", condition="change", action="OBJECT_INTERACTION_CHECKPOINT", desc="get the checkpoint : 01" },
+      },
+    },
+  },
+}

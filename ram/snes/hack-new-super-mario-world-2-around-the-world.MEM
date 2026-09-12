@@ -1,0 +1,53 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ New Super Mario World 2: Around the World",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-new-super-mario-world-2-around-the-world",
+    hashes = {
+      { hash = "d4ada8016fa64dfe123d48e9a8a40c3a", label = "SMW - New Super Mario World 2 - Around the World (v1.0) (Pink Gold Peach).sfc" },
+      { hash = "ed7c6818269ef84b3ef1332f778843f4", label = "SMW - New Super Mario World 2 - Around the World (v1.3) (Pink Gold Peach).sfc" },
+    }
+  },
+
+  events = {
+    progression = {
+      stage = {
+        { address=0X0DD5, type="u8", condition="change", action="PROGRESSION_STAGE", desc="pass stages" },
+        { address=0X13BF, type="u8", condition="change", action="PROGRESSION_STAGE", desc="8-bit Stage" },
+      },
+    },
+    resources = {
+      lives = {
+        { address=0X00E3, type="u8", condition="increase", action="GAIN_LIFE", desc="1up Possition Y increased" },
+        { address=0X00E3, type="u8", condition="decrease", action="LOSE_LIFE", desc="1up Possition Y decreased" },
+        { address=0X00EF, type="u8", condition="increase", action="GAIN_LIFE", desc="1up Possition X increased" },
+        { address=0X00EF, type="u8", condition="decrease", action="LOSE_LIFE", desc="1up Possition X decreased" },
+        { address=0X0DB4, type="u8", condition="increase", action="GAIN_LIFE", desc="1up 1 increased" },
+        { address=0X0DB4, type="u8", condition="decrease", action="LOSE_LIFE", desc="1up 1 decreased" },
+        { address=0X0DBE, type="u8", condition="increase", action="GAIN_LIFE", desc="1up- real increased" },
+        { address=0X0DBE, type="u8", condition="decrease", action="LOSE_LIFE", desc="1up- real decreased" },
+        { address=0X0DC0, type="u8", condition="increase", action="GAIN_LIFE", desc="Number of remaining coins to activate green block 1up increased" },
+        { address=0X0DC0, type="u8", condition="decrease", action="LOSE_LIFE", desc="Number of remaining coins to activate green block 1up decreased" },
+        { address=0X1411, type="u8", condition="increase", action="GAIN_LIFE", desc="1up increased" },
+        { address=0X1411, type="u8", condition="decrease", action="LOSE_LIFE", desc="1up decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X0DBF, type="u8", condition="increase", action="COIN_GAIN", desc="coins increased" },
+        { address=0X1422, type="u8", condition="increase", action="COIN_GAIN", desc="dragon coins increased" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X1F27, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[8--bit] Green Switch Palace activated" },
+      },
+    },
+  },
+}

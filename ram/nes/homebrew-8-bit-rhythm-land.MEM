@@ -1,0 +1,19 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ 8-Bit Rhythm Land",
+    system = "nes",
+    system_name = "NES/Famicom",
+    genre = "Music, Platform"
+  },
+
+  rom = {
+    name = "homebrew-8-bit-rhythm-land",
+    hashes = {
+      { hash = "e1ca4cb7e735501e17396b5617ba85ff", label = "8BIT Rhythm Land (Japan) (En) (Aftermarket) (Unl).nes" },
+    }
+  },
+
+  events = {
+  },
+}

@@ -1,0 +1,54 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Hack~ Super Metroid: Unhundred %",
+    system = "snes",
+    system_name = "SNES/Super Famicom",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "hack-super-metroid-unhundred",
+    hashes = {
+      { hash = "0981546cabc1d7e4164f7fa78d642b77", label = "Super Metroid - Unhundred % (v0.5) (ClockwiseUK).sfc" },
+    }
+  },
+
+  events = {
+    flow = {
+      lifecycle = {
+        { address=0X0998, type="u8", condition="eq", value=0X1, action="TITLE_SCREEN", desc="Title screen" },
+        { address=0X0998, type="u8", condition="eq", value=0X26, action="GAME_OVER", desc="trans to ending creds" },
+        { address=0X0998, type="u8", condition="eq", value=0X2A, action="DEMO_MODE", desc="intro demos" },
+        { address=0X0998, type="u8", condition="eq", value=0XF, action="PAUSE_ON", desc="paused" },
+      },
+    },
+    resources = {
+      health = {
+        { address=0X09C4, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Energy (255 Rolls to 0x9c5) increased" },
+        { address=0X09C4, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Energy (255 Rolls to 0x9c5) decreased" },
+        { address=0X09C5, type="u8", condition="increase", action="HEAL", desc="[8bit] Max Energy (255 Rolls from 0x9c5) increased" },
+        { address=0X09C5, type="u8", condition="decrease", action="HIT", desc="[8bit] Max Energy (255 Rolls from 0x9c5) decreased" },
+      },
+    },
+    state = {
+      player = {
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="HiJumpBoots" },
+        { address=0X09A5, type="u8", condition="bit_true", mask=0X02, action="JUMPING", no_log=true, no_survey=true, desc="SpaceJump" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X0998, type="u8", condition="eq", value=0XA, action="DOOR_OPENED", desc="door trans" },
+        { address=0X0998, type="u8", condition="eq", value=0XB, action="DOOR_OPENED", desc="door transition" },
+      },
+    },
+    system = {
+      timer = {
+        { address=0X0998, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[8bit] Game State" },
+        { address=0X09DC, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="[8bit] timer Seconds" },
+        { address=0X09DE, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="[8bit] timer Minutes" },
+      },
+    },
+  },
+}

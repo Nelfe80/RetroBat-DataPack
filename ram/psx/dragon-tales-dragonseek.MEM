@@ -1,0 +1,24 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Dragon Tales: Dragonseek",
+    system = "psx",
+    system_name = "PlayStation",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "dragon-tales-dragonseek",
+    hashes = {
+      { hash = "1b93a813ea18fdceb2e2e4a7f1180aae", label = "Dragon Tales - Dragonseek (USA)" },
+    }
+  },
+
+  events = {
+    progression = {
+      level = {
+        { address=0X8D968, type="u16le", condition="eq", value=0X01, action="NEW_LEVEL", desc="Underground Caverns" },
+      },
+    },
+  },
+}

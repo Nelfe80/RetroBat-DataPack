@@ -1,0 +1,30 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "~Homebrew~ Wreckman",
+    system = "3do",
+    system_name = "3DO Interactive Multiplayer",
+    genre = "Unknown"
+  },
+
+  rom = {
+    name = "homebrew-wreckman",
+    hashes = {
+      { hash = "33031a9305cab3eb38af9f163fafe307", label = "Wreckman (World) (v1.0.0) (Aftermarket) (retroloveletter)" },
+    }
+  },
+
+  events = {
+    resources = {
+      lives = {
+        { address=0X79824, type="u32le", condition="increase", action="GAIN_LIFE", desc="[32 Bit] Life Count increased" },
+        { address=0X79824, type="u32le", condition="decrease", action="LOSE_LIFE", desc="[32 Bit] Life Count decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X79844, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", desc="[32 Bit] Score" },
+      },
+    },
+  },
+}

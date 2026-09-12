@@ -1,0 +1,31 @@
+-- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+return {
+  game = {
+    title = "Addams Family Values",
+    system = "megadrive",
+    system_name = "Genesis/Mega Drive",
+    genre = "Action, Adventure"
+  },
+
+  rom = {
+    name = "addams-family-values",
+    hashes = {
+      { hash = "e33d811ef2ad7c6c826b2668415ab678", label = "Addams Family Values (Europe) (En,Fr,De).md" },
+    }
+  },
+
+  events = {
+    resources = {
+      health = {
+        { address=0X571C, type="u8", condition="increase", action="HEAL", desc="Current Health increased" },
+        { address=0X571C, type="u8", condition="decrease", action="HIT", desc="Current Health decreased" },
+      },
+    },
+    scoring = {
+      collectibles = {
+        { address=0X76CB, type="u8", condition="increase", action="COIN_GAIN", desc="Sack of Gold increased" },
+        { address=0X76DA, type="u8", condition="increase", action="COIN_GAIN", desc="Gold Coin increased" },
+      },
+    },
+  },
+}
