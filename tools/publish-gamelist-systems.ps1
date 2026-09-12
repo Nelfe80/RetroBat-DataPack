@@ -6,9 +6,12 @@
 # ne reprend que les systemes dont le contenu a change, pas 600 Mo pour un.
 #
 # Le manifeste `gamelist-manifest.json` porte, par fichier, l'empreinte SHA-256 du JSON
-# brut (celle que la borne compare a son fichier local) et celle de l'archive (celle qui
+# brut (celle que la borne compare a son fichier local) et celle de l'actif (celle qui
 # verifie le telechargement). Seuls les systemes dont le JSON a change sont recompresses
 # et renvoyes ; les autres gardent leur actif tel quel.
+#
+# Gzip, pas 7z : .NET le decompresse nativement, la borne n'a ni 7-Zip ni bibliotheque a
+# embarquer pour ca. Un peu moins compact (j2me : 25 Mo au lieu de 15), sans dependance.
 #
 #   .\tools\publish-gamelist-systems.ps1            # publie ce qui a change
 #   .\tools\publish-gamelist-systems.ps1 -WhatIf   # montre seulement
@@ -19,8 +22,16 @@ param(
     [switch]$WhatIf
 )
 $ErrorActionPreference = 'Stop'
-$sz = @('C:\Program Files\7-Zip\7z.exe', 'C:\Program Files (x86)\7-Zip\7z.exe') | Where-Object { Test-Path $_ } | Select-Object -First 1
-if (-not $sz) { throw '7-Zip introuvable.' }
+function Compress-Gzip([string]$source, [string]$cible) {
+    $entree = [IO.File]::OpenRead($source)
+    try {
+        $sortie = [IO.File]::Create($cible)
+        try {
+            $gz = New-Object IO.Compression.GZipStream($sortie, [IO.Compression.CompressionLevel]::Optimal)
+            try { $entree.CopyTo($gz) } finally { $gz.Dispose() }
+        } finally { $sortie.Dispose() }
+    } finally { $entree.Dispose() }
+}
 $source = Join-Path $ApiExposeRoot 'resources\gamelist\systems'
 if (-not (Test-Path $source)) { throw "introuvable : $source" }
 $work = Join-Path (Split-Path $PSScriptRoot -Parent) '.temp\gamelist-release'
@@ -47,7 +58,7 @@ $manifeste = [ordered]@{ schema = 'apiexpose-gamelist-systems/1'; generated_at =
 foreach ($f in $fichiers) {
     $cle = 'systems/' + $f.Name
     $sha = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower()
-    $actif = 'gamelist-' + [IO.Path]::GetFileNameWithoutExtension($f.Name) + '.7z'
+    $actif = 'gamelist-' + [IO.Path]::GetFileNameWithoutExtension($f.Name) + '.json.gz'
     $deja = $enLigne[$cle]
     if ($deja -and $deja.sha256 -eq $sha -and $deja.asset -eq $actif) {
         # Inchange : on garde l'actif en ligne et son empreinte.
@@ -57,8 +68,7 @@ foreach ($f in $fichiers) {
     $archive = Join-Path $work $actif
     if (Test-Path $archive) { Remove-Item $archive -Force }
     if (-not $WhatIf) {
-        & $sz a -t7z $archive $f.FullName -mx=5 -bsp0 -bso0
-        if ($LASTEXITCODE -ne 0) { throw "7z a echoue sur $($f.Name)" }
+        Compress-Gzip $f.FullName $archive
         $ashaVal = (Get-FileHash $archive -Algorithm SHA256).Hash.ToLower()
     } else { $ashaVal = '(whatif)' }
     $manifeste.files[$cle] = [ordered]@{ sha256 = $sha; size = $f.Length; asset = $actif; asset_sha256 = $ashaVal }
