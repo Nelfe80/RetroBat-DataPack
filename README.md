@@ -12,7 +12,7 @@ The data files of [APIExpose](https://github.com/Nelfe80/RetroBat-APIExpose), pu
 
 The per-system ROM databases (`gamelist/systems/*_lt.json`, up to 161 MB each) are published as assets of the [`gamelist` release](../../releases/tag/gamelist), one archive per system, with a manifest of content hashes.
 
-The arcade instruction cards pack (`iccards-arcade.zip`, 887 cards) is published as the [`iccards` release](../../releases/tag/iccards) with a manifest; APIExpose installs it into `media\systemsrcade\games\<rom>rtwork\ic\`, never overwriting a card you made or modified yourself.
+The arcade instruction cards pack (`iccards-arcade.zip`, 887 cards) is published as the [`iccards` release](../../releases/tag/iccards) with a manifest; APIExpose installs it into `media\systems\arcade\games\<rom>\artwork\ic\`, never overwriting a card you made or modified yourself.
 
 ## How cabinets use it
 
