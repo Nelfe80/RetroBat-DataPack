@@ -24,3 +24,6 @@ Definitions RAM/events ingame consommees par le runtime RetroBat.
 Ce dossier n'est pas versionne (strategie Data Pack). Toujours faire un backup
 avant regeneration massive ; l'outillage de validation et de diff est dans
 `tools/mem-curator/`.
+
+
+Publie fichier par fichier via le depot RetroBat-DataPack : une borne ne reprend que ce qui a change.
