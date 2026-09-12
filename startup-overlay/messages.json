@@ -1,0 +1,28 @@
+﻿{
+  "defaultLanguage": "fr",
+  "messages": {
+    "fr": {
+      "startup_title": "RetroBat APIExpose",
+      "startup_loading": "When Your System Comes to Life ^^",
+      "startup_counting_entries": "Comptage des jeux dans les gamelists...",
+      "startup_counting_system": "Analyse du systeme {detail}...",
+      "startup_roms_media_migration": "Migration des anciens medias ROMs : {detail} ({current}/{total})",
+      "startup_rom_pack_installer": "Gestionnaire de ROMs : {detail} ({current}/{total})",
+      "startup_gamelist_media_normalization": "Normalisation medias ES : {detail} ({current}/{total})",
+      "startup_processing_system": "Initialisation des images par defaut : {detail}",
+      "startup_waiting_reload": "Finalisation des gamelists..."
+    },
+    "en": {
+      "startup_title": "RetroBat APIExpose",
+      "startup_loading": "When Your System Comes to Life ^^",
+      "startup_counting_entries": "Counting games in gamelists...",
+      "startup_counting_system": "Scanning system {detail}...",
+      "startup_roms_media_migration": "Migrating legacy ROMs media: {detail} ({current}/{total})",
+      "startup_rom_pack_installer": "Roms Manager: {detail} ({current}/{total})",
+      "startup_gamelist_media_normalization": "Normalizing ES media: {detail} ({current}/{total})",
+      "startup_processing_system": "Initializing default images: {detail}",
+      "startup_waiting_reload": "Finalizing gamelists..."
+    }
+  }
+}
+

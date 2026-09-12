@@ -1,0 +1,25 @@
+{
+  "players": {
+    "1": {
+      "joycode": "JOYCODE_1",
+      "label": "Generic USB Joystick",
+      "device": "product_00060079",
+      "raw_device_id": "Generic   USB  Joystick   product_00060079-0000-0000-0000-504944564944 instance_27cc81c0-3c45-11f1-8001-444553540000",
+      "source": ""
+    }
+  },
+  "devices": [
+    {
+      "joycode": "JOYCODE_1",
+      "label": "vJoy Device",
+      "device": "product_bead1234",
+      "raw_device_id": "vJoy Device product_bead1234-0000-0000-0000-504944564944 instance_dbf2d770-4a6a-11f1-8002-444553540000"
+    },
+    {
+      "joycode": "JOYCODE_2",
+      "label": "Generic USB Joystick",
+      "device": "product_00060079",
+      "raw_device_id": "Generic   USB  Joystick   product_00060079-0000-0000-0000-504944564944 instance_27cc81c0-3c45-11f1-8001-444553540000"
+    }
+  ]
+}
