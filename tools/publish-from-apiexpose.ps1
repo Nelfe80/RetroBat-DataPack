@@ -4,9 +4,10 @@
 # n'ecrit jamais (inventaire du code, 2026-09-12) :
 #   ram/            .MEM officiels (sans .user ni l'etat de synchro)          lu par le wrapper, MAME Lua
 #   dynpanels/      panneaux dynamiques (generes HORS LIGNE par le curator)  lus par 5 services
-#   gamelist/       gamelists localisees + familles (PAS systems/ : jusqu'a 161 Mo, GitHub
-#                   refuse au-dela de 100 Mo ; ils partent en release, un actif par systeme,
-#                   voir publish-gamelist-systems.ps1)
+#   gamelist/       la table des familles et les notices (PAS systems/ : jusqu'a 161 Mo, GitHub
+#                   refuse au-dela de 100 Mo, ils partent en release, un actif par systeme, voir
+#                   publish-gamelist-systems.ps1 ; PAS localized/ : un CACHE que chaque borne
+#                   genere de ses propres gamelists, dans ses langues)
 #   controls/       cfg MAME, rmp fbneo (sans retroarch/mame : doctrine cfg seulement)
 #   config-ESmenus/ fragments de menu ES et leurs locales (sans les .bak)
 #   locales/        interface-texts.json
@@ -15,7 +16,7 @@
 #   theme/hiscore/  descripteurs hi2txt (.parsingdb)  |  theme/images/  dessins des panneaux
 #
 # Ce qui N'Y EST PAS, et pourquoi :
-#   theme/panels/, theme/gameinfos/, ra/   GENERES par APIExpose sur la borne
+#   theme/panels/, theme/gameinfos/, ra/, gamelist/localized/   GENERES par APIExpose sur la borne
 #   outputs/, panels/                       sources du curator, jamais dans le pack public
 #   iccards/                                un zip de 113 Mo (limite GitHub), a son propre depot
 #   colors/, command/, history/             fichiers MAME externes, exclus de l'installeur
@@ -39,7 +40,7 @@ if (-not (Test-Path (Join-Path $resources 'ram'))) { throw "resources\ram introu
 $parties = @(
     @{ Source = 'ram';             Cible = 'ram';             ExclureDossiers = @('.user');          ExclureFichiers = @('.community-sync.json', '.datapack-sync.json', '*.bak', '*.tmp') },
     @{ Source = 'dynpanels';       Cible = 'dynpanels';       ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
-    @{ Source = 'gamelist';        Cible = 'gamelist';        ExclureDossiers = @('systems');        ExclureFichiers = @('*.bak', '*.tmp') },
+    @{ Source = 'gamelist';        Cible = 'gamelist';        ExclureDossiers = @('systems', 'localized'); ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'controls';        Cible = 'controls';        ExclureDossiers = @('retroarch\mame'); ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'config-ESmenus';  Cible = 'config-ESmenus';  ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'locales';         Cible = 'locales';         ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
