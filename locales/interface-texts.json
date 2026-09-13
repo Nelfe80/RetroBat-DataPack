@@ -148,7 +148,12 @@
         "leaderboard.my_place": "#{rank} of {total}",
         "leaderboard.unranked": "Unranked of {total}",
         "leaderboard.to_gain": "+{points} for #{rank}",
-        "leaderboard.starting_game": "Starting the game…"
+        "leaderboard.starting_game": "Starting the game…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Join",
+        "leaderboard.live_notice": "{player} is live on {system}: {game}"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -299,7 +304,12 @@
         "leaderboard.my_place": "#{rank} of {total}",
         "leaderboard.unranked": "Unranked of {total}",
         "leaderboard.to_gain": "+{points} for #{rank}",
-        "leaderboard.starting_game": "Starting the game…"
+        "leaderboard.starting_game": "Starting the game…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Join",
+        "leaderboard.live_notice": "{player} is live on {system}: {game}"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -450,7 +460,12 @@
         "leaderboard.my_place": "#{rank} sur {total}",
         "leaderboard.unranked": "Non classé sur {total}",
         "leaderboard.to_gain": "+{points} pour #{rank}",
-        "leaderboard.starting_game": "Lancement de la partie…"
+        "leaderboard.starting_game": "Lancement de la partie…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Rejoindre",
+        "leaderboard.live_notice": "{player} est en direct sur {system} : {game}"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -549,7 +564,12 @@
         "leaderboard.my_place": "#{rank} z {total}",
         "leaderboard.unranked": "Bez umístění z {total}",
         "leaderboard.to_gain": "+{points} na #{rank}",
-        "leaderboard.starting_game": "Spouštění hry…"
+        "leaderboard.starting_game": "Spouštění hry…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Připojit se",
+        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}"
     },
     "es": {
         "label.metadata.name": "nombre",
@@ -648,7 +668,12 @@
         "leaderboard.my_place": "#{rank} de {total}",
         "leaderboard.unranked": "Sin clasificar de {total}",
         "leaderboard.to_gain": "+{points} para #{rank}",
-        "leaderboard.starting_game": "Iniciando la partida…"
+        "leaderboard.starting_game": "Iniciando la partida…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Unirse",
+        "leaderboard.live_notice": "{player} está en directo en {system}: {game}"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -747,7 +772,12 @@
         "leaderboard.my_place": "#{rank} su {total}",
         "leaderboard.unranked": "Non classificato su {total}",
         "leaderboard.to_gain": "+{points} per #{rank}",
-        "leaderboard.starting_game": "Avvio della partita…"
+        "leaderboard.starting_game": "Avvio della partita…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Unisciti",
+        "leaderboard.live_notice": "{player} è in diretta su {system}: {game}"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -846,7 +876,12 @@
         "leaderboard.my_place": "{total}人中 {rank}位",
         "leaderboard.unranked": "{total}人中 圏外",
         "leaderboard.to_gain": "{rank}位まで +{points}",
-        "leaderboard.starting_game": "ゲームを起動中…"
+        "leaderboard.starting_game": "ゲームを起動中…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "参加",
+        "leaderboard.live_notice": "{player} が {system} で配信中：{game}"
     },
     "nl": {
         "label.metadata.name": "naam",
@@ -945,7 +980,12 @@
         "leaderboard.my_place": "#{rank} van {total}",
         "leaderboard.unranked": "Niet geplaatst van {total}",
         "leaderboard.to_gain": "+{points} voor #{rank}",
-        "leaderboard.starting_game": "Spel starten…"
+        "leaderboard.starting_game": "Spel starten…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Meedoen",
+        "leaderboard.live_notice": "{player} is live op {system}: {game}"
     },
     "pl": {
         "label.metadata.name": "nazwa",
@@ -1044,7 +1084,12 @@
         "leaderboard.my_place": "#{rank} z {total}",
         "leaderboard.unranked": "Bez miejsca z {total}",
         "leaderboard.to_gain": "+{points} do #{rank}",
-        "leaderboard.starting_game": "Uruchamianie gry…"
+        "leaderboard.starting_game": "Uruchamianie gry…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Dołącz",
+        "leaderboard.live_notice": "{player} gra na żywo na {system}: {game}"
     },
     "pt_br": {
         "label.metadata.name": "nome",
@@ -1143,7 +1188,12 @@
         "leaderboard.my_place": "#{rank} de {total}",
         "leaderboard.unranked": "Sem classificação de {total}",
         "leaderboard.to_gain": "+{points} para #{rank}",
-        "leaderboard.starting_game": "A iniciar o jogo…"
+        "leaderboard.starting_game": "A iniciar o jogo…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Juntar-se",
+        "leaderboard.live_notice": "{player} está em direto em {system}: {game}"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -1242,7 +1292,12 @@
         "leaderboard.my_place": "#{rank} из {total}",
         "leaderboard.unranked": "Вне рейтинга из {total}",
         "leaderboard.to_gain": "+{points} до #{rank}",
-        "leaderboard.starting_game": "Запуск игры…"
+        "leaderboard.starting_game": "Запуск игры…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Присоединиться",
+        "leaderboard.live_notice": "{player} в эфире на {system}: {game}"
     },
     "tr": {
         "label.metadata.name": "ad",
@@ -1341,7 +1396,12 @@
         "leaderboard.my_place": "{total} içinde #{rank}",
         "leaderboard.unranked": "{total} içinde sırasız",
         "leaderboard.to_gain": "#{rank} için +{points}",
-        "leaderboard.starting_game": "Oyun başlatılıyor…"
+        "leaderboard.starting_game": "Oyun başlatılıyor…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Katıl",
+        "leaderboard.live_notice": "{player} {system} üzerinde canlı: {game}"
     },
     "cs": {
         "label.metadata.name": "název",
@@ -1440,7 +1500,12 @@
         "leaderboard.my_place": "#{rank} z {total}",
         "leaderboard.unranked": "Bez umístění z {total}",
         "leaderboard.to_gain": "+{points} na #{rank}",
-        "leaderboard.starting_game": "Spouštění hry…"
+        "leaderboard.starting_game": "Spouštění hry…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Připojit se",
+        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}"
     },
     "ja": {
         "label.metadata.name": "名前",
@@ -1539,7 +1604,12 @@
         "leaderboard.my_place": "{total}人中 {rank}位",
         "leaderboard.unranked": "{total}人中 圏外",
         "leaderboard.to_gain": "{rank}位まで +{points}",
-        "leaderboard.starting_game": "ゲームを起動中…"
+        "leaderboard.starting_game": "ゲームを起動中…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "参加",
+        "leaderboard.live_notice": "{player} が {system} で配信中：{game}"
     },
     "pt": {
         "label.metadata.name": "nome",
@@ -1638,7 +1708,12 @@
         "leaderboard.my_place": "#{rank} de {total}",
         "leaderboard.unranked": "Sem classificação de {total}",
         "leaderboard.to_gain": "+{points} para #{rank}",
-        "leaderboard.starting_game": "A iniciar o jogo…"
+        "leaderboard.starting_game": "A iniciar o jogo…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Juntar-se",
+        "leaderboard.live_notice": "{player} está em direto em {system}: {game}"
     },
     "ru": {
         "label.metadata.name": "название",
@@ -1737,6 +1812,11 @@
         "leaderboard.my_place": "#{rank} из {total}",
         "leaderboard.unranked": "Вне рейтинга из {total}",
         "leaderboard.to_gain": "+{points} до #{rank}",
-        "leaderboard.starting_game": "Запуск игры…"
+        "leaderboard.starting_game": "Запуск игры…",
+        "leaderboard.tab.live": "Live & Contest",
+        "leaderboard.live": "Live",
+        "leaderboard.contest": "Contest",
+        "leaderboard.join": "Присоединиться",
+        "leaderboard.live_notice": "{player} в эфире на {system}: {game}"
     }
 }
