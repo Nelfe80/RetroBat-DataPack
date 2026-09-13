@@ -141,7 +141,13 @@
         "leaderboard.launching": "Launching replay…",
         "leaderboard.podium.first": "1st",
         "leaderboard.podium.second": "2nd",
-        "leaderboard.podium.third": "3rd"
+        "leaderboard.podium.third": "3rd",
+        "leaderboard.challenge": "Challenge",
+        "leaderboard.follow": "Follow",
+        "leaderboard.following": "Following",
+        "leaderboard.my_place": "#{rank} of {total}",
+        "leaderboard.unranked": "Unranked of {total}",
+        "leaderboard.to_gain": "+{points} for #{rank}"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -285,7 +291,13 @@
         "leaderboard.launching": "Launching replay…",
         "leaderboard.podium.first": "1st",
         "leaderboard.podium.second": "2nd",
-        "leaderboard.podium.third": "3rd"
+        "leaderboard.podium.third": "3rd",
+        "leaderboard.challenge": "Challenge",
+        "leaderboard.follow": "Follow",
+        "leaderboard.following": "Following",
+        "leaderboard.my_place": "#{rank} of {total}",
+        "leaderboard.unranked": "Unranked of {total}",
+        "leaderboard.to_gain": "+{points} for #{rank}"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -429,7 +441,13 @@
         "leaderboard.launching": "Lancement du replay…",
         "leaderboard.podium.first": "1er",
         "leaderboard.podium.second": "2e",
-        "leaderboard.podium.third": "3e"
+        "leaderboard.podium.third": "3e",
+        "leaderboard.challenge": "Défier",
+        "leaderboard.follow": "Suivre",
+        "leaderboard.following": "Suivi",
+        "leaderboard.my_place": "#{rank} sur {total}",
+        "leaderboard.unranked": "Non classé sur {total}",
+        "leaderboard.to_gain": "+{points} pour #{rank}"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -521,7 +539,13 @@
         "leaderboard.launching": "Spouštění záznamu…",
         "leaderboard.podium.first": "1.",
         "leaderboard.podium.second": "2.",
-        "leaderboard.podium.third": "3."
+        "leaderboard.podium.third": "3.",
+        "leaderboard.challenge": "Výzva",
+        "leaderboard.follow": "Sledovat",
+        "leaderboard.following": "Sledován",
+        "leaderboard.my_place": "#{rank} z {total}",
+        "leaderboard.unranked": "Bez umístění z {total}",
+        "leaderboard.to_gain": "+{points} na #{rank}"
     },
     "es": {
         "label.metadata.name": "nombre",
@@ -613,7 +637,13 @@
         "leaderboard.launching": "Iniciando la repetición…",
         "leaderboard.podium.first": "1.º",
         "leaderboard.podium.second": "2.º",
-        "leaderboard.podium.third": "3.º"
+        "leaderboard.podium.third": "3.º",
+        "leaderboard.challenge": "Desafiar",
+        "leaderboard.follow": "Seguir",
+        "leaderboard.following": "Siguiendo",
+        "leaderboard.my_place": "#{rank} de {total}",
+        "leaderboard.unranked": "Sin clasificar de {total}",
+        "leaderboard.to_gain": "+{points} para #{rank}"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -705,7 +735,13 @@
         "leaderboard.launching": "Avvio del replay…",
         "leaderboard.podium.first": "1º",
         "leaderboard.podium.second": "2º",
-        "leaderboard.podium.third": "3º"
+        "leaderboard.podium.third": "3º",
+        "leaderboard.challenge": "Sfida",
+        "leaderboard.follow": "Segui",
+        "leaderboard.following": "Seguito",
+        "leaderboard.my_place": "#{rank} su {total}",
+        "leaderboard.unranked": "Non classificato su {total}",
+        "leaderboard.to_gain": "+{points} per #{rank}"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -797,7 +833,13 @@
         "leaderboard.launching": "リプレイを起動中…",
         "leaderboard.podium.first": "1位",
         "leaderboard.podium.second": "2位",
-        "leaderboard.podium.third": "3位"
+        "leaderboard.podium.third": "3位",
+        "leaderboard.challenge": "挑戦",
+        "leaderboard.follow": "フォロー",
+        "leaderboard.following": "フォロー中",
+        "leaderboard.my_place": "{total}人中 {rank}位",
+        "leaderboard.unranked": "{total}人中 圏外",
+        "leaderboard.to_gain": "{rank}位まで +{points}"
     },
     "nl": {
         "label.metadata.name": "naam",
@@ -889,7 +931,13 @@
         "leaderboard.launching": "Replay starten…",
         "leaderboard.podium.first": "1e",
         "leaderboard.podium.second": "2e",
-        "leaderboard.podium.third": "3e"
+        "leaderboard.podium.third": "3e",
+        "leaderboard.challenge": "Uitdagen",
+        "leaderboard.follow": "Volgen",
+        "leaderboard.following": "Gevolgd",
+        "leaderboard.my_place": "#{rank} van {total}",
+        "leaderboard.unranked": "Niet geplaatst van {total}",
+        "leaderboard.to_gain": "+{points} voor #{rank}"
     },
     "pl": {
         "label.metadata.name": "nazwa",
@@ -981,7 +1029,13 @@
         "leaderboard.launching": "Uruchamianie powtórki…",
         "leaderboard.podium.first": "1.",
         "leaderboard.podium.second": "2.",
-        "leaderboard.podium.third": "3."
+        "leaderboard.podium.third": "3.",
+        "leaderboard.challenge": "Wyzwanie",
+        "leaderboard.follow": "Obserwuj",
+        "leaderboard.following": "Obserwowany",
+        "leaderboard.my_place": "#{rank} z {total}",
+        "leaderboard.unranked": "Bez miejsca z {total}",
+        "leaderboard.to_gain": "+{points} do #{rank}"
     },
     "pt_br": {
         "label.metadata.name": "nome",
@@ -1073,7 +1127,13 @@
         "leaderboard.launching": "A iniciar o replay…",
         "leaderboard.podium.first": "1.º",
         "leaderboard.podium.second": "2.º",
-        "leaderboard.podium.third": "3.º"
+        "leaderboard.podium.third": "3.º",
+        "leaderboard.challenge": "Desafiar",
+        "leaderboard.follow": "Seguir",
+        "leaderboard.following": "A seguir",
+        "leaderboard.my_place": "#{rank} de {total}",
+        "leaderboard.unranked": "Sem classificação de {total}",
+        "leaderboard.to_gain": "+{points} para #{rank}"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -1165,7 +1225,13 @@
         "leaderboard.launching": "Запуск повтора…",
         "leaderboard.podium.first": "1-е",
         "leaderboard.podium.second": "2-е",
-        "leaderboard.podium.third": "3-е"
+        "leaderboard.podium.third": "3-е",
+        "leaderboard.challenge": "Вызов",
+        "leaderboard.follow": "Следить",
+        "leaderboard.following": "Отслеживается",
+        "leaderboard.my_place": "#{rank} из {total}",
+        "leaderboard.unranked": "Вне рейтинга из {total}",
+        "leaderboard.to_gain": "+{points} до #{rank}"
     },
     "tr": {
         "label.metadata.name": "ad",
@@ -1257,7 +1323,13 @@
         "leaderboard.launching": "Tekrar başlatılıyor…",
         "leaderboard.podium.first": "1.",
         "leaderboard.podium.second": "2.",
-        "leaderboard.podium.third": "3."
+        "leaderboard.podium.third": "3.",
+        "leaderboard.challenge": "Meydan oku",
+        "leaderboard.follow": "Takip et",
+        "leaderboard.following": "Takipte",
+        "leaderboard.my_place": "{total} içinde #{rank}",
+        "leaderboard.unranked": "{total} içinde sırasız",
+        "leaderboard.to_gain": "#{rank} için +{points}"
     },
     "cs": {
         "label.metadata.name": "název",
@@ -1349,7 +1421,13 @@
         "leaderboard.launching": "Spouštění záznamu…",
         "leaderboard.podium.first": "1.",
         "leaderboard.podium.second": "2.",
-        "leaderboard.podium.third": "3."
+        "leaderboard.podium.third": "3.",
+        "leaderboard.challenge": "Výzva",
+        "leaderboard.follow": "Sledovat",
+        "leaderboard.following": "Sledován",
+        "leaderboard.my_place": "#{rank} z {total}",
+        "leaderboard.unranked": "Bez umístění z {total}",
+        "leaderboard.to_gain": "+{points} na #{rank}"
     },
     "ja": {
         "label.metadata.name": "名前",
@@ -1441,7 +1519,13 @@
         "leaderboard.launching": "リプレイを起動中…",
         "leaderboard.podium.first": "1位",
         "leaderboard.podium.second": "2位",
-        "leaderboard.podium.third": "3位"
+        "leaderboard.podium.third": "3位",
+        "leaderboard.challenge": "挑戦",
+        "leaderboard.follow": "フォロー",
+        "leaderboard.following": "フォロー中",
+        "leaderboard.my_place": "{total}人中 {rank}位",
+        "leaderboard.unranked": "{total}人中 圏外",
+        "leaderboard.to_gain": "{rank}位まで +{points}"
     },
     "pt": {
         "label.metadata.name": "nome",
@@ -1533,7 +1617,13 @@
         "leaderboard.launching": "A iniciar o replay…",
         "leaderboard.podium.first": "1.º",
         "leaderboard.podium.second": "2.º",
-        "leaderboard.podium.third": "3.º"
+        "leaderboard.podium.third": "3.º",
+        "leaderboard.challenge": "Desafiar",
+        "leaderboard.follow": "Seguir",
+        "leaderboard.following": "A seguir",
+        "leaderboard.my_place": "#{rank} de {total}",
+        "leaderboard.unranked": "Sem classificação de {total}",
+        "leaderboard.to_gain": "+{points} para #{rank}"
     },
     "ru": {
         "label.metadata.name": "название",
@@ -1625,6 +1715,12 @@
         "leaderboard.launching": "Запуск повтора…",
         "leaderboard.podium.first": "1-е",
         "leaderboard.podium.second": "2-е",
-        "leaderboard.podium.third": "3-е"
+        "leaderboard.podium.third": "3-е",
+        "leaderboard.challenge": "Вызов",
+        "leaderboard.follow": "Следить",
+        "leaderboard.following": "Отслеживается",
+        "leaderboard.my_place": "#{rank} из {total}",
+        "leaderboard.unranked": "Вне рейтинга из {total}",
+        "leaderboard.to_gain": "+{points} до #{rank}"
     }
 }
