@@ -163,7 +163,11 @@
         "replay.bar.quit": "Quit",
         "replay.card.score": "Score",
         "replay.card.player": "Player",
-        "leaderboard.to_gain_time": "{points} for #{rank}"
+        "leaderboard.to_gain_time": "{points} for #{rank}",
+        "leaderboard.challenge_own_record": "Your record",
+        "leaderboard.challenge_new_record": "New record",
+        "leaderboard.challenge_goal_own": "Beat your record: {score}",
+        "replay.bar.hold": "(hold)"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -329,7 +333,11 @@
         "replay.bar.quit": "Quit",
         "replay.card.score": "Score",
         "replay.card.player": "Player",
-        "leaderboard.to_gain_time": "{points} for #{rank}"
+        "leaderboard.to_gain_time": "{points} for #{rank}",
+        "leaderboard.challenge_own_record": "Your record",
+        "leaderboard.challenge_new_record": "New record",
+        "leaderboard.challenge_goal_own": "Beat your record: {score}",
+        "replay.bar.hold": "(hold)"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -495,7 +503,11 @@
         "replay.bar.quit": "Quitter",
         "replay.card.score": "Score",
         "replay.card.player": "Joueur",
-        "leaderboard.to_gain_time": "{points} pour #{rank}"
+        "leaderboard.to_gain_time": "{points} pour #{rank}",
+        "leaderboard.challenge_own_record": "Ton record",
+        "leaderboard.challenge_new_record": "Nouveau record",
+        "leaderboard.challenge_goal_own": "Battre ton record : {score}",
+        "replay.bar.hold": "(maintenir)"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -609,7 +621,11 @@
         "replay.bar.quit": "Ukončit",
         "replay.card.score": "Skóre",
         "replay.card.player": "Hráč",
-        "leaderboard.to_gain_time": "{points} na #{rank}"
+        "leaderboard.to_gain_time": "{points} na #{rank}",
+        "leaderboard.challenge_own_record": "Tvůj rekord",
+        "leaderboard.challenge_new_record": "Nový rekord",
+        "leaderboard.challenge_goal_own": "Překonej svůj rekord: {score}",
+        "replay.bar.hold": "(podržet)"
     },
     "es": {
         "label.metadata.name": "nombre",
@@ -723,7 +739,11 @@
         "replay.bar.quit": "Salir",
         "replay.card.score": "Puntuación",
         "replay.card.player": "Jugador",
-        "leaderboard.to_gain_time": "{points} para #{rank}"
+        "leaderboard.to_gain_time": "{points} para #{rank}",
+        "leaderboard.challenge_own_record": "Tu récord",
+        "leaderboard.challenge_new_record": "Nuevo récord",
+        "leaderboard.challenge_goal_own": "Supera tu récord: {score}",
+        "replay.bar.hold": "(mantener)"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -837,7 +857,11 @@
         "replay.bar.quit": "Esci",
         "replay.card.score": "Punteggio",
         "replay.card.player": "Giocatore",
-        "leaderboard.to_gain_time": "{points} per #{rank}"
+        "leaderboard.to_gain_time": "{points} per #{rank}",
+        "leaderboard.challenge_own_record": "Il tuo record",
+        "leaderboard.challenge_new_record": "Nuovo record",
+        "leaderboard.challenge_goal_own": "Batti il tuo record: {score}",
+        "replay.bar.hold": "(tieni premuto)"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -951,7 +975,11 @@
         "replay.bar.quit": "終了",
         "replay.card.score": "スコア",
         "replay.card.player": "プレイヤー",
-        "leaderboard.to_gain_time": "{rank}位まで {points}"
+        "leaderboard.to_gain_time": "{rank}位まで {points}",
+        "leaderboard.challenge_own_record": "自己ベスト",
+        "leaderboard.challenge_new_record": "新記録",
+        "leaderboard.challenge_goal_own": "自己ベストを超えろ：{score}",
+        "replay.bar.hold": "(長押し)"
     },
     "nl": {
         "label.metadata.name": "naam",
@@ -1065,7 +1093,11 @@
         "replay.bar.quit": "Stoppen",
         "replay.card.score": "Score",
         "replay.card.player": "Speler",
-        "leaderboard.to_gain_time": "{points} voor #{rank}"
+        "leaderboard.to_gain_time": "{points} voor #{rank}",
+        "leaderboard.challenge_own_record": "Jouw record",
+        "leaderboard.challenge_new_record": "Nieuw record",
+        "leaderboard.challenge_goal_own": "Verbeter je record: {score}",
+        "replay.bar.hold": "(ingedrukt)"
     },
     "pl": {
         "label.metadata.name": "nazwa",
@@ -1179,7 +1211,11 @@
         "replay.bar.quit": "Wyjdź",
         "replay.card.score": "Wynik",
         "replay.card.player": "Gracz",
-        "leaderboard.to_gain_time": "{points} do #{rank}"
+        "leaderboard.to_gain_time": "{points} do #{rank}",
+        "leaderboard.challenge_own_record": "Twój rekord",
+        "leaderboard.challenge_new_record": "Nowy rekord",
+        "leaderboard.challenge_goal_own": "Pobij swój rekord: {score}",
+        "replay.bar.hold": "(przytrzymaj)"
     },
     "pt_br": {
         "label.metadata.name": "nome",
@@ -1293,7 +1329,11 @@
         "replay.bar.quit": "Sair",
         "replay.card.score": "Pontuação",
         "replay.card.player": "Jogador",
-        "leaderboard.to_gain_time": "{points} para #{rank}"
+        "leaderboard.to_gain_time": "{points} para #{rank}",
+        "leaderboard.challenge_own_record": "O teu recorde",
+        "leaderboard.challenge_new_record": "Novo recorde",
+        "leaderboard.challenge_goal_own": "Bate o teu recorde: {score}",
+        "replay.bar.hold": "(segurar)"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -1407,7 +1447,11 @@
         "replay.bar.quit": "Выход",
         "replay.card.score": "Очки",
         "replay.card.player": "Игрок",
-        "leaderboard.to_gain_time": "{points} до #{rank}"
+        "leaderboard.to_gain_time": "{points} до #{rank}",
+        "leaderboard.challenge_own_record": "Твой рекорд",
+        "leaderboard.challenge_new_record": "Новый рекорд",
+        "leaderboard.challenge_goal_own": "Побей свой рекорд: {score}",
+        "replay.bar.hold": "(удерживать)"
     },
     "tr": {
         "label.metadata.name": "ad",
@@ -1521,7 +1565,11 @@
         "replay.bar.quit": "Çık",
         "replay.card.score": "Skor",
         "replay.card.player": "Oyuncu",
-        "leaderboard.to_gain_time": "#{rank} için {points}"
+        "leaderboard.to_gain_time": "#{rank} için {points}",
+        "leaderboard.challenge_own_record": "Rekorun",
+        "leaderboard.challenge_new_record": "Yeni rekor",
+        "leaderboard.challenge_goal_own": "Rekorunu kır: {score}",
+        "replay.bar.hold": "(basılı tut)"
     },
     "cs": {
         "label.metadata.name": "název",
@@ -1635,7 +1683,11 @@
         "replay.bar.quit": "Ukončit",
         "replay.card.score": "Skóre",
         "replay.card.player": "Hráč",
-        "leaderboard.to_gain_time": "{points} na #{rank}"
+        "leaderboard.to_gain_time": "{points} na #{rank}",
+        "leaderboard.challenge_own_record": "Tvůj rekord",
+        "leaderboard.challenge_new_record": "Nový rekord",
+        "leaderboard.challenge_goal_own": "Překonej svůj rekord: {score}",
+        "replay.bar.hold": "(podržet)"
     },
     "ja": {
         "label.metadata.name": "名前",
@@ -1749,7 +1801,11 @@
         "replay.bar.quit": "終了",
         "replay.card.score": "スコア",
         "replay.card.player": "プレイヤー",
-        "leaderboard.to_gain_time": "{rank}位まで {points}"
+        "leaderboard.to_gain_time": "{rank}位まで {points}",
+        "leaderboard.challenge_own_record": "自己ベスト",
+        "leaderboard.challenge_new_record": "新記録",
+        "leaderboard.challenge_goal_own": "自己ベストを超えろ：{score}",
+        "replay.bar.hold": "(長押し)"
     },
     "pt": {
         "label.metadata.name": "nome",
@@ -1863,7 +1919,11 @@
         "replay.bar.quit": "Sair",
         "replay.card.score": "Pontuação",
         "replay.card.player": "Jogador",
-        "leaderboard.to_gain_time": "{points} para #{rank}"
+        "leaderboard.to_gain_time": "{points} para #{rank}",
+        "leaderboard.challenge_own_record": "O teu recorde",
+        "leaderboard.challenge_new_record": "Novo recorde",
+        "leaderboard.challenge_goal_own": "Bate o teu recorde: {score}",
+        "replay.bar.hold": "(manter)"
     },
     "ru": {
         "label.metadata.name": "название",
@@ -1977,6 +2037,10 @@
         "replay.bar.quit": "Выход",
         "replay.card.score": "Очки",
         "replay.card.player": "Игрок",
-        "leaderboard.to_gain_time": "{points} до #{rank}"
+        "leaderboard.to_gain_time": "{points} до #{rank}",
+        "leaderboard.challenge_own_record": "Твой рекорд",
+        "leaderboard.challenge_new_record": "Новый рекорд",
+        "leaderboard.challenge_goal_own": "Побей свой рекорд: {score}",
+        "replay.bar.hold": "(удерживать)"
     }
 }
