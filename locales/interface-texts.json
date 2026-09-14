@@ -153,7 +153,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Join",
-        "leaderboard.live_notice": "{player} is live on {system}: {game}"
+        "leaderboard.live_notice": "{player} is live on {system}: {game}",
+        "leaderboard.challenge_title": "Challenge",
+        "leaderboard.challenge_goal": "Beat #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Hold the #1 spot"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -309,7 +312,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Join",
-        "leaderboard.live_notice": "{player} is live on {system}: {game}"
+        "leaderboard.live_notice": "{player} is live on {system}: {game}",
+        "leaderboard.challenge_title": "Challenge",
+        "leaderboard.challenge_goal": "Beat #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Hold the #1 spot"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -465,7 +471,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Rejoindre",
-        "leaderboard.live_notice": "{player} est en direct sur {system} : {game}"
+        "leaderboard.live_notice": "{player} est en direct sur {system} : {game}",
+        "leaderboard.challenge_title": "Défi",
+        "leaderboard.challenge_goal": "Battre #{rank} {player} : {score}",
+        "leaderboard.challenge_goal_top": "Garder la 1re place"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -569,7 +578,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Připojit se",
-        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}"
+        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}",
+        "leaderboard.challenge_title": "Výzva",
+        "leaderboard.challenge_goal": "Porazte #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Udržte #1"
     },
     "es": {
         "label.metadata.name": "nombre",
@@ -673,7 +685,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Unirse",
-        "leaderboard.live_notice": "{player} está en directo en {system}: {game}"
+        "leaderboard.live_notice": "{player} está en directo en {system}: {game}",
+        "leaderboard.challenge_title": "Desafío",
+        "leaderboard.challenge_goal": "Supera a #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Mantén el puesto #1"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -777,7 +792,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Unisciti",
-        "leaderboard.live_notice": "{player} è in diretta su {system}: {game}"
+        "leaderboard.live_notice": "{player} è in diretta su {system}: {game}",
+        "leaderboard.challenge_title": "Sfida",
+        "leaderboard.challenge_goal": "Batti #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Mantieni il #1"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -881,7 +899,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "参加",
-        "leaderboard.live_notice": "{player} が {system} で配信中：{game}"
+        "leaderboard.live_notice": "{player} が {system} で配信中：{game}",
+        "leaderboard.challenge_title": "挑戦",
+        "leaderboard.challenge_goal": "#{rank} {player} を超えろ：{score}",
+        "leaderboard.challenge_goal_top": "1位を守れ"
     },
     "nl": {
         "label.metadata.name": "naam",
@@ -985,7 +1006,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Meedoen",
-        "leaderboard.live_notice": "{player} is live op {system}: {game}"
+        "leaderboard.live_notice": "{player} is live op {system}: {game}",
+        "leaderboard.challenge_title": "Uitdaging",
+        "leaderboard.challenge_goal": "Versla #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Behoud plek #1"
     },
     "pl": {
         "label.metadata.name": "nazwa",
@@ -1089,7 +1113,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Dołącz",
-        "leaderboard.live_notice": "{player} gra na żywo na {system}: {game}"
+        "leaderboard.live_notice": "{player} gra na żywo na {system}: {game}",
+        "leaderboard.challenge_title": "Wyzwanie",
+        "leaderboard.challenge_goal": "Pokonaj #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Utrzymaj #1"
     },
     "pt_br": {
         "label.metadata.name": "nome",
@@ -1193,7 +1220,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Juntar-se",
-        "leaderboard.live_notice": "{player} está em direto em {system}: {game}"
+        "leaderboard.live_notice": "{player} está em direto em {system}: {game}",
+        "leaderboard.challenge_title": "Desafio",
+        "leaderboard.challenge_goal": "Supera #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Mantém o #1"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -1297,7 +1327,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Присоединиться",
-        "leaderboard.live_notice": "{player} в эфире на {system}: {game}"
+        "leaderboard.live_notice": "{player} в эфире на {system}: {game}",
+        "leaderboard.challenge_title": "Вызов",
+        "leaderboard.challenge_goal": "Обойди #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Удержи #1"
     },
     "tr": {
         "label.metadata.name": "ad",
@@ -1401,7 +1434,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Katıl",
-        "leaderboard.live_notice": "{player} {system} üzerinde canlı: {game}"
+        "leaderboard.live_notice": "{player} {system} üzerinde canlı: {game}",
+        "leaderboard.challenge_title": "Meydan okuma",
+        "leaderboard.challenge_goal": "#{rank} {player} oyuncusunu geç: {score}",
+        "leaderboard.challenge_goal_top": "#1'i koru"
     },
     "cs": {
         "label.metadata.name": "název",
@@ -1505,7 +1541,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Připojit se",
-        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}"
+        "leaderboard.live_notice": "{player} hraje živě na {system}: {game}",
+        "leaderboard.challenge_title": "Výzva",
+        "leaderboard.challenge_goal": "Porazte #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Udržte #1"
     },
     "ja": {
         "label.metadata.name": "名前",
@@ -1609,7 +1648,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "参加",
-        "leaderboard.live_notice": "{player} が {system} で配信中：{game}"
+        "leaderboard.live_notice": "{player} が {system} で配信中：{game}",
+        "leaderboard.challenge_title": "挑戦",
+        "leaderboard.challenge_goal": "#{rank} {player} を超えろ：{score}",
+        "leaderboard.challenge_goal_top": "1位を守れ"
     },
     "pt": {
         "label.metadata.name": "nome",
@@ -1713,7 +1755,10 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Juntar-se",
-        "leaderboard.live_notice": "{player} está em direto em {system}: {game}"
+        "leaderboard.live_notice": "{player} está em direto em {system}: {game}",
+        "leaderboard.challenge_title": "Desafio",
+        "leaderboard.challenge_goal": "Supera #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Mantém o #1"
     },
     "ru": {
         "label.metadata.name": "название",
@@ -1817,6 +1862,9 @@
         "leaderboard.live": "Live",
         "leaderboard.contest": "Contest",
         "leaderboard.join": "Присоединиться",
-        "leaderboard.live_notice": "{player} в эфире на {system}: {game}"
+        "leaderboard.live_notice": "{player} в эфире на {system}: {game}",
+        "leaderboard.challenge_title": "Вызов",
+        "leaderboard.challenge_goal": "Обойди #{rank} {player}: {score}",
+        "leaderboard.challenge_goal_top": "Удержи #1"
     }
 }
