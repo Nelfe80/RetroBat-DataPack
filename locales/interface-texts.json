@@ -162,7 +162,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Quit",
         "replay.card.score": "Score",
-        "replay.card.player": "Player"
+        "replay.card.player": "Player",
+        "leaderboard.to_gain_time": "{points} for #{rank}"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -327,7 +328,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Quit",
         "replay.card.score": "Score",
-        "replay.card.player": "Player"
+        "replay.card.player": "Player",
+        "leaderboard.to_gain_time": "{points} for #{rank}"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -492,7 +494,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Quitter",
         "replay.card.score": "Score",
-        "replay.card.player": "Joueur"
+        "replay.card.player": "Joueur",
+        "leaderboard.to_gain_time": "{points} pour #{rank}"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -605,7 +608,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Ukončit",
         "replay.card.score": "Skóre",
-        "replay.card.player": "Hráč"
+        "replay.card.player": "Hráč",
+        "leaderboard.to_gain_time": "{points} na #{rank}"
     },
     "es": {
         "label.metadata.name": "nombre",
@@ -718,7 +722,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Salir",
         "replay.card.score": "Puntuación",
-        "replay.card.player": "Jugador"
+        "replay.card.player": "Jugador",
+        "leaderboard.to_gain_time": "{points} para #{rank}"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -831,7 +836,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Esci",
         "replay.card.score": "Punteggio",
-        "replay.card.player": "Giocatore"
+        "replay.card.player": "Giocatore",
+        "leaderboard.to_gain_time": "{points} per #{rank}"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -944,7 +950,8 @@
         "replay.bar.checkpoint": "チェックポイント",
         "replay.bar.quit": "終了",
         "replay.card.score": "スコア",
-        "replay.card.player": "プレイヤー"
+        "replay.card.player": "プレイヤー",
+        "leaderboard.to_gain_time": "{rank}位まで {points}"
     },
     "nl": {
         "label.metadata.name": "naam",
@@ -1057,7 +1064,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Stoppen",
         "replay.card.score": "Score",
-        "replay.card.player": "Speler"
+        "replay.card.player": "Speler",
+        "leaderboard.to_gain_time": "{points} voor #{rank}"
     },
     "pl": {
         "label.metadata.name": "nazwa",
@@ -1170,7 +1178,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Wyjdź",
         "replay.card.score": "Wynik",
-        "replay.card.player": "Gracz"
+        "replay.card.player": "Gracz",
+        "leaderboard.to_gain_time": "{points} do #{rank}"
     },
     "pt_br": {
         "label.metadata.name": "nome",
@@ -1283,7 +1292,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Sair",
         "replay.card.score": "Pontuação",
-        "replay.card.player": "Jogador"
+        "replay.card.player": "Jogador",
+        "leaderboard.to_gain_time": "{points} para #{rank}"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -1396,7 +1406,8 @@
         "replay.bar.checkpoint": "Чекпоинт",
         "replay.bar.quit": "Выход",
         "replay.card.score": "Очки",
-        "replay.card.player": "Игрок"
+        "replay.card.player": "Игрок",
+        "leaderboard.to_gain_time": "{points} до #{rank}"
     },
     "tr": {
         "label.metadata.name": "ad",
@@ -1509,7 +1520,8 @@
         "replay.bar.checkpoint": "Kontrol noktası",
         "replay.bar.quit": "Çık",
         "replay.card.score": "Skor",
-        "replay.card.player": "Oyuncu"
+        "replay.card.player": "Oyuncu",
+        "leaderboard.to_gain_time": "#{rank} için {points}"
     },
     "cs": {
         "label.metadata.name": "název",
@@ -1622,7 +1634,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Ukončit",
         "replay.card.score": "Skóre",
-        "replay.card.player": "Hráč"
+        "replay.card.player": "Hráč",
+        "leaderboard.to_gain_time": "{points} na #{rank}"
     },
     "ja": {
         "label.metadata.name": "名前",
@@ -1735,7 +1748,8 @@
         "replay.bar.checkpoint": "チェックポイント",
         "replay.bar.quit": "終了",
         "replay.card.score": "スコア",
-        "replay.card.player": "プレイヤー"
+        "replay.card.player": "プレイヤー",
+        "leaderboard.to_gain_time": "{rank}位まで {points}"
     },
     "pt": {
         "label.metadata.name": "nome",
@@ -1848,7 +1862,8 @@
         "replay.bar.checkpoint": "Checkpoint",
         "replay.bar.quit": "Sair",
         "replay.card.score": "Pontuação",
-        "replay.card.player": "Jogador"
+        "replay.card.player": "Jogador",
+        "leaderboard.to_gain_time": "{points} para #{rank}"
     },
     "ru": {
         "label.metadata.name": "название",
@@ -1961,6 +1976,7 @@
         "replay.bar.checkpoint": "Чекпоинт",
         "replay.bar.quit": "Выход",
         "replay.card.score": "Очки",
-        "replay.card.player": "Игрок"
+        "replay.card.player": "Игрок",
+        "leaderboard.to_gain_time": "{points} до #{rank}"
     }
 }
