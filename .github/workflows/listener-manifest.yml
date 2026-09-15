@@ -1,0 +1,29 @@
+# The MAME Lua plugin (init.lua) is the listener that measures scores under MAME.
+# The platform only accepts a listener whose SHA-256 appears in a signed manifest.
+# A new init.lua published without a new LISTENER_VERSION.json would get every
+# scored MAME session refused, so the mismatch fails here, before anyone plays.
+name: Listener manifest
+
+on:
+  push:
+    paths:
+      - 'ram/tools/mame_apiexpose_ingame/**'
+  pull_request:
+    paths:
+      - 'ram/tools/mame_apiexpose_ingame/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: init.lua matches its signed manifest
+        run: |
+          dir=ram/tools/mame_apiexpose_ingame
+          expected=$(python3 -c "import json; print(json.load(open('$dir/LISTENER_VERSION.json'))['sha256'])")
+          actual=$(sha256sum "$dir/init.lua" | cut -d' ' -f1)
+          if [ "$expected" != "$actual" ]; then
+            echo "::error file=$dir/init.lua::init.lua changed without a new signed LISTENER_VERSION.json (manifest $expected, file $actual)"
+            exit 1
+          fi
+          echo "init.lua matches its manifest ($actual)"
