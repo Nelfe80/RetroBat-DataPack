@@ -1,5 +1,5 @@
 {
-  "$comment": "GENERE par tools/mem-curator/mame_banks_gen.py - blob FBNeo (MemIndex) -> espace programme MAME (map .ram/.share). Ne pas editer a la main.",
+  "$comment": "Blob FBNeo (MemIndex) <-> espace programme MAME. Lu dans les deux sens : le pont MAME traduit un offset du blob en adresse MAME ; le wrapper (0.335+) traduit une adresse MAME en offset du blob, en inversant les mots si swap16 (RAM 68000 de FBNeo). Entrees generees par mame_banks_gen.py, et entrees mesurees au labo (champ source).",
   "1943-the-battle-of-midway": [
     {
       "from": "0x0000",
@@ -77,15 +77,11 @@
   "altered-beast": [
     {
       "from": "0x0000",
-      "size": "0x1000",
-      "base": "0x840000",
-      "bank": "System16RoadRam"
-    },
-    {
-      "from": "0x2000",
-      "size": "0x0800",
-      "base": "0x440000",
-      "bank": "System16Z80Ram2"
+      "size": "0x4000",
+      "base": "0xFFC000",
+      "bank": "System16Ram",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
     }
   ],
   "arkanoid": [
@@ -737,15 +733,10 @@
   "ms-pac-man": [
     {
       "from": "0x0000",
-      "size": "0x1000",
-      "base": "0xF000",
-      "bank": "DrvZ80RAM"
-    },
-    {
-      "from": "0x1410",
-      "size": "0x0400",
-      "base": "0x8000",
-      "bank": "DrvVidRAM"
+      "size": "0x0800",
+      "base": "0x4800",
+      "bank": "DrvZ80RAM",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
     }
   ],
   "mtv-rock-n-roll-trivia": [
@@ -1003,9 +994,11 @@
   "shinobi": [
     {
       "from": "0x0000",
-      "size": "0x1000",
-      "base": "0x840000",
-      "bank": "System16RoadRam"
+      "size": "0x4000",
+      "base": "0xFFC000",
+      "bank": "System16Ram",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
     }
   ],
   "space-dungeon": [
@@ -1264,6 +1257,116 @@
       "size": "0x0800",
       "base": "0xD800",
       "bank": "System1PaletteRam"
+    }
+  ],
+  "bomb-jack": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x8000",
+      "bank": "DrvZ80RAM0",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "bagman": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "d-day": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x6000",
+      "bank": "DrvZ80RAM",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "jungler": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x9800",
+      "bank": "DrvZ80Ram1",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "gunbird": [
+    {
+      "from": "0x0000",
+      "size": "0x20000",
+      "base": "0xFE0000",
+      "bank": "Psikyo68KRAM",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "fire-shark": [
+    {
+      "from": "0x0000",
+      "size": "0x8000",
+      "base": "0xC0000",
+      "bank": "Drv68KRAM",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "columns": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0xFF0000",
+      "bank": "Drv68KRAM",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "agress-missile-daisenryaku": [
+    {
+      "from": "0x0000",
+      "size": "0xC000",
+      "base": "0x1D4000",
+      "bank": "Drv68KRAM0",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    },
+    {
+      "from": "0xC000",
+      "size": "0xC000",
+      "base": "0x1F4000",
+      "bank": "Drv68KRAM1",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    },
+    {
+      "from": "0x18000",
+      "size": "0x18000",
+      "base": "0x208000",
+      "bank": "Drv68KRAM2",
+      "swap16": true,
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "galaxian": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x4000",
+      "bank": "GalZ80Ram1",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "phoenix": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x4000",
+      "bank": "DrvI8085RAM",
+      "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
     }
   ]
 }
