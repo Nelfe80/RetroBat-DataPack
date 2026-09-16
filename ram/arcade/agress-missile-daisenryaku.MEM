@@ -33,9 +33,9 @@ return {
     },
     scoring = {
       points = {
-        { address=0X1C0C, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Hi Score" },
-        { address=0X1C10, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score" },
-        { address=0X1C18, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score - Copy" },
+        { address=0X1D5C0C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", desc="[16 Bit] Hi Score" },
+        { address=0X1D5C10, type="u16be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score" },
+        { address=0X1D5C18, type="u16be", condition="change", action="SCORE_STATE", player=1, score_kind="game", desc="[16 Bit] P1 Score - Copy" },
       },
     },
     world_interaction = {

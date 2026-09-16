@@ -43,7 +43,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X8D8, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X833C, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score, binaire (value * 10)" },
       },
     },
     system = {

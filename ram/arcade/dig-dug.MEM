@@ -40,7 +40,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X8414, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X8411, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
       },
       collectibles = {
         { address=0X07CF, type="u8", condition="increase", action="COIN_GAIN", desc="Dip switches 2: increased" },

@@ -47,9 +47,9 @@ return {
     },
     scoring = {
       points = {
-        { address=0X1740, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Game: Current Player's Score (BCD)" },
-        { address=0X175C, type="u32le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="Game: Player 2 Score (BCD)" },
-        { address=0X17A0, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Game: Player 1 Score (BCD)" },
+        { address=0XFFD740, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Game: Current Player's Score (BCD)" },
+        { address=0XFFD75C, type="u32be", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="Game: Player 2 Score (BCD)" },
+        { address=0XFFD7A0, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Game: Player 1 Score (BCD)" },
       },
     },
     combat = {

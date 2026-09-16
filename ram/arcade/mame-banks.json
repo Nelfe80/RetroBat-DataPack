@@ -110,6 +110,12 @@
       "size": "0x1800",
       "base": "0xD000",
       "bank": "DrvShareRAM"
+    },
+    {
+      "from": "0x5800",
+      "size": "0x0800",
+      "base": "0xF800",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
     }
   ],
   "aurail": [
@@ -325,9 +331,10 @@
   "cotton-fantastic-night-dreams": [
     {
       "from": "0x0000",
-      "size": "0x1000",
-      "base": "0x840000",
-      "bank": "System16RoadRam"
+      "size": "0x4000",
+      "base": "0xFFC000",
+      "source": "System 16B, meme bloc que shinobi/altered-beast (labo 2026-09-16)",
+      "swap16": true
     }
   ],
   "crazy-kong": [
@@ -949,6 +956,13 @@
       "size": "0x1000",
       "base": "0x200000",
       "bank": "TaitoZ80Ram1"
+    },
+    {
+      "from": "0x0000",
+      "size": "0x4000",
+      "base": "0x10C000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)",
+      "swap16": true
     }
   ],
   "red-earth": [
@@ -1049,6 +1063,12 @@
       "size": "0x0800",
       "base": "0xD800",
       "bank": "System1PaletteRam"
+    },
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
     }
   ],
   "star-wars": [
@@ -1367,6 +1387,142 @@
       "base": "0x4000",
       "bank": "DrvI8085RAM",
       "source": "mesure scorelab 2026-09-15 + MemIndex FBNeo"
+    }
+  ],
+  "joust": [
+    {
+      "from": "0x4200",
+      "size": "0xC000",
+      "base": "0x0000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "sinistar": [
+    {
+      "from": "0x4200",
+      "size": "0xC000",
+      "base": "0x0000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "defender": [
+    {
+      "from": "0x4200",
+      "size": "0xC000",
+      "base": "0x0000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "amidar": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "rygar": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "black-hole": [
+    {
+      "from": "0x0000",
+      "size": "0x0400",
+      "base": "0x4000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "dig-dug": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "alcon": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "contra": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0x1000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "toki": [
+    {
+      "from": "0x1800",
+      "size": "0xE000",
+      "base": "0x60000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)",
+      "swap16": true
+    }
+  ],
+  "wonder-boy": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xC000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "rayforce": [
+    {
+      "from": "0x0000",
+      "size": "0x20000",
+      "base": "0x400000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)",
+      "swap16": true
+    }
+  ],
+  "gyrodine": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0xF000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "anteater": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x8000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "xevious": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x7800",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    },
+    {
+      "from": "0x0800",
+      "size": "0x0800",
+      "base": "0x8000",
+      "source": "calcul 2026-09-16 (MemIndex FBNeo + carte MAME)"
+    }
+  ],
+  "scramble": [
+    {
+      "from": "0x0000",
+      "size": "0x0800",
+      "base": "0x4000",
+      "source": "carte MAME theend (ramsearch labo 2026-09-16)"
     }
   ]
 }

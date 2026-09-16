@@ -64,7 +64,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0XAF, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XC0AF, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
       },
     },
     system = {

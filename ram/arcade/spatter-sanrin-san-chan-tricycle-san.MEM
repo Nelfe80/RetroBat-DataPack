@@ -54,7 +54,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X6, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XC007, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
     },
     world_interaction = {

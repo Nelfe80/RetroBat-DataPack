@@ -42,7 +42,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X7D, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X107D, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 100)" },
       },
     },
   },

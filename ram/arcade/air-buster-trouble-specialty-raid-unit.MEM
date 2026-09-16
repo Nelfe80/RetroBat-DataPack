@@ -56,7 +56,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X6642, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XF642, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
     },
     combat = {

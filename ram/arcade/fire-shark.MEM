@@ -22,10 +22,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0XC1E82, type="u32be", condition="change", action="SCORE_STATE", color="blue", min=1100, max=10000, desc="Score delta 1100-10000: Score delta 1100-10000" },
-        { address=0XC1E82, type="u32be", condition="change", action="SCORE_STATE", color="cyan", min=210, max=500, desc="Score delta 210-500: Score delta 210-500" },
-        { address=0XC1E82, type="u32be", condition="change", action="SCORE_STATE", color="orange", min=50, max=200, desc="Score delta 50-200: Score delta 50-200" },
-        { address=0XC1E82, type="u32be", condition="change", action="SCORE_STATE", color="green", min=510, max=1000, desc="Score delta 510-1000: Score delta 510-1000" },
+        { address=0XC1E82, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
     },
   },

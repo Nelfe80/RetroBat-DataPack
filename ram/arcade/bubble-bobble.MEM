@@ -61,7 +61,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X3941, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XE641, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
       collectibles = {
         { address=0X366, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },

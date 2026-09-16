@@ -16,6 +16,7 @@ return {
   events = {
     scoring = {
       points = {
+        { address=0X40A2, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
         { address=0X40A2, type="u24be", condition="change", action="SCORE_STATE", color="orange", min=100, max=100, desc="Score delta 100-100: Score delta 100-100" },
         { address=0X40A2, type="u24be", condition="change", action="SCORE_STATE", color="cyan", min=150, max=150, desc="Score delta 150-150: Score delta 150-150" },
         { address=0X40A2, type="u24be", condition="change", action="SCORE_STATE", color="green", min=200, max=300, desc="Score delta 200-300: Score delta 200-300" },
