@@ -22,7 +22,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X1389, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X1389, type="u16le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
     },
   },
