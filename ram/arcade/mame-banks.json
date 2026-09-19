@@ -1,5 +1,14 @@
 {
   "$comment": "Blob FBNeo (MemIndex) <-> espace programme MAME. Lu dans les deux sens : le pont MAME traduit un offset du blob en adresse MAME ; le wrapper (0.335+) traduit une adresse MAME en offset du blob, en inversant les mots si swap16 (RAM 68000 de FBNeo). Entrees generees par mame_banks_gen.py, et entrees mesurees au labo (champ source).",
+  "1942": [
+    {
+      "from": "0x0000",
+      "size": "0x1000",
+      "base": "0xE000",
+      "bank": "DrvZ80Ram1",
+      "source": "labo 2026-09-19"
+    }
+  ],
   "1943-the-battle-of-midway": [
     {
       "from": "0x0000",
