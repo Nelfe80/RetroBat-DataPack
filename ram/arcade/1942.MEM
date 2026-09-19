@@ -43,15 +43,17 @@ return {
     },
     inventory = {
       items = {
-        { address=0X4C, type="u32be", condition="change", action="TREASURE", color="yellow", min=1000, max=1500, desc="Score delta 1000-1500: Bonus Points" },
-        { address=0X4C, type="u32be", condition="change", action="TREASURE", color="white", min=20000, max=50000, desc="Score delta 20000-50000: Challenge Stage Bonus" },
         { address=0X011F, type="u8", condition="bit_true", mask=0X01, action="DYNAMIC_INVENTORY", desc="Wingmen" },
         { address=0X011F, type="u8", condition="bit_true", mask=0X02, action="DYNAMIC_INVENTORY", desc="Quad-shot" },
       },
     },
     scoring = {
       points = {
-        { address=0XE048, type="u64le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X004B, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score digit, ten thousands (value * 10000)" },
+        { address=0X004C, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score digit, thousands (value * 1000)" },
+        { address=0X004D, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score digit, hundreds (value * 100)" },
+        { address=0X004E, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score digit, tens (value * 10)" },
+        { address=0X004F, type="u8", condition="change", action="SCORE_STATE", score_kind="game", desc="Player 1 score digit, units" },
       },
       collectibles = {
         { address=0X10, type="u16be", condition="change", action="MONEY_STATE", desc="coin: credits" },
@@ -59,7 +61,6 @@ return {
     },
     world_interaction = {
       objects = {
-        { address=0X4C, type="u32be", condition="change", action="OBJECT_DESTROYED", min=30, max=30, desc="Score delta 30-30: Planes are 30,50,70,100 and 200" },
       },
     },
     system = {
