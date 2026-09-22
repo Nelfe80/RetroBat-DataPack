@@ -420,6 +420,85 @@ local function clear_watches()
     last_values = {}
 end
 
+-- ── Entrees injectees (le labo pilote MAME comme il pilote RetroArch) ──────────────────
+--
+-- RetroArch a une manette reseau ; MAME n'en a pas. Mais son API Lua sait forcer un champ
+-- d'entree (ioport_field:set_value), et c'est plus sur qu'un clavier synthetique : pas de
+-- fenetre a mettre au premier plan, pas de reglage de touches a connaitre. Le champ se
+-- designe par son NOM MAME (« 1 Player Start », « Coin 1 », « P1 Up », « P1 Button 1 ») ;
+-- INPUTS? liste ceux de la machine pour que l'appelant sache quoi demander.
+--
+-- Une valeur forcee tient jusqu'a INPUT|<nom>|0 ; on retire alors le forcage (clear_value)
+-- pour rendre le champ au vrai joueur, et non set_value(0), qui le tiendrait relache.
+local forced_fields = {}
+
+local function find_field(name)
+    local machine = current_machine()
+    if not machine then return nil end
+    local found = nil
+    pcall(function()
+        for _, port in pairs(machine.ioport.ports) do
+            if port.fields then
+                for fname, field in pairs(port.fields) do
+                    if fname == name then found = field return end
+                end
+            end
+        end
+    end)
+    return found
+end
+
+local function set_input(name, pressed)
+    local field = find_field(name)
+    if not field then
+        write_line("INPUT|" .. name .. "|absent")
+        return
+    end
+    local ok, err
+    if pressed then
+        ok, err = pcall(function() field:set_value(1) end)
+        if ok then forced_fields[name] = field end
+    else
+        ok, err = pcall(function() field:clear_value() end)
+        if not ok then ok, err = pcall(function() field:set_value(0) end) end
+        forced_fields[name] = nil
+    end
+    write_line("INPUT|" .. name .. "|" .. (ok and (pressed and "1" or "0") or "err"))
+    if not ok then log("input " .. name .. " failed: " .. tostring(err)) end
+end
+
+local function release_inputs()
+    for name, field in pairs(forced_fields) do
+        pcall(function() field:clear_value() end)
+    end
+    forced_fields = {}
+end
+
+local function list_inputs()
+    local machine = current_machine()
+    if not machine then
+        write_line("INPUTS|")
+        return
+    end
+    local names = {}
+    pcall(function()
+        for _, port in pairs(machine.ioport.ports) do
+            if port.fields then
+                for fname, field in pairs(port.fields) do
+                    local cls = nil
+                    pcall(function() cls = field.type_class end)
+                    -- Les DIP et la configuration ne sont pas des entrees de jeu.
+                    if cls ~= "dipswitch" and cls ~= "config" then
+                        names[#names + 1] = fname
+                    end
+                end
+            end
+        end
+    end)
+    table.sort(names)
+    write_line("INPUTS|" .. table.concat(names, ","))
+end
+
 local function handle_line(line)
     local parts = parse_command(line)
     local cmd = parts[1]
@@ -457,6 +536,15 @@ local function handle_line(line)
         if not ok then
             log("snapshot failed: " .. tostring(err))
         end
+    elseif cmd == "INPUT" then
+        local name = parts[2] or ""
+        local pressed = (parts[3] or "0") == "1"
+        if name ~= "" then set_input(name, pressed) end
+    elseif cmd == "INPUTS?" then
+        list_inputs()
+    elseif cmd == "RELEASE" then
+        release_inputs()
+        write_line("INPUT|*|0")
     elseif cmd == "PING" then
         write_line("PONG|" .. tostring(frame))
     elseif cmd == "HELLO?" then
@@ -717,6 +805,7 @@ function bridge.startplugin()
     try_load_config()
 
     reset_subscription = emu.add_machine_reset_notifier(function()
+        release_inputs()
         disconnect_discovery()
         disconnect()
         resolve_memory()
