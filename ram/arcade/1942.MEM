@@ -34,11 +34,9 @@ return {
     resources = {
       lives = {
         { address=0X0101, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
-        { address=0X0101, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
-        { address=0X0181, type="u8", condition="increase", action="GAIN_LIFE", desc="Dipswitch settings: Starting lives increased" },
-        { address=0X0181, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dipswitch settings: Starting lives decreased" },
-        { address=0X0190, type="u32be", condition="increase", action="GAIN_LIFE", desc="Dipswitch settings: Additional extra life awards [32-bit BE] increased" },
-        { address=0X0190, type="u32be", condition="decrease", action="LOSE_LIFE", desc="Dipswitch settings: Additional extra life awards [32-bit BE] decreased" },
+        { address=0X0101, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="Lives decreased" },
+        { address=0X0181, type="u8", condition="increase", action="LIVES_STATE", desc="Dipswitch settings: Starting lives increased" },
+        { address=0X0181, type="u8", condition="decrease", action="LIVES_STATE", desc="Dipswitch settings: Starting lives decreased" },
       },
     },
     inventory = {
