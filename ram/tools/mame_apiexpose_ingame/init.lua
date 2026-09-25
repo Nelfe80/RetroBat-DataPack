@@ -27,11 +27,56 @@ local memory_logged = false
 local read_fail_logged = {}
 local read_fallback_logged = {}
 
--- Anti-triche (parite avec le wrapper RetroArch). MAME expose l'etat throttle -> l'avance
--- rapide est detectable ICI (contrairement a genesis, dont le core n'interroge pas
--- GET_FASTFORWARDING). Compteur emis au stop (SENSITIVE|...), avec seuil anti faux-positif.
+-- Anti-triche (parite avec le wrapper RetroArch) : l'AVANCE RAPIDE. Compteur emis au stop
+-- (SENSITIVE|fast_forward=N), avec un seuil anti faux-positif.
+--
+-- On compare le TEMPS EMULE au TEMPS REEL : une avance rapide fait defiler plus de secondes de
+-- jeu que de secondes d'horloge. La version 0.3.0 lisait l'etat de limitation de vitesse de
+-- MAME (manager.machine.video.throttled). Juste sous MAME autonome, faux sous le coeur libretro :
+-- la c'est RetroArch qui cadence les images, la limitation de MAME est TOUJOURS coupee, et la
+-- partie entiere comptait comme avance rapide (3605 images pour une minute de Metal Slug 3,
+-- 2026-09-25) : chaque score y aurait ete refuse. Le rapport temps emule / temps reel, lui,
+-- vaut sous les deux hotes, et la touche d'avance rapide de MAME autonome reste detectee.
 local ac_fast_forward_frames = 0
-local AC_FF_THRESHOLD = 30   -- ~0.5s de throttle OFF avant de compter comme avance rapide
+local AC_FF_THRESHOLD = 30   -- ~0.5 s d'avance rapide avant de compter
+local AC_FF_WINDOW = 2.0     -- fenetre de mesure, en secondes REELLES
+local AC_FF_RATIO = 1.5      -- au-dela de 1,5 s de jeu par seconde d'horloge : avance rapide
+local ac_ff_emu0, ac_ff_real0, ac_ff_count = nil, nil, 0
+
+-- Horloge reelle haute resolution de MAME. nil si l'hote ne la fournit pas : on ne mesure
+-- alors rien plutot que de mesurer faux.
+local function ac_real_seconds()
+    local ok, s = pcall(function() return emu.osd_ticks() / emu.osd_ticks_per_second() end)
+    if ok and type(s) == "number" then return s end
+    return nil
+end
+
+local function ac_emu_seconds()
+    local ok, s = pcall(function() return manager.machine.time:as_double() end)
+    if ok and type(s) == "number" then return s end
+    return nil
+end
+
+-- Une image de plus : on cumule, et a chaque fenetre on juge si le jeu a couru plus vite que
+-- l'horloge. Une pause arrete le temps emule : jamais comptee.
+local function ac_measure_fast_forward()
+    local real = ac_real_seconds()
+    local emu_t = ac_emu_seconds()
+    if not real or not emu_t then return end
+    if not ac_ff_real0 then
+        ac_ff_emu0, ac_ff_real0, ac_ff_count = emu_t, real, 0
+        return
+    end
+    ac_ff_count = ac_ff_count + 1
+    local dr = real - ac_ff_real0
+    if dr >= AC_FF_WINDOW then
+        local de = emu_t - ac_ff_emu0
+        if de > dr * AC_FF_RATIO then
+            ac_fast_forward_frames = ac_fast_forward_frames + ac_ff_count
+        end
+        ac_ff_emu0, ac_ff_real0, ac_ff_count = emu_t, real, 0
+    end
+end
 
 -- Phase E (epinglage des reglages) : on lit une fois les DIP switches et on les envoie
 -- (SETTINGS|name=value;...). On garde les reglages qui affectent le jeu (difficulte,
@@ -828,11 +873,8 @@ function bridge.startplugin()
 
     frame_subscription = emu.add_machine_frame_notifier(function()
         frame = frame + 1
-        -- Anti-triche : throttle OFF = avance rapide active (MAME l'expose nativement).
-        local ff_ok, ff_thr = pcall(function() return manager.machine.video.throttled end)
-        if ff_ok and ff_thr == false then
-            ac_fast_forward_frames = ac_fast_forward_frames + 1
-        end
+        -- Anti-triche : l'avance rapide, par le rapport temps emule / temps reel.
+        ac_measure_fast_forward()
         if not memspace then
             resolve_memory()
         end
