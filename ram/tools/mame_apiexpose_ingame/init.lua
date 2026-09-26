@@ -1,6 +1,6 @@
 local exports = {
     name = "apiexpose_ingame",
-    version = "0.3.0",
+    version = "0.3.2",
     description = "APIExpose MAME ingame RAM bridge",
     license = "",
     author = { name = "APIExpose" }
@@ -786,7 +786,11 @@ local function poll_watches()
             end
             if value ~= nil and last_values[id] ~= value then
                 last_values[id] = value
-                if not write_line("VALUE|" .. id .. "|" .. format_mem_value(value)) then
+                -- 0.3.2 : la trame emulee voyage avec la valeur (4e champ). Sans elle, APIExpose ne
+                -- savait pas QUAND les vies remontaient au continue : la coupure 1CC n'agissait pas
+                -- sous MAME, et un score avec continue passait entier. Les API d'avant la lisent
+                -- sans la voir : elles ne prennent que les trois premiers champs.
+                if not write_line("VALUE|" .. id .. "|" .. format_mem_value(value) .. "|" .. tostring(frame)) then
                     return
                 end
             end
