@@ -60,6 +60,7 @@ return {
         { address=0X315D, type="u8", condition="change", action="LOSE_LIFE", desc="FLAG BOSS DEATH" },
         { address=0XFFC06A, type="u16be", condition="decrease", action="LOSE_LIFE", desc="player1_die: select power-up/beast" },
         { address=0XFFE018, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
+        { address=0XFFE018, type="u8", condition="increase", action="GAIN_LIFE", desc="player1: lives increased (continue or new game)" },
         { address=0XFFE01B, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: select power-up/beast" },
       },
       health = {
