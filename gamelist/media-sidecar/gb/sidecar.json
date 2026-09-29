@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "systemId": "gb",
+  "generatedUtc": "2026-09-28T21:48:21.3948354Z",
+  "games": {
+    "tetris (world) (rev 1).zip": {
+      "romPath": "tetris (world) (rev 1).zip",
+      "updatedUtc": "2026-09-28T21:48:21.3942160Z",
+      "bindings": {
+        "fanart": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/fanart.jpg",
+          "writtenUtc": "2026-09-28T21:47:36.6723195Z"
+        },
+        "bezel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/bezels/bezel.png",
+          "writtenUtc": "2026-09-28T21:47:36.6728164Z"
+        },
+        "boxback": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/box/back.png",
+          "writtenUtc": "2026-09-28T21:47:36.6729380Z"
+        },
+        "image": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/screentitle.png",
+          "writtenUtc": "2026-09-28T21:47:36.6739223Z"
+        },
+        "thumbnail": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/box/front.png",
+          "writtenUtc": "2026-09-28T21:47:36.6742224Z"
+        },
+        "wheel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:47:54.4071146Z"
+        },
+        "video": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/video.mp4",
+          "writtenUtc": "2026-09-28T21:48:20.2701404Z"
+        },
+        "cartridge": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/cartridge.png",
+          "writtenUtc": "2026-09-28T21:48:20.2703704Z"
+        },
+        "label": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/artwork/label.png",
+          "writtenUtc": "2026-09-28T21:48:21.3934785Z"
+        },
+        "marquee": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/gb/games/tetris/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:48:21.3942160Z"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "systemId": "mame",
+  "generatedUtc": "2026-09-28T21:12:56.7443256Z",
+  "games": {
+    "19xx.zip": {
+      "romPath": "19xx.zip",
+      "updatedUtc": "2026-09-28T21:12:56.7209518Z",
+      "bindings": {
+        "fanart": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/artwork/fanart.jpg",
+          "writtenUtc": "2026-09-28T21:12:56.6815689Z"
+        },
+        "bezel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/artwork/bezels/bezel.png",
+          "writtenUtc": "2026-09-28T21:12:56.6864941Z"
+        },
+        "boxback": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/artwork/box/back.png",
+          "writtenUtc": "2026-09-28T21:12:56.6867836Z"
+        },
+        "manual": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/documents/manual.pdf",
+          "writtenUtc": "2026-09-28T21:12:56.6873154Z"
+        },
+        "video": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/video.mp4",
+          "writtenUtc": "2026-09-28T21:12:56.6877636Z"
+        },
+        "image": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/artwork/screentitle.png",
+          "writtenUtc": "2026-09-28T21:12:56.7202603Z"
+        },
+        "marquee": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:12:56.7208800Z"
+        },
+        "thumbnail": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/19xx/artwork/box/front.png",
+          "writtenUtc": "2026-09-28T21:12:56.7209518Z"
+        }
+      }
+    }
+  }
+}

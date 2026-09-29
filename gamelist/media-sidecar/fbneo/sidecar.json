@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "systemId": "fbneo",
+  "generatedUtc": "2026-09-28T21:32:29.6408421Z",
+  "games": {
+    "1942.zip": {
+      "romPath": "1942.zip",
+      "updatedUtc": "2026-09-28T21:32:29.6228968Z",
+      "bindings": {
+        "cartridge": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/cartridge.png",
+          "writtenUtc": "2026-09-28T21:32:29.6192336Z"
+        },
+        "label": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/label.png",
+          "writtenUtc": "2026-09-28T21:32:29.6205177Z"
+        },
+        "fanart": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/fanart.jpg",
+          "writtenUtc": "2026-09-28T21:32:29.6206341Z"
+        },
+        "bezel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/bezels/bezel.png",
+          "writtenUtc": "2026-09-28T21:32:29.6207446Z"
+        },
+        "boxback": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/box/back.png",
+          "writtenUtc": "2026-09-28T21:32:29.6208353Z"
+        },
+        "video": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/video.mp4",
+          "writtenUtc": "2026-09-28T21:32:29.6210236Z"
+        },
+        "image": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/screentitle.jpg",
+          "writtenUtc": "2026-09-28T21:32:29.6226929Z"
+        },
+        "marquee": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:32:29.6228453Z"
+        },
+        "thumbnail": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/arcade/games/1942/artwork/box/front.png",
+          "writtenUtc": "2026-09-28T21:32:29.6228968Z"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "systemId": "mastersystem",
+  "generatedUtc": "2026-09-28T21:44:04.9663675Z",
+  "games": {
+    "alex kidd in miracle world (usa, europe).zip": {
+      "romPath": "alex kidd in miracle world (usa, europe).zip",
+      "updatedUtc": "2026-09-28T21:44:04.9654270Z",
+      "bindings": {
+        "boxart": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/box/front.png",
+          "writtenUtc": "2026-09-28T21:43:40.2502506Z"
+        },
+        "wheel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:43:40.2513969Z"
+        },
+        "titleshot": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/screentitle.png",
+          "writtenUtc": "2026-09-28T21:43:40.2516668Z"
+        },
+        "fanart": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/fanart.jpg",
+          "writtenUtc": "2026-09-28T21:43:40.9920495Z"
+        },
+        "image": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/screentitle.png",
+          "writtenUtc": "2026-09-28T21:43:40.9921901Z"
+        },
+        "marquee": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/ui/wheels/wheel.png",
+          "writtenUtc": "2026-09-28T21:43:40.9922414Z"
+        },
+        "thumbnail": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/box/front.png",
+          "writtenUtc": "2026-09-28T21:43:40.9922802Z"
+        },
+        "bezel": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/bezels/bezel.png",
+          "writtenUtc": "2026-09-28T21:44:02.1156723Z"
+        },
+        "boxback": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/box/back.png",
+          "writtenUtc": "2026-09-28T21:44:02.1158539Z"
+        },
+        "video": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/video.mp4",
+          "writtenUtc": "2026-09-28T21:44:04.5821383Z"
+        },
+        "label": {
+          "managed": true,
+          "lastValue": "./../../plugins/APIExpose/media/systems/mastersystem/games/alex_kidd_in_miracle_world/artwork/label.png",
+          "writtenUtc": "2026-09-28T21:44:04.9654270Z"
+        }
+      }
+    }
+  }
+}
