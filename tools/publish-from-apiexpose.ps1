@@ -38,9 +38,11 @@ if (-not (Test-Path (Join-Path $resources 'ram'))) { throw "resources\ram introu
 # Les parties, et ce qui n'en fait pas partie. Les exclusions calquent release.ps1 : ce
 # qui ne part pas dans full.7z ne part pas ici non plus.
 $parties = @(
-    @{ Source = 'ram';             Cible = 'ram';             ExclureDossiers = @('.user');          ExclureFichiers = @('.community-sync.json', '.datapack-sync.json', '*.bak', '*.tmp') },
+    @{ Source = 'ram';             Cible = 'ram';             ExclureDossiers = @('.user');          ExclureFichiers = @('.community-sync.json', '.datapack-sync.json', '*.bak', '*.tmp', '*.avant-*') },
     @{ Source = 'dynpanels';       Cible = 'dynpanels';       ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
-    @{ Source = 'gamelist';        Cible = 'gamelist';        ExclureDossiers = @('systems', 'localized'); ExclureFichiers = @('*.bak', '*.tmp') },
+    # media-sidecar : le proprietaire de chaque media, ECRIT par l'API sur chaque borne. Publie par
+    # erreur le 2026-09-29 (297c7da5, retire par 24f19ccd) : une borne ne l'efface jamais une fois tire.
+    @{ Source = 'gamelist';        Cible = 'gamelist';        ExclureDossiers = @('systems', 'localized', 'media-sidecar'); ExclureFichiers = @('*.bak', '*.tmp', '*.avant-*') },
     @{ Source = 'controls';        Cible = 'controls';        ExclureDossiers = @('retroarch\mame'); ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'config-ESmenus';  Cible = 'config-ESmenus';  ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'locales';         Cible = 'locales';         ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
