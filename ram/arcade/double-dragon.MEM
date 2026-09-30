@@ -1,3 +1,5 @@
+-- .user 2026-09-30 : ligne de score du joueur 2 (1CC MULTI, sonde MAME du 2026-09-30) ; le profil
+-- qui l'epingle exige APIExpose 1.9.14 (min_api_version).
 -- .user 2026-09-30 : ligne CREDITS (0x0021), la borne ne coupe plus un 1CC sur les vies.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
@@ -71,6 +73,7 @@ return {
     scoring = {
       points = {
         { address=0X3EB, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X0449, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", player=2, desc="Player 2 score" },
       },
     },
     system = {
