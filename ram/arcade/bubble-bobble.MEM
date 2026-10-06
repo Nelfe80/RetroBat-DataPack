@@ -1,4 +1,5 @@
 -- .user 2026-10-01 : ligne CREDITS et ligne de score du joueur 2 (1CC MULTI), verifiees sous MAME
+-- .user 2026-10-06 : les trois modes caches de l'ecran titre en GAME_MODE (0xE5D1, 0xE5D2, 0xE5DB).
 -- .user 2026-10-06 : retrait de la ligne 0x38D3 = 00 qui envoyait DEMO_MODE quand le jeu est ACTIF (« Game
 -- active ») ; la demo reste reconnue par 0x38D3 = 01.
 -- (sondes du 2026-10-01, ecran compare) ; le profil 1cc-multi qui l'epingle exige APIExpose 1.9.14.
@@ -25,6 +26,20 @@ return {
         { address=0X38D3, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo active" },
         { address=0X3991, type="u8", condition="eq", value=0X00, action="GAME_PLAYING", desc="Between stages" },
         { address=0X3991, type="u8", condition="eq", value=0X80, action="GAME_OVER", desc="Game Over" },
+      },
+    },
+    game_mode = {
+      -- LES MODES CACHES (2026-10-06) : trois codes de l'ecran titre, chacun leve son octet (0/1,
+      -- cumulables), adresses du processeur principal d'apres le cheat.xml de MAME (maincpu.pb) :
+      -- Original 0xE5D1, Power-Up 0xE5D2, Super 0xE5DB. Chaque profil de mode dit les drapeaux qu'il
+      -- couvre (mode.flags) : 1CC (aucun), 1CC ORIGINAL, 1CC POWER-UP, 1CC SUPER, et leurs 1CC MULTI.
+      mode = {
+        { address=0XE5D1, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Original game (code de l'ecran titre)" },
+        { address=0XE5D1, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Original game retombe" },
+        { address=0XE5D2, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Power-Up (code de l'ecran titre)" },
+        { address=0XE5D2, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Power-Up retombe" },
+        { address=0XE5DB, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Super (code de l'ecran titre)" },
+        { address=0XE5DB, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Super retombe" },
       },
     },
     progression = {
