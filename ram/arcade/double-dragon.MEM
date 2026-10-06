@@ -1,6 +1,8 @@
 -- .user 2026-09-30 : ligne de score du joueur 2 (1CC MULTI, sonde MAME du 2026-09-30) ; le profil
 -- qui l'epingle exige APIExpose 1.9.14 (min_api_version).
 -- .user 2026-09-30 : ligne CREDITS (0x0021), la borne ne coupe plus un 1CC sur les vies.
+-- .user 2026-10-06 : retrait du DEMO_MODE sur le reglage « toggle demo sound » (0xFD8B, meme piege que
+-- Metal Slug 3 : un reglage de borne, pas un etat du jeu) ; la demo reste reconnue par 0x0401.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -26,7 +28,6 @@ return {
         { address=0X223E, type="u8", condition="change", action="CREDITS_SCREEN", desc="2P Credits (MVS-USA Mode)" },
         { address=0XFD88, type="u8", condition="eq", value=0X00, action="CONTINUE_SCREEN", desc="without(min)" },
         { address=0XFD88, type="u8", condition="eq", value=0X64, action="CONTINUE_SCREEN", desc="infinite(default)" },
-        { address=0XFD8B, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - toggle demo sound" },
       },
     },
     progression = {
