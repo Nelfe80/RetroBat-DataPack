@@ -3,7 +3,7 @@
 -- .user 2026-09-30 : ligne CREDITS verifiee sous MAME (sonde), a essayer au labo.
 -- .user 2026-10-06 : les trois lignes du niveau (0x3509) ne sont plus DEMO_MODE mais PROGRESSION_STAGE, et les
 -- deux DEMO_MODE en « change » (0x353B, 0x14D72) sont retirees. Une partie qui passait le niveau 1 partait en
--- demo quand la borne ne voyait pas le depart (theJim, FinalBurn Neo). Reste : 0x3094 = FF01. A verifier au
+-- demo quand la borne ne voyait pas le depart (un player, FinalBurn Neo). Reste : 0x3094 = FF01. A verifier au
 -- labo sous FBNeo : passer le niveau 1, et la ligne CREDITS (verifiee sous MAME seulement).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {

@@ -3,6 +3,12 @@
 -- .user 2026-10-06 : retrait de la ligne 0x38D3 = 00 qui envoyait DEMO_MODE quand le jeu est ACTIF (« Game
 -- active ») ; la demo reste reconnue par 0x38D3 = 01.
 -- (sondes du 2026-10-01, ecran compare) ; le profil 1cc-multi qui l'epingle exige APIExpose 1.9.14.
+-- .user 2026-10-07 (labo) : toutes les adresses sont celles du processeur principal. Sous FBNeo, une adresse
+-- basse (RetroAchievements) est un offset du bloc SYSTEM_RAM, et mame-banks.json y ramene aussi celles du
+-- processeur (RAM partagee 0xE000 -> 0x3300) : meme octet. Sous MAME, les basses lisaient la ROM (pre-labo MAME
+-- sans fenetre : 0xE5D3 demo 1/0, 0xE691 01 en jeu 02 mort 80 game over, 0xE645 vies, 0xE64B manche). Retirees :
+-- les lignes de base DOFLinx (0x645, 0x6C0, 0x366 : memoire video sous FBNeo), les « DIP switches » comptes comme
+-- des vies, CREDITS_SCREEN (chaque credit passait pour une sortie du jeu), les doublons du drapeau Power-Up.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -22,10 +28,9 @@ return {
   events = {
     flow = {
       lifecycle = {
-        { address=0X3666, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
-        { address=0X38D3, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo active" },
-        { address=0X3991, type="u8", condition="eq", value=0X00, action="GAME_PLAYING", desc="Between stages" },
-        { address=0X3991, type="u8", condition="eq", value=0X80, action="GAME_OVER", desc="Game Over" },
+        { address=0XE5D3, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Demo active" },
+        { address=0XE691, type="u8", condition="eq", value=0X00, action="GAME_PLAYING", desc="Between stages" },
+        { address=0XE691, type="u8", condition="eq", value=0X80, action="GAME_OVER", desc="Game Over" },
       },
     },
     game_mode = {
@@ -44,13 +49,11 @@ return {
     },
     progression = {
       level = {
-        { address=0X3650, type="u8", condition="change", action="NEW_LEVEL", desc="Number of round to warp" },
-        { address=0X394B, type="u8", condition="change", action="NEW_LEVEL", desc="Round (base 0x00)" },
-        { address=0X4046, type="u8", condition="change", action="NEW_LEVEL", desc="Number of enemies spawned in round" },
-        { address=0X4047, type="u8", condition="change", action="NEW_LEVEL", desc="Number of enemies defeated by popping bubble in current round" },
+        { address=0XE350, type="u8", condition="change", action="NEW_LEVEL", desc="Number of round to warp" },
+        { address=0XE64B, type="u8", condition="change", action="NEW_LEVEL", desc="Round (base 0x00)" },
       },
       stage = {
-        { address=0X39BB, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of stages player 1 has fireballs" },
+        { address=0XE6BB, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of stages player 1 has fireballs" },
       },
     },
     resources = {
@@ -62,26 +65,9 @@ return {
         { address=0XE366, type="u8", condition="change", action="CREDITS", desc="Credits" },
       },
       lives = {
-        { address=0X645, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: lives" },
-        { address=0X6C0, type="u8", condition="decrease", action="LOSE_LIFE", desc="player1_die: select head power" },
-        { address=0X1F21, type="u8", condition="increase", action="GAIN_LIFE", desc="DIP switches increased" },
-        { address=0X1F21, type="u8", condition="decrease", action="LOSE_LIFE", desc="DIP switches decreased" },
-        { address=0X3643, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="yes" },
-        { address=0X38DE, type="u8", condition="increase", action="GAIN_LIFE", desc="Rounds cleared on current life increased" },
-        { address=0X38DE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Rounds cleared on current life decreased" },
-        { address=0X3945, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
-        { address=0X3945, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
-        { address=0X3991, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Player died" },
-        { address=0X474E, type="u8", condition="change", action="LOSE_LIFE", desc="Bit0:All enemies die from Chack'n Heart" },
-      },
-      health = {
-        { address=0X38D2, type="u8", condition="decrease", action="HIT", desc="Power Up mode decreased" },
-      },
-    },
-    inventory = {
-      items = {
-        { address=0X38D2, type="u8", condition="eq", value=0X00, action="DYNAMIC_INVENTORY", desc="Off" },
-        { address=0X38D2, type="u8", condition="eq", value=0X01, action="DYNAMIC_INVENTORY", desc="On" },
+        { address=0XE645, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XE645, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0XE691, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Player died" },
       },
     },
     scoring = {
@@ -89,18 +75,10 @@ return {
         { address=0XE641, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
         { address=0XE646, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", player=2, desc="Player 2 score BCD (value * 10)" },
       },
-      collectibles = {
-        { address=0X366, type="u8", condition="change", action="MONEY_STATE", desc="coin: credits" },
-      },
     },
     state = {
       temporary = {
-        { address=0X39A4, type="u8", condition="change", action="INVINCIBILITY_START", desc="Bit0:Invincibility" },
-      },
-    },
-    world_interaction = {
-      objects = {
-        { address=0X1F20, type="u8", condition="change", action="OBJECT_INTERACTION", desc="DIP switches" },
+        { address=0XE6A4, type="u8", condition="change", action="INVINCIBILITY_START", desc="Bit0:Invincibility" },
       },
     },
   },
