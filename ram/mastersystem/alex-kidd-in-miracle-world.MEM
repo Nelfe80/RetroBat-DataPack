@@ -1,5 +1,6 @@
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 -- .user 2026-09-29 : score en une ligne BCD x10 ; ennemi (0x03E6) et objet (0x1805) sortis du bloc des vies.
+-- .user 2026-10-09 : ligne CONTINUES (code de continue), mesuree sous MAME.
 return {
   game = {
     title = "Alex Kidd in Miracle World",
@@ -60,6 +61,14 @@ return {
       },
     },
     resources = {
+      -- Le continue (labo MAME du 2026-10-09, cartouche 3d9a8d5c) : a l'ecran Game Over, Haut tenu et
+      -- huit appuis sur le bouton 2 relancent la partie contre 400 baums, au meme niveau, SCORE GARDE.
+      -- 0x0057 compte les appuis et retombe de 7 a 0 au huitieme, a l'instant du continue (code du jeu
+      -- en 0x6E28) ; il ne bouge qu'a cet ecran. Seuls 7 et 0 sont signales : un code tape vite ne fait
+      -- jamais huit changements rapproches, et le wrapper ne rend pas la ligne muette.
+      continues = {
+        { address=0X0057, type="u8", condition="change", action="CONTINUES", action_map={[7]="CONTINUES", [0]="CONTINUES"}, desc="Continue code presses (7 then 0 at the continue)" },
+      },
       lives = {
         { address=0X001F, type="u8", condition="eq", value=0X6, action="LIVES_STATE", desc="respawning after losing a life" },
         { address=0X0025, type="u8", condition="increase", action="GAIN_LIFE", desc="(decimal) Lives 00:Game Over increased" },
