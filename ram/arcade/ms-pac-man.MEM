@@ -1,3 +1,5 @@
+-- .user 2026-10-10 : 0x0615 (vies affichees) passe en LIVES_STATE : il baisse au depart de chaque vie, la
+-- premiere comprise (pre-labo MAME : 3 -> 2 avant le premier point), et coupait le 1LC a 0. Morts = 0x0614.
 -- .user 2026-09-30 : ligne CREDITS verifiee sous MAME (sonde), a essayer au labo.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
@@ -34,8 +36,8 @@ return {
         { address=0X0604, type="u8", condition="eq", value=0XA, action="LOSE_LIFE", player=1, desc="Dead" },
         { address=0X0614, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Internal increased" },
         { address=0X0614, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="Lives Internal decreased" },
-        { address=0X0615, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives Displayed increased" },
-        { address=0X0615, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="Lives Displayed decreased" },
+        { address=0X0615, type="u8", condition="increase", action="LIVES_STATE", desc="Lives Displayed increased (vies de reserve)" },
+        { address=0X0615, type="u8", condition="decrease", action="LIVES_STATE", desc="Lives Displayed decreased (vies de reserve, baisse au depart de chaque vie)" },
         { address=0X066F, type="u8", condition="increase", action="LIVES_STATE", desc="Starting Lives (DIP settings 1, 2, 3, or 5) increased" },
         { address=0X066F, type="u8", condition="decrease", action="LIVES_STATE", desc="Starting Lives (DIP settings 1, 2, 3, or 5) decreased" },
       },
