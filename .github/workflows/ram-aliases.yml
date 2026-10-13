@@ -1,0 +1,27 @@
+# alias.json decides which profile a ROM gets. Two different games that share a title
+# (Double Dragon by Technos, Double Dragon on Neo-Geo) once landed on the same profile:
+# one game was then read with the memory map of the other. The check fails here, before
+# the data reaches a cabinet.
+name: RAM aliases
+
+on:
+  push:
+    paths:
+      - 'ram/**/alias.json'
+      - 'ram/**/*.MEM'
+      - 'tools/check-ram-aliases.py'
+      - 'tools/ram-alias-exceptions.json'
+  pull_request:
+    paths:
+      - 'ram/**/alias.json'
+      - 'ram/**/*.MEM'
+      - 'tools/check-ram-aliases.py'
+      - 'tools/ram-alias-exceptions.json'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: every alias targets a profile made for that ROM set
+        run: python3 tools/check-ram-aliases.py ram
