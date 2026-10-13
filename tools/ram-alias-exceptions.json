@@ -1,7 +1,7 @@
 {
   "_comment": "Sets that check-ram-aliases.py accepts although the profile does not declare them. One reviewed reason per entry.",
   "_arcade/mario-bros": "masao is a bootleg of mario on the same game program.",
-  "arcade/mario-bros": ["masao"],
-  "_arcade/double-dragon": "The profile is the one of ddragon (Technos, 1987) but its header still names doubledr (Neo-Geo). The header changes with the next profile version; remove this entry then.",
-  "arcade/double-dragon": ["ddragon"]
+  "arcade/mario-bros": [
+    "masao"
+  ]
 }
