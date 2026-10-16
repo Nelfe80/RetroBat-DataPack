@@ -1193,7 +1193,9 @@
       "from": "0x30200",
       "size": "0x100000",
       "base": "0x6000000",
-      "bank": "DrvSh2RAM"
+      "bank": "DrvSh2RAM",
+      "swap32": true,
+      "source": "mesure sonde MAME 0.289 2026-10-16 + d_psikyosh.cpp (DrvSh2RAM[(a & 0xfffff) ^ 3])"
     }
   ],
   "tetris-the-absolute-the-grand-master-2-plus": [
