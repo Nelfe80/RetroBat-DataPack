@@ -48,7 +48,7 @@ msgstr "8 BUTTONS"
 
 msgctxt "game_options"
 msgid "ADVANCED SETTINGS"
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â´ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â®ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡"
+msgstr "è©³ç´°è¨­å®š"
 
 msgctxt "game_options"
 msgid "ALL"
@@ -88,7 +88,7 @@ msgstr "Allows scraping, installation and automatic deployment of themes declare
 
 msgctxt "game_options"
 msgid "Allows ScreenScraper to fill the canonical media store when local scraping is not enough."
-msgstr "ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—ã§ä¸è¶³ã™ã‚‹å ´åˆã€ScreenScraper ãŒæ¨™æº–ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¹ãƒˆã‚¢ã‚’è£œå®Œã§ãã‚‹ã‚ˆã†ã«ã—ã¾ã™ã€‚"
+msgstr "ローカルスクレイプで不足する場合、ScreenScraper が標準メディアストアを補完できるようにします。"
 
 msgctxt "game_options"
 msgid "Translates English descriptions after ScreenScraper when the current language has no localized description."
@@ -248,7 +248,7 @@ msgstr "ENABLE MARQUEE MANAGER"
 
 msgctxt "game_options"
 msgid "ENABLE ROMS MANAGER"
-msgstr "ROMÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¸ÃƒÂ£Ã†â€™Ã‚Â£ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¥Ã…Â Ã‚Â¹ÃƒÂ¥Ã…â€™Ã¢â‚¬â€œ"
+msgstr "ROMマネージャーを有効化"
 
 msgctxt "game_options"
 msgid "ENABLE SCRAPING QUEUE"
@@ -272,7 +272,7 @@ msgstr "ENABLE THEME DEPLOYMENTS"
 
 msgctxt "game_options"
 msgid "ENABLE THEMES MANAGER"
-msgstr "ÃƒÂ£Ã†â€™Ã¢â‚¬Â ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¸ÃƒÂ£Ã†â€™Ã‚Â£ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¥Ã…Â Ã‚Â¹ÃƒÂ¥Ã…â€™Ã¢â‚¬â€œ"
+msgstr "テーママネージャーを有効化"
 
 msgctxt "game_options"
 msgid "ENABLE WEBSOCKET STREAM"
@@ -384,7 +384,7 @@ msgstr "Generates custom-*.cfg collections with exact paths for games already pr
 
 msgctxt "game_options"
 msgid "HIDE"
-msgstr "HIDE"
+msgstr "非表示"
 
 msgctxt "game_options"
 msgid "HIDE VARIANTS"
@@ -460,27 +460,27 @@ msgstr "OFF"
 
 msgctxt "game_options"
 msgid "NEVER"
-msgstr "ÃƒÂ£Ã‚ÂÃ¢â‚¬â€ÃƒÂ£Ã‚ÂÃ‚ÂªÃƒÂ£Ã‚ÂÃ¢â‚¬Å¾"
+msgstr "しない"
 
 msgctxt "game_options"
 msgid "ON-THE-FLY ROM INSTALLER"
-msgstr "ÃƒÂ£Ã¢â‚¬Å¡Ã‚ÂªÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã†â€™Ã¢â‚¬Â¡ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã†â€™Ã¢â‚¬Â°ROMÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¤ÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¹ÃƒÂ£Ã†â€™Ã‹â€ ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã‚Â©ÃƒÂ£Ã†â€™Ã‚Â¼"
+msgstr "オンデマンドROMインストーラー"
 
 msgctxt "game_options"
 msgid "ON-THE-FLY EXTRACTION"
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂªÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ROMÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº"
+msgstr "オンデマンドROM抽出"
 
 msgctxt "game_options"
 msgid "GAME START"
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡"
+msgstr "ゲーム開始時"
 
 msgctxt "game_options"
 msgid "GAME SELECTED"
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡"
+msgstr "ゲーム選択時"
 
 msgctxt "game_options"
 msgid "Chooses when a missing on-the-fly ROM is extracted. Game start waits for extraction before the emulator launches; game selected preloads after selection."
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ROMÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂªÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â®ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂµÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂªÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡"
+msgstr "不足しているオンデマンドROMをいつ抽出するかを選びます。ゲーム開始時は、エミュレーター起動前に抽出を待ちます。ゲーム選択時は、選択後に先読みします。"
 
 msgctxt "game_options"
 msgid "PARENT CLONE GROUP"
@@ -536,7 +536,7 @@ msgstr "地域プロファイル"
 
 msgctxt "game_options"
 msgid "Remote bezel format processed first by ScreenScraper."
-msgstr "ScreenScraper ãŒæœ€åˆã«å‡¦ç†ã™ã‚‹ãƒªãƒ¢ãƒ¼ãƒˆãƒ™ã‚¼ãƒ«å½¢å¼ã§ã™ã€‚"
+msgstr "ScreenScraper が最初に処理するリモートベゼル形式です。"
 
 msgctxt "game_options"
 msgid "REMOTE SCRAPE AFTER LOCAL"
@@ -552,7 +552,7 @@ msgstr "Reserves WebSocket delivery of marquee, logo, fanart and game context da
 
 msgctxt "game_options"
 msgid "ROM INSTALLER"
-msgstr "ROMÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¤ÃƒÂ£Ã†â€™Ã‚Â³ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¹ÃƒÂ£Ã†â€™Ã‹â€ ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã‚Â©ÃƒÂ£Ã†â€™Ã‚Â¼"
+msgstr "ROMインストーラー"
 
 msgctxt "game_options"
 msgid "ROM SET DEBUG REPORT"
@@ -564,39 +564,39 @@ msgstr "ROM SET OUTPUT"
 
 msgctxt "game_options"
 msgid "ROMS MANAGER"
-msgstr "ROMÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¸ÃƒÂ£Ã†â€™Ã‚Â£ÃƒÂ£Ã†â€™Ã‚Â¼"
+msgstr "ROMマネージャー"
 
 msgctxt "game_options"
 msgid "SCRAPE MAPS"
-msgstr "ãƒžãƒƒãƒ—ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "マップをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE MANUALS"
-msgstr "ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "マニュアルをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE MARQUEES"
-msgstr "ãƒžãƒ¼ã‚­ãƒ¼ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "マーキーをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE MIX"
-msgstr "MIXã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "MIXをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE NORMALIZED VIDEOS"
-msgstr "æ­£è¦åŒ–å‹•ç”»ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "正規化動画をスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE SCREEN MARQUEES"
-msgstr "ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒžãƒ¼ã‚­ãƒ¼ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "スクリーンマーキーをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE STEAMGRID"
-msgstr "STEAMGRIDã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "STEAMGRIDをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE VIDEOS"
-msgstr "å‹•ç”»ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "動画をスクレイプ"
 
 msgctxt "game_options"
 msgid "SCREEN MARQUEE"
@@ -620,7 +620,7 @@ msgstr "SELECTED ONLY"
 
 msgctxt "game_options"
 msgid "Selects how the Roms Manager applies its decisions."
-msgstr "ROMÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¸ÃƒÂ£Ã†â€™Ã‚Â£ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã‚ÂÃ…â€™ÃƒÂ¦Ã‚Â±Ã‚ÂºÃƒÂ¥Ã‚Â®Ã…Â¡ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ©Ã‚ÂÃ‚Â©ÃƒÂ§Ã¢â‚¬ÂÃ‚Â¨ÃƒÂ£Ã‚ÂÃ¢â€žÂ¢ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â¹ÃƒÂ¦Ã¢â‚¬â€œÃ‚Â¹ÃƒÂ¦Ã‚Â³Ã¢â‚¬Â¢ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢ÃƒÂ©Ã‚ÂÃ‚Â¸ÃƒÂ¦Ã…Â Ã…Â¾ÃƒÂ£Ã‚ÂÃ¢â‚¬â€ÃƒÂ£Ã‚ÂÃ‚Â¾ÃƒÂ£Ã‚ÂÃ¢â€žÂ¢ÃƒÂ£Ã¢â€šÂ¬Ã¢â‚¬Å¡"
+msgstr "ROMマネージャーが決定を適用する方法を選択します。"
 
 msgctxt "game_options"
 msgid "Selects the local media projected into the gamelist image tag."
@@ -740,7 +740,7 @@ msgstr "STEEL"
 
 msgctxt "game_options"
 msgid "THEMES MANAGER"
-msgstr "ÃƒÂ£Ã†â€™Ã¢â‚¬Â ÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã…Â¾ÃƒÂ£Ã†â€™Ã‚ÂÃƒÂ£Ã†â€™Ã‚Â¼ÃƒÂ£Ã¢â‚¬Å¡Ã‚Â¸ÃƒÂ£Ã†â€™Ã‚Â£ÃƒÂ£Ã†â€™Ã‚Â¼"
+msgstr "テーママネージャー"
 
 msgctxt "game_options"
 msgid "THUMBNAIL"
@@ -844,11 +844,11 @@ msgstr "WORLD"
 
 msgctxt "game_options"
 msgid "RESET ROM AFTER GAME END"
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂµÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ROMÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂªÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â "
+msgstr "ゲーム終了後にROMをリセット"
 
 msgctxt "game_options"
 msgid "When enabled, an on-the-fly ROM extracted at game start is replaced by its lightweight placeholder after game-end."
-msgstr "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂªÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ROMÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âgame-endÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂºÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡"
+msgstr "有効にすると、ゲーム開始時に抽出したオンデマンドROMは、ゲーム終了後に軽量なプレースホルダーへ戻されます。"
 
 msgctxt "game_options"
 msgid "Writes the captured score into .gameinfos at game-end."
@@ -860,11 +860,11 @@ msgstr "Writes the captured score into .gameinfos at game-end."
 
 msgctxt "game_options"
 msgid "BEZEL ASPECT"
-msgstr "ãƒ™ã‚¼ãƒ«æ¯”çŽ‡"
+msgstr "ベゼル比率"
 
 msgctxt "game_options"
 msgid "BEZEL ORIENTATION"
-msgstr "ãƒ™ã‚¼ãƒ«æ–¹å‘"
+msgstr "ベゼル方向"
 
 msgctxt "game_options"
 msgid "BR"
@@ -872,7 +872,7 @@ msgstr "BR"
 
 msgctxt "game_options"
 msgid "CLEAN LEGACY ROMS MEDIA"
-msgstr "æ—§ROMSãƒ¡ãƒ‡ã‚£ã‚¢ã‚’æ•´ç†"
+msgstr "旧ROMSメディアを整理"
 
 msgctxt "game_options"
 msgid "COCKTAIL"
@@ -1216,11 +1216,11 @@ msgstr "LOCAL"
 
 msgctxt "game_options"
 msgid "MEDIA REGION MODE"
-msgstr "ãƒ¡ãƒ‡ã‚£ã‚¢åœ°åŸŸãƒ¢ãƒ¼ãƒ‰"
+msgstr "メディア地域モード"
 
 msgctxt "game_options"
 msgid "NOTIFY MEDIA SCRAPE"
-msgstr "ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—é€šçŸ¥"
+msgstr "メディアスクレイプ通知"
 
 msgctxt "game_options"
 msgid "REGION"
@@ -1228,15 +1228,15 @@ msgstr "REGION"
 
 msgctxt "game_options"
 msgid "SCRAPE BEZELS"
-msgstr "ãƒ™ã‚¼ãƒ«ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "ベゼルをスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE MAGAZINES"
-msgstr "é›‘èªŒã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "雑誌をスクレイプ"
 
 msgctxt "game_options"
 msgid "SCRAPE SMALL SCREEN MARQUEES"
-msgstr "å°ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒžãƒ¼ã‚­ãƒ¼ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "小スクリーンマーキーをスクレイプ"
 
 msgctxt "game_options"
 msgid "US"
@@ -1244,7 +1244,7 @@ msgstr "US"
 
 msgctxt "game_options"
 msgid "USER MEDIA REGION"
-msgstr "ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ¡ãƒ‡ã‚£ã‚¢åœ°åŸŸ"
+msgstr "ユーザーメディア地域"
 
 msgctxt "game_options"
 msgid "VERTICAL"
@@ -1893,27 +1893,27 @@ msgstr "Pushes the resolved control panel layout into the WebSocket stream when 
 
 msgctxt "game_options"
 msgid "ROMS PROFILE"
-msgstr "ROMSãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«"
+msgstr "ROMSプロファイル"
 
 msgctxt "game_options"
 msgid "Selects the global Roms Manager intention. AUTO options inherit this profile."
-msgstr "Roms Manager å…¨ä½“ã®æ–¹é‡ã‚’é¸æŠžã—ã¾ã™ã€‚AUTO ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯ã“ã®ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç¶™æ‰¿ã—ã¾ã™ã€‚"
+msgstr "Roms Manager 全体の方針を選択します。AUTO オプションはこのプロファイルを継承します。"
 
 msgctxt "game_options"
 msgid "CASUAL GAMER"
-msgstr "ã‚«ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼"
+msgstr "カジュアルプレイヤー"
 
 msgctxt "game_options"
 msgid "GAMER"
-msgstr "ã‚²ãƒ¼ãƒžãƒ¼"
+msgstr "ゲーマー"
 
 msgctxt "game_options"
 msgid "HARD-GAMER"
-msgstr "ä¸Šç´šã‚²ãƒ¼ãƒžãƒ¼"
+msgstr "上級ゲーマー"
 
 msgctxt "game_options"
 msgid "PRO-GAMER"
-msgstr "ãƒ—ãƒ­ã‚²ãƒ¼ãƒžãƒ¼"
+msgstr "プロゲーマー"
 
 msgctxt "game_options"
 msgid "RETROACHIEVER"
@@ -1921,27 +1921,27 @@ msgstr "RETROACHIEVER"
 
 msgctxt "game_options"
 msgid "LOCALIZED PLAYER"
-msgstr "ãƒ­ãƒ¼ã‚«ãƒ©ã‚¤ã‚ºé‡è¦–"
+msgstr "ローカライズ重視"
 
 msgctxt "game_options"
 msgid "ARCADE PURIST"
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ç´”æ­£æ´¾"
+msgstr "アーケード純正派"
 
 msgctxt "game_options"
 msgid "ARCADE GAMER"
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã‚²ãƒ¼ãƒžãƒ¼"
+msgstr "アーケードゲーマー"
 
 msgctxt "game_options"
 msgid "HISTORIAN"
-msgstr "æ­´å²é‡è¦–"
+msgstr "歴史重視"
 
 msgctxt "game_options"
 msgid "PRESERVATIONIST"
-msgstr "ä¿å­˜é‡è¦–"
+msgstr "保存重視"
 
 msgctxt "game_options"
 msgid "HOMEBREW PLAYER"
-msgstr "è‡ªä½œã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼"
+msgstr "自作ゲームプレイヤー"
 
 msgctxt "game_options"
 msgid "MODDER"
@@ -1953,194 +1953,194 @@ msgstr "HACKER"
 
 msgctxt "game_options"
 msgid "RETROACHIEVEMENTS GAMES"
-msgstr "RETROACHIEVEMENTSå¯¾å¿œã‚²ãƒ¼ãƒ "
+msgstr "RETROACHIEVEMENTS対応ゲーム"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
-msgstr "AUTO ã¯ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚å¸¸ã«è¡¨ç¤ºã¯ RA å¯¾å¿œã‚²ãƒ¼ãƒ ã‚’ä¿è­·ã—ã¾ã™ã€‚å¯¾è±¡ã®ã¿è¡¨ç¤ºã¯ cheevosId ã®ãªã„ã‚²ãƒ¼ãƒ ã‚’éš ã—ã¾ã™ã€‚"
+msgstr "AUTO はプロファイルに任せます。常に表示は RA 対応ゲームを保護します。対象のみ表示は cheevosId のないゲームを隠します。"
 
 msgctxt "game_options"
 msgid "ALWAYS SHOW"
-msgstr "å¸¸ã«è¡¨ç¤º"
+msgstr "常に表示"
 
 msgctxt "game_options"
 msgid "SHOW ONLY"
-msgstr "å¯¾è±¡ã®ã¿è¡¨ç¤º"
+msgstr "対象のみ表示"
 
 msgctxt "game_options"
 msgid "LANGUAGE"
-msgstr "è¨€èªž"
+msgstr "言語"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
-msgstr "AUTO ã¯ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚è‡ªåˆ†ã®è¨€èªžã®ã¿ã¯ä¸€è‡´ã™ã‚‹ç‰ˆãŒã‚ã‚‹å ´åˆã«ä»–è¨€èªžã‚’éš ã—ã¾ã™ã€‚"
+msgstr "AUTO はプロファイルに任せます。自分の言語のみは一致する版がある場合に他言語を隠します。"
 
 msgctxt "game_options"
 msgid "SHOW ONLY MY LANGUAGE"
-msgstr "è‡ªåˆ†ã®è¨€èªžã®ã¿"
+msgstr "自分の言語のみ"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide. SHOW ONLY MY REGION hides other regions when a matching version exists."
-msgstr "AUTO ã¯ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚è‡ªåˆ†ã®åœ°åŸŸã®ã¿ã¯ä¸€è‡´ã™ã‚‹ç‰ˆãŒã‚ã‚‹å ´åˆã«ä»–åœ°åŸŸã‚’éš ã—ã¾ã™ã€‚"
+msgstr "AUTO はプロファイルに任せます。自分の地域のみは一致する版がある場合に他地域を隠します。"
 
 msgctxt "game_options"
 msgid "SHOW ONLY MY REGION"
-msgstr "è‡ªåˆ†ã®åœ°åŸŸã®ã¿"
+msgstr "自分の地域のみ"
 
 msgctxt "game_options"
 msgid "ROM VERSION"
-msgstr "ROMãƒãƒ¼ã‚¸ãƒ§ãƒ³"
+msgstr "ROMバージョン"
 
 msgctxt "game_options"
 msgid "Controls how variants are scored: stable, latest, original or enhanced."
-msgstr "ãƒãƒªã‚¢ãƒ³ãƒˆã®è©•ä¾¡æ–¹æ³•ã‚’åˆ¶å¾¡ã—ã¾ã™: å®‰å®šç‰ˆã€æœ€æ–°ç‰ˆã€ã‚ªãƒªã‚¸ãƒŠãƒ«ã€æ‹¡å¼µç‰ˆã€‚"
+msgstr "バリアントの評価方法を制御します: 安定版、最新版、オリジナル、拡張版。"
 
 msgctxt "game_options"
 msgid "STABLE"
-msgstr "å®‰å®šç‰ˆ"
+msgstr "安定版"
 
 msgctxt "game_options"
 msgid "LATEST"
-msgstr "æœ€æ–°ç‰ˆ"
+msgstr "最新版"
 
 msgctxt "game_options"
 msgid "ORIGINAL"
-msgstr "ã‚ªãƒªã‚¸ãƒŠãƒ«"
+msgstr "オリジナル"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "æ‹¡å¼µç‰ˆ"
+msgstr "拡張版"
 
 msgctxt "game_options"
 msgid "SHOW CLONES"
-msgstr "ã‚¯ãƒ­ãƒ¼ãƒ³ã‚’è¡¨ç¤º"
+msgstr "クローンを表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide. SHOW keeps variants; HIDE keeps the best version according to the profile."
-msgstr "AUTO ã¯ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚è¡¨ç¤ºã¯ãƒãƒªã‚¢ãƒ³ãƒˆã‚’æ®‹ã—ã€éžè¡¨ç¤ºã¯ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«å¾“ã£ã¦æœ€è‰¯ç‰ˆã‚’æ®‹ã—ã¾ã™ã€‚"
+msgstr "AUTO はプロファイルに任せます。表示はバリアントを残し、非表示はプロファイルに従って最良版を残します。"
 
 msgctxt "game_options"
 msgid "SHOW"
-msgstr "è¡¨ç¤º"
+msgstr "表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether prototypes remain visible."
-msgstr "ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "プロトタイプを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW DEMOS"
-msgstr "ãƒ‡ãƒ¢ã‚’è¡¨ç¤º"
+msgstr "デモを表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether demos remain visible."
-msgstr "ãƒ‡ãƒ¢ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "デモを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW BETA / ALPHA VERSIONS"
-msgstr "ãƒ™ãƒ¼ã‚¿ / ã‚¢ãƒ«ãƒ•ã‚¡ç‰ˆã‚’è¡¨ç¤º"
+msgstr "ベータ / アルファ版を表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether beta and alpha versions remain visible."
-msgstr "ãƒ™ãƒ¼ã‚¿ç‰ˆã¨ã‚¢ãƒ«ãƒ•ã‚¡ç‰ˆã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "ベータ版とアルファ版を表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW LOCATION TEST VERSIONS"
-msgstr "ãƒ­ã‚±ãƒ†ã‚¹ãƒˆç‰ˆã‚’è¡¨ç¤º"
+msgstr "ロケテスト版を表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether arcade location test versions remain visible."
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã®ãƒ­ã‚±ãƒ†ã‚¹ãƒˆç‰ˆã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "アーケードのロケテスト版を表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW USEFUL PATCHES"
-msgstr "æœ‰ç”¨ãªãƒ‘ãƒƒãƒã‚’è¡¨ç¤º"
+msgstr "有用なパッチを表示"
 
 msgctxt "game_options"
 msgid "Controls bugfix, QoL, restoration, widescreen, uncensored and compatibility patches."
-msgstr "ãƒã‚°ä¿®æ­£ã€QoLã€å¾©å…ƒã€ãƒ¯ã‚¤ãƒ‰ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã€ç„¡ä¿®æ­£ã€äº’æ›æ€§ãƒ‘ãƒƒãƒã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "バグ修正、QoL、復元、ワイドスクリーン、無修正、互換性パッチを制御します。"
 
 msgctxt "game_options"
 msgid "SHOW HACKS AND MODS"
-msgstr "ãƒãƒƒã‚¯ã¨MODã‚’è¡¨ç¤º"
+msgstr "ハックとMODを表示"
 
 msgctxt "game_options"
 msgid "Controls romhacks, randomizers, total conversions and gameplay mods."
-msgstr "ROMãƒãƒƒã‚¯ã€ãƒ©ãƒ³ãƒ€ãƒžã‚¤ã‚¶ãƒ¼ã€ç·å¤‰æ›ã€ã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤MODã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "ROMハック、ランダマイザー、総変換、ゲームプレイMODを制御します。"
 
 msgctxt "game_options"
 msgid "SHOW CHEATS AND TRAINERS"
-msgstr "ãƒãƒ¼ãƒˆã¨ãƒˆãƒ¬ãƒ¼ãƒŠãƒ¼ã‚’è¡¨ç¤º"
+msgstr "チートとトレーナーを表示"
 
 msgctxt "game_options"
 msgid "Controls trainer, cheat, debug menu, infinite lives and level select versions."
-msgstr "ãƒˆãƒ¬ãƒ¼ãƒŠãƒ¼ã€ãƒãƒ¼ãƒˆã€ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã€ç„¡é™ãƒ©ã‚¤ãƒ•ã€ãƒ¬ãƒ™ãƒ«é¸æŠžç‰ˆã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "トレーナー、チート、デバッグメニュー、無限ライフ、レベル選択版を制御します。"
 
 msgctxt "game_options"
 msgid "SHOW BOOTLEGS AND PIRATES"
-msgstr "ãƒ–ãƒ¼ãƒˆãƒ¬ã‚°ã¨æµ·è³Šç‰ˆã‚’è¡¨ç¤º"
+msgstr "ブートレグと海賊版を表示"
 
 msgctxt "game_options"
 msgid "Controls bootleg arcade sets, pirate console games and unauthorized copies."
-msgstr "ãƒ–ãƒ¼ãƒˆãƒ¬ã‚°ã®ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆã€æµ·è³Šç‰ˆã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚²ãƒ¼ãƒ ã€ç„¡è¨±å¯ã‚³ãƒ”ãƒ¼ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "ブートレグのアーケードセット、海賊版コンソールゲーム、無許可コピーを制御します。"
 
 msgctxt "game_options"
 msgid "SHOW UNLICENSED GAMES"
-msgstr "æœªãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤º"
+msgstr "未ライセンスゲームを表示"
 
 msgctxt "game_options"
 msgid "Controls unlicensed games separately from bootlegs and homebrews."
-msgstr "æœªãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã‚²ãƒ¼ãƒ ã‚’ãƒ–ãƒ¼ãƒˆãƒ¬ã‚°ã‚„è‡ªä½œã‚²ãƒ¼ãƒ ã¨ã¯åˆ¥ã«åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "未ライセンスゲームをブートレグや自作ゲームとは別に制御します。"
 
 msgctxt "game_options"
 msgid "SHOW HOMEBREWS AND AFTERMARKET"
-msgstr "è‡ªä½œ/å¾Œç™ºãƒªãƒªãƒ¼ã‚¹ã‚’è¡¨ç¤º"
+msgstr "自作/後発リリースを表示"
 
 msgctxt "game_options"
 msgid "Controls homebrew, aftermarket and modern retro releases."
-msgstr "è‡ªä½œã€å¾Œç™ºã€ç¾ä»£ãƒ¬ãƒˆãƒ­ãƒªãƒªãƒ¼ã‚¹ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "自作、後発、現代レトロリリースを制御します。"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether adult games remain visible."
-msgstr "æˆäººå‘ã‘ã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "成人向けゲームを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether casino, gambling and slot games remain visible."
-msgstr "ã‚«ã‚¸ãƒŽã€ã‚®ãƒ£ãƒ³ãƒ–ãƒ«ã€ã‚¹ãƒ­ãƒƒãƒˆã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "カジノ、ギャンブル、スロットゲームを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether mahjong games remain visible."
-msgstr "éº»é›€ã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "麻雀ゲームを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW QUIZ GAMES"
-msgstr "ã‚¯ã‚¤ã‚ºã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤º"
+msgstr "クイズゲームを表示"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether quiz games remain visible."
-msgstr "ã‚¯ã‚¤ã‚ºã‚²ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "クイズゲームを表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "AUTO lets the profile decide whether BIOS, devices, samples and non-game entries remain visible."
-msgstr "BIOSã€ãƒ‡ãƒã‚¤ã‚¹ã€ã‚µãƒ³ãƒ—ãƒ«ã€éžã‚²ãƒ¼ãƒ é …ç›®ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’ AUTO ã§ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»»ã›ã¾ã™ã€‚"
+msgstr "BIOS、デバイス、サンプル、非ゲーム項目を表示するかを AUTO でプロファイルに任せます。"
 
 msgctxt "game_options"
 msgid "SHOW ARCADE TESTS AND DIAGNOSTICS"
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ãƒ†ã‚¹ãƒˆã¨è¨ºæ–­ã‚’è¡¨ç¤º"
+msgstr "アーケードテストと診断を表示"
 
 msgctxt "game_options"
 msgid "Controls arcade input, monitor, sound, service and diagnostic programs."
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã®å…¥åŠ›ã€ãƒ¢ãƒ‹ã‚¿ãƒ¼ã€ã‚µã‚¦ãƒ³ãƒ‰ã€ã‚µãƒ¼ãƒ“ã‚¹ã€è¨ºæ–­ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "アーケードの入力、モニター、サウンド、サービス、診断プログラムを制御します。"
 
 msgctxt "game_options"
 msgctxt "game_options"
 msgid "CONTROL PANEL MANAGER"
-msgstr "ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ç®¡ç†"
+msgstr "コントロール管理"
 
 msgid "SHOW ALL"
-msgstr "ã™ã¹ã¦è¡¨ç¤º"
+msgstr "すべて表示"
 
 msgid "MATCH CABINET"
-msgstr "ã‚­ãƒ£ãƒ“ãƒãƒƒãƒˆã«åˆã‚ã›ã‚‹"
+msgstr "キャビネットに合わせる"
 
 msgid "KR"
 msgstr "KR"
@@ -2173,37 +2173,37 @@ msgid "CHINA"
 msgstr "CHINA"
 
 msgid "CHINESE"
-msgstr "ä¸­å›½èªž"
+msgstr "中国語"
 
 msgid "DANISH"
-msgstr "ãƒ‡ãƒ³ãƒžãƒ¼ã‚¯èªž"
+msgstr "デンマーク語"
 
 msgid "DUTCH"
-msgstr "ã‚ªãƒ©ãƒ³ãƒ€èªž"
+msgstr "オランダ語"
 
 msgid "FINNISH"
-msgstr "ãƒ•ã‚£ãƒ³ãƒ©ãƒ³ãƒ‰èªž"
+msgstr "フィンランド語"
 
 msgid "GERMAN"
-msgstr "ãƒ‰ã‚¤ãƒ„èªž"
+msgstr "ドイツ語"
 
 msgid "GERMANY"
-msgstr "ãƒ‰ã‚¤ãƒ„"
+msgstr "ドイツ"
 
 msgid "ITALIAN"
-msgstr "ã‚¤ã‚¿ãƒªã‚¢èªž"
+msgstr "イタリア語"
 
 msgid "ITALY"
 msgstr "ITALY"
 
 msgid "JAPANESE"
-msgstr "æ—¥æœ¬èªž"
+msgstr "日本語"
 
 msgid "KOREA"
 msgstr "KOREA"
 
 msgid "KOREAN"
-msgstr "éŸ“å›½èªž"
+msgstr "韓国語"
 
 msgid "NETHERLANDS"
 msgstr "NETHERLANDS"
@@ -2212,34 +2212,34 @@ msgid "OCEANIA"
 msgstr "OCEANIA"
 
 msgid "POLISH"
-msgstr "ãƒãƒ¼ãƒ©ãƒ³ãƒ‰èªž"
+msgstr "ポーランド語"
 
 msgid "PORTUGUESE"
-msgstr "ãƒãƒ«ãƒˆã‚¬ãƒ«èªž"
+msgstr "ポルトガル語"
 
 msgid "RUSSIA"
 msgstr "RUSSIA"
 
 msgid "RUSSIAN"
-msgstr "ãƒ­ã‚·ã‚¢èªž"
+msgstr "ロシア語"
 
 msgid "SPAIN"
 msgstr "SPAIN"
 
 msgid "SPANISH"
-msgstr "ã‚¹ãƒšã‚¤ãƒ³èªž"
+msgstr "スペイン語"
 
 msgid "SWEDEN"
 msgstr "SWEDEN"
 
 msgid "SWEDISH"
-msgstr "ã‚¹ã‚¦ã‚§ãƒ¼ãƒ‡ãƒ³èªž"
+msgstr "スウェーデン語"
 
 msgid "TAIWAN"
 msgstr "TAIWAN"
 
 msgid "UNITED KINGDOM"
-msgstr "ã‚¤ã‚®ãƒªã‚¹"
+msgstr "イギリス"
 
 
 
@@ -2290,11 +2290,11 @@ msgstr "自作/後発リリース"
 
 msgctxt "game_options"
 msgid "ADULT GAMES"
-msgstr "æˆäººå‘ã‘ã‚²ãƒ¼ãƒ "
+msgstr "成人向けゲーム"
 
 msgctxt "game_options"
 msgid "CASINO AND GAMBLING"
-msgstr "ã‚«ã‚¸ãƒŽã¨ã‚®ãƒ£ãƒ³ãƒ–ãƒ«"
+msgstr "カジノとギャンブル"
 
 msgctxt "game_options"
 msgid "MAHJONG"
@@ -2306,7 +2306,7 @@ msgstr "クイズゲーム"
 
 msgctxt "game_options"
 msgid "NON-GAMES"
-msgstr "éžã‚²ãƒ¼ãƒ "
+msgstr "非ゲーム"
 
 msgctxt "game_options"
 msgid "ARCADE TESTS AND DIAGNOSTICS"
@@ -2315,30 +2315,30 @@ msgstr "アーケードテストと診断"
 
 
 msgid "SCREEN / COCKTAIL ORIENTATION"
-msgstr "ç”»é¢ / ã‚«ã‚¯ãƒ†ãƒ«æ–¹å‘"
+msgstr "画面 / カクテル方向"
 
 msgid "ROMS FILTERS"
-msgstr "ROMSãƒ•ã‚£ãƒ«ã‚¿ãƒ¼"
+msgstr "ROMSフィルター"
 
 msgid "CABINET FILTERS"
-msgstr "ã‚­ãƒ£ãƒ“ãƒãƒƒãƒˆãƒ•ã‚£ãƒ«ã‚¿ãƒ¼"
+msgstr "キャビネットフィルター"
 
 msgid "Controls arcade location tests, input tests, monitor tests, sound tests, service and diagnostic programs."
-msgstr "ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã®ãƒ­ã‚±ãƒ†ã‚¹ãƒˆã€å…¥åŠ›ãƒ†ã‚¹ãƒˆã€ãƒ¢ãƒ‹ã‚¿ãƒ¼ãƒ†ã‚¹ãƒˆã€ã‚µã‚¦ãƒ³ãƒ‰ãƒ†ã‚¹ãƒˆã€ã‚µãƒ¼ãƒ“ã‚¹ã€è¨ºæ–­ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "アーケードのロケテスト、入力テスト、モニターテスト、サウンドテスト、サービス、診断プログラムを制御します。"
 
 msgid "Filters arcade games by display orientation, including cocktail table metadata."
-msgstr "ã‚«ã‚¯ãƒ†ãƒ«ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã‚’å«ã‚ã€è¡¨ç¤ºæ–¹å‘ã§ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ã‚²ãƒ¼ãƒ ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã—ã¾ã™ã€‚"
+msgstr "カクテルテーブルのメタデータを含め、表示方向でアーケードゲームをフィルターします。"
 
 msgid "CABINET SETTINGS"
-msgstr "ã‚­ãƒ£ãƒ“ãƒãƒƒãƒˆè¨­å®š"
+msgstr "キャビネット設定"
 
 msgctxt "game_options"
 msgid "OFFICIAL GAMES"
-msgstr "å…¬å¼ã‚²ãƒ¼ãƒ "
+msgstr "公式ゲーム"
 
 msgctxt "game_options"
 msgid "Controls standard official games and clones without special tags, so special categories can be isolated."
-msgstr "ç‰¹æ®Šã‚«ãƒ†ã‚´ãƒªã‚’åˆ†é›¢ã§ãã‚‹ã‚ˆã†ã€ç‰¹æ®Šã‚¿ã‚°ã®ãªã„æ¨™æº–ã®å…¬å¼ã‚²ãƒ¼ãƒ ã¨ã‚¯ãƒ­ãƒ¼ãƒ³ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "特殊カテゴリを分離できるよう、特殊タグのない標準の公式ゲームとクローンを制御します。"
 
 msgctxt "game_options"
 msgid "global.apiexpose.romset.official_games_mode"
@@ -2346,41 +2346,41 @@ msgstr "global.apiexpose.romset.official_games_mode"
 
 
 msgid "MATCH ROM REGION"
-msgstr "ROMåœ°åŸŸã«åˆã‚ã›ã‚‹"
+msgstr "ROM地域に合わせる"
 
 msgid "CONTENT REGION PROFILE"
-msgstr "ã‚³ãƒ³ãƒ†ãƒ³ãƒ„åœ°åŸŸãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«"
+msgstr "コンテンツ地域プロファイル"
 
 msgid "INTERFACE LANGUAGE"
-msgstr "ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹è¨€èªž"
+msgstr "インターフェース言語"
 
 msgid "LOGO / WHEEL LOCALIZATION"
-msgstr "ãƒ­ã‚´ / ãƒ›ã‚¤ãƒ¼ãƒ«ã®ãƒ­ãƒ¼ã‚«ãƒ©ã‚¤ã‚º"
+msgstr "ロゴ / ホイールのローカライズ"
 
 msgid "USER LANGUAGE"
-msgstr "ãƒ¦ãƒ¼ã‚¶ãƒ¼è¨€èªž"
+msgstr "ユーザー言語"
 
 msgid "Controls localized original media selection. By default, APIExpose tries the ROM region first, then safe readable fallbacks."
-msgstr "ãƒ­ãƒ¼ã‚«ãƒ©ã‚¤ã‚ºã•ã‚ŒãŸã‚ªãƒªã‚¸ãƒŠãƒ«ãƒ¡ãƒ‡ã‚£ã‚¢ã®é¸æŠžã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚æ—¢å®šã§ã¯ APIExpose ã¯ã¾ãš ROM åœ°åŸŸã‚’è©¦ã—ã€ãã®å¾Œå®‰å…¨ã§èª­ã‚ã‚‹ä»£æ›¿ã‚’è©¦ã—ã¾ã™ã€‚"
+msgstr "ローカライズされたオリジナルメディアの選択を制御します。既定では APIExpose はまず ROM 地域を試し、その後安全で読める代替を試します。"
 
 msgid "Controls whether logos and wheels favor user-readable language or the original ROM region."
-msgstr "ãƒ­ã‚´ã¨ãƒ›ã‚¤ãƒ¼ãƒ«ãŒãƒ¦ãƒ¼ã‚¶ãƒ¼ã®èª­ã‚ã‚‹è¨€èªžã‚’å„ªå…ˆã™ã‚‹ã‹ã€å…ƒã® ROM åœ°åŸŸã‚’å„ªå…ˆã™ã‚‹ã‹ã‚’åˆ¶å¾¡ã—ã¾ã™ã€‚"
+msgstr "ロゴとホイールがユーザーの読める言語を優先するか、元の ROM 地域を優先するかを制御します。"
 
 msgid "global.apiexpose.media_allocation.logo_region_mode"
 msgstr "global.apiexpose.media_allocation.logo_region_mode"
 
 msgid "SCRAPE EXACT LOCAL MEDIA"
-msgstr "æ­£ç¢ºãªãƒ­ãƒ¼ã‚«ãƒ«ãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—"
+msgstr "正確なローカルメディアをスクレイプ"
 
 msgid "Scrapes the exact prioritized regional media when a visible slot is only satisfied by a local fallback."
-msgstr "è¡¨ç¤ºã‚¹ãƒ­ãƒƒãƒˆãŒãƒ­ãƒ¼ã‚«ãƒ«ä»£æ›¿ã ã‘ã§æº€ãŸã•ã‚Œã‚‹å ´åˆã€å„ªå…ˆã•ã‚ŒãŸæ­£ç¢ºãªåœ°åŸŸãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ—ã—ã¾ã™ã€‚"
+msgstr "表示スロットがローカル代替だけで満たされる場合、優先された正確な地域メディアをスクレイプします。"
 
 msgid "global.apiexpose.scraping.exact_local_media.enabled"
 msgstr "global.apiexpose.scraping.exact_local_media.enabled"
 
 msgctxt "game_options"
 msgid "REPAIR GAMELISTS ON STARTUP"
-msgstr "èµ·å‹•æ™‚ã«GAMELISTã‚’ä¿®å¾©"
+msgstr "起動時にGAMELISTを修復"
 
 msgctxt "game_options"
 msgid "Runs the startup pass that realigns visible gamelist media slots and localized text metadata. Manual reallocations still work when disabled."
@@ -2391,11 +2391,11 @@ msgid "global.apiexpose.api.repair_gamelists_on_startup"
 msgstr "global.apiexpose.api.repair_gamelists_on_startup"
 msgctxt "game_options"
 msgid "SYNC GAMELISTS WITH SYSTEM LANGUAGE"
-msgstr "GAMELISTã‚’ã‚·ã‚¹ãƒ†ãƒ è¨€èªžã¨åŒæœŸ"
+msgstr "GAMELISTをシステム言語と同期"
 
 msgctxt "game_options"
 msgid "When the EmulationStation system language changes, APIExpose updates gamelists with localized metadata for the new language."
-msgstr "EmulationStation ã®ã‚·ã‚¹ãƒ†ãƒ è¨€èªžãŒå¤‰ã‚ã‚‹ã¨ã€APIExpose ã¯æ–°ã—ã„è¨€èªžã®ãƒ­ãƒ¼ã‚«ãƒ©ã‚¤ã‚ºæ¸ˆã¿ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã§ gamelist ã‚’æ›´æ–°ã—ã¾ã™ã€‚"
+msgstr "EmulationStation のシステム言語が変わると、APIExpose は新しい言語のローカライズ済みメタデータで gamelist を更新します。"
 
 msgctxt "game_options"
 msgid "global.apiexpose.api.sync_gamelists_with_system_language"
@@ -2507,7 +2507,7 @@ msgstr "Who may join a broadcast challenge. Nobody means viewers can only watch.
 
 msgctxt "game_options"
 msgid "NOBODY"
-msgstr "NOBODY"
+msgstr "なし"
 
 msgctxt "game_options"
 msgid "PLAYERS I FOLLOW"
@@ -2524,3 +2524,103 @@ msgstr "WORLD SCORING コレクションを表示"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "オン（既定）のとき、EmulationStation に NELFEPLAY WORLD SCORING コレクションが表示されます。すでに所有していて、いま認定ワールドスコアリングの対象であり、プロファイルが求めるスコア定義をこの筐体が正確に持っているゲームだけが並びます。あなたのライブラリの情報が NelfePlay に送られることはありません。"
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "カスタムメディアを保持"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "オン：ゲームに自分で設定したメディアは、再スクレイプで上書きされません（スクレイプは空きスロットのみ埋めます）。オフ：再スクレイプで正規メディアに置き換えられることがあります。"
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "ROMSのメディアをストアへ移行"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "オン：次回の再起動時に、APIExpose は roms/ 内の旧メディアを正規メディアストアへコピーします（先に Windows の確認があります）。非破壊：roms/ の元ファイルは残ります。すぐではなく、再起動後に有効になります。"
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "配信中のチャレンジにプレイヤーとして参加できる人。1CC MULTI ランキングのあるゲームでは、参加した各プレイヤーが自分のクレジットでそこにランク付けされ、それまでのソロスコアは認定のまま残ります。なし：視聴者は観戦のみです。"
+
+msgctxt "game_options"
+msgid "ENABLE LIVE CONTEST"
+msgstr "LIVE CONTEST を有効にする"
+
+msgctxt "game_options"
+msgid "Allows this PC to join Live Contests: enrolment, automatic game launch, synced start and score submission."
+msgstr "この PC が Live Contest に参加できるようにします：エントリー、ゲームの自動起動、同期スタート、スコア送信。"
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "自分の個人用 .MEM を優先"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "通常プレイでは、公式ファイルより自分の個人用 .MEM ファイル（MEM Explorer で編集）を優先します。既定はオフ：個人用 .MEM が知らないうちに使われることはなく、認定スコアは公式ファイルのままです。Live contest は常に個人用 .MEM より優先されます。"
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "認定設定を強制"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "オン（既定）：認定スコア対象のゲームの前に、筐体はプロファイルが求める設定（難易度、残機、速度、チートオフ）を適用し、設定のせいで後からスコアが拒否されることがないようにします。表示とコントローラーの設定には一切触れません。オフ：筐体は通知のみ行います。"
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "ROMマネージャー の名前付きプリセットを選びます。下に表示されるフィルター項目は個別に設定できるままです。"
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "フィルターなし は RA の状態を無視します。常に表示 は RA 対応ゲームを保護します。対象のみ表示 は cheevosId のないゲームを隠します。"
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "フィルターなし"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "すべて表示 は言語フィルターを無効にします。自分の言語のみ は、該当するバージョンがある場合に他の言語を隠します。"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "すべて表示 は地域フィルターを無効にします。自分の地域のみ は、該当するバージョンがある場合に他の地域を隠します。"
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "表示 はバリエーションを残し、非表示 はプロファイルに従って最適なバージョンを残します。"
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "プロトタイプを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "デモを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "ベータ版とアルファ版を表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "成人向けゲームを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "カジノ、ギャンブル、スロットのゲームを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "麻雀ゲームを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "クイズゲームを表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "BIOS、デバイス、サンプル、ゲーム以外の項目を表示したままにするかを設定します。"

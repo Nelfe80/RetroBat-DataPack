@@ -384,7 +384,7 @@ msgstr "Generates custom-*.cfg collections with exact paths for games already pr
 
 msgctxt "game_options"
 msgid "HIDE"
-msgstr "HIDE"
+msgstr "VERBERGEN"
 
 msgctxt "game_options"
 msgid "HIDE VARIANTS"
@@ -2524,3 +2524,103 @@ msgstr "WORLD SCORING-COLLECTIE WEERGEVEN"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "Wanneer dit aan staat (standaard), toont EmulationStation een NELFEPLAY WORLD SCORING-collectie. Die bevat alleen de spellen die je al hebt, die nu open staan voor gecertificeerde wereldscores, en waarvoor deze kast precies de scoredefinitie heeft die het profiel vereist. Er wordt niets over je bibliotheek naar NelfePlay gestuurd."
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "EIGEN MEDIA BEHOUDEN"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "Aan: media die je zelf voor een spel hebt ingesteld, worden nooit overschreven door opnieuw scrapen (scrapen vult alleen lege plekken). Uit: opnieuw scrapen kan ze vervangen door de canonieke media."
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "ROMS-MEDIA NAAR DE OPSLAG KOPIËREN"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "Aan: bij de VOLGENDE herstart kopieert APIExpose oude media uit roms/ naar de canonieke media-opslag (Windows vraagt eerst om bevestiging). Niet destructief: je originelen in roms/ blijven staan. Werkt na een herstart, niet meteen."
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "Wie als speler mag meedoen aan een uitgezonden uitdaging. Bij spellen met een 1CC MULTI-ranglijst wordt elke speler die meedoet daar op zijn eigen credit gerangschikt, en je eerdere solo-score blijft gecertificeerd. NIEMAND: kijkers kunnen alleen kijken."
+
+msgctxt "game_options"
+msgid "ENABLE LIVE CONTEST"
+msgstr "LIVE CONTEST INSCHAKELEN"
+
+msgctxt "game_options"
+msgid "Allows this PC to join Live Contests: enrolment, automatic game launch, synced start and score submission."
+msgstr "Laat deze pc meedoen aan Live Contests: inschrijving, automatisch starten van het spel, gesynchroniseerde start en indienen van de score."
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "MIJN EIGEN .MEM VOORRANG GEVEN"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "Bij normaal spelen gaan je eigen .MEM-bestanden (bewerkt in MEM Explorer) voor de officiële. Standaard uit: een eigen .MEM wordt nooit ongemerkt gebruikt, en gecertificeerde scores blijven op het officiële bestand. Een live contest gaat altijd voor een eigen .MEM."
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "GECERTIFICEERDE INSTELLINGEN AFDWINGEN"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "Aan (standaard): vóór een spel dat open is voor gecertificeerde scores past de kast de instellingen toe die het profiel vereist (moeilijkheid, levens, snelheid, cheats uit), zodat de score achteraf nooit om de instellingen wordt geweigerd. Beeld- en controllerinstellingen worden nooit aangeraakt. Uit: de kast meldt het alleen."
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "Kiest een benoemde voorinstelling van ROMS-BEHEER. De zichtbare filteropties hieronder blijven afzonderlijk instelbaar."
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "GEEN FILTER negeert de RA-status. ALTIJD TONEN beschermt RA-compatibele spellen. ALLEEN TONEN verbergt spellen zonder cheevosId."
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "GEEN FILTER"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "ALLES TONEN schakelt het taalfilter uit. ALLEEN MIJN TAAL verbergt andere talen als er een passende versie bestaat."
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "ALLES TONEN schakelt het regiofilter uit. ALLEEN MIJN REGIO verbergt andere regio's als er een passende versie bestaat."
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "TONEN houdt de varianten; VERBERGEN houdt de beste versie volgens het profiel."
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "Bepaalt of prototypes zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "Bepaalt of demo's zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "Bepaalt of bèta- en alfaversies zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "Bepaalt of spellen voor volwassenen zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "Bepaalt of casino-, gok- en gokkastspellen zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "Bepaalt of mahjongspellen zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "Bepaalt of quizspellen zichtbaar blijven."
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "Bepaalt of BIOS'en, apparaten, samples en items die geen spel zijn zichtbaar blijven."

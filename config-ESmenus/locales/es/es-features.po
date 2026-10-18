@@ -2524,3 +2524,103 @@ msgstr "MOSTRAR LA COLECCION WORLD SCORING"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "Cuando esta activo (por defecto), EmulationStation muestra una coleccion NELFEPLAY WORLD SCORING. Solo incluye los juegos que ya tienes, abiertos ahora mismo a la puntuacion mundial certificada, y para los que esta maquina posee exactamente la definicion de puntuacion que exige el perfil. Nada de tu biblioteca se envia a NelfePlay."
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "CONSERVAR LOS MEDIOS PERSONALIZADOS"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "Activado: un medio que tú mismo hayas elegido para un juego nunca se sobrescribe al volver a hacer scraping (el scraping solo rellena las ranuras vacías). Desactivado: un nuevo scraping puede sustituirlo por el medio canónico."
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "COPIAR LOS MEDIOS DE ROMS AL ALMACÉN"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "Activado: en el PRÓXIMO reinicio, APIExpose copia los medios antiguos encontrados en roms/ al almacén canónico de medios (Windows pide confirmación antes). No destructivo: se conservan tus originales de roms/. Surte efecto al reiniciar, no de inmediato."
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "Quién puede unirse a un desafío retransmitido como jugador. En los juegos con clasificación 1CC MULTI, cada jugador que se une se clasifica allí con su propio crédito, y tu puntuación en solitario anterior sigue certificada. NADIE: los espectadores solo pueden mirar."
+
+msgctxt "game_options"
+msgid "ENABLE LIVE CONTEST"
+msgstr "ACTIVAR LIVE CONTEST"
+
+msgctxt "game_options"
+msgid "Allows this PC to join Live Contests: enrolment, automatic game launch, synced start and score submission."
+msgstr "Permite que este PC participe en Live Contests: inscripción, lanzamiento automático del juego, inicio sincronizado y envío de puntuaciones."
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "PRIORIZAR MIS .MEM PERSONALES"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "En partida normal, prefiere tus propios archivos .MEM (editados en MEM Explorer) a los oficiales. Desactivado por defecto: un .MEM personal nunca se usa sin que lo sepas, y la puntuación certificada sigue usando el archivo oficial. Un live contest siempre tiene prioridad sobre un .MEM personal."
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "FORZAR LOS AJUSTES CERTIFICADOS"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "Activado (por defecto): antes de un juego abierto a la puntuación certificada, la máquina aplica los ajustes que exige su perfil (dificultad, vidas, velocidad, trucos desactivados) para que la puntuación nunca se rechace después por los ajustes. Nunca se tocan los ajustes de pantalla ni de mando. Desactivado: la máquina solo avisa."
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "Selecciona un preajuste con nombre del GESTOR DE ROMS. Las opciones de filtro visibles más abajo siguen ajustándose una a una."
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "SIN FILTRO ignora el estado RA. MOSTRAR SIEMPRE protege los juegos compatibles con RA. MOSTRAR SOLO oculta los juegos sin cheevosId."
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "SIN FILTRO"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "MOSTRAR TODO desactiva el filtro de idioma. SOLO MI IDIOMA oculta los demás idiomas cuando existe una versión correspondiente."
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "MOSTRAR TODO desactiva el filtro de región. SOLO MI REGION oculta las demás regiones cuando existe una versión correspondiente."
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "MOSTRAR conserva las variantes; OCULTAR conserva la mejor versión según el perfil."
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "Determina si los prototipos siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "Determina si las demos siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "Determina si las versiones beta y alfa siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "Determina si los juegos para adultos siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "Determina si los juegos de casino, de azar y tragaperras siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "Determina si los juegos de mahjong siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "Determina si los juegos de preguntas siguen visibles."
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "Determina si las BIOS, dispositivos, samples y entradas que no son juegos siguen visibles."

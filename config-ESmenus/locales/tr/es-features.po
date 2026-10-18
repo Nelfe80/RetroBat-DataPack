@@ -384,7 +384,7 @@ msgstr "Generates custom-*.cfg collections with exact paths for games already pr
 
 msgctxt "game_options"
 msgid "HIDE"
-msgstr "HIDE"
+msgstr "GİZLE"
 
 msgctxt "game_options"
 msgid "HIDE VARIANTS"
@@ -2524,3 +2524,103 @@ msgstr "WORLD SCORING KOLEKSIYONUNU GOSTER"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "Acik oldugunda (varsayilan), EmulationStation bir NELFEPLAY WORLD SCORING koleksiyonu gosterir. Yalnizca zaten sahip oldugunuz, su anda sertifikali dunya siralamasina acik ve bu makinede profilin istedigi skor tanimi tam olarak bulunan oyunlari listeler. Kitapliginizla ilgili hicbir sey NelfePlay'e gonderilmez."
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "ÖZEL MEDYALARI KORU"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "Açık: bir oyun için kendi seçtiğiniz medya yeniden taramada asla üzerine yazılmaz (tarama yalnızca boş yuvaları doldurur). Kapalı: yeniden tarama onu standart medyayla değiştirebilir."
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "ROMS MEDYALARINI DEPOYA KOPYALA"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "Açık: SONRAKİ yeniden başlatmada APIExpose, roms/ içinde bulunan eski medyaları standart medya deposuna kopyalar (önce Windows onay ister). Hiçbir şey silinmez: roms/ içindeki orijinalleriniz korunur. Hemen değil, yeniden başlatınca geçerli olur."
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "Yayınlanan bir meydan okumaya kimlerin oyuncu olarak katılabileceği. 1CC MULTI sıralaması olan oyunlarda katılan her oyuncu orada kendi kredisiyle sıralanır ve daha önceki tek oyunculu skorunuz sertifikalı kalır. KIMSE: izleyiciler yalnızca izleyebilir."
+
+msgctxt "game_options"
+msgid "ENABLE LIVE CONTEST"
+msgstr "LIVE CONTEST'İ ETKİNLEŞTİR"
+
+msgctxt "game_options"
+msgid "Allows this PC to join Live Contests: enrolment, automatic game launch, synced start and score submission."
+msgstr "Bu bilgisayarın Live Contest'lere katılmasını sağlar: kayıt, oyunun otomatik başlatılması, eşzamanlı başlangıç ve skor gönderimi."
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "KİŞİSEL .MEM DOSYALARIMA ÖNCELİK VER"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "Normal oyunda, resmi dosyalar yerine kendi kişisel .MEM dosyalarınızı (MEM Explorer'da düzenlenen) tercih eder. Varsayılan olarak kapalı: kişisel bir .MEM asla sizden habersiz kullanılmaz ve sertifikalı skor resmi dosyada kalır. Bir live contest her zaman kişisel .MEM'den önce gelir."
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "SERTİFİKALI AYARLARI ZORUNLU KIL"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "Açık (varsayılan): sertifikalı skora açık bir oyundan önce makine, profilin gerektirdiği ayarları uygular (zorluk, can, hız, hileler kapalı); böylece skor sonradan ayarlar yüzünden asla reddedilmez. Görüntü ve kontrolcü ayarlarına asla dokunulmaz. Kapalı: makine yalnızca bilgi verir."
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "ROM YONETICISI için adlandırılmış bir ön ayar seçer. Aşağıdaki görünür filtre seçenekleri ayrı ayrı ayarlanabilir kalır."
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "FİLTRE YOK RA durumunu yok sayar. HER ZAMAN GOSTER RA uyumlu oyunları korur. YALNIZCA GOSTER cheevosId olmayan oyunları gizler."
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "FİLTRE YOK"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "TUMUNU GOSTER dil filtresini kapatır. YALNIZCA DILIM, eşleşen bir sürüm varsa diğer dilleri gizler."
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "TUMUNU GOSTER bölge filtresini kapatır. YALNIZCA BOLGEM, eşleşen bir sürüm varsa diğer bölgeleri gizler."
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "GOSTER varyantları tutar; GİZLE profile göre en iyi sürümü tutar."
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "Prototiplerin görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "Demoların görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "Beta ve alfa sürümlerinin görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "Yetişkin oyunlarının görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "Kumarhane, şans ve slot oyunlarının görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "Mahjong oyunlarının görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "Bilgi yarışması oyunlarının görünür kalıp kalmayacağını belirler."
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "BIOS'ların, cihazların, sample'ların ve oyun olmayan girişlerin görünür kalıp kalmayacağını belirler."

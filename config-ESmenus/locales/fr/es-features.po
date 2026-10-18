@@ -448,7 +448,7 @@ msgstr "GESTIONNAIRE MARQUEE"
 
 msgctxt "game_options"
 msgid "MAX HIGH SCORES"
-msgstr "MAX HIGH SCORES"
+msgstr "NOMBRE MAX DE MEILLEURS SCORES"
 
 msgctxt "game_options"
 msgid "Maximum number of high score rows kept during console exports."
@@ -1232,7 +1232,7 @@ msgstr "NOTIFIER LE SCRAP MEDIA"
 
 msgctxt "game_options"
 msgid "REGION"
-msgstr "REGION"
+msgstr "RÉGION"
 
 msgctxt "game_options"
 msgid "SCRAPE BEZELS"
@@ -1559,7 +1559,7 @@ msgstr "JOYSTICK ANALOGIQUE"
 
 msgctxt "game_options"
 msgid "ROTARY JOYSTICK"
-msgstr "ROTARY JOYSTICK"
+msgstr "JOYSTICK ROTATIF"
 
 msgctxt "game_options"
 msgid "SPINNERS"
@@ -1595,7 +1595,7 @@ msgstr "PEDALES"
 
 msgctxt "game_options"
 msgid "LIGHTGUNS"
-msgstr "LIGHTGUNS"
+msgstr "PISTOLETS OPTIQUES"
 
 msgctxt "game_options"
 msgid "DANCE MATS"
@@ -1775,7 +1775,7 @@ msgstr "global.apiexpose.local_media_manager.remove_roms_media_after_canonical_m
 
 msgctxt "game_options"
 msgid "SHIFTERS"
-msgstr "SHIFTERS"
+msgstr "LEVIERS DE VITESSE"
 
 msgctxt "game_options"
 msgid "GUITARS"
@@ -1992,7 +1992,7 @@ msgstr "AUTO laisse le profil decider. UNIQUEMENT MA REGION masque les autres re
 
 msgctxt "game_options"
 msgid "SHOW ONLY MY REGION"
-msgstr "UNIQUEMENT MA REGION"
+msgstr "UNIQUEMENT MA RÉGION"
 
 msgctxt "game_options"
 msgid "ROM VERSION"
@@ -2156,7 +2156,7 @@ msgid "AU"
 msgstr "AU"
 
 msgid "ASIA"
-msgstr "ASIA"
+msgstr "ASIE"
 
 msgid "CN"
 msgstr "CN"
@@ -2168,16 +2168,16 @@ msgid "AUTO lets the profile decide. SHOW ALL disables region filtering. SHOW ON
 msgstr "AUTO laisse le profil decider. TOUT AFFICHER desactive le filtrage par region. UNIQUEMENT MA REGION masque les autres regions quand une version correspondante existe."
 
 msgid "AUSTRALIA"
-msgstr "AUSTRALIA"
+msgstr "AUSTRALIE"
 
 msgid "BRAZIL"
-msgstr "BRAZIL"
+msgstr "BRÉSIL"
 
 msgid "CANADA"
 msgstr "CANADA"
 
 msgid "CHINA"
-msgstr "CHINA"
+msgstr "CHINE"
 
 msgid "CHINESE"
 msgstr "CHINOIS"
@@ -2201,22 +2201,22 @@ msgid "ITALIAN"
 msgstr "ITALIEN"
 
 msgid "ITALY"
-msgstr "ITALY"
+msgstr "ITALIE"
 
 msgid "JAPANESE"
 msgstr "JAPONAIS"
 
 msgid "KOREA"
-msgstr "KOREA"
+msgstr "CORÉE"
 
 msgid "KOREAN"
 msgstr "COREEN"
 
 msgid "NETHERLANDS"
-msgstr "NETHERLANDS"
+msgstr "PAYS-BAS"
 
 msgid "OCEANIA"
-msgstr "OCEANIA"
+msgstr "OCÉANIE"
 
 msgid "POLISH"
 msgstr "POLONAIS"
@@ -2225,19 +2225,19 @@ msgid "PORTUGUESE"
 msgstr "PORTUGAIS"
 
 msgid "RUSSIA"
-msgstr "RUSSIA"
+msgstr "RUSSIE"
 
 msgid "RUSSIAN"
 msgstr "RUSSE"
 
 msgid "SPAIN"
-msgstr "SPAIN"
+msgstr "ESPAGNE"
 
 msgid "SPANISH"
 msgstr "ESPAGNOL"
 
 msgid "SWEDEN"
-msgstr "SWEDEN"
+msgstr "SUÈDE"
 
 msgid "SWEDISH"
 msgstr "SUEDOIS"
@@ -2261,7 +2261,7 @@ msgstr "PROTOTYPES"
 
 msgctxt "game_options"
 msgid "DEMOS"
-msgstr "DEMOS"
+msgstr "DÉMOS"
 
 msgctxt "game_options"
 msgid "BETA / ALPHA VERSIONS"
@@ -2531,3 +2531,95 @@ msgstr "AFFICHER LA COLLECTION WORLD SCORING"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "Quand c'est actif (par defaut), EmulationStation affiche une collection NELFEPLAY WORLD SCORING. Elle ne contient que les jeux que vous possedez deja, ouverts des maintenant au scoring mondial certifie, et dont cette borne detient exactement la definition de score exigee par le profil. Rien de votre ludotheque n'est envoye a NelfePlay."
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "PRÉSERVER LES MÉDIAS PERSONNALISÉS"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "Activé : un média que vous avez choisi vous-même pour un jeu n'est jamais remplacé par un nouveau scrap (le scrap ne remplit que les emplacements vides). Désactivé : un nouveau scrap peut le remplacer par le média canonique."
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "COPIER LES MÉDIAS DE ROMS VERS LA MÉDIATHÈQUE"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "Activé : au PROCHAIN redémarrage, APIExpose copie les anciens médias trouvés dans roms/ vers la médiathèque canonique (Windows demande d'abord une confirmation). Rien n'est supprimé : vos originaux restent dans roms/. Prend effet au redémarrage, pas tout de suite."
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "Qui peut rejoindre un défi diffusé en tant que joueur. Sur les jeux qui ont un classement 1CC MULTI, chaque joueur qui rejoint y est classé sur son propre crédit, et votre score solo réalisé avant reste certifié. PERSONNE : les spectateurs ne peuvent que regarder."
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "PRIVILÉGIER MES .MEM PERSONNELS"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "En jeu normal, préfère vos propres fichiers .MEM (modifiés dans MEM Explorer) aux officiels. Désactivé par défaut : un .MEM personnel n'est jamais utilisé sans que vous le sachiez, et le scoring certifié reste sur le fichier officiel. Un live contest passe toujours avant un .MEM personnel."
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "FORCER LES RÉGLAGES CERTIFIÉS"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "Activé (par défaut) : avant un jeu ouvert au scoring certifié, la borne applique les réglages qu'exige son profil (difficulté, vies, vitesse, triches désactivées), pour que le score ne soit jamais refusé ensuite à cause des réglages. Les réglages d'affichage et de manette ne sont jamais modifiés. Désactivé : la borne se contente de prévenir."
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "Choisit un préréglage nommé du GESTIONNAIRE DE ROMS. Les options de filtre ci-dessous restent réglables une à une."
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "AUCUN FILTRE ignore le statut RetroAchievements. TOUJOURS AFFICHER protège les jeux compatibles RetroAchievements. UNIQUEMENT masque les jeux sans cheevosId."
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "AUCUN FILTRE"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "TOUT AFFICHER désactive le filtre de langue. UNIQUEMENT MA LANGUE masque les autres langues quand une version correspondante existe."
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "TOUT AFFICHER désactive le filtre de région. UNIQUEMENT MA RÉGION masque les autres régions quand une version correspondante existe."
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "AFFICHER garde les variantes ; MASQUER garde la meilleure version selon le profil."
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "Indique si les prototypes restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "Indique si les démos restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "Indique si les versions bêta et alpha restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "Indique si les jeux pour adultes restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "Indique si les jeux de casino, de hasard et de machines à sous restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "Indique si les jeux de mahjong restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "Indique si les jeux de quiz restent visibles."
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "Indique si les BIOS, périphériques, samples et entrées qui ne sont pas des jeux restent visibles."

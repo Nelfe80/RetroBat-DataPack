@@ -384,7 +384,7 @@ msgstr "Generates custom-*.cfg collections with exact paths for games already pr
 
 msgctxt "game_options"
 msgid "HIDE"
-msgstr "HIDE"
+msgstr "SKRÝT"
 
 msgctxt "game_options"
 msgid "HIDE VARIANTS"
@@ -2524,3 +2524,103 @@ msgstr "ZOBRAZIT KOLEKCI WORLD SCORING"
 msgctxt "game_options"
 msgid "When ON (default), EmulationStation shows a NELFEPLAY WORLD SCORING collection. It lists only the games you already own that are open to certified world scoring right now, and for which this cabinet holds the exact score definition the profile requires. Nothing about your library is sent to NelfePlay."
 msgstr "Kdyz je zapnuto (vychozi), EmulationStation zobrazi kolekci NELFEPLAY WORLD SCORING. Obsahuje jen hry, ktere jiz mate, prave nyni otevrene certifikovanemu svetovemu skorovani, a pro ktere ma tento automat presne tu definici skore, kterou profil vyzaduje. Nic z vasi knihovny se do NelfePlay neposila."
+
+msgctxt "game_options"
+msgid "PRESERVE CUSTOM MEDIA"
+msgstr "ZACHOVAT VLASTNÍ MÉDIA"
+
+msgctxt "game_options"
+msgid "When ON, a media you set yourself on a game is never overwritten by a re-scrape (scraping only fills empty slots). When OFF, a re-scrape may replace it with the canonical media."
+msgstr "Zapnuto: médium, které jste ke hře nastavili sami, se při novém scrapování nikdy nepřepíše (scrapování jen doplní prázdná místa). Vypnuto: nové scrapování ho může nahradit kanonickým médiem."
+
+msgctxt "game_options"
+msgid "MIGRATE ROMS MEDIA TO STORE"
+msgstr "ZKOPÍROVAT MÉDIA Z ROMS DO ÚLOŽIŠTĚ"
+
+msgctxt "game_options"
+msgid "When ON, at the NEXT restart APIExpose copies legacy media found in roms/ into the canonical media store (a Windows confirmation is asked first). Non-destructive: your roms/ originals are kept. Takes effect on restart, not immediately."
+msgstr "Zapnuto: při PŘÍŠTÍM restartu APIExpose zkopíruje starší média nalezená v roms/ do kanonického úložiště médií (Windows se nejdřív zeptá na potvrzení). Nic se nemaže: originály v roms/ zůstanou. Projeví se po restartu, ne hned."
+
+msgctxt "game_options"
+msgid "Who may join a broadcast challenge as a player. On games with a 1CC MULTI ranking, each player who joins is ranked there on their own credit, and your solo score made before stays certified. Nobody means viewers can only watch."
+msgstr "Kdo se může připojit jako hráč k vysílané výzvě. U her s žebříčkem 1CC MULTI je každý připojený hráč zařazen na vlastní kredit a vaše dřívější sólové skóre zůstává certifikované. NIKDO: diváci se mohou jen dívat."
+
+msgctxt "game_options"
+msgid "ENABLE LIVE CONTEST"
+msgstr "ZAPNOUT LIVE CONTEST"
+
+msgctxt "game_options"
+msgid "Allows this PC to join Live Contests: enrolment, automatic game launch, synced start and score submission."
+msgstr "Umožní tomuto PC účastnit se Live Contestů: registrace, automatické spuštění hry, synchronizovaný start a odeslání skóre."
+
+msgctxt "game_options"
+msgid "PRIORITIZE MY PERSONAL .MEM"
+msgstr "UPŘEDNOSTNIT MÉ VLASTNÍ .MEM"
+
+msgctxt "game_options"
+msgid "In normal play, prefer your own personal .MEM files (edited in MEM Explorer) over the official ones. OFF by default: a personal .MEM is never played silently, and certified scoring stays on the official file. A live contest always takes priority over a personal .MEM."
+msgstr "Při běžném hraní dává přednost vašim vlastním souborům .MEM (upraveným v MEM Explorer) před oficiálními. Ve výchozím stavu vypnuto: vlastní .MEM se nikdy nepoužije bez vašeho vědomí a certifikované skóre zůstává na oficiálním souboru. Live contest má vždy přednost před vlastním .MEM."
+
+msgctxt "game_options"
+msgid "FORCE CERTIFIED SETTINGS"
+msgstr "VYNUTIT CERTIFIKOVANÉ NASTAVENÍ"
+
+msgctxt "game_options"
+msgid "When ON (default), before a game open to certified scoring, the cabinet applies the settings its profile requires (difficulty, lives, speed, cheats off) so the score is never refused afterwards for settings. Display and controller settings are never touched. When OFF, the cabinet only informs."
+msgstr "Zapnuto (výchozí): před hrou otevřenou certifikovanému skórování použije automat nastavení, která vyžaduje její profil (obtížnost, životy, rychlost, cheaty vypnuté), aby skóre nebylo kvůli nastavení nikdy dodatečně odmítnuto. Nastavení obrazu a ovladačů se nikdy nemění. Vypnuto: automat pouze upozorní."
+
+msgctxt "game_options"
+msgid "Selects a named Roms Manager preset. Visible filter options below stay explicit."
+msgstr "Vybere pojmenovanou předvolbu SPRAVCE ROM. Viditelné možnosti filtru níže zůstávají samostatně nastavitelné."
+
+msgctxt "game_options"
+msgid "NO FILTER ignores RA status. ALWAYS SHOW protects RA-compatible games. SHOW ONLY hides games without cheevosId."
+msgstr "BEZ FILTRU ignoruje stav RA. VZDY ZOBRAZIT chrání hry kompatibilní s RA. ZOBRAZIT POUZE skryje hry bez cheevosId."
+
+msgctxt "game_options"
+msgid "NO FILTER"
+msgstr "BEZ FILTRU"
+
+msgctxt "game_options"
+msgid "SHOW ALL disables language filtering. SHOW ONLY MY LANGUAGE hides other languages when a matching version exists."
+msgstr "ZOBRAZIT VSE vypne filtr jazyka. POUZE MUJ JAZYK skryje ostatní jazyky, když existuje odpovídající verze."
+
+msgctxt "game_options"
+msgid "SHOW ALL disables region filtering. SHOW ONLY MY REGION hides other regions when a matching version exists."
+msgstr "ZOBRAZIT VSE vypne filtr regionu. POUZE MUJ REGION skryje ostatní regiony, když existuje odpovídající verze."
+
+msgctxt "game_options"
+msgid "SHOW keeps variants; HIDE keeps the best version according to the profile."
+msgstr "ZOBRAZIT ponechá varianty; SKRÝT ponechá nejlepší verzi podle profilu."
+
+msgctxt "game_options"
+msgid "Controls whether prototypes remain visible."
+msgstr "Určuje, zda zůstanou prototypy viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether demos remain visible."
+msgstr "Určuje, zda zůstanou dema viditelná."
+
+msgctxt "game_options"
+msgid "Controls whether beta and alpha versions remain visible."
+msgstr "Určuje, zda zůstanou beta a alfa verze viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether adult games remain visible."
+msgstr "Určuje, zda zůstanou hry pro dospělé viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether casino, gambling and slot games remain visible."
+msgstr "Určuje, zda zůstanou kasinové, hazardní a automatové hry viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether mahjong games remain visible."
+msgstr "Určuje, zda zůstanou hry mahjong viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether quiz games remain visible."
+msgstr "Určuje, zda zůstanou kvízové hry viditelné."
+
+msgctxt "game_options"
+msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
+msgstr "Určuje, zda zůstanou BIOSy, zařízení, samply a položky, které nejsou hry, viditelné."
