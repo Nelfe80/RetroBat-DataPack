@@ -515,15 +515,11 @@
   "golden-axe": [
     {
       "from": "0x0000",
-      "size": "0x1000",
-      "base": "0x840000",
-      "bank": "System16RoadRam"
-    },
-    {
-      "from": "0x2000",
-      "size": "0x0800",
-      "base": "0x440000",
-      "bank": "System16Z80Ram2"
+      "size": "0x4000",
+      "base": "0xFFC000",
+      "bank": "System16Ram",
+      "swap16": true,
+      "source": "labo 2026-10-19 : credits 0xFFEC00 lus sous FBNeo ; comme altered-beast et shinobi (System 16B), remplace RoadRam et Z80Ram2 generes"
     }
   ],
   "gradius-ii-gofer-no-yabou": [
@@ -1178,6 +1174,16 @@
       "size": "0x20000",
       "base": "0x1800000",
       "bank": "DrvMainRAM"
+    }
+  ],
+  "teenage-mutant-ninja-turtles": [
+    {
+      "from": "0x0000",
+      "size": "0x4000",
+      "base": "0x060000",
+      "bank": "Drv68KRam",
+      "swap16": true,
+      "source": "labo 2026-10-19 : credits 0x060101 et score 0x60104 lus sous FBNeo (bloc 0x5800)"
     }
   ],
   "tetris": [
