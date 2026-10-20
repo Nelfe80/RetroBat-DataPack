@@ -1,3 +1,9 @@
+-- .user 2026-10-20 (versus, pre-labo MAME sans fenetre a deux, neobombe) : adresses MAME absolues (0x100000 + ...).
+-- START 1 et 2 au titre ; apres le didacticiel (duree variable : il attend parfois l'action montree), le choix du mode
+-- propose NORMAL (histoire, a deux) en haut et la bataille (BATALLA, texte espagnol de la BIOS) en bas, 30 s de compte a
+-- rebours. Manches gagnees : joueur 1 0x1000FB, joueur 2 0x1000FC. Mesure : le joueur 1 se tue avec sa bombe, le joueur 2
+-- gagne deux manches (4750, 5650 : « WIN!! », couronne) et le match ; au match suivant tout repart de 0, le joueur 1 gagne
+-- une manche (8650) quand sa bombe emporte le joueur 2. Match en deux manches gagnantes. Places 3 et 4 non mesurees.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -15,6 +21,14 @@ return {
   },
 
   events = {
+    versus = {
+      rounds = {
+        { address=0X1000FB, type="u8", condition="increase", action="ROUND_WON", player=1, desc="P1 manches gagnees en bataille" },
+        { address=0X1000FC, type="u8", condition="increase", action="ROUND_WON", player=2, desc="P2 manches gagnees en bataille" },
+        { address=0X1000FB, type="u8", condition="eq", value=0X02, action="MATCH_WON", player=1, desc="P1 gagne le match (deux manches)" },
+        { address=0X1000FC, type="u8", condition="eq", value=0X02, action="MATCH_WON", player=2, desc="P2 gagne le match (deux manches)" },
+      },
+    },
     flow = {
       lifecycle = {
         { address=0X0082, type="u8", condition="eq", value=0X78B4, action="CONTINUE_SCREEN", desc="Continue?" },

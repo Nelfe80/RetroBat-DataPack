@@ -1,3 +1,9 @@
+-- .user 2026-10-20 (versus, pre-labo MAME sans fenetre a deux, pbobbl2n) : adresses MAME absolues (0x100000 + ...).
+-- Le joueur 2 n'entre qu'en plein match contre l'ordinateur (START, « HERE COMES A CHALLENGER »). Manches gagnees
+-- joueur 1 0x1057F5, joueur 2 0x1057F7 (copies en 0x1057FD / 0x1057FF et 0x105807 / 0x105805), manches jouees 0x10582F.
+-- Mesure : manche 1 au joueur 1 (image 3926 : 0x1057F5 et 0x10582F a 1), manches 2 et 3 au joueur 2 (4771, 5653 :
+-- 0x1057F7 a 1 puis 2, 0x10582F a 2 puis 3) ; match en deux manches gagnantes, tout retombe a 0 a la fin (12217).
+-- Sous FBNeo : traduction a mesurer au labo (octets de chaque mot inverses sur le Neo-Geo).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -15,6 +21,15 @@ return {
   },
 
   events = {
+    versus = {
+      rounds = {
+        { address=0X1057F5, type="u8", condition="increase", action="ROUND_WON", player=1, desc="P1 manches gagnees" },
+        { address=0X1057F7, type="u8", condition="increase", action="ROUND_WON", player=2, desc="P2 manches gagnees" },
+        { address=0X1057F5, type="u8", condition="eq", value=0X02, action="MATCH_WON", player=1, desc="P1 gagne le match (deux manches)" },
+        { address=0X1057F7, type="u8", condition="eq", value=0X02, action="MATCH_WON", player=2, desc="P2 gagne le match (deux manches)" },
+        { address=0X10582F, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Manches jouees dans le match" },
+      },
+    },
     flow = {
       lifecycle = {
         { address=0X3034, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits: last digit is unit" },

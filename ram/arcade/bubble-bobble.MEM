@@ -1,3 +1,7 @@
+-- .user 2026-10-20 (coop, pre-labo MAME sans fenetre a deux) : la fiche du joueur 2 suit celle du joueur 1. Vies 0xE64A
+-- (0xE645 + 5 : 2 a l'arrivee, 2 -> 1 -> 0 a ses morts, 0xFF a sa fin), etat 0xE6C3 (0xE691 + 0x32 : 01 en jeu, 02 mort,
+-- 80 hors partie ou fini). Mesure : le joueur 1 meurt a 2400, le joueur 2 a 2700 (02) puis 3000 (vies 1), l'un finit a 5100,
+-- l'autre a 5400. Pas de GAME_OVER du joueur 2 : il finirait la partie du joueur 1.
 -- .user 2026-10-01 : ligne CREDITS et ligne de score du joueur 2 (1CC MULTI), verifiees sous MAME
 -- .user 2026-10-06 : les trois modes caches de l'ecran titre en GAME_MODE (0xE5D1, 0xE5D2, 0xE5DB).
 -- .user 2026-10-06 : retrait de la ligne 0x38D3 = 00 qui envoyait DEMO_MODE quand le jeu est ACTIF (« Game
@@ -68,6 +72,9 @@ return {
         { address=0XE645, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
         { address=0XE645, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
         { address=0XE691, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", desc="Player died" },
+        { address=0XE64A, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="P2 Lives increased" },
+        { address=0XE64A, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="P2 Lives decreased" },
+        { address=0XE6C3, type="u8", condition="eq", value=0X02, action="LOSE_LIFE", player=2, desc="P2 died" },
       },
     },
     scoring = {

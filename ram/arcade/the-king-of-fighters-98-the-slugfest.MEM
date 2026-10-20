@@ -1,10 +1,17 @@
--- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+-- .user 2026-10-20 (pre-labo MAME sans fenetre, kof98, versus 3 contre 3 puis suite contre l'ordinateur) : relais natif calibre,
+-- VERIFIE SOUS FBNEO le 2026-10-20 : flux du wrapper (labo, PERSO=1) : vies, K.O., personnages perdus, personnage actif justes ; bruit du BIOS (0x55, 0xAA) et de la demo avant le match.
+-- adresses MAME absolues (0x100000 + offset ; l'officiel porte les decalages bruts FBNeo, octets inverses : 0x8238 = 0x108239).
+-- Vie du personnage actif sur un octet, 103 (0x67) au maximum, NEGATIVE au K.O. (0xF9, 0xFA) : bit 7 = K.O.
+-- Personnage actif (255 pendant les transitions), equipe dans l'ordre de passage, personnages perdus 0 a 2 : le troisieme K.O.
+-- finit le match sans incrementer le compteur (match gagne = 3e KNOCKED_OUT d'un cote, a l'API). Ordre interne mesure :
+-- 0 Kyo, 1 Benimaru, 2 Daimon, 3 Terry, 4 Andy, 5 Joe, 8 Yuri (le reste a completer au labo).
+-- A QUALIFIER au labo NelfeScoreLab (FBNeo, MAME) avant tout depot.
 return {
   game = {
     title = "The King of Fighters '98: The Slugfest",
     system = "arcade",
     system_name = "Arcade",
-    genre = "Unknown"
+    genre = "Fighter"
   },
 
   rom = {
@@ -15,71 +22,32 @@ return {
   },
 
   events = {
-    flow = {
-      lifecycle = {
-        { address=0X8502, type="u24le", condition="eq", value=0XC024, action="TITLE_SCREEN", desc="Title Screen" },
-        { address=0XFD8A, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - toggle continue" },
-        { address=0XFD8D, type="u8", condition="change", action="DEMO_MODE", desc="Soft Dip Setup - toggle demo sound" },
-        { address=0XFD90, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Soft Dip Setup - toggle continue" },
-        { address=0XFDB6, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
-        { address=0XFDB6, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
-        { address=0XFDB7, type="u8", condition="eq", value=0X02, action="CONTINUE_SCREEN", desc="continue" },
-        { address=0XFDB7, type="u8", condition="eq", value=0X03, action="GAME_OVER", desc="game over" },
-        { address=0XFEC4, type="u8", condition="change", action="DEMO_MODE", desc="Attract Mode : 00" },
-      },
-      events = {
-        { address=0X84B1, type="u8", condition="change", action="COMBO_HIT", desc="Hit's Combos:" },
-      },
-    },
-    progression = {
-      level = {
-        { address=0X00CE, type="u8", condition="change", action="NEW_LEVEL", desc="Difficulty Level" },
-        { address=0X00CE, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Level 1(beginner)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X01, action="NEW_LEVEL", desc="Level 2(easy)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X02, action="NEW_LEVEL", desc="Level 3 Normal (AES default)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X03, action="NEW_LEVEL", desc="Level 4(MVS default)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X04, action="NEW_LEVEL", desc="Level 5(Hard)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X05, action="NEW_LEVEL", desc="Level 6 (Very Hard)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X06, action="NEW_LEVEL", desc="Level 7 (Hardest)" },
-        { address=0X00CE, type="u8", condition="eq", value=0X07, action="NEW_LEVEL", desc="Level 8(Expert)" },
-        { address=0XA7F0, type="u8", condition="change", action="NEW_LEVEL", desc="Fight Rounds" },
-        { address=0XA84C, type="u8", condition="change", action="NEW_LEVEL", desc="P2 won rounds" },
-        { address=0XA85F, type="u8", condition="change", action="NEW_LEVEL", desc="P1 won rounds" },
-        { address=0XEC3F, type="u8", condition="change", action="NEW_LEVEL", desc="1P Rounds won" },
-      },
-      stage = {
-        { address=0X00CD, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Select:" },
-        { address=0X00CD, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="On" },
-        { address=0XEBE8, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression 16 bits (weak addr)" },
-        { address=0XEBF0, type="u16le", condition="change", action="PROGRESSION_STAGE", desc="Stage Progression 16 bits" },
-      },
-    },
-    resources = {
-      lives = {
-        { address=0X8438, type="u16le", condition="eq", value=0X0000, action="LOSE_LIFE", desc="Lowest possible health while alive, underflows when dead" },
-      },
-      health = {
-        { address=0X8238, type="u8", condition="increase", action="HEAL", desc="P1 health increased" },
-        { address=0X8238, type="u8", condition="decrease", action="HIT", desc="P1 health decreased" },
-        { address=0X8438, type="u16le", condition="change", action="HEALTH_STATE", no_log=true, desc="Player 2 health" },
-      },
-    },
     scoring = {
       points = {
-        { address=0X81FC, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X81FC, type="u32be", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (ligne de l'officiel, decalage brut FBNeo, non mesuree)" },
       },
     },
-    system = {
-      timer = {
-        { address=0XA83B, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="bcd", desc="Timer: Decimal (BCD)" },
-        { address=0XEBFC, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Survivor timer upper part" },
-        { address=0XEBFC, type="u16le", condition="eq", value=0X4650, action="GENERAL_TIMER", desc="3 minutes" },
-        { address=0XEBFC, type="u16le", condition="eq", value=0X8CA0, action="GENERAL_TIMER", desc="6 minutes" },
-        { address=0XEBFC, type="u16le", condition="eq", value=0XEA60, action="GENERAL_TIMER", desc="10 minutes" },
-        { address=0XEBFE, type="u16le", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Survivor timer lower part" },
-        { address=0XEBFE, type="u16le", condition="eq", value=0X4650, action="GENERAL_TIMER", desc="3 minutes" },
-        { address=0XEBFE, type="u16le", condition="eq", value=0X8CA0, action="GENERAL_TIMER", desc="6 minutes" },
-        { address=0XEBFE, type="u16le", condition="eq", value=0XEA60, action="GENERAL_TIMER", desc="10 minutes" },
+    versus = {
+      health = {
+        { address=0X108239, type="u8", condition="change", action="HEALTH_STATE", player=1, desc="P1 vie du personnage actif (103 au maximum, negative au K.O.)" },
+        { address=0X108439, type="u8", condition="change", action="HEALTH_STATE", player=2, desc="P2 vie du personnage actif (103 au maximum, negative au K.O.)" },
+        { address=0X108239, type="u8", condition="bit_true", mask=0X80, action="KNOCKED_OUT", player=1, desc="P1 personnage actif mis K.O. (vie negative)" },
+        { address=0X108439, type="u8", condition="bit_true", mask=0X80, action="KNOCKED_OUT", player=2, desc="P2 personnage actif mis K.O. (vie negative)" },
+      },
+      team = {
+        { address=0X108257, type="u8", condition="change", action="CHARACTER_SELECTED", player=1, desc="P1 personnage actif, id interne (255 en transition)" },
+        { address=0X108457, type="u8", condition="change", action="CHARACTER_SELECTED", player=2, desc="P2 personnage actif, id interne (255 en transition)" },
+        { address=0X10A84D, type="u8", condition="increase", action="MEMBER_LOST", player=1, desc="P1 personnages perdus (0 a 2)" },
+        { address=0X10A85E, type="u8", condition="increase", action="MEMBER_LOST", player=2, desc="P2 personnages perdus (0 a 2)" },
+        { address=0X10A84E, type="u8", condition="change", action="TEAM_MEMBER", player=1, desc="P1 equipe, 1er a passer" },
+        { address=0X10A84F, type="u8", condition="change", action="TEAM_MEMBER", player=1, desc="P1 equipe, 2e a passer" },
+        { address=0X10A850, type="u8", condition="change", action="TEAM_MEMBER", player=1, desc="P1 equipe, 3e a passer" },
+        { address=0X10A85F, type="u8", condition="change", action="TEAM_MEMBER", player=2, desc="P2 equipe, 1er a passer" },
+        { address=0X10A860, type="u8", condition="change", action="TEAM_MEMBER", player=2, desc="P2 equipe, 2e a passer" },
+        { address=0X10A861, type="u8", condition="change", action="TEAM_MEMBER", player=2, desc="P2 equipe, 3e a passer" },
+      },
+      rounds = {
+        { address=0X10A83A, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="round", timer_direction="down", timer_unit="seconds", no_log=true, no_survey=true, desc="Minuteur du combat, BCD (60 au depart)" },
       },
     },
   },

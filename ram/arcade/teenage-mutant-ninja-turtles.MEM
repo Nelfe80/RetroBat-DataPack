@@ -1,3 +1,12 @@
+-- .user 2026-10-20 (coop, pre-labo MAME sans fenetre a quatre, une piece par fente) : une fiche de 8 octets par joueur a
+-- 0x060100 + 8 x (joueur - 1), chaque fente donnant sa tortue (1 Leonardo, 2 Michelangelo, 3 Donatello, 4 Raphael).
+-- +1 reserve de vies (+2 a la piece, -1 a l'arrivee, -1 a chaque mort), +4 score u16be BCD (joueur 1 deja verifie,
+-- les trois autres par la meme fiche, pas vus monter : les tortues immobiles ne marquent pas), +6 sante (0x0A au depart,
+-- 0 a la mort), +7 etat (02 en jeu ; a la derniere mort 04, 24, 44, 64, 00 puis 01 pendant le compte a rebours du
+-- continue ; 02 au retour). Mesure : arrivees a 1412, 1412, 1512, 1653 ; derniere vie perdue a 3964, 3607, 2804, 3509.
+-- 2026-10-21 : ligne CREDITS sur 0x060101 RETIREE (c'est la reserve de vies du joueur 1 : chaque mort y faisait -1, que le
+-- reporter prenait pour un continue). Sans ligne CREDITS ni CONTINUES, le 1CC de TMNT n'est pas verifiable : le jeu ne
+-- s'ouvre pas au scoring tant qu'un signal de continue (piece en pleine partie) n'est pas trouve.
 -- .user 2026-10-19 (labo) : CREDITS 0x060101 (2 par piece ; l'ancienne ligne « vies » 0x60101 etait les credits). Score 0x60104 et credits justes sous MAME autonome et FBNeo (entree Drv68KRam de mame-banks.json).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
@@ -51,7 +60,6 @@ return {
     },
     resources = {
       credits = {
-        { address=0X060101, type="u8", condition="change", action="CREDITS", desc="Credits (MAME 0x060101, mesure 2026-10-18 : 0, 2, 4, deux credits par piece)" },
       },
       lives = {
         { address=0X0091, type="u8", condition="increase", action="GAIN_LIFE", desc="Core-Setting Max Lives, Verbatim, increased" },
@@ -59,14 +67,33 @@ return {
         { address=0X0100, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
         { address=0X0100, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
         { address=0X2009, type="u8", condition="change", action="LOSE_LIFE", desc="Player 1 HP, starts at 0x0a, dies at 0x00," },
+        { address=0X060101, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="P1 (Leonardo) reserve de vies" },
+        { address=0X060101, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="P1 (Leonardo) reserve de vies (+2 a la piece)" },
+        { address=0X060109, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="P2 (Michelangelo) reserve de vies" },
+        { address=0X060109, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="P2 (Michelangelo) reserve de vies (+2 a la piece)" },
+        { address=0X060111, type="u8", condition="decrease", action="LOSE_LIFE", player=3, desc="P3 (Donatello) reserve de vies" },
+        { address=0X060111, type="u8", condition="increase", action="GAIN_LIFE", player=3, desc="P3 (Donatello) reserve de vies (+2 a la piece)" },
+        { address=0X060119, type="u8", condition="decrease", action="LOSE_LIFE", player=4, desc="P4 (Raphael) reserve de vies" },
+        { address=0X060119, type="u8", condition="increase", action="GAIN_LIFE", player=4, desc="P4 (Raphael) reserve de vies (+2 a la piece)" },
+        { address=0X060107, type="u8", condition="change", action="PLAYER_STATE", player=1, desc="P1 etat (02 en jeu, 01 compte a rebours du continue)" },
+        { address=0X06010F, type="u8", condition="change", action="PLAYER_STATE", player=2, desc="P2 etat (02 en jeu, 01 compte a rebours du continue)" },
+        { address=0X060117, type="u8", condition="change", action="PLAYER_STATE", player=3, desc="P3 etat (02 en jeu, 01 compte a rebours du continue)" },
+        { address=0X06011F, type="u8", condition="change", action="PLAYER_STATE", player=4, desc="P4 etat (02 en jeu, 01 compte a rebours du continue)" },
       },
       health = {
         { address=0X62008, type="u8", condition="decrease", action="HIT", desc="player1_die: energy" },
+        { address=0X060106, type="u8", condition="change", action="HEALTH_STATE", player=1, desc="P1 sante (0x0A au depart, 0 a la mort)" },
+        { address=0X06010E, type="u8", condition="change", action="HEALTH_STATE", player=2, desc="P2 sante (0x0A au depart, 0 a la mort)" },
+        { address=0X060116, type="u8", condition="change", action="HEALTH_STATE", player=3, desc="P3 sante (0x0A au depart, 0 a la mort)" },
+        { address=0X06011E, type="u8", condition="change", action="HEALTH_STATE", player=4, desc="P4 sante (0x0A au depart, 0 a la mort)" },
       },
     },
     scoring = {
       points = {
         { address=0X60104, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X06010C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", player=2, desc="Player 2 score (meme fiche que le joueur 1)" },
+        { address=0X060114, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", player=3, desc="Player 3 score (meme fiche que le joueur 1)" },
+        { address=0X06011C, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", player=4, desc="Player 4 score (meme fiche que le joueur 1)" },
       },
       collectibles = {
         { address=0X0302, type="u8", condition="increase", action="COIN_GAIN", desc="Core-Settings Coins Slot A: increased" },

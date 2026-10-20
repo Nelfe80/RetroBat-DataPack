@@ -1,3 +1,10 @@
+-- .user 2026-10-20 (speedrun, pre-labo MAME sans fenetre, machine PAL, ROM (E), 1-1 fini par un bot) :
+-- 0x000E (routine du joueur) : 7 entree, 8 commandes au joueur (image 351), 4 descente du mat (1707), 5 fin du niveau,
+-- 6 vie perdue (image 1101, chute dans un trou, vies 0x075A 2 -> 1). La ligne GAME_OVER sur 0x000E = 6 parlait donc a
+-- chaque mort : passee en LOSE_LIFE ; la fin de partie reste 0x075A = 0xFF. Mat : 0x001D = 3 a l'image 1707 (LEVEL_CLEAR).
+-- Chrono du jeu en chiffres 0x07F8 (centaines), 0x07F9 (dizaines), 0x07FA (unites) : 400 au depart, premier tic a 371
+-- (20 images apres la main au joueur, une unite toutes les 20 images en PAL), fige au mat, puis compte vite vers 0 pour
+-- les points ; niveau suivant 0x075C 0 -> 1 a 2385. Course du bot : 1356 images de la main au joueur au mat.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -18,7 +25,8 @@ return {
   events = {
     flow = {
       lifecycle = {
-        { address=0X000E, type="u8", condition="eq", value=0X6, action="GAME_OVER", desc="Game Over" },
+        { address=0X000E, type="u8", condition="eq", value=0X6, action="LOSE_LIFE", desc="PlayerLoseLife : chaque vie perdue (mesure 2026-10-20), pas la fin de partie" },
+        { address=0X000E, type="u8", condition="eq", value=0X4, action="LEVEL_CLEAR", desc="FlagpoleSlide : descente du mat, chrono fige" },
         { address=0X00FA, type="u8", condition="change", action="PAUSE_ON", desc="Pause sfx register" },
         { address=0X0500, type="u8", condition="change", action="TITLE_SCREEN", desc="Title sprite (from 0x500 to 0x69F)" },
         { address=0X075A, type="u8", condition="eq", value=0XFF, action="GAME_OVER", desc="0 (game over)" },
@@ -141,6 +149,7 @@ return {
       },
       player = {
         { address=0X001D, type="u8", condition="eq", value=0X02, action="JUMPING", no_log=true, no_survey=true, desc="falling off a platform, 03:sliding down flagpole" },
+        { address=0X001D, type="u8", condition="eq", value=0X03, action="LEVEL_CLEAR", desc="Mario au mat (mesure 2026-10-20)" },
         { address=0X00F1, type="u8", condition="bit_true", mask=0X01, action="JUMPING", no_log=true, no_survey=true, desc="ljump" },
         { address=0X00F1, type="u8", condition="bit_true", mask=0X80, action="JUMPING", no_log=true, no_survey=true, desc="sjump" },
         { address=0X0704, type="u8", condition="change", action="SWIMMING", no_log=true, no_survey=true, desc="Can swim flag" },
@@ -155,6 +164,9 @@ return {
       timer = {
         { address=0X0000, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Enemy Types list" },
         { address=0X0484, type="u8", condition="change", action="COMBO_TIMER", timer_kind="game", timer_role="combo", timer_direction="unknown", timer_unit="unknown", no_log=true, desc="Combo counter" },
+        { address=0X07F8, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="down", timer_unit="unknown", desc="Chrono du niveau, chiffre des centaines (400 au depart)" },
+        { address=0X07F9, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="down", timer_unit="unknown", desc="Chrono du niveau, chiffre des dizaines" },
+        { address=0X07FA, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="down", timer_unit="unknown", desc="Chrono du niveau, chiffre des unites (20 images par unite en PAL)" },
         { address=0X0717, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Demo timer - seconds" },
         { address=0X0777, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Timer when (un)pausing, you can only re/unpause when this is zero" },
       },

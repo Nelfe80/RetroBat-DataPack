@@ -1,3 +1,10 @@
+-- .user 2026-10-20 (coop, pre-labo MAME sans fenetre a quatre, ga2) : adresses du bus V60 de MAME (memoire de travail
+-- 0x200000, les decalages du .MEM s'y ajoutent). QUATRE JOUEURS SEULEMENT AVEC « CABINET TYPE 4P » : reglage du menu de
+-- test (GAME ASSIGNMENTS), garde dans l'EEPROM ; par defaut 2P et les START 3 et 4 ne font rien. Une fiche par joueur tous
+-- les 0x100 a 0x20B400 : +0x30 vies (2 au depart, 1, 0), +0x4C morts (0, 1, 2), +0x3B compte a rebours du continue.
+-- Sante dans la fiche d'objet, tous les 0x140 a 0x20010C (24 au depart, remise a 24 a chaque mort). Mesure : morts du
+-- joueur 1 vers 4800, des joueurs 2 et 3 vers 5100, du joueur 4 vers 6000, chaque fois avec la sante remise a 24.
+-- Personnage non tranche (+0x12 vaut 0 a 3 et +0x24 1 a 4, chacun avec son curseur par defaut).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -59,6 +66,14 @@ return {
     },
     resources = {
       lives = {
+        { address=0X20B430, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="P1 vies (2 au depart)" },
+        { address=0X20B430, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="P1 vies remontees (continue)" },
+        { address=0X20B530, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="P2 vies (2 au depart)" },
+        { address=0X20B530, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="P2 vies remontees (continue)" },
+        { address=0X20B630, type="u8", condition="decrease", action="LOSE_LIFE", player=3, desc="P3 vies (2 au depart)" },
+        { address=0X20B630, type="u8", condition="increase", action="GAIN_LIFE", player=3, desc="P3 vies remontees (continue)" },
+        { address=0X20B730, type="u8", condition="decrease", action="LOSE_LIFE", player=4, desc="P4 vies (2 au depart)" },
+        { address=0X20B730, type="u8", condition="increase", action="GAIN_LIFE", player=4, desc="P4 vies remontees (continue)" },
         { address=0X0141, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Active" },
         { address=0X0141, type="u8", condition="eq", value=0X84, action="LOSE_LIFE", desc="Inactive (playing)" },
         { address=0XACB9, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", desc="Active" },
@@ -68,6 +83,10 @@ return {
         { address=0X91F0E, type="u8", condition="change", action="LOSE_LIFE", desc="Death Count - All Players" },
       },
       health = {
+        { address=0X20010C, type="u8", condition="change", action="HEALTH_STATE", player=1, desc="P1 sante (24 au depart)" },
+        { address=0X20024C, type="u8", condition="change", action="HEALTH_STATE", player=2, desc="P2 sante (24 au depart)" },
+        { address=0X20038C, type="u8", condition="change", action="HEALTH_STATE", player=3, desc="P3 sante (24 au depart)" },
+        { address=0X2004CC, type="u8", condition="change", action="HEALTH_STATE", player=4, desc="P4 sante (24 au depart)" },
         { address=0X010C, type="u8", condition="increase", action="HEAL", desc="Player 1 - Health increased" },
         { address=0X010C, type="u8", condition="decrease", action="HIT", desc="Player 1 - Health decreased" },
       },

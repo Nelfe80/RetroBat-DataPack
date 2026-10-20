@@ -1,3 +1,9 @@
+-- .user 2026-10-20 (versus, pre-labo MAME snespal sans fenetre, ROM (Europe), reconnue par l'alias du Data Pack) :
+-- decalages depuis 0x7E0000, comme le reste du .MEM. BATTLE GAME au titre (bas puis START), reglages par defaut : joueurs
+-- 1 et 2 humains, 3 et 4 l'ordinateur. START en bataille met en PAUSE. Trophees (manches gagnees) tous les 2 octets :
+-- joueur 1 0x5E66, joueur 2 0x5E68, joueur 3 0x5E6A, joueur 4 0x5E6C ; mesure : le joueur 3 gagne deux manches (8034,
+-- 12434, « 2 » au compteur rouge du bandeau), le joueur 4 une (19834) ; joueurs 1 et 2 par le meme pas, pas vus gagner.
+-- Nombre de manches d'un match non mesure (le match continuait a 2 trophees).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -16,6 +22,14 @@ return {
   },
 
   events = {
+    versus = {
+      rounds = {
+        { address=0X5E66, type="u8", condition="increase", action="ROUND_WON", player=1, desc="P1 trophees de bataille (par le pas de 2, non vu)" },
+        { address=0X5E68, type="u8", condition="increase", action="ROUND_WON", player=2, desc="P2 trophees de bataille (par le pas de 2, non vu)" },
+        { address=0X5E6A, type="u8", condition="increase", action="ROUND_WON", player=3, desc="P3 trophees de bataille" },
+        { address=0X5E6C, type="u8", condition="increase", action="ROUND_WON", player=4, desc="P4 trophees de bataille" },
+      },
+    },
     progression = {
       zone = {
         { address=0X5AAC, type="u8", condition="change", action="PROGRESSION_ZONE", desc="01 : Lights ON at World 5" },

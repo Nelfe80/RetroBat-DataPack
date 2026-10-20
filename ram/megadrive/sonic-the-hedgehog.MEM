@@ -1,3 +1,9 @@
+-- .user 2026-10-20 (speedrun, pre-labo MAME sans fenetre, Green Hill acte 1 fini en 0:47 par un bot) : adresses du .MEM
+-- = octets de chaque mot inverses (0xFE1F ici = 0xFFFE1E du bus). Chrono du jeu actif (0xFE1F) : 1 a l'image 909, pendant
+-- le carton du titre, avant la main au joueur (0xF601 = 0C a 934) ; 0 au panneau (image 3754, son 0xCF en 0xF008, temps
+-- fige a 0:47 + 1 image), 0 aussi a chaque mort. Fin d'acte = 0xF7CD a 1 (image 3878, decompte des bonus, retombe a 0 au
+-- debut de l'acte 2 ; jamais a une mort) : ligne LEVEL_CLEAR ajoutee. La ligne 0xF00A = A1 n'est pas le panneau : 0xA1
+-- est le son du point de controle (lampadaire), jamais entendu dans l'acte. La ligne 0xF7CC lit l'octet voisin (reste 0).
 -- .user 2026-09-30 : ligne CONTINUES verifiee sous MAME (sonde), repart de l'officiel.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
@@ -178,7 +184,7 @@ return {
       objects = {
         { address=0XD023, type="u8", condition="bit_true", mask=0X08, action="OBJECT_INTERACTION", desc="On Object" },
         { address=0XD023, type="u8", condition="bit_true", mask=0X40, action="ENVIRONMENT_UNDERWATER", desc="Underwater" },
-        { address=0XF00A, type="u8", condition="eq", value=0XA1, action="OBJECT_INTERACTION_CHECKPOINT", desc="Signpost" },
+        { address=0XF00A, type="u8", condition="eq", value=0XA1, action="OBJECT_INTERACTION_CHECKPOINT", desc="Lamppost (son du point de controle, pas le panneau)" },
         { address=0XF00A, type="u8", condition="eq", value=0XAC, action="OBJECT_DESTROYED", desc="Object broken" },
         { address=0XF00A, type="u8", condition="eq", value=0XB7, action="OBJECT_INTERACTION", desc="Object pushed" },
         { address=0XF00A, type="u8", condition="eq", value=0XB9, action="OBJECT_DESTROYED", desc="Floor destroyed" },
@@ -186,6 +192,7 @@ return {
         { address=0XF00A, type="u8", condition="eq", value=0XC3, action="OBJECT_INTERACTION", desc="Big Ring" },
         { address=0XF7A6, type="u8", condition="eq", value=0X02, action="OBJECT_DESTROYED", desc="Capsule destroyed" },
         { address=0XF7CC, type="u8", condition="eq", value=0X01, action="OBJECT_INTERACTION", desc="Yes" },
+        { address=0XF7CD, type="u8", condition="eq", value=0X01, action="LEVEL_CLEAR", desc="Fin d acte : commandes bloquees pour le decompte des bonus (mesure 2026-10-20)" },
       },
     },
     system = {
