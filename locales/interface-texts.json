@@ -206,7 +206,17 @@
         "multiplayer.refused.not_a_friend": "Only a friend can be invited",
         "multiplayer.refused.already_with_you": "Already with you",
         "multiplayer.refused.not_in_room": "Join the gameroom first",
-        "multiplayer.refused.other": "Could not join a gameroom"
+        "multiplayer.refused.other": "Could not join a gameroom",
+        "multiplayer.invitation": "{player} invites you to {game}",
+        "multiplayer.invitation.help": "Hold to join · back to decline",
+        "multiplayer.selection": "YOUR SELECTION",
+        "multiplayer.selection.help": "You will be called when the game starts",
+        "multiplayer.selection.away": "Away: press a button to come back",
+        "multiplayer.result.classic": "GAME OVER · CLASSIC",
+        "multiplayer.result.title": "GAME OVER",
+        "multiplayer.result.playtime": "PLAYTIME",
+        "multiplayer.result.classic_note": "Ranking and stats once this game is calibrated for NelfePlay",
+        "multiplayer.help.replay": "hold: play again"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -415,7 +425,17 @@
         "multiplayer.refused.not_a_friend": "Only a friend can be invited",
         "multiplayer.refused.already_with_you": "Already with you",
         "multiplayer.refused.not_in_room": "Join the gameroom first",
-        "multiplayer.refused.other": "Could not join a gameroom"
+        "multiplayer.refused.other": "Could not join a gameroom",
+        "multiplayer.invitation": "{player} invites you to {game}",
+        "multiplayer.invitation.help": "Hold to join · back to decline",
+        "multiplayer.selection": "YOUR SELECTION",
+        "multiplayer.selection.help": "You will be called when the game starts",
+        "multiplayer.selection.away": "Away: press a button to come back",
+        "multiplayer.result.classic": "GAME OVER · CLASSIC",
+        "multiplayer.result.title": "GAME OVER",
+        "multiplayer.result.playtime": "PLAYTIME",
+        "multiplayer.result.classic_note": "Ranking and stats once this game is calibrated for NelfePlay",
+        "multiplayer.help.replay": "hold: play again"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -624,7 +644,17 @@
         "multiplayer.refused.not_a_friend": "Seul un ami peut être invité",
         "multiplayer.refused.already_with_you": "Déjà avec vous",
         "multiplayer.refused.not_in_room": "Rejoignez d'abord la gameroom",
-        "multiplayer.refused.other": "Impossible de rejoindre une gameroom"
+        "multiplayer.refused.other": "Impossible de rejoindre une gameroom",
+        "multiplayer.invitation": "{player} vous invite à {game}",
+        "multiplayer.invitation.help": "Maintenez pour rejoindre · retour pour refuser",
+        "multiplayer.selection": "VOTRE SÉLECTION",
+        "multiplayer.selection.help": "Vous serez appelé au départ de la partie",
+        "multiplayer.selection.away": "Absent : un appui pour revenir",
+        "multiplayer.result.classic": "PARTIE TERMINÉE · CLASSIQUE",
+        "multiplayer.result.title": "PARTIE TERMINÉE",
+        "multiplayer.result.playtime": "TEMPS DE JEU",
+        "multiplayer.result.classic_note": "Classement et stats quand ce jeu sera calibré NelfePlay",
+        "multiplayer.help.replay": "maintenu : rejouer"
     },
     "cs_cz": {
         "label.metadata.name": "název",
