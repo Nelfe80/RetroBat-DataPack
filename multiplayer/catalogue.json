@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-21.1",
+  "revision": "2026-10-21.2",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -35,16 +35,16 @@
 
     { "id": "megadrive/micro-machines-2", "system": "megadrive", "content": { "md5": ["a145194b26c433c8a7159a00bafaba06"], "crc": ["42bfb7eb"], "size": [1048576] }, "name": "Micro Machines 2: Turbo Tournament", "family": "course", "players": 4, "level": "classique" },
     { "id": "arcade/esckids", "system": "arcade", "set": "esckids", "name": "Escape Kids", "family": "course", "players": 4, "level": "classique" },
-    { "id": "gba/mario-kart-super-circuit", "system": "gba", "content": { "md5": ["784a036ff1aae709e90167186639b75e"], "crc": ["ed316e37"], "size": [4194304] }, "name": "Mario Kart: Super Circuit", "family": "course", "players": 4, "level": "classique" },
+    { "id": "gba/mario-kart-super-circuit", "system": "gba", "content": { "md5": ["784a036ff1aae709e90167186639b75e", "f99fb545ac65126e9956a7718c30d6a3"], "crc": ["ed316e37", "20025842"], "size": [4194304] }, "name": "Mario Kart: Super Circuit", "family": "course", "players": 4, "level": "classique" },
     { "id": "gba/f-zero-maximum-velocity", "system": "gba", "content": { "md5": ["55c14323547aa4f83e5eede98d0417f3"], "crc": ["bd5e9798"], "size": [4194304] }, "name": "F-Zero: Maximum Velocity", "family": "course", "players": 4, "level": "classique" },
     { "id": "arcade/orunners", "system": "arcade", "set": "orunners", "name": "OutRunners", "family": "course", "players": 2, "level": "classique" },
     { "id": "arcade/scross", "system": "arcade", "set": "scross", "name": "Stadium Cross", "family": "course", "players": 2, "level": "classique" },
     { "id": "arcade/wrally2", "system": "arcade", "set": "wrally2", "name": "World Rally 2: Twin Racing", "family": "course", "players": 2, "level": "classique" },
 
-    { "id": "gba/doom-ii", "system": "gba", "content": { "md5": ["efefee9082a83fc6e49f87510746eac0"], "crc": ["c885d9e9"], "size": [16777216] }, "name": "Doom II", "family": "fps", "players": 4, "level": "classique" },
-    { "id": "gba/duke-nukem-advance", "system": "gba", "content": { "md5": ["dfca43fb18b5ee86b3ecab2631862d6f"], "crc": ["06570282"], "size": [8388608] }, "name": "Duke Nukem Advance", "family": "fps", "players": 4, "level": "classique" },
+    { "id": "gba/doom-ii", "system": "gba", "content": { "md5": ["efefee9082a83fc6e49f87510746eac0", "3df76eb314f21144d2d68758c11dea5f"], "crc": ["c885d9e9", "60cd3207"], "size": [16777216] }, "name": "Doom II", "family": "fps", "players": 4, "level": "classique" },
+    { "id": "gba/duke-nukem-advance", "system": "gba", "content": { "md5": ["dfca43fb18b5ee86b3ecab2631862d6f", "54bc72ab1f56930ddb05c66f118d7608"], "crc": ["06570282", "dc7dab56"], "size": [8388608] }, "name": "Duke Nukem Advance", "family": "fps", "players": 4, "level": "classique" },
 
-    { "id": "gba/advance-wars-2", "system": "gba", "content": { "md5": ["46599031ef71117c587bd3666c326c07"], "crc": ["5ad0e571"], "size": [8388608] }, "name": "Advance Wars 2: Black Hole Rising", "family": "tour", "players": 4, "level": "classique" },
+    { "id": "gba/advance-wars-2", "system": "gba", "content": { "md5": ["46599031ef71117c587bd3666c326c07", "ad4cf738f97416827baf17d6c43576d7"], "crc": ["5ad0e571", "5a09aae6"], "size": [8388608] }, "name": "Advance Wars 2: Black Hole Rising", "family": "tour", "players": 4, "level": "classique" },
 
     { "id": "gba/mario-tennis-power-tour", "system": "gba", "content": { "md5": ["928c0bd4cf82b3fd6f34b53d4fd02e69", "f6c0a645317d6ed90abc4e04f7b33b46"], "crc": ["da192d29", "c8db4f60"], "size": [16777216] }, "name": "Mario Tennis: Power Tour", "family": "sport", "players": 4, "level": "classique" },
     { "id": "arcade/neocup98", "system": "arcade", "set": "neocup98", "name": "Neo Geo Cup '98", "family": "sport", "players": 2, "level": "classique" },
