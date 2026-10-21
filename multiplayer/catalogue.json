@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-21.3",
+  "revision": "2026-10-22.1",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -26,7 +26,7 @@
     { "id": "arcade/bbmanw", "system": "arcade", "set": "bbmanw", "name": "Bomber Man World", "family": "versus", "players": 4, "level": "classique" },
     { "id": "arcade/rampage", "system": "arcade", "set": "rampage", "name": "Rampage", "family": "versus", "players": 3, "level": "classique" },
 
-    { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "equipes", "players": 6, "level": "classique", "options": {"fbneo-dipswitch-harddunk-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 1, 1, 2, 2, 2] },
+    { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "coop", "players": 3, "level": "classique", "options": {"fbneo-dipswitch-harddunk-Multi-Screen_Mode": "Disabled"} },
     { "id": "arcade/nbajamte", "system": "arcade", "set": "nbajamte", "name": "NBA Jam Tournament Edition", "family": "equipes", "players": 4, "level": "classique" },
     { "id": "arcade/slammast", "system": "arcade", "set": "slammast", "name": "Saturday Night Slam Masters", "family": "equipes", "players": 4, "level": "classique" },
     { "id": "arcade/wwfwfest", "system": "arcade", "set": "wwfwfest", "name": "WWF WrestleFest", "family": "equipes", "players": 4, "level": "classique" },
