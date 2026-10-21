@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-21.2",
+  "revision": "2026-10-21.3",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -26,7 +26,7 @@
     { "id": "arcade/bbmanw", "system": "arcade", "set": "bbmanw", "name": "Bomber Man World", "family": "versus", "players": 4, "level": "classique" },
     { "id": "arcade/rampage", "system": "arcade", "set": "rampage", "name": "Rampage", "family": "versus", "players": 3, "level": "classique" },
 
-    { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "equipes", "players": 6, "level": "classique" },
+    { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "equipes", "players": 6, "level": "classique", "options": {"fbneo-dipswitch-harddunk-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 1, 1, 2, 2, 2] },
     { "id": "arcade/nbajamte", "system": "arcade", "set": "nbajamte", "name": "NBA Jam Tournament Edition", "family": "equipes", "players": 4, "level": "classique" },
     { "id": "arcade/slammast", "system": "arcade", "set": "slammast", "name": "Saturday Night Slam Masters", "family": "equipes", "players": 4, "level": "classique" },
     { "id": "arcade/wwfwfest", "system": "arcade", "set": "wwfwfest", "name": "WWF WrestleFest", "family": "equipes", "players": 4, "level": "classique" },
@@ -37,9 +37,9 @@
     { "id": "arcade/esckids", "system": "arcade", "set": "esckids", "name": "Escape Kids", "family": "course", "players": 4, "level": "classique" },
     { "id": "gba/mario-kart-super-circuit", "system": "gba", "content": { "md5": ["784a036ff1aae709e90167186639b75e", "f99fb545ac65126e9956a7718c30d6a3"], "crc": ["ed316e37", "20025842"], "size": [4194304] }, "name": "Mario Kart: Super Circuit", "family": "course", "players": 4, "level": "classique" },
     { "id": "gba/f-zero-maximum-velocity", "system": "gba", "content": { "md5": ["55c14323547aa4f83e5eede98d0417f3"], "crc": ["bd5e9798"], "size": [4194304] }, "name": "F-Zero: Maximum Velocity", "family": "course", "players": 4, "level": "classique" },
-    { "id": "arcade/orunners", "system": "arcade", "set": "orunners", "name": "OutRunners", "family": "course", "players": 2, "level": "classique" },
-    { "id": "arcade/scross", "system": "arcade", "set": "scross", "name": "Stadium Cross", "family": "course", "players": 2, "level": "classique" },
-    { "id": "arcade/wrally2", "system": "arcade", "set": "wrally2", "name": "World Rally 2: Twin Racing", "family": "course", "players": 2, "level": "classique" },
+    { "id": "arcade/orunners", "system": "arcade", "set": "orunners", "name": "OutRunners", "family": "course", "players": 2, "level": "classique", "options": {"fbneo-dipswitch-orunners-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 2] },
+    { "id": "arcade/scross", "system": "arcade", "set": "scross", "name": "Stadium Cross", "family": "course", "players": 2, "level": "classique", "options": {"fbneo-dipswitch-scross-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 2] },
+    { "id": "arcade/wrally2", "system": "arcade", "set": "wrally2", "name": "World Rally 2: Twin Racing", "family": "course", "players": 2, "level": "classique", "options": {"fbneo-dipswitch-wrally2-Monitors_(change_requires_Restart!)": "Two"}, "screens": 2, "seat_screens": [1, 2] },
 
     { "id": "gba/doom-ii", "system": "gba", "content": { "md5": ["efefee9082a83fc6e49f87510746eac0", "3df76eb314f21144d2d68758c11dea5f"], "crc": ["c885d9e9", "60cd3207"], "size": [16777216] }, "name": "Doom II", "family": "fps", "players": 4, "level": "classique" },
     { "id": "gba/duke-nukem-advance", "system": "gba", "content": { "md5": ["dfca43fb18b5ee86b3ecab2631862d6f", "54bc72ab1f56930ddb05c66f118d7608"], "crc": ["06570282", "dc7dab56"], "size": [8388608] }, "name": "Duke Nukem Advance", "family": "fps", "players": 4, "level": "classique" },
@@ -53,7 +53,7 @@
 
     { "id": "arcade/sf2ce", "system": "arcade", "set": "sf2ce", "name": "Street Fighter II' Champion Edition", "family": "duel", "players": 2, "level": "classique" },
     { "id": "arcade/sfiii3", "system": "arcade", "set": "sfiii3", "name": "Street Fighter III: 3rd Strike", "family": "duel", "players": 2, "level": "classique" },
-    { "id": "arcade/titlef", "system": "arcade", "set": "titlef", "name": "Title Fight", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/titlef", "system": "arcade", "set": "titlef", "name": "Title Fight", "family": "duel", "players": 2, "level": "classique", "options": {"fbneo-dipswitch-titlef-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 2] },
     { "id": "arcade/wjammers", "system": "arcade", "set": "wjammers", "name": "Windjammers", "family": "duel", "players": 2, "level": "classique" },
     { "id": "arcade/spf2t", "system": "arcade", "set": "spf2t", "name": "Super Puzzle Fighter II Turbo", "family": "duel", "players": 2, "level": "classique" },
     { "id": "arcade/pbobbl2n", "system": "arcade", "set": "pbobbl2n", "name": "Puzzle Bobble 2", "family": "duel", "players": 2, "level": "classique" },
