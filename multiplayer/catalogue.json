@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "revision": "2026-10-21.1",
+  "cores": {
+    "arcade": {
+      "core": "fbneo"
+    },
+    "megadrive": {
+      "core": "genesis_plus_gx"
+    },
+    "gba": {
+      "core": "mgba_splitscreen",
+      "options": {
+        "splitscreen_boot_menu": "off",
+        "splitscreen_players": "{players}",
+        "splitscreen_overlays": "off",
+        "splitscreen_layout": "focus"
+      },
+      "seat_options": {
+        "splitscreen_focus_player": "{seat}",
+        "splitscreen_audio": "player {seat}"
+      }
+    }
+  },
+  "games": [
+    { "id": "arcade/bbmanw", "system": "arcade", "set": "bbmanw", "name": "Bomber Man World", "family": "versus", "players": 4, "level": "classique" },
+    { "id": "arcade/rampage", "system": "arcade", "set": "rampage", "name": "Rampage", "family": "versus", "players": 3, "level": "classique" },
+
+    { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "equipes", "players": 6, "level": "classique" },
+    { "id": "arcade/nbajamte", "system": "arcade", "set": "nbajamte", "name": "NBA Jam Tournament Edition", "family": "equipes", "players": 4, "level": "classique" },
+    { "id": "arcade/slammast", "system": "arcade", "set": "slammast", "name": "Saturday Night Slam Masters", "family": "equipes", "players": 4, "level": "classique" },
+    { "id": "arcade/wwfwfest", "system": "arcade", "set": "wwfwfest", "name": "WWF WrestleFest", "family": "equipes", "players": 4, "level": "classique" },
+    { "id": "arcade/kof98", "system": "arcade", "set": "kof98", "name": "The King of Fighters '98", "family": "equipes", "players": 2, "relay_players": 6, "level": "classique" },
+    { "id": "arcade/mvsc", "system": "arcade", "set": "mvsc", "name": "Marvel vs. Capcom", "family": "equipes", "players": 2, "relay_players": 4, "level": "classique" },
+
+    { "id": "megadrive/micro-machines-2", "system": "megadrive", "content": { "md5": ["a145194b26c433c8a7159a00bafaba06"], "crc": ["42bfb7eb"], "size": [1048576] }, "name": "Micro Machines 2: Turbo Tournament", "family": "course", "players": 4, "level": "classique" },
+    { "id": "arcade/esckids", "system": "arcade", "set": "esckids", "name": "Escape Kids", "family": "course", "players": 4, "level": "classique" },
+    { "id": "gba/mario-kart-super-circuit", "system": "gba", "content": { "md5": ["784a036ff1aae709e90167186639b75e"], "crc": ["ed316e37"], "size": [4194304] }, "name": "Mario Kart: Super Circuit", "family": "course", "players": 4, "level": "classique" },
+    { "id": "gba/f-zero-maximum-velocity", "system": "gba", "content": { "md5": ["55c14323547aa4f83e5eede98d0417f3"], "crc": ["bd5e9798"], "size": [4194304] }, "name": "F-Zero: Maximum Velocity", "family": "course", "players": 4, "level": "classique" },
+    { "id": "arcade/orunners", "system": "arcade", "set": "orunners", "name": "OutRunners", "family": "course", "players": 2, "level": "classique" },
+    { "id": "arcade/scross", "system": "arcade", "set": "scross", "name": "Stadium Cross", "family": "course", "players": 2, "level": "classique" },
+    { "id": "arcade/wrally2", "system": "arcade", "set": "wrally2", "name": "World Rally 2: Twin Racing", "family": "course", "players": 2, "level": "classique" },
+
+    { "id": "gba/doom-ii", "system": "gba", "content": { "md5": ["efefee9082a83fc6e49f87510746eac0"], "crc": ["c885d9e9"], "size": [16777216] }, "name": "Doom II", "family": "fps", "players": 4, "level": "classique" },
+    { "id": "gba/duke-nukem-advance", "system": "gba", "content": { "md5": ["dfca43fb18b5ee86b3ecab2631862d6f"], "crc": ["06570282"], "size": [8388608] }, "name": "Duke Nukem Advance", "family": "fps", "players": 4, "level": "classique" },
+
+    { "id": "gba/advance-wars-2", "system": "gba", "content": { "md5": ["46599031ef71117c587bd3666c326c07"], "crc": ["5ad0e571"], "size": [8388608] }, "name": "Advance Wars 2: Black Hole Rising", "family": "tour", "players": 4, "level": "classique" },
+
+    { "id": "gba/mario-tennis-power-tour", "system": "gba", "content": { "md5": ["928c0bd4cf82b3fd6f34b53d4fd02e69", "f6c0a645317d6ed90abc4e04f7b33b46"], "crc": ["da192d29", "c8db4f60"], "size": [16777216] }, "name": "Mario Tennis: Power Tour", "family": "sport", "players": 4, "level": "classique" },
+    { "id": "arcade/neocup98", "system": "arcade", "set": "neocup98", "name": "Neo Geo Cup '98", "family": "sport", "players": 2, "level": "classique" },
+    { "id": "arcade/bstars2", "system": "arcade", "set": "bstars2", "name": "Baseball Stars 2", "family": "sport", "players": 2, "level": "classique" },
+    { "id": "arcade/strhoop", "system": "arcade", "set": "strhoop", "name": "Street Hoop", "family": "sport", "players": 2, "level": "classique" },
+
+    { "id": "arcade/sf2ce", "system": "arcade", "set": "sf2ce", "name": "Street Fighter II' Champion Edition", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/sfiii3", "system": "arcade", "set": "sfiii3", "name": "Street Fighter III: 3rd Strike", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/titlef", "system": "arcade", "set": "titlef", "name": "Title Fight", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/wjammers", "system": "arcade", "set": "wjammers", "name": "Windjammers", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/spf2t", "system": "arcade", "set": "spf2t", "name": "Super Puzzle Fighter II Turbo", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/pbobbl2n", "system": "arcade", "set": "pbobbl2n", "name": "Puzzle Bobble 2", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/magdrop3", "system": "arcade", "set": "magdrop3", "name": "Magical Drop III", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/tgm2", "system": "arcade", "set": "tgm2", "name": "Tetris The Grand Master 2", "family": "duel", "players": 2, "level": "classique" },
+
+    { "id": "arcade/tmnt2", "system": "arcade", "set": "tmnt2", "name": "Teenage Mutant Ninja Turtles: Turtles in Time", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/simpsons", "system": "arcade", "set": "simpsons", "name": "The Simpsons", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/ssriders", "system": "arcade", "set": "ssriders", "name": "Sunset Riders", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/ddsom", "system": "arcade", "set": "ddsom", "name": "Dungeons & Dragons: Shadow over Mystara", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/batcir", "system": "arcade", "set": "batcir", "name": "Battle Circuit", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/gauntlet", "system": "arcade", "set": "gauntlet", "name": "Gauntlet", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/xmen", "system": "arcade", "set": "xmen", "name": "X-Men", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/ga2", "system": "arcade", "set": "ga2", "name": "Golden Axe: The Revenge of Death Adder", "family": "coop", "players": 4, "level": "classique" },
+    { "id": "arcade/avsp", "system": "arcade", "set": "avsp", "name": "Alien vs. Predator", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/dino", "system": "arcade", "set": "dino", "name": "Cadillacs and Dinosaurs", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/bbusters", "system": "arcade", "set": "bbusters", "name": "Beast Busters", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/turbofrc", "system": "arcade", "set": "turbofrc", "name": "Turbo Force", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/gground", "system": "arcade", "set": "gground", "name": "Gain Ground", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/fixeight", "system": "arcade", "set": "fixeight", "name": "FixEight", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/mslug3", "system": "arcade", "set": "mslug3", "name": "Metal Slug 3", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/shocktro", "system": "arcade", "set": "shocktro", "name": "Shock Troopers", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/ffight", "system": "arcade", "set": "ffight", "name": "Final Fight", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/ddragon", "system": "arcade", "set": "ddragon", "name": "Double Dragon", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/altbeast", "system": "arcade", "set": "altbeast", "name": "Altered Beast", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/bublbobl", "system": "arcade", "set": "bublbobl", "name": "Bubble Bobble", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/gunforc2", "system": "arcade", "set": "gunforc2", "name": "GunForce II", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/snowbros", "system": "arcade", "set": "snowbros", "name": "Snow Bros.", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/pang", "system": "arcade", "set": "pang", "name": "Pang", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/blazstar", "system": "arcade", "set": "blazstar", "name": "Blazing Star", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/gigawing", "system": "arcade", "set": "gigawing", "name": "Giga Wing", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/inthunt", "system": "arcade", "set": "inthunt", "name": "In the Hunt", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/elvactr", "system": "arcade", "set": "elvactr", "name": "Elevator Action Returns", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/19xx", "system": "arcade", "set": "19xx", "name": "19XX: The War Against Destiny", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/dmnfrnt", "system": "arcade", "set": "dmnfrnt", "name": "Demon Front", "family": "coop", "players": 2, "level": "classique" }
+  ]
+}
