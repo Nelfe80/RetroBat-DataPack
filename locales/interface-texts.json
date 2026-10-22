@@ -232,7 +232,15 @@
         "multiplayer.stat.hits": "HITS",
         "multiplayer.stat.kos": "K.O.",
         "multiplayer.stat.perfects": "PERFECTS",
-        "multiplayer.stat.damage": "DAMAGE"
+        "multiplayer.stat.damage": "DAMAGE",
+        "multiplayer.result.abandon": "ABANDON",
+        "multiplayer.result.opponent_left": "OPPONENT LEFT",
+        "multiplayer.abandon.counter": "Abandon {n} of {limit}: at {limit}, 15 minutes without MULTIPLAYER. A match played to the end removes one.",
+        "multiplayer.abandon.opponent": "Your opponent left before the end: your rating does not move.",
+        "multiplayer.suspended.title": "MULTIPLAYER SUSPENDED",
+        "multiplayer.suspended.reason": "{n} matches left before the end",
+        "multiplayer.suspended.help": "a match played to the end removes one",
+        "multiplayer.refused.suspended": "MULTIPLAYER suspended: too many matches left before the end"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -467,7 +475,15 @@
         "multiplayer.stat.hits": "HITS",
         "multiplayer.stat.kos": "K.O.",
         "multiplayer.stat.perfects": "PERFECTS",
-        "multiplayer.stat.damage": "DAMAGE"
+        "multiplayer.stat.damage": "DAMAGE",
+        "multiplayer.result.abandon": "ABANDON",
+        "multiplayer.result.opponent_left": "OPPONENT LEFT",
+        "multiplayer.abandon.counter": "Abandon {n} of {limit}: at {limit}, 15 minutes without MULTIPLAYER. A match played to the end removes one.",
+        "multiplayer.abandon.opponent": "Your opponent left before the end: your rating does not move.",
+        "multiplayer.suspended.title": "MULTIPLAYER SUSPENDED",
+        "multiplayer.suspended.reason": "{n} matches left before the end",
+        "multiplayer.suspended.help": "a match played to the end removes one",
+        "multiplayer.refused.suspended": "MULTIPLAYER suspended: too many matches left before the end"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -702,7 +718,15 @@
         "multiplayer.stat.hits": "COUPS",
         "multiplayer.stat.kos": "K.O.",
         "multiplayer.stat.perfects": "PERFECTS",
-        "multiplayer.stat.damage": "DÉGÂTS"
+        "multiplayer.stat.damage": "DÉGÂTS",
+        "multiplayer.result.abandon": "ABANDON",
+        "multiplayer.result.opponent_left": "ADVERSAIRE PARTI",
+        "multiplayer.abandon.counter": "Abandon {n} sur {limit} : au {limit}e, 15 minutes sans MULTIPLAYER. Une partie jouée jusqu'au bout en efface un.",
+        "multiplayer.abandon.opponent": "Votre adversaire est parti avant la fin : votre cote reste la même.",
+        "multiplayer.suspended.title": "MULTIPLAYER SUSPENDU",
+        "multiplayer.suspended.reason": "{n} rencontres quittées avant la fin",
+        "multiplayer.suspended.help": "une partie jouée jusqu'au bout en efface une",
+        "multiplayer.refused.suspended": "MULTIPLAYER suspendu : trop de rencontres quittées avant la fin"
     },
     "cs_cz": {
         "label.metadata.name": "název",
