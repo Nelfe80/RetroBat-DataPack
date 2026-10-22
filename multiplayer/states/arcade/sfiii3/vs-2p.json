@@ -1,0 +1,23 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/sfiii3",
+  "situation": "vs-2p",
+  "description": "Ecran VS, 30 images apres la confirmation des super arts (Alex et Ryu, super art I) : les personnages s'ecrivent jusqu'a environ 170 images apres la confirmation (mesure du 22/10 : 170 pris, 215 trop tard), l'API ecrit 1,5 s apres le chargement. L'ecran VS montre encore Alex et Ryu, le combat prend les personnages ecrits.",
+  "state_file": "vs-2p-fbneo.state",
+  "state_sha256": "d591a777363c5496fe1b7ac5a9bc7b8c81e76cea2573f2697c2db0f31176a4da",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "fb8b5398c7208383e53624e33cfc8940b94eb9b7b70aebc073b418e242ac56b4",
+  "values_at_save": {
+    "p1_character": 1,
+    "p2_character": 2,
+    "p1_super_art": 0,
+    "p2_super_art": 0,
+    "p1_rounds": 0,
+    "p2_rounds": 0
+  },
+  "bench_verification": "19 personnages imposes depuis l'etat, noms lus a l'ecran du combat ; deux K.O. forces, manches 1 puis 2",
+  "certified": false,
+  "made_utc": "2026-10-22T13:58:00Z"
+}
