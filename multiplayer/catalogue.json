@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-22.1",
+  "revision": "2026-10-22.2",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -51,7 +51,7 @@
     { "id": "arcade/bstars2", "system": "arcade", "set": "bstars2", "name": "Baseball Stars 2", "family": "sport", "players": 2, "level": "classique" },
     { "id": "arcade/strhoop", "system": "arcade", "set": "strhoop", "name": "Street Hoop", "family": "sport", "players": 2, "level": "classique" },
 
-    { "id": "arcade/sf2ce", "system": "arcade", "set": "sf2ce", "name": "Street Fighter II' Champion Edition", "family": "duel", "players": 2, "level": "classique" },
+    { "id": "arcade/sf2ce", "system": "arcade", "set": "sf2ce", "name": "Street Fighter II' Champion Edition", "family": "duel", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/sf2ce/selection-2p-fbneo.state", "sha256": "298ae2cc85ef8f14801f30e3a269ae3a0eb941d1e7fcbc6db277ac644a2f2c94"}, "choices": [{"key": "character", "default": 0, "values": [{"value": 0, "name": "RYU"}, {"value": 1, "name": "E. HONDA"}, {"value": 2, "name": "BLANKA"}, {"value": 3, "name": "GUILE"}, {"value": 4, "name": "KEN"}, {"value": 5, "name": "CHUN-LI"}, {"value": 6, "name": "ZANGIEF"}, {"value": 7, "name": "DHALSIM"}, {"value": 8, "name": "M. BISON"}, {"value": 9, "name": "SAGAT"}, {"value": 10, "name": "BALROG"}, {"value": 11, "name": "VEGA"}], "seats": [{"seat": 1, "core_ram": "0x864E"}, {"seat": 2, "core_ram": "0x894E"}]}], "end": {"first_to": 2, "close_after_s": 5, "seats": [{"seat": 1, "core_ram": "0x864F"}, {"seat": 2, "core_ram": "0x894F"}]} },
     { "id": "arcade/sfiii3", "system": "arcade", "set": "sfiii3", "name": "Street Fighter III: 3rd Strike", "family": "duel", "players": 2, "level": "classique" },
     { "id": "arcade/titlef", "system": "arcade", "set": "titlef", "name": "Title Fight", "family": "duel", "players": 2, "level": "classique", "options": {"fbneo-dipswitch-titlef-Multi-Screen_Mode": "Enabled"}, "screens": 2, "seat_screens": [1, 2] },
     { "id": "arcade/wjammers", "system": "arcade", "set": "wjammers", "name": "Windjammers", "family": "duel", "players": 2, "level": "classique" },

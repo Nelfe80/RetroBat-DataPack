@@ -1,0 +1,25 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/sf2ce",
+  "situation": "selection-2p",
+  "description": "Selection des personnages, les deux joueurs entres (P1 sur Ryu, P2 sur Ken)",
+  "state_file": "selection-2p-fbneo.state",
+  "state_sha256": "298ae2cc85ef8f14801f30e3a269ae3a0eb941d1e7fcbc6db277ac644a2f2c94",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "b41d4b916401677a05cb482a4e8b282c7c2ded3e4342274f84eda378982d9ac8",
+  "recipe_id": "sf2ce-selection-2p-frames",
+  "recipe_version": 1,
+  "recipe_sha256": "c771d067d9490766924fcf2582e9ad005e10863673762da61b24242b47f30de0",
+  "values_at_save": {
+    "p1_character": 0,
+    "p2_character": 4,
+    "p1_rounds": 0,
+    "p2_rounds": 0
+  },
+  "lab_verdict": "PASSED",
+  "cold_verification": "3/3",
+  "certified": false,
+  "made_utc": "2026-10-22T10:16:19Z"
+}
