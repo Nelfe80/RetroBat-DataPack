@@ -1,0 +1,20 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/blazstar",
+  "situation": "selection-2p",
+  "description": "Selection des pilotes, les deux joueurs entres (ecran partage, P1 et P2 sur Caster), pendant le compte a rebours. L'octet de chaque place est le rang du pilote (Caster 0, Leefa 1, JB 2, Asayuki 3, Naomi Y 4, Kaoru Y 5) ; le jeu le prend a la validation comme a la fin du compte. Deux joueurs peuvent avoir le meme pilote. Le nom affiche reste l'ancien, le portrait et le vaisseau en jeu sont les bons.",
+  "state_file": "selection-2p-fbneo.state",
+  "state_sha256": "b51e1fea1843c4792d4752fc9ceaee7e40af3f5ddd86d4a1cd50ccbe6f05b434",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "ce757efc7d20cdbfae277a10ac09c086ae0e906d8d276a7cabe725f4f6df1ab8",
+  "values_at_save": {
+    "p1_ship": 0,
+    "p2_ship": 0
+  },
+  "bench_verification": "Asayuki et Kaoru Y imposes depuis l'etat : vaisseaux differents du temoin en jeu, avec et sans validation par les joueurs ; netplay hote et invite identiques 60 s (Leefa et Naomi Y), aucune desynchronisation. Mesure MAME : 1013B2 / 1013B3, FBNeo ^1.",
+  "certified": false,
+  "made_utc": "2026-10-23T23:31:00Z",
+  "min_api": "1.9.88"
+}
