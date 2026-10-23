@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gba/mario-kart-super-circuit",
+  "situation": "selection-2p",
+  "description": "Ecran des pilotes en VS 100cc, toutes les consoles reliees en Multi-Pak, les curseurs sur Random. Le pilote du joueur N est la case du curseur a 0x0202A8EC + 4(N-1), presente dans chaque console ; elle s'ecrit dans la console du joueur (carte du coeur, console N a +0x(N-1)0000000), la copie des autres consoles est ecrasee. Le nom affiche reste RANDOM jusqu'a la validation, le kart montre est le bon.",
+  "state_file": "selection-2p-mgba-splitscreen.state",
+  "state_sha256": "5953a53a182cdcd4fc1e6342c9c23140825c8fa6e0ea190e15dbf5bdad529af7",
+  "core": "mgba_splitscreen",
+  "core_sha256": "2e6060dd55245eb00dba95d2867f444c7c7edd7ef504db166c3854e963a8b3a8",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "aadc8b9f3c947ff6f610b6c8d7fddaaa9bea98b4bd43576df84f26c457ae1f90",
+  "content_md5": "784a036ff1aae709e90167186639b75e",
+  "values_at_save": {
+    "p1_character": 4,
+    "p2_character": 4
+  },
+  "bench_verification": "Charge dans un RetroArch neuf et apres RESET (coeur 2e6060dd) ; a 2, 3 et 4 consoles, le depart pret de l'API (MultiplayerBancTests) ecrit un pilote par place et chacun l'a a l'ecran des circuits ; netplay a deux, l'invite rejoint apres le depart : memes pilotes chez l'hote et l'invite, aucune desynchronisation du netplay",
+  "certified": false,
+  "made_utc": "2026-10-23T20:51:00Z",
+  "min_api": "1.9.89"
+}
