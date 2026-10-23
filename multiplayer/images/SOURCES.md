@@ -368,6 +368,21 @@ Source: MAME 0.286, area menu (flag of each team).
 | `images/arcade/neocup98/team/thailand.png` | THAILAND |
 | `images/arcade/neocup98/team/malaysia.png` | MALAYSIA |
 
+## arcade/orunners
+
+Source: MAME 0.286, car select screen (steering wheel).
+
+| Image | Name |
+|---|---|
+| `images/arcade/orunners/car/smooth-operator.png` | SMOOTH OPERATOR |
+| `images/arcade/orunners/car/bad-boy.png` | BAD BOY |
+| `images/arcade/orunners/car/road-monster.png` | ROAD MONSTER |
+| `images/arcade/orunners/car/quick-reactor.png` | QUICK REACTOR |
+| `images/arcade/orunners/car/wild-chaser.png` | WILD CHASER |
+| `images/arcade/orunners/car/mad-power.png` | MAD POWER |
+| `images/arcade/orunners/car/speed-buster.png` | SPEED BUSTER |
+| `images/arcade/orunners/car/easy-handling.png` | EASY HANDLING |
+
 ## arcade/sf2ce
 
 Source: MAME 0.286, player select screen (portrait of the selected fighter).
