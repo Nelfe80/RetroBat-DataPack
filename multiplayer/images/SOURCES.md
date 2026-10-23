@@ -7,10 +7,9 @@ Each image is a square PNG at the game's own pixel size; the panel scales it up 
 These images reproduce artwork of the games themselves and remain the property of their respective rights holders. They
 are not APIExpose data and are not covered by `DATA-LICENSE.md`.
 
-Two sources:
-
-- the public badge of a RetroAchievements achievement (`https://media.retroachievements.org/Badge/<badge>.png`);
-- a square cut from the game's own select screen, captured under MAME.
+Each image is a square cut from the game's own select screen, captured under MAME (or FBNeo where MAME cannot run
+the set). The `ra_badge` kept next to some images in `catalogue.json` is only the fallback of APIExpose 1.9.88 and
+earlier, which download that public RetroAchievements badge themselves; no badge is stored here.
 
 ## arcade/19xx
 
