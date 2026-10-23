@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/wjammers",
+  "situation": "selection-2p",
+  "description": "Selection des joueurs, les deux places entrees (P1 sur H. Mita, P2 sur B. Yoo), au debut du compte a rebours. L'octet de chaque place est le rang du curseur dans la grille (colonne par colonne), le jeu le prend a la fin du compte.",
+  "state_file": "selection-2p-fbneo.state",
+  "state_sha256": "bc75317ccd691db6b0a7de52e56deb479ebb186adf24d8e1be4762dbc55feabd",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "1846a55eaa394a3b3c84c74309847656178b46a539adf2df6bf176d4abb4348d",
+  "values_at_save": {
+    "p1_character": 0,
+    "p2_character": 3,
+    "p1_rounds": 0,
+    "p2_rounds": 0
+  },
+  "bench_verification": "6 personnages ; Wessel et Costa, Scott et Biaggi imposes depuis l'etat, drapeaux lus au match ; netplay hote et invite identiques, aucune desynchronisation ; rencontre au bout depuis l'etat (2 sets a 1), garde 0x100 a 3",
+  "certified": false,
+  "made_utc": "2026-10-23T16:30:00Z"
+}
