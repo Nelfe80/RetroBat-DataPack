@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-24.3",
+  "revision": "2026-10-24.4",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -86,7 +86,7 @@
     { "id": "arcade/blazstar", "system": "arcade", "set": "blazstar", "name": "Blazing Star", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/blazstar/selection-2p-fbneo.state", "sha256": "b51e1fea1843c4792d4752fc9ceaee7e40af3f5ddd86d4a1cd50ccbe6f05b434"}, "choices": [{"key": "ship", "default": 0, "values": [{"value": 0, "name": "CASTER", "image": "images/arcade/blazstar/ship/caster.png"}, {"value": 1, "name": "LEEFA", "image": "images/arcade/blazstar/ship/leefa.png"}, {"value": 2, "name": "JB", "image": "images/arcade/blazstar/ship/jb.png"}, {"value": 3, "name": "ASAYUKI", "image": "images/arcade/blazstar/ship/asayuki.png"}, {"value": 4, "name": "NAOMI Y", "image": "images/arcade/blazstar/ship/naomi-y.png"}, {"value": 5, "name": "KAORU Y", "image": "images/arcade/blazstar/ship/kaoru-y.png"}], "seats": [{"seat": 1, "core_ram": "0x13B3"}, {"seat": 2, "core_ram": "0x13B2"}]}] },
     { "id": "arcade/gigawing", "system": "arcade", "set": "gigawing", "name": "Giga Wing", "family": "coop", "players": 2, "level": "classique" },
     { "id": "arcade/inthunt", "system": "arcade", "set": "inthunt", "name": "In the Hunt", "family": "coop", "players": 2, "level": "classique" },
-    { "id": "arcade/elvactr", "system": "arcade", "set": "elvactr", "name": "Elevator Action Returns", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/elvactr", "system": "arcade", "set": "elvactr", "name": "Elevator Action Returns", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/elvactr/selection-2p-fbneo.state", "sha256": "46d480718707269a6fbd29dac300e572995c9ad2ba5801594520e3286a38ca7e"}, "choices": [{"key": "character", "default": 0, "distinct": true, "values": [{"value": 0, "name": "KART BRADFIELD", "image": "images/arcade/elvactr/character/kart-bradfield.png"}, {"value": 1, "name": "EDIE BURRET", "image": "images/arcade/elvactr/character/edie-burret.png"}, {"value": 2, "name": "JAD THE TAFF", "image": "images/arcade/elvactr/character/jad-the-taff.png"}], "seats": [{"seat": 1, "core_ram": "0xB73C"}, {"seat": 2, "core_ram": "0xB746"}]}] },
     { "id": "arcade/19xx", "system": "arcade", "set": "19xx", "name": "19XX: The War Against Destiny", "family": "coop", "players": 2, "level": "classique" },
     { "id": "arcade/dmnfrnt", "system": "arcade", "set": "dmnfrnt", "name": "Demon Front", "family": "coop", "players": 2, "level": "classique" }
   ]
