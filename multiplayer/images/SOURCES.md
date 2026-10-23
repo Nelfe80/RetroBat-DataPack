@@ -493,3 +493,52 @@ Source: MAME 0.286, select players screen.
 | `images/arcade/wwfwfest/character/earthquake.png` | EARTHQUAKE |
 | `images/arcade/wwfwfest/character/sgt-slaughter.png` | SGT. SLAUGHTER |
 | `images/arcade/wwfwfest/character/demolition.png` | DEMOLITION |
+
+## gba/f-zero-maximum-velocity
+
+Source: MAME 0.286 (gba), machine data screen.
+
+| Image | Name |
+|---|---|
+| `images/gba/f-zero-maximum-velocity/machine/hot-violet.png` | HOT VIOLET |
+| `images/gba/f-zero-maximum-velocity/machine/fire-ball.png` | FIRE BALL |
+| `images/gba/f-zero-maximum-velocity/machine/j-b-crystal.png` | J.B. CRYSTAL |
+| `images/gba/f-zero-maximum-velocity/machine/wind-walker.png` | WIND WALKER |
+
+## gba/mario-kart-super-circuit
+
+Source: MAME 0.286 (gba), choose a character screen.
+
+| Image | Name |
+|---|---|
+| `images/gba/mario-kart-super-circuit/character/mario.png` | MARIO |
+| `images/gba/mario-kart-super-circuit/character/luigi.png` | LUIGI |
+| `images/gba/mario-kart-super-circuit/character/peach.png` | PEACH |
+| `images/gba/mario-kart-super-circuit/character/toad.png` | TOAD |
+| `images/gba/mario-kart-super-circuit/character/yoshi.png` | YOSHI |
+| `images/gba/mario-kart-super-circuit/character/donkey-kong.png` | DONKEY KONG |
+| `images/gba/mario-kart-super-circuit/character/wario.png` | WARIO |
+| `images/gba/mario-kart-super-circuit/character/bowser.png` | BOWSER |
+
+## megadrive/micro-machines-2
+
+Source: MAME 0.286 (megadriv), character select screen.
+
+| Image | Name |
+|---|---|
+| `images/megadrive/micro-machines-2/character/spider.png` | SPIDER |
+| `images/megadrive/micro-machines-2/character/bruno.png` | BRUNO |
+| `images/megadrive/micro-machines-2/character/dwayne.png` | DWAYNE |
+| `images/megadrive/micro-machines-2/character/cherry.png` | CHERRY |
+| `images/megadrive/micro-machines-2/character/jethro.png` | JETHRO |
+| `images/megadrive/micro-machines-2/character/maria.png` | MARIA |
+| `images/megadrive/micro-machines-2/character/violet.png` | VIOLET |
+| `images/megadrive/micro-machines-2/character/edina.png` | EDINA |
+| `images/megadrive/micro-machines-2/character/suelee.png` | SUELEE |
+| `images/megadrive/micro-machines-2/character/jeremy.png` | JEREMY |
+| `images/megadrive/micro-machines-2/character/walter.png` | WALTER |
+| `images/megadrive/micro-machines-2/character/lisa.png` | LISA |
+| `images/megadrive/micro-machines-2/character/emile.png` | EMILE |
+| `images/megadrive/micro-machines-2/character/davey.png` | DAVEY |
+| `images/megadrive/micro-machines-2/character/delora.png` | DELORA |
+| `images/megadrive/micro-machines-2/character/chen.png` | CHEN |
