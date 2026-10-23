@@ -44,6 +44,19 @@ Source: MAME 0.286, character select screen.
 | `images/arcade/batcir/character/pink-ostrich.png` | PINK OSTRICH |
 | `images/arcade/batcir/character/captain-silver.png` | CAPTAIN SILVER |
 
+## arcade/blazstar
+
+Source: MAME 0.286, player select screen (pilot art, median of 15 frames to remove the flying demo).
+
+| Image | Name |
+|---|---|
+| `images/arcade/blazstar/ship/caster.png` | CASTER |
+| `images/arcade/blazstar/ship/leefa.png` | LEEFA |
+| `images/arcade/blazstar/ship/jb.png` | JB |
+| `images/arcade/blazstar/ship/asayuki.png` | ASAYUKI |
+| `images/arcade/blazstar/ship/naomi-y.png` | NAOMI Y |
+| `images/arcade/blazstar/ship/kaoru-y.png` | KAORU Y |
+
 ## arcade/bstars2
 
 Source: MAME 0.286, select team screen (logo of each team).
@@ -56,6 +69,19 @@ Source: MAME 0.286, select team screen (logo of each team).
 | `images/arcade/bstars2/team/taipei.png` | TAIPEI |
 | `images/arcade/bstars2/team/seoul.png` | SEOUL |
 | `images/arcade/bstars2/team/sydney.png` | SYDNEY |
+
+## arcade/ddsom
+
+Source: MAME 0.286, player select screen (face icon of the selected class).
+
+| Image | Name |
+|---|---|
+| `images/arcade/ddsom/character/fighter.png` | FIGHTER |
+| `images/arcade/ddsom/character/magic-user.png` | MAGIC-USER |
+| `images/arcade/ddsom/character/cleric.png` | CLERIC |
+| `images/arcade/ddsom/character/thief.png` | THIEF |
+| `images/arcade/ddsom/character/dwarf.png` | DWARF |
+| `images/arcade/ddsom/character/elf.png` | ELF |
 
 ## arcade/dino
 
