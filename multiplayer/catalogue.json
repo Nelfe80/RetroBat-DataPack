@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-23.3",
+  "revision": "2026-10-23.4",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -57,7 +57,7 @@
     { "id": "arcade/wjammers", "system": "arcade", "set": "wjammers", "name": "Windjammers", "family": "duel", "players": 2, "elo_type": "sport", "level": "classique", "end": {"first_to": 2, "close_after_s": 5, "seats": [{"seat": 1, "core_ram": "0x873"}, {"seat": 2, "core_ram": "0x8F3"}], "duel": {"core_ram": "0x100", "value": 3}} },
     { "id": "arcade/spf2t", "system": "arcade", "set": "spf2t", "name": "Super Puzzle Fighter II Turbo", "family": "duel", "players": 2, "elo_type": "puzzle", "level": "classique" },
     { "id": "arcade/pbobbl2n", "system": "arcade", "set": "pbobbl2n", "name": "Puzzle Bobble 2", "family": "duel", "players": 2, "elo_type": "puzzle", "level": "classique", "end": {"first_to": 2, "close_after_s": 5, "seats": [{"seat": 1, "core_ram": "0x57F4"}, {"seat": 2, "core_ram": "0x57F6"}]} },
-    { "id": "arcade/magdrop3", "system": "arcade", "set": "magdrop3", "name": "Magical Drop III", "family": "duel", "players": 2, "elo_type": "puzzle", "level": "classique" },
+    { "id": "arcade/magdrop3", "system": "arcade", "set": "magdrop3", "name": "Magical Drop III", "family": "duel", "players": 2, "elo_type": "puzzle", "level": "classique", "end": {"first_to": 2, "close_after_s": 5, "seats": [{"seat": 1, "core_ram": "0xFD"}, {"seat": 2, "core_ram": "0xFC"}], "duel": {"core_ram": "0xF9", "value": 2}} },
     { "id": "arcade/tgm2", "system": "arcade", "set": "tgm2", "name": "Tetris The Grand Master 2", "family": "duel", "players": 2, "elo_type": "puzzle", "level": "classique" },
 
     { "id": "arcade/tmnt2", "system": "arcade", "set": "tmnt2", "name": "Teenage Mutant Ninja Turtles: Turtles in Time", "family": "coop", "players": 4, "level": "classique" },
