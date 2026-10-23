@@ -1,0 +1,20 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/bstars2",
+  "situation": "selection-2p",
+  "description": "Selection des equipes en 1P VS 2P (P1 sur New York, P2 sur Sydney), a la fin du compte de l'ecran des equipes. L'octet de chaque place est le rang de l'equipe (New York Monsters 0, Tokyo Ninjas 1, Napoli Angels 2, Taipei Hawks 3, Seoul Ivorys 4, Sydney Griffons 5) ; le jeu le lit pour le match. Le jeu interdit deux joueurs sur la meme equipe (le curseur saute celle de l'autre), d'ou le choix distinct.",
+  "state_file": "selection-2p-fbneo.state",
+  "state_sha256": "9483cdbda9474d8711d0934efb9be3f7d2f32e3727a0c338dfe22c89bd335306",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "cbfb016c977510d25fac93a92a751cee14e1054a0ccb4476bfb5ce7e4ebfe082",
+  "values_at_save": {
+    "p1_team": 0,
+    "p2_team": 5
+  },
+  "bench_verification": "Taipei contre Tokyo (H-N) et Sydney contre Napoli (G et A) imposes depuis l'etat, lus au tableau du match ; netplay hote et invite identiques 60 s (Napoli et Seoul), aucune desynchronisation. Mesure MAME : 1043E7 / 1043E9, FBNeo ^1.",
+  "certified": false,
+  "made_utc": "2026-10-24T00:36:00Z",
+  "min_api": "1.9.89"
+}
