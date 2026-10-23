@@ -543,7 +543,7 @@ Source: MAME 0.286 (gba), machine data screen.
 
 ## gba/mario-kart-super-circuit
 
-Source: MAME 0.286 (gba), choose a character screen.
+Source: MAME 0.286 (gba) and mGBA Splitscreen (Random), choose a character screen.
 
 | Image | Name |
 |---|---|
@@ -555,6 +555,7 @@ Source: MAME 0.286 (gba), choose a character screen.
 | `images/gba/mario-kart-super-circuit/character/donkey-kong.png` | DONKEY KONG |
 | `images/gba/mario-kart-super-circuit/character/wario.png` | WARIO |
 | `images/gba/mario-kart-super-circuit/character/bowser.png` | BOWSER |
+| `images/gba/mario-kart-super-circuit/character/random.png` | RANDOM |
 
 ## megadrive/micro-machines-2
 
