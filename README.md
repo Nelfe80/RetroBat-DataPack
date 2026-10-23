@@ -8,7 +8,7 @@ The data files of [APIExpose](https://github.com/Nelfe80/RetroBat-APIExpose), pu
 | `dynpanels/` | Dynamic control panels (systems, cores, games) | `plugins\APIExpose\resources\dynpanels\` |
 | `gamelist/` | The game family table and notes (the localized gamelists are a per-cabinet cache, generated locally) | `plugins\APIExpose\resources\gamelist\` |
 | `controls/` | MAME `cfg` and FBNeo `rmp` packs | `plugins\APIExpose\resources\controls\` |
-| `multiplayer/` | The NelfePlay MULTIPLAYER catalogue: games playable over netplay, their identity (arcade set name, console content md5), the core every cabinet must use and its options | `plugins\APIExpose\resources\multiplayer\` |
+| `multiplayer/` | The NelfePlay MULTIPLAYER catalogue: games playable over netplay, their identity (arcade set name, console content md5), the core every cabinet must use and its options; the ready-start states; the image of each player choice (character, vehicle, team) under `images/`, with their origin in `images/SOURCES.md` | `plugins\APIExpose\resources\multiplayer\` |
 | `config-ESmenus/`, `locales/`, `scraping/`, `startup-overlay/`, `theme/hiscore/`, `theme/images/` | Menu fragments and their locales, interface texts, scraping references, startup overlay, hi2txt descriptors, panel artwork | same folders under `resources\` |
 
 The per-system ROM databases (`gamelist/systems/*_lt.json`, up to 161 MB each) are published as assets of the [`gamelist` release](../../releases/tag/gamelist), one archive per system, with a manifest of content hashes.
