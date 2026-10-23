@@ -349,44 +349,48 @@ Source: MAME 0.286, area menu (flag of each team).
 
 ## arcade/sf2ce
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/sf2ce/character/ryu.png` | RYU | 307536 | Ryu |
-| `images/arcade/sf2ce/character/e-honda.png` | E. HONDA | 307537 | Edmond Honda |
-| `images/arcade/sf2ce/character/blanka.png` | BLANKA | 307538 | Jimmy |
-| `images/arcade/sf2ce/character/guile.png` | GUILE | 307539 | William F. Guile |
-| `images/arcade/sf2ce/character/ken.png` | KEN | 307540 | Ken Masters |
-| `images/arcade/sf2ce/character/chun-li.png` | CHUN-LI | 307541 | Chun-Li |
-| `images/arcade/sf2ce/character/zangief.png` | ZANGIEF | 307542 | Zangief |
-| `images/arcade/sf2ce/character/dhalsim.png` | DHALSIM | 307543 | Dhalsim |
-| `images/arcade/sf2ce/character/m-bison.png` | M. BISON | 307544 | Master Bison |
-| `images/arcade/sf2ce/character/sagat.png` | SAGAT | 307545 | Viktor Sagat |
-| `images/arcade/sf2ce/character/balrog.png` | BALROG | 307546 | Mike Tyson |
-| `images/arcade/sf2ce/character/vega.png` | VEGA | 307547 | Vega Fabio la Cerda |
+Source: MAME 0.286, player select screen (portrait of the selected fighter).
+
+| Image | Name |
+|---|---|
+| `images/arcade/sf2ce/character/ryu.png` | RYU |
+| `images/arcade/sf2ce/character/e-honda.png` | E. HONDA |
+| `images/arcade/sf2ce/character/blanka.png` | BLANKA |
+| `images/arcade/sf2ce/character/guile.png` | GUILE |
+| `images/arcade/sf2ce/character/balrog.png` | BALROG |
+| `images/arcade/sf2ce/character/vega.png` | VEGA |
+| `images/arcade/sf2ce/character/ken.png` | KEN |
+| `images/arcade/sf2ce/character/chun-li.png` | CHUN-LI |
+| `images/arcade/sf2ce/character/zangief.png` | ZANGIEF |
+| `images/arcade/sf2ce/character/dhalsim.png` | DHALSIM |
+| `images/arcade/sf2ce/character/sagat.png` | SAGAT |
+| `images/arcade/sf2ce/character/m-bison.png` | M. BISON |
 
 ## arcade/sfiii3
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/sfiii3/character/alex.png` | ALEX | 61460 |  |
-| `images/arcade/sfiii3/character/ryu.png` | RYU | 61461 |  |
-| `images/arcade/sfiii3/character/yun.png` | YUN | 61462 |  |
-| `images/arcade/sfiii3/character/dudley.png` | DUDLEY | 61463 |  |
-| `images/arcade/sfiii3/character/necro.png` | NECRO | 61464 |  |
-| `images/arcade/sfiii3/character/hugo.png` | HUGO | 61465 |  |
-| `images/arcade/sfiii3/character/ibuki.png` | IBUKI | 61534 |  |
-| `images/arcade/sfiii3/character/elena.png` | ELENA | 61466 |  |
-| `images/arcade/sfiii3/character/oro.png` | ORO | 61467 |  |
-| `images/arcade/sfiii3/character/yang.png` | YANG | 61469 |  |
-| `images/arcade/sfiii3/character/ken.png` | KEN | 61470 |  |
-| `images/arcade/sfiii3/character/sean.png` | SEAN | 61471 |  |
-| `images/arcade/sfiii3/character/urien.png` | URIEN | 61472 |  |
-| `images/arcade/sfiii3/character/akuma.png` | AKUMA | 61473 |  |
-| `images/arcade/sfiii3/character/chun-li.png` | CHUN-LI | 61474 |  |
-| `images/arcade/sfiii3/character/makoto.png` | MAKOTO | 61533 |  |
-| `images/arcade/sfiii3/character/q.png` | Q | 61475 |  |
-| `images/arcade/sfiii3/character/twelve.png` | TWELVE | 61476 |  |
-| `images/arcade/sfiii3/character/remy.png` | REMY | 61477 |  |
+Source: FBNeo (RetroArch, bench), character select screen (portrait of the selected character).
+
+| Image | Name |
+|---|---|
+| `images/arcade/sfiii3/character/alex.png` | ALEX |
+| `images/arcade/sfiii3/character/ryu.png` | RYU |
+| `images/arcade/sfiii3/character/yun.png` | YUN |
+| `images/arcade/sfiii3/character/dudley.png` | DUDLEY |
+| `images/arcade/sfiii3/character/necro.png` | NECRO |
+| `images/arcade/sfiii3/character/hugo.png` | HUGO |
+| `images/arcade/sfiii3/character/ibuki.png` | IBUKI |
+| `images/arcade/sfiii3/character/elena.png` | ELENA |
+| `images/arcade/sfiii3/character/oro.png` | ORO |
+| `images/arcade/sfiii3/character/yang.png` | YANG |
+| `images/arcade/sfiii3/character/ken.png` | KEN |
+| `images/arcade/sfiii3/character/sean.png` | SEAN |
+| `images/arcade/sfiii3/character/urien.png` | URIEN |
+| `images/arcade/sfiii3/character/akuma.png` | AKUMA |
+| `images/arcade/sfiii3/character/chun-li.png` | CHUN-LI |
+| `images/arcade/sfiii3/character/makoto.png` | MAKOTO |
+| `images/arcade/sfiii3/character/q.png` | Q |
+| `images/arcade/sfiii3/character/twelve.png` | TWELVE |
+| `images/arcade/sfiii3/character/remy.png` | REMY |
 
 ## arcade/shocktro
 
@@ -420,19 +424,18 @@ Source: MAME 0.286, player select screen.
 
 ## arcade/spf2t
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/spf2t/character/ryu.png` | Ryu | 384176 | Ryu Playthrough |
-| `images/arcade/spf2t/character/chun-li.png` | Chun-Li | 384177 | Chun-Li Playthrough |
-| `images/arcade/spf2t/character/sakura.png` | Sakura | 384178 | Sakura Playthrough |
-| `images/arcade/spf2t/character/ken.png` | Ken | 384179 | Ken Playthrough |
-| `images/arcade/spf2t/character/morrigan.png` | Morrigan | 384180 | Morrigan Playthrough |
-| `images/arcade/spf2t/character/hsien-ko.png` | Hsien-Ko | 384181 | Hsien-Ko Playthrough |
-| `images/arcade/spf2t/character/donovan.png` | Donovan | 384182 | Donovan Playthrough |
-| `images/arcade/spf2t/character/felicia.png` | Felicia | 384183 | Felicia Playthrough |
-| `images/arcade/spf2t/character/dan.png` | Dan | 384184 | Dan Playthrough |
-| `images/arcade/spf2t/character/akuma.png` | Akuma | 384185 | Akuma Playthrough |
-| `images/arcade/spf2t/character/devilot.png` | Devilot | 384186 | Devilot Playthrough |
+Source: MAME 0.286, player select screen (portrait of the selected character).
+
+| Image | Name |
+|---|---|
+| `images/arcade/spf2t/character/ryu.png` | RYU |
+| `images/arcade/spf2t/character/chun-li.png` | CHUN-LI |
+| `images/arcade/spf2t/character/sakura.png` | SAKURA |
+| `images/arcade/spf2t/character/ken.png` | KEN |
+| `images/arcade/spf2t/character/morrigan.png` | MORRIGAN |
+| `images/arcade/spf2t/character/hsien-ko.png` | HSIEN-KO |
+| `images/arcade/spf2t/character/donovan.png` | DONOVAN |
+| `images/arcade/spf2t/character/felicia.png` | FELICIA |
 
 ## arcade/strhoop
 
