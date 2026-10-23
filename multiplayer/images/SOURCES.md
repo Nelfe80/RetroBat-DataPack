@@ -141,46 +141,46 @@ Source: MAME 0.286, player select screen.
 
 ## arcade/kof98
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/kof98/character/kyo.png` | Kyo | 113927 | Honoo no Kikoushi |
-| `images/arcade/kof98/character/benimaru.png` | Benimaru | 113918 | The Shooting Star |
-| `images/arcade/kof98/character/daimon.png` | Daimon | 113919 | Sobietatsu Arashi no Yama |
-| `images/arcade/kof98/character/terry.png` | Terry | 113920 | The Legendary Wolf |
-| `images/arcade/kof98/character/andy.png` | Andy | 113921 | Zenshin Kyoukin |
-| `images/arcade/kof98/character/joe.png` | Joe | 113922 | The Young Champ of Muay Thai |
-| `images/arcade/kof98/character/ryo.png` | Ryo | 113923 | Muteki no Ryo |
-| `images/arcade/kof98/character/robert.png` | Robert | 113924 | The Raging Tiger |
-| `images/arcade/kof98/character/yuri.png` | Yuri | 113925 | Wild Flying Swallow |
-| `images/arcade/kof98/character/athena.png` | Athena | 113939 | The Psychic-Powered Idol |
-| `images/arcade/kof98/character/kensou.png` | Kensou | 113917 | The Young Rising Dragon |
-| `images/arcade/kof98/character/chin.png` | Chin | 113940 | The Drunken Fist Master |
-| `images/arcade/kof98/character/leona.png` | Leona | 113928 | The Silent Soldier |
-| `images/arcade/kof98/character/ralf.png` | Ralf | 113929 | The One-Man Army |
-| `images/arcade/kof98/character/clark.png` | Clark | 113930 | Tough & Cool |
-| `images/arcade/kof98/character/chizuru.png` | Chizuru | 113931 | Yuna |
-| `images/arcade/kof98/character/mai.png` | Mai | 113932 | The Alluring Ninja Girl |
-| `images/arcade/kof98/character/king.png` | King | 113933 | The Beautiful Kick's Illusion |
-| `images/arcade/kof98/character/kim.png` | Kim | 113934 | The Crown Jewel of Taekwondo |
-| `images/arcade/kof98/character/chang.png` | Chang | 113908 | Iron Ball Criminal |
-| `images/arcade/kof98/character/choi.png` | Choi | 113899 | Steel Claws Butcher |
-| `images/arcade/kof98/character/yashiro.png` | Yashiro | 113900 | Shrine of the Seven Shackles |
-| `images/arcade/kof98/character/shermie.png` | Shermie | 113901 | Roaring Lightning |
-| `images/arcade/kof98/character/chris.png` | Chris | 113902 | Killing with an Innocent Smile |
-| `images/arcade/kof98/character/yamazaki.png` | Yamazaki | 113903 | Psycho Gangster |
-| `images/arcade/kof98/character/mary.png` | Mary | 113904 | Woman in S Class |
-| `images/arcade/kof98/character/billy.png` | Billy | 113905 | Emperor's Right-Hand Man |
-| `images/arcade/kof98/character/iori.png` | Iori | 113906 | Shuen no Hono |
-| `images/arcade/kof98/character/mature.png` | Mature | 113907 | The Speedy Cruel Beauty |
-| `images/arcade/kof98/character/vice.png` | Vice | 113898 | Throbbing, Brutal, and Sadistic |
-| `images/arcade/kof98/character/heidern.png` | Heidern | 113909 | General of the Soldiers of Fortune |
-| `images/arcade/kof98/character/takuma.png` | Takuma | 113910 | The Invincible Dragon |
-| `images/arcade/kof98/character/saisyu.png` | Saisyu | 113911 | Master of the Sacred Flame |
-| `images/arcade/kof98/character/heavy-d.png` | Heavy D! | 113912 | Fairly Cool Boxer |
-| `images/arcade/kof98/character/lucky.png` | Lucky | 113913 | B-Ball Swag |
-| `images/arcade/kof98/character/brian.png` | Brian | 113914 | Frenzied MVP |
-| `images/arcade/kof98/character/rugal.png` | Rugal | 113915 | The Most Feared Boss Ever |
-| `images/arcade/kof98/character/shingo.png` | Shingo | 113916 | The Newbie Challenger |
+Source: MAME 0.286, character select grid.
+
+| Image | Name |
+|---|---|
+| `images/arcade/kof98/character/kyo.png` | KYO |
+| `images/arcade/kof98/character/benimaru.png` | BENIMARU |
+| `images/arcade/kof98/character/daimon.png` | DAIMON |
+| `images/arcade/kof98/character/terry.png` | TERRY |
+| `images/arcade/kof98/character/andy.png` | ANDY |
+| `images/arcade/kof98/character/joe.png` | JOE |
+| `images/arcade/kof98/character/ryo.png` | RYO |
+| `images/arcade/kof98/character/robert.png` | ROBERT |
+| `images/arcade/kof98/character/yuri.png` | YURI |
+| `images/arcade/kof98/character/leona.png` | LEONA |
+| `images/arcade/kof98/character/ralf.png` | RALF |
+| `images/arcade/kof98/character/clark.png` | CLARK |
+| `images/arcade/kof98/character/athena.png` | ATHENA |
+| `images/arcade/kof98/character/kensou.png` | KENSOU |
+| `images/arcade/kof98/character/chin.png` | CHIN |
+| `images/arcade/kof98/character/chizuru.png` | CHIZURU |
+| `images/arcade/kof98/character/mai.png` | MAI |
+| `images/arcade/kof98/character/king.png` | KING |
+| `images/arcade/kof98/character/kim.png` | KIM |
+| `images/arcade/kof98/character/chang.png` | CHANG |
+| `images/arcade/kof98/character/choi.png` | CHOI |
+| `images/arcade/kof98/character/yashiro.png` | YASHIRO |
+| `images/arcade/kof98/character/shermie.png` | SHERMIE |
+| `images/arcade/kof98/character/chris.png` | CHRIS |
+| `images/arcade/kof98/character/yamazaki.png` | YAMAZAKI |
+| `images/arcade/kof98/character/mary.png` | MARY |
+| `images/arcade/kof98/character/billy.png` | BILLY |
+| `images/arcade/kof98/character/iori.png` | IORI |
+| `images/arcade/kof98/character/mature.png` | MATURE |
+| `images/arcade/kof98/character/vice.png` | VICE |
+| `images/arcade/kof98/character/heidern.png` | HEIDERN |
+| `images/arcade/kof98/character/takuma.png` | TAKUMA |
+| `images/arcade/kof98/character/saisyu.png` | SAISYU |
+| `images/arcade/kof98/character/heavy-d.png` | HEAVY D! |
+| `images/arcade/kof98/character/lucky.png` | LUCKY |
+| `images/arcade/kof98/character/brian.png` | BRIAN |
 
 ## arcade/magdrop3
 
@@ -218,29 +218,25 @@ Source: MAME 0.286, soldier select screen.
 
 ## arcade/mvsc
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/mvsc/character/ryu.png` | Ryu | 131656 | Train Yourself Well |
-| `images/arcade/mvsc/character/chun-li.png` | Chun-Li | 131657 | You Underestimated Me |
-| `images/arcade/mvsc/character/zangief.png` | Zangief | 131658 | A Tough Country Breeds an Even Tougher Man! |
-| `images/arcade/mvsc/character/captain-commando.png` | Captain Commando | 131660 | Capcom's first game was Vulgus |
-| `images/arcade/mvsc/character/morrigan.png` | Morrigan | 131659 | Eternity Can Be Lonely |
-| `images/arcade/mvsc/character/mega-man.png` | Mega Man | 131662 | Right on! Now... |
-| `images/arcade/mvsc/character/strider.png` | Strider | 131665 | Take Me to Your Boss! |
-| `images/arcade/mvsc/character/jin.png` | Jin | 131699 | If My Father Was Still Alive |
-| `images/arcade/mvsc/character/spider-man.png` | Spider-Man | 131682 | Great Fight! And Some Great Pics for J.J |
-| `images/arcade/mvsc/character/captain-america.png` | Captain America | 131705 | Where's Your Sense of Patriotism? |
-| `images/arcade/mvsc/character/venom.png` | Venom | 131706 | Eddie Brock's Life Is Gone |
-| `images/arcade/mvsc/character/hulk.png` | Hulk | 131707 | Hey, Quit Hitting My Fists With Your Head |
-| `images/arcade/mvsc/character/gambit.png` | Gambit | 131708 | Hey, I Think I Bent My Staff |
-| `images/arcade/mvsc/character/war-machine.png` | War Machine | 131709 | Repulsors Are Primed |
-| `images/arcade/mvsc/character/wolverine.png` | Wolverine | 131710 | Don't Worry, Those Scars Will Heal up in Time |
-| `images/arcade/mvsc/character/red-venom.png` | Red Venom | 131711 | Several and Resounding Damage |
-| `images/arcade/mvsc/character/orange-hulk.png` | Orange Hulk | 131712 | Hulk Smash!!! |
-| `images/arcade/mvsc/character/gold-war-machine.png` | Gold War Machine | 131716 | Golden Plasma Cannon |
-| `images/arcade/mvsc/character/lilith.png` | Lilith | 131742 | No, You Aren't the First One to Lose... |
-| `images/arcade/mvsc/character/roll.png` | Roll | 131743 | Second Copier of the Family |
-| `images/arcade/mvsc/character/shadow-lady.png` | Shadow Lady | 131744 | No Words to Say It |
+Source: MAME 0.286, select your heroes screen (portrait of the selected hero).
+
+| Image | Name |
+|---|---|
+| `images/arcade/mvsc/character/ryu.png` | RYU |
+| `images/arcade/mvsc/character/zangief.png` | ZANGIEF |
+| `images/arcade/mvsc/character/mega-man.png` | MEGA MAN |
+| `images/arcade/mvsc/character/captain-commando.png` | CAPTAIN COMMANDO |
+| `images/arcade/mvsc/character/morrigan.png` | MORRIGAN |
+| `images/arcade/mvsc/character/strider-hiryu.png` | STRIDER HIRYU |
+| `images/arcade/mvsc/character/spider-man.png` | SPIDER-MAN |
+| `images/arcade/mvsc/character/jin.png` | JIN |
+| `images/arcade/mvsc/character/hulk.png` | HULK |
+| `images/arcade/mvsc/character/venom.png` | VENOM |
+| `images/arcade/mvsc/character/captain-america.png` | CAPTAIN AMERICA |
+| `images/arcade/mvsc/character/gambit.png` | GAMBIT |
+| `images/arcade/mvsc/character/war-machine.png` | WAR MACHINE |
+| `images/arcade/mvsc/character/wolverine.png` | WOLVERINE |
+| `images/arcade/mvsc/character/chun-li.png` | CHUN-LI |
 
 ## arcade/nbajamte
 
