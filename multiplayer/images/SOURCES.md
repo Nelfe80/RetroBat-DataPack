@@ -464,14 +464,16 @@ Source: MAME 0.286, boxer select screen.
 
 ## arcade/wjammers
 
-| Image | Name | RetroAchievements badge | Achievement |
-|---|---|---|---|
-| `images/arcade/wjammers/character/mita.png` | MITA | 103338 | The Winner Is Hiromi Mita! |
-| `images/arcade/wjammers/character/miller.png` | MILLER | 103511 | The Winner Is Steve Miller! |
-| `images/arcade/wjammers/character/costa.png` | COSTA | 103519 | The Winner Is Jordi Costa! |
-| `images/arcade/wjammers/character/biaggi.png` | BIAGGI | 103521 | The Winner Is Loris Biaggi! |
-| `images/arcade/wjammers/character/scott.png` | SCOTT | 103507 | The Winner Is Scott Davies! |
-| `images/arcade/wjammers/character/wessel.png` | WESSEL | 103522 | The Winner Is Klaus Wessel! |
+Source: MAME 0.286, select player screen.
+
+| Image | Name |
+|---|---|
+| `images/arcade/wjammers/character/h-mita.png` | H. MITA |
+| `images/arcade/wjammers/character/b-yoo.png` | B. YOO |
+| `images/arcade/wjammers/character/j-costa.png` | J. COSTA |
+| `images/arcade/wjammers/character/l-biaggi.png` | L. BIAGGI |
+| `images/arcade/wjammers/character/g-scott.png` | G. SCOTT |
+| `images/arcade/wjammers/character/k-wessel.png` | K. WESSEL |
 
 ## arcade/wwfwfest
 
@@ -485,3 +487,6 @@ Source: MAME 0.286, select players screen.
 | `images/arcade/wwfwfest/character/ted-dibiase.png` | TED DIBIASE |
 | `images/arcade/wwfwfest/character/ultimate-warrior.png` | ULTIMATE WARRIOR |
 | `images/arcade/wwfwfest/character/big-boss-man.png` | BIG BOSS MAN |
+| `images/arcade/wwfwfest/character/earthquake.png` | EARTHQUAKE |
+| `images/arcade/wwfwfest/character/sgt-slaughter.png` | SGT. SLAUGHTER |
+| `images/arcade/wwfwfest/character/demolition.png` | DEMOLITION |
