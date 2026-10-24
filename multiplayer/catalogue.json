@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-24.9",
+  "revision": "2026-10-24.10",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -24,7 +24,7 @@
   },
   "games": [
     { "id": "arcade/bbmanw", "system": "arcade", "set": "bbmanw", "name": "Bomber Man World", "family": "versus", "players": 4, "elo_type": "arene", "level": "classique" },
-    { "id": "arcade/rampage", "system": "arcade", "set": "rampage", "name": "Rampage", "family": "versus", "players": 3, "level": "classique" },
+    { "id": "arcade/rampage", "system": "arcade", "set": "rampage", "name": "Rampage", "family": "versus", "players": 3, "level": "nelfeplay", "start": {"state": "states/arcade/rampage/debut-2p-fbneo.state", "sha256": "2282e76c853bdfc5472341415297f117e3f086909f83b6c2bc530649ec65d50d", "players": 2}, "starts": [{"state": "states/arcade/rampage/debut-3p-fbneo.state", "sha256": "e1f7ee9df1b2d25555fef0a47a554cdc8e0cd8a08156f93827480583600982d9", "players": 3}] },
 
     { "id": "arcade/harddunk", "system": "arcade", "set": "harddunk", "name": "Hard Dunk", "family": "coop", "players": 3, "level": "classique", "options": {"fbneo-dipswitch-harddunk-Multi-Screen_Mode": "Disabled"} },
     { "id": "arcade/nbajamte", "system": "arcade", "set": "nbajamte", "name": "NBA Jam Tournament Edition", "family": "equipes", "players": 4, "elo_type": "sport", "level": "classique" },
@@ -70,7 +70,7 @@
     { "id": "arcade/ga2", "system": "arcade", "set": "ga2", "name": "Golden Axe: The Revenge of Death Adder", "family": "coop", "players": 4, "level": "classique" },
     { "id": "arcade/avsp", "system": "arcade", "set": "avsp", "name": "Alien vs. Predator", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/dino", "system": "arcade", "set": "dino", "name": "Cadillacs and Dinosaurs", "family": "coop", "players": 3, "level": "classique" },
-    { "id": "arcade/bbusters", "system": "arcade", "set": "bbusters", "name": "Beast Busters", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/bbusters", "system": "arcade", "set": "bbusters", "name": "Beast Busters", "family": "coop", "players": 3, "level": "nelfeplay", "start": {"state": "states/arcade/bbusters/debut-2p-fbneo.state", "sha256": "87c335e25c34b1e8f71f3d4cf266e0a02d4b317a4a6b76b181cf410494bcc9d9", "players": 2}, "starts": [{"state": "states/arcade/bbusters/debut-3p-fbneo.state", "sha256": "ec526f8b9380074c9b2fd839055be85b45f2ab57ecbee7ec1fd79544666b63bb", "players": 3}] },
     { "id": "arcade/turbofrc", "system": "arcade", "set": "turbofrc", "name": "Turbo Force", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/gground", "system": "arcade", "set": "gground", "name": "Gain Ground", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/fixeight", "system": "arcade", "set": "fixeight", "name": "FixEight", "family": "coop", "players": 3, "level": "classique" },

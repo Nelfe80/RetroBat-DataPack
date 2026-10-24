@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/rampage",
+  "situation": "debut-2p",
+  "description": "Premiere ville, N monstres entres (les credits sont communs et passent par la place 1, puis chacun saute) : George, Lizzie et Ralph selon la place.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "2282e76c853bdfc5472341415297f117e3f086909f83b6c2bc530649ec65d50d",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "2daa557e56ddfb1037873ed6ce47811270d63644467582f9beb4b003c6f588ea",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T17:02:00Z",
+  "min_api": "1.9.89"
+}

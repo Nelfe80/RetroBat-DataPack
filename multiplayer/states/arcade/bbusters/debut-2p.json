@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/bbusters",
+  "situation": "debut-2p",
+  "description": "Section 1, N joueurs entres (credit puis START) selon la place ; a deux, la place 3 propose d'entrer.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "87c335e25c34b1e8f71f3d4cf266e0a02d4b317a4a6b76b181cf410494bcc9d9",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "867b4cad0b692ac3636b2f87dab1f4055cf52d9b876e88e7aa570fe1bf9b63fa",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:55:00Z",
+  "min_api": "1.9.89"
+}
