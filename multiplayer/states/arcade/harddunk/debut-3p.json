@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/harddunk",
+  "situation": "debut-3p",
+  "description": "Selection de l'equipe, N joueurs entres (tous les credits par le monnayeur 1, la borne n'en a que deux, puis START de chacun), Multi-Screen coupe comme au catalogue. L'octet de chaque place est le joueur (Wilt 0, Bob 1, Step 2, Razz 3, Dick 4, Max 5), une place tous les 2 ; ecrit, la case suit et le jeu le prend, a la validation comme au minuteur (lent, environ 4 s par unite). Un joueur pris bloque le curseur, d'ou le choix distinct. A deux, l'ordinateur complete l'equipe.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "bf75ab8890d805edbc4b824c1bb2ebef4e197ff7dbc35d505ec008f889af6cca",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "83acc422f4e7e0b2a5dc12494359ddd0ec700604c01107dbd923a0de5a6f07c1",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T03:40:00Z",
+  "min_api": "1.9.89"
+}
