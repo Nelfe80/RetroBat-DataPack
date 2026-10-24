@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/xmen",
+  "situation": "debut-2p",
+  "description": "Selection des personnages, N places creditees (credits inseres ensemble : l'ecran s'ouvre au premier, son minuteur part de 9, une unite par seconde et demie). Au bout du minuteur, le jeu fait entrer chaque place creditee avec le personnage sous son curseur ; START le valide plus tot. L'octet de chaque place est le personnage (Cyclops 0, Colossus 1, Wolverine 2, Storm 3, Nightcrawler 4, Dazzler 5) ; ecrit, le curseur suit. Le curseur saute un personnage pris, d'ou le choix distinct. A deux et trois, les places libres a INSERT COIN.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "00c89801a38a2c46aa16405bd5ea818d8dd2a91109ebdf192a9bc091ac939ffa",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "90794d3ebeed3750e5056763838968c78d121bbcecc2b220c2f11154e553d9ae",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T00:55:00Z",
+  "min_api": "1.9.89"
+}
