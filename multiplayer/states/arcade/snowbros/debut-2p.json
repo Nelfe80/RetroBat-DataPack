@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/snowbros",
+  "situation": "debut-2p",
+  "description": "Premier niveau, les deux joueurs entres (credit puis START) : Nick et Tom.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "7795c6f447471d049fb106225046b48893e650515ff7142e2e28ef4aa4269326",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "5f7cc81a9030bed0a76649d78f6bce706a7a4850207a09d0e08e0bfb51d7debc",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:35:00Z",
+  "min_api": "1.9.89"
+}

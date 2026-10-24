@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ddragon",
+  "situation": "debut-2p",
+  "description": "Garage de la mission 1, Billy et Jimmy entres (credit puis START ; le START du joueur 2 se repete, le depart du joueur 1 l'avale parfois).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "c68b590eb8d65d443e051c1b9fc5132a228038207ee29a3fde3eb061e3374a6d",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "3f889265fc07769dca17a44d5a336e53e2d8884d4b8e05c9fc63dab24b0bfd3e",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:48:00Z",
+  "min_api": "1.9.89"
+}

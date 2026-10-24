@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/pang",
+  "situation": "debut-2p",
+  "description": "Mont Fuji 1-1, les deux joueurs entres (credit puis START), la ville de depart prise par defaut sur la carte.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "0b646a833a743d787a0ee5a37e00af330ad070d0ef547f5471508065b89a797c",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "f8ad6cd48f9f3fcf130dda06c25586457059eef32e67ef414ee014d001ddc9cc",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:36:00Z",
+  "min_api": "1.9.89"
+}
