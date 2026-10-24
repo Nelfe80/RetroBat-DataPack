@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/fixeight",
+  "situation": "debut-3p",
+  "description": "Selection des personnages en mode 3 PLAYER INTERACTIVE, N joueurs entres (credit puis START) : chacun choisit le sien a l'ecran (FBNeo n'expose aucune memoire de cette carte Toaplan). Le reglage du nombre de joueurs vit dans l'EEPROM du jeu (2 joueurs par defaut, menu de test, GAME STYLE) ; l'etat l'emporte : une borne a deux joueurs part a trois. A deux, la place 3 propose d'entrer.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "616176e2d4fc18f2c8d1d86e7184f0801392d2324af2c0b66992a67bbf18b31a",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "731d7b4ecaa0c4d7ddced3be3e922e0c38bca1c439c73681c93c284871756819",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T20:05:00Z",
+  "min_api": "1.9.89"
+}
