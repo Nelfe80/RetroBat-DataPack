@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/gigawing",
+  "situation": "debut-2p",
+  "description": "Selection des pilotes, les deux joueurs entres (credit puis START), le minuteur a 37 : chacun choisit le sien a l'ecran (haut et bas). Les octets du portrait (0x7308, 0x7310) ne decident pas du pilote et celui qui decide n'est pas trouve : rien n'est ecrit.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "decccf6080ef113373358e3bc00a25670a27fc5a896ab3bc8fd667c08ac329b7",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "7e3027af06452d693adddde83cd83104ba353a62049979c5b619e32dd61613de",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T02:50:00Z",
+  "min_api": "1.9.89"
+}
