@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ga2",
+  "situation": "debut-3p",
+  "description": "Carte de la scene 1, N heros entres (credit puis START) sur une borne reglee a quatre places (CABINET TYPE 4P, reglage de l'EEPROM du jeu, menu de test, que l'etat emporte ; l'usine est a 2P) : chaque place a son heros, Stern, Dora, Goah et Trix. Les places libres a Insert Coins.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "4a5da99c98191a7323e8177c9c7601162c792a8d30e043a2b97ae3d8ddaa16ec",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "8ac9d6218ba275ea24671dc8aca7871231032f62ef42c610037b4893181204d1",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T01:20:00Z",
+  "min_api": "1.9.89"
+}
