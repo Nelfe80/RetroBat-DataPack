@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-24.14",
+  "revision": "2026-10-24.15",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -87,7 +87,7 @@
     { "id": "arcade/gigawing", "system": "arcade", "set": "gigawing", "name": "Giga Wing", "family": "coop", "players": 2, "level": "classique" },
     { "id": "arcade/inthunt", "system": "arcade", "set": "inthunt", "name": "In the Hunt", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/inthunt/debut-2p-fbneo.state", "sha256": "819e44565c624b2977568cbd1bcd23eb6ea5310307874ce0e1da975f0a7f7e2b", "players": 2} },
     { "id": "arcade/elvactr", "system": "arcade", "set": "elvactr", "name": "Elevator Action Returns", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/elvactr/selection-2p-fbneo.state", "sha256": "46d480718707269a6fbd29dac300e572995c9ad2ba5801594520e3286a38ca7e"}, "choices": [{"key": "character", "default": 0, "distinct": true, "values": [{"value": 0, "name": "KART BRADFIELD", "image": "images/arcade/elvactr/character/kart-bradfield.png"}, {"value": 1, "name": "EDIE BURRET", "image": "images/arcade/elvactr/character/edie-burret.png"}, {"value": 2, "name": "JAD THE TAFF", "image": "images/arcade/elvactr/character/jad-the-taff.png"}], "seats": [{"seat": 1, "core_ram": "0xB73C"}, {"seat": 2, "core_ram": "0xB746"}]}] },
-    { "id": "arcade/19xx", "system": "arcade", "set": "19xx", "name": "19XX: The War Against Destiny", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/19xx", "system": "arcade", "set": "19xx", "name": "19XX: The War Against Destiny", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/19xx/selection-2p-fbneo.state", "sha256": "3db64f087104ab216ee5f25daf63f7be4b2393189471b385896a8bd27f5da97b"}, "choices": [{"key": "machine", "default": 0, "values": [{"value": 0, "name": "LIGHTNING", "image": "images/arcade/19xx/machine/lightning.png"}, {"value": 1, "name": "SHINDEN", "image": "images/arcade/19xx/machine/shinden.png"}, {"value": 2, "name": "MOSQUITO", "image": "images/arcade/19xx/machine/mosquito.png"}], "seats": [{"seat": 1, "core_ram": "0x8246"}, {"seat": 2, "core_ram": "0x8346"}]}] },
     { "id": "arcade/dmnfrnt", "system": "arcade", "set": "dmnfrnt", "name": "Demon Front", "family": "coop", "players": 2, "level": "classique" }
   ]
 }
