@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ddsom",
+  "situation": "debut-2p",
+  "description": "Selection des personnages en mode 4 PLAYERS 4 CHUTES MULTI (reglage de l'EEPROM du jeu, menu de test, que l'etat emporte), N joueurs entres (credit puis START). L'octet de chaque place est le personnage (Fighter 0, Cleric 2, Elf 4, Dwarf 6, Magic-User 8, Thief 10), une place tous les 0x200 ; ecrit, le portrait et le bandeau suivent et le minuteur de l'ecran valide le choix. Deux joueurs peuvent prendre le meme personnage. A deux et trois, les places libres proposent d'entrer.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "952ea99d0a4f48e233dc83eb0b80d4a9e26c2de10f6eec0c0f2a9cb2ddcbb939",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "43b2f9bfb43b66350b9894e6feb96de53feffdcf31a1d1625bd17dc3772ce0ff",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T22:20:00Z",
+  "min_api": "1.9.89"
+}
