@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/shocktro",
+  "situation": "debut-2p",
+  "description": "Selection des mercenaires en LONELY WOLF, les deux joueurs entres (credit puis START ; le joueur 2 a l'ecran de selection, apres le tutoriel) et le mode valide (bouton A du jeu). L'octet de chaque place est le mercenaire, quatre fois son rang (Jackal 0, Milky 4, Loki 8, Southern Cross 12, Marie Bee 16, Rio 20, Maru 24, Big Mama 28) ; ecrit, le portrait suit et le jeu le prend, au minuteur comme a la validation (l'octet du curseur, 0x8DE0, reste au premier rang : un joueur qui bouge repart de Jackal). Deux joueurs peuvent prendre le meme. L'ecran des routes suit, chacun y choisit.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "514ad56692528790afc2cf7f229fb5bfca0d867477fecb7745d686ef14de2add",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "0c1f1c55c1c1da8adc48655050a493c5eef1751d185f692a60c04ae7a4f0e791",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T23:50:00Z",
+  "min_api": "1.9.89"
+}
