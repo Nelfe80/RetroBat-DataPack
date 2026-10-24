@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/contra-iii-the-alien-wars",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau en 2 PLAYERS A (chacun ses vies), les deux soldats en jeu. Contenu : Super Probotector - Alien Rebels (Europe), la version que la borne possede ; une autre version (USA) aura son propre etat, lie a son contenu.",
+  "state_file": "debut-2p-snes9x.state",
+  "state_sha256": "ba913c1dc17c681935275a8d10bb591b303a378d26413ac90bf741127a18a1b3",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "2b1ca521975c3010650fd2055be8c6b964ea4eff765ad03198ac71995285fee7",
+  "content_md5": "b2b6349c1a60eeacf35d6780b025e217",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T02:50:00Z",
+  "min_api": "1.9.89"
+}
