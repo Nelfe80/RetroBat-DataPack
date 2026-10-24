@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/altbeast",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau, les deux centurions entres (credit puis START ; celui du joueur 2 apres l'introduction, tenu une demi-seconde : un appui bref n'est pas pris).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "3f7bdd4fff44a0bd23ebf11e603396c6770697345a94ba86d5204afa9f581bd1",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "c688b35b2f65593029e8b2b708cb10e5a7ce12ac70634cf225ca13783fd74707",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T00:20:00Z",
+  "min_api": "1.9.89"
+}
