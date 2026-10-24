@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gba/f-zero-maximum-velocity",
+  "situation": "selection-2p",
+  "description": "Choix des bolides en MULTIPAK LINK, toutes les consoles reliees, chacun sur Hot Violet, les noms saisis (A). Le bolide de chaque joueur est en IWRAM dans TOUTES les consoles (Hot Violet 0, Fire Ball 1, J.B. Crystal 2, Wind Walker 3) et ne passe pas par la liaison : il s'ecrit dans chacune. A deux et a trois, le joueur 2 est en 3e ligne (une ligne de l'ordinateur s'intercale) ; a quatre, les lignes 1 a 4. Le nom affiche se brouille a l'ecriture, le bolide en course est le bon. Le pseudo de chaque joueur (8 caracteres) s'ecrit dans la table des joueurs lies de chaque console (0x03003330 + 0x14 par joueur) et dans son propre nom (0x03002D7A, 0x03002FF8).",
+  "state_file": "selection-2p-mgba-splitscreen.state",
+  "state_sha256": "66a58679ad42ba49bb041538f9cc0ba05db9f8fec2885322c542f10bf031addd",
+  "core": "mgba_splitscreen",
+  "core_sha256": "2f352a24dd2eb94bc0fa920d25ee6d95208dfbc6f77ad4b38636508c061069b9",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "50c211f4299818f7c61f5e7ad521e1e086d039452773835c8584be7c65c29560",
+  "content_md5": "55c14323547aa4f83e5eede98d0417f3",
+  "values_at_save": {
+    "p1_machine": 0,
+    "p2_machine": 0
+  },
+  "bench_verification": "A 2, 3 et 4 consoles, le depart pret de l'API (MultiplayerBancTests) ecrit un bolide par place dans toutes les consoles, et chacune montre les memes bolides au choix et sur la grille ; netplay a deux, l'invite rejoint apres le depart : 3 essais jusqu'a la course, aucun blocage ni desynchronisation avec le coeur 2f352a24 (le coeur d'avant se figeait apres un retour en arriere). Pseudos ecrits et relus a 2 et 4 consoles : chaque ecran montre les pseudos de tous les joueurs.",
+  "certified": false,
+  "made_utc": "2026-10-24T07:58:00Z",
+  "min_api": "1.9.90"
+}

@@ -2,7 +2,7 @@
   "schema": "nelfeplay.multiplayer.start.v1",
   "game": "gba/mario-kart-super-circuit",
   "situation": "selection-3p",
-  "description": "Ecran des pilotes en VS 100cc, toutes les consoles reliees en Multi-Pak, les curseurs sur Random. Le pilote du joueur N est la case du curseur a 0x0202A8EC + 4(N-1), presente dans chaque console ; elle s'ecrit dans la console du joueur (carte du coeur, console N a +0x(N-1)0000000), la copie des autres consoles est ecrasee. Le nom affiche reste RANDOM jusqu'a la validation, le kart montre est le bon.",
+  "description": "Ecran des pilotes en VS 100cc, toutes les consoles reliees en Multi-Pak, les curseurs sur Random. Le pilote du joueur N est la case du curseur a 0x0202A8EC + 4(N-1), presente dans chaque console ; il s'ecrit dans TOUTES les consoles (ecrit dans la seule console du joueur, les autres gardaient une vieille copie et le dessinaient en course avec un autre pilote). La coupe retenue 0x0300001E (toutes les consoles) ouvre l'ecran des circuits sur la coupe du roulement. Le nom affiche reste RANDOM jusqu'a la validation, le kart montre est le bon.",
   "state_file": "selection-3p-mgba-splitscreen.state",
   "state_sha256": "f67f3207fc307a9e51f3a7c1a49f607347f9199da3dcf4561a2fd0de6c56c700",
   "core": "mgba_splitscreen",
@@ -15,8 +15,8 @@
     "p2_character": 4,
     "p3_character": 4
   },
-  "bench_verification": "Charge dans un RetroArch neuf et apres RESET (coeur 2e6060dd) ; a 2, 3 et 4 consoles, le depart pret de l'API (MultiplayerBancTests) ecrit un pilote par place et chacun l'a a l'ecran des circuits ; netplay a deux, l'invite rejoint apres le depart : memes pilotes chez l'hote et l'invite, aucune desynchronisation du netplay",
+  "bench_verification": "A 2, 3 et 4 consoles, le depart pret de l'API (MultiplayerBancTests, 24/10) ecrit chaque pilote et la coupe dans toutes les consoles : l'ecran des circuits s'ouvre sur la coupe ecrite avec sa liste, les tables de course concordent et chaque console montre les memes pilotes en course.",
   "certified": false,
   "made_utc": "2026-10-23T21:37:00Z",
-  "min_api": "1.9.89"
+  "min_api": "1.9.90"
 }
