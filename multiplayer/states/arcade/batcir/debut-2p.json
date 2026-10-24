@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/batcir",
+  "situation": "debut-2p",
+  "description": "Selection des joueurs en mode 4 PLAYERS 4 CHUTES MULTI (reglage de l'EEPROM du jeu, menu de test, que l'etat emporte), N joueurs entres (credit puis START), l'etat pris a l'ouverture de l'ecran (le minuteur du jeu part de 10). L'octet de chaque place est le personnage (Cyber Blue 0, Yellow Iris 1, Alien Green 2, Pink Ostrich 3, Captain Silver 4), une place tous les 0x140 ; ecrit, le portrait suit et le jeu le prend. Deux joueurs sur le meme personnage : le jeu en deplace un, d'ou le choix distinct. A deux et trois, les places libres proposent d'entrer.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "ef5fdfdc5f649df0eaec0ac5c97044a9029fb18e96ece46cf7b7ef196df09ca5",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "96a63488a983a8d88b17e907cced6fd9d78cf72cbe3826d71d8c446ce4b3a569",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T23:00:00Z",
+  "min_api": "1.9.89"
+}
