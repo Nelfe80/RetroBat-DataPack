@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-24.10",
+  "revision": "2026-10-24.11",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -80,7 +80,7 @@
     { "id": "arcade/ddragon", "system": "arcade", "set": "ddragon", "name": "Double Dragon", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/ddragon/debut-2p-fbneo.state", "sha256": "c68b590eb8d65d443e051c1b9fc5132a228038207ee29a3fde3eb061e3374a6d", "players": 2} },
     { "id": "arcade/altbeast", "system": "arcade", "set": "altbeast", "name": "Altered Beast", "family": "coop", "players": 2, "level": "classique" },
     { "id": "arcade/bublbobl", "system": "arcade", "set": "bublbobl", "name": "Bubble Bobble", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/bublbobl/debut-2p-fbneo.state", "sha256": "e58a388c291f2db4bd51a7facfa6e62202a2f22a619d5e37051b5359f3f2a40e", "players": 2} },
-    { "id": "arcade/gunforc2", "system": "arcade", "set": "gunforc2", "name": "GunForce II", "family": "coop", "players": 2, "level": "classique" },
+    { "id": "arcade/gunforc2", "system": "arcade", "set": "gunforc2", "name": "GunForce II", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/gunforc2/debut-2p-fbneo.state", "sha256": "e0451d47d85dfedebcc259d71ed00b2a7fbe2340c8167d19f20d315efe57045c", "players": 2} },
     { "id": "arcade/snowbros", "system": "arcade", "set": "snowbros", "name": "Snow Bros.", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/snowbros/debut-2p-fbneo.state", "sha256": "7795c6f447471d049fb106225046b48893e650515ff7142e2e28ef4aa4269326", "players": 2} },
     { "id": "arcade/pang", "system": "arcade", "set": "pang", "name": "Pang", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/pang/debut-2p-fbneo.state", "sha256": "0b646a833a743d787a0ee5a37e00af330ad070d0ef547f5471508065b89a797c", "players": 2} },
     { "id": "arcade/blazstar", "system": "arcade", "set": "blazstar", "name": "Blazing Star", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/blazstar/selection-2p-fbneo.state", "sha256": "b51e1fea1843c4792d4752fc9ceaee7e40af3f5ddd86d4a1cd50ccbe6f05b434"}, "choices": [{"key": "ship", "default": 0, "values": [{"value": 0, "name": "CASTER", "image": "images/arcade/blazstar/ship/caster.png"}, {"value": 1, "name": "LEEFA", "image": "images/arcade/blazstar/ship/leefa.png"}, {"value": 2, "name": "JB", "image": "images/arcade/blazstar/ship/jb.png"}, {"value": 3, "name": "ASAYUKI", "image": "images/arcade/blazstar/ship/asayuki.png"}, {"value": 4, "name": "NAOMI Y", "image": "images/arcade/blazstar/ship/naomi-y.png"}, {"value": 5, "name": "KAORU Y", "image": "images/arcade/blazstar/ship/kaoru-y.png"}], "seats": [{"seat": 1, "core_ram": "0x13B3"}, {"seat": 2, "core_ram": "0x13B2"}]}] },
