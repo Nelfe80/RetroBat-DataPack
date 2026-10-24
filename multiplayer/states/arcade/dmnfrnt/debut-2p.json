@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/dmnfrnt",
+  "situation": "debut-2p",
+  "description": "HERO CHOOSE, les deux joueurs entres (credit puis START), le minuteur a 15 : chacun choisit son heros a l'ecran. FBNeo n'expose aucune memoire de la carte PGM : rien n'est ecrit.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "679deb409e30d2ad7298a2907913d5ee1d5eda8fd072fbb792bdb3dd37d90519",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "8d05c880dc86959c22f68739e88e6864adacc496ff6b5da93042f47e1c3a82fa",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T03:05:00Z",
+  "min_api": "1.9.89"
+}
