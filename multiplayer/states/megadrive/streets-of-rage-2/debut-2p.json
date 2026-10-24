@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/streets-of-rage-2",
+  "situation": "debut-2p",
+  "description": "SELECT PLAYER en mode 2 PLAYERS, les deux joueurs a l'ecran (START, menu 2 PLAYERS). L'octet de chaque place est le personnage, deux fois son rang (Max 0, Axel 2, Blaze 4, Skate 6), une place tous les 0x100 ; ecrit, le nom et le curseur suivent et le jeu le prend a la validation (START, pas de minuteur). Le curseur saute un personnage pris, d'ou le choix distinct.",
+  "state_file": "debut-2p-genesis-plus-gx.state",
+  "state_sha256": "926dce88c5017db97a72d82cdefc8de3b64e195c973bb1f3278040a890d26b1d",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "4a314edbfee92282850fe95c4c764921916efd9d3c2277fdec2581279b1369b1",
+  "content_md5": "cb75d5a6919b61efe917bea5762c1cb7",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T02:30:00Z",
+  "min_api": "1.9.89"
+}
