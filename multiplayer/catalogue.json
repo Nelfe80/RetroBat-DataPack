@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-24.11",
+  "revision": "2026-10-24.12",
   "cores": {
     "arcade": {
       "core": "fbneo"
@@ -71,7 +71,7 @@
     { "id": "arcade/avsp", "system": "arcade", "set": "avsp", "name": "Alien vs. Predator", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/dino", "system": "arcade", "set": "dino", "name": "Cadillacs and Dinosaurs", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/bbusters", "system": "arcade", "set": "bbusters", "name": "Beast Busters", "family": "coop", "players": 3, "level": "nelfeplay", "start": {"state": "states/arcade/bbusters/debut-2p-fbneo.state", "sha256": "87c335e25c34b1e8f71f3d4cf266e0a02d4b317a4a6b76b181cf410494bcc9d9", "players": 2}, "starts": [{"state": "states/arcade/bbusters/debut-3p-fbneo.state", "sha256": "ec526f8b9380074c9b2fd839055be85b45f2ab57ecbee7ec1fd79544666b63bb", "players": 3}] },
-    { "id": "arcade/turbofrc", "system": "arcade", "set": "turbofrc", "name": "Turbo Force", "family": "coop", "players": 3, "level": "classique" },
+    { "id": "arcade/turbofrc", "system": "arcade", "set": "turbofrc", "name": "Turbo Force", "family": "coop", "players": 3, "level": "nelfeplay", "start": {"state": "states/arcade/turbofrc/debut-2p-fbneo.state", "sha256": "399beabf71f27b100e002605e23bc49abd27e39457874b926826cb410089bd79", "players": 2}, "starts": [{"state": "states/arcade/turbofrc/debut-3p-fbneo.state", "sha256": "bf94e3fe30fb027145232717fe9bd7b8149584faf2c20d4a0cbe71013369829a", "players": 3}] },
     { "id": "arcade/gground", "system": "arcade", "set": "gground", "name": "Gain Ground", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/fixeight", "system": "arcade", "set": "fixeight", "name": "FixEight", "family": "coop", "players": 3, "level": "classique" },
     { "id": "arcade/mslug3", "system": "arcade", "set": "mslug3", "name": "Metal Slug 3", "family": "coop", "players": 2, "level": "nelfeplay", "start": {"state": "states/arcade/mslug3/selection-2p-fbneo.state", "sha256": "0a9ff6d75ad0b1e6c02d8e3c4a5c1dc628d3fe6e4018b29e171773103d15af91"}, "choices": [{"key": "character", "default": 0, "distinct": true, "values": [{"value": 0, "name": "MARCO", "image": "images/arcade/mslug3/character/marco.png"}, {"value": 2, "name": "ERI", "image": "images/arcade/mslug3/character/eri.png"}, {"value": 1, "name": "TARMA", "image": "images/arcade/mslug3/character/tarma.png"}, {"value": 3, "name": "FIO", "image": "images/arcade/mslug3/character/fio.png"}], "seats": [{"seat": 1, "core_ram": "0x2BB"}, {"seat": 2, "core_ram": "0x36B"}]}] },

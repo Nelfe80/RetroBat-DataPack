@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/turbofrc",
+  "situation": "debut-3p",
+  "description": "Debut du premier niveau, N vaisseaux entres (credit puis START, un seul tour : un second START fait sortir des joueurs) : rouge, bleu et vert selon la place.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "bf94e3fe30fb027145232717fe9bd7b8149584faf2c20d4a0cbe71013369829a",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "c37be47e8365bbe8198210bbdd7fbe7ce1be3749e845e09d7bd17b96eac7c611",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T17:38:00Z",
+  "min_api": "1.9.89"
+}
