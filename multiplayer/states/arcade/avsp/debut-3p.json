@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/avsp",
+  "situation": "debut-3p",
+  "description": "Selection des personnages en mode 3 PLAYERS 3 CHUTERS (reglage de l'EEPROM du jeu, menu de test, que l'etat emporte), N joueurs entres (credit puis START). L'octet de chaque place est le personnage (Predator Warrior 0, Schaefer 1, Predator Hunter 2, Linn Kurosawa 3), une place tous les 0x100 ; ecrit, le curseur suit et le minuteur de l'ecran valide le choix. Un personnage deja pris bloque le curseur, d'ou le choix distinct. A deux, la place 3 propose d'entrer.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "be5f59dff4cc657ce9cfa7ff8e56c0392e6a23684750693215f9311faf3153b1",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "5905d04f4ff1140dd9f75e79567335ecf7d7088852606671c20a27f8e165e1b5",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T21:40:00Z",
+  "min_api": "1.9.89"
+}
