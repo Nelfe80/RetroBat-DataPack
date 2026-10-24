@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/dino",
+  "situation": "debut-2p",
+  "description": "Selection des personnages, N joueurs entres (credit puis START), l'etat pris des l'entree du dernier (le minuteur du jeu part de 9). L'octet de chaque place est le personnage (Jack 0, Hannah 1, Mustapha 2, Mess 3), une place tous les 0xC ; ecrit, le curseur et le panneau suivent, et le jeu le prend au minuteur comme a la validation. Le masque des personnages pris (0x862E) n'est pas ecrit : il ne sert qu'aux deplacements du curseur. Le curseur saute un pris, d'ou le choix distinct. A deux, la place 3 a INSERT COIN.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "b7b3b1c862fe34adf046bdae9a42a49caf15c70a863964d89d00c5290d651b32",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "fb1b4c11ec8a7c7b8c54fd086bbce694f9d63b0c5af910dc6e920c5a10bca587",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T02:15:00Z",
+  "min_api": "1.9.89"
+}
