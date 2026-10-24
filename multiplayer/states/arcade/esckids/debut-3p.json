@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/esckids",
+  "situation": "debut-3p",
+  "description": "Saisie des initiales, N joueurs entres (credit puis START) : chacun tape les siennes (la borne ne sait pas encore les ecrire dans ce jeu) ; les autres places a INSERT COIN.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "f77359db887df8f8eec14d9709dd81dab4d735b63ee50a97182a56d54f880386",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "ae5e47455e086100200b62798751b580844d937a185172a04cc3caff781b3742",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T18:25:00Z",
+  "min_api": "1.9.89"
+}
