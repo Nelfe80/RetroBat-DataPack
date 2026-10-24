@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/slammast",
+  "situation": "debut-4p",
+  "description": "Selection des catcheurs, N joueurs entres : a deux en SINGLE MATCH (le joueur 2 arrive en challenger), a trois et quatre en TEAM BATTLE ROYAL (choisi au menu du mode). L'octet de chaque place est le catcheur (Jumbo 0, Biff 1, Gunloc 2, Oni 3, Titan 4, Stingray 5, Haggar 6, Grater 7, Rasta 8 ; 9 Scorpion, le boss, ecarte) ; ecrit, le portrait suit et le jeu le prend a la validation. Le curseur saute un catcheur deja pris, d'ou le choix distinct.",
+  "state_file": "debut-4p-fbneo.state",
+  "state_sha256": "d1a189b7d149a63a04de49f09951e0f15fa26e5d0503678d524c74bd08e9ab48",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "74d785e0ca430f249cc4b8cf796edc322dae52e9e7940114cad59427cea308cb",
+  "players_in_game": 4,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T20:45:00Z",
+  "min_api": "1.9.89"
+}
