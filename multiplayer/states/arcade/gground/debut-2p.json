@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/gground",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau, N joueurs entres (credit puis bouton 1 : la borne n'a pas de START, celui de la manette ouvre le menu de service). Chacun choisit son soldat dans le niveau, parmi sa reserve (CHOOSE PLAYER), comme dans le jeu. Etat de 1,2 Mo : le jeu tourne sur disquette et son image est dans l'etat.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "6ed0fd35c34ef65d30c0734255449718c5b8803f66b82c30887688486cbc1023",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "831fd03fe0ec5740f123988f872f8b1ceb86c89fff33693259bb2112fe4b2255",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T01:45:00Z",
+  "min_api": "1.9.89"
+}
