@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/simpsons",
+  "situation": "debut-3p",
+  "description": "Debut du premier niveau, N joueurs entres (credit puis START) : Marge, Homer, Bart et Lisa selon la place, les autres places a INSERT COIN.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "cde05e63d9b25d8c7276924347e318708436e2e374d2dccd348eb467967120eb",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "7a4d928acdce6b2f269cd5c913ab341dc2b7a861eb2fc26c41903cb1e7c1b1ef",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T15:58:00Z",
+  "min_api": "1.9.89"
+}

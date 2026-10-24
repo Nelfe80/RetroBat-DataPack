@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ssriders",
+  "situation": "debut-3p",
+  "description": "Debut du premier niveau, N cowboys entres (credit puis tir) selon la place, les autres places a INSERT COIN.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "314c57e33ba339be4522356aad10331b8c25a3ca2f56b3c11a109dae07154c03",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "5d365441d97d14fb778ac1137f19dba9a6e35f312094fb061e03c667b2f9e19b",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:20:00Z",
+  "min_api": "1.9.89"
+}

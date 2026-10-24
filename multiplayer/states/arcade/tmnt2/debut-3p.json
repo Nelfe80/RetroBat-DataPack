@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/tmnt2",
+  "situation": "debut-3p",
+  "description": "Debut du jeu, N tortues entrees (credit puis attaque, la borne n'a pas de START) : Leonardo, Michelangelo, Donatello et Raphael selon la place ; a deux et trois l'etat tombe sur la courte scene d'introduction.",
+  "state_file": "debut-3p-fbneo.state",
+  "state_sha256": "1d20c90054f64b3cb3ff8a0f8475bbab0a09f8c7c530fe3cd8d4180db23a065e",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "38c83bfb4d1e1be6ba8bd13697706a02b878ecf83b4b60e4d133456cd68cbeaf",
+  "players_in_game": 3,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:12:00Z",
+  "min_api": "1.9.89"
+}

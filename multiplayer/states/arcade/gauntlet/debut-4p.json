@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/gauntlet",
+  "situation": "debut-4p",
+  "description": "Niveau 1, N heros entres (credit puis tir, deux fois : le premier appui quitte l'ecran du niveau) : Guerrier, Valkyrie, Magicien et Elfe selon la place ; la sante baisse avec le temps comme dans le jeu.",
+  "state_file": "debut-4p-fbneo.state",
+  "state_sha256": "489f2b1c34643286c7990023e0e50e27876d67113b40c406c5ba074281beb970",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "8b2fb06b607b56e8e17b3a64162e369045ca19b50bc418d22ad62f02e411a12a",
+  "players_in_game": 4,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-24T16:40:00Z",
+  "min_api": "1.9.89"
+}
