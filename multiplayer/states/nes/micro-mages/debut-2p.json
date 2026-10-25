@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "nes/micro-mages",
+  "situation": "debut-2p",
+  "description": "Debut de TOWER 1-1, N mages en jeu (PLAYERS N au menu, START puis START, mot de passe vide), l'adaptateur 4 joueurs de Nestopia pose par l'option du coeur. Chaque place a son mage ; les vies sont communes, comme dans le jeu.",
+  "state_file": "debut-2p-nestopia.state",
+  "state_sha256": "680f2ea8ef08e2664b0a6e2b77c1a5665129db046dd800ea5ba7850afa03f686",
+  "core": "nestopia",
+  "core_sha256": "21957a6f37ccb8946f05e9209ff6f7b0d089bc382c0d59410e5fd633ff871b92",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "2a2785da21e88eb49db8613c1c032fd4afa3c7e3990ca60ad7974d30c984dff5",
+  "content_md5": "11c3f3f8d6473d9672dd8aabb842c3a0",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T03:20:00Z",
+  "min_api": "1.9.89"
+}
