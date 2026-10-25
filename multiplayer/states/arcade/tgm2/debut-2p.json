@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/tgm2",
+  "situation": "debut-2p",
+  "description": "Debut d'un duel (VERSUS) : le joueur 1 joue, le joueur 2 arrive (credit puis START) et accepte le defi (CHALLENGE ? YES), l'etat pris au READY, les deux puits vides, 3 minutes au compteur. Le duel se joue en une manche : le premier qui deborde perd. L'octet « a gagne ce duel » de chaque joueur (0x95136, 0x94D9E) passe a 1 a la fin et retombe a 0 au defi suivant (le cumul « N WIN » affiche est ailleurs).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "ea05d50586cd8fb5b980282000ff942ceb76c05da35ac4b1102d5762f2d49fde",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "084ac20bd8b2172025106307df3f5a4a62a6ecd1e25bc07f6ff67f5b04e8ca84",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, FBNeo) pour 2, 3 et 4 joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs en jeu et INSERT COIN aux places libres ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (24/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T03:40:00Z",
+  "min_api": "1.9.89"
+}
