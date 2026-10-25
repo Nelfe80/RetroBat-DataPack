@@ -245,7 +245,8 @@
         "multiplayer.rotation.until": "until {time}",
         "multiplayer.result.void": "MATCH VOID",
         "multiplayer.result.void_note": "A state load, rewind, fast-forward or cheat was seen: the match does not count.",
-        "multiplayer.result.draw": "DRAW"
+        "multiplayer.result.draw": "DRAW",
+        "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter."
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -493,7 +494,8 @@
         "multiplayer.rotation.until": "until {time}",
         "multiplayer.result.void": "MATCH VOID",
         "multiplayer.result.void_note": "A state load, rewind, fast-forward or cheat was seen: the match does not count.",
-        "multiplayer.result.draw": "DRAW"
+        "multiplayer.result.draw": "DRAW",
+        "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter."
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -741,7 +743,8 @@
         "multiplayer.rotation.until": "jusqu'à {time}",
         "multiplayer.result.void": "RENCONTRE ANNULÉE",
         "multiplayer.result.void_note": "Chargement d'état, retour arrière, avance rapide ou triche vus : la rencontre ne compte pas.",
-        "multiplayer.result.draw": "MATCH NUL"
+        "multiplayer.result.draw": "MATCH NUL",
+        "video.filter.no_live": "Filtre d'image (NTSC) actif : pas de direct ni de vidéo de cette partie. La vidéo d'un record se fera depuis le replay, sans filtre."
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -995,7 +998,8 @@
         "leaderboard.live.wait": "Plaza pendiente",
         "leaderboard.live.followers": "Solo jugadores seguidos",
         "leaderboard.live.watch_only": "Solo espectadores",
-        "leaderboard.live.no_netplay": "Solo reacciones"
+        "leaderboard.live.no_netplay": "Solo reacciones",
+        "video.filter.no_live": "Filtro de imagen (NTSC) activo: sin directo ni vídeo de esta partida. El vídeo de un récord se hará desde el replay, sin filtro."
     },
     "it": {
         "label.metadata.name": "nome",
@@ -1122,7 +1126,8 @@
         "leaderboard.live.wait": "Posto in attesa",
         "leaderboard.live.followers": "Solo giocatori seguiti",
         "leaderboard.live.watch_only": "Solo spettatori",
-        "leaderboard.live.no_netplay": "Solo reazioni"
+        "leaderboard.live.no_netplay": "Solo reazioni",
+        "video.filter.no_live": "Filtro immagine (NTSC) attivo: niente diretta né video di questa partita. Il video di un record sarà fatto dal replay, senza filtro."
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -1630,7 +1635,8 @@
         "leaderboard.live.wait": "Vaga pendente",
         "leaderboard.live.followers": "Apenas jogadores seguidos",
         "leaderboard.live.watch_only": "Apenas espectadores",
-        "leaderboard.live.no_netplay": "Apenas reações"
+        "leaderboard.live.no_netplay": "Apenas reações",
+        "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro."
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -2265,7 +2271,8 @@
         "leaderboard.live.wait": "Vaga pendente",
         "leaderboard.live.followers": "Apenas jogadores seguidos",
         "leaderboard.live.watch_only": "Apenas espectadores",
-        "leaderboard.live.no_netplay": "Apenas reações"
+        "leaderboard.live.no_netplay": "Apenas reações",
+        "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro."
     },
     "ru": {
         "label.metadata.name": "название",
