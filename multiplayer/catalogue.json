@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-25.11",
+  "revision": "2026-10-25.12",
   "cores": {
     "ngpc": {
       "core": "mednafen_ngp_link",
@@ -115,6 +115,8 @@
     { "id": "ngpc/snk-vs-capcom-card-fighters-clash-capcom-version", "system": "ngpc", "name": "SNK vs. Capcom: Card Fighters' Clash (Capcom Version)", "family": "duel", "players": 2, "elo_type": "strategie", "content": {"md5": ["3bcc1c9ef59a75e3c2e6b49be6b84bab"], "crc": ["80ce137b"], "size": [2097152]}, "level": "nelfeplay", "start": {"state": "states/ngpc/snk-vs-capcom-card-fighters-clash-capcom-version/combat-2p-mednafen-ngp-link.state", "sha256": "4688122d23dd1c15ca029c1ebeab697cf4d5f2ebdd304880ad53788e1b97b867", "players": 2, "content": "3bcc1c9ef59a75e3c2e6b49be6b84bab"}, "match_end": {"type": "score_final", "close_after_s": 8, "over": {"core_ram": "0x0FE0", "value": 21}, "seats": [{"seat": 1, "core_ram": "0x0BC6"}, {"seat": 2, "core_ram": "0x0C0A"}], "score": {"bytes": 1, "bcd": false, "order": "le"}}, "stats": {"life": {"bytes": 1, "full": 30, "ko": 0, "seats": [{"seat": 1, "core_ram": "0x0BC6"}, {"seat": 2, "core_ram": "0x0C0A"}]}} },
     { "id": "gba/chuchu-rocket", "system": "gba", "content": {"md5": ["76bd3ac13808b1d6abea377815b10adb"], "crc": ["057fb1b6"], "size": [4194304]}, "name": "ChuChu Rocket!", "family": "versus", "players": 4, "elo_type": "puzzle", "level": "classique" },
     { "id": "gba/kurukuru-kururin", "system": "gba", "content": {"md5": ["48f3bc6bf59c34f057bd98b29fd7b848", "db7d06d0be0b06c4a73bcf614e81c588"], "crc": ["c4dab956", "8a6a900b"], "size": [4194304]}, "name": "Kurukuru Kururin", "family": "course", "players": 4, "elo_type": "course", "level": "classique" },
-    { "id": "gba/sonic-battle", "system": "gba", "content": {"md5": ["100579ef01225c620560f88e65ca423a", "7194f25da6be4548f7e0c80f73e3f628", "1c694783acdfd013bdd980a4d8f8f546"], "crc": ["9ec9d86f", "d0f65125", "7305ac30"], "size": [16777216]}, "name": "Sonic Battle", "family": "versus", "players": 4, "elo_type": "combat", "level": "classique" }
+    { "id": "gba/sonic-battle", "system": "gba", "content": {"md5": ["100579ef01225c620560f88e65ca423a", "7194f25da6be4548f7e0c80f73e3f628", "1c694783acdfd013bdd980a4d8f8f546"], "crc": ["9ec9d86f", "d0f65125", "7305ac30"], "size": [16777216]}, "name": "Sonic Battle", "family": "versus", "players": 4, "elo_type": "combat", "level": "classique" },
+    { "id": "gba/sonic-advance-3", "system": "gba", "content": {"md5": ["e0533faf6aa36e3111669574f1c5df92"], "crc": ["49dda5e6"], "size": [16777216]}, "name": "Sonic Advance 3", "family": "course", "players": 4, "elo_type": "course", "level": "classique" },
+    { "id": "gba/mario-golf-advance-tour", "system": "gba", "content": {"md5": ["2e8814e664675572a43b01900bbbb16b", "b79c5c98e01fcf89cba5431278c9076f"], "crc": ["d56c2e54", "b483127c"], "size": [16777216]}, "name": "Mario Golf: Advance Tour", "family": "sport", "players": 4, "elo_type": "sport", "level": "classique" }
   ]
 }
