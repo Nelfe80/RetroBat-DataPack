@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/pop-n-twinbee",
+  "situation": "saisie-2p",
+  "description": "INSERT NAME en 2PLAYERS : chaque joueur tape son nom avec son curseur (TwinBee pour la place 1, WinBee pour la place 2), puis choisit son mode de transformation.",
+  "state_file": "saisie-2p-snes9x.state",
+  "state_sha256": "433fd5821615ffe55959ee640cc79119c47762d570f14bc4daf739f368774495",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "979572fe92501a409207399817911d04438f4078bc6832cbc851e98eb2f1c2d2",
+  "content_md5": "ed9c32231cd480448f355c4ed54b1bae",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T19:00:00Z",
+  "min_api": "1.9.89"
+}

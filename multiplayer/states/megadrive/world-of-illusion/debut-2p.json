@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/world-of-illusion",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau en mode 2 P (carte PLAYER, 1 P ou 2 P), Mickey et Donald en jeu : la place 1 joue Mickey, la place 2 Donald. Le mode a deux a ses propres niveaux, ou les deux joueurs s'aident.",
+  "state_file": "debut-2p-genesis-plus-gx.state",
+  "state_sha256": "b8df4fec78c058023818262d1aa4251b1c564ceb01045297ccbab895a49de5f2",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "51e48f9ff8d94ddc9aa6f6d744b3227dc7c4d640ba827e8bfe240d1a31b8b498",
+  "content_md5": "c2c5a4b990ce72f98b7b7f236e66c022",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T18:17:00Z",
+  "min_api": "1.9.89"
+}

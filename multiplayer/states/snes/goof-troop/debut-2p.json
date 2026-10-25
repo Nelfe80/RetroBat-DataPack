@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/goof-troop",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau en J1 + J2 (SELECTION) : la place 1 joue Dingo, la place 2 Max. Contenu : Goof Troop (France), la version du pack ; une autre version aura son propre etat.",
+  "state_file": "debut-2p-snes9x.state",
+  "state_sha256": "9c4f7540acba72bcdec2e99afc5d3d167538c7e9d0d8e1ba3778cbd87695d313",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "a97a5ffdef892d7574e5cb807ec657059fd65490186feae975079cd11baa2df7",
+  "content_md5": "29e2ee08c6b7c1a89a720d7291f76e58",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T18:57:00Z",
+  "min_api": "1.9.89"
+}

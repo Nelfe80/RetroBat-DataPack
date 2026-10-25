@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/gunstar-heroes",
+  "situation": "selection-2p",
+  "description": "Ecran CHOOSE PLAYER TYPE AND WEAPON en 2 PLAYERS : chaque joueur choisit lui-meme son tir (FREE SHOT ou FIXED SHOT) et son arme, a gauche la place 1 (Red), a droite la place 2 (Blue), puis END.",
+  "state_file": "selection-2p-genesis-plus-gx.state",
+  "state_sha256": "b031e5b889dfd439c5d4900edf718b4c78670f2a466932704379165b80fb441e",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "f177810ce614be21c1a9214c0ca4d8f8d357b04a497c02fae185e4b2f97b6b87",
+  "content_md5": "9a369cfc6355db48677771e345421e0e",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T18:27:00Z",
+  "min_api": "1.9.89"
+}

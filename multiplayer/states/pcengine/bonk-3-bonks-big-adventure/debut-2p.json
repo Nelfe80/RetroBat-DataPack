@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "pcengine/bonk-3-bonks-big-adventure",
+  "situation": "debut-2p",
+  "description": "Debut du 1-1 en MODE SELECT 2 PLAYERS : les deux Bonk en jeu, la place 1 et la place 2.",
+  "state_file": "debut-2p-mednafen-pce-fast.state",
+  "state_sha256": "902f4b7f765ba77cfbc2edfdb54951a034110c4444f6ea54cd4214063474e772",
+  "core": "mednafen_pce_fast",
+  "core_sha256": "ddb2679eece69914e49a394403d4f514ceee2abc418eb39e42db26db213c5a12",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "de40e6780d07832cbc7f4eed43267ee2241fd30f7a1bcf92346b58687fdad741",
+  "content_md5": "f4922bc12ac5c46c29d18d21e34f910f",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T19:03:00Z",
+  "min_api": "1.9.89"
+}

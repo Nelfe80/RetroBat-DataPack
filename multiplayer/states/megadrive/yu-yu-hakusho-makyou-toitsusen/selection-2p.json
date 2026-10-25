@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/yu-yu-hakusho-makyou-toitsusen",
+  "situation": "selection-2p",
+  "description": "Match d'entrainement, BATTLE ROYALE, ecran du nombre de combattants (2, 3 ou 4) : le joueur 1 choisit, chacun appuie sur un bouton a l'ENTRY pour entrer, les places en plus sont jouees par l'ordinateur, puis CHARACTER SELECT. Les menus du jeu sont en japonais : ce depart evite les quatre premiers.",
+  "state_file": "selection-2p-genesis-plus-gx.state",
+  "state_sha256": "7b68defd8a79d27a80a8bbc3a778bac268e9b8ec3453f95a909af4324ad17667",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "c39d52b2e2298b3784ada3de70d64b26b67e172114c7d18494faad70fc4d7c06",
+  "content_md5": "8130283788f82677ec583b7f627dbf0c",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T19:23:00Z",
+  "min_api": "1.9.89"
+}

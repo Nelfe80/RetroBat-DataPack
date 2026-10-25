@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/the-lost-vikings",
+  "situation": "debut-2p",
+  "description": "Debut du premier niveau en PLAYERS TWO (OPTIONS), le dialogue d'ouverture passe : la place 1 joue Erik, la place 2 Baleog ; chacun change de viking libre avec L ou R.",
+  "state_file": "debut-2p-genesis-plus-gx.state",
+  "state_sha256": "673f13fb2e8189162bd69f8da1da626f207a962db7bf3e3d9af973385e8b3137",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "3257917cf1a854ec57888c4a499501811585abd7a929c37acdcd0a4869428562",
+  "content_md5": "44752b050421c4e51d1bee96b3fed44e",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-25T18:36:00Z",
+  "min_api": "1.9.89"
+}
