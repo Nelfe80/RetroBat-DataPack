@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "ngpc/snk-vs-capcom-card-fighters-clash-capcom-version",
+  "situation": "combat-2p",
+  "description": "Combat lie en EXHIBITION MATCH (sans pari de cartes), les deux consoles reliees par le cable (START, LINK, VERSUS, sauvegarde acceptee, la console 1 choisit le mode), a « SHUFFLE PILE ». La place 1 joue la console 1, la place 2 la console 2 ; chaque borne ne montre que la sienne (ngplink_display). Les deux consoles portent la meme sauvegarde (le paquet de depart).",
+  "state_file": "combat-2p-mednafen-ngp-link.state",
+  "state_sha256": "4688122d23dd1c15ca029c1ebeab697cf4d5f2ebdd304880ad53788e1b97b867",
+  "core": "mednafen_ngp_link",
+  "core_sha256": "d8fde5d94f6037ed7c0d2bda1e1c0a64b3c937b0d6083dfd9f427b48bd749157",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "e59e0ebf810200a634c6063fcbdf3489635d7d3521b43e569f7251236a4548f6",
+  "content_md5": "3bcc1c9ef59a75e3c2e6b49be6b84bab",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py cfc, coeur NGP Link) : les deux consoles entrees en VS l'une apres l'autre (deux copies symetriques restent bloquees), liaison etablie puis EXHIBITION MATCH. Recharge dans un RetroArch neuf avec le coeur 0.2 ; netplay a deux, l'invite rejoint apres le chargement, chaque instance sur sa console (ngplink_display console 1 / console 2) : 0 desynchronisation (25/10). Flash : aucun fichier ecrit avec ngplink_save=off apres une fermeture propre.",
+  "certified": false,
+  "made_utc": "2026-10-25T10:57:00Z",
+  "min_api": "1.9.93"
+}
