@@ -11,7 +11,7 @@
   "rom_sha256": "e59e0ebf810200a634c6063fcbdf3489635d7d3521b43e569f7251236a4548f6",
   "content_md5": "3bcc1c9ef59a75e3c2e6b49be6b84bab",
   "players_in_game": 2,
-  "bench_verification": "Fabrique au banc (coop_banc.py cfc, coeur NGP Link) : les deux consoles entrees en VS l'une apres l'autre (deux copies symetriques restent bloquees), liaison etablie puis EXHIBITION MATCH. Recharge dans un RetroArch neuf avec le coeur 0.2 ; netplay a deux, l'invite rejoint apres le chargement, chaque instance sur sa console (ngplink_display console 1 / console 2) : 0 desynchronisation (25/10). Flash : aucun fichier ecrit avec ngplink_save=off apres une fermeture propre.",
+  "bench_verification": "Fabrique au banc (coop_banc.py cfc, coeur NGP Link) : les deux consoles entrees en VS l'une apres l'autre (deux copies symetriques restent bloquees), liaison etablie puis EXHIBITION MATCH. Recharge dans un RetroArch neuf avec le coeur 0.2 ; netplay a deux, l'invite rejoint apres le chargement, chaque instance sur sa console (ngplink_display console 1 / console 2) : 0 desynchronisation (25/10). Flash : aucun fichier ecrit avec ngplink_save=off apres une fermeture propre. Fin au score mesuree au banc (25/10) : 0x0FE0 = 21 pendant tout l'ecran de fin, 19 pendant le combat ; points de vie en centaines (place 1 0x0BC6, place 2 0x0C0A) ; un match gagne par chaque console, joue jusqu'au bout, donne le bon vainqueur.",
   "certified": false,
   "made_utc": "2026-10-25T10:57:00Z",
   "min_api": "1.9.93"
