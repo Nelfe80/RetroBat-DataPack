@@ -247,7 +247,8 @@
         "multiplayer.result.void_note": "A state load, rewind, fast-forward or cheat was seen: the match does not count.",
         "multiplayer.result.draw": "DRAW",
         "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter.",
-        "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again."
+        "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again.",
+        "multiplayer.proposal": "{player} wants to play {game}"
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -497,7 +498,8 @@
         "multiplayer.result.void_note": "A state load, rewind, fast-forward or cheat was seen: the match does not count.",
         "multiplayer.result.draw": "DRAW",
         "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter.",
-        "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again."
+        "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again.",
+        "multiplayer.proposal": "{player} wants to play {game}"
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -747,7 +749,8 @@
         "multiplayer.result.void_note": "Chargement d'état, retour arrière, avance rapide ou triche vus : la rencontre ne compte pas.",
         "multiplayer.result.draw": "MATCH NUL",
         "video.filter.no_live": "Filtre d'image (NTSC) actif : pas de direct ni de vidéo de cette partie. La vidéo d'un record se fera depuis le replay, sans filtre.",
-        "multiplayer.no_controller": "Aucune manette trouvée pour cette partie : seul le clavier répond. Branchez une manette, configurez-la dans EmulationStation, puis relancez la partie."
+        "multiplayer.no_controller": "Aucune manette trouvée pour cette partie : seul le clavier répond. Branchez une manette, configurez-la dans EmulationStation, puis relancez la partie.",
+        "multiplayer.proposal": "{player} propose de jouer à {game}"
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -1003,7 +1006,8 @@
         "leaderboard.live.watch_only": "Solo espectadores",
         "leaderboard.live.no_netplay": "Solo reacciones",
         "video.filter.no_live": "Filtro de imagen (NTSC) activo: sin directo ni vídeo de esta partida. El vídeo de un récord se hará desde el replay, sin filtro.",
-        "multiplayer.no_controller": "No se ha encontrado ningún mando para esta partida: solo responde el teclado. Conecte un mando, configúrelo en EmulationStation y vuelva a lanzar la partida."
+        "multiplayer.no_controller": "No se ha encontrado ningún mando para esta partida: solo responde el teclado. Conecte un mando, configúrelo en EmulationStation y vuelva a lanzar la partida.",
+        "multiplayer.proposal": "{player} propone jugar a {game}"
     },
     "it": {
         "label.metadata.name": "nome",
@@ -1132,7 +1136,8 @@
         "leaderboard.live.watch_only": "Solo spettatori",
         "leaderboard.live.no_netplay": "Solo reazioni",
         "video.filter.no_live": "Filtro immagine (NTSC) attivo: niente diretta né video di questa partita. Il video di un record sarà fatto dal replay, senza filtro.",
-        "multiplayer.no_controller": "Nessun controller trovato per questa partita: risponde solo la tastiera. Collegare un controller, configurarlo in EmulationStation, poi riavviare la partita."
+        "multiplayer.no_controller": "Nessun controller trovato per questa partita: risponde solo la tastiera. Collegare un controller, configurarlo in EmulationStation, poi riavviare la partita.",
+        "multiplayer.proposal": "{player} propone di giocare a {game}"
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -1642,7 +1647,8 @@
         "leaderboard.live.watch_only": "Apenas espectadores",
         "leaderboard.live.no_netplay": "Apenas reações",
         "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro.",
-        "multiplayer.no_controller": "Nenhum controle encontrado para esta partida: só o teclado responde. Conecte um controle, configure-o no EmulationStation e reinicie a partida."
+        "multiplayer.no_controller": "Nenhum controle encontrado para esta partida: só o teclado responde. Conecte um controle, configure-o no EmulationStation e reinicie a partida.",
+        "multiplayer.proposal": "{player} propõe jogar {game}"
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -2279,7 +2285,8 @@
         "leaderboard.live.watch_only": "Apenas espectadores",
         "leaderboard.live.no_netplay": "Apenas reações",
         "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro.",
-        "multiplayer.no_controller": "Nenhum comando encontrado para esta partida: só o teclado responde. Ligue um comando, configure-o no EmulationStation e reinicie a partida."
+        "multiplayer.no_controller": "Nenhum comando encontrado para esta partida: só o teclado responde. Ligue um comando, configure-o no EmulationStation e reinicie a partida.",
+        "multiplayer.proposal": "{player} propõe jogar {game}"
     },
     "ru": {
         "label.metadata.name": "название",
