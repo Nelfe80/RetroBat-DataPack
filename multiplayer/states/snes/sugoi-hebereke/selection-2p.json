@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/sugoi-hebereke",
+  "situation": "selection-2p",
+  "description": "Versus (たいせん), ecran du nombre de joueurs (ひとり 1, ふたり 2, さんにん 3, よにん 4) : le joueur 1 choisit, puis chacun prend son personnage a CHARACTER SELECT. Menus en japonais : ce depart evite les deux premiers, qui repartent en demo au moindre retard. A quatre, les places 3 et 4 restent a mesurer (le Multitap de snes9x ne recoit pas les manettes 3 et 4 du banc).",
+  "state_file": "selection-2p-snes9x.state",
+  "state_sha256": "75bf4b269eb4ea50e4802429acdf71fdbd5ca7ceee49a5394e55eef13c5e8147",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "e4ea27d4ba9c3e979d935339e67e073e12299a3f307dafa9d18d9334cdb5a604",
+  "content_md5": "9c0029b686d23eee27d9a66626395ed4",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-26T03:10:00Z",
+  "min_api": "1.9.89"
+}
