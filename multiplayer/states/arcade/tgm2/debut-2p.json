@@ -2,7 +2,7 @@
   "schema": "nelfeplay.multiplayer.start.v1",
   "game": "arcade/tgm2",
   "situation": "debut-2p",
-  "description": "Debut d'un duel (VERSUS) : le joueur 1 joue, le joueur 2 arrive (credit puis START) et accepte le defi (CHALLENGE ? YES), l'etat pris au READY, les deux puits vides, 3 minutes au compteur. Le duel se joue en une manche : le premier qui deborde perd. L'octet « a gagne ce duel » de chaque joueur (0x95136, 0x94D9E) passe a 1 a la fin et retombe a 0 au defi suivant (le cumul « N WIN » affiche est ailleurs).",
+  "description": "Debut d'un duel (VERSUS) : le joueur 1 joue, le joueur 2 arrive (credit puis START) et accepte le defi (CHALLENGE ? YES), l'etat pris au READY, les deux puits vides, 3 minutes au compteur. Le duel se joue en une manche : le premier qui deborde perd. L'octet de fin de chaque joueur passe a 1 quand IL DEBORDE (0x95136 pour la place 1, 0x94D9E pour la place 2 ; verifie au banc le 27/10, captures WIN/LOSE) et retombe a 0 au defi suivant : la victoire de la place 1 se lit a 0x94D9E, celle de la place 2 a 0x95136 (le cumul « N WIN » affiche est ailleurs).",
   "state_file": "debut-2p-fbneo.state",
   "state_sha256": "ea05d50586cd8fb5b980282000ff942ceb76c05da35ac4b1102d5762f2d49fde",
   "core": "fbneo",
