@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/metal-warriors",
+  "situation": "debut-2p",
+  "description": "Debut du combat HEAD TO HEAD, les deux robots Havoc : la place 1 joue le rouge (vue du haut), la place 2 le bleu (vue du bas) ; chaque borne ne voit que sa vue et la barre ENEMY UNIT.",
+  "state_file": "debut-2p-snes9x.state",
+  "state_sha256": "02db11725a6c8f2507e1117541b0a20280b98c531ee2e5cd06c54e420d1bfbea",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "0d7f875877fe856066cfb39b4ecdbbe7d48393a75770720876c94419f809bb1c",
+  "content_md5": "1b1282421d39a473f634958c28dca0d4",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-26T00:35:00Z",
+  "min_api": "1.9.97"
+}

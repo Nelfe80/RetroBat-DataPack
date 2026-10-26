@@ -1,0 +1,18 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/super-mario-kart",
+  "situation": "circuit-2p",
+  "description": "MATCH RACE a deux, ecran COURSE SELECT, pilotes confirmes : le pilote de chaque place s'ecrit a 0x1012 (place 1) et 0x1112 (place 2), lus au chargement de la course (une ecriture plus tard ne change plus le kart). La place 1 choisit la coupe et le circuit (B, puis B pour IS THIS OK). Pendant la course, la place 1 voit la moitie haute, la place 2 la moitie basse. Contenu : Super Mario Kart (Europe), la version du pack.",
+  "state_file": "circuit-2p-snes9x.state",
+  "state_sha256": "c289bc5981823d664e3405acff03d35fa9ba6f7b0408a66df4341eb591be0766",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "1bdf422695a30e704e8abb7743b9c178d1ef2b200515a83cd41daef85e6b99e2",
+  "content_md5": "f9fe266e91632e68b558d6b43393eaba",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique au banc (coop_banc.py, coeur du catalogue) pour chaque nombre de joueurs : chacun recharge dans un RetroArch neuf avec exactement ce nombre de joueurs ; choix ecrits retrouves en jeu ; netplay a deux, l'invite rejoint apres le chargement : 0 desynchronisation (25/10).",
+  "certified": false,
+  "made_utc": "2026-10-26T02:55:00Z",
+  "min_api": "1.9.97"
+}
