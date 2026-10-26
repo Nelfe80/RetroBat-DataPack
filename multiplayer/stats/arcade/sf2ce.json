@@ -1,0 +1,20 @@
+{
+  "id": "arcade/sf2ce/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "vie": { "source": "poll", "seats": { "1": "0x83E8", "2": "0x86E8" }, "bytes": 2, "full": 144, "ko": 65535 },
+    "manches": { "source": "poll", "seats": { "1": "0x864F", "2": "0x894F" }, "bytes": 1, "confirm": false }
+  },
+  "counters": {
+    "coups": { "rule": "baisse_adverse", "signal": "vie" },
+    "ko": { "rule": "atteint_adverse", "signal": "vie", "value": "ko" },
+    "perfects": { "rule": "manche_gagnee_si_plein", "signal": "vie", "rounds": "manches" },
+    "degats": { "rule": "somme_baisse_adverse", "signal": "vie" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "coups", "label": "multiplayer.stat.hits", "formula": "coups", "unit": "count", "better": "higher" },
+    { "category": "efficacite", "id": "degats", "label": "multiplayer.stat.damage", "formula": "degats", "unit": "points", "better": "higher" },
+    { "category": "maitrise", "id": "perfects", "label": "multiplayer.stat.perfects", "formula": "perfects", "unit": "count", "better": "higher" }
+  ]
+}
