@@ -1,0 +1,19 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/titlef",
+  "situation": "confirme-2p",
+  "description": "Versus a deux ecrans (DIP Multi-Screen), pieces des deux cotes, VS PLAYER, une trentaine d'images apres la validation des deux boxeurs (ecran 1 Lucky Marcano, ecran 2 George Louisianna) : les deux ecrans sont au presentateur. Le boxeur de chaque cote s'ecrit encore 150 images apres la validation (0xD49A ecran 1, 0x1D49A ecran 2 ; le second octet, 0xD90A et 0x1D90A, ne compte pas), l'API ecrit 1,5 s apres le chargement.",
+  "state_file": "confirme-2p-fbneo.state",
+  "state_sha256": "5a6ced518644b9d28640450b67e8477502247b443ee144ebab173daa42961cc9",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "c3a7c519d215922b7be748bde5913144bb8c880f28f461886e9bfe309a66e946",
+  "values_at_save": {
+    "screen1_boxer": 1,
+    "screen2_boxer": 1
+  },
+  "bench_verification": "Ecrits a 30 et 150 images apres la validation (0/3, 2/0, 3/2) : chaque ecran affronte le boxeur ecrit de l'autre cote ; temoin sans ecriture : George Louisianna contre Lucky Marcano",
+  "certified": false,
+  "made_utc": "2026-10-27T11:03:00Z"
+}
