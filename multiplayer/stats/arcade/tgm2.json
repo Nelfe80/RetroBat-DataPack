@@ -1,0 +1,81 @@
+{
+  "id": "arcade/tgm2/versus",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "niveau": {
+      "source": "poll",
+      "seats": {
+        "1": "0x94DB8",
+        "2": "0x95150"
+      },
+      "bytes": 2
+    },
+    "apparitions": {
+      "source": "poll",
+      "seats": {
+        "1": "0x94DBC",
+        "2": "0x95154"
+      },
+      "bytes": 2
+    },
+    "poses": {
+      "source": "poll",
+      "seats": {
+        "1": "0x94E2E",
+        "2": "0x951C6"
+      },
+      "bytes": 2
+    }
+  },
+  "counters": {
+    "pieces": {
+      "rule": "somme_hausse",
+      "signal": "poses"
+    },
+    "niveaux": {
+      "rule": "somme_hausse",
+      "signal": "niveau"
+    },
+    "apparitions": {
+      "rule": "somme_hausse",
+      "signal": "apparitions"
+    },
+    "manches": {
+      "rule": "atteint",
+      "signal": "apparitions",
+      "value": "1"
+    },
+    "tetris": {
+      "rule": "hausse_d_au_moins",
+      "signal": "niveau",
+      "value": "4"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "pieces",
+      "label": "multiplayer.stat.pieces",
+      "formula": "pieces",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "lignes",
+      "label": "multiplayer.stat.lines",
+      "formula": "niveaux - apparitions + manches",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "tetris",
+      "label": "multiplayer.stat.tetris",
+      "formula": "tetris",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
