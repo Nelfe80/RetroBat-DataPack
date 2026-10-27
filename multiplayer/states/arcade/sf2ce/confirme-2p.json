@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/sf2ce",
+  "situation": "confirme-2p",
+  "description": "Ecran de selection, une trentaine d'images apres la confirmation des deux joueurs (P1 Ryu, P2 Ken) : plus rien ne se choisit. Les personnages s'ecrivent encore au moins 240 images apres la confirmation (mesure du 27/10 : 30, 150 et 240 pris, ecran VS et combat), l'API ecrit 1,5 s apres le chargement. Remplace selection-2p (les joueurs changeaient de personnage par rapport au panneau).",
+  "state_file": "confirme-2p-fbneo.state",
+  "state_sha256": "b6422e4ed030fe068b6a6ec86c9846af69148da0210cebf83a54eded7aa6fd46",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "b41d4b916401677a05cb482a4e8b282c7c2ded3e4342274f84eda378982d9ac8",
+  "values_at_save": {
+    "p1_character": 0,
+    "p2_character": 4,
+    "p1_rounds": 0,
+    "p2_rounds": 0
+  },
+  "bench_verification": "Ken et Chun-Li ecrits apres 30, 150 et 240 images : ecran VS et combat Ken contre Chun-Li ; depart pret de l'API (MultiplayerBancTests) : ecritures relues, deux K.O. forces, P1 vainqueur",
+  "certified": false,
+  "made_utc": "2026-10-27T02:32:00Z"
+}
