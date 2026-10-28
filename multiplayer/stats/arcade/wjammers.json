@@ -1,0 +1,55 @@
+{
+  "id": "arcade/wjammers/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "points": {
+      "source": "poll",
+      "seats": {
+        "1": "0x872",
+        "2": "0x8F2"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "buts": {
+      "rule": "hausse",
+      "signal": "points"
+    },
+    "points": {
+      "rule": "somme_hausse",
+      "signal": "points"
+    },
+    "meilleur_tir": {
+      "rule": "plus_grande_hausse",
+      "signal": "points"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "buts",
+      "label": "multiplayer.stat.goals",
+      "formula": "buts",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleur_tir",
+      "label": "multiplayer.stat.best_shot",
+      "formula": "meilleur_tir",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}

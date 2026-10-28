@@ -1,0 +1,67 @@
+{
+  "id": "arcade/kof98/duel",
+  "version": 1,
+  "players": 2,
+  "settle_after_round_ms": 3000,
+  "signals": {
+    "vie": {
+      "source": "poll",
+      "seats": {
+        "1": "0x8238",
+        "2": "0x8438"
+      },
+      "bytes": 1,
+      "full": 103
+    },
+    "manches": {
+      "source": "poll",
+      "seats": {
+        "1": "0xA85F",
+        "2": "0xA84C"
+      },
+      "bytes": 1,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "coups": {
+      "rule": "baisse_adverse",
+      "signal": "vie"
+    },
+    "degats": {
+      "rule": "somme_baisse_adverse",
+      "signal": "vie"
+    },
+    "perfects": {
+      "rule": "manche_gagnee_si_plein",
+      "signal": "vie",
+      "rounds": "manches"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "perfects",
+      "label": "multiplayer.stat.perfects",
+      "formula": "perfects",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}

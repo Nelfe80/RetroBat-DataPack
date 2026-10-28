@@ -1,0 +1,56 @@
+{
+  "id": "arcade/twinspri/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "score": {
+      "source": "poll",
+      "seats": {
+        "1": "0xC000",
+        "2": "0xD000"
+      },
+      "bytes": 4,
+      "order": "68k"
+    }
+  },
+  "counters": {
+    "combos": {
+      "rule": "hausse",
+      "signal": "score"
+    },
+    "points": {
+      "rule": "somme_hausse",
+      "signal": "score"
+    },
+    "meilleur_combo": {
+      "rule": "plus_grande_hausse",
+      "signal": "score"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "combos",
+      "label": "multiplayer.stat.combos",
+      "formula": "combos",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleur_combo",
+      "label": "multiplayer.stat.best_combo",
+      "formula": "meilleur_combo",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}
