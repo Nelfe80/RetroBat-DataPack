@@ -1,0 +1,63 @@
+{
+  "id": "gbc2players/super-mario-bros-deluxe/vs",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "pieces": {
+      "source": "poll",
+      "seats": {
+        "1": "0x53A",
+        "2": "0x5BA"
+      },
+      "bytes": 1
+    },
+    "victoires": {
+      "source": "poll",
+      "seats": {
+        "1": "0x38F",
+        "2": "0x390"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "pieces": {
+      "rule": "somme_hausse",
+      "signal": "pieces"
+    },
+    "courses": {
+      "rule": "somme_hausse",
+      "signal": "victoires"
+    },
+    "record": {
+      "rule": "maximum",
+      "signal": "pieces"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "pieces",
+      "label": "multiplayer.stat.coins",
+      "formula": "pieces",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "courses",
+      "label": "multiplayer.stat.races_won",
+      "formula": "courses",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "record",
+      "label": "multiplayer.stat.coin_record",
+      "formula": "record",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}

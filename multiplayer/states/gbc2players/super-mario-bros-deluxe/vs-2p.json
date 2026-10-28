@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gbc2players/super-mario-bros-deluxe",
+  "situation": "vs-2p",
+  "description": "VS GAME de Super Mario Bros. Deluxe : deux Game Boy Color reliees par le cable dans TGBDual (tgbdual_gblink_enable), P1 Mario sur la Game Boy 1, P2 Luigi sur la 2. L'etat est pris a « Go! » de la premiere course (1-1, 280 au chrono). Les courses s'enchainent par l'ecran de versus (A pour la suivante). Victoires de P1 a 0x038F, de P2 a 0x0390, nuls a 0x0391, toutes dans la memoire de la Game Boy 1 (verifie au banc le 28/10 dans les deux sens). Pieces de la course : 0x053A (Mario), 0x05BA (Luigi), remises a 0 a chaque course.",
+  "state_file": "vs-2p-tgbdual.state",
+  "state_sha256": "90e64d02c062c5d5cf1d56b3989c9a56414ef08c5d70690b22f68e4738035ff6",
+  "core": "tgbdual",
+  "core_sha256": "164fe617c715792c1f7e002b0b819a1c3d15c73e203a50103cceed22f1d3cd78",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "d9a395648363948e10ff60d05f4570cf0c45d4be805417ca836e64bd55d99a64",
+  "players_in_game": 2,
+  "bench_verification": "Pris dans RetroArch 1.22.2 (TGBDual) le 28/10 ; une course gagnee par chaque joueur depuis cet etat (smb_vs.py).",
+  "certified": false,
+  "made_utc": "2026-10-28T01:55:00Z",
+  "min_api": "1.9.116"
+}
