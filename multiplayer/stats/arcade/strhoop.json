@@ -1,0 +1,57 @@
+{
+  "id": "arcade/strhoop/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "score": {
+      "source": "poll",
+      "seats": {
+        "1": "0x1A0A",
+        "2": "0x1A0E"
+      },
+      "bytes": 1,
+      "bcd": true
+    }
+  },
+  "counters": {
+    "paniers": {
+      "rule": "hausse",
+      "signal": "score"
+    },
+    "points": {
+      "rule": "somme_hausse",
+      "signal": "score"
+    },
+    "trois": {
+      "rule": "hausse_d_au_moins",
+      "signal": "score",
+      "value": "3"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "paniers",
+      "label": "multiplayer.stat.baskets",
+      "formula": "paniers",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "trois",
+      "label": "multiplayer.stat.three_pointers",
+      "formula": "trois",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}

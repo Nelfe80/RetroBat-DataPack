@@ -1,0 +1,57 @@
+{
+  "id": "megadrive/yu-yu-hakusho-makyou-toitsusen/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "vie": {
+      "source": "poll",
+      "seats": {
+        "1": "0x8478",
+        "2": "0x9078"
+      },
+      "bytes": 1,
+      "full": 223,
+      "ko": 0
+    }
+  },
+  "counters": {
+    "coups": {
+      "rule": "baisse_adverse",
+      "signal": "vie"
+    },
+    "degats": {
+      "rule": "somme_baisse_adverse",
+      "signal": "vie"
+    },
+    "meilleur": {
+      "rule": "plus_grande_baisse_adverse",
+      "signal": "vie"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleur",
+      "label": "multiplayer.stat.best_hit",
+      "formula": "meilleur",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}
