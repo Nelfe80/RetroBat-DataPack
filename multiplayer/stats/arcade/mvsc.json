@@ -1,0 +1,81 @@
+{
+  "id": "arcade/mvsc/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "vie1": {
+      "source": "poll",
+      "seats": {
+        "1": "0x4040",
+        "2": "0x4044"
+      },
+      "bytes": 1,
+      "full": 144,
+      "ko": 0
+    },
+    "vie2": {
+      "source": "poll",
+      "seats": {
+        "1": "0x4042",
+        "2": "0x4046"
+      },
+      "bytes": 1,
+      "full": 144,
+      "ko": 0
+    }
+  },
+  "counters": {
+    "coups1": {
+      "rule": "baisse_adverse",
+      "signal": "vie1"
+    },
+    "coups2": {
+      "rule": "baisse_adverse",
+      "signal": "vie2"
+    },
+    "degats1": {
+      "rule": "somme_baisse_adverse",
+      "signal": "vie1"
+    },
+    "degats2": {
+      "rule": "somme_baisse_adverse",
+      "signal": "vie2"
+    },
+    "ko1": {
+      "rule": "atteint_adverse",
+      "signal": "vie1",
+      "value": "ko"
+    },
+    "ko2": {
+      "rule": "atteint_adverse",
+      "signal": "vie2",
+      "value": "ko"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups1 + coups2",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats1 + degats2",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "ko",
+      "label": "multiplayer.stat.kos",
+      "formula": "ko1 + ko2",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
