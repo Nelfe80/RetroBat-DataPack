@@ -1,0 +1,58 @@
+{
+  "id": "arcade/titlef/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "endurance": {
+      "source": "poll",
+      "seats": {
+        "1": "0xD60E",
+        "2": "0x1D60E"
+      },
+      "bytes": 1,
+      "full": 64,
+      "ko": 0
+    }
+  },
+  "counters": {
+    "coups": {
+      "rule": "baisse_adverse",
+      "signal": "endurance"
+    },
+    "degats": {
+      "rule": "somme_baisse_adverse",
+      "signal": "endurance"
+    },
+    "tapis": {
+      "rule": "atteint_adverse",
+      "signal": "endurance",
+      "value": "ko"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "tapis",
+      "label": "multiplayer.stat.knockdowns",
+      "formula": "tapis",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
