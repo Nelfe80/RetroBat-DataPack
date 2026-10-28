@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-28.8",
+  "revision": "2026-10-28.9",
   "cores": {
     "ngpc": {
       "core": "mednafen_ngp_link",
@@ -10,6 +10,13 @@
       "seat_options": {
         "ngplink_display": "console {seat}",
         "ngplink_audio": "console {seat}"
+      },
+      "spectator": {
+        "options": {
+          "ngplink_display": "both",
+          "ngplink_audio": "console 1"
+        },
+        "grid": "2x1"
       }
     },
     "pcengine": {
@@ -30,7 +37,7 @@
     "sega32x": {
       "core": "picodrive"
     },
-    "gbc2players": {"core": "tgbdual", "options": {"tgbdual_gblink_enable": "enabled", "tgbdual_screen_placement": "left-right"}, "seat_options": {"tgbdual_single_screen_mp": "player {seat} only", "tgbdual_audio_output": "Game Boy #{seat}"}},
+    "gbc2players": {"core": "tgbdual", "options": {"tgbdual_gblink_enable": "enabled", "tgbdual_screen_placement": "left-right"}, "seat_options": {"tgbdual_single_screen_mp": "player {seat} only", "tgbdual_audio_output": "Game Boy #{seat}"}, "spectator": {"options": {"tgbdual_single_screen_mp": "both players", "tgbdual_audio_output": "Game Boy #1"}, "grid": "2x1"}},
     "gba": {
       "core": "mgba_splitscreen",
       "options": {
@@ -42,6 +49,13 @@
       "seat_options": {
         "splitscreen_focus_player": "{seat}",
         "splitscreen_audio": "player {seat}"
+      },
+      "spectator": {
+        "options": {
+          "splitscreen_layout": "auto",
+          "splitscreen_audio": "player 1"
+        },
+        "grid": "auto"
       }
     }
   },
