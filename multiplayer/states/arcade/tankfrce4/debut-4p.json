@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/tankfrce4",
+  "situation": "debut-4p",
+  "description": "Debut de partie de Tank Force (version US a quatre joueurs) : 4 joueurs ont mis un credit et appuye sur leur bouton de tir (cette version n'entre pas par START), manche 1. Coop : pas de fin lue, la partie se joue jusqu'au GAME OVER.",
+  "state_file": "debut-4p-fbneo.state",
+  "state_sha256": "a964ff62d2cbd889bea91e897879633b102bd0121524074eb6f33fc67e7b048f",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "3f645b627eca84df05b4710008b9db6e052e529fca5f9db72e5fbd7eb555944d",
+  "players_in_game": 4,
+  "bench_verification": "Fabrique au banc le 28/10 (coop_banc.py fabriquer) ; netplay (etats a 2 et a 4) : invite connecte, compteur d'images 0x8272 au meme point des deux cotes, 0 desynchronisation.",
+  "certified": false,
+  "made_utc": "2026-10-28T12:40:00Z",
+  "min_api": "1.9.89"
+}
