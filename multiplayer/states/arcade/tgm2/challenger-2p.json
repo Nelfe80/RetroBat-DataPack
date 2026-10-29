@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/tgm2",
+  "situation": "challenger-2p",
+  "description": "Debut d'un duel (VERSUS) en 3 manches, deux manches gagnantes (reglage d'usine VS Round = 3 Rounds). Le joueur 1 a mis un credit et START, le joueur 2 un credit, START, et accepte le defi (CHALLENGE ? YES) ; le joueur 1 a valide NORMAL. L'etat est pris au debut du bandeau HERE COMES A NEW CHALLENGER, avant l'annonce ROUND 1 : la premiere piece sort 348 images (5,8 s) apres le chargement, quels que soient les appuis des deux joueurs (verifie image par image), au lieu de 173 images (2,9 s) pour l'ancien depart pris a ROUND 1. Cette marge couvre l'arrivee de l'invite apres la fin de la boucle du depart de l'hote (29/10, banc couloir 4 : 1,0 a 3,2 s le plus souvent, jusqu'a 5,6 s quand les deux premiers essais du mot de passe tombent avant la boite de saisie). Manches gagnees a 0x94A8B (place 1) et 0x94A8A (place 2) : 0, 1, puis 2 a la victoire (verifie en netplay dans les deux sens, guet de l'API compris). Memoire de configuration d'usine (demarrage a froid).",
+  "state_file": "challenger-2p-fbneo.state",
+  "state_sha256": "9d0f5489cc4f11addde4cc5e4bbac60111c2a165c5297ef4262bda97ddff506b",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "084ac20bd8b2172025106307df3f5a4a62a6ecd1e25bc07f6ff67f5b04e8ca84",
+  "players_in_game": 2,
+  "bench_verification": "Fabrique par le coeur FBNeo de la borne charge en Python (tgm2_sonde.py, demarrage a froid, scenario image par image), au format RetroArch 1.22.2 (RZIP + RASTATE) ; charge par RetroArch 1.22.2 en netplay a deux (direct et relais public), boucle du depart de l'API 1.9.126 rejouee : premieres pieces a la meme image des deux cotes, rencontre jusqu'a la fin dans les deux sens (GuetC2 : VAINQUEUR 1 et VAINQUEUR 2), 0 ecart de memoire, aucun decrochage (29/10).",
+  "certified": false,
+  "made_utc": "2026-10-29T21:45:00Z",
+  "min_api": "1.9.89"
+}
