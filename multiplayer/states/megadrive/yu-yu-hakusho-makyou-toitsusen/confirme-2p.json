@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "megadrive/yu-yu-hakusho-makyou-toitsusen",
+  "situation": "confirme-2p",
+  "description": "Apres la validation des deux personnages, a STAGE SELECT : l'API ecrit le personnage de chaque joueur (0xA111 / 0xA110, 1 a 11), verifie au VS et au combat. Remplace selection-2p.",
+  "state_file": "confirme-2p-genesis-plus-gx.state",
+  "state_sha256": "f84f358c2a50c42c1336d2481fddeda66c6585f62c5242803d97e7ba74c1c8fc",
+  "core": "genesis_plus_gx",
+  "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T12:09:17Z",
+  "rom_sha256": "539616baacb906f1a975b568cc9e0cb85a383aedc7354e65f7171553c9245096"
+}
