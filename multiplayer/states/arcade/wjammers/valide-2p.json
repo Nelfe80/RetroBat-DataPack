@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/wjammers",
+  "situation": "valide-2p",
+  "description": "Juste apres la validation des deux joueurs (0x879 / 0x8F9 = 0x80 + rang) : le jeu recopie ce rang dans 0x31C / 0x31E 2,2 a 2,6 s apres le chargement, donc l'ecriture de l'API (0,4 s et 1,5 s) passe avant. Remplace selection-2p (le choix ne tenait pas).",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "30debe8e52a52d39df87531eeb182ee95c25b8786ab889db7da4ff591671d224",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T13:36:23Z",
+  "rom_sha256": "1846a55eaa394a3b3c84c74309847656178b46a539adf2df6bf176d4abb4348d"
+}
