@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/twinspri",
+  "situation": "valide-2p",
+  "description": "Mode CHARACTER, P2 entre en CHALLENGER ; etat pris ~70 images apres la validation des deux joueurs : l'API ecrit les curseurs 0xA680 / 0xA6C0 (id 0 a 8), recopies au debut du match. DEFAUT CONNU : la pose de validation et l'ecran VS montrent encore Load Ran contre Load Ran ~2 s avant le match.",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "65574f6e8926a5d51f39811cc04e131d830435692cdc899ca0f264ccb02ffd2a",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T15:25:30Z",
+  "rom_sha256": "f9e5bbddd2882d544f177982c34c7a00440a450a4d2f6de947f8485ffe184ce1"
+}
