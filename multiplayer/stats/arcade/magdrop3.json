@@ -1,0 +1,63 @@
+{
+  "id": "arcade/magdrop3/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "chaine": {
+      "source": "poll",
+      "seats": {
+        "1": "0x61F",
+        "2": "0x65F"
+      },
+      "bytes": 1
+    },
+    "billes": {
+      "source": "poll",
+      "seats": {
+        "1": "0x620",
+        "2": "0x660"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "explosions": {
+      "rule": "hausse",
+      "signal": "chaine"
+    },
+    "billes": {
+      "rule": "somme_hausse",
+      "signal": "billes"
+    },
+    "meilleure_chaine": {
+      "rule": "maximum",
+      "signal": "chaine"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "explosions",
+      "label": "multiplayer.stat.breaks",
+      "formula": "explosions",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "billes",
+      "label": "multiplayer.stat.balls_cleared",
+      "formula": "billes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleure_chaine",
+      "label": "multiplayer.stat.best_chain",
+      "formula": "meilleure_chaine",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
