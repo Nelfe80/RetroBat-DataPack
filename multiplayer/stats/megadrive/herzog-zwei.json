@@ -1,0 +1,68 @@
+{
+  "id": "megadrive/herzog-zwei/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "base": {
+      "source": "poll",
+      "seats": {
+        "1": "0x8A36",
+        "2": "0x8A3E"
+      },
+      "bytes": 2,
+      "order": "le",
+      "full": 1024,
+      "ko": 0,
+      "max": 1024
+    },
+    "credits": {
+      "source": "poll",
+      "seats": {
+        "1": "0x8BE8",
+        "2": "0x8CE8"
+      },
+      "bytes": 2,
+      "order": "le"
+    }
+  },
+  "counters": {
+    "coups_base": {
+      "rule": "baisse_adverse",
+      "signal": "base"
+    },
+    "degats_base": {
+      "rule": "somme_baisse_adverse",
+      "signal": "base"
+    },
+    "revenus": {
+      "rule": "somme_hausse",
+      "signal": "credits"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups_base",
+      "label": "multiplayer.stat.base_hits",
+      "formula": "coups_base",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats_base",
+      "label": "multiplayer.stat.base_damage",
+      "formula": "degats_base",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "revenus",
+      "label": "multiplayer.stat.income",
+      "formula": "revenus",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}
