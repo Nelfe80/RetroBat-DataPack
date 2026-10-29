@@ -1,0 +1,19 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/19xx",
+  "situation": "valide-2p",
+  "description": "SELECT YOUR MACHINE une image apres la validation des deux joueurs (P1 et P2 sur Lightning) : plus rien ne se choisit, le briefing suit. L'avion de chaque place reste 0x8246 (P1) / 0x8346 (P2) (Lightning 0, Shinden 1, Mosquito 2) jusqu'au debut de la mission (~950 images, 16 s), ou le jeu le recopie : l'ecriture a 0,4 s ou 1,5 s est prise. 0x8248/0x8348 ne commandent rien. Remplace selection-2p.",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "6f016a82add8c782d396076e4138959675079c74e7a0a23fcb45a11251f3ef23",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "925434b5a07b1f89fc9d78a63855e310784209f8eb50988c89275d0022b3f812",
+  "values_at_save": {
+    "p1_machine_0x8246": 0,
+    "p2_machine_0x8346": 0
+  },
+  "bench_verification": "Mosquito/Shinden a 1,5 s avec appuis a +4 s, Shinden/Mosquito par 4 rechargements a 0,4 s : avions ecrits a la mission (temoin Lightning/Lightning) ; netplay hote et invite memes avions (Mosquito/Shinden) sur 64 s.",
+  "certified": false,
+  "made_utc": "2026-10-29T16:00:00Z"
+}
