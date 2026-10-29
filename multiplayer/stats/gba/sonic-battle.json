@@ -1,0 +1,53 @@
+{
+  "id": "gba/sonic-battle/battle",
+  "version": 1,
+  "players": 4,
+  "signals": {
+    "points": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x03001647", "2": "0x03001648", "3": "0x03001649", "4": "0x0300164A" },
+      "bytes": 1,
+      "min": 0,
+      "max": 99
+    },
+    "chutes": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x03001653", "2": "0x03001654", "3": "0x03001655", "4": "0x03001656" },
+      "bytes": 1,
+      "min": 0,
+      "max": 99
+    }
+  },
+  "counters": {
+    "kos": { "rule": "somme_hausse", "signal": "points" },
+    "chutes": { "rule": "somme_hausse", "signal": "chutes" }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "kos",
+      "label": "multiplayer.stat.kos",
+      "formula": "kos",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "bilan_ko",
+      "label": "multiplayer.stat.ko_balance",
+      "formula": "kos - chutes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "kos_subis",
+      "label": "multiplayer.stat.kos_taken",
+      "formula": "chutes",
+      "unit": "count",
+      "better": "lower"
+    }
+  ]
+}

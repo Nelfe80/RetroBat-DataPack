@@ -1,0 +1,17 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gba/sonic-battle",
+  "situation": "debut-2p",
+  "description": "Ecran des personnages du BATTLE MODE, consoles vierges reliees (une cartouche par console), regle K.O. en 5 (0x03002600 = 0 K.O., 0x03002601 = 0 cinq K.O.), COM Average. Noms saisis P1, P2 (P3, P4) : un par console. Les places sans humain sont tenues par l'ordinateur (COM), le jeu ne permet pas de les retirer. Chaque joueur choisit et valide son personnage (A), la console 1 valide ensuite les places COM (et la console 2 la derniere a deux), puis chaque joueur valide ses trois attaques (A x3).",
+  "state_file": "debut-2p-mgba-splitscreen.state",
+  "state_sha256": "efab3819fe814562ab39fe059530cf04f85741f239532db76892b313ad21cd3e",
+  "core": "mgba_splitscreen",
+  "core_sha256": "bd5abeea19b644442d54fe98c4b022842a27becdc4ac4e581c5771d1934da3d6",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "536c7d7bdb37862c79d048c351b0c61ffe8380c71e1be8b15d537549272b72a9",
+  "content_md5": "100579ef01225c620560f88e65ca423a",
+  "values_at_save": { "rule": 0, "ko_count_index": 0, "points": [0, 0, 0, 0] },
+  "bench_verification": "29/10 couloir 3 : fabrique sans fenetre depuis des consoles vierges (gba_pas.py), sauve par RetroArch, recharge a froid dans un RetroArch neuf (chaque manette bouge son curseur) ; netplay a deux : l'invite recoit l'etat, memes ecrans et memes personnages des deux cotes jusqu'au combat.",
+  "certified": false,
+  "made_utc": "2026-10-29T16:20:00Z"
+}
