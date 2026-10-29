@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gb2players/faceball-2000",
+  "situation": "debut-2p",
+  "description": "Deux Game Boy reliees, Arena a deux, depart au debut de la manche ; fin au premier a 10 tags (0x7B0 / 0x7B1, Game Boy 1).",
+  "state_file": "debut-2p-tgbdual.state",
+  "state_sha256": "1f185338b26eaa646626f5039c31bfee6b26ff66d6edadab1cab122869624ce8",
+  "core": "tgbdual",
+  "core_sha256": "164fe617c715792c1f7e002b0b819a1c3d15c73e203a50103cceed22f1d3cd78",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T15:28:07Z",
+  "rom_sha256": "1f4dd388ef8e86668c2202b48f1b83d705c77e566fcc34c3d64b1321ea785ab3"
+}

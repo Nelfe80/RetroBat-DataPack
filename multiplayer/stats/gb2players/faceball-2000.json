@@ -1,0 +1,66 @@
+{
+  "id": "gb2players/faceball-2000/arena",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "vie": {
+      "source": "poll",
+      "seats": {
+        "1": "0x20C",
+        "2": "0x21C"
+      },
+      "bytes": 1,
+      "full": 3
+    },
+    "tags": {
+      "source": "poll",
+      "seats": {
+        "1": "0x7B0",
+        "2": "0x7B1"
+      },
+      "bytes": 1,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "tirs": {
+      "rule": "baisse_adverse",
+      "signal": "vie"
+    },
+    "tags": {
+      "rule": "somme_hausse",
+      "signal": "tags"
+    },
+    "sans_degat": {
+      "rule": "manche_gagnee_si_plein",
+      "signal": "vie",
+      "rounds": "tags"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "tirs",
+      "label": "multiplayer.stat.hits",
+      "formula": "tirs",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "tags",
+      "label": "multiplayer.stat.kos",
+      "formula": "tags",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "sans_degat",
+      "label": "multiplayer.stat.perfects",
+      "formula": "sans_degat",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
