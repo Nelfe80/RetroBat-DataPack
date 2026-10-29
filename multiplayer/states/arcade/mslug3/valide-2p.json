@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/mslug3",
+  "situation": "valide-2p",
+  "description": "Une image apres la validation des deux joueurs : l'API ecrit le personnage de chaque place en 0x566 / 0x616 (Marco 0, Tarma 1, Eri 2, Fio 3), fenetre de 0 a 2,2 s. Remplace selection-2p (les curseurs 0x2BB / 0x36B ne tenaient pas).",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "8efde47dc4b7eb3138447447f2d9e5d5b88b5915da3b8d768925db9a03f7ff02",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T15:52:56Z",
+  "rom_sha256": "6b697834507270a0724795a71079efefc764a4826ae1e94a8fb8416673dfac6f"
+}
