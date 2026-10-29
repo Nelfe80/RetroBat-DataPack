@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/kof98",
+  "situation": "selection-2p",
+  "description": "Grille des personnages, ADVANCED valide par les deux joueurs, minuteur 19 : chacun choisit ses trois personnages puis l'ordre a l'ecran (choix d'equipe au panneau quand l'API saura picks: 3).",
+  "state_file": "selection-2p-fbneo.state",
+  "state_sha256": "d236a50eb1b06d6c6b45286defa2ca652d4f022b2af2c1c9c882cd7dd769f7d5",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T12:02:47Z",
+  "rom_sha256": "41d85684c3ef82a5e5369c7bcb9bff631c97b1e98637336fcdefed4cb6bc5c23"
+}
