@@ -1,0 +1,78 @@
+{
+  "id": "snes/super-mario-kart/match-race",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "pieces": {
+      "source": "poll",
+      "seats": {
+        "1": "0xE00",
+        "2": "0xE02"
+      },
+      "bytes": 1
+    },
+    "position": {
+      "source": "poll",
+      "seats": {
+        "1": "0x10E6",
+        "2": "0x11E6"
+      },
+      "bytes": 1
+    },
+    "controle": {
+      "source": "poll",
+      "seats": {
+        "1": "0x10A6",
+        "2": "0x11A6"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "pieces": {
+      "rule": "somme_hausse",
+      "signal": "pieces"
+    },
+    "tetes": {
+      "rule": "atteint",
+      "signal": "position",
+      "value": "0"
+    },
+    "carapaces": {
+      "rule": "atteint_adverse",
+      "signal": "controle",
+      "value": "26"
+    },
+    "bananes": {
+      "rule": "atteint_adverse",
+      "signal": "controle",
+      "value": "12"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "pieces",
+      "label": "multiplayer.stat.coins",
+      "formula": "pieces",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "tetes",
+      "label": "multiplayer.stat.leads_taken",
+      "formula": "tetes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "objets",
+      "label": "multiplayer.stat.item_hits",
+      "formula": "carapaces + bananes",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
