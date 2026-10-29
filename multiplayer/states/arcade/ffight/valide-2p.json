@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ffight",
+  "situation": "valide-2p",
+  "description": "Une image apres la validation de P1 (qui lance la partie pour les deux) : l'API ecrit le personnage de chaque place en 0x857D / 0x863D, au rang (Guy 0, Cody 1, Haggar 2) ; fenetre de 0,4 a plus de 3,5 s. Remplace selection-2p.",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "5f174558f515a51c473d558224b87670bb005a396997360f269ee84724160dbf",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-29T16:14:11Z",
+  "rom_sha256": "0e99a50990afdb10fefc0ed7321615bb6bf431b40177b3e09f6d8061e3ad6645"
+}
