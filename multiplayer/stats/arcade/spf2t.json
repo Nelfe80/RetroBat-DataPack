@@ -1,0 +1,55 @@
+{
+  "id": "arcade/spf2t/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "attaque": {
+      "source": "poll",
+      "seats": {
+        "1": "0x849F",
+        "2": "0x889F"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "casses": {
+      "rule": "hausse",
+      "signal": "attaque"
+    },
+    "gemmes": {
+      "rule": "somme_hausse",
+      "signal": "attaque"
+    },
+    "meilleure_attaque": {
+      "rule": "maximum",
+      "signal": "attaque"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "casses",
+      "label": "multiplayer.stat.breaks",
+      "formula": "casses",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "gemmes",
+      "label": "multiplayer.stat.gems_sent",
+      "formula": "gemmes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleure_attaque",
+      "label": "multiplayer.stat.best_attack",
+      "formula": "meilleure_attaque",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
