@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/blazstar",
+  "situation": "valide-2p",
+  "description": "PLAYER SELECT une image apres la validation des deux joueurs (DECISION!, P1 et P2 sur Caster) : plus rien ne se choisit. Le jeu recopie le vaisseau de chaque place (curseur 0x13B3 P1 / 0x13B2 P2, Caster 0 a Kaoru Y 5) dans 0x24A9 / 0x2529 entre 0,8 et 1,0 s apres le chargement : l'ecriture du curseur est prise de 0,1 a 0,8 s (10 essais : 8 sur 8 jusqu'a 800 ms, rate a 1 000 et 1 500 ms). Demande write_after_frames: 12. Remplace selection-2p.",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "0cd4a97dc8f95afd70e8e90b08580c750a0a73eaf2464da625590d88e1d360bf",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "ce757efc7d20cdbfae277a10ac09c086ae0e906d8d276a7cabe725f4f6df1ab8",
+  "values_at_save": {
+    "p1_ship_cursor_0x13B3": 0,
+    "p2_ship_cursor_0x13B2": 0,
+    "p1_ship_0x24A9": 0,
+    "p2_ship_0x2529": 0
+  },
+  "bench_verification": "Asayuki/Kaoru a 0,2 s + appuis B/A/START a +4 s, Leefa/JB par 4 rechargements a 0,4 s : vaisseaux ecrits au STAGE 1 ; Naomi/Leefa a 1,5 s : Caster/Caster (trop tard) ; balayage 100 a 1 500 ms : pris jusqu'a 800 ms. Netplay : hote ecrit Asayuki/Kaoru a 0,2 s puis l'invite se connecte : memes valeurs et memes vaisseaux des deux cotes sur 72 s.",
+  "certified": false,
+  "made_utc": "2026-10-29T16:00:00Z"
+}
