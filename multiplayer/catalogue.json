@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-29.3",
+  "revision": "2026-10-29.4",
   "cores": {
     "ngpc": {
       "core": "mednafen_ngp_link",
@@ -37,6 +37,7 @@
     "sega32x": {
       "core": "picodrive"
     },
+    "psp": {"core": "ppsspp_netplay", "options": {"ppsspp_retroarch_netplay": "enabled", "ppsspp_retroarch_netplay_start": "enabled"}},
     "gb2players": {"core": "tgbdual", "options": {"tgbdual_gblink_enable": "enabled", "tgbdual_screen_placement": "left-right"}, "seat_options": {"tgbdual_single_screen_mp": "player {seat} only", "tgbdual_audio_output": "Game Boy #{seat}"}, "spectator": {"options": {"tgbdual_single_screen_mp": "both players", "tgbdual_audio_output": "Game Boy #1"}, "grid": "2x1"}},
     "gbc2players": {"core": "tgbdual", "options": {"tgbdual_gblink_enable": "enabled", "tgbdual_screen_placement": "left-right"}, "seat_options": {"tgbdual_single_screen_mp": "player {seat} only", "tgbdual_audio_output": "Game Boy #{seat}"}, "spectator": {"options": {"tgbdual_single_screen_mp": "both players", "tgbdual_audio_output": "Game Boy #1"}, "grid": "2x1"}},
     "gba": {
@@ -157,6 +158,7 @@
     { "id": "arcade/tankfrce4", "system": "arcade", "set": "tankfrce4", "name": "Tank Force", "family": "coop", "players": 4, "level": "nelfeplay", "start": {"state": "states/arcade/tankfrce4/debut-2p-fbneo.state", "sha256": "59a4cb06b24217dbc48520b7f59c3b68f3b8907a0c05eee57516daeadff8f4d6", "players": 2}, "screen": {"tips": {"fr": "Gardez un char près de l'aigle : la base perdue, c'est la partie perdue.", "en": "Keep one tank near the eagle: lose the base and you lose the game."}}, "starts": [{"state": "states/arcade/tankfrce4/debut-3p-fbneo.state", "sha256": "d90dc6981843e905cd487bb12c49d27009b3ec2316ad70edb63cca672dfeaaf2", "players": 3}, {"state": "states/arcade/tankfrce4/debut-4p-fbneo.state", "sha256": "a964ff62d2cbd889bea91e897879633b102bd0121524074eb6f33fc67e7b048f", "players": 4}] },
     { "id": "gba/mech-platoon", "system": "gba", "content": {"md5": ["ab0999e2d7c13ada9cf374cd0aa47f97", "1de4ebf40c819e8cfb20b84f6dcdf718", "735502d07870f82fd78fe07badeeb33b"], "crc": ["769fde96", "4b3e0531", "a2fa4248"], "size": [8388608]}, "name": "Mech Platoon", "family": "versus", "players": 2, "elo_type": "strategie", "level": "classique" },
     { "id": "gba/super-monkey-ball-jr", "system": "gba", "content": {"md5": ["77edf4f506b3343e15efe61d64944eba", "1e5a3679bb64a87ea2e23774a672ca7d"], "crc": ["0a8031f0", "d75da09d"], "size": [4194304, 8388608]}, "name": "Super Monkey Ball Jr.", "family": "course", "players": 2, "elo_type": "course", "level": "classique" },
-    { "id": "gb2players/faceball-2000", "system": "gb2players", "content": {"md5": ["05ba7f165dab1ffd49b63b4f5c704c02"], "crc": ["7d890cd0"], "size": [131072]}, "name": "Faceball 2000", "family": "fps", "players": 2, "elo_type": "fps", "level": "classique", "min_api": "1.9.122", "aspect": "10:9" }
+    { "id": "gb2players/faceball-2000", "system": "gb2players", "content": {"md5": ["05ba7f165dab1ffd49b63b4f5c704c02"], "crc": ["7d890cd0"], "size": [131072]}, "name": "Faceball 2000", "family": "fps", "players": 2, "elo_type": "fps", "level": "classique", "min_api": "1.9.122", "aspect": "10:9" },
+    { "id": "psp/bomberman", "system": "psp", "content": {"md5": ["ca29f6886726a2d5e8e859cfbd0f41aa"], "crc": ["8ff6ab31"], "size": [110002176]}, "name": "Bomberman", "family": "versus", "players": 2, "elo_type": "arene", "level": "classique", "min_api": "1.9.125", "aspect": "16:9", "core_start": {"path": "PPSSPP/netplay/ULUS10121.state", "players": 2, "content": "ca29f6886726a2d5e8e859cfbd0f41aa", "seats": [{"seat": 1, "state": "states/psp/bomberman/manche1-p1-ppsspp.state.gz", "sha256": "92c87978613e5c50433d3e25fc5277a20284954d8974ddfc90b757449f0eba26"}, {"seat": 2, "state": "states/psp/bomberman/manche1-p2-ppsspp.state.gz", "sha256": "3f1559f0c0dc9b3c758a85f50a7a4d0a007e1e3f4433923f5b0082f0eefde8d2"}]}, "end": {"first_to": 3, "close_after_s": 8, "seats": [{"seat": 1, "core_ram": "0xDED8CB"}, {"seat": 2, "core_ram": "0xDED8D7"}]}, "stats": {"profile": "stats/psp/bomberman.json"}, "screen": {"tips": {"fr": "Une bombe posée bloque le passage : enfermez l'adversaire entre vos flammes.", "en": "A bomb blocks the way: trap your opponent between your blasts."}} }
   ]
 }

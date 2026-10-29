@@ -1,0 +1,93 @@
+{
+  "id": "psp/bomberman/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "bombes": {
+      "source": "poll",
+      "pointer": {
+        "core_ram": "0xAE5A78",
+        "base": "0x08000000"
+      },
+      "seats": {
+        "1": "0x00",
+        "2": "0xBC"
+      },
+      "bytes": 1,
+      "min": 0,
+      "max": 10
+    },
+    "feu": {
+      "source": "poll",
+      "pointer": {
+        "core_ram": "0xAE5A78",
+        "base": "0x08000000"
+      },
+      "seats": {
+        "1": "0x20",
+        "2": "0xDC"
+      },
+      "bytes": 1,
+      "min": 1,
+      "max": 20
+    },
+    "capacite": {
+      "source": "poll",
+      "pointer": {
+        "core_ram": "0xAE5A78",
+        "base": "0x08000000"
+      },
+      "seats": {
+        "1": "0x21",
+        "2": "0xDD"
+      },
+      "bytes": 1,
+      "min": 1,
+      "max": 20
+    }
+  },
+  "counters": {
+    "bombes": {
+      "rule": "hausse",
+      "signal": "bombes"
+    },
+    "feu_plus": {
+      "rule": "somme_hausse",
+      "signal": "feu"
+    },
+    "bombe_plus": {
+      "rule": "somme_hausse",
+      "signal": "capacite"
+    },
+    "feu_max": {
+      "rule": "maximum",
+      "signal": "feu"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "bombes",
+      "label": "multiplayer.stat.bombs",
+      "formula": "bombes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "bonus",
+      "label": "multiplayer.stat.power_ups",
+      "formula": "feu_plus + bombe_plus",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "feu_max",
+      "label": "multiplayer.stat.best_fire",
+      "formula": "feu_max",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
