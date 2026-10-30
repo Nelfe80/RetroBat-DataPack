@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/wrally2",
+  "situation": "debut-2p",
+  "description": "Debut d'une course a deux (deux moniteurs, Twin Racing). Fin : premier a 1, places croisees sur les positions d'etape (la place 1 lit 0x2662A, la place 2 lit 0x26628 ; 15 = temps depasse), garde 0x263B8 = 3. Vrai guet de l'API 1.9.128 dans les deux sens, netplay sans desynchronisation (30/10, couloir 4).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "03da0068f3c5069bbe675c6a20ff10ea273e126e8f27724158c3aa5f0abbd150",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T01:37:51Z",
+  "rom_sha256": "5ced540156b0b0b2468c3d9b2192c10012d50efb431567967c80d4edc2b4e97c"
+}

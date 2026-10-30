@@ -1,0 +1,32 @@
+{
+  "id": "arcade/wrally2/twin-racing",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "rang": {
+      "source": "poll",
+      "seats": { "1": "0x25FAE", "2": "0x25FB0" },
+      "bytes": 1,
+      "min": 1,
+      "max": 2
+    },
+    "score": {
+      "source": "poll",
+      "seats": { "1": "0x29D12", "2": "0x29DB2" },
+      "bytes": 4,
+      "order": "68k",
+      "max": 9999999,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "depassements": { "rule": "atteint", "signal": "rang", "value": "1" },
+    "points": { "rule": "maximum", "signal": "score" },
+    "bonus": { "rule": "plus_grande_hausse", "signal": "score" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "depassements", "label": "multiplayer.stat.overtakes", "formula": "depassements", "unit": "count", "better": "higher" },
+    { "category": "efficacite", "id": "points", "label": "multiplayer.stat.points", "formula": "points", "unit": "points", "better": "higher" },
+    { "category": "maitrise", "id": "bonus", "label": "multiplayer.stat.finish_bonus", "formula": "bonus", "unit": "points", "better": "higher" }
+  ]
+}
