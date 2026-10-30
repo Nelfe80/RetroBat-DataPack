@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/outfxies",
+  "situation": "debut-2p",
+  "description": "Debut du choix des personnages a deux, sous FBNeo (BIOS namcoc75.zip exige sur la borne, jamais transporte). Choix tenus au bouton et au minuteur, fin premier a 1 ; vrai guet de l'API 1.9.127 et 1.9.128, netplay sans ecart (30/10, couloir 2).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "4dcbbd6b160b976670c90445fc71f8d021e273867cd1d0b785babba7b59d2de8",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T01:41:36Z",
+  "rom_sha256": "cffabe6eaca6c21606a7847a7edb6ae1a7db2bc23e4fb6ce9b0c11070fbe9aea"
+}

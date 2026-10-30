@@ -1,0 +1,59 @@
+{
+  "id": "arcade/outfxies/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "vie": {
+      "source": "poll",
+      "seats": {
+        "1": "0x10D58",
+        "2": "0x10E0C"
+      },
+      "bytes": 1,
+      "full": 240,
+      "ko": 0,
+      "max": 240,
+      "min": 1
+    }
+  },
+  "counters": {
+    "coups": {
+      "rule": "baisse_adverse",
+      "signal": "vie"
+    },
+    "degats": {
+      "rule": "somme_baisse_adverse",
+      "signal": "vie"
+    },
+    "meilleur_coup": {
+      "rule": "plus_grande_baisse_adverse",
+      "signal": "vie"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleur_coup",
+      "label": "multiplayer.stat.best_hit",
+      "formula": "meilleur_coup",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}
