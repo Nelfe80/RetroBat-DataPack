@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/elvactr",
+  "situation": "valide-2p",
+  "description": "Briefing de la mission 1, une image apres la validation des deux joueurs (P1 Kart, P2 Edie) : plus rien ne se choisit. Le personnage de chaque place est 0x780C (P1) / 0x80E8 (P2), pose a la validation, valeur INVERSE du rang (Kart 2, Edie 1, Jad 0) ; les curseurs 0xB73C/0xB746 ne sont plus lus. Ecriture prise de 0,4 s a au moins 4 s apres le chargement (portraits du briefing et personnages de la mission). Remplace selection-2p.",
+  "state_file": "valide-2p-fbneo.state",
+  "state_sha256": "09b076b11a3a107dbf658c5bd68dcf9a84020410f877fb052c35573ae35b1bf3",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "84e5ea64585a600ca073e8a098305c7c05dd8937a3186b5c56915fc20ee9f121",
+  "values_at_save": {
+    "p1_character_0x780C": 2,
+    "p2_character_0x80E8": 1,
+    "p1_cursor_0xB73C": 0,
+    "p2_cursor_0xB746": 1
+  },
+  "bench_verification": "Jad/Kart a 1,5 s, Edie/Jad par 4 rechargements a 0,4 s puis appuis B/A/START a +4 s, Kart/Jad a 4 s : personnages ecrits dans la mission (1P a gauche) ; curseurs ecrits apres la validation : sans effet (Kart/Edie de l'etat) ; netplay hote et invite memes personnages (Jad/Edie) sur 62 s.",
+  "certified": false,
+  "made_utc": "2026-10-29T16:00:00Z"
+}
