@@ -1,0 +1,13 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gba/mario-tennis-power-tour",
+  "situation": "debut-2p",
+  "description": "Simple a deux en Link, ecran Select Character apres P1 vs. P2 (face a face). Fin : sets gagnes 0x020002C0 / 0x020002C1 en core_map, premier a 1 (reglage par defaut : 1 set de 2 jeux), garde 0x02000248 = 0xFD. Vrai guet de l'API en netplay (P2 gagnant) et sans fenetre (P1 gagnant, 3 graines) (30/10, couloir 3).",
+  "state_file": "debut-2p-mgba-splitscreen.state",
+  "state_sha256": "d7b7643c32034a901747d2b978e3e29314526b7b396bf720eee966e129033d5c",
+  "core": "mgba_splitscreen",
+  "core_sha256": "bd5abeea19b644442d54fe98c4b022842a27becdc4ac4e581c5771d1934da3d6",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T02:07:04Z"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "gba/mario-tennis-power-tour/simple",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "aces": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x020002CE", "2": "0x020002CF" },
+      "bytes": 1,
+      "min": 0,
+      "max": 99
+    },
+    "jeux": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x020002BE", "2": "0x020002BF" },
+      "bytes": 1,
+      "min": 0,
+      "max": 7
+    },
+    "gagnants": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x020002D2", "2": "0x020002D3" },
+      "bytes": 1,
+      "min": 0,
+      "max": 99
+    }
+  },
+  "counters": {
+    "aces": { "rule": "maximum", "signal": "aces" },
+    "jeux": { "rule": "somme_hausse", "signal": "jeux" },
+    "gagnants": { "rule": "maximum", "signal": "gagnants" }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "aces",
+      "label": "multiplayer.stat.aces",
+      "formula": "aces",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "jeux",
+      "label": "multiplayer.stat.games_won",
+      "formula": "jeux",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "gagnants",
+      "label": "multiplayer.stat.winners",
+      "formula": "gagnants",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
