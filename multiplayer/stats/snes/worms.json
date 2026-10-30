@@ -1,0 +1,163 @@
+{
+ "id": "snes/worms/equipes",
+ "version": 1,
+ "players": 4,
+ "signals": {
+  "inflige1": {
+   "source": "poll",
+   "seats": {
+    "1": "0x4189",
+    "2": "0x434D",
+    "3": "0x4511",
+    "4": "0x46D5"
+   },
+   "bytes": 2
+  },
+  "recu1": {
+   "source": "poll",
+   "seats": {
+    "1": "0x418B",
+    "2": "0x434F",
+    "3": "0x4513",
+    "4": "0x46D7"
+   },
+   "bytes": 2
+  },
+  "inflige2": {
+   "source": "poll",
+   "seats": {
+    "1": "0x41FA",
+    "2": "0x43BE",
+    "3": "0x4582",
+    "4": "0x4746"
+   },
+   "bytes": 2
+  },
+  "recu2": {
+   "source": "poll",
+   "seats": {
+    "1": "0x41FC",
+    "2": "0x43C0",
+    "3": "0x4584",
+    "4": "0x4748"
+   },
+   "bytes": 2
+  },
+  "inflige3": {
+   "source": "poll",
+   "seats": {
+    "1": "0x426B",
+    "2": "0x442F",
+    "3": "0x45F3",
+    "4": "0x47B7"
+   },
+   "bytes": 2
+  },
+  "recu3": {
+   "source": "poll",
+   "seats": {
+    "1": "0x426D",
+    "2": "0x4431",
+    "3": "0x45F5",
+    "4": "0x47B9"
+   },
+   "bytes": 2
+  },
+  "inflige4": {
+   "source": "poll",
+   "seats": {
+    "1": "0x42DC",
+    "2": "0x44A0",
+    "3": "0x4664",
+    "4": "0x4828"
+   },
+   "bytes": 2
+  },
+  "recu4": {
+   "source": "poll",
+   "seats": {
+    "1": "0x42DE",
+    "2": "0x44A2",
+    "3": "0x4666",
+    "4": "0x482A"
+   },
+   "bytes": 2
+  }
+ },
+ "counters": {
+  "tirs1": {
+   "rule": "hausse",
+   "signal": "inflige1"
+  },
+  "degats1": {
+   "rule": "somme_hausse",
+   "signal": "inflige1"
+  },
+  "recus1": {
+   "rule": "somme_hausse",
+   "signal": "recu1"
+  },
+  "tirs2": {
+   "rule": "hausse",
+   "signal": "inflige2"
+  },
+  "degats2": {
+   "rule": "somme_hausse",
+   "signal": "inflige2"
+  },
+  "recus2": {
+   "rule": "somme_hausse",
+   "signal": "recu2"
+  },
+  "tirs3": {
+   "rule": "hausse",
+   "signal": "inflige3"
+  },
+  "degats3": {
+   "rule": "somme_hausse",
+   "signal": "inflige3"
+  },
+  "recus3": {
+   "rule": "somme_hausse",
+   "signal": "recu3"
+  },
+  "tirs4": {
+   "rule": "hausse",
+   "signal": "inflige4"
+  },
+  "degats4": {
+   "rule": "somme_hausse",
+   "signal": "inflige4"
+  },
+  "recus4": {
+   "rule": "somme_hausse",
+   "signal": "recu4"
+  }
+ },
+ "metrics": [
+  {
+   "category": "execution",
+   "id": "tirs",
+   "label": "multiplayer.stat.hits",
+   "formula": "tirs1 + tirs2 + tirs3 + tirs4",
+   "unit": "count",
+   "better": "higher"
+  },
+  {
+   "category": "efficacite",
+   "id": "degats",
+   "label": "multiplayer.stat.damage",
+   "formula": "degats1 + degats2 + degats3 + degats4",
+   "unit": "points",
+   "better": "higher"
+  },
+  {
+   "category": "maitrise",
+   "id": "bilan",
+   "label": "multiplayer.stat.damage_balance",
+   "formula": "degats1 + degats2 + degats3 + degats4 - recus1 - recus2 - recus3 - recus4",
+   "unit": "points",
+   "better": "higher"
+  }
+ ]
+}

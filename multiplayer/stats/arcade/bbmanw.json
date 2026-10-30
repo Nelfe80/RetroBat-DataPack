@@ -1,0 +1,103 @@
+{
+  "id": "arcade/bbmanw/bataille",
+  "version": 2,
+  "players": 4,
+  "signals": {
+    "bombes_posees": {
+      "source": "poll",
+      "seats": {
+        "1": "0x113B7",
+        "2": "0x113C7",
+        "3": "0x113D7",
+        "4": "0x113E7"
+      },
+      "bytes": 1,
+      "min": 0,
+      "max": 10
+    },
+    "manches": {
+      "source": "poll",
+      "seats": {
+        "1": "0x113B5",
+        "2": "0x113C5",
+        "3": "0x113D5",
+        "4": "0x113E5"
+      },
+      "bytes": 1,
+      "bcd": true,
+      "min": 0,
+      "max": 3
+    },
+    "feu": {
+      "source": "poll",
+      "seats": {
+        "1": "0x113B6",
+        "2": "0x113C6",
+        "3": "0x113D6",
+        "4": "0x113E6"
+      },
+      "bytes": 1,
+      "min": 1,
+      "max": 16
+    },
+    "en_jeu": {
+      "source": "poll",
+      "seats": {
+        "1": "0x11316",
+        "2": "0x11316",
+        "3": "0x11316",
+        "4": "0x11316"
+      },
+      "bytes": 1
+    }
+  },
+  "presence": {
+    "signal": "en_jeu",
+    "mask": {
+      "1": 1,
+      "2": 2,
+      "3": 4,
+      "4": 8
+    }
+  },
+  "counters": {
+    "bombes": {
+      "rule": "hausse",
+      "signal": "bombes_posees"
+    },
+    "manches_gagnees": {
+      "rule": "hausse",
+      "signal": "manches"
+    },
+    "feu_max": {
+      "rule": "maximum",
+      "signal": "feu"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "bombes",
+      "label": "multiplayer.stat.bombs",
+      "formula": "bombes",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "manches_gagnees",
+      "label": "multiplayer.stat.rounds_won",
+      "formula": "manches_gagnees",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "feu_max",
+      "label": "multiplayer.stat.best_fire",
+      "formula": "feu_max",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}

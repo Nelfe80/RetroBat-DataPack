@@ -1,0 +1,36 @@
+{
+  "id": "arcade/wwfwfest/royal_rumble",
+  "version": 1,
+  "players": 4,
+  "signals": {
+    "energie": {
+      "source": "poll",
+      "seats": { "1": "0x061E", "2": "0x072A", "3": "0x0836", "4": "0x0942" },
+      "bytes": 1,
+      "min": 1,
+      "max": 127
+    },
+    "coups_recus": {
+      "source": "poll",
+      "seats": { "1": "0x0676", "2": "0x0782", "3": "0x088E", "4": "0x099A" },
+      "bytes": 1,
+      "max": 250
+    },
+    "eliminations": {
+      "source": "poll",
+      "seats": { "1": "0x0674", "2": "0x0780", "3": "0x088C", "4": "0x0998" },
+      "bytes": 1,
+      "max": 30
+    }
+  },
+  "counters": {
+    "energie_regagnee": { "rule": "somme_hausse", "signal": "energie" },
+    "coups_encaisses": { "rule": "hausse", "signal": "coups_recus" },
+    "eliminations_faites": { "rule": "hausse", "signal": "eliminations" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "energie_regagnee", "label": "multiplayer.stat.power_regained", "formula": "energie_regagnee", "unit": "points", "better": "higher" },
+    { "category": "efficacite", "id": "coups_encaisses", "label": "multiplayer.stat.hits_taken", "formula": "coups_encaisses", "unit": "count", "better": "lower" },
+    { "category": "maitrise", "id": "eliminations_faites", "label": "multiplayer.stat.eliminations", "formula": "eliminations_faites", "unit": "count", "better": "higher" }
+  ]
+}

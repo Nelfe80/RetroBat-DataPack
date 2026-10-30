@@ -1,0 +1,24 @@
+{
+  "id": "arcade/slammast/catch",
+  "version": 1,
+  "players": 4,
+  "signals": {
+    "score": {
+      "source": "poll",
+      "seats": { "1": "0x915C", "2": "0x935C", "3": "0x955C", "4": "0x975C" },
+      "bytes": 4,
+      "order": "68k",
+      "bcd": true
+    }
+  },
+  "counters": {
+    "coups": { "rule": "hausse", "signal": "score" },
+    "points": { "rule": "somme_hausse", "signal": "score" },
+    "meilleur_coup": { "rule": "plus_grande_hausse", "signal": "score" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "coups", "label": "multiplayer.stat.hits", "formula": "coups", "unit": "count", "better": "higher" },
+    { "category": "efficacite", "id": "points", "label": "multiplayer.stat.points", "formula": "points", "unit": "points", "better": "higher" },
+    { "category": "maitrise", "id": "meilleur_coup", "label": "multiplayer.stat.best_hit", "formula": "meilleur_coup", "unit": "points", "better": "higher" }
+  ]
+}

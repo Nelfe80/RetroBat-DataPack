@@ -1,0 +1,74 @@
+{
+  "id": "arcade/nbajamte/match",
+  "version": 2,
+  "players": 4,
+  "presence": {
+    "signal": "partie",
+    "value": 5
+  },
+  "signals": {
+    "score": {
+      "source": "poll",
+      "seats": {
+        "1": "0x1D5FA",
+        "2": "0x1D5FA",
+        "3": "0x1D5FC",
+        "4": "0x1D5FC"
+      },
+      "bytes": 2,
+      "order": "le",
+      "max": 300
+    },
+    "partie": {
+      "source": "poll",
+      "seats": {
+        "1": "0x1CB1C",
+        "2": "0x1CB1C",
+        "3": "0x1CB1C",
+        "4": "0x1CB1C"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "paniers": {
+      "rule": "hausse",
+      "signal": "score"
+    },
+    "points": {
+      "rule": "somme_hausse",
+      "signal": "score"
+    },
+    "trois": {
+      "rule": "hausse_d_au_moins",
+      "signal": "score",
+      "value": "3"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "paniers",
+      "label": "multiplayer.stat.baskets",
+      "formula": "paniers",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "trois",
+      "label": "multiplayer.stat.three_pointers",
+      "formula": "trois",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
