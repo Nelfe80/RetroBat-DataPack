@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/roughrac",
+  "situation": "debut-2p",
+  "description": "Debut d'une course a deux. Fin : places croisees (place de P2 0x72D9 pour la place 1, place de P1 0x70D9 pour la place 2), over 0x4E7 = 1, garde 0x4C4 = 2. Vrai guet de l'API dans les deux sens, netplay sans desynchronisation avec un etat de 1,4 Mo (30/10, couloir 4). Bouton 2 = accelerateur, bouton 1 = nitro.",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "85c397a1426be4f96267017a04002fc23f0b4fe182d426211b4b08ef2740a863",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T03:03:24Z",
+  "rom_sha256": "d5ae39d54d41efbf90c887566c7e03fb3e1606b5dee4c6afb903dde171808ba3"
+}

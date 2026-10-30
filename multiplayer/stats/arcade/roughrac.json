@@ -1,0 +1,29 @@
+{
+  "id": "arcade/roughrac/head-to-head",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "place": {
+      "source": "poll",
+      "seats": { "1": "0x70D9", "2": "0x72D9" },
+      "bytes": 1,
+      "max": 3
+    },
+    "tours": {
+      "source": "poll",
+      "seats": { "1": "0x70DE", "2": "0x72DE" },
+      "bytes": 1,
+      "max": 9
+    }
+  },
+  "counters": {
+    "tetes": { "rule": "atteint", "signal": "place", "value": "0" },
+    "tours": { "rule": "somme_hausse", "signal": "tours" },
+    "depasse": { "rule": "hausse", "signal": "place" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "tetes", "label": "multiplayer.stat.leads_taken", "formula": "tetes", "unit": "count", "better": "higher" },
+    { "category": "efficacite", "id": "tours", "label": "multiplayer.stat.laps", "formula": "tours", "unit": "count", "better": "higher" },
+    { "category": "maitrise", "id": "depasse", "label": "multiplayer.stat.times_overtaken", "formula": "depasse", "unit": "count", "better": "lower" }
+  ]
+}
