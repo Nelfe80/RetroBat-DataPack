@@ -1,0 +1,22 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "snes/pocky-and-rocky-2",
+  "situation": "debut-2p",
+  "description": "Debut du stage 2 (le premier vrai niveau ; le stage 1 est l'entrainement de Pocky, en solo), le partenaire (Little Ninja, 0x4FE = 2) deja a l'ecran et TENU PAR LE JOUEUR 2 (0x18CE = 1) : la place 1 joue Pocky, la place 2 le partenaire. Etat fabrique en ecrivant le stage (0x552 = 1) sur la carte du stage 1, puis 0x18CE = 1 quand le partenaire arrive : le jeu ne laisse pas la manette 2 prendre le partenaire seul (START, SELECT et les boutons de la manette 2 essayes).",
+  "state_file": "debut-2p-snes9x.state",
+  "state_sha256": "803e6d709a7a546054e678f24fd9d81243d563b3ded5124a4990ca1462a6a43e",
+  "core": "snes9x",
+  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "4ef05d7687710f53135d08d39a26190cfb8823a2a9984d3c66c0c20b9187cb07",
+  "content_md5": "05d1da17d64cc727e5efaa4ecc72b4b3",
+  "players_in_game": 2,
+  "values_at_save": {
+    "stage_0x552": 1,
+    "partner_0x4FE": 2,
+    "partner_control_0x18CE": 1
+  },
+  "bench_verification": "A froid (RetroArch neuf, etat charge) : la manette 2 deplace le partenaire, la manette 1 Pocky, 0x18CE reste 1 apres 20 s de jeu ; netplay a deux, invite connecte apres le chargement : memes valeurs, captures simultanees identiques (0,0 % de pixels differents).",
+  "certified": false,
+  "made_utc": "2026-10-29T16:00:00Z"
+}
