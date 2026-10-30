@@ -363,7 +363,15 @@
         "multiplayer.result.draw": "DRAW",
         "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter.",
         "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again.",
-        "multiplayer.proposal": "{player} wants to play {game}"
+        "multiplayer.proposal": "{player} wants to play {game}",
+        "speedrun.msg.ready": "Challenge ready. Your best time is sent when you quit the game. Hotkey + A: restart. Hotkey + Start: quit.",
+        "speedrun.msg.finish_best": "Finish {time}: new best time. Ranking when you quit the game.",
+        "speedrun.msg.finish": "Finish {time} (best {best}). Ranking when you quit the game.",
+        "speedrun.msg.finish_unranked": "Finish {time}: the game timer disagrees, this time will not be ranked.",
+        "speedrun.msg.failed": "Attempt failed. Hotkey + A: restart.",
+        "speedrun.msg.voided": "Attempt voided. Hotkey + A: restart.",
+        "speedrun.msg.voided_pause": "Attempt voided: pause. Hotkey + A: restart.",
+        "speedrun.msg.voided_fast_forward": "Attempt voided: fast forward. Hotkey + A: restart."
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -729,7 +737,15 @@
         "multiplayer.result.draw": "DRAW",
         "video.filter.no_live": "Image filter (NTSC) on: no live or video of this game. A record video will be made from the replay, without the filter.",
         "multiplayer.no_controller": "No controller found for this game: only the keyboard responds. Plug in a controller, set it up in EmulationStation, then start the game again.",
-        "multiplayer.proposal": "{player} wants to play {game}"
+        "multiplayer.proposal": "{player} wants to play {game}",
+        "speedrun.msg.ready": "Challenge ready. Your best time is sent when you quit the game. Hotkey + A: restart. Hotkey + Start: quit.",
+        "speedrun.msg.finish_best": "Finish {time}: new best time. Ranking when you quit the game.",
+        "speedrun.msg.finish": "Finish {time} (best {best}). Ranking when you quit the game.",
+        "speedrun.msg.finish_unranked": "Finish {time}: the game timer disagrees, this time will not be ranked.",
+        "speedrun.msg.failed": "Attempt failed. Hotkey + A: restart.",
+        "speedrun.msg.voided": "Attempt voided. Hotkey + A: restart.",
+        "speedrun.msg.voided_pause": "Attempt voided: pause. Hotkey + A: restart.",
+        "speedrun.msg.voided_fast_forward": "Attempt voided: fast forward. Hotkey + A: restart."
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -1095,7 +1111,15 @@
         "multiplayer.result.draw": "MATCH NUL",
         "video.filter.no_live": "Filtre d'image (NTSC) actif : pas de direct ni de vidéo de cette partie. La vidéo d'un record se fera depuis le replay, sans filtre.",
         "multiplayer.no_controller": "Aucune manette trouvée pour cette partie : seul le clavier répond. Branchez une manette, configurez-la dans EmulationStation, puis relancez la partie.",
-        "multiplayer.proposal": "{player} propose de jouer à {game}"
+        "multiplayer.proposal": "{player} propose de jouer à {game}",
+        "speedrun.msg.ready": "Défi prêt. Votre meilleur temps part à la fermeture du jeu. Hotkey + A : relancer. Hotkey + Start : quitter.",
+        "speedrun.msg.finish_best": "Arrivée {time} : nouveau meilleur temps. Classement à la fermeture du jeu.",
+        "speedrun.msg.finish": "Arrivée {time} (meilleur temps {best}). Classement à la fermeture du jeu.",
+        "speedrun.msg.finish_unranked": "Arrivée {time} : le temps du jeu ne concorde pas, ce temps ne sera pas classé.",
+        "speedrun.msg.failed": "Tentative ratée. Hotkey + A : relancer.",
+        "speedrun.msg.voided": "Tentative annulée. Hotkey + A : relancer.",
+        "speedrun.msg.voided_pause": "Tentative annulée : pause. Hotkey + A : relancer.",
+        "speedrun.msg.voided_fast_forward": "Tentative annulée : avance rapide. Hotkey + A : relancer."
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -1352,7 +1376,15 @@
         "leaderboard.live.no_netplay": "Solo reacciones",
         "video.filter.no_live": "Filtro de imagen (NTSC) activo: sin directo ni vídeo de esta partida. El vídeo de un récord se hará desde el replay, sin filtro.",
         "multiplayer.no_controller": "No se ha encontrado ningún mando para esta partida: solo responde el teclado. Conecte un mando, configúrelo en EmulationStation y vuelva a lanzar la partida.",
-        "multiplayer.proposal": "{player} propone jugar a {game}"
+        "multiplayer.proposal": "{player} propone jugar a {game}",
+        "speedrun.msg.ready": "Desafío listo. Tu mejor tiempo se envía al salir del juego. Hotkey + A: reiniciar. Hotkey + Start: salir.",
+        "speedrun.msg.finish_best": "Meta {time}: nuevo mejor tiempo. Clasificación al salir del juego.",
+        "speedrun.msg.finish": "Meta {time} (mejor tiempo {best}). Clasificación al salir del juego.",
+        "speedrun.msg.finish_unranked": "Meta {time}: el tiempo del juego no coincide, este tiempo no se clasificará.",
+        "speedrun.msg.failed": "Intento fallido. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided": "Intento anulado. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_pause": "Intento anulado: pausa. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_fast_forward": "Intento anulado: avance rápido. Hotkey + A: reiniciar."
     },
     "it": {
         "label.metadata.name": "nome",
@@ -1482,7 +1514,15 @@
         "leaderboard.live.no_netplay": "Solo reazioni",
         "video.filter.no_live": "Filtro immagine (NTSC) attivo: niente diretta né video di questa partita. Il video di un record sarà fatto dal replay, senza filtro.",
         "multiplayer.no_controller": "Nessun controller trovato per questa partita: risponde solo la tastiera. Collegare un controller, configurarlo in EmulationStation, poi riavviare la partita.",
-        "multiplayer.proposal": "{player} propone di giocare a {game}"
+        "multiplayer.proposal": "{player} propone di giocare a {game}",
+        "speedrun.msg.ready": "Sfida pronta. Il tuo miglior tempo viene inviato quando esci dal gioco. Hotkey + A: riavvia. Hotkey + Start: esci.",
+        "speedrun.msg.finish_best": "Arrivo {time}: nuovo miglior tempo. Classifica quando esci dal gioco.",
+        "speedrun.msg.finish": "Arrivo {time} (miglior tempo {best}). Classifica quando esci dal gioco.",
+        "speedrun.msg.finish_unranked": "Arrivo {time}: il tempo del gioco non corrisponde, questo tempo non sarà classificato.",
+        "speedrun.msg.failed": "Tentativo fallito. Hotkey + A: riavvia.",
+        "speedrun.msg.voided": "Tentativo annullato. Hotkey + A: riavvia.",
+        "speedrun.msg.voided_pause": "Tentativo annullato: pausa. Hotkey + A: riavvia.",
+        "speedrun.msg.voided_fast_forward": "Tentativo annullato: avanzamento rapido. Hotkey + A: riavvia."
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -1993,7 +2033,15 @@
         "leaderboard.live.no_netplay": "Apenas reações",
         "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro.",
         "multiplayer.no_controller": "Nenhum controle encontrado para esta partida: só o teclado responde. Conecte um controle, configure-o no EmulationStation e reinicie a partida.",
-        "multiplayer.proposal": "{player} propõe jogar {game}"
+        "multiplayer.proposal": "{player} propõe jogar {game}",
+        "speedrun.msg.ready": "Desafio pronto. Seu melhor tempo é enviado ao sair do jogo. Hotkey + A: reiniciar. Hotkey + Start: sair.",
+        "speedrun.msg.finish_best": "Chegada {time}: novo melhor tempo. Classificação ao sair do jogo.",
+        "speedrun.msg.finish": "Chegada {time} (melhor tempo {best}). Classificação ao sair do jogo.",
+        "speedrun.msg.finish_unranked": "Chegada {time}: o tempo do jogo não confere, este tempo não será classificado.",
+        "speedrun.msg.failed": "Tentativa falhou. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided": "Tentativa anulada. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_pause": "Tentativa anulada: pausa. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_fast_forward": "Tentativa anulada: avanço rápido. Hotkey + A: reiniciar."
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -2631,7 +2679,15 @@
         "leaderboard.live.no_netplay": "Apenas reações",
         "video.filter.no_live": "Filtro de imagem (NTSC) ativo: sem transmissão nem vídeo desta partida. O vídeo de um recorde será feito a partir do replay, sem filtro.",
         "multiplayer.no_controller": "Nenhum comando encontrado para esta partida: só o teclado responde. Ligue um comando, configure-o no EmulationStation e reinicie a partida.",
-        "multiplayer.proposal": "{player} propõe jogar {game}"
+        "multiplayer.proposal": "{player} propõe jogar {game}",
+        "speedrun.msg.ready": "Desafio pronto. Seu melhor tempo é enviado ao sair do jogo. Hotkey + A: reiniciar. Hotkey + Start: sair.",
+        "speedrun.msg.finish_best": "Chegada {time}: novo melhor tempo. Classificação ao sair do jogo.",
+        "speedrun.msg.finish": "Chegada {time} (melhor tempo {best}). Classificação ao sair do jogo.",
+        "speedrun.msg.finish_unranked": "Chegada {time}: o tempo do jogo não confere, este tempo não será classificado.",
+        "speedrun.msg.failed": "Tentativa falhou. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided": "Tentativa anulada. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_pause": "Tentativa anulada: pausa. Hotkey + A: reiniciar.",
+        "speedrun.msg.voided_fast_forward": "Tentativa anulada: avanço rápido. Hotkey + A: reiniciar."
     },
     "ru": {
         "label.metadata.name": "название",
