@@ -1,20 +1,30 @@
 {
   "id": "gba/advance-wars-2/link",
-  "version": 2,
-  "players": 2,
+  "version": 3,
+  "players": 4,
   "signals": {
     "proprietes": {
       "source": "poll",
       "memory": "core_map",
-      "seats": { "1": "0x020232D1", "2": "0x0202330D", "3": "0x02023349", "4": "0x02023385" },
+      "seats": {
+        "1": "0x020232D1",
+        "2": "0x0202330D",
+        "3": "0x02023349",
+        "4": "0x02023385"
+      },
       "bytes": 1,
-      "min": 0,
+      "min": 1,
       "max": 120
     },
     "revenu": {
       "source": "poll",
       "memory": "core_map",
-      "seats": { "1": "0x020232C8", "2": "0x02023304", "3": "0x02023340", "4": "0x0202337C" },
+      "seats": {
+        "1": "0x020232C8",
+        "2": "0x02023304",
+        "3": "0x02023340",
+        "4": "0x0202337C"
+      },
       "bytes": 2,
       "order": "le",
       "min": 0,
@@ -22,9 +32,18 @@
     }
   },
   "counters": {
-    "captures": { "rule": "hausse", "signal": "proprietes" },
-    "revenu_max": { "rule": "maximum", "signal": "revenu" },
-    "proprietes_max": { "rule": "maximum", "signal": "proprietes" }
+    "captures": {
+      "rule": "hausse",
+      "signal": "proprietes"
+    },
+    "revenu_max": {
+      "rule": "maximum",
+      "signal": "revenu"
+    },
+    "proprietes_max": {
+      "rule": "maximum",
+      "signal": "proprietes"
+    }
   },
   "metrics": [
     {
