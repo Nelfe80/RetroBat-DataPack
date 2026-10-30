@@ -1,0 +1,78 @@
+{
+  "id": "arcade/orunners/head-to-head",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "rang": {
+      "source": "poll",
+      "seats": {
+        "1": "0x223A",
+        "2": "0x1223A"
+      },
+      "bytes": 1,
+      "min": 65,
+      "max": 66
+    },
+    "vitesse": {
+      "source": "poll",
+      "seats": {
+        "1": "0x8F50",
+        "2": "0x18F50"
+      },
+      "bytes": 2,
+      "order": "le",
+      "max": 600,
+      "confirm": false
+    },
+    "etat": {
+      "source": "poll",
+      "seats": {
+        "1": "0x40C",
+        "2": "0x1040C"
+      },
+      "bytes": 1
+    }
+  },
+  "counters": {
+    "depassements": {
+      "rule": "atteint",
+      "signal": "rang",
+      "value": "65"
+    },
+    "vitesse_max": {
+      "rule": "maximum",
+      "signal": "vitesse"
+    },
+    "accidents": {
+      "rule": "atteint",
+      "signal": "etat",
+      "value": "5"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "depassements",
+      "label": "multiplayer.stat.overtakes",
+      "formula": "depassements",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "vitesse_max",
+      "label": "multiplayer.stat.top_speed",
+      "formula": "vitesse_max",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "accidents",
+      "label": "multiplayer.stat.crashes",
+      "formula": "accidents",
+      "unit": "count",
+      "better": "lower"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/orunners",
+  "situation": "debut-2p",
+  "description": "Debut d'une course a deux joueurs (ecrans separes, Multi-Screen Mode), verifie a froid. Fin au signal 0x40D = 3 (ecran Winner / Loser, au chrono ecoule comme a l'arrivee), places croisees 0x104DA / 0x4DA (rang de l'adversaire), garde 0x1088 = 2 (duel). Vrai guet de l'API 1.9.127 : VAINQUEUR 1 et VAINQUEUR 2 ; course entiere en netplay sans desynchronisation (30/10, couloir 4).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "622676fe0092b9fce201a6630e37911eefd7cf84f53b499ead38f1c95bff2617",
+  "core": "fbneo_multi32",
+  "core_sha256": "3fbe6d6e7c2ce99741db65278ea0fe6cccb02454881988c2a2f06d70a8d844f5",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T00:03:09Z",
+  "rom_sha256": "304949238a367cf9ebc6f6ffc5027a6a015f08c3633830f28a4e93131ff02ee6"
+}
