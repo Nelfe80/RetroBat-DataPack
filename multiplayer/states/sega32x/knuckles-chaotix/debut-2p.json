@@ -1,0 +1,24 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "sega32x/knuckles-chaotix",
+  "situation": "debut-2p",
+  "description": "Partie rapide : mode TRAINING (aucune sauvegarde), ISOLATED ISLAND acte 1, PLAY STYLE 2P (1P + 2P), PLAYER SELECT Knuckles pour la place 1, COMBI SELECT Mighty pour la place 2 ; l'etat est pris dans le niveau (minuteur a 0'32), les deux personnages relies par l'anneau. 0xE05D = 0x10 (partenaire tenu par le joueur 2), 0xDFF2 = 5 (Isolated Island), 0xDFF4 = 1 (acte 1).",
+  "state_file": "debut-2p-picodrive.state",
+  "state_sha256": "23a0a3559b6f15df730624799114b0eaa28440202725d9ce5ed5b606c2170553",
+  "core": "picodrive",
+  "core_sha256": "7b3bde188b89f552012b7726e07332ad8417e2867e9f789bef06b86a15a3059a",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "70e1a92a982f2684be3bc315267e545fb9c530d533fd62b6d38bb625541ed957",
+  "content_md5": "47b1095e68b053125cd2cd5b1ac4eb50",
+  "players_in_game": 2,
+  "values_at_save": {
+    "character_0xE038": 8,
+    "partner_0xE03A": 0,
+    "partner_p2_0xE05D": 16,
+    "zone_0xDFF2": 5,
+    "act_0xDFF4": 1
+  },
+  "bench_verification": "A froid : la manette 2 deplace Mighty, la manette 1 Knuckles, 0xE05D reste 0x10 ; netplay a deux (invite connecte apres le chargement) : memes valeurs des deux cotes (0xE05D 16, 0xE038 8, 0xE03A 0, acte 1), captures simultanees a 1,1 % de pixels differents (minuteur 0'47''01 contre 0'47''10).",
+  "certified": false,
+  "made_utc": "2026-10-29T16:00:00Z"
+}
