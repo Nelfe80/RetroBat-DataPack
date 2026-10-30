@@ -1,0 +1,59 @@
+{
+  "id": "arcade/finalb/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "endurance": {
+      "source": "poll",
+      "seats": {
+        "1": "0x20A2",
+        "2": "0x23A2"
+      },
+      "bytes": 2,
+      "order": "le",
+      "min": 1,
+      "max": 4000,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "coups": {
+      "rule": "baisse_adverse",
+      "signal": "endurance"
+    },
+    "degats": {
+      "rule": "somme_baisse_adverse",
+      "signal": "endurance"
+    },
+    "meilleur_coup": {
+      "rule": "plus_grande_baisse_adverse",
+      "signal": "endurance"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "coups",
+      "label": "multiplayer.stat.hits",
+      "formula": "coups",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "degats",
+      "label": "multiplayer.stat.damage",
+      "formula": "degats",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "meilleur_coup",
+      "label": "multiplayer.stat.best_hit",
+      "formula": "meilleur_coup",
+      "unit": "points",
+      "better": "higher"
+    }
+  ]
+}

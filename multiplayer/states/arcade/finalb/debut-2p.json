@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/finalb",
+  "situation": "debut-2p",
+  "description": "Debut d'un duel a deux joueurs, au debut de SELECT YOUR BOXER (minuteur a 9) : chaque joueur choisit son boxeur en jeu. Fin sur les drapeaux de victoire 0x22E8 / 0x25E8, garde 0x119C = 2 (duel). Verifie au vrai guet de l'API 1.9.127 dans les deux sens et en netplay (0 ecart, 30/10, couloir 2).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "310afdc9a3695c1990d85ce5d838773c6916d7947669c505335626499fe67171",
+  "core": "fbneo",
+  "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T00:02:10Z",
+  "rom_sha256": "dd133143f9d471ea60efadb50a5c636fed62808cd992de8c76e4ba4753c1a72d"
+}
