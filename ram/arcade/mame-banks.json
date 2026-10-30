@@ -1541,5 +1541,123 @@
       "base": "0x4000",
       "source": "carte MAME theend (ramsearch labo 2026-09-16)"
     }
+  ],
+  "shadow-dancer": [
+    {
+      "from": "0x0000",
+      "size": "0x4000",
+      "base": "0xFFC000",
+      "bank": "System16Ram",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "cabal": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x40000",
+      "bank": "DrvMainRAM",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "ninja-gaiden": [
+    {
+      "from": "0x0000",
+      "size": "0x4000",
+      "base": "0x60000",
+      "bank": "Drv68KRAM",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "galaga": [
+    {
+      "from": "0x0000",
+      "size": "0x800",
+      "base": "0x8000",
+      "bank": "RAM.video",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    },
+    {
+      "from": "0x800",
+      "size": "0x400",
+      "base": "0x8800",
+      "bank": "RAM.shared1",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    },
+    {
+      "from": "0xC00",
+      "size": "0x400",
+      "base": "0x9000",
+      "bank": "RAM.shared2",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    },
+    {
+      "from": "0x1000",
+      "size": "0x400",
+      "base": "0x9800",
+      "bank": "RAM.shared3",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "robotron-2084": [
+    {
+      "from": "0x4200",
+      "size": "0xC000",
+      "base": "0x0000",
+      "bank": "DrvVidRAM",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "legend-of-hero-tonma": [
+    {
+      "from": "0x26800",
+      "size": "0x4000",
+      "base": "0xA0000",
+      "bank": "DrvV30RAM",
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + banc MAME)"
+    }
+  ],
+  "biomechanical-toy": [
+    {
+      "from": "0x0800",
+      "size": "0x10000",
+      "base": "0xFF0000",
+      "bank": "Drv68KRAM",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + pose sous FBNeo et MAME)"
+    }
+  ],
+  "chase-h-q": [
+    {
+      "from": "0x0000",
+      "size": "0x8000",
+      "base": "0x100000",
+      "bank": "Taito68KRam1",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + pose sous FBNeo et MAME)"
+    }
+  ],
+  "puchi-carat": [
+    {
+      "from": "0x0000",
+      "size": "0x20000",
+      "base": "0x400000",
+      "bank": "Taito68KRam1",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + pose sous FBNeo et MAME)"
+    }
+  ],
+  "super-hang-on": [
+    {
+      "from": "0x0000",
+      "size": "0x10000",
+      "base": "0x60000",
+      "bank": "System16Ram",
+      "swap16": true,
+      "source": "calcul 2026-10-30 (MemIndex FBNeo + pose sous FBNeo et MAME)"
+    }
   ]
 }

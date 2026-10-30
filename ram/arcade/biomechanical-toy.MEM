@@ -1,0 +1,29 @@
+-- mem-curator v5.0.0 (2026-10-30) profile=wrapper
+return {
+  game = {
+    title = "Biomechanical Toy",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "biomechanical-toy",
+    hashes = {
+      { hash = "9a4931ef4fa956e334fe68962027deb4", label = "biomtoy.7z <Biomechanical Toy (Ver. 1.0.1885, checksum 69f5e032)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      credits = {
+        { address=0XFFD0C7, type="u8", condition="change", action="CREDITS", desc="Credits" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XFF0738, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
+      },
+    },
+  },
+}

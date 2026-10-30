@@ -10,6 +10,7 @@ return {
   rom = {
     name = "shadow-dancer",
     hashes = {
+      { hash = "9881e54693cecb32b21c68bf05a047f5", label = "shdancer.7z <Shadow Dancer (World)>" },
       { hash = "48424ad10ad6f622bea5657cdc4cc729", label = "shdancer1.7z <Shadow Dancer (set 1)>" },
       { hash = "4fce929c79b924904d8900c9e29d3d62", label = "shdancerj.7z <Shadow Dancer (set 2, Japan)>" },
     }
@@ -28,6 +29,9 @@ return {
       },
     },
     resources = {
+      credits = {
+        { address=0XFFF486, type="u8", condition="change", action="CREDITS", desc="Credits" },
+      },
       lives = {
         { address=0X2B0B, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives (XX) Hex increased" },
         { address=0X2B0B, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives (XX) Hex decreased" },
@@ -36,7 +40,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X2B00, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XFFEB00, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
       },
     },
     system = {

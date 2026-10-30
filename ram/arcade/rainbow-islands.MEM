@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-10-30) profile=wrapper
+return {
+  game = {
+    title = "Rainbow Islands",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "rainbow-islands",
+    hashes = {
+      { hash = "38832362f6a288f8d24511adf64a0f5e", label = "rbisland.7z <Rainbow Islands (new version)>" },
+    }
+  },
+
+  events = {
+    resources = {
+      credits = {
+        { address=0X10D0AB, type="u8", condition="change", action="CREDITS", desc="Credits" },
+      },
+      lives = {
+        { address=0X10E1FF, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X10E1FF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X10E200, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
+      },
+    },
+  },
+}

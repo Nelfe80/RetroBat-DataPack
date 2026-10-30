@@ -38,6 +38,9 @@ return {
       },
     },
     resources = {
+      credits = {
+        { address=0XC016, type="u8", condition="change", action="CREDITS", desc="Credits" },
+      },
       lives = {
         { address=0X0027, type="u8", condition="increase", action="GAIN_LIFE", desc="Dip Setting - Starting Lives increased" },
         { address=0X0027, type="u8", condition="decrease", action="LOSE_LIFE", desc="Dip Setting - Starting Lives decreased" },
@@ -74,7 +77,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X303, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XC303, type="u24be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 10)" },
       },
     },
     combat = {

@@ -1,0 +1,33 @@
+-- mem-curator v5.0.0 (2026-10-30) profile=wrapper
+return {
+  game = {
+    title = "Legend of Hero Tonma",
+    system = "arcade",
+    system_name = "Arcade",
+    genre = "Platform"
+  },
+
+  rom = {
+    name = "legend-of-hero-tonma",
+    hashes = {
+      { hash = "f75aeb03819ae2d61ceab0d530dab031", label = "loht.7z <Legend of Hero Tonma>" },
+    }
+  },
+
+  events = {
+    resources = {
+      credits = {
+        { address=0XA3B49, type="u8", condition="change", action="CREDITS", desc="Credits" },
+      },
+      lives = {
+        { address=0XA3AE4, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
+        { address=0XA3AE4, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0XA3AD7, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD" },
+      },
+    },
+  },
+}
