@@ -1,0 +1,55 @@
+{
+  "id": "gba/advance-wars-2/link",
+  "version": 1,
+  "players": 4,
+  "signals": {
+    "proprietes": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x020232D1", "2": "0x0202330D", "3": "0x02023349", "4": "0x02023385" },
+      "bytes": 1,
+      "min": 0,
+      "max": 120
+    },
+    "revenu": {
+      "source": "poll",
+      "memory": "core_map",
+      "seats": { "1": "0x020232C8", "2": "0x02023304", "3": "0x02023340", "4": "0x0202337C" },
+      "bytes": 2,
+      "order": "le",
+      "min": 0,
+      "max": 65000
+    }
+  },
+  "counters": {
+    "captures": { "rule": "hausse", "signal": "proprietes" },
+    "revenu_max": { "rule": "maximum", "signal": "revenu" },
+    "proprietes_max": { "rule": "maximum", "signal": "proprietes" }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "captures",
+      "label": "multiplayer.stat.captures",
+      "formula": "captures",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "revenu_max",
+      "label": "multiplayer.stat.best_income",
+      "formula": "revenu_max",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "proprietes_max",
+      "label": "multiplayer.stat.most_properties",
+      "formula": "proprietes_max",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}

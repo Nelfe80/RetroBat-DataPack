@@ -1,0 +1,13 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "gba/advance-wars-2",
+  "situation": "debut-2p",
+  "description": "Partie rapide a deux en Link, ecran TEAMS (chacun choisit son CO), carte Bean Island. Fin sur l'octet d'issue de chaque armee (+0x34, 100 = gagnant, 100 pour chacun au nul, 0 = perdant), lu par la carte du coeur. Vrai guet de l'API en netplay : abandon de P1, abandon de P2, nul et victoire aux proprietes au jour limite (30/10, couloir 3). Les regles (brouillard, limite de jours) sont celles du jeu par defaut : la console 1 les regle a chaque partie.",
+  "state_file": "debut-2p-mgba-splitscreen.state",
+  "state_sha256": "38cde4ca78807429b0e7de9c800aacb29530adcf19c6d01b6d4d525978677935",
+  "core": "mgba_splitscreen",
+  "core_sha256": "bd5abeea19b644442d54fe98c4b022842a27becdc4ac4e581c5771d1934da3d6",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T01:19:19Z"
+}
