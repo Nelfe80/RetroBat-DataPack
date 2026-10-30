@@ -1,0 +1,30 @@
+{
+  "id": "arcade/scross/head-to-head",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "position": {
+      "source": "poll",
+      "seats": { "1": "0xF43", "2": "0xF44" },
+      "bytes": 1,
+      "max": 7
+    },
+    "vitesse": {
+      "source": "poll",
+      "seats": { "1": "0x1393", "2": "0x1493" },
+      "bytes": 1,
+      "max": 150,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "tetes": { "rule": "atteint", "signal": "position", "value": "0" },
+    "vitesse_max": { "rule": "maximum", "signal": "vitesse" },
+    "depasse": { "rule": "hausse", "signal": "position" }
+  },
+  "metrics": [
+    { "category": "execution", "id": "tetes", "label": "multiplayer.stat.leads_taken", "formula": "tetes", "unit": "count", "better": "higher" },
+    { "category": "efficacite", "id": "vitesse_max", "label": "multiplayer.stat.top_speed", "formula": "vitesse_max + vitesse_max", "unit": "points", "better": "higher" },
+    { "category": "maitrise", "id": "depasse", "label": "multiplayer.stat.times_overtaken", "formula": "depasse", "unit": "count", "better": "lower" }
+  ]
+}

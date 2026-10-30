@@ -1,0 +1,14 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/scross",
+  "situation": "debut-2p",
+  "description": "Debut d'une course a deux (Multi-Screen Mode, coeur fbneo_multi32). Fin : premier a 6 sur l'animation YOU WIN de chaque ecran (0x3D7 / 0x103D7, 6 chez le seul vainqueur), garde 0xD0B8 = 2. Vrai guet de l'API dans les deux sens, course entiere en netplay sans desynchronisation (30/10, couloir 4).",
+  "state_file": "debut-2p-fbneo.state",
+  "state_sha256": "863f899085371b92ed656d2f4b80980121e0a24342f7a8429bf586d7ea2cbbf9",
+  "core": "fbneo_multi32",
+  "core_sha256": "3fbe6d6e7c2ce99741db65278ea0fe6cccb02454881988c2a2f06d70a8d844f5",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-10-30T01:54:21Z",
+  "rom_sha256": "5bc746cb464e30bf2e2c5e2efa6f0eb7f0cf03a8f05a3932e706f9108334be9f"
+}
