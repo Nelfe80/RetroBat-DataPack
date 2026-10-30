@@ -1,0 +1,59 @@
+{
+  "id": "arcade/rampage/score",
+  "version": 1,
+  "players": 3,
+  "signals": {
+    "score": {
+      "source": "poll",
+      "seats": {
+        "1": "0x3ACD",
+        "2": "0x3AD4",
+        "3": "0x3ADB"
+      },
+      "bytes": 7,
+      "digits": true,
+      "order": "be"
+    }
+  },
+  "counters": {
+    "destructions": {
+      "rule": "hausse",
+      "signal": "score"
+    },
+    "points": {
+      "rule": "somme_hausse",
+      "signal": "score"
+    },
+    "gros_coups": {
+      "rule": "hausse_d_au_moins",
+      "signal": "score",
+      "value": "500"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "destructions",
+      "label": "multiplayer.stat.smashes",
+      "formula": "destructions",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "gros_coups",
+      "label": "multiplayer.stat.big_smashes",
+      "formula": "gros_coups",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
