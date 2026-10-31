@@ -1,0 +1,85 @@
+{
+  "id": "megadrive/micro-machines-2/single-race",
+  "version": 1,
+  "players": 4,
+  "signals": {
+    "distance": {
+      "source": "poll",
+      "seats": {
+        "1": "0xD89E",
+        "2": "0xD8A0",
+        "3": "0xD8A2",
+        "4": "0xD8A4"
+      },
+      "bytes": 2,
+      "order": "le",
+      "max": 60000,
+      "confirm": false
+    },
+    "points": {
+      "source": "poll",
+      "seats": {
+        "1": "0xF6E4",
+        "2": "0xF6E8",
+        "3": "0xF6EC",
+        "4": "0xF6F0"
+      },
+      "bytes": 1,
+      "max": 99
+    },
+    "vitesse": {
+      "source": "poll",
+      "seats": {
+        "1": "0xD88C",
+        "2": "0xD88E",
+        "3": "0xD890",
+        "4": "0xD892"
+      },
+      "bytes": 2,
+      "order": "le",
+      "max": 1000,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "distance": {
+      "rule": "maximum",
+      "signal": "distance"
+    },
+    "points": {
+      "rule": "maximum",
+      "signal": "points"
+    },
+    "accidents": {
+      "rule": "atteint",
+      "signal": "vitesse",
+      "value": "0"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "distance",
+      "label": "multiplayer.stat.distance",
+      "formula": "distance",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "accidents",
+      "label": "multiplayer.stat.crashes",
+      "formula": "accidents",
+      "unit": "count",
+      "better": "lower"
+    }
+  ]
+}
