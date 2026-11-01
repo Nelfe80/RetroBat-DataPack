@@ -1226,7 +1226,15 @@
         "speedrun.page.title.held": "TEMPS RETENU",
         "speedrun.page.title.refused": "TEMPS REFUSÉ",
         "speedrun.page.title.not_sent": "NON ENVOYÉ",
-        "speedrun.page.title.no_time": "AUCUN TEMPS"
+        "speedrun.page.title.no_time": "AUCUN TEMPS",
+        "speedrun.page.player": "JOUEUR",
+        "speedrun.page.reason.dirty": "Triche ou état chargé détecté pendant ce lancement",
+        "speedrun.page.reason.pause": "Dernière tentative annulée : pause",
+        "speedrun.page.reason.fast_forward": "Dernière tentative annulée : avance rapide",
+        "speedrun.page.reason.debug": "Dernière tentative annulée : mode debug",
+        "speedrun.page.reason.life": "Dernière tentative : vie perdue",
+        "speedrun.page.reason.voided": "Dernière tentative annulée",
+        "speedrun.page.reason.unfinished": "Dernière tentative non finie"
     },
     "cs_cz": {
         "label.metadata.name": "název",
