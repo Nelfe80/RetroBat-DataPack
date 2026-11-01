@@ -1,0 +1,77 @@
+{
+  "id": "arcade/badlands/duel",
+  "version": 1,
+  "players": 2,
+  "signals": {
+    "passages": {
+      "source": "poll",
+      "seats": {
+        "1": "0x36D4",
+        "2": "0x3754"
+      },
+      "bytes": 1,
+      "max": 32
+    },
+    "score": {
+      "source": "poll",
+      "seats": {
+        "1": "0x36A8",
+        "2": "0x3728"
+      },
+      "bytes": 2,
+      "order": "le",
+      "max": 60000,
+      "confirm": false
+    },
+    "tir": {
+      "source": "poll",
+      "seats": {
+        "1": "0x36C2",
+        "2": "0x3742"
+      },
+      "bytes": 1,
+      "max": 32,
+      "confirm": false
+    }
+  },
+  "counters": {
+    "passages": {
+      "rule": "somme_hausse",
+      "signal": "passages"
+    },
+    "points": {
+      "rule": "maximum",
+      "signal": "score"
+    },
+    "tirs": {
+      "rule": "hausse",
+      "signal": "tir"
+    }
+  },
+  "metrics": [
+    {
+      "category": "execution",
+      "id": "passages",
+      "label": "multiplayer.stat.checkpoints",
+      "formula": "passages",
+      "unit": "count",
+      "better": "higher"
+    },
+    {
+      "category": "efficacite",
+      "id": "points",
+      "label": "multiplayer.stat.points",
+      "formula": "points",
+      "unit": "points",
+      "better": "higher"
+    },
+    {
+      "category": "maitrise",
+      "id": "tirs",
+      "label": "multiplayer.stat.shots",
+      "formula": "tirs",
+      "unit": "count",
+      "better": "higher"
+    }
+  ]
+}
