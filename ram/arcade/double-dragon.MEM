@@ -1,3 +1,5 @@
+-- 2026-10-31 : la sante a zero n'est plus une perte de vie (audit de sortie : un drapeau parle sans mort). La mort se lit
+-- aux compteurs de vies 0x03EA et 0x0448 (sonde du 31/10 : une baisse par mort, a chaque joueur la sienne).
 -- .user 2026-10-13 : le profil est celui de ddragon (Technos, 1987). Retrait du titre, de l'empreinte et des
 -- lignes venues du Double Dragon Neo-Geo (doubledr), fusionnees par le titre : sur ddragon, 0x223C a 0x2295
 -- lisent la memoire des sprites, 0xFDxx de la ROM, 0x0444 a 0x0565 d'autres objets (mesure MAME du jour).
@@ -44,10 +46,10 @@ return {
         { address=0X0021, type="u8", condition="change", action="CREDITS", desc="Credits" },
       },
       lives = {
-        { address=0X03C1, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", player=1, desc="1P Dead (sante a zero)" },
+        { address=0X03C1, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", player=1, desc="1P health at zero (not a death signal)" },
         { address=0X03EA, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="1P Lives increased" },
         { address=0X03EA, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="1P Lives decreased" },
-        { address=0X041F, type="u8", condition="eq", value=0X00, action="LOSE_LIFE", player=2, desc="2P Dead (sante a zero)" },
+        { address=0X041F, type="u8", condition="eq", value=0X00, action="HEALTH_STATE", player=2, desc="2P health at zero (not a death signal)" },
         { address=0X0448, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="2P Lives increased" },
         { address=0X0448, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="2P Lives decreased" },
       },
