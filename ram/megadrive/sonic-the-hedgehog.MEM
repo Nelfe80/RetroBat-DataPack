@@ -1,3 +1,6 @@
+-- .user 2026-10-30 (mesure sans fenetre, Genesis Plus GX) : code debug Up C Down C Left C Right C a l'ecran titre = 0xFFE3 a 1
+-- (et le ralenti 0xFFE0, sans effet hors pause) ; A tenu jusqu'au chargement du niveau = 0xFFFB a 1, 2 images avant le depart
+-- du timer ; B bascule alors la pose d'objets (0xFE09). A seul ou code seul laisse 0xFFFB a 0. Remis a 0 par l'ecran titre.
 -- .user 2026-10-20 (speedrun, pre-labo MAME sans fenetre, Green Hill acte 1 fini en 0:47 par un bot) : adresses du .MEM
 -- = octets de chaque mot inverses (0xFE1F ici = 0xFFFE1E du bus). Chrono du jeu actif (0xFE1F) : 1 a l'image 909, pendant
 -- le carton du titre, avant la main au joueur (0xF601 = 0C a 934) ; 0 au panneau (image 3754, son 0xCF en 0xF008, temps
@@ -76,6 +79,8 @@ return {
         { address=0XFF84, type="u8", condition="change", action="NEW_LEVEL", desc="Level select sound ID" },
         { address=0XFFE1, type="u8", condition="change", action="NEW_LEVEL", desc="Cheat - Level Select" },
         { address=0XFFE1, type="u8", condition="eq", value=0X01, action="LEVEL_INPUT", desc="Input" },
+        { address=0XFFE3, type="u8", condition="change", action="LEVEL_CHEAT_CODE_INPUTED", desc="Cheat - Debug code entered" },
+        { address=0XFFFB, type="u8", condition="change", action="LEVEL_CHEAT_ACTIVATED", desc="Cheat - Debug mode active" },
       },
       zone = {
         { address=0XFE11, type="u8", condition="change", action="PROGRESSION_ZONE", desc="Current Zone" },

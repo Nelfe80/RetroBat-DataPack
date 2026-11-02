@@ -1,3 +1,6 @@
+-- .user 2026-11-01 : tirs du joueur 1 (0x100590, labo MAME sans fenetre et releve d'une partie sous FBNeo) : +1 a chaque tir,
+-- pistolet et armes lourdes ; immobile au couteau et a la grenade ; remis a 0 a la mort, a l'arme videe et au changement
+-- de section, ou il passe par 0xFF : la hausse est bornee a 4, un saut de section n'est pas un tir.
 -- .user 2026-10-20 (coop, pre-labo MAME sans fenetre a deux) : le joueur 2 a la meme fiche que le joueur 1 decalee de 0xB0
 -- (vies 0x10036B : 2 a son arrivee, 2 -> 1 a la mort au minuteur, vehicule 0x100371) et un bloc d'arme decale de 0x0E
 -- (arme 0x10EB01, grenades 0x10EB03 : 10 -> 9 -> 8 -> 7 aux trois lancers du joueur 2 seul, munitions 0x10EB08 a 0xFFFF).
@@ -103,6 +106,7 @@ return {
       collectibles = {
         { address=0X1002B3, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="Ammo (display)" },
         { address=0X10EAFB, type="u8", condition="change", action="AMMO_STATE", no_log=true, desc="P1 Ammo" },
+        { address=0X100590, type="u8", condition="increase", min=1, max=4, action="AMMO_LOSE", player=1, desc="P1 shot fired (shots since the last life, any weapon; knife and grenades do not count)" },
       },
     },
   },
