@@ -387,7 +387,11 @@
         "speedrun.msg.voided_debug": "Attempt voided: debug mode. Go back to the title screen.",
         "speedrun.msg.no_pause": "No pause during a challenge.",
         "speedrun.msg.pause_held": "Pause held: back to the start.",
-        "speedrun.msg.locks_missing": "Challenge locks not active: no time will be sent."
+        "speedrun.msg.locks_missing": "Challenge locks not active: no time will be sent.",
+        "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
+        "speedrun.msg.hit_left": "Hit! {left} left",
+        "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down. Hotkey + Left: restart."
     },
     "en_gb": {
         "label.metadata.name": "name",
@@ -777,7 +781,11 @@
         "speedrun.msg.voided_debug": "Attempt voided: debug mode. Go back to the title screen.",
         "speedrun.msg.no_pause": "No pause during a challenge.",
         "speedrun.msg.pause_held": "Pause held: back to the start.",
-        "speedrun.msg.locks_missing": "Challenge locks not active: no time will be sent."
+        "speedrun.msg.locks_missing": "Challenge locks not active: no time will be sent.",
+        "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
+        "speedrun.msg.hit_left": "Hit! {left} left",
+        "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down. Hotkey + Left: restart."
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -1243,7 +1251,11 @@
         "speedrun.page.reason.unfinished": "Dernière tentative non finie",
         "speedrun.msg.no_pause": "Pas de pause pendant un défi.",
         "speedrun.msg.pause_held": "Pause maintenue : retour au départ.",
-        "speedrun.msg.locks_missing": "Verrous du défi inactifs : aucun temps ne sera envoyé."
+        "speedrun.msg.locks_missing": "Verrous du défi inactifs : aucun temps ne sera envoyé.",
+        "speedrun.msg.hit": "Touché ! {left} restants, +{penalty} s",
+        "speedrun.msg.hit_left": "Touché ! {left} restants",
+        "speedrun.msg.hit_penalty": "Touché ! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Tentative annulée : le jeu a ralenti. Hotkey + Gauche : relancer."
     },
     "cs_cz": {
         "label.metadata.name": "název",
@@ -1515,7 +1527,11 @@
         "speedrun.msg.voided_debug": "Intento anulado: modo debug. Vuelve a la pantalla de título.",
         "speedrun.msg.no_pause": "Sin pausa durante un desafío.",
         "speedrun.msg.pause_held": "Pausa mantenida: vuelta al inicio.",
-        "speedrun.msg.locks_missing": "Bloqueos del desafío inactivos: no se enviará ningún tiempo."
+        "speedrun.msg.locks_missing": "Bloqueos del desafío inactivos: no se enviará ningún tiempo.",
+        "speedrun.msg.hit": "¡Tocado! Quedan {left}, +{penalty} s",
+        "speedrun.msg.hit_left": "¡Tocado! Quedan {left}",
+        "speedrun.msg.hit_penalty": "¡Tocado! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Intento anulado: el juego se ralentizó. Hotkey + Izquierda: reiniciar."
     },
     "it": {
         "label.metadata.name": "nome",
@@ -1658,7 +1674,11 @@
         "speedrun.msg.voided_debug": "Tentativo annullato: modalità debug. Torna alla schermata del titolo.",
         "speedrun.msg.no_pause": "Nessuna pausa durante una sfida.",
         "speedrun.msg.pause_held": "Pausa tenuta: ritorno alla partenza.",
-        "speedrun.msg.locks_missing": "Blocchi della sfida non attivi: nessun tempo verrà inviato."
+        "speedrun.msg.locks_missing": "Blocchi della sfida non attivi: nessun tempo verrà inviato.",
+        "speedrun.msg.hit": "Colpito! Ne restano {left}, +{penalty} s",
+        "speedrun.msg.hit_left": "Colpito! Ne restano {left}",
+        "speedrun.msg.hit_penalty": "Colpito! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Tentativo annullato: il gioco ha rallentato. Hotkey + Sinistra: riavvia."
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -2182,7 +2202,11 @@
         "speedrun.msg.voided_debug": "Tentativa anulada: modo debug. Volte à tela de título.",
         "speedrun.msg.no_pause": "Sem pausa durante um desafio.",
         "speedrun.msg.pause_held": "Pausa mantida: volta ao início.",
-        "speedrun.msg.locks_missing": "Bloqueios do desafio inativos: nenhum tempo será enviado."
+        "speedrun.msg.locks_missing": "Bloqueios do desafio inativos: nenhum tempo será enviado.",
+        "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
+        "speedrun.msg.hit_left": "Atingido! Restam {left}",
+        "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento. Hotkey + Esquerda: reiniciar."
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -2833,7 +2857,11 @@
         "speedrun.msg.voided_debug": "Tentativa anulada: modo debug. Volte à tela de título.",
         "speedrun.msg.no_pause": "Sem pausa durante um desafio.",
         "speedrun.msg.pause_held": "Pausa mantida: volta ao início.",
-        "speedrun.msg.locks_missing": "Bloqueios do desafio inativos: nenhum tempo será enviado."
+        "speedrun.msg.locks_missing": "Bloqueios do desafio inativos: nenhum tempo será enviado.",
+        "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
+        "speedrun.msg.hit_left": "Atingido! Restam {left}",
+        "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
+        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento. Hotkey + Esquerda: reiniciar."
     },
     "ru": {
         "label.metadata.name": "название",
