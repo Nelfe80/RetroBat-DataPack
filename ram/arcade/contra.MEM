@@ -1,4 +1,9 @@
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+-- 2026-11-05 : mesures sous le vrai coeur FBNeo (set contra, sans RetroArch), adresses MAME (banque 0x1000 -> bloc 0) :
+-- credits 0x101B (+1 a la piece, -1 au START et au continue) ; drapeau de mort 0x120F = 0x80 a chaque mort, jamais au
+-- depart ; le compteur de vies 0x1081 passe de 1 a 0 a l'image du START apres une demo, il n'est plus en LOSE_LIFE ;
+-- score sur 8 chiffres BCD en 0x107C (7 affiches, 9000500 vu a l'ecran) ; 0x1016 est une impulsion a chaque reapparition,
+-- jamais une demo ; etat du jeu 0x1001 : 0 demarrage, 1 titre et demo, 2 partie (aussi pendant le continue).
 return {
   game = {
     title = "Contra",
@@ -17,9 +22,8 @@ return {
   events = {
     flow = {
       lifecycle = {
-        { address=0X0001, type="u8", condition="change", action="DEMO_MODE", desc="Demo : 1" },
-        { address=0X0016, type="u8", condition="change", action="DEMO_MODE", desc="Demo enabled" },
-        { address=0X001B, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X101B, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START and at continue)" },
+        { address=0X1001, type="u8", condition="eq", value=0X01, action="DEMO_MODE", desc="Game state 1: title and attract demo (2 while a game runs, continue included)" },
       },
     },
     progression = {
@@ -29,10 +33,11 @@ return {
     },
     resources = {
       lives = {
-        { address=0X0081, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 lives increased" },
-        { address=0X0081, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 lives decreased" },
-        { address=0X008D, type="u8", condition="increase", action="GAIN_LIFE", desc="P2 lives increased" },
-        { address=0X008D, type="u8", condition="decrease", action="LOSE_LIFE", desc="P2 lives decreased" },
+        { address=0X120F, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", player=1, desc="Player 1 dying flag (0x80 at each death, never at start)" },
+        { address=0X1081, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="P1 lives increased" },
+        { address=0X1081, type="u8", condition="decrease", action="LIVES_STATE", player=1, desc="P1 lives (BCD, remain + 1; drops 1 -> 0 at START after a demo)" },
+        { address=0X108D, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="P2 lives increased" },
+        { address=0X108D, type="u8", condition="decrease", action="LIVES_STATE", player=2, desc="P2 lives" },
       },
     },
     inventory = {
@@ -42,7 +47,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0X107D, type="u16be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score BCD (value * 100)" },
+        { address=0X107C, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score, 8 BCD digits (7 shown)" },
       },
     },
   },
