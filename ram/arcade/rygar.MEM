@@ -1,6 +1,7 @@
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 -- 2026-10-23 : adresses au format MAME (bloc FBNeo 0x0000-0x0FFF = 0xC000, mame-banks.json), mesurees a la sonde MAME
 -- sans fenetre : credits 0xC03A, vies 0xC0A0, etat 0xC003 (0x00 demo, 0x08 mort, 0x36 fin de partie), manche 0xC104.
+-- 2026-11-06 : score en u32le BCD a 0xC0AF, 8 chiffres (le u24le lisait 580 pour 1 000 580 a l'ecran).
 return {
   game = {
     title = "Rygar",
@@ -46,7 +47,7 @@ return {
     },
     scoring = {
       points = {
-        { address=0XC0AF, type="u24le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0XC0AF, type="u32le", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
       },
     },
     system = {
