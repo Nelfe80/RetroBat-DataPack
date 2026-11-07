@@ -4,6 +4,10 @@
 -- depart ; le compteur de vies 0x1081 passe de 1 a 0 a l'image du START apres une demo, il n'est plus en LOSE_LIFE ;
 -- score sur 8 chiffres BCD en 0x107C (7 affiches, 9000500 vu a l'ecran) ; 0x1016 est une impulsion a chaque reapparition,
 -- jamais une demo ; etat du jeu 0x1001 : 0 demarrage, 1 titre et demo, 2 partie (aussi pendant le continue).
+-- 2026-11-07 : le compteur de vies 0x1081 (0x108D au joueur 2) redevient LOSE_LIFE quand il baisse. Le drapeau 0x120F
+-- prend aussi 0x80 SANS mort dans le niveau 2 (base en fausse 3D, la zone des objets change) : il coupait le 1LC a
+-- l'entree du niveau 2 (replay rp_06GVCD0WPJXRRTYWKPR34CGTMG, 45 300 au lieu de 49 800). Avec un compteur, l'API ne
+-- coupe le 1LC que sur lui ; la baisse du START apres une demo vient avant tout score et ne coupe rien.
 return {
   game = {
     title = "Contra",
@@ -35,9 +39,9 @@ return {
       lives = {
         { address=0X120F, type="u8", condition="eq", value=0X80, action="LOSE_LIFE", player=1, desc="Player 1 dying flag (0x80 at each death, never at start)" },
         { address=0X1081, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="P1 lives increased" },
-        { address=0X1081, type="u8", condition="decrease", action="LIVES_STATE", player=1, desc="P1 lives (BCD, remain + 1; drops 1 -> 0 at START after a demo)" },
+        { address=0X1081, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="P1 lives (BCD, remain + 1): drops at each death; also 1 -> 0 at START after a demo, before any score" },
         { address=0X108D, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="P2 lives increased" },
-        { address=0X108D, type="u8", condition="decrease", action="LIVES_STATE", player=2, desc="P2 lives" },
+        { address=0X108D, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="P2 lives: drops at each death" },
       },
     },
     inventory = {
