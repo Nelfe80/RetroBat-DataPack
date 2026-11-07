@@ -1,3 +1,16 @@
+-- 2026-11-06 (speedruns, banc snes9x 1.61 sans fenetre, ROM (USA) : md5 cdd3c8c3..., crc32 b19ed489).
+-- Base : l'officiel du 12/07. Lignes ajoutees pour les speedruns
+-- par niveau, rien d'autre de change :
+--   0x0100 (mode de jeu) : 0x11 chargement du niveau, 0x12 "MARIO START !", 0x13 ouverture, 0x14 la main a Mario (aussi en
+--     pause et pendant "COURSE CLEAR !") ; il repasse par 0x0F-0x13 a chaque tuyau ou porte vers une autre salle, puis 0x14.
+--     Ligne GAME_PLAYING eq 0x14 ajoutee (le depart des epreuves, 30 images apres l'etat d'ouverture).
+--   0x0071 (animation du joueur) prend 9 a l'image de la mort (ennemi, trou, lave) ; les vies 0x0DBE ne baissent qu'au retour
+--     sur la carte, 190 images plus tard. Ligne LOSE_LIFE eq 0x09 ajoutee.
+--   0x1493 (minuterie de fin de niveau) prend 0xFF a l'image ou Mario touche le ruban d'arrivee, puis decompte ; 0x0906 (ligne
+--     LEVEL_CLEAR deja la) prend 1 de 1 a 4 images plus tard. Ligne LEVEL_CLEAR eq 0xFF ajoutee.
+-- Mesures citees telles quelles : 0x13BF (niveau, NEW_LEVEL) prend le numero du niveau au chargement (mode 0x11) ; 0x13D4
+-- (pause, PAUSE_ON) passe a 1 a la pause et a 0 a la reprise, 0x13D3 decompte 60 images apres chaque appui ; 0x0DD5 vaut 1 a la
+-- sortie normale, 0x80 a la sortie par la mort.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -24,6 +37,8 @@ return {
       lifecycle = {
         { address=0X13D3, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu - Cooldown [8bit]" },
         { address=0X13D4, type="u8", condition="change", action="PAUSE_ON", desc="Pause Menu - State in Level [8bit]" },
+        { address=0X0100, type="u8", condition="eq", value=0X14, action="GAME_PLAYING", desc="Game mode: level, player in control (bench 2026-11-06)" },
+        { address=0X0071, type="u8", condition="eq", value=0X09, action="LOSE_LIFE", desc="Player animation: death (bench 2026-11-06)" },
         { address=0X13DE, type="u8", condition="change", action="CREDITS_SCREEN", desc="Current Player - Animation on Overworld / Credits [8bit]" },
       },
     },
@@ -33,6 +48,7 @@ return {
         { address=0X0085, type="u8", condition="change", action="NEW_LEVEL", desc="Level is Water Level [8bit]" },
         { address=0X0086, type="u8", condition="change", action="NEW_LEVEL", desc="Level is Ice Level [8bit]" },
         { address=0X0906, type="u8", condition="change", action="LEVEL_CLEAR", desc="Level Finished Check [8bit]" },
+        { address=0X1493, type="u8", condition="eq", value=0XFF, action="LEVEL_CLEAR", desc="End level timer set: goal tape touched (bench 2026-11-06)" },
         { address=0X0DD5, type="u8", condition="change", action="NEW_LEVEL", desc="Level Exit ID [8bit]" },
         { address=0X13BF, type="u8", condition="change", action="NEW_LEVEL", desc="Level ID [8 bit]" },
         { address=0X13BF, type="u8", condition="eq", value=0X00, action="NEW_LEVEL", desc="Intro Level" },
