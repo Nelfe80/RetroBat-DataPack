@@ -1,3 +1,6 @@
+-- 2026-11-08 (Deck) : GRADE INTERNE (0xA951B), points de
+-- grade (0xA951A, hausse aux lignes, baisse a la decroissance), grade affiche (0x94E20), roll de Master (0x94DA6 = 0x12),
+-- duree de chaque section (0xA9534 + 4k). Offsets du bloc FBNeo, comme les autres lignes.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 -- .user 2026-10-16 (ouverture du soir) : ADRESSES FBNeo (offsets du blob du wrapper), comme RetroAchievements. Le SH-2
 -- de Psikyo est range par FBNeo en mots de 32 bits petit-boutistes (DrvSh2RAM[(a & 0xfffff) ^ 3]) : aucune adresse
@@ -32,6 +35,7 @@ return {
       mode = {
         { address=0X94DA6, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Mode select: Normal" },
         { address=0X94DA6, type="u8", condition="eq", value=0X02, action="GAME_MODE", desc="Mode select: Master" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X12, action="OBJECT_INTERACTION", desc="Master credit roll running (mode byte = 0x02 Master + 0x10 roll); back to 0x02 when the roll ends" },
       },
     },
     progression = {
@@ -63,6 +67,20 @@ return {
       objects = {
         { address=0X94DDE, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Counts the blocks on the playfield (8-bit)" },
         { address=0X94DF5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Modifies the blocks' appearance (1 for rainbow, 2 for big mode) (8-bit)" },
+        { address=0XA951B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Internal grade (0-31): +1 each time grade points reach 100; 31 = S9" },
+        { address=0XA951A, type="u8", condition="increase", action="OBJECT_INTERACTION", desc="Grade points (0-99) increased by a line clear" },
+        { address=0XA951A, type="u8", condition="decrease", action="OBJECT_INTERACTION", desc="Grade points (0-99) decreased: decay (1 point per 125 to 10 active frames, by internal grade) or reset on grade up" },
+        { address=0X94E20, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Displayed grade index: 0 = 9 ... 8 = 1, 9 = S1 ... 17 = S9" },
+        { address=0XA9534, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 0 time (levels 0-99), frames" },
+        { address=0XA9538, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 1 time (levels 100-199), frames" },
+        { address=0XA953C, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 2 time (levels 200-299), frames" },
+        { address=0XA9540, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 3 time (levels 300-399), frames" },
+        { address=0XA9544, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 4 time (levels 400-499), frames" },
+        { address=0XA9548, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 5 time (levels 500-599), frames" },
+        { address=0XA954C, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 6 time (levels 600-699), frames" },
+        { address=0XA9550, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 7 time (levels 700-799), frames" },
+        { address=0XA9554, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 8 time (levels 800-899), frames" },
+        { address=0XA9558, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Section 9 time (levels 900-999), frames" },
       },
     },
     system = {
