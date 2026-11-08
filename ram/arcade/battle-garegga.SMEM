@@ -1,0 +1,32 @@
+-- Battle Garegga : le SENS des signaux de battle-garegga.MEM pour l'affichage (rang cache).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
+-- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
+-- Preuves : banc fbneo_libretro sans ecran, etats rejoues.
+-- Format : .SMEM, schema 1.
+-- Le rang du jeu est un long 68000 qui BAISSE quand la difficulte monte : 0xF00000 au depart, plancher 0x200000 en
+-- reglage Normal. Le .MEM surveille son mot fort (0xF0 a 0x20) ; affiche = 240 - mot fort, soit 0 au depart et 208 au
+-- plafond. Rang en % de la communaute (shmups.wiki) = affiche x 100 / 208.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "battle-garegga", title = "Battle Garegga" },
+  mem = { file = "battle-garegga.MEM" },
+
+  signals = {
+    { id = "rank.level", kind = "gauge", label = "Rank", short = "RANK",
+      from = { { address = 0XC9D2, action = "OBJECT_INTERACTION" } },
+      scale = { num = -1, den = 1, add = 240 },
+      min = 0, max = 208, initial = 0, quality = "qualified",
+      proof = "0xF00000 au depart ; -22 par image au repos ; -60 par tir de niveau 1 ; -0x800 a -0x4000 aux ramassages ; +0xA0000 et +0xBFE00 aux morts, plafonne a 0xF00000 ; plancher 0x200000 ; valeur posee reprise par le jeu" },
+
+    { id = "rank.perFrame", kind = "counter", unit = "rank/frame", label = "Rank per frame", short = "R/F",
+      from = { { address = 0XC9D8, action = "OBJECT_INTERACTION" } },
+      min = 22, max = 110, initial = 22, quality = "qualified",
+      proof = "22 sans tir ; 33, 66 puis 88 en tirant plus vite ; la pente du rang au repos egale exactement cette valeur (-22, -66) et ne redescend pas" },
+  },
+
+  instruments = {
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank.level", "rank.perFrame" } },
+  },
+}
