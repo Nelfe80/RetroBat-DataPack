@@ -1,0 +1,49 @@
+-- Ketsui : le SENS du systeme du lock shot (lignes de ketsui-kizuna-jigoku-tachi.MEM).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee. Preuves : mesures au banc FBNeo sans ecran.
+-- Format : .SMEM, schema 1.
+-- Barre de score (MAME history.dat, verifiee a l'ecran) : ligne 1 = compteur total, ligne 2 = compteur multiplicateur,
+-- puis la valeur de la puce (1 a 5) et son minuteur. Conditions de boucle (history.dat, non verifiees au banc) : 2e boucle
+-- normale si morts + bombes <= 6 (0x1139E + 0x113A6) ; boucle speciale (ura) sans mort ni bombe et 120 millions au score.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "ketsui-kizuna-jigoku-tachi", title = "Ketsui: Kizuna Jigoku Tachi" },
+  mem = { file = "ketsui-kizuna-jigoku-tachi.MEM" },
+
+  signals = {
+    { id = "players.1.chips.total", player = 1, kind = "counter", unit = "chip", label = "Chip total", short = "TOTAL",
+      from = { { address = 0X11512, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 65535, initial = 0, quality = "qualified",
+      proof = "egal a la ligne 1 de la barre de score (13, 22, 70 a l'ecran) ; baisse seulement aux morts : 51 -> 39, 71 -> 54, 91 -> 69" },
+    { id = "players.1.chips.multiplier", player = 1, kind = "counter", label = "Multiplier", short = "MULT",
+      from = { { address = 0X11510, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 65535, initial = 0, quality = "qualified",
+      proof = "egal a la ligne 2 (13, 22, 56 a l'ecran) ; 34 baisses pendant le lock shot, 1 pendant le tir ; -1/4 aux morts" },
+    { id = "players.1.chips.value", player = 1, kind = "level", label = "Chip", short = "CHIP",
+      from = { { address = 0X1BB96, action = "OBJECT_INTERACTION" } },
+      values = {
+        { raw = 0, value = 1, label = "1" },
+        { raw = 4, value = 2, label = "2" },
+        { raw = 8, value = 3, label = "3" },
+        { raw = 12, value = 4, label = "4" },
+        { raw = 16, value = 5, label = "5" },
+      },
+      min = 1, max = 5, initial = 1, quality = "qualified",
+      proof = "puce affichee 3, 4, 5, 1 pour 8, 12, 16, 0 ; montee a chaque destruction (minuteur recharge a 55), retour a 1 quand le minuteur atteint 0 (12 fois sur 12)" },
+    { id = "players.1.chips.timer", player = 1, kind = "counter", label = "Chip timer", short = "TIME",
+      from = { { address = 0X1BB90, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 55, quality = "qualified",
+      proof = "nombre affiche a cote de la puce (52, 46, 51 a l'ecran) ; recharge a 55, decompte d'une unite toutes les 2 images environ ; seule la recharge est publiee" },
+    { id = "players.1.bombs.used", player = 1, kind = "counter", unit = "bomb", label = "Bombs used", short = "BOMB",
+      from = { { address = 0X113A6, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 255, initial = 0, quality = "qualified",
+      proof = "+1 a chaque bombe lancee (1, 2, 3, 4 sur quatre bombes), rien a la mort" },
+  },
+
+  instruments = {
+    { id = "p1.lockshot", label = "Lock shot", player = 1, show = "counter", signals = { "players.1.chips.total", "players.1.chips.multiplier", "players.1.chips.value", "players.1.chips.timer" } },
+    { id = "p1.loop", label = "Loop", player = 1, show = "counter", signals = { "players.1.bombs.used" } },
+  },
+}
