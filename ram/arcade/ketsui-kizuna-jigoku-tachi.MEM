@@ -1,3 +1,12 @@
+-- 2026-11-08 soir (sortie) : score u32le binaire en 0x1A640 (9 chiffres lus a l ecran ; le u32be BCD lisait faux),
+-- CREDITS en 0x1161, vies 0x12472 seules (player=1, max=1 : 255 hors partie, 255 -> 2 aux demos), 0x1007 (reglage),
+-- 0x1D248 (douteux) et 0x1001 (reglage) retires. max=2000000000 sur le score : le jeu y pose 0xFFFF0000 au debut
+-- de chaque demo et de chaque partie (avant 0) ; ce saut et le retour a 0 ne partent pas.
+-- 2026-11-08 (Deck) : LOCK SHOT, offsets du bloc FBNeo (mots 68000 en u16le) : compteur total de puces 0x11512, compteur multiplicateur 0x11510 (baisse aux destructions au lock shot, -1/4 a la mort), valeur de la puce 0x1BB96 (0, 4, 8, 12, 16 = puce 1 a 5), recharge du minuteur de puce 0x1BB90 (55), bombes utilisees 0x113A6.
+-- 2026-11-09 : reglages du menu de test (0x1000-0x1009, sauves dans ket.fs aux memes offsets) en GAME_DIFFICULTY a
+-- " neq " sur la valeur d usine : seul un changement pendant la session parle ; un ket.fs deja modifie est vu par la
+-- borne dans la NVRAM epinglee. Anciennes lignes CONTINUE_SCREEN (0x1000), DEMO_MODE (0x1003) et OBJECT_INTERACTION
+-- (0x1004, 0x1005) retirees : ce sont des reglages, pas des evenements de partie.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -16,9 +25,20 @@ return {
 
   events = {
     flow = {
+      settings = {
+        { address=0X1000, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (CONTINUE: ON); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1001, type="u8", condition="neq", value=0X00, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (COIN MODE: 1 COIN 1 CREDIT); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1002, type="u8", condition="neq", value=0X02, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (CHUTE TYPE: 1 CHUTE SINGLE); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1003, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (DEMO SOUND: ON); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1004, type="u8", condition="neq", value=0X00, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (EXTEND: 1ST 20 000 000, 2ND 45 000 000); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1005, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (DIFFICULTY: NORMAL); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1006, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (RAPID FIRE (SHOT C): ON); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1007, type="u8", condition="neq", value=0X00, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (SHIP STOCK: 3); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1008, type="u8", condition="neq", value=0X00, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (unlisted byte of the settings block); saved in the NVRAM ket.fs at the same offset" },
+        { address=0X1009, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (RANK DISP: ON); saved in the NVRAM ket.fs at the same offset" },
+      },
       lifecycle = {
-        { address=0X1000, type="u8", condition="change", action="CONTINUE_SCREEN", desc="continue" },
-        { address=0X1003, type="u8", condition="change", action="DEMO_MODE", desc="demo sound" },
+        { address=0X1161, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
         { address=0X110E, type="u8", condition="change", action="DEMO_MODE", desc="Demo mode (8-bit)" },
       },
     },
@@ -33,21 +53,13 @@ return {
     },
     resources = {
       lives = {
-        { address=0X1007, type="u8", condition="increase", action="GAIN_LIFE", desc="ship lives starts increased" },
-        { address=0X1007, type="u8", condition="decrease", action="LOSE_LIFE", desc="ship lives starts decreased" },
-        { address=0X12472, type="u8", condition="increase", action="GAIN_LIFE", desc="Life Counter (8-bit) increased" },
-        { address=0X12472, type="u8", condition="decrease", action="LOSE_LIFE", desc="Life Counter (8-bit) decreased" },
-        { address=0X1D248, type="u8", condition="increase", action="GAIN_LIFE", desc="life counter? increased" },
-        { address=0X1D248, type="u8", condition="decrease", action="LOSE_LIFE", desc="life counter? decreased" },
+        { address=0X12472, type="u8", condition="increase", action="GAIN_LIFE", player=1, max=1, desc="Lives increased by one (extend); 255 outside a game is ignored" },
+        { address=0X12472, type="u8", condition="decrease", action="LOSE_LIFE", player=1, max=1, desc="Lives decreased by one (2, 1, 0); attract jumps 255 to 2 are ignored" },
       },
     },
     scoring = {
       points = {
-        { address=0X1A640, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
-      },
-      collectibles = {
-        { address=0X1001, type="u8", condition="increase", action="COIN_GAIN", desc="coin mode increased" },
-        { address=0X1161, type="u8", condition="increase", action="COIN_GAIN", desc="coin counter increased" },
+        { address=0X1A640, type="u32le", condition="change", action="SCORE_STATE", player=1, score_kind="game", max=2000000000, desc="Player 1 score (binary, as displayed); 0xFFFF0000 at demo and game start is skipped" },
       },
     },
     combat = {
@@ -60,8 +72,11 @@ return {
     },
     world_interaction = {
       objects = {
-        { address=0X1004, type="u8", condition="change", action="OBJECT_INTERACTION", desc="extend switch" },
-        { address=0X1005, type="u8", condition="change", action="OBJECT_INTERACTION", desc="difficulty switch" },
+        { address=0X11512, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Lock shot: total chip counter (score bar row 1); only drops on death (-1/4)" },
+        { address=0X11510, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Lock shot: multiplier counter (score bar row 2); drops on lock shot kills and on death (-1/4)" },
+        { address=0X1BB96, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Chip value: 0, 4, 8, 12, 16 = chip 1 to 5; back to chip 1 when the chip timer ends" },
+        { address=0X1BB90, type="u8", condition="increase", action="OBJECT_INTERACTION", desc="Chip timer refilled by a kill (55, counts down about one unit per 2 frames)" },
+        { address=0X113A6, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Bombs used (whole game), for the loop conditions" },
       },
     },
     system = {
