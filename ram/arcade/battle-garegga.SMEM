@@ -2,14 +2,15 @@
 -- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
 -- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
 -- Preuves : banc fbneo_libretro sans ecran, etats rejoues.
--- Format : .SMEM, schema 1.
+-- Format : .SMEM, schema 1. Version 2 : vaisseau choisi (0x15AA), cadence de tir, stage, defilement arrete au boss
+-- (0x00BE), stock de vaisseaux, petites et grandes pieces, options.
 -- Le rang du jeu est un long 68000 qui BAISSE quand la difficulte monte : 0xF00000 au depart, plancher 0x200000 en
 -- reglage Normal. Le .MEM surveille son mot fort (0xF0 a 0x20) ; affiche = 240 - mot fort, soit 0 au depart et 208 au
 -- plafond. Rang en % de la communaute (shmups.wiki) = affiche x 100 / 208.
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "battle-garegga", title = "Battle Garegga" },
   mem = { file = "battle-garegga.MEM" },
 
@@ -24,9 +25,75 @@ return {
       from = { { address = 0XC9D8, action = "OBJECT_INTERACTION" } },
       min = 22, max = 110, initial = 22, quality = "qualified",
       proof = "22 sans tir ; 33, 66 puis 88 en tirant plus vite ; la pente du rang au repos egale exactement cette valeur (-22, -66) et ne redescend pas" },
+    { id = "rank.rapid", kind = "enum", label = "Rapid speed", short = "RAPID",
+      from = { { address = 0XC9D8, action = "OBJECT_INTERACTION" } },
+      values = {
+        { raw = 22, value = 1, label = "8.6/10 Hz" },
+        { raw = 33, value = 2, label = "12 Hz" },
+        { raw = 44, value = 3, label = "15 Hz" },
+        { raw = 66, value = 4, label = "20 Hz" },
+        { raw = 88, value = 5, label = "30 Hz" },
+        { raw = 110, value = 6, label = "60 Hz" },
+      },
+      initial = 22, quality = "partial",
+      proof = "valeurs 22, 33, 66, 88 vues au banc ; correspondance en Hz d'apres shmups.wiki (le banc classe un appui toutes les 6 images en 33, toutes les 4 en 66)" },
+
+    { id = "progress.stageId", kind = "level", label = "Stage", short = "STG",
+      from = { { address = 0XA6B2, action = "PROGRESSION_STAGE" } },
+      values = {
+        { raw = 1, label = "VALLEY" },
+        { raw = 2, label = "PLATEAU" },
+        { raw = 3, label = "FACTORY" },
+        { raw = 4, label = "PLANT" },
+        { raw = 5, label = "CLOUD" },
+        { raw = 6, label = "BASE" },
+        { raw = 7, label = "AIRPORT" },
+      },
+      min = 1, max = 7, initial = 1, quality = "partial",
+      proof = "1 au stage 1 (VALLEY a l'ecran), 2 au stage 2 ; stages 3 a 7 non atteints au banc" },
+
+    { id = "players.1.resources.ships", player = 1, kind = "counter", unit = "ship", label = "Ship stock", short = "SHIP",
+      from = { { address = 0X1687, action = "LOSE_LIFE", player = 1 }, { address = 0X1687, action = "GAIN_LIFE", player = 1 } },
+      min = 0, max = 9, quality = "qualified",
+      proof = "stock 2 au depart, 1 puis 0 aux morts" },
+
+    { id = "players.1.ship.type", player = 1, kind = "enum", label = "Ship", short = "SHIP",
+      from = { { address = 0X15AA, action = "OBJECT_INTERACTION", player = 1 } },
+      values = {
+        { raw = 0, label = "Silver Sword" },
+        { raw = 16, label = "Ship 2" },
+        { raw = 32, label = "Ship 3" },
+        { raw = 48, label = "Ship 4" },
+      },
+      quality = "partial",
+      proof = "0x00, 0x10, 0x20, 0x30 pour les quatre choix de l'ecran (sprites differents a l'ecran) ; 0x00 = premier choix, carte G-1010 SILVER-SWORD a l'ecran ; noms des trois autres non relies" },
+
+    { id = "progress.scroll", kind = "counter", label = "Scroll speed", short = "SCROLL",
+      from = { { address = 0X00BE, action = "NEW_LEVEL" } },
+      min = 0, max = 255, quality = "partial",
+      proof = "64 puis 128 au depart du stage 1, 0 a l'image 3798 (le boss arrive a 3858, il meurt a 5380), 64 au debut du stage 2 (5781) ; 4 changements en 9 000 images ; un seul boss suivi. 0 = defilement arrete (boss)" },
+
+    { id = "players.1.fragments.small", player = 1, kind = "counter", label = "Small fragments", short = "SMALL",
+      from = { { address = 0X1685, action = "DYNAMIC_INVENTORY" } },
+      min = 0, initial = 20, quality = "qualified",
+      proof = "20 au depart, +1 a chaque petite piece ramassee (21 a 36 vus)" },
+
+    { id = "players.1.fragments.large", player = 1, kind = "counter", label = "Large fragments", short = "LARGE",
+      from = { { address = 0X1683, action = "DYNAMIC_INVENTORY" } },
+      min = 0, initial = 0, quality = "unproven",
+      proof = "ligne d'origine, jamais vue bouger (grandes pieces aux stages 4 et 6)" },
+
+    { id = "players.1.options", player = 1, kind = "counter", label = "Options", short = "OPT",
+      from = { { address = 0X168B, action = "DYNAMIC_INVENTORY" } },
+      min = 0, max = 4, initial = 0, quality = "qualified",
+      proof = "1, 2, 3 aux options ramassees" },
   },
 
   instruments = {
-    { id = "rank", label = "Rank", show = "gauge", signals = { "rank.level", "rank.perFrame" } },
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank.level", "rank.perFrame", "rank.rapid" } },
+    { id = "stage", label = "Stage", show = "level", signals = { "progress.stageId" } },
+    { id = "boss", label = "Boss time", show = "counter", signals = { "progress.scroll" } },
+    { id = "p1.ship", label = "Ship", player = 1, show = "counter", signals = { "players.1.resources.ships", "players.1.ship.type" } },
+    { id = "p1.weapons", label = "SP weapons", player = 1, show = "counter", signals = { "players.1.fragments.small", "players.1.fragments.large", "players.1.options" } },
   },
 }

@@ -79,6 +79,7 @@ return {
         { address=0X6ABA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Registry number - Object 80 (0x006a4b-0x006ac7)" },
         { address=0XC9D2, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank (hidden dynamic difficulty), high word of the 32-bit rank: 0xF0 at start (easiest), down to 0x20 (hardest, Normal dip); lower = harder" },
         { address=0XC9D8, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank added every frame (22 to 110), set by the fastest autofire used in the credit; never goes down" },
+        { address=0X15AA, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 ship type x16 (0x00, 0x10, 0x20, 0x30 for the four ships of the select screen)" },
       },
     },
     system = {
