@@ -3,29 +3,30 @@
 -- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
 -- Preuves : rejeu de 17 replays de la borne dans fbneo_libretro.
 -- Format : .SMEM, schema 1.
+-- Version 2 : identifiants du vocabulaire standard du .SMEM.
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "19xx-the-war-against-destiny", title = "19XX: The War Against Destiny" },
   mem = { file = "19xx-the-war-against-destiny.MEM" },
 
   signals = {
     -- Bombes : baisse = bombe lancee (ligne d'origine), hausse = objet B ou vaisseau suivant (remise a 3).
-    { id = "players.1.resources.bombs", player = 1, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
+    { id = "players.1.bombs", player = 1, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
       from = {
         { address = 0XFF8305, action = "BOMB_FIRED" },
         { address = 0XFF8305, action = "AMMO_GAIN", player = 1 },
       },
       min = 0, initial = 3, quality = "qualified",
       proof = "17 replays : 3 au depart et a chaque vaisseau, +1 a l'objet B, vu de 0 a 4 ; maximum du jeu non atteint" },
-    { id = "players.2.resources.bombs", player = 2, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
+    { id = "players.2.bombs", player = 2, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
       from = {
         { address = 0XFF8405, action = "BOMB_FIRED", player = 2 },
         { address = 0XFF8405, action = "AMMO_GAIN", player = 2 },
       },
       min = 0, initial = 3, quality = "partial",
-      proof = "fiche du joueur 1 decalee de 0x100 (labo MAME du 20/10, demo a deux avions) ; aucune partie a deux rejouee" },
+      proof = "fiche du joueur 1 decalee de 0x100 (banc MAME du 20/10, demo a deux avions) ; aucune partie a deux rejouee" },
 
     -- Tir : deux etats seulement (0x00 normal, 0xFF renforce), pas un niveau gradue.
     { id = "players.1.power.level", player = 1, kind = "level", label = "Shot", short = "SHOT",
@@ -74,13 +75,13 @@ return {
       proof = "meme fiche + 0x100, vu bouger dans la demo a deux avions" },
 
     -- Puissance de la bombe : ligne d'origine du .MEM, jamais vue bouger. Declaree, non qualifiee.
-    { id = "players.1.bomb.power", player = 1, kind = "level", label = "Bomb power", short = "BPWR",
+    { id = "players.1.game.19xx.bomb_power", player = 1, kind = "level", label = "Bomb power", short = "BPWR",
       from = { { address = 0XFF830F, action = "RESOURCE_LOSE" } },
       quality = "unproven",
       proof = "0xFF830F n'a bouge dans aucun des 17 replays : sens et echelle a trouver" },
 
     -- Stage : indice 0 pour le stage 1, monte au briefing PRIMARY TARGET.
-    { id = "progress.stageId", kind = "level", label = "Stage", short = "STG",
+    { id = "stage", kind = "level", label = "Stage", short = "STG",
       from = { { address = 0XFF4DD4, action = "PROGRESSION_STAGE" } },
       scale = { num = 1, den = 1, add = 1 },
       min = 1, max = 7, initial = 1, quality = "qualified",
@@ -88,7 +89,7 @@ return {
 
     -- Boss de stage : etat (aucun, arrivee, combat) et points de vie de depart. Les points de vie courants ne sont pas
     -- publies : une ligne change serait coupee par l'auto-mute du wrapper.
-    { id = "bosses.stage.state", kind = "enum", label = "Boss", short = "BOSS",
+    { id = "boss.state", kind = "enum", label = "Boss", short = "BOSS",
       from = {
         { address = 0XFF51F4, action = "BATTLE_START" },
         { address = 0XFF51F4, action = "BATTLE_END" },
@@ -100,19 +101,19 @@ return {
       },
       initial = 0, quality = "qualified",
       proof = "0 sans boss, 0x7FFF a l'arrivee, puis les points de vie ; 6 replays image par image" },
-    { id = "bosses.stage.hp.start", kind = "counter", unit = "hp", label = "Boss HP", short = "HP",
+    { id = "boss.hp_max", kind = "counter", unit = "hp", label = "Boss HP", short = "HP",
       from = { { address = 0XFF51F4, action = "BATTLE_START" } },
       min = 1, max = 0X7FFE, quality = "qualified",
       proof = "valeur a la fin de 0x7FFF ou a l'arrivee : 500, 530 ou 550 au stage 1, 910 au stage 2 ; variable d'une partie a l'autre" },
   },
 
   instruments = {
-    { id = "p1.bombs", label = "Bombs", player = 1, show = "counter", signals = { "players.1.resources.bombs" } },
+    { id = "p1.bombs", label = "Bombs", player = 1, show = "counter", signals = { "players.1.bombs" } },
     { id = "p1.shot", label = "Shot", player = 1, show = "level", signals = { "players.1.power.level", "players.1.weapon.id" } },
-    { id = "p1.bomb_power", label = "Bomb power", player = 1, show = "level", signals = { "players.1.bomb.power" } },
-    { id = "p2.bombs", label = "Bombs", player = 2, show = "counter", signals = { "players.2.resources.bombs" } },
+    { id = "p1.bomb_power", label = "Bomb power", player = 1, show = "level", signals = { "players.1.game.19xx.bomb_power" } },
+    { id = "p2.bombs", label = "Bombs", player = 2, show = "counter", signals = { "players.2.bombs" } },
     { id = "p2.shot", label = "Shot", player = 2, show = "level", signals = { "players.2.power.level", "players.2.weapon.id" } },
-    { id = "stage", label = "Stage", show = "level", signals = { "progress.stageId" } },
-    { id = "boss", label = "Boss", show = "state", signals = { "bosses.stage.state", "bosses.stage.hp.start" } },
+    { id = "stage", label = "Stage", show = "level", signals = { "stage" } },
+    { id = "boss", label = "Boss", show = "state", signals = { "boss.state", "boss.hp_max" } },
   },
 }

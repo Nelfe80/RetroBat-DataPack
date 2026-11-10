@@ -9,15 +9,16 @@
 -- Conditions du M-roll (TA, wikis ; aucun drapeau trouve en memoire, le Deck les calcule) : S9 (interne 31) et <= 9:30
 -- a 999 ; <= 6:00 a 500 ; section 0 <= 1:30 ; section 9 <= 0:45 ; sections 6 a 8 <= 1:08.46 ou <= moyenne des cinq
 -- premieres (non tranche) ; au moins un tetris par section de 0 a 8 (hausses de 0x94DDB).
+-- Version 2 : identifiants du vocabulaire standard du .SMEM.
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "tetris-the-absolute-the-grand-master-2", title = "Tetris: The Absolute - The Grand Master 2" },
   mem = { file = "tetris-the-absolute-the-grand-master-2.MEM" },
 
   signals = {
-    { id = "grade.internal", player = 1, kind = "level", label = "Internal grade", short = "IGRD",
+    { id = "players.1.grade", player = 1, kind = "level", label = "Internal grade", short = "IGRD",
       from = { { address = 0XA951B, action = "OBJECT_INTERACTION" } },
       values = {
         { raw = 0, label = "9" },
@@ -42,14 +43,14 @@ return {
       min = 0, max = 32, initial = 0, quality = "qualified",
       proof = "0 -> 1 a 100 points (ecran 9 -> 8) ; 15, 21, 31 posés = S1, S4, S9 a l'ecran ; periode de decroissance mesuree pour 16 grades = table du wiki ; 32 vu apres forcage" },
 
-    { id = "grade.points", player = 1, kind = "gauge", unit = "pt", label = "Grade points", short = "GPTS",
+    { id = "players.1.grade.points", player = 1, kind = "gauge", unit = "pt", label = "Grade points", short = "GPTS",
       from = {
         { address = 0XA951A, action = "OBJECT_INTERACTION" },
       },
       min = 0, max = 99, initial = 0, quality = "qualified",
       proof = "+20 double et +50 tetris au grade 0, +15 au grade 3 et 5, +12 au grade 10 et 20 ; -1 par periode ; 0 au passage de grade ; replay Normal de la borne et demo Master" },
 
-    { id = "grade.display", player = 1, kind = "enum", label = "Grade", short = "GRD",
+    { id = "players.1.grade.display", player = 1, kind = "enum", label = "Grade", short = "GRD",
       from = { { address = 0X94E20, action = "OBJECT_INTERACTION" } },
       values = {
         { raw = 0, label = "9" },
@@ -74,7 +75,7 @@ return {
       initial = 0, quality = "qualified",
       proof = "indices 1, 9, 12, 17 vus avec 8, S1, S4, S9 a l'ecran ; 0 = 9 au depart ; M et GM non observes" },
 
-    { id = "game.phase", kind = "enum", label = "Phase", short = "PHASE",
+    { id = "phase", kind = "enum", label = "Phase", short = "PHASE",
       from = {
         { address = 0X94DA6, action = "GAME_MODE" },
         { address = 0X94DA6, action = "OBJECT_INTERACTION" },
@@ -88,7 +89,7 @@ return {
       quality = "partial",
       proof = "18 pendant tout le generique de Master, roll atteint au banc par forcage (niveau 998, grade 31) ; M-roll et roll de Normal non observes" },
 
-    { id = "sections.s0.time", player = 1, kind = "counter", unit = "frame", label = "Section 0 time", short = "S0",
+    { id = "players.1.section.0.time", player = 1, kind = "counter", unit = "frame", label = "Section 0 time", short = "S0",
       from = { { address = 0XA9534, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 5400, label = "GM pace" },
@@ -96,39 +97,39 @@ return {
       },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s1.time", player = 1, kind = "counter", unit = "frame", label = "Section 1 time", short = "S1",
+    { id = "players.1.section.1.time", player = 1, kind = "counter", unit = "frame", label = "Section 1 time", short = "S1",
       from = { { address = 0XA9538, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s2.time", player = 1, kind = "counter", unit = "frame", label = "Section 2 time", short = "S2",
+    { id = "players.1.section.2.time", player = 1, kind = "counter", unit = "frame", label = "Section 2 time", short = "S2",
       from = { { address = 0XA953C, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s3.time", player = 1, kind = "counter", unit = "frame", label = "Section 3 time", short = "S3",
+    { id = "players.1.section.3.time", player = 1, kind = "counter", unit = "frame", label = "Section 3 time", short = "S3",
       from = { { address = 0XA9540, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s4.time", player = 1, kind = "counter", unit = "frame", label = "Section 4 time", short = "S4",
+    { id = "players.1.section.4.time", player = 1, kind = "counter", unit = "frame", label = "Section 4 time", short = "S4",
       from = { { address = 0XA9544, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s5.time", player = 1, kind = "counter", unit = "frame", label = "Section 5 time", short = "S5",
+    { id = "players.1.section.5.time", player = 1, kind = "counter", unit = "frame", label = "Section 5 time", short = "S5",
       from = { { address = 0XA9548, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s6.time", player = 1, kind = "counter", unit = "frame", label = "Section 6 time", short = "S6",
+    { id = "players.1.section.6.time", player = 1, kind = "counter", unit = "frame", label = "Section 6 time", short = "S6",
       from = { { address = 0XA954C, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s7.time", player = 1, kind = "counter", unit = "frame", label = "Section 7 time", short = "S7",
+    { id = "players.1.section.7.time", player = 1, kind = "counter", unit = "frame", label = "Section 7 time", short = "S7",
       from = { { address = 0XA9550, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s8.time", player = 1, kind = "counter", unit = "frame", label = "Section 8 time", short = "S8",
+    { id = "players.1.section.8.time", player = 1, kind = "counter", unit = "frame", label = "Section 8 time", short = "S8",
       from = { { address = 0XA9554, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, quality = "qualified",
       proof = "sections 0 a 8 franchies au banc avec des temps poses : 1024, 998, 1000, 986, 1000 images" },
-    { id = "sections.s9.time", player = 1, kind = "counter", unit = "frame", label = "Section 9 time", short = "S9",
+    { id = "players.1.section.9.time", player = 1, kind = "counter", unit = "frame", label = "Section 9 time", short = "S9",
       from = { { address = 0XA9558, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 2700, label = "GM pace" },
@@ -139,8 +140,8 @@ return {
   },
 
   instruments = {
-    { id = "grade", label = "Grade", player = 1, show = "gauge", signals = { "grade.display", "grade.internal", "grade.points" } },
-    { id = "phase", label = "Phase", show = "state", signals = { "game.phase" } },
-    { id = "sections", label = "Sections", player = 1, show = "text", signals = { "sections.s0.time", "sections.s1.time", "sections.s2.time", "sections.s3.time", "sections.s4.time", "sections.s5.time", "sections.s6.time", "sections.s7.time", "sections.s8.time", "sections.s9.time" } },
+    { id = "grade", label = "Grade", player = 1, show = "gauge", signals = { "players.1.grade.display", "players.1.grade", "players.1.grade.points" } },
+    { id = "phase", label = "Phase", show = "state", signals = { "phase" } },
+    { id = "sections", label = "Sections", player = 1, show = "text", signals = { "players.1.section.0.time", "players.1.section.1.time", "players.1.section.2.time", "players.1.section.3.time", "players.1.section.4.time", "players.1.section.5.time", "players.1.section.6.time", "players.1.section.7.time", "players.1.section.8.time", "players.1.section.9.time" } },
   },
 }

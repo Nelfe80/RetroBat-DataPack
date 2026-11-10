@@ -7,25 +7,26 @@
 -- Le rang du jeu est un long 68000 qui BAISSE quand la difficulte monte : 0xF00000 au depart, plancher 0x200000 en
 -- reglage Normal. Le .MEM surveille son mot fort (0xF0 a 0x20) ; affiche = 240 - mot fort, soit 0 au depart et 208 au
 -- plafond. Rang en % de la communaute (shmups.wiki) = affiche x 100 / 208.
+-- Version 3 : identifiants du vocabulaire standard du .SMEM.
 return {
   schema = 1,
   kind = "semantics",
-  version = 2,
+  version = 3,
   game = { system = "arcade", slug = "battle-garegga", title = "Battle Garegga" },
   mem = { file = "battle-garegga.MEM" },
 
   signals = {
-    { id = "rank.level", kind = "gauge", label = "Rank", short = "RANK",
+    { id = "rank", kind = "gauge", label = "Rank", short = "RANK",
       from = { { address = 0XC9D2, action = "OBJECT_INTERACTION" } },
       scale = { num = -1, den = 1, add = 240 },
       min = 0, max = 208, initial = 0, quality = "qualified",
       proof = "0xF00000 au depart ; -22 par image au repos ; -60 par tir de niveau 1 ; -0x800 a -0x4000 aux ramassages ; +0xA0000 et +0xBFE00 aux morts, plafonne a 0xF00000 ; plancher 0x200000 ; valeur posee reprise par le jeu" },
 
-    { id = "rank.perFrame", kind = "counter", unit = "rank/frame", label = "Rank per frame", short = "R/F",
+    { id = "rank.rate", kind = "counter", unit = "rank/frame", label = "Rank per frame", short = "R/F",
       from = { { address = 0XC9D8, action = "OBJECT_INTERACTION" } },
       min = 22, max = 110, initial = 22, quality = "qualified",
       proof = "22 sans tir ; 33, 66 puis 88 en tirant plus vite ; la pente du rang au repos egale exactement cette valeur (-22, -66) et ne redescend pas" },
-    { id = "rank.rapid", kind = "enum", label = "Rapid speed", short = "RAPID",
+    { id = "game.battle_garegga.rapid_count", kind = "enum", label = "Rapid speed", short = "RAPID",
       from = { { address = 0XC9D8, action = "OBJECT_INTERACTION" } },
       values = {
         { raw = 22, value = 1, label = "8.6/10 Hz" },
@@ -38,7 +39,7 @@ return {
       initial = 22, quality = "partial",
       proof = "valeurs 22, 33, 66, 88 vues au banc ; correspondance en Hz d'apres shmups.wiki (le banc classe un appui toutes les 6 images en 33, toutes les 4 en 66)" },
 
-    { id = "progress.stageId", kind = "level", label = "Stage", short = "STG",
+    { id = "stage", kind = "level", label = "Stage", short = "STG",
       from = { { address = 0XA6B2, action = "PROGRESSION_STAGE" } },
       values = {
         { raw = 1, label = "VALLEY" },
@@ -52,7 +53,7 @@ return {
       min = 1, max = 7, initial = 1, quality = "partial",
       proof = "1 au stage 1 (VALLEY a l'ecran), 2 au stage 2 ; stages 3 a 7 non atteints au banc" },
 
-    { id = "players.1.resources.ships", player = 1, kind = "counter", unit = "ship", label = "Ship stock", short = "SHIP",
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Ship stock", short = "SHIP",
       from = { { address = 0X1687, action = "LOSE_LIFE", player = 1 }, { address = 0X1687, action = "GAIN_LIFE", player = 1 } },
       min = 0, max = 9, quality = "qualified",
       proof = "stock 2 au depart, 1 puis 0 aux morts" },
@@ -68,17 +69,17 @@ return {
       quality = "partial",
       proof = "0x00, 0x10, 0x20, 0x30 pour les quatre choix de l'ecran (sprites differents a l'ecran) ; 0x00 = premier choix, carte G-1010 SILVER-SWORD a l'ecran ; noms des trois autres non relies" },
 
-    { id = "progress.scroll", kind = "counter", label = "Scroll speed", short = "SCROLL",
+    { id = "stage.progress", kind = "counter", label = "Scroll speed", short = "SCROLL",
       from = { { address = 0X00BE, action = "NEW_LEVEL" } },
       min = 0, max = 255, quality = "partial",
       proof = "64 puis 128 au depart du stage 1, 0 a l'image 3798 (le boss arrive a 3858, il meurt a 5380), 64 au debut du stage 2 (5781) ; 4 changements en 9 000 images ; un seul boss suivi. 0 = defilement arrete (boss)" },
 
-    { id = "players.1.fragments.small", player = 1, kind = "counter", label = "Small fragments", short = "SMALL",
+    { id = "players.1.game.battle_garegga.fragments_small", player = 1, kind = "counter", label = "Small fragments", short = "SMALL",
       from = { { address = 0X1685, action = "DYNAMIC_INVENTORY" } },
       min = 0, initial = 20, quality = "qualified",
       proof = "20 au depart, +1 a chaque petite piece ramassee (21 a 36 vus)" },
 
-    { id = "players.1.fragments.large", player = 1, kind = "counter", label = "Large fragments", short = "LARGE",
+    { id = "players.1.game.battle_garegga.fragments_large", player = 1, kind = "counter", label = "Large fragments", short = "LARGE",
       from = { { address = 0X1683, action = "DYNAMIC_INVENTORY" } },
       min = 0, initial = 0, quality = "unproven",
       proof = "ligne d'origine, jamais vue bouger (grandes pieces aux stages 4 et 6)" },
@@ -90,10 +91,10 @@ return {
   },
 
   instruments = {
-    { id = "rank", label = "Rank", show = "gauge", signals = { "rank.level", "rank.perFrame", "rank.rapid" } },
-    { id = "stage", label = "Stage", show = "level", signals = { "progress.stageId" } },
-    { id = "boss", label = "Boss time", show = "counter", signals = { "progress.scroll" } },
-    { id = "p1.ship", label = "Ship", player = 1, show = "counter", signals = { "players.1.resources.ships", "players.1.ship.type" } },
-    { id = "p1.weapons", label = "SP weapons", player = 1, show = "counter", signals = { "players.1.fragments.small", "players.1.fragments.large", "players.1.options" } },
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank", "rank.rate", "game.battle_garegga.rapid_count" } },
+    { id = "stage", label = "Stage", show = "level", signals = { "stage" } },
+    { id = "boss", label = "Boss time", show = "counter", signals = { "stage.progress" } },
+    { id = "p1.ship", label = "Ship", player = 1, show = "counter", signals = { "players.1.lives", "players.1.ship.type" } },
+    { id = "p1.weapons", label = "SP weapons", player = 1, show = "counter", signals = { "players.1.game.battle_garegga.fragments_small", "players.1.game.battle_garegga.fragments_large", "players.1.options" } },
   },
 }

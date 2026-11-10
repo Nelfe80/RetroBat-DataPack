@@ -5,15 +5,16 @@
 -- Le jeu lit ces compteurs au changement de manche : a son seuil, l'objet apparait dans la manche suivante et le compteur
 -- retombe a 0. Seuils mesures au banc (premier passage, manche 1 -> 2) ; d'autres compteurs de la table 0xE5D6-0xE5FF
 -- donnent les autres objets (voir le rapport), sans action identifiee.
+-- Version 2 : identifiants du vocabulaire standard du .SMEM.
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "bubble-bobble", title = "Bubble Bobble" },
   mem = { file = "bubble-bobble.MEM" },
 
   signals = {
-    { id = "items.counters.bubbles", kind = "counter", unit = "bubble", label = "Bubbles blown", short = "BLOW",
+    { id = "game.bubble_bobble.bubbles", kind = "counter", unit = "bubble", label = "Bubbles blown", short = "BLOW",
       from = { { address = 0XE5DF, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 34, label = "Pink sweet at 35" },
@@ -22,7 +23,7 @@ return {
       min = 0, max = 255, initial = 0, quality = "qualified",
       proof = "+1 par bulle soufflee (49 pour 54 appuis) ; pose 34 : rien, 35 : bonbon rose a la manche suivante, compteur a 0" },
 
-    { id = "items.counters.pops", kind = "counter", unit = "bubble", label = "Bubbles popped", short = "POP",
+    { id = "game.bubble_bobble.pops", kind = "counter", unit = "bubble", label = "Bubbles popped", short = "POP",
       from = { { address = 0XE5E0, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 34, label = "Blue sweet at 35" },
@@ -31,7 +32,7 @@ return {
       min = 0, max = 255, initial = 0, quality = "qualified",
       proof = "monte quand les bulles crevent (+4 pour 6 souffles contre le mur) ; 35 : bonbon bleu a la manche suivante, compteur a 0" },
 
-    { id = "items.counters.jumps", kind = "counter", unit = "jump", label = "Jumps", short = "JUMP",
+    { id = "game.bubble_bobble.jumps", kind = "counter", unit = "jump", label = "Jumps", short = "JUMP",
       from = { { address = 0XE5E4, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 34, label = "Yellow sweet at 35" },
@@ -40,7 +41,7 @@ return {
       min = 0, max = 255, initial = 0, quality = "qualified",
       proof = "+1 par saut ; 35 : bonbon jaune a la manche suivante (vu a l'ecran), compteur a 0" },
 
-    { id = "items.counters.distance", kind = "counter", unit = "step", label = "Distance", short = "RUN",
+    { id = "game.bubble_bobble.distance", kind = "counter", unit = "step", label = "Distance", short = "RUN",
       from = { { address = 0XE5E6, action = "OBJECT_INTERACTION" } },
       values = {
         { min = 0, max = 11, label = "Shoe at 12" },
@@ -192,7 +193,7 @@ return {
   },
 
   instruments = {
-    { id = "items", label = "Hidden counters", show = "counter", signals = { "items.counters.bubbles", "items.counters.pops", "items.counters.jumps", "items.counters.distance" } },
+    { id = "items", label = "Hidden counters", show = "counter", signals = { "game.bubble_bobble.bubbles", "game.bubble_bobble.pops", "game.bubble_bobble.jumps", "game.bubble_bobble.distance" } },
     { id = "p1.extend", label = "EXTEND", player = 1, show = "enum", signals = { "players.1.extend.letters" } },
     { id = "p2.extend", label = "EXTEND", player = 2, show = "enum", signals = { "players.2.extend.letters" } },
   },
