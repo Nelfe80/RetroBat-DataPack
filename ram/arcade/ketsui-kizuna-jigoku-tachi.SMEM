@@ -5,23 +5,24 @@
 -- Barre de score (MAME history.dat, verifiee a l'ecran) : ligne 1 = compteur total, ligne 2 = compteur multiplicateur,
 -- puis la valeur de la puce (1 a 5) et son minuteur. Conditions de boucle (history.dat, non verifiees au banc) : 2e boucle
 -- normale si morts + bombes <= 6 (0x1139E + 0x113A6) ; boucle speciale (ura) sans mort ni bombe et 120 millions au score.
+-- Version 2 : identifiants du vocabulaire standard du .SMEM. Version 3 : morts, bombes en stock, barre du boss.
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 3,
   game = { system = "arcade", slug = "ketsui-kizuna-jigoku-tachi", title = "Ketsui: Kizuna Jigoku Tachi" },
   mem = { file = "ketsui-kizuna-jigoku-tachi.MEM" },
 
   signals = {
-    { id = "players.1.chips.total", player = 1, kind = "counter", unit = "chip", label = "Chip total", short = "TOTAL",
+    { id = "players.1.item.count", player = 1, kind = "counter", unit = "chip", label = "Chip total", short = "TOTAL",
       from = { { address = 0X11512, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, initial = 0, quality = "qualified",
       proof = "egal a la ligne 1 de la barre de score (13, 22, 70 a l'ecran) ; baisse seulement aux morts : 51 -> 39, 71 -> 54, 91 -> 69" },
-    { id = "players.1.chips.multiplier", player = 1, kind = "counter", label = "Multiplier", short = "MULT",
+    { id = "players.1.multiplier", player = 1, kind = "counter", label = "Multiplier", short = "MULT",
       from = { { address = 0X11510, action = "OBJECT_INTERACTION" } },
       min = 0, max = 65535, initial = 0, quality = "qualified",
       proof = "egal a la ligne 2 (13, 22, 56 a l'ecran) ; 34 baisses pendant le lock shot, 1 pendant le tir ; -1/4 aux morts" },
-    { id = "players.1.chips.value", player = 1, kind = "level", label = "Chip", short = "CHIP",
+    { id = "players.1.item.value", player = 1, kind = "level", label = "Chip", short = "CHIP",
       from = { { address = 0X1BB96, action = "OBJECT_INTERACTION" } },
       values = {
         { raw = 0, value = 1, label = "1" },
@@ -32,7 +33,7 @@ return {
       },
       min = 1, max = 5, initial = 1, quality = "qualified",
       proof = "puce affichee 3, 4, 5, 1 pour 8, 12, 16, 0 ; montee a chaque destruction (minuteur recharge a 55), retour a 1 quand le minuteur atteint 0 (12 fois sur 12)" },
-    { id = "players.1.chips.timer", player = 1, kind = "counter", label = "Chip timer", short = "TIME",
+    { id = "players.1.item.timer", player = 1, kind = "counter", label = "Chip timer", short = "TIME",
       from = { { address = 0X1BB90, action = "OBJECT_INTERACTION" } },
       min = 0, max = 55, quality = "qualified",
       proof = "nombre affiche a cote de la puce (52, 46, 51 a l'ecran) ; recharge a 55, decompte d'une unite toutes les 2 images environ ; seule la recharge est publiee" },
@@ -40,10 +41,28 @@ return {
       from = { { address = 0X113A6, action = "OBJECT_INTERACTION" } },
       min = 0, max = 255, initial = 0, quality = "qualified",
       proof = "+1 a chaque bombe lancee (1, 2, 3, 4 sur quatre bombes), rien a la mort" },
+    { id = "players.1.deaths", player = 1, kind = "counter", unit = "ship", label = "Deaths", short = "MISS",
+      from = { { address = 0X1139E, action = "GENERAL_TIMER" } },
+      min = 0, max = 255, initial = 0, quality = "qualified",
+      proof = "+1 a chaque mort, a l'image ou les compteurs de puces perdent un quart (20 morts sur une partie au banc)" },
+    { id = "players.1.bombs", player = 1, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
+      from = { { address = 0XFEC6, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 a chaque bombe (le meme instant que +1 aux bombes utilisees), remis a 3 apres une mort" },
+    { id = "boss.hp", kind = "gauge", unit = "px", label = "Boss health", short = "BOSS",
+      from = { { address = 0X1D176, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 255, quality = "qualified",
+      proof = "longueur de la barre du boss en pixels, egale au pixel pres a la barre mesuree sur l'ecran (89, 84, 78 ... 53) et au sprite de la barre ; mi-boss compris. Publiee par pas de 8 en baisse, de 32 en hausse (mask)" },
+    { id = "boss.phase", kind = "enum", label = "Boss bar", short = "BAR",
+      from = { { address = 0X1D2C4, action = "BOSS_HIT" } },
+      values = { { min = 0, max = 2, value = 0, label = "NONE" }, { raw = 3, value = 1, label = "1" }, { min = 4, max = 255, value = 0, label = "NONE" } },
+      initial = 0, quality = "qualified",
+      proof = "3 tant que la barre est a l'ecran (mi-boss du stage 1, boss du stage 1, mi-boss du stage 2), 2 ensuite, 0 avant la premiere" },
   },
 
   instruments = {
-    { id = "p1.lockshot", label = "Lock shot", player = 1, show = "counter", signals = { "players.1.chips.total", "players.1.chips.multiplier", "players.1.chips.value", "players.1.chips.timer" } },
-    { id = "p1.loop", label = "Loop", player = 1, show = "counter", signals = { "players.1.bombs.used" } },
+    { id = "p1.lockshot", label = "Lock shot", player = 1, show = "counter", signals = { "players.1.item.count", "players.1.multiplier", "players.1.item.value", "players.1.item.timer" } },
+    { id = "p1.loop", label = "Loop", player = 1, show = "counter", signals = { "players.1.bombs.used", "players.1.deaths", "players.1.bombs" } },
+    { id = "boss", label = "Boss", show = "gauge", signals = { "boss.hp", "boss.phase" } },
   },
 }
