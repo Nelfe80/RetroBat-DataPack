@@ -1,3 +1,5 @@
+-- 2026-11-10 : la ligne CONTINUES du joueur 2 ne parle qu a l etat 1 (en jeu) : un BIOS pose 2 au depart d une partie
+-- solo (joueur 2 fantome, partie hors classement) ; le rank 0x1C93 reste lu mais sort du controle de difficulte des profils.
 -- 2026-11-09 : score = long 68000 BCD en deux mots (0x1BA4 fort, 0x1BA6 faible ; le u32be lisait 5 026 pour 2 650) ;
 -- continues par l etat du joueur tenu par le BIOS (BIOS_PLAYER_MOD1/2, comme Metal Slug 3 : les credits du MVS sont dans
 -- la RAM de sauvegarde du BIOS, hors du bloc expose) ; vies a max=1 (une piece pendant une demo fait 2 -> 0) ; soft dips
@@ -28,7 +30,7 @@ return {
       },
       lifecycle = {
         { address=0XFDB7, type="u8", condition="change", min=1, max=2, action="CONTINUES", player=1, desc="P1 status (BIOS_PLAYER_MOD1): 0 title, 1 playing, 2 continue screen, 3 game over" },
-        { address=0XFDB6, type="u8", condition="change", min=1, max=2, action="CONTINUES", player=2, desc="P2 status (BIOS_PLAYER_MOD2)" },
+        { address=0XFDB6, type="u8", condition="change", min=1, max=1, action="CONTINUES", player=2, desc="P2 status (BIOS_PLAYER_MOD2): only 1 (playing) means a second player joined" },
         { address=0X1B60, type="u8", condition="bit_true", mask=0X02, action="CONTINUE_SCREEN", desc="selecting ship/continue" },
         { address=0X1B61, type="u8", condition="bit_true", mask=0X02, action="CONTINUE_SCREEN", desc="selecting ship/continue" },
       },
