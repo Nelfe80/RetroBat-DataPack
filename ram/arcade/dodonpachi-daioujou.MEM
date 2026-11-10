@@ -1,4 +1,4 @@
--- .user 2026-11-08 (labo Deck v1, lot 4, E:\claude_travail\labo_deck_v1\RAPPORT.md) : REVISION ddpdojblka (2002.04.05.MASTER VER, ddb_1dot.u45).
+-- 2026-11-08 : REVISION ddpdojblka (2002.04.05.MASTER VER, ddb_1dot.u45).
 -- Valide au banc sur ddpdojblka : score (memes adresses), demo 0x3926, credits 0x395B. DECALES sur cette revision :
 -- stage 0xD570 -> 0xD56C, vies 0x130BE/0x130C0 -> 0x130BA/0x130BC (cheat MAME 0x8130BA), combos 0x1B5xx -> -8 (BCD u16le).
 -- Les lignes de combo partent tous les 10 coups (min=7 sur l'ecart BCD) et a la casse : une ligne a chaque coup serait
@@ -7,6 +7,9 @@
 -- au START), compteur de morts 0x12938 retire ; score en mots BCD u16le (0x1B442 x10, 0x1B440 x100000, 0x1B44C x10^9, dernier
 -- chiffre 0x1B49A) ; lignes de meilleur score et 0xD570 sorties du score ; reglages du menu de test (0x3808-0x380F, sauves
 -- dans ddpdojblka.fs aux memes offsets) en GAME_DIFFICULTY a " neq " sur la valeur d usine.
+-- 2026-11-10 (Player Deck) : hyper (jauge 0x1B642 par pas de 256, stock 0x1B654, en cours 0x1B63E), bombes 0x10407 et
+-- capacite 0x10406, barre de vie du boss 0xA6F8 (pixels, par pas de 8 en baisse et de 32 en hausse) et son etat 0xA6FA.
+-- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -136,6 +139,14 @@ return {
     world_interaction = {
       objects = {
         { address=0X3764, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[1 byte] DIP-switch settings, test mode" },
+        { address=0X1B642, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="1P hyper gauge (0 to about 2400, full drops a Hyper item); only every 256 units (mask) so that it never fires each frame" },
+        { address=0X1B654, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P hyper items in stock (0 to 5); all used at once by the bomb button" },
+        { address=0X1B63E, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P hyper running: its level (items used), 0 when it ends" },
+        { address=0X10407, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P bombs in stock (-1 per bomb, refilled at each death)" },
+        { address=0X10406, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P bomb capacity (3 at start, +1 at each death)" },
+        { address=0XA6F8, type="u8", condition="decrease", mask=0XF8, action="OBJECT_INTERACTION", desc="Boss health bar length in pixels (0 to about 224), each 8 pixels lost (mask)" },
+        { address=0XA6F8, type="u8", condition="increase", mask=0XE0, action="OBJECT_INTERACTION", desc="Boss health bar length in pixels while it fills at the boss entry, each 32 pixels (mask)" },
+        { address=0XA6FA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Boss health bar state: 9 first form, 25 second form, other values no bar" },
       },
     },
     system = {
