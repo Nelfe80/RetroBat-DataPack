@@ -1,0 +1,22 @@
+-- Super Mario Bros. 3 : le SENS des lignes de super-mario-bros-3.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "nes", slug = "super-mario-bros-3", title = "Super Mario Bros. 3" },
+  mem = { file = "super-mario-bros-3.MEM" },
+
+  signals = {
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0X0736, action = "GAIN_LIFE" }, { address = 0X0736, action = "LOSE_LIFE" } },
+      min = 0, max = 99, quality = "qualified",
+      proof = "4 aux etats des 7 epreuves, M x 4 a l ecran" },
+    { id = "players.1.power.level", player = 1, kind = "enum", label = "Power", short = "PWR",
+      from = { { address = 0X00ED, action = "DYNAMIC_INVENTORY" }, { address = 0X00ED, action = "HIT" } },
+      values = { { raw = 0, value = 0, label = "SMALL" }, { raw = 1, value = 1, label = "BIG" }, { raw = 2, value = 2, label = "FIRE" }, { raw = 3, value = 3, label = "RACCOON" }, { raw = 4, value = 4, label = "FROG" }, { raw = 5, value = 5, label = "TANOOKI" }, { raw = 6, value = 6, label = "HAMMER" } }, quality = "qualified",
+      proof = "0 petit aux etats (Mario petit a l ecran) ; formes 1 a 6 nommees par les lignes du .MEM publie" },
+  },
+}

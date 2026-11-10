@@ -1,0 +1,26 @@
+-- Mega Man 2 : le SENS des lignes de mega-man-2.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "nes", slug = "mega-man-2", title = "Mega Man 2" },
+  mem = { file = "mega-man-2.MEM" },
+
+  signals = {
+    { id = "players.1.health", player = 1, kind = "gauge", label = "Life energy", short = "LIFE",
+      from = { { address = 0X06C0, action = "HIT" }, { address = 0X06C0, action = "HEAL" }, { address = 0X06C0, action = "LOSE_LIFE" } },
+      min = 0, max = 28, quality = "qualified",
+      proof = "28 aux etats des 8 epreuves (barre pleine), 0 au coup fatal (banc du 06/11)" },
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0X00A8, action = "GAIN_LIFE" }, { address = 0X00A8, action = "LOSE_LIFE" } },
+      min = 0, max = 9, quality = "qualified",
+      proof = "3 aux etats des 8 epreuves" },
+    { id = "stage", kind = "enum", label = "Stage", short = "STG",
+      from = { { address = 0X002A, action = "PROGRESSION_STAGE" } },
+      values = { { raw = 0, value = 0, label = "HEAT MAN" }, { raw = 1, value = 1, label = "AIR MAN" }, { raw = 2, value = 2, label = "WOOD MAN" }, { raw = 3, value = 3, label = "BUBBLE MAN" }, { raw = 4, value = 4, label = "QUICK MAN" }, { raw = 5, value = 5, label = "FLASH MAN" }, { raw = 6, value = 6, label = "METAL MAN" }, { raw = 7, value = 7, label = "CRASH MAN" } }, quality = "qualified",
+      proof = "etats des 8 epreuves : 0 Heat, 1 Air, 2 Wood, 3 Bubble, 4 Quick, 5 Flash, 6 Metal, 7 Crash" },
+  },
+}

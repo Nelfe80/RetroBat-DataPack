@@ -1,0 +1,30 @@
+-- Super Metroid : le SENS des lignes de super-metroid.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "snes", slug = "super-metroid", title = "Super Metroid" },
+  mem = { file = "super-metroid.MEM" },
+
+  signals = {
+    { id = "players.1.health", player = 1, kind = "gauge", label = "Energy (low byte)", short = "EN",
+      from = { { address = 0X09C2, action = "HIT" }, { address = 0X09C2, action = "HEAL" } },
+      min = 0, max = 255, quality = "qualified",
+      proof = "mot 0x09C2 : 69 a l etat de Kraid = ENERGY 69 a l ecran, 272 a Draygon" },
+    { id = "players.1.game.super_metroid.energy_hi", player = 1, kind = "counter", label = "Energy (high byte)", short = "EN",
+      from = { { address = 0X09C3, action = "GENERAL_TIMER" } },
+      min = 0, max = 7, quality = "qualified",
+      proof = "octet haut du mot 0x09C2 (272 = 1 x 256 + 16 a Draygon)" },
+    { id = "players.1.health.max", player = 1, kind = "counter", label = "Energy tanks (low byte)", short = "MAX",
+      from = { { address = 0X09C4, action = "HIT" }, { address = 0X09C4, action = "HEAL" } },
+      min = 0, max = 255, quality = "qualified",
+      proof = "mot 0x09C4 : 99 a Ceres, 199 a Kraid (un reservoir a l ecran), 399 a Draygon" },
+    { id = "players.1.weapon.id", player = 1, kind = "enum", label = "Weapon", short = "ARM",
+      from = { { address = 0X09D2, action = "WEAPON_STATE" } },
+      values = { { raw = 0, value = 0, label = "BEAM" }, { raw = 1, value = 1, label = "MISSILE" }, { raw = 2, value = 2, label = "SUPER" }, { raw = 3, value = 3, label = "P.BOMB" }, { raw = 4, value = 4, label = "GRAPPLE" }, { raw = 5, value = 5, label = "X-RAY" } }, quality = "qualified",
+      proof = "0 aux etats (rien de choisi) ; ordre de la barre du haut, nomme par la ligne du .MEM publie" },
+  },
+}

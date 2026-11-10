@@ -1,0 +1,34 @@
+-- Super Mario Bros. : le SENS des lignes de super-mario-bros.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "nes", slug = "super-mario-bros", title = "Super Mario Bros." },
+  mem = { file = "super-mario-bros.MEM" },
+
+  signals = {
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0X075A, action = "GAIN_LIFE" }, { address = 0X075A, action = "LOSE_LIFE" } },
+      min = 0, max = 255, quality = "qualified",
+      proof = "replay de la borne : 2 -> 1 a la mort, +1 au 1-up et aux 100 pieces ; le jeu affiche la valeur + 1" },
+    { id = "players.1.power.level", player = 1, kind = "enum", label = "Power", short = "PWR",
+      from = { { address = 0X0756, action = "DYNAMIC_INVENTORY" } },
+      values = { { raw = 0, value = 0, label = "SMALL" }, { raw = 1, value = 1, label = "BIG" }, { raw = 2, value = 2, label = "FIRE" } }, quality = "qualified",
+      proof = "replay de la borne : 0 petit, 1 grand au champignon (image 597, capture), 2 feu a la fleur (17 308), 1 -> 0 au coup" },
+    { id = "area", kind = "counter", label = "World", short = "W",
+      from = { { address = 0X075F, action = "PROGRESSION_ZONE" } },
+      min = 0, max = 7, quality = "qualified",
+      proof = "0 a 7 ; 0 -> 2 au tuyau de 1-2 (replay), etats des 32 epreuves" },
+    { id = "stage", kind = "counter", label = "Level in world", short = "LVL",
+      from = { { address = 0X075C, action = "PROGRESSION_ZONE" } },
+      min = 0, max = 3, quality = "qualified",
+      proof = "0 a 3 ; etats des 32 epreuves" },
+    { id = "stage.progress", kind = "counter", label = "Page", short = "PAGE",
+      from = { { address = 0X006D, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 255, quality = "qualified",
+      proof = "page de Mario : 0 -> 12 dans 1-1, 5 a la reprise de mi-parcours" },
+  },
+}

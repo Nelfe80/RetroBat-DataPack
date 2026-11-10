@@ -1,0 +1,22 @@
+-- Rocket Knight Adventures : le SENS des lignes de rocket-knight-adventures.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "megadrive", slug = "rocket-knight-adventures", title = "Rocket Knight Adventures" },
+  mem = { file = "rocket-knight-adventures.MEM" },
+
+  signals = {
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Rest", short = "RES",
+      from = { { address = 0XFB0C, action = "GAIN_LIFE" }, { address = 0XFB0C, action = "LOSE_LIFE" } },
+      min = 0, max = 99, quality = "qualified",
+      proof = "1 aux etats des 4 epreuves = RES x01 a l ecran" },
+    { id = "stage", kind = "counter", label = "Stage", short = "STG",
+      from = { { address = 0XB088, action = "PROGRESSION_STAGE" } },
+      min = 1, max = 7, quality = "qualified",
+      proof = "etats des 4 epreuves : 1, 3, 4, 7 = le stage" },
+  },
+}

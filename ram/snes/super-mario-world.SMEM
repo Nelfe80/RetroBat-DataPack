@@ -1,0 +1,30 @@
+-- Super Mario World : le SENS des lignes de super-mario-world.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "snes", slug = "super-mario-world", title = "Super Mario World" },
+  mem = { file = "super-mario-world.MEM" },
+
+  signals = {
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0X0DBE, action = "GAIN_LIFE" }, { address = 0X0DBE, action = "LOSE_LIFE" } },
+      min = 0, max = 99, quality = "qualified",
+      proof = "4 aux etats des 8 epreuves, MARIO x 5 a l ecran (le jeu affiche la valeur + 1)" },
+    { id = "players.1.power.level", player = 1, kind = "enum", label = "Power", short = "PWR",
+      from = { { address = 0X0019, action = "DYNAMIC_INVENTORY" } },
+      values = { { raw = 0, value = 0, label = "SMALL" }, { raw = 1, value = 1, label = "BIG" }, { raw = 2, value = 2, label = "CAPE" }, { raw = 3, value = 3, label = "FIRE" } }, quality = "qualified",
+      proof = "0 petit aux etats (Mario petit a l ecran)" },
+    { id = "players.1.game.super_mario_world.dragon_coins", player = 1, kind = "counter", label = "Dragon coins", short = "DRAGON",
+      from = { { address = 0X1420, action = "COIN_GAIN" } },
+      min = 0, max = 5, quality = "qualified",
+      proof = "0 a l entree des 8 epreuves" },
+    { id = "checkpoint", kind = "flag", label = "Midway point", short = "MID",
+      from = { { address = 0X13CE, action = "OBJECT_INTERACTION_CHECKPOINT" } },
+      quality = "qualified",
+      proof = "0 a l entree des 8 epreuves ; 1 au point de mi-parcours (ligne du .MEM publie, a voir passer en vrai)" },
+  },
+}

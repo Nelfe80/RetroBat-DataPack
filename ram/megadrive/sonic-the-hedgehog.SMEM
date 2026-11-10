@@ -1,0 +1,38 @@
+-- Sonic the Hedgehog : le SENS des lignes de sonic-the-hedgehog.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "megadrive", slug = "sonic-the-hedgehog", title = "Sonic the Hedgehog" },
+  mem = { file = "sonic-the-hedgehog.MEM" },
+
+  signals = {
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0XFE13, action = "GAIN_LIFE" }, { address = 0XFE13, action = "LOSE_LIFE" } },
+      min = 0, max = 99, quality = "qualified",
+      proof = "3 -> 2 -> 1 -> 0 a chaque mort, x 2 a l ecran" },
+    { id = "players.1.game.sonic_the_hedgehog.rings", player = 1, kind = "counter", label = "Rings", short = "RNG",
+      from = { { address = 0XFE20, action = "COIN_GAIN" } },
+      min = 0, max = 999, quality = "qualified",
+      proof = "+1 a chaque son 0xB5, 8 en memoire = RINGS 8 a l ecran ; la ligne ne parle qu a la hausse : remis a 0 par le son 0xC6 (anneaux perdus), une mort, un acte" },
+    { id = "area", kind = "counter", label = "Zone", short = "ZONE",
+      from = { { address = 0XFE11, action = "PROGRESSION_ZONE" } },
+      min = 0, max = 6, quality = "qualified",
+      proof = "etats des 19 epreuves : 0 GH, 2 MZ, 4 SYZ, 1 LZ (et SBZ3), 3 SLZ, 5 SBZ et FZ" },
+    { id = "stage", kind = "counter", label = "Act", short = "ACT",
+      from = { { address = 0XFE10, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 3, quality = "qualified",
+      proof = "etats des 19 epreuves : 0 a 2 ; SBZ3 = zone 1 acte 3, FZ = zone 5 acte 2" },
+    { id = "checkpoint", kind = "counter", label = "Lamppost", short = "LAMP",
+      from = { { address = 0XF00A, action = "OBJECT_INTERACTION_CHECKPOINT" } },
+      quality = "qualified",
+      proof = "son 0xA1 aux lampadaires, jamais ailleurs (replay de la borne, 42 269 images)" },
+    { id = "players.1.game.sonic_the_hedgehog.shield", player = 1, kind = "flag", label = "Shield", short = "SHD",
+      from = { { address = 0XFE2D, action = "SHIELD_GAIN" }, { address = 0XFE2D, action = "SHIELD_LOST" } },
+      quality = "qualified",
+      proof = "replay : 0 -> 1 au moniteur (23 779), 1 -> 0 au coup (24 785)" },
+  },
+}
