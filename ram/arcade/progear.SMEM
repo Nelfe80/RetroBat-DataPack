@@ -1,0 +1,34 @@
+-- Progear : le SENS des signaux de progear.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
+-- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
+-- Preuves : banc fbneo_libretro sans ecran (valeurs lues a l'ecran, valeurs posees reprises par le jeu).
+-- Les bombes utilisees (baisses du stock) et les morts decident de la 2e boucle : le Deck les compte.
+-- Version 2 : identifiants du vocabulaire standard, progression et vies.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 2,
+  game = { system = "arcade", slug = "progear", title = "Progear" },
+  mem = { file = "progear.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Stage", short = "STAGE",
+      from = { { address = 0X3FA2, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 5, quality = "qualified",
+      proof = "0 au stage 1, 1 au debut du stage 2 (banc, entre le boss du stage 1 et le stage 2)" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X3F72, action = "LOSE_LIFE", player = 1 }, { address = 0X3F72, action = "GAIN_LIFE", player = 1 } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 par mort" },
+    { id = "players.1.bombs", player = 1, kind = "gauge", label = "Bombs", short = "BOMB",
+      from = { { address = 0X4304, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 3, initial = 3,
+      quality = "qualified",
+      proof = "3 au depart ; pose 1 : une icone B a l'ecran ; bouton 2 : 3 -> 2" },
+
+  },
+
+  instruments = {
+    { id = "bombs", label = "Bombs", show = "gauge", signals = { "players.1.bombs" } },
+  },
+}

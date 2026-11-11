@@ -1,3 +1,6 @@
+-- 2026-11-09 : score = deux mots BCD (0x3DC6 fort, 0x3DC8 faible, valeur x10 a l ecran) : le u32be lisait 0x3210
+-- pour 10 320 ; CREDITS 0x2388 (+1 toutes les 2 pieces au reglage d usine du jeu, -1 au START) ; vies 0x3F72 (joueur 1)
+-- et 0x3F74 (joueur 2) avec player= ; stock de bombes 0x4304. Mesures sous FBNeo (progear, Europe 010117).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -33,19 +36,28 @@ return {
       },
     },
     resources = {
+      credits = {
+        { address=0X2388, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per 2 coins at factory setting, -1 at START)" },
+      },
       lives = {
-        { address=0X3F72, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] - Player 1 Lives increased" },
-        { address=0X3F72, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] - Player 1 Lives decreased" },
-        { address=0X3F74, type="u8", condition="increase", action="GAIN_LIFE", desc="[8bit] Player 2 Lives increased" },
-        { address=0X3F74, type="u8", condition="decrease", action="LOSE_LIFE", desc="[8bit] Player 2 Lives decreased" },
+        { address=0X3F72, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="[8bit] - Player 1 Lives increased" },
+        { address=0X3F72, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="[8bit] - Player 1 Lives decreased" },
+        { address=0X3F74, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="[8bit] Player 2 Lives increased" },
+        { address=0X3F74, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="[8bit] Player 2 Lives decreased" },
       },
     },
     scoring = {
       points = {
-        { address=0X3DC6, type="u32be", condition="change", action="SCORE_STATE", score_kind="game", score_encoding="bcd", desc="Player 1 score" },
+        { address=0X3DC6, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 6 to 9 (value * 100000)" },
+        { address=0X3DC8, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 2 to 5 (value * 10)" },
       },
       collectibles = {
         { address=0X39E4, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="Ring" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X4304, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bomb stock (3 at start, -1 per bomb ; bombs used decide the 2nd loop)" },
       },
     },
     state = {
