@@ -1,0 +1,74 @@
+-- Gradius II: GOFER no Yabou : le SENS des signaux de gradius-ii-gofer-no-yabou.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
+-- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
+-- Preuves : banc fbneo_libretro sans ecran (valeurs lues a l'ecran, valeurs posees reprises par le jeu).
+-- Le rang est une somme (difficulte + boucle + armement) recalculee par le jeu ; plafond 16 en 1re boucle, 27 ensuite
+-- (recherche communautaire). Mesure sur Vulcan Venture, memes adresses de RAM d'apres les cheats MAME des deux sets.
+-- Version 2 : identifiants du vocabulaire standard, progression et vies.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 2,
+  game = { system = "arcade", slug = "gradius-ii-gofer-no-yabou", title = "Gradius II: GOFER no Yabou" },
+  mem = { file = "gradius-ii-gofer-no-yabou.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Stage", short = "STAGE",
+      from = { { address = 0X1C418, action = "PROGRESSION_STAGE" } },
+      min = 1, max = 8, quality = "qualified",
+      proof = "stage des demos d'attraction 1, 3, 6 ; cheat de depart de stage" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X1C401, action = "LOSE_LIFE" }, { address = 0X1C401, action = "GAIN_LIFE" } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 par mort" },
+    { id = "rank", kind = "gauge", label = "Rank", short = "RANK",
+      from = { { address = 0X1C41D, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 27, initial = 2,
+      quality = "qualified",
+      proof = "2 au stage 1 en Normal ; missile +1, double +2, chaque option +1, vitesse et laser +0 ; boucle posee a 1 : 16" },
+
+    { id = "players.1.game.gradius_ii.equipment", player = 1, kind = "enum", label = "Weapon", short = "WPN",
+      from = { { address = 0X1C428, action = "OBJECT_INTERACTION", player = 1 } },
+      values = {
+        { raw = 0, label = "NONE" },
+        { raw = 1, label = "DOUBLE" },
+        { raw = 4, label = "LASER" },
+        { raw = 32, label = "1 OPT" },
+        { raw = 33, label = "DOUBLE+1 OPT" },
+        { raw = 36, label = "LASER+1 OPT" },
+        { raw = 64, label = "2 OPT" },
+        { raw = 65, label = "DOUBLE+2 OPT" },
+        { raw = 68, label = "LASER+2 OPT" },
+        { raw = 96, label = "3 OPT" },
+        { raw = 97, label = "DOUBLE+3 OPT" },
+        { raw = 100, label = "LASER+3 OPT" },
+      },
+      quality = "qualified",
+      proof = "0x01 double, 0x04 laser, bits 5-6 options : 0x24, 0x44, 0x64 apres 1, 2, 3 options activees" },
+
+    { id = "players.1.speed", player = 1, kind = "enum", label = "Speed", short = "SPD",
+      from = { { address = 0X1C429, action = "OBJECT_INTERACTION", player = 1 } },
+      values = {
+        { raw = 0, label = "SPEED 0" },
+        { raw = 8, label = "SPEED 0 + MISSILE" },
+        { raw = 1, label = "SPEED 1" },
+        { raw = 9, label = "SPEED 1 + MISSILE" },
+        { raw = 2, label = "SPEED 2" },
+        { raw = 10, label = "SPEED 2 + MISSILE" },
+        { raw = 3, label = "SPEED 3" },
+        { raw = 11, label = "SPEED 3 + MISSILE" },
+        { raw = 4, label = "SPEED 4" },
+        { raw = 12, label = "SPEED 4 + MISSILE" },
+        { raw = 5, label = "SPEED 5" },
+        { raw = 13, label = "SPEED 5 + MISSILE" },
+      },
+      quality = "qualified",
+      proof = "bits 0-2 vitesse (1, 2, 3 apres trois SPEEDUP), 0x08 missile" },
+
+  },
+
+  instruments = {
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank" } },
+    { id = "equipment", label = "Equipment", show = "enum", signals = { "players.1.speed", "players.1.game.gradius_ii.equipment" } },
+  },
+}
