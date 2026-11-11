@@ -2,9 +2,9 @@
  "schema": "nelfe.scorelab.state-artifact.v1",
  "game": "snes/mega-man-x",
  "situation": "boomer-kuwanger-entree",
- "description": "Boomer Kuwanger : entree du stage pendant READY, 30 images avant la descente de X (0x0BAA 0 -> 0x22 -> 0, le depart), partie neuve (2 vies, ni armure, ni arme, ni coeur, ni reservoir), stage 0x1F7A = 7 pose a l'ouverture de la partie.",
+ "description": "Boomer Kuwanger : entree du stage pendant READY, 30 images avant la descente de X (0x0BAA 0 -> 0x22 -> 0, le depart), partie sans progres (2 vies, ni armure, ni arme, ni coeur, ni reservoir, intro finie : 0x1F9B = 0x10), faite au joypad SANS AUCUNE ECRITURE : menu du titre, PASS WORD 4325 5852 1821 (intro finie, rien d'autre), selection des stages, curseur sur le stage 7, B.",
  "state_file": "boomer-kuwanger-entree.state",
- "state_sha256": "d30cfc992d36d3bb32611e9245359814b4afe846c94587282b43fcc7722afa70",
+ "state_sha256": "c12ef7c25120df6d98e5e7990ca0c1fe64998ef5b8ba507cef504011046615ca",
  "core": "snes9x",
  "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
  "rom": "Mega Man X (USA) (Rev 1).sfc",
@@ -31,13 +31,14 @@
   "1F98": 220,
   "1F99": 0,
   "1F9A": 16,
+  "1F9B": 16,
   "1F9C": 0,
   "0BCF": 16,
   "0BAA": 0,
   "00C9": 0,
   "00D2": 4
  },
- "bench_verification": "banc snes9x sans fenetre : etat recharge a froid, X se pose a +61 images, pause 0x00C9 = 0x20, mort 0x0BAA = 0x0C",
+ "bench_verification": "banc snes9x sans fenetre : etat recharge a froid, X se pose a +61 images, pause 0x00C9 = 0x20, mort 0x0BAA = 0x0C ; apres le boss (Chill Penguin, coureur de banc), ecran du mot de passe puis selection des stages (0xFFFD 0x28 puis 0x20), plus l'intro",
  "certified": false,
- "made_utc": "2026-11-11T11:39:14Z"
+ "made_utc": "2026-11-11T16:42:45Z"
 }
