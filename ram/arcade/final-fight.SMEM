@@ -1,0 +1,26 @@
+-- Final Fight : le SENS des signaux de final-fight.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
+-- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
+-- Preuves : banc fbneo_libretro sans ecran (valeurs lues a l'ecran, valeurs posees reprises par le jeu).
+-- PV de l'ennemi dont la barre est affichee (mot signe : negatif a sa mort).
+-- Version 2 : identifiants du vocabulaire standard, progression et vies.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 2,
+  game = { system = "arcade", slug = "final-fight", title = "Final Fight" },
+  mem = { file = "final-fight.MEM" },
+
+  signals = {
+    { id = "enemy.hp", kind = "gauge", label = "Enemy HP", short = "FOE",
+      from = { { address = 0XFF132C, action = "HEALTH_STATE" } },
+      min = 0, max = 200, initial = 0,
+      quality = "partial",
+      proof = "60, 52, 38, 14 sous les coups puis l'ennemi suivant (identifiant 0xFF1326) ; barre sans chiffre a l'ecran" },
+
+  },
+
+  instruments = {
+    { id = "enemy", label = "Enemy", show = "gauge", signals = { "enemy.hp" } },
+  },
+}
