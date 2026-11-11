@@ -399,6 +399,7 @@
         "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
         "speedrun.msg.hit_left": "Hit! {left} left",
         "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
+        "scoring.msg.slow_motion": "Score not sent: the game ran at {speed} of its speed ({fps} frames/s). Your display is probably set to 50 Hz: switch it to 60 Hz (PAL60, which most PAL TVs accept over RGB SCART), or play the PAL version of the game.",
         "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down (display at 50 Hz? Set it to 60 Hz, PAL60 over RGB). Hotkey + Left: restart.",
         "massrun.panel.open": "Room open",
         "massrun.panel.closed": "Registration closed",
@@ -847,6 +848,7 @@
         "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
         "speedrun.msg.hit_left": "Hit! {left} left",
         "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
+        "scoring.msg.slow_motion": "Score not sent: the game ran at {speed} of its speed ({fps} frames/s). Your display is probably set to 50 Hz: switch it to 60 Hz (PAL60, which most PAL TVs accept over RGB SCART), or play the PAL version of the game.",
         "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down (display at 50 Hz? Set it to 60 Hz, PAL60 over RGB). Hotkey + Left: restart."
     },
     "fr": {
@@ -1325,6 +1327,7 @@
         "speedrun.msg.hit": "Touché ! {left} restants, +{penalty} s",
         "speedrun.msg.hit_left": "Touché ! {left} restants",
         "speedrun.msg.hit_penalty": "Touché ! +{penalty} s",
+        "scoring.msg.slow_motion": "Score non envoyé : le jeu a tourné à {speed} de sa vitesse ({fps} images/s). Ton affichage est sans doute réglé sur 50 Hz : passe-le en 60 Hz (PAL60, que la plupart des TV PAL acceptent en péritel RGB), ou joue la version PAL du jeu.",
         "speedrun.msg.voided_slowdown": "Tentative annulée : le jeu a ralenti (affichage à 50 Hz ? Passe-le en 60 Hz, PAL60 en péritel RGB). Hotkey + Gauche : relancer.",
         "massrun.panel.open": "Salle ouverte",
         "massrun.panel.closed": "Inscriptions closes",
@@ -1655,6 +1658,7 @@
         "speedrun.msg.hit": "¡Tocado! Quedan {left}, +{penalty} s",
         "speedrun.msg.hit_left": "¡Tocado! Quedan {left}",
         "speedrun.msg.hit_penalty": "¡Tocado! +{penalty} s",
+        "scoring.msg.slow_motion": "Puntuación no enviada: el juego funcionó al {speed} de su velocidad ({fps} imágenes/s). Tu pantalla probablemente está a 50 Hz: ponla a 60 Hz (PAL60, que la mayoría de los televisores PAL aceptan por euroconector RGB) o juega la versión PAL del juego.",
         "speedrun.msg.voided_slowdown": "Intento anulado: el juego se ralentizó (¿pantalla a 50 Hz? Ponla a 60 Hz, PAL60 por RGB). Hotkey + Izquierda: reiniciar."
     },
     "it": {
@@ -1802,6 +1806,7 @@
         "speedrun.msg.hit": "Colpito! Ne restano {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Colpito! Ne restano {left}",
         "speedrun.msg.hit_penalty": "Colpito! +{penalty} s",
+        "scoring.msg.slow_motion": "Punteggio non inviato: il gioco è andato al {speed} della sua velocità ({fps} fotogrammi/s). Il tuo schermo è probabilmente impostato a 50 Hz: passa a 60 Hz (PAL60, accettato dalla maggior parte dei televisori PAL via SCART RGB) oppure gioca la versione PAL del gioco.",
         "speedrun.msg.voided_slowdown": "Tentativo annullato: il gioco ha rallentato (schermo a 50 Hz? Impostalo a 60 Hz, PAL60 in RGB). Hotkey + Sinistra: riavvia."
     },
     "ja_jp": {
@@ -2330,6 +2335,7 @@
         "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Atingido! Restam {left}",
         "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
+        "scoring.msg.slow_motion": "Pontuação não enviada: o jogo rodou a {speed} da velocidade ({fps} quadros/s). Sua tela provavelmente está em 50 Hz: mude para 60 Hz (PAL60, aceito pela maioria das TVs PAL via RGB) ou jogue a versão PAL do jogo.",
         "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento (imagem a 50 Hz? Passe para 60 Hz, PAL60 em RGB). Hotkey + Esquerda: reiniciar."
     },
     "ru_ru": {
@@ -2985,6 +2991,7 @@
         "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Atingido! Restam {left}",
         "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
+        "scoring.msg.slow_motion": "Pontuação não enviada: o jogo correu a {speed} da velocidade ({fps} imagens/s). O seu ecrã está provavelmente a 50 Hz: mude para 60 Hz (PAL60, que a maioria das televisões PAL aceita por SCART RGB) ou jogue a versão PAL do jogo.",
         "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento (imagem a 50 Hz? Passe para 60 Hz, PAL60 em RGB). Hotkey + Esquerda: reiniciar."
     },
     "ru": {
