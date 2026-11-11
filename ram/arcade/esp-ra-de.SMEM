@@ -5,7 +5,7 @@
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "esp-ra-de", title = "ESP Ra.De." },
   mem = { file = "esp-ra-de.MEM" },
 
@@ -18,5 +18,22 @@ return {
       from = { { address = 0X254E, action = "LOSE_LIFE" }, { address = 0X254E, action = "GAIN_LIFE" } },
       min = 0, max = 9, initial = 3, quality = "qualified",
       proof = "3 au depart, -1 par mort, 0 a l'ecran CONTINUE (deathsignal propre : 3, 2, 1, 0)" },
+
+    { id = "players.1.power.level", player = 1, kind = "gauge", label = "Power", short = "POW",
+      from = { { address = 0X272A, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 4, initial = 0, quality = "qualified",
+      proof = "0 -> 4 aux prises ; posee a 0 : tir fin, a 4 : flot large" },
+    { id = "players.1.item.count", player = 1, kind = "counter", label = "Item counter", short = "ITEMS",
+      from = { { address = 0X26F8, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 9999, initial = 0, quality = "qualified",
+      proof = "posee a 150 puis 77 : 150 et 77 affiches par le jeu ; +1 par item pris. Publie par pas de 32 (mask)" },
+    { id = "players.1.game.esp_ra_de.item_max", player = 1, kind = "counter", label = "Item counter maximum", short = "MAX",
+      from = { { address = 0X2704, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 9999, initial = 200, quality = "partial",
+      proof = "200 en debut de partie ; +100 a chaque vidange (guides publics), hausse non vue au banc" },
+    { id = "players.1.game.esp_ra_de.barrier", player = 1, kind = "gauge", label = "Guard barrier", short = "BARRIER",
+      from = { { address = 0X2750, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 4000, initial = 4000, quality = "qualified",
+      proof = "posee a 1000, 3000, 4000 : la jauge du jeu suit ; bouton de la barriere tenu : 4000 -> 2780. Publiee par pas de 256 (mask)" },
   },
 }

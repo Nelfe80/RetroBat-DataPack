@@ -3,6 +3,8 @@
 -- apres une demo le pose a 0 avant le START, puis 3). L etat 7 de 0x240A est la partie : GAME_PLAYING (il etait
 -- declare fin de partie). Stage 0x25A6 (0 au stage 1, 1 au stage 2, 2 au stage 3).
 -- Mesures sous FBNeo (esprade, International 98/04/22).
+-- 2026-11-11 (Player Deck) : puissance 0x272A, compteur d items 0x26F8 et son maximum 0x2704, jauge de barriere 0x2750.
+-- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -48,6 +50,14 @@ return {
         { address=0X22E4, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 6 to 9 (value * 100000)" },
         { address=0X22E6, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 2 to 5 (value * 10)" },
         { address=0X240A, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Score Ranking screen" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X272A, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 power level (0 to 4)" },
+        { address=0X26F8, type="u16le", condition="change", mask=0XFFE0, action="OBJECT_INTERACTION", player=1, desc="P1 score item counter, every 32 (mask)" },
+        { address=0X2704, type="u16le", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 score item counter maximum (200 at start, +100 each time it is emptied)" },
+        { address=0X2750, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="P1 guard barrier gauge (0 to 4000), every 256 units (mask)" },
       },
     },
   },
