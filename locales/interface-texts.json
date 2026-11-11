@@ -399,7 +399,7 @@
         "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
         "speedrun.msg.hit_left": "Hit! {left} left",
         "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down. Hotkey + Left: restart.",
+        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down (display at 50 Hz? Set it to 60 Hz, PAL60 over RGB). Hotkey + Left: restart.",
         "massrun.panel.open": "Room open",
         "massrun.panel.closed": "Registration closed",
         "massrun.panel.running": "Race in progress",
@@ -847,7 +847,7 @@
         "speedrun.msg.hit": "Hit! {left} left, +{penalty} s",
         "speedrun.msg.hit_left": "Hit! {left} left",
         "speedrun.msg.hit_penalty": "Hit! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down. Hotkey + Left: restart."
+        "speedrun.msg.voided_slowdown": "Attempt voided: the game slowed down (display at 50 Hz? Set it to 60 Hz, PAL60 over RGB). Hotkey + Left: restart."
     },
     "fr": {
         "label.metadata.name": "nom",
@@ -1325,7 +1325,7 @@
         "speedrun.msg.hit": "Touché ! {left} restants, +{penalty} s",
         "speedrun.msg.hit_left": "Touché ! {left} restants",
         "speedrun.msg.hit_penalty": "Touché ! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Tentative annulée : le jeu a ralenti. Hotkey + Gauche : relancer.",
+        "speedrun.msg.voided_slowdown": "Tentative annulée : le jeu a ralenti (affichage à 50 Hz ? Passe-le en 60 Hz, PAL60 en péritel RGB). Hotkey + Gauche : relancer.",
         "massrun.panel.open": "Salle ouverte",
         "massrun.panel.closed": "Inscriptions closes",
         "massrun.panel.running": "Course en cours",
@@ -1655,7 +1655,7 @@
         "speedrun.msg.hit": "¡Tocado! Quedan {left}, +{penalty} s",
         "speedrun.msg.hit_left": "¡Tocado! Quedan {left}",
         "speedrun.msg.hit_penalty": "¡Tocado! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Intento anulado: el juego se ralentizó. Hotkey + Izquierda: reiniciar."
+        "speedrun.msg.voided_slowdown": "Intento anulado: el juego se ralentizó (¿pantalla a 50 Hz? Ponla a 60 Hz, PAL60 por RGB). Hotkey + Izquierda: reiniciar."
     },
     "it": {
         "label.metadata.name": "nome",
@@ -1802,7 +1802,7 @@
         "speedrun.msg.hit": "Colpito! Ne restano {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Colpito! Ne restano {left}",
         "speedrun.msg.hit_penalty": "Colpito! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Tentativo annullato: il gioco ha rallentato. Hotkey + Sinistra: riavvia."
+        "speedrun.msg.voided_slowdown": "Tentativo annullato: il gioco ha rallentato (schermo a 50 Hz? Impostalo a 60 Hz, PAL60 in RGB). Hotkey + Sinistra: riavvia."
     },
     "ja_jp": {
         "label.metadata.name": "名前",
@@ -2330,7 +2330,7 @@
         "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Atingido! Restam {left}",
         "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento. Hotkey + Esquerda: reiniciar."
+        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento (imagem a 50 Hz? Passe para 60 Hz, PAL60 em RGB). Hotkey + Esquerda: reiniciar."
     },
     "ru_ru": {
         "label.metadata.name": "название",
@@ -2985,7 +2985,7 @@
         "speedrun.msg.hit": "Atingido! Restam {left}, +{penalty} s",
         "speedrun.msg.hit_left": "Atingido! Restam {left}",
         "speedrun.msg.hit_penalty": "Atingido! +{penalty} s",
-        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento. Hotkey + Esquerda: reiniciar."
+        "speedrun.msg.voided_slowdown": "Tentativa anulada: o jogo ficou lento (imagem a 50 Hz? Passe para 60 Hz, PAL60 em RGB). Hotkey + Esquerda: reiniciar."
     },
     "ru": {
         "label.metadata.name": "название",
