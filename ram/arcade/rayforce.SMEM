@@ -5,7 +5,7 @@
 return {
   schema = 1,
   kind = "semantics",
-  version = 1,
+  version = 2,
   game = { system = "arcade", slug = "rayforce", title = "RayForce" },
   mem = { file = "rayforce.MEM" },
 
@@ -18,5 +18,26 @@ return {
       from = { { address = 0X4B94, action = "LOSE_LIFE" }, { address = 0X4B94, action = "GAIN_LIFE" } },
       min = 0, max = 9, initial = 3, quality = "qualified",
       proof = "3 au depart, -1 par mort (deathsignal propre : 3, 2, 1, 0)" },
+
+    { id = "rank", kind = "counter", label = "Rank", short = "RANK",
+      from = { { address = 0X2310, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 99, initial = 1, quality = "qualified",
+      proof = "valeur RANK de l'ecran de debug du jeu (mot 0x402326 = 1) lue sur 9 images (2, 3, 4, 4, 4, 4, 5, 6, 6) : seule case qui suit la suite ; sans debug, 1 au depart puis 9 en zone 2 (monte avec le temps de jeu). Maximum du jeu non mesure" },
+    { id = "players.1.power.level", player = 1, kind = "gauge", label = "Shot level", short = "SHOT",
+      from = { { address = 0X4B97, action = "OBJECT_INTERACTION", player = 1 } },
+      values = {
+        { raw = 0, label = "LV 1" }, { raw = 1, label = "LV 2" }, { raw = 2, label = "LV 3" },
+        { raw = 3, label = "LV 4" }, { raw = 4, label = "LV 5" }, { raw = 5, label = "LV 6" },
+      },
+      min = 0, max = 5, initial = 0, quality = "qualified",
+      proof = "posee a 0 : tir fin ; posee a 5 : tir rouge large (niveau 6 sur 6)" },
+    { id = "players.1.game.rayforce.lock_capacity", player = 1, kind = "gauge", label = "Lock-on capacity", short = "LOCK",
+      from = { { address = 0X4BA2, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 5, max = 8, initial = 5, quality = "qualified",
+      proof = "5 au depart, 6, 7 puis 8 a chaque capsule de laser (banc) ; jamais moins de cibles verrouillees que ce maximum ne permet" },
+    { id = "players.1.game.rayforce.full_lock", player = 1, kind = "flag", label = "Eight targets locked", short = "8 LOCK",
+      from = { { address = 0X4BA0, action = "OBJECT_INTERACTION", player = 1 } },
+      quality = "qualified",
+      proof = "0x4BA0 = cibles verrouillees (0 a 8) au banc ; la ligne part a l'entree dans 8 : une salve de huit, la derniere cible vaut x128" },
   },
 }

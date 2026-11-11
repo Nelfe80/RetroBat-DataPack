@@ -1,6 +1,8 @@
 -- 2026-11-11 : score = deux mots BCD (0x22EA fort, 0x22EC faible ; 8 chiffres a l ecran, sans facteur), remplace le u32be
 -- et son facteur 10 ; credits 0x2264 (+1 par piece, -1 au START) ; vies 0x4B94 (3 au depart, une seule source) ; zone
 -- 0x38C0 (1 a 7, posee au debut de la zone ; 0x2312 bascule pendant la transition, retiree). Mesures sous FBNeo (rayforce).
+-- 2026-11-11 (Player Deck) : rank 0x2310 (le meme que l ecran de debug du jeu), niveau du tir 0x4B97, verrous du laser
+-- 0x4BA2 (5 a 8), huit cibles verrouillees 0x4BA0. Lignes d affichage seulement (OBJECT_INTERACTION), hors score.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -38,6 +40,14 @@ return {
       points = {
         { address=0X22EA, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 5 to 8 (value * 10000)" },
         { address=0X22EC, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 1 to 4 (value * 1)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X2310, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Rank (1 at start, rises with play time), the value of the game debug screen" },
+        { address=0X4B97, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 main shot level (0 to 5)" },
+        { address=0X4BA2, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 lock-on capacity (5 at start, 8 at most, -1 per death)" },
+        { address=0X4BA0, type="u8", condition="eq", value=0X08, action="OBJECT_INTERACTION", player=1, desc="P1 eight targets locked at once (the last one scores x128)" },
       },
     },
   },
