@@ -1,3 +1,6 @@
+-- 2026-11-11 : score = somme des scores des 5 stages (le jeu garde un score par stage, deux mots BCD chacun a partir de
+-- 0x3FAE, et ne verse le total qu a la fin du stage) ; credits 0x1730 (+1 par piece, -1 au START) ; vies 0x52C4 (3 au
+-- depart) ; stage 0x52D8 (0 a 4) ; bombes 0x5A3A. Mesures sous FBNeo (dfeveron).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -15,5 +18,38 @@ return {
   },
 
   events = {
+    resources = {
+      credits = {
+        { address=0X1730, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
+      },
+      lives = {
+        { address=0X52C4, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 lives including current (3 at start) increased" },
+        { address=0X52C4, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 lives including current (3 at start) decreased" },
+      },
+    },
+    progression = {
+      stage = {
+        { address=0X52D8, type="u8", condition="change", action="PROGRESSION_STAGE", desc="P1 stage (0 to 4)" },
+      },
+    },
+    scoring = {
+      points = {
+        { address=0X3FAE, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 1, BCD digits 5 to 8 (value * 10000)" },
+        { address=0X3FB0, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 1, BCD digits 1 to 4 (value * 1)" },
+        { address=0X3FB2, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 2, BCD digits 5 to 8 (value * 10000)" },
+        { address=0X3FB4, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 2, BCD digits 1 to 4 (value * 1)" },
+        { address=0X3FB6, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 3, BCD digits 5 to 8 (value * 10000)" },
+        { address=0X3FB8, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 3, BCD digits 1 to 4 (value * 1)" },
+        { address=0X3FBA, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 4, BCD digits 5 to 8 (value * 10000)" },
+        { address=0X3FBC, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 4, BCD digits 1 to 4 (value * 1)" },
+        { address=0X3FBE, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 5, BCD digits 5 to 8 (value * 10000)" },
+        { address=0X3FC0, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score of stage 5, BCD digits 1 to 4 (value * 1)" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X5A3A, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bombs in stock (3 at start)" },
+      },
+    },
   },
 }

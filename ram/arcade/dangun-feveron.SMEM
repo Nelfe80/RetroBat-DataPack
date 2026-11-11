@@ -1,0 +1,26 @@
+-- Dangun Feveron : le SENS des signaux de dangun-feveron.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee. Preuves : mesures au banc FBNeo sans ecran.
+-- Format : .SMEM, schema 1. Identifiants du vocabulaire standard du .SMEM.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "dangun-feveron", title = "Dangun Feveron" },
+  mem = { file = "dangun-feveron.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Stage", short = "STAGE",
+      from = { { address = 0X52D8, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 4, quality = "qualified",
+      proof = "0 au stage 1, 1 puis 2 aux stages suivants (banc, ecrans des stages 2 et 3)" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X52C4, action = "LOSE_LIFE" }, { address = 0X52C4, action = "GAIN_LIFE" } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 par mort (deathsignal propre : 3, 2, 1, 0)" },
+    { id = "players.1.bombs", player = 1, kind = "counter", unit = "bomb", label = "Bombs", short = "BOMB",
+      from = { { address = 0X5A3A, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart (icones B), 4 apres une prise" },
+  },
+}
