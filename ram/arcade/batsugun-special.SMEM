@@ -1,0 +1,71 @@
+-- Batsugun Special : le SENS des signaux de batsugun-special.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse a surveiller : chaque signal cite des
+-- lignes du .MEM (adresse, action, joueur). N'entre ni dans le score ni dans l'empreinte certifiee.
+-- Preuves : banc fbneo_libretro sans ecran (valeurs lues a l'ecran, valeurs posees reprises par le jeu).
+-- L'experience du vaisseau est un mot (0 a 767 dans le niveau) ; le .MEM surveille son octet fort (0, 1, 2 = tiers de
+-- la barre) pour ne pas parler a chaque ennemi. A 768 le niveau monte et l'experience repart de 0. Mesure sur le parent.
+-- Version 2 : identifiants du vocabulaire standard, progression et vies.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 2,
+  game = { system = "arcade", slug = "batsugun-special", title = "Batsugun Special" },
+  mem = { file = "batsugun-special.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Stage", short = "STAGE",
+      from = { { address = 0X13AA, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 5, quality = "qualified",
+      proof = "0 au stage 1, +1 juste apres chaque decompte de fin de stage (trois transitions au banc, ecrans de fin de stage)" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X139A, action = "LOSE_LIFE" }, { address = 0X139A, action = "GAIN_LIFE" } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 a chaque mort, 0 puis GAME OVER" },
+    { id = "players.1.game.batsugun.ship_level", player = 1, kind = "level", label = "Ship level", short = "LV",
+      from = { { address = 0X1410, action = "OBJECT_INTERACTION" } },
+      values = {
+        { raw = 0, label = "LEVEL 1" },
+        { raw = 1, label = "LEVEL 2" },
+        { raw = 2, label = "LEVEL 3" },
+      },
+      min = 0, max = 2, initial = 0,
+      quality = "qualified",
+      proof = "0, 1, 2 = LEVEL 1, 2, 3 a l'ecran ; monte quand l'experience atteint 768" },
+
+    { id = "players.1.power.level", player = 1, kind = "gauge", label = "Shot power", short = "POW",
+      from = { { address = 0X1412, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 4, initial = 0,
+      quality = "partial",
+      proof = "+1 par objet P, 4 = maximum (cheat MAME), 0 a la mort" },
+
+    { id = "players.1.game.batsugun.next_p_bonus", player = 1, kind = "enum", label = "Next P bonus", short = "NEXT P",
+      from = { { address = 0X13E6, action = "OBJECT_INTERACTION" } },
+      values = {
+        { raw = 0, label = "1000" },
+        { raw = 1, label = "2000" },
+        { raw = 2, label = "3000" },
+        { raw = 3, label = "4000" },
+        { raw = 4, label = "5000" },
+        { raw = 5, label = "6000" },
+        { raw = 6, label = "7000" },
+        { raw = 7, label = "8000" },
+        { raw = 8, label = "9000" },
+        { raw = 9, label = "10000" },
+      },
+      min = 0, max = 9, initial = 0,
+      quality = "partial",
+      proof = "0 -> 1 au premier P ramasse a la puissance maximale, 0 a la mort ; 9 = 10 000 (cheat MAME)" },
+
+    { id = "players.1.game.batsugun.exp_third", player = 1, kind = "gauge", label = "Experience (thirds)", short = "EXP",
+      from = { { address = 0X1417, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 2, initial = 0,
+      quality = "partial",
+      proof = "octet fort de l'experience (mot en 0x1416) : 0 a 255, 256 a 511, 512 a 767 ; 768 fait monter le niveau ; gardee a la mort" },
+
+  },
+
+  instruments = {
+    { id = "ship", label = "Ship", show = "level", signals = { "players.1.game.batsugun.ship_level", "players.1.game.batsugun.exp_third" } },
+    { id = "shot", label = "Shot", show = "gauge", signals = { "players.1.power.level", "players.1.game.batsugun.next_p_bonus" } },
+  },
+}
