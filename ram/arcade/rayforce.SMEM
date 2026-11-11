@@ -1,0 +1,22 @@
+-- RayForce : le SENS des signaux de rayforce.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee. Preuves : mesures au banc FBNeo sans ecran.
+-- Format : .SMEM, schema 1. Identifiants du vocabulaire standard du .SMEM.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "rayforce", title = "RayForce" },
+  mem = { file = "rayforce.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Area", short = "STAGE",
+      from = { { address = 0X38C0, action = "PROGRESSION_STAGE" } },
+      min = 1, max = 7, quality = "qualified",
+      proof = "1 a la zone 1, 2 puis 3 au debut des zones suivantes, apres leur titre (banc)" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X4B94, action = "LOSE_LIFE" }, { address = 0X4B94, action = "GAIN_LIFE" } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 par mort (deathsignal propre : 3, 2, 1, 0)" },
+  },
+}
