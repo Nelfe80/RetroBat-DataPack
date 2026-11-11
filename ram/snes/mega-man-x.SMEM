@@ -1,0 +1,26 @@
+-- Mega Man X : le SENS des lignes de mega-man-x.MEM lues par le Player Deck speedrun (pattern F).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee (les reglements des epreuves epinglent le .MEM, pas ce fichier).
+-- Format : .SMEM, schema 1, identifiants du vocabulaire standard.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "snes", slug = "mega-man-x", title = "Mega Man X" },
+  mem = { file = "mega-man-x.MEM" },
+
+  signals = {
+    { id = "players.1.health", player = 1, kind = "gauge", label = "Life energy", short = "LIFE",
+      from = { { address = 0X0BCF, action = "HIT" }, { address = 0X0BCF, action = "HEAL" } },
+      min = 0, max = 16, quality = "qualified",
+      proof = "16 aux etats des 8 epreuves (barre pleine, vie maximale 0x1F9A = 16, partie neuve) ; baisse aux coups (banc du 11/11)" },
+    { id = "players.1.lives", player = 1, kind = "counter", label = "Lives", short = "LIV",
+      from = { { address = 0X1F80, action = "GAIN_LIFE" }, { address = 0X1F80, action = "LOSE_LIFE" } },
+      min = 0, max = 9, quality = "qualified",
+      proof = "2 aux etats des 8 epreuves (2 a l ecran de pause)" },
+    { id = "stage", kind = "enum", label = "Stage", short = "STG",
+      from = { { address = 0X1F7A, action = "PROGRESSION_STAGE" } },
+      values = { { raw = 1, value = 1, label = "LAUNCH OCTOPUS" }, { raw = 2, value = 2, label = "STING CHAMELEON" }, { raw = 3, value = 3, label = "ARMORED ARMADILLO" }, { raw = 4, value = 4, label = "FLAME MAMMOTH" }, { raw = 5, value = 5, label = "STORM EAGLE" }, { raw = 6, value = 6, label = "SPARK MANDRILL" }, { raw = 7, value = 7, label = "BOOMER KUWANGER" }, { raw = 8, value = 8, label = "CHILL PENGUIN" } }, quality = "qualified",
+      proof = "etats des 8 epreuves : 1 Octopus, 2 Chameleon, 3 Armadillo, 4 Mammoth, 5 Eagle, 6 Mandrill, 7 Kuwanger, 8 Penguin (planche du 11/11)" },
+  },
+}
