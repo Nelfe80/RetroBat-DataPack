@@ -1,0 +1,22 @@
+-- ESP Ra.De. : le SENS des signaux de esp-ra-de.MEM pour l'affichage.
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee. Preuves : mesures au banc FBNeo sans ecran.
+-- Format : .SMEM, schema 1. Identifiants du vocabulaire standard du .SMEM.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "esp-ra-de", title = "ESP Ra.De." },
+  mem = { file = "esp-ra-de.MEM" },
+
+  signals = {
+    { id = "stage", kind = "counter", label = "Stage", short = "STAGE",
+      from = { { address = 0X25A6, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 5, quality = "qualified",
+      proof = "0 au stage 1, 1 au debut du stage 2 (32 190), 2 au debut du stage 3 (51 300), banc avec captures" },
+    { id = "players.1.lives", player = 1, kind = "counter", unit = "ship", label = "Lives", short = "SHIP",
+      from = { { address = 0X254E, action = "LOSE_LIFE" }, { address = 0X254E, action = "GAIN_LIFE" } },
+      min = 0, max = 9, initial = 3, quality = "qualified",
+      proof = "3 au depart, -1 par mort, 0 a l'ecran CONTINUE (deathsignal propre : 3, 2, 1, 0)" },
+  },
+}

@@ -1,3 +1,8 @@
+-- 2026-11-09 : score = deux mots BCD (0x22E4 fort, 0x22E6 faible, valeur x10 a l ecran) ; credits 0x1226 (+1 par
+-- piece, -1 au START) ; vies 0x254E, une seule source (3 au depart, -1 par mort, 0 a l ecran CONTINUE ; la piece
+-- apres une demo le pose a 0 avant le START, puis 3). L etat 7 de 0x240A est la partie : GAME_PLAYING (il etait
+-- declare fin de partie). Stage 0x25A6 (0 au stage 1, 1 au stage 2, 2 au stage 3).
+-- Mesures sous FBNeo (esprade, International 98/04/22).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -20,30 +25,29 @@ return {
         { address=0X240A, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen before inserting credit" },
         { address=0X240A, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen after inserting credit" },
         { address=0X240A, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo" },
-        { address=0X240A, type="u8", condition="eq", value=0X07, action="GAME_OVER", desc="Gameplay, Results, Ending (While playing with P1)" },
+        { address=0X240A, type="u8", condition="eq", value=0X07, action="GAME_PLAYING", desc="Gameplay (P1 playing)" },
         { address=0X240A, type="u8", condition="eq", value=0X08, action="CONTINUE_SCREEN", desc="Continue" },
-        { address=0X25A6, type="u8", condition="eq", value=0X6, action="CREDITS_SCREEN", desc="Credits" },
       },
     },
     progression = {
       stage = {
-        { address=0X2566, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stages" },
-        { address=0X2566, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="Houoh High School;" },
-        { address=0X2566, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="Shopping Mall at Night;" },
-        { address=0X2566, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="Bay Area;" },
-        { address=0X2566, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="Wangan Subway Line;" },
-        { address=0X25A6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[4-Bit] Stage Number" },
-        { address=0X25A6, type="u8", condition="eq", value=0X0, action="PROGRESSION_STAGE", desc="1;" },
-        { address=0X25A6, type="u8", condition="eq", value=0X1, action="PROGRESSION_STAGE", desc="2;" },
-        { address=0X25A6, type="u8", condition="eq", value=0X2, action="PROGRESSION_STAGE", desc="3;" },
-        { address=0X25A6, type="u8", condition="eq", value=0X3, action="PROGRESSION_STAGE", desc="4;" },
-        { address=0X25A6, type="u8", condition="eq", value=0X4, action="PROGRESSION_STAGE", desc="5A;" },
-        { address=0X25A6, type="u8", condition="eq", value=0X5, action="PROGRESSION_STAGE", desc="5B;" },
+        { address=0X25A6, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage (0 to 5), set when the stage starts" },
+      },
+    },
+    resources = {
+      credits = {
+        { address=0X1226, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
+      },
+      lives = {
+        { address=0X254E, type="u8", condition="increase", action="GAIN_LIFE", desc="P1 lives including current (3 at start) increased" },
+        { address=0X254E, type="u8", condition="decrease", action="LOSE_LIFE", desc="P1 lives including current (3 at start) decreased" },
       },
     },
     scoring = {
       points = {
-        { address=0X240A, type="u8", condition="eq", value=0X02, action="SCORE_STATE", desc="Score Ranking" },
+        { address=0X22E4, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 6 to 9 (value * 100000)" },
+        { address=0X22E6, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="Player 1 score, BCD digits 2 to 5 (value * 10)" },
+        { address=0X240A, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Score Ranking screen" },
       },
     },
   },
