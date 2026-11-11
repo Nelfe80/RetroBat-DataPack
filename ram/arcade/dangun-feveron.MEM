@@ -1,6 +1,9 @@
 -- 2026-11-11 : score = somme des scores des 5 stages (le jeu garde un score par stage, deux mots BCD chacun a partir de
 -- 0x3FAE, et ne verse le total qu a la fin du stage) ; credits 0x1730 (+1 par piece, -1 au START) ; vies 0x52C4 (3 au
 -- depart) ; stage 0x52D8 (0 a 4) ; bombes 0x5A3A. Mesures sous FBNeo (dfeveron).
+-- 2026-11-11 (Player Deck) : rank de base 0x52C8, chaine de cyborgs 0x6C3C, cyborgs du stage 0x6C3E et de la partie
+-- 0x402A, cyborgs manques 0x5110, puissance 0x5A40 et 0x5A44, barre de vie du boss 0x5198 (pixels). Lignes d affichage
+-- seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -49,6 +52,15 @@ return {
     world_interaction = {
       objects = {
         { address=0X5A3A, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bombs in stock (3 at start)" },
+        { address=0X52C8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Base rank (0 to 63): stage minimum plus bombs, lives and power-ups in stock" },
+        { address=0X6C3C, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", player=1, desc="P1 cyborg chain (1 to 999), every 16 (mask); back to 1 when a cyborg escapes" },
+        { address=0X6C3E, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", player=1, desc="P1 cyborgs collected in this stage, every 16 (mask)" },
+        { address=0X402A, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", player=1, desc="P1 cyborgs collected in the game (extend item at 2000), every 16 (mask)" },
+        { address=0X5110, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", desc="Cyborgs missed in the game (aimed bullets speed up), every 16 (mask)" },
+        { address=0X5A40, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 power, first part (0 to 5)" },
+        { address=0X5A44, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 power, second part (0 to 4)" },
+        { address=0X5198, type="u16le", condition="decrease", mask=0XFFFC, action="OBJECT_INTERACTION", desc="Boss health bar length in pixels (0 to about 60), each 4 pixels lost (mask)" },
+        { address=0X5198, type="u16le", condition="increase", mask=0XFFF0, action="OBJECT_INTERACTION", desc="Boss health bar length in pixels while it fills at the boss entry, each 16 pixels (mask)" },
       },
     },
   },
