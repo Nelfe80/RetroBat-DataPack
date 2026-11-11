@@ -1,6 +1,9 @@
 -- 2026-11-09 : score = deux mots BCD (0x3DC6 fort, 0x3DC8 faible, valeur x10 a l ecran) : le u32be lisait 0x3210
 -- pour 10 320 ; CREDITS 0x2388 (+1 toutes les 2 pieces au reglage d usine du jeu, -1 au START) ; vies 0x3F72 (joueur 1)
 -- et 0x3F74 (joueur 2) avec player= ; stock de bombes 0x4304. Mesures sous FBNeo (progear, Europe 010117).
+-- 2026-11-11 (Player Deck) : compteur de joyaux (24 bits : 0x4176 octet fort, 0x4178 mot faible), mode x2 (0x42E3,
+-- bit 0x02), puissance du tir 0x4302. Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture
+-- par paliers (jamais a chaque image).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -58,6 +61,10 @@ return {
     world_interaction = {
       objects = {
         { address=0X4304, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bomb stock (3 at start, -1 per bomb ; bombs used decide the 2nd loop)" },
+        { address=0X4176, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 jewel counter, high byte (x 65536)" },
+        { address=0X4178, type="u16le", condition="change", mask=0XFE00, action="OBJECT_INTERACTION", player=1, desc="P1 jewel counter, low word, every 512 (mask)" },
+        { address=0X42E3, type="u8", condition="change", mask=0X02, action="OBJECT_INTERACTION", player=1, desc="P1 double rate (x2) mode, bit 0x02" },
+        { address=0X4302, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 shot power (0 to 8)" },
       },
     },
     state = {

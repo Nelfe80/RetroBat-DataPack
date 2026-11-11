@@ -4,10 +4,11 @@
 -- Preuves : banc fbneo_libretro sans ecran (valeurs lues a l'ecran, valeurs posees reprises par le jeu).
 -- Les bombes utilisees (baisses du stock) et les morts decident de la 2e boucle : le Deck les compte.
 -- Version 2 : identifiants du vocabulaire standard, progression et vies.
+-- Version 3 : compteur de joyaux, mode x2, puissance du tir.
 return {
   schema = 1,
   kind = "semantics",
-  version = 2,
+  version = 3,
   game = { system = "arcade", slug = "progear", title = "Progear" },
   mem = { file = "progear.MEM" },
 
@@ -26,9 +27,26 @@ return {
       quality = "qualified",
       proof = "3 au depart ; pose 1 : une icone B a l'ecran ; bouton 2 : 3 -> 2" },
 
+    { id = "players.1.game.progear.jewels_high", player = 1, kind = "counter", label = "Jewels (high byte)", short = "JWL HI",
+      from = { { address = 0X4176, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 15, initial = 0, quality = "qualified",
+      proof = "octet fort du compteur de joyaux (24 bits, 999 999 au plus) ; joyaux = octet fort x 65 536 + mot faible" },
+    { id = "players.1.game.progear.jewels_low", player = 1, kind = "counter", label = "Jewels (low word)", short = "JWL",
+      from = { { address = 0X4178, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 65535, initial = 0, quality = "qualified",
+      proof = "compteur de joyaux affiche en bas a gauche : 1 836 et 11 895 a l'ecran = memoire aux memes images ; +10 000 d'un coup a la bombe prise stock plein (mode x2). Publie par pas de 512 (mask)" },
+    { id = "players.1.game.progear.double_rate", player = 1, kind = "flag", label = "Double rate", short = "X2",
+      from = { { address = 0X42E3, action = "OBJECT_INTERACTION", player = 1 } },
+      quality = "qualified",
+      proof = "bit 0x02 de l octet (les autres bits servent a autre chose : 128, 136, 144 au banc) : mis a la bombe prise avec le stock plein, en meme temps que +10 000 joyaux ; lire (valeur mod 4) / 2" },
+    { id = "players.1.power.level", player = 1, kind = "gauge", label = "Shot power", short = "POW",
+      from = { { address = 0X4302, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 8, initial = 0, quality = "partial",
+      proof = "0 -> 2 -> 4 -> 6 -> 8 aux prises ; 8 = maximum (cheat MAME)" },
   },
 
   instruments = {
     { id = "bombs", label = "Bombs", show = "gauge", signals = { "players.1.bombs" } },
+    { id = "jewels", label = "Jewels", show = "level", signals = { "players.1.game.progear.jewels_high", "players.1.game.progear.jewels_low", "players.1.game.progear.double_rate" } },
   },
 }
