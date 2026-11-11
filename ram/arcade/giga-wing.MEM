@@ -1,3 +1,7 @@
+-- 2026-11-09 : score = quatre mots BCD (0x70CC a 0x70D2) avec leurs poids (value * N) : sans eux les mots
+-- s additionnaient a poids 1 (10 520 a l ecran lu 521) ; 0x2094 = CREDITS (+1 par piece, -1 au START) ; vies 0x72DC
+-- (joueur 1) et 0x72DE (joueur 2) avec player= ; plus de fin de partie sur les vies du joueur 2 (a 0 quand il ne joue
+-- pas) ; ligne d invincibilite sortie des stages ; valeur de la medaille 0x72F2. Mesures sous FBNeo (gigawing, 990222 USA).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -17,15 +21,14 @@ return {
   events = {
     flow = {
       lifecycle = {
-        { address=0X2094, type="u8", condition="change", action="CREDITS_SCREEN", desc="Credits" },
+        { address=0X2094, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
         { address=0X2244, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="On" },
         { address=0X727E, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
         { address=0X727E, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo/Frame Before 06" },
         { address=0X727E, type="u8", condition="eq", value=0X07, action="CONTINUE_SCREEN", desc="Continue? Screen" },
         { address=0X727E, type="u8", condition="eq", value=0X0D, action="CREDITS_SCREEN", desc="In-Between Stage Story/Credits" },
         { address=0X727E, type="u8", condition="eq", value=0X12, action="DEMO_MODE", desc="Attract Mode" },
-        { address=0X72DC, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
-        { address=0X72DE, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="Game Over" },
+        { address=0X72DC, type="u8", condition="eq", value=0X00, action="GAME_OVER", desc="P1 lives 0 : continue screen (end of the 1CC run)" },
       },
     },
     progression = {
@@ -40,32 +43,36 @@ return {
         { address=0X7342, type="u8", condition="eq", value=0X05, action="PROGRESSION_STAGE", desc="Stage 6" },
         { address=0X7342, type="u8", condition="eq", value=0X06, action="PROGRESSION_STAGE", desc="Stage 7 (Final Stage) only accessible through" },
         { address=0X7342, type="u8", condition="eq", value=0X07, action="PROGRESSION_STAGE", desc="Tutorial" },
-        { address=0XAE3A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="1P Invincibility Frames - FFFF when not in use, set this to 0x0003 and 0xADEB to 0x40 for invinc" },
       },
     },
     resources = {
       lives = {
-        { address=0X72DC, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives 1P Side increased" },
-        { address=0X72DC, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives 1P Side decreased" },
-        { address=0X72DE, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives 2P side increased" },
-        { address=0X72DE, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives 2P side decreased" },
+        { address=0X72DC, type="u8", condition="increase", action="GAIN_LIFE", player=1, desc="Lives 1P Side increased" },
+        { address=0X72DC, type="u8", condition="decrease", action="LOSE_LIFE", player=1, desc="Lives 1P Side decreased" },
+        { address=0X72DE, type="u8", condition="increase", action="GAIN_LIFE", player=2, desc="Lives 2P side increased" },
+        { address=0X72DE, type="u8", condition="decrease", action="LOSE_LIFE", player=2, desc="Lives 2P side decreased" },
       },
     },
     scoring = {
       points = {
-        { address=0X70CC, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score x1,000,000,000,000" },
-        { address=0X70CE, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score x100,000,000" },
-        { address=0X70D0, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score x10,000" },
-        { address=0X70D2, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score x1" },
-        { address=0X70D4, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score x1,000,000,000,000" },
-        { address=0X70D6, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score x100,000,000" },
-        { address=0X70D8, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score x10,000" },
-        { address=0X70DA, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score x1" },
-        { address=0X727E, type="u8", condition="eq", value=0X02, action="SCORE_STATE", desc="Score Ranking" },
+        { address=0X70CC, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score, 4 BCD digits (value * 1000000000000)" },
+        { address=0X70CE, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score, 4 BCD digits (value * 100000000)" },
+        { address=0X70D0, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score, 4 BCD digits (value * 10000)" },
+        { address=0X70D2, type="u16le", condition="change", action="SCORE_STATE", player=1, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 1P Score, 4 BCD digits (value * 1)" },
+        { address=0X70D4, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score, 4 BCD digits (value * 1000000000000)" },
+        { address=0X70D6, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score, 4 BCD digits (value * 100000000)" },
+        { address=0X70D8, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score, 4 BCD digits (value * 10000)" },
+        { address=0X70DA, type="u16le", condition="change", action="SCORE_STATE", player=2, score_kind="game", score_encoding="bcd", desc="[16-bit BCD] 2P Score, 4 BCD digits (value * 1)" },
+        { address=0X727E, type="u8", condition="eq", value=0X02, action="OBJECT_INTERACTION", desc="Score Ranking screen" },
       },
       collectibles = {
         { address=0X20A0, type="u8", condition="eq", value=0X00, action="MONEY_STATE", desc="1 Coin, 1 Credit (Default Setting)" },
         { address=0X20A0, type="u8", condition="eq", value=0X12, action="MONEY_STATE", desc="Free Play" },
+      },
+    },
+    world_interaction = {
+      objects = {
+        { address=0X72F2, type="u16le", condition="increase", action="OBJECT_INTERACTION", player=1, desc="P1 medal value, BCD (+5 per gold medal, back to 0 on death)" },
       },
     },
     system = {
