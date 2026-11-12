@@ -8,10 +8,11 @@
 -- reglage Normal. Le .MEM surveille son mot fort (0xF0 a 0x20) ; affiche = 240 - mot fort, soit 0 au depart et 208 au
 -- plafond. Rang en % de la communaute (shmups.wiki) = affiche x 100 / 208.
 -- Version 3 : identifiants du vocabulaire standard du .SMEM.
+-- Version 4 : chaine de medailles (valeur de la prochaine medaille).
 return {
   schema = 1,
   kind = "semantics",
-  version = 3,
+  version = 4,
   game = { system = "arcade", slug = "battle-garegga", title = "Battle Garegga" },
   mem = { file = "battle-garegga.MEM" },
 
@@ -88,6 +89,31 @@ return {
       from = { { address = 0X168B, action = "DYNAMIC_INVENTORY" } },
       min = 0, max = 4, initial = 0, quality = "qualified",
       proof = "1, 2, 3 aux options ramassees" },
+    { id = "players.1.medal.value", player = 1, kind = "enum", label = "Next medal", short = "MEDAL",
+      from = { { address = 0X9CB9, action = "OBJECT_INTERACTION", player = 1 } },
+      values = {
+        { raw = 0, label = "100" },
+        { raw = 2, label = "200" },
+        { raw = 4, label = "300" },
+        { raw = 6, label = "400" },
+        { raw = 8, label = "500" },
+        { raw = 10, label = "600" },
+        { raw = 12, label = "700" },
+        { raw = 14, label = "800" },
+        { raw = 16, label = "900" },
+        { raw = 18, label = "1000" },
+        { raw = 20, label = "2000" },
+        { raw = 22, label = "3000" },
+        { raw = 24, label = "4000" },
+        { raw = 26, label = "5000" },
+        { raw = 28, label = "6000" },
+        { raw = 30, label = "7000" },
+        { raw = 32, label = "8000" },
+        { raw = 34, label = "9000" },
+        { raw = 36, label = "10000" },
+      },
+      min = 0, max = 36, initial = 0, quality = "qualified",
+      proof = "+2 a chaque medaille ramassee (0, 2, 4 ... 12), 0 quand une medaille tombe ; l'ecran affiche 200 a la prise qui fait passer de 2 a 4, 300 de 4 a 6 ; le cheat MAME du bonus a 10000 pose 0x24 (rang 18 de la table). Publie par paliers de deux medailles (mask)" },
   },
 
   instruments = {

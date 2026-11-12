@@ -6,6 +6,9 @@
 -- 2026-11-08 soir (sortie) : score 32 bits en deux mots (0x166C fort, 0x166E faible), lignes SCORE_STATE
 -- parasites retirees (0x1677, 0xA6B5, 0x10C4C), CREDITS en 0x00AD, DIP retires du bloc lives (0x0039, 0x0036),
 -- vies a max=1 (une demo finie ou coupee par une piece fait 2 -> 0), player= sur chaque ligne.
+-- 2026-11-12 (Player Deck) : chaine de medailles 0x9CB9 (2 x rang de la prochaine medaille dans la table 100 a 900,
+-- 1000 a 10000 ; 0 quand une medaille est perdue). Ligne d affichage seulement (OBJECT_INTERACTION), hors score ;
+-- mask = lecture par paliers de deux medailles (une rafale de medailles ne coupe pas la ligne).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -80,6 +83,7 @@ return {
         { address=0XC9D2, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank (hidden dynamic difficulty), high word of the 32-bit rank: 0xF0 at start (easiest), down to 0x20 (hardest, Normal dip); lower = harder" },
         { address=0XC9D8, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank added every frame (22 to 110), set by the fastest autofire used in the credit; never goes down" },
         { address=0X15AA, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 ship type x16 (0x00, 0x10, 0x20, 0x30 for the four ships of the select screen)" },
+        { address=0X9CB9, type="u8", condition="change", mask=0XFC, action="OBJECT_INTERACTION", player=1, desc="P1 medal chain (2 x step of the next medal value: 100 to 900, then 1000 to 10000 ; 0 when a medal is lost), every 2 medals (mask)" },
       },
     },
     system = {
