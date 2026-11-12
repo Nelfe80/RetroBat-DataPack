@@ -1,4 +1,6 @@
 -- 2026-11-11 : score en deux mots BCD (0x1096 x10000, 0x1098 x1) ; CREDITS 0x0E84 ; vies 0x139A ; stage 0x13AA (0 a 4) ; lignes d etat non verifiees retirees. Mesures sous FBNeo (batsugunsp).
+-- 2026-11-12 (Player Deck) : bombes 0x1414, medailles du stage (0x13DE petites, 0x13E2 grandes, comptees au bilan du
+-- stage a 3 000 et 5 000). Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -68,6 +70,9 @@ return {
         { address=0X17803, type="u8", condition="bit_true", mask=0X02, action="OBJECT_INTERACTION", desc="Hard mode active" },
         { address=0X17803, type="u8", condition="bit_true", mask=0X40, action="OBJECT_INTERACTION", desc="Cheat mode active" },
         { address=0X17804, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Dipswitchs related to region" },
+        { address=0X1414, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bombs in stock (3 at start, 7 at most)" },
+        { address=0X13DE, type="u8", condition="change", mask=0XFC, action="OBJECT_INTERACTION", player=1, desc="P1 small medals of the stage (3,000 each at the stage tally), every 4 (mask)" },
+        { address=0X13E2, type="u8", condition="change", mask=0XFC, action="OBJECT_INTERACTION", player=1, desc="P1 big medals of the stage (5,000 each at the stage tally), every 4 (mask)" },
       },
     },
   },

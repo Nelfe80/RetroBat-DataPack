@@ -5,10 +5,11 @@
 -- L'experience du vaisseau est un mot (0 a 767 dans le niveau) ; le .MEM surveille son octet fort (0, 1, 2 = tiers de
 -- la barre) pour ne pas parler a chaque ennemi. A 768 le niveau monte et l'experience repart de 0. Mesure sur le parent.
 -- Version 2 : identifiants du vocabulaire standard, progression et vies.
+-- Version 3 : bombes, medailles du stage.
 return {
   schema = 1,
   kind = "semantics",
-  version = 2,
+  version = 3,
   game = { system = "arcade", slug = "batsugun-special", title = "Batsugun Special" },
   mem = { file = "batsugun-special.MEM" },
 
@@ -62,6 +63,18 @@ return {
       quality = "partial",
       proof = "octet fort de l'experience (mot en 0x1416) : 0 a 255, 256 a 511, 512 a 767 ; 768 fait monter le niveau ; gardee a la mort" },
 
+    { id = "players.1.bombs", player = 1, kind = "gauge", label = "Bombs", short = "BOMB",
+      from = { { address = 0X1414, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 7, initial = 3, quality = "qualified",
+      proof = "3 au depart ; bouton de bombe : 3 -> 2 -> 1 -> 0 ; posees a 7 et 1 : x7 et x1 a l'ecran" },
+    { id = "players.1.game.batsugun.medals_small", player = 1, kind = "counter", label = "Small medals", short = "MEDAL S",
+      from = { { address = 0X13DE, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 255, initial = 0, quality = "qualified",
+      proof = "le bilan du stage 1 affiche 5 x 3000 quand l'octet vaut 5 ; +1 par petite medaille, 0 au stage suivant. Publie par pas de 4 (mask)" },
+    { id = "players.1.game.batsugun.medals_big", player = 1, kind = "counter", label = "Big medals", short = "MEDAL B",
+      from = { { address = 0X13E2, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 255, initial = 0, quality = "qualified",
+      proof = "le bilan du stage 1 affiche 8 x 5000 quand l'octet vaut 8 ; +1 par grande medaille, 0 au stage suivant. Publie par pas de 4 (mask)" },
   },
 
   instruments = {
