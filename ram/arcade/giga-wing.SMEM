@@ -5,10 +5,11 @@
 -- La valeur de la medaille est en BCD (le schema 1 ne decode pas le BCD) : table des valeurs de 0 a 995 par pas de 5.
 -- Au-dela, la valeur brute n'a pas de libelle.
 -- Version 2 : identifiants du vocabulaire standard, progression et vies.
+-- Version 3 : bombes, puissance du tir, jauge de reflexion.
 return {
   schema = 1,
   kind = "semantics",
-  version = 2,
+  version = 3,
   game = { system = "arcade", slug = "giga-wing", title = "Giga Wing" },
   mem = { file = "giga-wing.MEM" },
 
@@ -228,6 +229,18 @@ return {
       quality = "partial",
       proof = "+5 par medaille d'or ramassee (5, 10, 15... 40 en une rafale), 0 a la mort ; les +25, +20 affiches en jeu = cette valeur" },
 
+    { id = "players.1.bombs", player = 1, kind = "gauge", label = "Bombs", short = "BOMB",
+      from = { { address = 0X72E0, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 9, initial = 2, quality = "qualified",
+      proof = "bouton de bombe : 3 -> 2 ; posees a 6 et 1 : Bx6 et Bx1 a l'ecran ; cheat MAME, RA (5 et 6 bombes)" },
+    { id = "players.1.power.level", player = 1, kind = "gauge", label = "Shot power", short = "POW",
+      from = { { address = 0X730C, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 3, initial = 0, quality = "partial",
+      proof = "0 -> 1 -> 2 aux prises, posee 0 et 3 reprise par le jeu ; RA : 3 = pleine puissance" },
+    { id = "players.1.game.giga_wing.reflect", player = 1, kind = "gauge", label = "Reflect gauge", short = "REFLECT",
+      from = { { address = 0XAE74, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 4096, initial = 0, quality = "qualified",
+      proof = "tir tenu : 0 -> 1728 -> 4096 (charge), la barriere 0x9E70 s'active ; relache : 4096 -> 0 en ~256 images (recharge), 0 = prete ; cheat Quick Charge Shield pose 0. Publie par pas de 1024 (mask)" },
   },
 
   instruments = {
