@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m5-00",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m5-00-v1",
+  "order": 501,
+  "kind": "training",
+  "group": {
+    "fr": "Mission finale",
+    "en": "Final mission",
+    "es": "Misión final",
+    "ja": "ファイナルミッション",
+    "ko": "파이널 미션",
+    "zh": "最终任务"
+  },
+  "title": {
+    "fr": "Mission finale · Départ (vers le ciel)",
+    "en": "Final mission · Start (to the sky)",
+    "es": "Misión final · Salida (hacia el cielo)",
+    "ja": "ファイナルミッション・スタート（空へ）",
+    "ko": "파이널 미션 · 출발 (하늘로)",
+    "zh": "最终任务·起点（飞向天空）"
+  },
+  "summary": {
+    "fr": "Départ au début de la mission, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the mission, infinite lives; nothing is ranked or sent",
+    "es": "Salida al inicio de la misión, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "ミッションの最初からスタート、残機無限。ランキング・送信なし",
+    "ko": "미션 시작 지점에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从任务开头开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m5-00.state",
+    "name": "entrainement-m5-00-fbneo",
+    "sha256": "86c6a41cf72cda49551b248f89f1725d1019e57103ddb3ba21f1c39bb6896790"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x04"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x04"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x04"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

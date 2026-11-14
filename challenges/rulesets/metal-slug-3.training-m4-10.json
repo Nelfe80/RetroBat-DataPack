@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m4-10",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m4-10-v1",
+  "order": 417,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 4",
+    "en": "Mission 4",
+    "es": "Misión 4",
+    "ja": "ミッション4",
+    "ko": "미션 4",
+    "zh": "任务4"
+  },
+  "title": {
+    "fr": "Mission 4 · Sol Dae Rokker (par la montée)",
+    "en": "Mission 4 · Sol Dae Rokker (climbing up)",
+    "es": "Misión 4 · Sol Dae Rokker (por la subida)",
+    "ja": "ミッション4・Sol Dae Rokker（登ってくる）",
+    "ko": "미션 4 · Sol Dae Rokker (상승)",
+    "zh": "任务4·Sol Dae Rokker（攀升进入）"
+  },
+  "summary": {
+    "fr": "Départ juste avant le boss, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start right before the boss, infinite lives; nothing is ranked or sent",
+    "es": "Salida justo antes del jefe, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "ボス直前からスタート、残機無限。ランキング・送信なし",
+    "ko": "보스 직전에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从首领战前开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m4-10.state",
+    "name": "entrainement-m4-10-fbneo",
+    "sha256": "2975d0c339e81d1fcf64d0c1f589103821a121d6961260de1bbfed613049fd0c"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x03"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x03"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x03"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

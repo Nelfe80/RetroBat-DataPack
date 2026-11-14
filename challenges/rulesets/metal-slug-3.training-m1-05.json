@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m1-05",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m1-05-v1",
+  "order": 102,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 1",
+    "en": "Mission 1",
+    "es": "Misión 1",
+    "ja": "ミッション1",
+    "ko": "미션 1",
+    "zh": "任务1"
+  },
+  "title": {
+    "fr": "Mission 1 · Avant le bateau (point de debug)",
+    "en": "Mission 1 · Before the boat (debug checkpoint)",
+    "es": "Misión 1 · Antes del barco (punto de depuración)",
+    "ja": "ミッション1・船の手前（デバッグ地点）",
+    "ko": "미션 1 · 배 앞 (디버그 지점)",
+    "zh": "任务1·船前（调试点）"
+  },
+  "summary": {
+    "fr": "Départ à un point de reprise du menu de debug de l'équipe du jeu, vies infinies ; rien n'est classé",
+    "en": "Start at a checkpoint from the developers' debug menu, infinite lives; nothing is ranked or sent",
+    "es": "Salida en un punto del menú de depuración de los desarrolladores, vidas infinitas; nada se clasifica",
+    "ja": "開発チームのデバッグメニューの地点からスタート、残機無限。ランキングなし",
+    "ko": "개발팀 디버그 메뉴의 지점에서 출발, 목숨 무한. 순위 없음",
+    "zh": "从开发团队调试菜单的地点开始，无限生命；不计排名"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m1-05.state",
+    "name": "entrainement-m1-05-fbneo",
+    "sha256": "3b919b1a2d949eb35da4d6583ac06c9c4d25bd94e0f39c05340498abea7dad0c"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x00"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x00"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x00"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

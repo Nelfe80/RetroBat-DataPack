@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m2-01",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m2-01-v1",
+  "order": 207,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 2",
+    "en": "Mission 2",
+    "es": "Misión 2",
+    "ja": "ミッション2",
+    "ko": "미션 2",
+    "zh": "任务2"
+  },
+  "title": {
+    "fr": "Mission 2 · Vallée des morts (aire inutilisée)",
+    "en": "Mission 2 · Valley of the Dead (unused area)",
+    "es": "Misión 2 · Valle de los muertos (zona no usada)",
+    "ja": "ミッション2・死霊の渓谷（未使用エリア）",
+    "ko": "미션 2 · 사령의 계곡 (미사용 구역)",
+    "zh": "任务2·死灵溪谷（未使用区域）"
+  },
+  "summary": {
+    "fr": "L'aire que le jeu n'utilise jamais, retrouvée dans la ROM ; vies infinies, rien n'est classé",
+    "en": "The area the game never uses, found in the ROM; infinite lives, nothing is ranked",
+    "es": "La zona que el juego nunca usa, hallada en la ROM; vidas infinitas, nada se clasifica",
+    "ja": "ゲームで一度も使われないエリア（ROM内に残存）。残機無限、ランキングなし",
+    "ko": "게임에서 쓰이지 않는 구역(ROM 속에 남음). 목숨 무한, 순위 없음",
+    "zh": "游戏从未使用的区域（存于ROM中）；无限生命，不计排名"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m2-01.state",
+    "name": "entrainement-m2-01-fbneo",
+    "sha256": "b14a9acf0c6686e0ae2d012e084238e3fc90cc5884a5d4dd6e8d1a56d804fe11"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x01"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x01"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x01"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

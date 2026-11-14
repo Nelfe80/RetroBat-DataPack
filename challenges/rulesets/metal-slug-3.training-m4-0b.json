@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m4-0b",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m4-0b-v1",
+  "order": 410,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 4",
+    "en": "Mission 4",
+    "es": "Misión 4",
+    "ja": "ミッション4",
+    "ko": "미션 4",
+    "zh": "任务4"
+  },
+  "title": {
+    "fr": "Mission 4 · Le couloir des ruines",
+    "en": "Mission 4 · Ruins corridor",
+    "es": "Misión 4 · Pasillo de las ruinas",
+    "ja": "ミッション4・遺跡回廊",
+    "ko": "미션 4 · 유적 회랑",
+    "zh": "任务4·遗迹回廊"
+  },
+  "summary": {
+    "fr": "Départ au début de la zone, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the area, infinite lives; nothing is ranked or sent",
+    "es": "Salida al inicio de la zona, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "エリアの最初からスタート、残機無限。ランキング・送信なし",
+    "ko": "구역 시작 지점에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从区域开头开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m4-0b.state",
+    "name": "entrainement-m4-0b-fbneo",
+    "sha256": "d9b9e3967041a73f508745130461605db407a62d9072dfd67b46f1d725cf640a"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x03"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x03"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x03"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

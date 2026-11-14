@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m2-00",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m2-00-v1",
+  "order": 201,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 2",
+    "en": "Mission 2",
+    "es": "Misión 2",
+    "ja": "ミッション2",
+    "ko": "미션 2",
+    "zh": "任务2"
+  },
+  "title": {
+    "fr": "Mission 2 · Départ",
+    "en": "Mission 2 · Start",
+    "es": "Misión 2 · Salida",
+    "ja": "ミッション2・スタート",
+    "ko": "미션 2 · 출발",
+    "zh": "任务2·起点"
+  },
+  "summary": {
+    "fr": "Départ au début de la mission, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the mission, infinite lives; nothing is ranked or sent",
+    "es": "Salida al inicio de la misión, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "ミッションの最初からスタート、残機無限。ランキング・送信なし",
+    "ko": "미션 시작 지점에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从任务开头开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m2-00.state",
+    "name": "entrainement-m2-00-fbneo",
+    "sha256": "5b8166739ec53eae0b757fb2c7781de2c36b584c6e75e22afbb06936655b51db"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x01"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x01"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x01"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m5-09",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m5-09-v1",
+  "order": 510,
+  "kind": "training",
+  "group": {
+    "fr": "Mission finale",
+    "en": "Final mission",
+    "es": "Misión final",
+    "ja": "ファイナルミッション",
+    "ko": "파이널 미션",
+    "zh": "最终任务"
+  },
+  "title": {
+    "fr": "Mission finale · Fake Rootmars",
+    "en": "Final mission · Fake Rootmars",
+    "es": "Misión final · Fake Rootmars",
+    "ja": "ファイナルミッション・Fake Rootmars",
+    "ko": "파이널 미션 · Fake Rootmars",
+    "zh": "最终任务·Fake Rootmars"
+  },
+  "summary": {
+    "fr": "Départ juste avant le boss, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start right before the boss, infinite lives; nothing is ranked or sent",
+    "es": "Salida justo antes del jefe, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "ボス直前からスタート、残機無限。ランキング・送信なし",
+    "ko": "보스 직전에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从首领战前开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m5-09.state",
+    "name": "entrainement-m5-09-fbneo",
+    "sha256": "a66e4a745e7d015c66c1646c096bfe782e967d2da4445d283e92cc5db461c06f"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x04"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x04"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x04"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}

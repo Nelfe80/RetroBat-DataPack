@@ -1,0 +1,109 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m5-0a",
+  "version": 1,
+  "ruleset": "ch-ms3-tr-m5-0a-v1",
+  "order": 511,
+  "kind": "training",
+  "group": {
+    "fr": "Mission finale",
+    "en": "Final mission",
+    "es": "Misión final",
+    "ja": "ファイナルミッション",
+    "ko": "파이널 미션",
+    "zh": "最终任务"
+  },
+  "title": {
+    "fr": "Mission finale · Le secteur biologique",
+    "en": "Final mission · Bio sector",
+    "es": "Misión final · Sector biológico",
+    "ja": "ファイナルミッション・バイオ区画",
+    "ko": "파이널 미션 · 바이오 구획",
+    "zh": "最终任务·生物区"
+  },
+  "summary": {
+    "fr": "Départ au début de la zone, vies infinies ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the area, infinite lives; nothing is ranked or sent",
+    "es": "Salida al inicio de la zona, vidas infinitas; nada se clasifica ni se envía",
+    "ja": "エリアの最初からスタート、残機無限。ランキング・送信なし",
+    "ko": "구역 시작 지점에서 출발, 목숨 무한. 순위 없음, 전송 없음",
+    "zh": "从区域开头开始，无限生命；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m5-0a.state",
+    "name": "entrainement-m5-0a-fbneo",
+    "sha256": "ad5174aac0f97f7d85399cbdc8185646ff838442406b67c7dd8fc587067600dd"
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x04"
+      }
+    }
+  ],
+  "locks": [
+    {
+      "address": "0x1002BB",
+      "from": "attempt_start",
+      "player": 1,
+      "reason": "advantage",
+      "type": "u8",
+      "value": "0x02"
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x04"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x04"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  }
+}
