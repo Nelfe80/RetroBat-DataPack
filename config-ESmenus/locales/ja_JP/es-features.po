@@ -2624,3 +2624,19 @@ msgstr "クイズゲームを表示したままにするかを設定します。
 msgctxt "game_options"
 msgid "Controls whether BIOS, devices, samples and non-game entries remain visible."
 msgstr "BIOS、デバイス、サンプル、ゲーム以外の項目を表示したままにするかを設定します。"
+
+msgctxt "game_options"
+msgid "WORLD SCORING NOTIFICATIONS"
+msgstr "WORLD SCORING の通知"
+
+msgctxt "game_options"
+msgid "What RetroArch shows on screen during a NelfePlay World Scoring game. AUTO or RETROACHIEVEMENTS ONLY (default): if you use RetroAchievements, achievement unlocks, challenge indicators and progress stay visible, every other RetroArch message is hidden. HIDE EVERYTHING: no RetroArch message at all, achievements and the recording message included. NelfePlay messages always stay visible. Without RetroAchievements, everything is already hidden."
+msgstr "NelfePlay World Scoring のプレイ中に RetroArch が画面に表示する内容です。AUTO または RETROACHIEVEMENTS の実績のみ（既定）：RetroAchievements を使用している場合、実績の解除、チャレンジの表示、進行状況は表示されたままになり、RetroArch のその他のメッセージはすべて非表示になります。すべて非表示：実績や録画のメッセージを含め、RetroArch のメッセージを一切表示しません。NelfePlay のメッセージは常に表示されます。RetroAchievements を使用していない場合は、すでにすべて非表示です。"
+
+msgctxt "game_options"
+msgid "RETROACHIEVEMENTS ONLY"
+msgstr "RETROACHIEVEMENTS の実績のみ"
+
+msgctxt "game_options"
+msgid "HIDE EVERYTHING"
+msgstr "すべて非表示"
