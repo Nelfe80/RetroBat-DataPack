@@ -22,12 +22,12 @@
     "zh": "任务2·从雪洞返回"
   },
   "summary": {
-    "fr": "Départ au début de la zone, vies infinies ; rien n'est classé ni envoyé",
-    "en": "Start at the beginning of the area, infinite lives; nothing is ranked or sent",
-    "es": "Salida al inicio de la zona, vidas infinitas; nada se clasifica ni se envía",
-    "ja": "エリアの最初からスタート、残機無限。ランキング・送信なし",
-    "ko": "구역 시작 지점에서 출발, 목숨 무한. 순위 없음, 전송 없음",
-    "zh": "从区域开头开始，无限生命；不计排名，不上传"
+    "fr": "Départ au début de la zone, partie normale ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the area, normal game; nothing is ranked or sent",
+    "es": "Salida al inicio de la zona, partida normal; nada se clasifica ni se envía",
+    "ja": "エリアの最初からスタート、通常プレイ。ランキング・送信なし",
+    "ko": "구역 시작 지점에서 출발, 일반 플레이. 순위 없음, 전송 없음",
+    "zh": "从区域开头开始，正常游戏；不计排名，不上传"
   },
   "game": {
     "rom_group": "metal-slug-3",
@@ -54,16 +54,6 @@
       }
     }
   ],
-  "locks": [
-    {
-      "address": "0x1002BB",
-      "from": "attempt_start",
-      "player": 1,
-      "reason": "advantage",
-      "type": "u8",
-      "value": "0x02"
-    }
-  ],
   "timing": {
     "official": "independent",
     "independent": {
@@ -86,7 +76,8 @@
         "event": {
           "action": "PROGRESSION_STAGE",
           "address": "0x10040C",
-          "leaves": "0x01"
+          "leaves": "0x01",
+          "value": "0x02"
         }
       }
     }

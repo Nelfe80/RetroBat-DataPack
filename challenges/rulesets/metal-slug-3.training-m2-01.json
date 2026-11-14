@@ -14,20 +14,20 @@
     "zh": "任务2"
   },
   "title": {
-    "fr": "Mission 2 · Vallée des morts (aire inutilisée)",
-    "en": "Mission 2 · Valley of the Dead (unused area)",
-    "es": "Misión 2 · Valle de los muertos (zona no usada)",
-    "ja": "ミッション2・死霊の渓谷（未使用エリア）",
-    "ko": "미션 2 · 사령의 계곡 (미사용 구역)",
-    "zh": "任务2·死灵溪谷（未使用区域）"
+    "fr": "Mission 2 · Vallée des morts (secret)",
+    "en": "Mission 2 · Valley of the Dead (secret)",
+    "es": "Misión 2 · Valle de los muertos (secreto)",
+    "ja": "ミッション2・死霊の渓谷（シークレット）",
+    "ko": "미션 2 · 사령의 계곡 (시크릿)",
+    "zh": "任务2·死灵溪谷（秘密）"
   },
   "summary": {
-    "fr": "L'aire que le jeu n'utilise jamais, retrouvée dans la ROM ; vies infinies, rien n'est classé",
-    "en": "The area the game never uses, found in the ROM; infinite lives, nothing is ranked",
-    "es": "La zona que el juego nunca usa, hallada en la ROM; vidas infinitas, nada se clasifica",
-    "ja": "ゲームで一度も使われないエリア（ROM内に残存）。残機無限、ランキングなし",
-    "ko": "게임에서 쓰이지 않는 구역(ROM 속에 남음). 목숨 무한, 순위 없음",
-    "zh": "游戏从未使用的区域（存于ROM中）；无限生命，不计排名"
+    "fr": "L'aire secrète que le jeu n'utilise jamais, retrouvée dans la ROM ; partie normale, rien n'est classé",
+    "en": "The secret area the game never uses, found in the ROM; normal game, nothing is ranked",
+    "es": "La zona secreta que el juego nunca usa, hallada en la ROM; partida normal, nada se clasifica",
+    "ja": "ゲームで一度も使われない秘密のエリア（ROM内に残存）。通常プレイ、ランキングなし",
+    "ko": "게임에서 쓰이지 않는 비밀 구역(ROM 속에 남음). 일반 플레이, 순위 없음",
+    "zh": "游戏从未使用的秘密区域（存于ROM中）；正常游戏，不计排名"
   },
   "game": {
     "rom_group": "metal-slug-3",
@@ -54,16 +54,6 @@
       }
     }
   ],
-  "locks": [
-    {
-      "address": "0x1002BB",
-      "from": "attempt_start",
-      "player": 1,
-      "reason": "advantage",
-      "type": "u8",
-      "value": "0x02"
-    }
-  ],
   "timing": {
     "official": "independent",
     "independent": {
@@ -86,7 +76,8 @@
         "event": {
           "action": "PROGRESSION_STAGE",
           "address": "0x10040C",
-          "leaves": "0x01"
+          "leaves": "0x01",
+          "value": "0x02"
         }
       }
     }
