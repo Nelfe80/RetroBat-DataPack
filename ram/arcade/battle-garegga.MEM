@@ -1,3 +1,11 @@
+-- 2026-11-15 : LES MODES A CODE en GAME_MODE (un classement par mode, comme Bubble Bobble et Dangun Feveron) et STAGE
+-- EDIT refuse. Banc du 15/11 (libretro FBNeo sans fenetre, copie du coeur 800f25e9, reglages d'usine du profil, codes tapes
+-- apres la piece) : 0xA6B1 (68000 0x10A6B0, cheat MAME "Select Game Mode") est ecrit au START : 0 sans bouton, 2 B tenu
+-- (HARDER, rang de depart 0x96), 4 A tenu (EXTENDED), 6 A+B tenus (SPECIAL, rang de depart 0x96) ; le jeu affiche le nom
+-- du mode en haut de l'ecran. Il garde sa valeur jusqu'apres le game over (attract : 0x18 a 0x20), puis le START suivant
+-- le reecrit. Stage Edit (C tenu au START, ecran EDIT STAGE, MEME AVEC LE DIP "Stage edit" a Disable) : 0x9CBF passe a
+-- 0xFF des que le joueur repond YES (edition dans l'ordre d'origine, dans un autre ordre, ou QUIT qui saute les stages
+-- 2 a 4), reste a 0 avec NO et dans toutes les autres parties, retombe a 0 au START suivant.
 -- 2026-11-08 (Deck) : RANG cache de Garegga, offsets du bloc
 -- FBNeo (mots 68000 en u16le). Rang = long 68000 en 0xC9D2 (0xF00000 au depart = facile, plancher 0x200000 en reglage
 -- Normal ; la valeur BAISSE quand la difficulte monte). Seul le mot fort est surveille (rang >> 16, 0xF0 a 0x20) : le
@@ -26,6 +34,19 @@ return {
   },
 
   events = {
+    game_mode = {
+      -- Chaque profil de mode dit la valeur qu'il couvre (mode.flags) : 1CC/1LC 0, HARDER 2, EXTENDED 4, SPECIAL 6.
+      mode = {
+        { address=0XA6B1, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Normal game (no button held at Start)" },
+        { address=0XA6B1, type="u8", condition="eq", value=0X02, action="GAME_MODE", desc="Harder (B held at Start)" },
+        { address=0XA6B1, type="u8", condition="eq", value=0X04, action="GAME_MODE", desc="Extended, two loops (A held at Start)" },
+        { address=0XA6B1, type="u8", condition="eq", value=0X06, action="GAME_MODE", desc="Special, two loops, harder (A+B held at Start)" },
+      },
+      -- Stage Edit : la partie porte cheats = true, le site la refuse (rules.cheats = forbidden).
+      stage_edit = {
+        { address=0X9CBF, type="u8", condition="eq", value=0XFF, action="LEVEL_CHEAT_ACTIVATED", desc="Stage Edit used: YES on the EDIT STAGE screen (C held at Start)" },
+      },
+    },
     flow = {
       lifecycle = {
         { address=0X0038, type="u8", condition="change", action="CONTINUE_SCREEN", desc="Stage edit, continues, and regional dip switches" },
