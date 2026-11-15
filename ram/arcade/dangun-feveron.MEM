@@ -1,3 +1,8 @@
+-- 2026-11-15 : LES MODES CACHES en GAME_MODE (comme Bubble Bobble, un drapeau par mode, une ligne eq par valeur) :
+-- Uotaro (personnage cache, code de l ecran titre) 0x4037 : 0xFF du START jusqu au game over, morts comprises, 0
+-- en partie normale (rejeu hors ecran de 3 replays publics, dont une partie Uotaro) ; le drapeau de deblocage du cheat
+-- MAME (0x104082) retombe a 0 au START, inutilisable. Time Attack (A+B+Start) 0x5104 : cheat MAME maincpu.pb@105105
+-- ramene au .MEM (offset XOR 1, comme les vies 0x1052C5 -> 0x52C4) ; 0 dans les 3 replays normaux, a prouver en jeu.
 -- 2026-11-11 : score = somme des scores des 5 stages (le jeu garde un score par stage, deux mots BCD chacun a partir de
 -- 0x3FAE, et ne verse le total qu a la fin du stage) ; credits 0x1730 (+1 par piece, -1 au START) ; vies 0x52C4 (3 au
 -- depart) ; stage 0x52D8 (0 a 4) ; bombes 0x5A3A. Mesures sous FBNeo (dfeveron).
@@ -21,6 +26,15 @@ return {
   },
 
   events = {
+    game_mode = {
+      -- Chaque profil de mode dit les drapeaux qu il couvre (mode.flags) : 1CC/1LC (aucun), UOTARO, TIME ATTACK.
+      mode = {
+        { address=0X4037, type="u8", condition="eq", value=0XFF, action="GAME_MODE", desc="Uotaro, hidden character (title screen code)" },
+        { address=0X4037, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Regular ship (no Uotaro)" },
+        { address=0X5104, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Time Attack (A+B+Start)" },
+        { address=0X5104, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Normal game" },
+      },
+    },
     resources = {
       credits = {
         { address=0X1730, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
