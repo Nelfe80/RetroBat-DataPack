@@ -10,10 +10,13 @@
 -- 2026-11-10 (Player Deck) : hyper (jauge 0x1B642 par pas de 256, stock 0x1B654, en cours 0x1B63E), bombes 0x10407 et
 -- capacite 0x10406, barre de vie du boss 0xA6F8 (pixels, par pas de 8 en baisse et de 32 en hausse) et son etat 0xA6FA.
 -- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
+-- 2026-11-15 (decision du user) : la revision ddpdojblk (ddb10_10_8_434f.u45, la plus recente) n est plus nommee : ses adresses
+-- ne sont pas prouvees et le site la refuse (aucune EEPROM d usine epinglee pour elle). Seule ddpdojblka (avec ddp3.zip, son
+-- parent FBNeo) est la ROM du classement. Titre : DoDonPachi DaiOuJou Black Label.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
-    title = "DoDonPachi DaiOuJou",
+    title = "DoDonPachi DaiOuJou Black Label",
     system = "arcade",
     system_name = "Arcade",
     genre = "Unknown"
@@ -22,7 +25,6 @@ return {
   rom = {
     name = "dodonpachi-daioujou",
     hashes = {
-      { hash = "cb51e43b1419c34134892a788dca7e72", label = "ddpdojblk.7z <DoDonPachi Dai-Ou-Jou Black Label (Japan, 2002.10.07.Black Ver, newer)>" },
       { hash = "dd65cecc2d83132cb7ccb764e6b384f8", label = "ddpdojblka.zip <DoDonPachi Dai-Ou-Jou Black Label (FBNeo ddpdojblka, older revision, ddb_1dot.u45)>" },
     }
   },
