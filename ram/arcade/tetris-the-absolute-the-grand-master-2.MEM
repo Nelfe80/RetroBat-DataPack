@@ -1,3 +1,11 @@
+-- 2026-11-15 : CODES DE L'ECRAN TITRE REFUSES (LEVEL_CHEAT_ACTIVATED : cheats = true, le site refuse). Banc du 15/11
+-- (libretro FBNeo sans fenetre, copie du coeur 800f25e9, reglages d'usine, codes tapes sur l'ecran titre apres la piece) :
+-- 20G (Bas x8, C, B, A) leve le bit 0x20 de 0x94DA6 (0x21 Normal, 0x22 Master), BIG (Gauche x4, Bas, C, B, A) le bit
+-- 0x40 (0x41, 0x42 ; 0x94DF5 = 2) ; TLS (A B C C B A A C B) met 0x94DA7 a 4 ; ITEM (B+C tenus, Start pendant READY en
+-- Master) met 0x94DA7 a 2. Le titre affiche 20G MODE, BIG BLOCK MODE, T.L.S MODE. Sans code, 0x94DA6 ne porte que 1, 2,
+-- 0x0A, 4 ou 0x12 (roll) et 0x94DA7 reste a 0 (8 min d attract, une partie Normal et une Master du banc ; 0xF6 et
+-- 0xF5 au test de RAM du demarrage). Les lignes GAME_MODE eq 1 / eq 2 ne voyaient
+-- pas ces valeurs : une partie a code passait en Normal ou en Master.
 -- 2026-11-08 (Deck) : GRADE INTERNE (0xA951B), points de
 -- grade (0xA951A, hausse aux lignes, baisse a la decroissance), grade affiche (0x94E20), roll de Master (0x94DA6 = 0x12),
 -- duree de chaque section (0xA9534 + 4k). Offsets du bloc FBNeo, comme les autres lignes.
@@ -36,6 +44,18 @@ return {
         { address=0X94DA6, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Mode select: Normal" },
         { address=0X94DA6, type="u8", condition="eq", value=0X02, action="GAME_MODE", desc="Mode select: Master" },
         { address=0X94DA6, type="u8", condition="eq", value=0X12, action="OBJECT_INTERACTION", desc="Master credit roll running (mode byte = 0x02 Master + 0x10 roll); back to 0x02 when the roll ends" },
+      },
+      -- Codes de l'ecran titre et mode ITEM : la partie porte cheats = true, le site la refuse.
+      title_codes = {
+        { address=0X94DA6, type="u8", condition="eq", value=0X21, action="LEVEL_CHEAT_ACTIVATED", desc="20G code (title screen), Normal" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X22, action="LEVEL_CHEAT_ACTIVATED", desc="20G code (title screen), Master" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X41, action="LEVEL_CHEAT_ACTIVATED", desc="BIG code (title screen), Normal" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X42, action="LEVEL_CHEAT_ACTIVATED", desc="BIG code (title screen), Master" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X61, action="LEVEL_CHEAT_ACTIVATED", desc="20G and BIG codes, Normal" },
+        { address=0X94DA6, type="u8", condition="eq", value=0X62, action="LEVEL_CHEAT_ACTIVATED", desc="20G and BIG codes, Master" },
+        { address=0X94DA7, type="u8", condition="eq", value=0X02, action="LEVEL_CHEAT_ACTIVATED", desc="ITEM mode (B+C held, Start during READY)" },
+        { address=0X94DA7, type="u8", condition="eq", value=0X04, action="LEVEL_CHEAT_ACTIVATED", desc="TLS code (title screen)" },
+        { address=0X94DA7, type="u8", condition="eq", value=0X06, action="LEVEL_CHEAT_ACTIVATED", desc="TLS code and ITEM mode" },
       },
     },
     progression = {
