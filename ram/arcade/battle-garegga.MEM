@@ -1,3 +1,10 @@
+-- 2026-11-16 : VAISSEAU ET TYPE affiches sur chaque score (decision du user du 16/11, pas de classement a part).
+-- Banc du 16/11 (meme frontal sans fenetre, coeur 800f25e9, reglages d'usine) : 0x15AA = 16 x vaisseau + 4 x type,
+-- ecrit au choix du vaisseau, constant toute la partie, 0 au game over. Type : A 0, B +4, C +8, A+B+C ou compte a
+-- rebours fini +12. Vaisseaux : 0x00 Silver Sword, 0x10 Grasshopper, 0x20 Flying Baron, 0x30 Wild Snail ; caches (code
+-- Haut Haut Bas Bas Gauche Droite Gauche Droite A B C a l'ecran titre apres la piece, puis Haut a la selection) :
+-- 0x40 Gain, 0x50 Chitta, 0x60 Miyamoto, 0x70 Bornnam. Ligne GAME_DIFFICULTY ajoutee sur 0x15AA (libre et affichee :
+-- les profils nomment le vaisseau et le type) ; la ligne OBJECT_INTERACTION reste pour le Deck et le .SMEM.
 -- 2026-11-15 : LES MODES A CODE en GAME_MODE (un classement par mode, comme Bubble Bobble et Dangun Feveron) et STAGE
 -- EDIT refuse. Banc du 15/11 (libretro FBNeo sans fenetre, copie du coeur 800f25e9, reglages d'usine du profil, codes tapes
 -- apres la piece) : 0xA6B1 (68000 0x10A6B0, cheat MAME "Select Game Mode") est ecrit au START : 0 sans bouton, 2 B tenu
@@ -103,7 +110,8 @@ return {
         { address=0X6ABA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Registry number - Object 80 (0x006a4b-0x006ac7)" },
         { address=0XC9D2, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank (hidden dynamic difficulty), high word of the 32-bit rank: 0xF0 at start (easiest), down to 0x20 (hardest, Normal dip); lower = harder" },
         { address=0XC9D8, type="u16le", condition="change", action="OBJECT_INTERACTION", desc="Rank added every frame (22 to 110), set by the fastest autofire used in the credit; never goes down" },
-        { address=0X15AA, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 ship type x16 (0x00, 0x10, 0x20, 0x30 for the four ships of the select screen)" },
+        { address=0X15AA, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 ship and power type (16 x ship + 4 x type; ships 0x00 to 0x30 on the select screen, 0x40 to 0x70 hidden; type A 0, B 4, C 8, A+B+C 12)" },
+        { address=0X15AA, type="u8", condition="change", action="GAME_DIFFICULTY", desc="Ship and power type chosen at the select screen (16 x ship + 4 x type), shown with the score" },
         { address=0X9CB9, type="u8", condition="change", mask=0XFC, action="OBJECT_INTERACTION", player=1, desc="P1 medal chain (2 x step of the next medal value: 100 to 900, then 1000 to 10000 ; 0 when a medal is lost), every 2 medals (mask)" },
       },
     },
