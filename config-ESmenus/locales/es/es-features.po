@@ -2648,3 +2648,11 @@ msgstr "DESTELLO DE RÉCORD"
 msgctxt "game_options"
 msgid "When ON, RetroArch flashes the screen once, quickly, at the moment your score beats the game's world record during a NelfePlay World Scoring game (the record screenshot is taken then). Every other RetroArch message stays hidden. OFF (default): no flash. HIDE EVERYTHING in WORLD SCORING NOTIFICATIONS also hides it. With the PlayerDeck, a NEW RECORD plate shows either way."
 msgstr "Si está activado, RetroArch hace un destello rápido de la pantalla, una sola vez, cuando tu puntuación supera el récord mundial del juego durante una partida NelfePlay World Scoring (la captura del récord se toma en ese momento). Los demás mensajes de RetroArch siguen ocultos. Desactivado (por defecto): sin destello. OCULTAR TODO en NOTIFICACIONES DE WORLD SCORING también lo oculta. Con el PlayerDeck, se muestra una placa NEW RECORD en todos los casos."
+
+msgctxt "game_options"
+msgid "PLAYERDECK IN MY LIVE"
+msgstr "PLAYERDECK EN MI DIRECTO"
+
+msgctxt "game_options"
+msgid "When ON (default), a challenge you broadcast live shows your PlayerDeck around the game in the live, when that game has a Deck and the live program is up to date (0.7.3 or later). When OFF, the live shows the game alone, as before."
+msgstr "Si está activado (por defecto), un desafío que emites en directo muestra tu PlayerDeck alrededor del juego, cuando ese juego tiene un Deck y el programa del directo está al día (0.7.3 o posterior). Si está desactivado, el directo muestra solo el juego, como antes."

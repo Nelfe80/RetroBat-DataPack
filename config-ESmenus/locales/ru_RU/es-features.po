@@ -2648,3 +2648,11 @@ msgstr "ВСПЫШКА РЕКОРДА"
 msgctxt "game_options"
 msgid "When ON, RetroArch flashes the screen once, quickly, at the moment your score beats the game's world record during a NelfePlay World Scoring game (the record screenshot is taken then). Every other RetroArch message stays hidden. OFF (default): no flash. HIDE EVERYTHING in WORLD SCORING NOTIFICATIONS also hides it. With the PlayerDeck, a NEW RECORD plate shows either way."
 msgstr "Если включено, RetroArch один раз быстро вспыхивает экраном в момент, когда ваш счёт бьёт мировой рекорд игры во время партии NelfePlay World Scoring (снимок рекорда делается в этот момент). Все остальные сообщения RetroArch остаются скрытыми. Выключено (по умолчанию): без вспышки. СКРЫТЬ ВСЁ в УВЕДОМЛЕНИЯХ WORLD SCORING скрывает и её. С PlayerDeck табличка NEW RECORD появляется в любом случае."
+
+msgctxt "game_options"
+msgid "PLAYERDECK IN MY LIVE"
+msgstr "PLAYERDECK В МОЁМ ПРЯМОМ ЭФИРЕ"
+
+msgctxt "game_options"
+msgid "When ON (default), a challenge you broadcast live shows your PlayerDeck around the game in the live, when that game has a Deck and the live program is up to date (0.7.3 or later). When OFF, the live shows the game alone, as before."
+msgstr "Если включено (по умолчанию), испытание, которое вы транслируете в прямом эфире, показывает ваш PlayerDeck вокруг игры, когда у этой игры есть Deck, а программа эфира обновлена (0.7.3 или новее). Если выключено, в эфире показывается только игра, как раньше."

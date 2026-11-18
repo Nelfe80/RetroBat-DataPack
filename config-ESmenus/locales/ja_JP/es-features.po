@@ -2648,3 +2648,11 @@ msgstr "記録更新フラッシュ"
 msgctxt "game_options"
 msgid "When ON, RetroArch flashes the screen once, quickly, at the moment your score beats the game's world record during a NelfePlay World Scoring game (the record screenshot is taken then). Every other RetroArch message stays hidden. OFF (default): no flash. HIDE EVERYTHING in WORLD SCORING NOTIFICATIONS also hides it. With the PlayerDeck, a NEW RECORD plate shows either way."
 msgstr "オンにすると、NelfePlay World Scoring のプレイ中にスコアがゲームの世界記録を超えた瞬間、RetroArch が画面を一度だけ素早くフラッシュします（記録のスクリーンショットはその瞬間に撮影されます）。その他の RetroArch のメッセージは非表示のままです。オフ（既定）：フラッシュなし。WORLD SCORING の通知で「すべて非表示」を選ぶとこれも非表示になります。PlayerDeck を使用している場合は、いずれにしても NEW RECORD のプレートが表示されます。"
+
+msgctxt "game_options"
+msgid "PLAYERDECK IN MY LIVE"
+msgstr "ライブに PLAYERDECK を表示"
+
+msgctxt "game_options"
+msgid "When ON (default), a challenge you broadcast live shows your PlayerDeck around the game in the live, when that game has a Deck and the live program is up to date (0.7.3 or later). When OFF, the live shows the game alone, as before."
+msgstr "オン（既定）にすると、ライブ配信するチャレンジで、そのゲームに Deck があり、ライブ配信プログラムが最新（0.7.3 以降）の場合、ゲームの周りにあなたの PlayerDeck が表示されます。オフにすると、これまでどおりゲームのみが表示されます。"
