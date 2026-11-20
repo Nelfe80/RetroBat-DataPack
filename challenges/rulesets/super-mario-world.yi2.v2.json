@@ -1,0 +1,100 @@
+{
+  "challenge_id": "super-mario-world.yi2",
+  "cores": [
+    "snes9x"
+  ],
+  "fail": [
+    {
+      "event": {
+        "action": "LOSE_LIFE",
+        "address": "0x0071",
+        "value": "0x09"
+      }
+    }
+  ],
+  "game": {
+    "rom_group": "super-mario-world",
+    "system_id": "snes"
+  },
+  "kind": "speedrun_level",
+  "mem_sha256": "b1059ab8a3fd107b73b18e525a49c53e33a7494cdf071afea61fa42912a294cc",
+  "order": 2,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-smw-yi2-v1"
+    ]
+  },
+  "ruleset": "ch-smw-yi2-v2",
+  "runtime": {
+    "frame_rate": 60.098812
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [
+    {
+      "value": {
+        "address": "0x13BF",
+        "equals": "0x2A"
+      }
+    }
+  ],
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "snes/super-mario-world/yi2-entree.state",
+    "name": "yi2-entree-snes9x",
+    "sha256": "032276ae8dee96b548a284d523e499d00c1fe90046caa85e97cf13c64b4d0dfc"
+  },
+  "summary": {
+    "en": "From the level fade-in to the goal tape, without dying, starting as small Mario",
+    "fr": "De l'ouverture du niveau au ruban d'arrivée, sans mourir, Mario petit au départ"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "LEVEL_CLEAR",
+          "address": "0x1493",
+          "value": "0xFF"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "GAME_PLAYING",
+          "address": "0x0100",
+          "value": "0x14"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x13BF",
+              "equals": "0x2A"
+            }
+          }
+        ]
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Yoshi's Island 2",
+    "fr": "Yoshi's Island 2"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap",
+    {
+      "event": {
+        "action": "PAUSE_ON",
+        "address": "0x13D4",
+        "value": "0x01"
+      }
+    }
+  ]
+}

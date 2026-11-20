@@ -1,0 +1,100 @@
+{
+  "challenge_id": "super-mario-world.dp3",
+  "cores": [
+    "snes9x"
+  ],
+  "fail": [
+    {
+      "event": {
+        "action": "LOSE_LIFE",
+        "address": "0x0071",
+        "value": "0x09"
+      }
+    }
+  ],
+  "game": {
+    "rom_group": "super-mario-world",
+    "system_id": "snes"
+  },
+  "kind": "speedrun_level",
+  "mem_sha256": "b1059ab8a3fd107b73b18e525a49c53e33a7494cdf071afea61fa42912a294cc",
+  "order": 6,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-smw-dp3-v1"
+    ]
+  },
+  "ruleset": "ch-smw-dp3-v2",
+  "runtime": {
+    "frame_rate": 60.098812
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [
+    {
+      "value": {
+        "address": "0x13BF",
+        "equals": "0x05"
+      }
+    }
+  ],
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "snes/super-mario-world/dp3-entree.state",
+    "name": "dp3-entree-snes9x",
+    "sha256": "008df6b7fb9008be36b631f9a72b019605f61d6c0008465aaa0c37b04a3bf4d5"
+  },
+  "summary": {
+    "en": "From the level fade-in to the goal tape, without dying, starting as small Mario",
+    "fr": "De l'ouverture du niveau au ruban d'arrivée, sans mourir, Mario petit au départ"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "LEVEL_CLEAR",
+          "address": "0x1493",
+          "value": "0xFF"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "GAME_PLAYING",
+          "address": "0x0100",
+          "value": "0x14"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x13BF",
+              "equals": "0x05"
+            }
+          }
+        ]
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Donut Plains 3",
+    "fr": "Donut Plains 3"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap",
+    {
+      "event": {
+        "action": "PAUSE_ON",
+        "address": "0x13D4",
+        "value": "0x01"
+      }
+    }
+  ]
+}
