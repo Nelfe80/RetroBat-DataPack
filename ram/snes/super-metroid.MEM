@@ -1,4 +1,5 @@
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
+-- 2026-11-20 : added missile, super missile, power bomb, item, beam and play-time lines and the door pointer 0x078D ; removed the pose mirrors 0x0A11 and 0x0A60 (not scores) and the per-frame timers 0x1840, 0x18EE and 0x1FFA.
 return {
   game = {
     title = "Super Metroid",
@@ -50,6 +51,24 @@ return {
       },
     },
     inventory = {
+      clock = {
+        { address=0X09DC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="second", desc="In-game play time: seconds (0-59); frames at 0x09DA, minutes 0x09DE, hours 0x09E0" },
+        { address=0X09DE, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="minute", desc="In-game play time: minutes (0-59)" },
+        { address=0X09E0, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="elapsed", timer_unit="unknown", desc="In-game play time: hours" },
+      },
+      ammo = {
+        { address=0X09C6, type="u8", condition="change", action="AMMO_STATE", desc="Missiles: current (low byte, max 230)" },
+        { address=0X09C8, type="u8", condition="change", action="AMMO_STATE", desc="Missiles: maximum (low byte, 5 per tank)" },
+        { address=0X09CA, type="u8", condition="change", action="AMMO_STATE", desc="Super Missiles: current" },
+        { address=0X09CC, type="u8", condition="change", action="AMMO_STATE", desc="Super Missiles: maximum (5 per tank)" },
+        { address=0X09CE, type="u8", condition="change", action="AMMO_STATE", desc="Power Bombs: current" },
+        { address=0X09D0, type="u8", condition="change", action="AMMO_STATE", desc="Power Bombs: maximum (5 per tank)" },
+      },
+      items = {
+        { address=0X09A4, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Collected items, low byte: bit0 Varia, bit1 Spring Ball, bit2 Morph Ball, bit3 Screw Attack, bit5 Gravity" },
+        { address=0X09A8, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Collected beams, low byte: bit0 Wave, bit1 Ice, bit2 Spazer, bit3 Plasma" },
+        { address=0X09A9, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Collected beams, high byte: bit4 Charge" },
+      },
       weapon = {
         { address=0X09D2, type="u8", condition="change", action="WEAPON_STATE", desc="Currently Selected Weapon from the top bar, in order, 0x00 : Nothing, 0x01 : Missiles, 0x02 : Su" },
         { address=0X0CCE, type="u8", condition="change", action="WEAPON_STATE", desc="Amount of current weapon shots still active" },
@@ -57,8 +76,6 @@ return {
     },
     scoring = {
       collectibles = {
-        { address=0X0A11, type="u16le", condition="increase", action="COIN_GAIN", desc="Movement Type - 0:stand,1:run,2:jump,3:spin jump,4:ball,5:crouch,6:fall, 8:ball fall, a:Help by" },
-        { address=0X0A60, type="u8", condition="increase", action="COIN_GAIN", desc="Unknown - 0x0e during Crystal Flash, Bomb Jumps and Power Bomb increased" },
       },
     },
     combat = {
@@ -84,8 +101,8 @@ return {
     world_interaction = {
       objects = {
         { address=0X07A5, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Current room's height in blocks" },
+        { address=0X078D, type="u16le", condition="change", action="DOOR_OPENED", desc="Current door pointer (changes once per door crossed; was 0x1FFA, which toggles 0x82/0xE2 every 3 frames during the door scroll)" },
         { address=0X07B5, type="u16le", condition="change", action="DOOR_OPENED", desc="16bit Room ID?!?!? edit, leave door, check map!" },
-        { address=0X1FFA, type="u8", condition="eq", value=0XE2, action="DOOR_OPENED", desc="Door Transitions, 0x71 appears when going DOWN an elevator, 0x11 : Cutscene?" },
       },
     },
     system = {
@@ -97,8 +114,6 @@ return {
         { address=0X09D7, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Reserve Tank current stored energy Part 2 - Amount of times it can roll over when it hits 0" },
         { address=0X0A68, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="Shinespark Current Charge countdown timer 16bit" },
         { address=0X0CCC, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="cooldown", timer_direction="unknown", timer_unit="unknown", desc="Weapon Cooldown Timer" },
-        { address=0X1840, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="16-bit - Countdown Timer - Resets to 0xffff for every door transition." },
-        { address=0X18EE, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="16-bit - Countdown Timer - Resets to 0xffff for every door transition." },
       },
     },
   },

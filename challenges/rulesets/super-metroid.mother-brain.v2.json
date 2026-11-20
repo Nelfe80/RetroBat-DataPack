@@ -1,0 +1,78 @@
+{
+  "challenge_id": "super-metroid.mother-brain",
+  "cores": [
+    "snes9x"
+  ],
+  "fail": [
+    {
+      "event": {
+        "action": "EVENT_TRIGGER",
+        "address": "0x0998",
+        "value": "0x13"
+      }
+    }
+  ],
+  "game": {
+    "rom_group": "super-metroid",
+    "system_id": "snes"
+  },
+  "kind": "speedrun_boss",
+  "mem_sha256": "adcc9aee0fad6ce30622729cf3d9078d4c7031e3537d66cb919b4f3124e90b4e",
+  "order": 7,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-sm-mb-v1"
+    ]
+  },
+  "ruleset": "ch-sm-mb-v2",
+  "runtime": {
+    "frame_rate": 60.098812
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [],
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "snes/super-metroid/mother-brain.state",
+    "name": "mother-brain-snes9x",
+    "sha256": "6b04e17180ab0490cd7dc0e80d5f9f4f5198d496ae2fd4557c7cfa758f7036f6"
+  },
+  "summary": {
+    "en": "From entering Mother Brain's room to the destruction of Zebes, KPDR route loadout",
+    "fr": "De l'entree dans la salle de Mother Brain a l'explosion de Zebes, equipement de la route KPDR"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "EVENT_TRIGGER",
+          "address": "0x0998",
+          "value": "0x26"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "PROGRESSION_ZONE",
+          "address": "0x079B",
+          "value": "0xDD58"
+        }
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Mother Brain and the escape",
+    "fr": "Mother Brain et la fuite"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap"
+  ]
+}

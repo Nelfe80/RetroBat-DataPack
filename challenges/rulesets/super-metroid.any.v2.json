@@ -1,0 +1,65 @@
+{
+  "challenge_id": "super-metroid.any",
+  "cores": [
+    "snes9x"
+  ],
+  "game": {
+    "rom_group": "super-metroid",
+    "system_id": "snes"
+  },
+  "kind": "speedrun_full",
+  "mem_sha256": "adcc9aee0fad6ce30622729cf3d9078d4c7031e3537d66cb919b4f3124e90b4e",
+  "order": 1,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-sm-any-v1"
+    ]
+  },
+  "ruleset": "ch-sm-any-v2",
+  "runtime": {
+    "frame_rate": 60.098812
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [],
+  "start_policy": "normal_boot",
+  "summary": {
+    "en": "From a new file to the destruction of Zebes, deaths allowed",
+    "fr": "D'une nouvelle partie à l'explosion de Zebes, morts permises"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "EVENT_TRIGGER",
+          "address": "0x0998",
+          "value": "0x26"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "EVENT_TRIGGER",
+          "address": "0x0998",
+          "leaves": "0x1E",
+          "value": "0x1F"
+        }
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Full game · Any%",
+    "fr": "Jeu complet · Any%"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap"
+  ]
+}

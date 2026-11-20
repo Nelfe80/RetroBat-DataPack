@@ -1,0 +1,79 @@
+{
+  "challenge_id": "super-metroid.ceres",
+  "cores": [
+    "snes9x"
+  ],
+  "fail": [
+    {
+      "event": {
+        "action": "EVENT_TRIGGER",
+        "address": "0x0998",
+        "value": "0x13"
+      }
+    }
+  ],
+  "game": {
+    "rom_group": "super-metroid",
+    "system_id": "snes"
+  },
+  "kind": "speedrun_level",
+  "mem_sha256": "adcc9aee0fad6ce30622729cf3d9078d4c7031e3537d66cb919b4f3124e90b4e",
+  "order": 2,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-sm-ceres-v1"
+    ]
+  },
+  "ruleset": "ch-sm-ceres-v2",
+  "runtime": {
+    "frame_rate": 60.098812
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [],
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "snes/super-metroid/ceres.state",
+    "name": "ceres-snes9x",
+    "sha256": "650cd38c8633c3bc9e41dd6592b9767cda6ab04251302188fd545eedbfe7bef5"
+  },
+  "summary": {
+    "en": "From the arrival on Ceres to the flight to Zebes, without dying",
+    "fr": "De l'arrivée sur Ceres au départ vers Zebes, sans mourir"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "EVENT_TRIGGER",
+          "address": "0x0998",
+          "value": "0x20"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "EVENT_TRIGGER",
+          "address": "0x0998",
+          "leaves": "0x1E",
+          "value": "0x1F"
+        }
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Ceres Station",
+    "fr": "Station Ceres"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap"
+  ]
+}
