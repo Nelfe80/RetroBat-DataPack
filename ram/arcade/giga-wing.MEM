@@ -5,6 +5,7 @@
 -- 2026-11-12 (Player Deck) : bombes 0x72E0, puissance du tir 0x730C, jauge de reflexion 0xAE74 (monte a 4096 pendant la
 -- charge, redescend a 0 pendant la recharge : 0 = prete). Lignes d affichage seulement (OBJECT_INTERACTION), hors score ;
 -- mask = lecture par paliers (jamais a chaque image).
+-- 2026-11-20 (Deck enrichi, publie en N+1 le 20/11) : multiplicateur de score P1 = u32 BCD 0x72E4 (mot fort) + 0x72E6 (mot faible), prouve au banc (poser 0x0100 puis 0x0900 : gains 1000 puis 9000, rapport exact x9) ; lignes d affichage seulement. Auto-mute (simulateur du labo, partie de 12 000 images depuis le demarrage, aucune ligne coupee) : 0x72E6 lu par paliers de 100 (mask 0XFF00, sans mask : coupee a l image 550) ; les deux lignes de la valeur de medaille 0x72F2, publiees SANS mask, etaient COUPEES a l image 550 : lecture par paliers de 10 (mask 0XFFF0).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -75,16 +76,18 @@ return {
     },
     world_interaction = {
       objects = {
-        { address=0X72F2, type="u16le", condition="increase", action="OBJECT_INTERACTION", player=1, desc="P1 medal value, BCD (+5 per gold medal, back to 0 on death)" },
+        { address=0X72F2, type="u16le", condition="increase", mask=0XFFF0, action="OBJECT_INTERACTION", player=1, desc="P1 medal value, BCD (+5 per gold medal, back to 0 on death)" },
         { address=0X72E0, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 bombs in stock" },
         { address=0X730C, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 shot power (0 to 3)" },
+        { address=0X72E4, type="u16le", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 score multiplier, high word (BCD, 4 digits, value * 10000; whole run, kept on death and across stages)" },
+        { address=0X72E6, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="P1 score multiplier, low word (BCD, 4 digits, value * 1; enemy score = base * multiplier)" },
         { address=0XAE74, type="u16le", condition="change", mask=0XFC00, action="OBJECT_INTERACTION", player=1, desc="P1 reflect gauge (4096 while charged, down to 0 = ready), every 1024 (mask)" },
       },
     },
     system = {
       timer = {
         { address=0X729A, type="u16le", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="Continue Timer" },
-        { address=0X72F2, type="u16le", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="bcd", desc="[16-bit BCD] 1P Current Stage Counter [Resets on Death]" },
+        { address=0X72F2, type="u16le", condition="change", mask=0XFFF0, action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="bcd", desc="[16-bit BCD] 1P Current Stage Counter [Resets on Death]" },
         { address=0X72F6, type="u16le", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="bcd", desc="[16-bit BCD] 2P Current Stage Counter [Resets on Death]" },
         { address=0X730C, type="u8", condition="change", action="LEVEL_TIMER", player=1, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Power Level (1P Side)" },
         { address=0X7314, type="u8", condition="change", action="LEVEL_TIMER", player=2, timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="Power Level (2P Side)" },
