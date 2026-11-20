@@ -1,0 +1,48 @@
+-- Blazing Star : le SENS des lignes du jeu (lignes de blazing-star.MEM). Publie le 20/11/2026 avec le .MEM N+1 (premier .SMEM du jeu).
+-- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
+-- N'entre ni dans le score ni dans l'empreinte certifiee. Preuves : replay reel de 10 564 images (FBNeo, set blazstar, stage 1) et banc sans ecran.
+-- Format : .SMEM, schema 1. Le jeu est ouvert au World Scoring : les lignes 0x1BCE, 0x234C, 0x1CBD et 0xD1D8 (u16) du .MEM partent avec un profil N+1.
+return {
+  schema = 1,
+  kind = "semantics",
+  version = 1,
+  game = { system = "arcade", slug = "blazing-star", title = "Blazing Star" },
+  mem = { file = "blazing-star.MEM" },
+
+  signals = {
+    { id = "players.1.chain.count", player = 1, kind = "counter", unit = "hit", label = "Combo", short = "COMBO",
+      from = { { address = 0X1BCE, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 255, initial = 0, quality = "qualified",
+      proof = "egal au compteur HIT affiche en bas a gauche (15 a l'ecran pour 15 ou 16 en memoire, image 6 424 du replay) ; retombe a 0 quand la chaine se rompt ; succes RetroAchievements Bingo a 30 ; publie par paliers de 4 (mask 0XFC, auto-mute : 28 emissions sur 91 changements ; 0XF8 : 10 ; 0XFE : 53)" },
+    { id = "players.1.multiplier", player = 1, kind = "counter", unit = "jewel", label = "Jewels", short = "JEWEL",
+      from = { { address = 0X234C, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 120, initial = 0, quality = "partial",
+      proof = "+1 a chaque joyau pris (21 changements, 300 ou 500 points a la prise : images 3 852, 3 960, 6 528, 6 552 du replay) ; les points des ennemis montent avec lui (50 puis 60 par ennemi entre 1 et 2) ; retombe parfois d'un coup (10 a 2 a l'image 6 604, cause non isolee) ; maximum 120 par RetroAchievements (succes Bonus) ; formule du gain non prouvee" },
+    { id = "players.1.game.blazing_star.lucky", player = 1, kind = "counter", label = "L.U.C.K.Y.", short = "LUCKY",
+      from = { { address = 0X1CBD, action = "OBJECT_INTERACTION", player = 1 } },
+      min = 0, max = 31, initial = 0, quality = "qualified",
+      proof = "un bit par lettre (1 L, 2 U, 4 C, 8 K, 16 Y) : 23 a l'image 6 920 pour les panneaux L U C _ Y affiches a l'ecran ; 31 = tous pris (RetroAchievements Lucky Lander) ; chaque panneau pris monte le rank de 3" },
+    { id = "players.1.power.level", player = 1, kind = "level", label = "Power", short = "POW",
+      from = { { address = 0X1B78, action = "NEW_LEVEL" } },
+      values = { { raw = 0, value = 0, label = "0" }, { raw = 1, value = 1, label = "1" }, { raw = 2, value = 2, label = "2" }, { raw = 3, value = 3, label = "MAX" } },
+      min = 0, max = 3, initial = 0, quality = "qualified",
+      proof = "0 a 3 par objet de puissance (+1 a chaque prise sur le replay), perdu a la mort (3 a 2 a l'image 9 092) ; 3 = maximum du cheat MAME 101B79 ; Blazing Guns (RetroAchievements) = passage a 3" },
+    { id = "rank", kind = "gauge", label = "Rank", short = "RANK",
+      from = { { address = 0X1C93, action = "GAME_DIFFICULTY" } },
+      min = 0, max = 255, initial = 0, quality = "partial",
+      proof = "64 au depart (16 x niveau de difficulte 4), puis +1 par objet de puissance (3528, 4244, 5020), +3 par panneau L.U.C.K.Y. (4100, 4412, 5684, 6920), +1 par palier de joyaux et autres evenements non isoles (5364, 6020, 6188, 7320, 7616, 7652), -4 en fin de boss (9040) ; 0 hors partie ; maximum 255 (forum, non verifie) ; ecriture : la valeur posee tient et se recopie en 0x24A1 et 0x2521, mais AUCUN effet visible sur les 1 800 premieres images du stage 1 : l'equation et son effet restent a prouver" },
+    { id = "stage.progress", kind = "counter", unit = "step", label = "Stage progress", short = "DIST",
+      from = { { address = 0XD1D8, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 65535, initial = 0, quality = "qualified",
+      proof = "compteur 16 bits (0xD1D8 faible, 0xD1D9 fort) : +1 toutes les 4 images au depart du stage 1, jusqu'a 1,8 par image au milieu ; suit le defilement mesure sur les captures (environ 1 pixel de decor par pas au debut) ; 3 593 a la fin du stage 1 ; lecture par paliers de 64 pas (mask 0XFFC0) : simulateur d'auto-mute vivante (56 emissions sur 3 068 changements)" },
+    { id = "boss.timer", kind = "counter", unit = "s", label = "Boss timer", short = "BOSS",
+      from = { { address = 0X23AA, action = "LEVEL_TIMER" } },
+      min = 0, max = 99, quality = "qualified",
+      proof = "secondes du compteur BOSS TIMER affiche (0 49 31 a l'image 9 440) ; actif quand le bit 1 de 0x23A8 est a 1" },
+  },
+
+  instruments = {
+    { id = "p1.combo", label = "Combo", player = 1, show = "counter", signals = { "players.1.chain.count", "players.1.multiplier", "players.1.game.blazing_star.lucky" } },
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank", "players.1.power.level" } },
+  },
+}
