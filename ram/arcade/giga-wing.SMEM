@@ -6,10 +6,11 @@
 -- Au-dela, la valeur brute n'a pas de libelle.
 -- Version 2 : identifiants du vocabulaire standard, progression et vies.
 -- Version 3 : bombes, puissance du tir, jauge de reflexion.
+-- Version 4 (20/11/2026, Deck enrichi) : distance de stage (stage.progress) et compteur du stage 6.
 return {
   schema = 1,
   kind = "semantics",
-  version = 3,
+  version = 5,
   game = { system = "arcade", slug = "giga-wing", title = "Giga Wing" },
   mem = { file = "giga-wing.MEM" },
 
@@ -241,6 +242,24 @@ return {
       from = { { address = 0XAE74, action = "OBJECT_INTERACTION", player = 1 } },
       min = 0, max = 4096, initial = 0, quality = "qualified",
       proof = "tir tenu : 0 -> 1728 -> 4096 (charge), la barriere 0x9E70 s'active ; relache : 4096 -> 0 en ~256 images (recharge), 0 = prete ; cheat Quick Charge Shield pose 0. Publie par pas de 1024 (mask)" },
+    { id = "stage.progress", kind = "counter", unit = "step", label = "Stage progress", short = "DIST",
+      from = { { address = 0X733C, action = "PROGRESSION_STAGE" } },
+      min = -64, max = 5000, initial = 0, quality = "partial",
+      proof = "compteur 16 bits du defilement, stages 1 a 5 et 7 ; il ne repart pas de 0 (environ -28, 1024, 2724, 2048, 3492, 1316 au depart de chaque stage), seules les differences comptent ; boss a 2635 (stage 1), 596 (stage 2) apres le depart ; lecture par blocs (mask), jamais coupee par l'auto-mute" },
+    { id = "game.giga_wing.stage6_progress", kind = "counter", unit = "frame", label = "Stage 6 progress", short = "DIST6",
+      from = { { address = 0X6DC4, action = "PROGRESSION_STAGE" } },
+      min = 0, max = 20000, initial = 0, quality = "partial",
+      proof = "le stage 6 ne defile pas : ce compteur 16 bits compte les images depuis son debut (boss final vers 16 209) ; lecture par blocs (mask), jamais coupee par l'auto-mute" },
+    { id = "game.playing", kind = "flag", label = "In game", short = "PLAY",
+      from = { { address = 0X727E, action = "OBJECT_INTERACTION" } },
+      values = { { raw = 6, value = 1, label = "Playing" }, { min = 0, max = 5, value = 0, label = "Not playing" }, { min = 7, max = 255, value = 0, label = "Not playing" } },
+      min = 0, max = 1, initial = 0, quality = "qualified",
+      proof = "banc FBNeo sans ecran, 20/11 : 0x727E = 6 pendant la partie (images 1850 a 4640), 7 a l ecran CONTINUE (4645 a 4979, compteur 0x729A actif), 11 au choix du pilote, 4 au titre, 13 et 14 au logo et a l intro" },
+    { id = "game.continue", kind = "flag", label = "Continue screen", short = "CONT",
+      from = { { address = 0X727E, action = "OBJECT_INTERACTION" } },
+      values = { { raw = 7, value = 1, label = "Continue" }, { min = 0, max = 6, value = 0, label = "Other" }, { min = 8, max = 255, value = 0, label = "Other" } },
+      min = 0, max = 1, initial = 0, quality = "qualified",
+      proof = "banc FBNeo sans ecran, 20/11 : 0x727E = 6 pendant la partie (images 1850 a 4640), 7 a l ecran CONTINUE (4645 a 4979, compteur 0x729A actif), 11 au choix du pilote, 4 au titre, 13 et 14 au logo et a l intro" },
   },
 
   instruments = {

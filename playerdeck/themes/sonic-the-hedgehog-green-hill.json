@@ -1,0 +1,1162 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "sonic-the-hedgehog-green-hill",
+ "name": "Sonic Green Hill",
+ "version": 1,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "sonic-the-hedgehog",
+   "Sonic The Hedgehog (USA, Europe)",
+   "Sonic The Hedgehog (Japan, Korea)"
+  ],
+  "titles": [
+   "Sonic the Hedgehog",
+   "Sonic The Hedgehog"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 224,
+  "scaling": "nearest",
+  "deckPixel": "auto",
+  "note": "Sonic the Hedgehog as Genesis Plus GX gives it (320 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels = 128 Deck pixels at half the game pixel. The rail is always filled."
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), one rail on the left: the speedrun column, as LiveSplit puts it beside the game."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (checkerboard tile, plates, digits and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (no pixel copied) from the game's own screens produced by Genesis Plus GX without a window: Green Hill ground (#cd6500 #8b4400 #622000), sky (#2000ac #2044cd #6289ee), HUD yellow (#eeee00) and white figures, title screen blues and red.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "o": "#cd6500",
+    "r": "#8b4400",
+    "d": "#622000",
+    "k": "#200000"
+   },
+   "rows": [
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "oooooooorrrrrrrroooooooorrrrrrrr",
+    "ddddddddkkkkkkkkddddddddkkkkkkkk",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "rrrrrrrroooooooorrrrrrrroooooooo",
+    "kkkkkkkkddddddddkkkkkkkkdddddddd"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "..##....",
+     "####....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######..",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "##......",
+     "##......",
+     "########",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "....##..",
+     "..####..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "########",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "########",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "..####..",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "########",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "..######",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#eeeeee",
+    "#cdeeee",
+    "#acceee",
+    "#6289ee",
+    "#2044cd"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "label",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 8,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffff80",
+   "#eeee00",
+   "#eeaa00",
+   "#ee6500"
+  ],
+  "bandRamp": [
+   "#ffff80",
+   "#eeee00",
+   "#eeaa00",
+   "#ee6500"
+  ],
+  "palette": {
+   "shadow": "#000000",
+   "outline": "#000000",
+   "windowEdge": "#000000",
+   "titleShadow": "#000000",
+   "bandShadow": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "head": "#eeee00",
+   "wall": "#8b4400",
+   "plate": "#2000ac",
+   "plateLight": "#2044cd",
+   "plateDark": "#00008b",
+   "plateEdge": "#6289ee",
+   "plateShade": "#000062",
+   "window": "#00005a",
+   "windowLight": "#2000ac",
+   "rowHi": "#2000ac",
+   "band": "#2000ac",
+   "bandText": "#eeee00",
+   "bandRule": "#6289ee",
+   "title": "#eeee00",
+   "subtitle": "#acceee",
+   "text": "#eeeeee",
+   "value": "#ffffff",
+   "dim": "#acceee",
+   "absent": "#4a62cd",
+   "accent": "#8bee00",
+   "warn": "#ff3020",
+   "good": "#8bee00",
+   "lit": "#eeee00",
+   "bar": "#2000ac"
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "SONIC",
+  "subtitle": "THE HEDGEHOG",
+  "aspect": "4:3",
+  "layout": "single",
+  "pattern": "F",
+  "marks": true,
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 12400
+   },
+   "zone": {
+    "mem": {
+     "address": "0xFE11",
+     "action": "PROGRESSION_ZONE"
+    },
+    "demo": 2
+   },
+   "act": {
+    "mem": {
+     "address": "0xFE10",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 0
+   },
+   "actKey": {
+    "terms": [
+     {
+      "k": 4,
+      "of": [
+       "zone"
+      ]
+     },
+     {
+      "k": 1,
+      "of": [
+       "act"
+      ]
+     }
+    ],
+    "status": "measure",
+    "demo": 8,
+    "labels": [
+     {
+      "raw": 0,
+      "label": "GH1"
+     },
+     {
+      "raw": 1,
+      "label": "GH2"
+     },
+     {
+      "raw": 2,
+      "label": "GH3"
+     },
+     {
+      "raw": 8,
+      "label": "MZ1"
+     },
+     {
+      "raw": 9,
+      "label": "MZ2"
+     },
+     {
+      "raw": 10,
+      "label": "MZ3"
+     },
+     {
+      "raw": 16,
+      "label": "SYZ1"
+     },
+     {
+      "raw": 17,
+      "label": "SYZ2"
+     },
+     {
+      "raw": 18,
+      "label": "SYZ3"
+     },
+     {
+      "raw": 4,
+      "label": "LZ1"
+     },
+     {
+      "raw": 5,
+      "label": "LZ2"
+     },
+     {
+      "raw": 6,
+      "label": "LZ3"
+     },
+     {
+      "raw": 12,
+      "label": "SLZ1"
+     },
+     {
+      "raw": 13,
+      "label": "SLZ2"
+     },
+     {
+      "raw": 14,
+      "label": "SLZ3"
+     },
+     {
+      "raw": 20,
+      "label": "SBZ1"
+     },
+     {
+      "raw": 21,
+      "label": "SBZ2"
+     },
+     {
+      "raw": 7,
+      "label": "SBZ3"
+     },
+     {
+      "raw": 22,
+      "label": "FZ"
+     }
+    ]
+   },
+   "actNo": {
+    "map": "actKey",
+    "to": {
+     "0": 1,
+     "1": 2,
+     "2": 3,
+     "8": 4,
+     "9": 5,
+     "10": 6,
+     "16": 7,
+     "17": 8,
+     "18": 9,
+     "4": 10,
+     "5": 11,
+     "6": 12,
+     "12": 13,
+     "13": 14,
+     "14": 15,
+     "20": 16,
+     "21": 17,
+     "7": 18,
+     "22": 19
+    },
+    "status": "measure",
+    "demo": 4
+   },
+   "rings": {
+    "mem": {
+     "address": "0xFE20",
+     "action": "COIN_GAIN"
+    },
+    "zeroOn": [
+     {
+      "address": "0xF00A",
+      "action": "COIN_LOSE"
+     },
+     {
+      "address": "0xFE13",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0xFE10",
+      "action": "PROGRESSION_STAGE"
+     },
+     {
+      "address": "0xFE11",
+      "action": "PROGRESSION_ZONE"
+     }
+    ],
+    "demo": 37
+   },
+   "lives": {
+    "mem": [
+     {
+      "address": "0xFE13",
+      "action": "GAIN_LIFE"
+     },
+     {
+      "address": "0xFE13",
+      "action": "LOSE_LIFE"
+     }
+    ],
+    "demo": 3
+   },
+   "shield": {
+    "mem": [
+     {
+      "address": "0xFE2D",
+      "action": "SHIELD_GAIN"
+     },
+     {
+      "address": "0xFE2D",
+      "action": "SHIELD_LOST"
+     }
+    ],
+    "labels": [
+     {
+      "raw": 0,
+      "label": "OFF"
+     },
+     {
+      "raw": 1,
+      "label": "ON"
+     }
+    ],
+    "demo": 1
+   },
+   "invincible": {
+    "mem": [
+     {
+      "address": "0xFE2C",
+      "action": "INVINCIBILITY_START"
+     },
+     {
+      "address": "0xFE2C",
+      "action": "INVINCIBILITY_STOP"
+     }
+    ],
+    "labels": [
+     {
+      "raw": 0,
+      "label": "OFF"
+     },
+     {
+      "raw": 1,
+      "label": "ON"
+     }
+    ],
+    "demo": 0
+   },
+   "shoes": {
+    "mem": [
+     {
+      "address": "0xFE2F",
+      "action": "SPEED_START"
+     },
+     {
+      "address": "0xFE2F",
+      "action": "SPEED_STOP"
+     }
+    ],
+    "labels": [
+     {
+      "raw": 0,
+      "label": "OFF"
+     },
+     {
+      "raw": 1,
+      "label": "ON"
+     }
+    ],
+    "demo": 0
+   },
+   "lamps": {
+    "count": {
+     "address": "0xF00A",
+     "action": "OBJECT_INTERACTION_CHECKPOINT"
+    },
+    "initial": 0,
+    "demo": 1
+   },
+   "actScore": {
+    "buckets": "score",
+    "by": "actNo",
+    "n": 21,
+    "demo": [
+     0,
+     4200,
+     3100,
+     2900,
+     1200,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  "panels": {
+   "status": {
+    "type": "rows",
+    "title": "SONIC",
+    "items": [
+     {
+      "label": "RINGS",
+      "short": "RNG",
+      "value": "rings",
+      "color": "lit"
+     },
+     {
+      "label": "LIVES",
+      "short": "LIV",
+      "value": "lives"
+     },
+     {
+      "label": "SHIELD",
+      "short": "SHD",
+      "value": "shield",
+      "format": "label",
+      "color": "accent"
+     },
+     {
+      "label": "SHOES",
+      "short": "SHO",
+      "value": "shoes",
+      "format": "label",
+      "color": "accent"
+     },
+     {
+      "label": "INVINCIBLE",
+      "short": "INV",
+      "value": "invincible",
+      "format": "label",
+      "color": "accent"
+     }
+    ]
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     }
+    ]
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "title": "ACTS",
+    "value": "actScore",
+    "first": 1,
+    "dense": true,
+    "window": 6,
+    "values": {
+     "stage": {
+      "map": "actKey",
+      "to": {
+       "0": 1,
+       "1": 2,
+       "2": 3,
+       "8": 4,
+       "9": 5,
+       "10": 6,
+       "16": 7,
+       "17": 8,
+       "18": 9,
+       "4": 10,
+       "5": 11,
+       "6": 12,
+       "12": 13,
+       "13": 14,
+       "14": 15,
+       "20": 16,
+       "21": 17,
+       "7": 18,
+       "22": 19
+      },
+      "demo": 4
+     }
+    },
+    "names": [
+     "GH1",
+     "GH2",
+     "GH3",
+     "MZ1",
+     "MZ2",
+     "MZ3",
+     "SYZ1",
+     "SYZ2",
+     "SYZ3",
+     "LZ1",
+     "LZ2",
+     "LZ3",
+     "SLZ1",
+     "SLZ2",
+     "SLZ3",
+     "SBZ1",
+     "SBZ2",
+     "SBZ3",
+     "FZ"
+    ]
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "splits": [
+   {
+    "kinds": [
+     "speedrun_full"
+    ],
+    "key": "actKey",
+    "names": {
+     "0": "GH1",
+     "1": "GH2",
+     "2": "GH3",
+     "8": "MZ1",
+     "9": "MZ2",
+     "10": "MZ3",
+     "16": "SYZ1",
+     "17": "SYZ2",
+     "18": "SYZ3",
+     "4": "LZ1",
+     "5": "LZ2",
+     "6": "LZ3",
+     "12": "SLZ1",
+     "13": "SLZ2",
+     "14": "SLZ3",
+     "20": "SBZ1",
+     "21": "SBZ2",
+     "7": "SBZ3",
+     "22": "FZ"
+    },
+    "route": [
+     0,
+     1,
+     2,
+     8,
+     9,
+     10,
+     16,
+     17,
+     18,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     20,
+     21,
+     7,
+     22
+    ],
+    "title": "SPLITS"
+   },
+   {
+    "kinds": [
+     "speedrun_level"
+    ],
+    "key": "lamps",
+    "relative": true,
+    "first": "START",
+    "word": "LAMP",
+    "title": "SPLITS"
+   }
+  ],
+  "trial": {
+   "at": "header",
+   "voids": [
+    {
+     "label": "PAUSE",
+     "on": [
+      "PAUSE_ON"
+     ],
+     "live": true
+    },
+    {
+     "label": "LEVEL SELECT",
+     "on": [
+      "NEW_LEVEL"
+     ],
+     "live": true
+    },
+    {
+     "label": "DEBUG",
+     "on": [
+      "LEVEL_CHEAT_ACTIVATED"
+     ],
+     "live": true
+    },
+    {
+     "label": "RESET",
+     "on": [
+      "TITLE_SCREEN",
+      "CORPORATE_SCREEN"
+     ],
+     "live": true
+    },
+    {
+     "label": "FAST FWD",
+     "on": [
+      "fast_forward"
+     ],
+     "live": true
+    },
+    {
+     "label": "STATE LOAD",
+     "on": [
+      "save_state_load"
+     ]
+    },
+    {
+     "label": "REWIND",
+     "on": [
+      "rewind"
+     ]
+    },
+    {
+     "label": "EMU PAUSE",
+     "on": [
+      "pause_clock_gap"
+     ]
+    }
+   ],
+   "yields": {
+    "score": [
+     "speedrun"
+    ],
+    "stages": [
+     "speedrun"
+    ]
+   },
+   "drop": [
+    "pad",
+    "stages",
+    "score",
+    "status",
+    "rank"
+   ],
+   "note": "Speedrun column (pattern F): TIME (official time of the trial, gaps to PB, world record and target rank), SPLITS (segments of the run against the best finished attempt of the session, or the PB splits the API publishes), RUN (the validity of the run: rules watched live in green, rules checked at certification in grey), then the game's own resources; LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "status",
+   "stages",
+   "score",
+   "pad",
+   "rank"
+  ],
+  "right": [],
+  "narrow": [
+   "header",
+   "status",
+   "stages",
+   "score",
+   "rank"
+  ],
+  "fit": [
+   "pad",
+   "compact:status",
+   "compact:stages",
+   "compact:score"
+  ],
+  "recap": [
+   {
+    "label": "BEST ACT",
+    "value": "actNo",
+    "agg": "max"
+   },
+   {
+    "label": "LIVES LOST",
+    "value": "lives",
+    "agg": "drops"
+   }
+  ],
+  "notes": [
+   "TIME: the official time of the trial (the game's own timer, aligned to the frame), against your PB, the world record of the trial and the time of the rank above.",
+   "SPLITS: Any%, one line per act on the route of the game (GH1 to FZ); level runs, one line per lamppost (START, LAMP 1...), against the best finished attempt of this session; gold: best segment. Times taken on the official clock when the act changes or the lamppost rings (computed).",
+   "RUN: rules watched live (pause, level select, debug mode, reset, fast forward) in green; state load, rewind and emulator pause are checked on the proof at certification.",
+   "SONIC: rings (back to 0 when they scatter, on a death and at each act), lives, shield, speed shoes and invincibility, read on the lines the speedruns already use."
+  ],
+  "controls": [
+   {
+    "id": "y",
+    "label": "JUMP"
+   },
+   {
+    "id": "b",
+    "label": "JUMP"
+   },
+   {
+    "id": "a",
+    "label": "JUMP"
+   },
+   {
+    "id": "start",
+    "label": "PAUSE"
+   }
+  ],
+  "fire": "b"
+ }
+}

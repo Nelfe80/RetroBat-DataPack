@@ -49,12 +49,14 @@ $parties = @(
     @{ Source = 'scraping';        Cible = 'scraping';        ExclureDossiers = @();                 ExclureFichiers = @('ScreenScraper.html', '*.bak', '*.tmp') },
     @{ Source = 'startup-overlay'; Cible = 'startup-overlay'; ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'theme\hiscore';   Cible = 'theme\hiscore';   ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
-    @{ Source = 'theme\images';    Cible = 'theme\images';    ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') }
+    @{ Source = 'theme\images';    Cible = 'theme\images';    ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
+    @{ Source='playerdeck\themes'; Cible='playerdeck\themes'; ExclureDossiers=@(); ExclureFichiers=@('*.bak','*.tmp','*.avant-*'); Optionnelle=$true }
 )
 
 foreach ($p in $parties) {
     $src = Join-Path $resources $p.Source
     $dst = Join-Path $repo $p.Cible
+    if ($p.Optionnelle -and -not (Test-Path $src)) { Write-Host ('{0,-10} absent : ignore' -f $p.Source); continue }
     $args = @($src, $dst, '/MIR', '/R:1', '/W:1', '/NFL', '/NDL', '/NJH', '/NP', '/XJ')
     if ($p.ExclureDossiers.Count) { $args += '/XD'; $args += ($p.ExclureDossiers | ForEach-Object { Join-Path $src $_ }) }
     if ($p.ExclureFichiers.Count) { $args += '/XF'; $args += $p.ExclureFichiers }

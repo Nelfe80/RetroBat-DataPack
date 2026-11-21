@@ -1,0 +1,195 @@
+{
+  "format": "nelfeplay.deck-theme/1",
+  "id": "19xx-hangar",
+  "name": "19XX Hangar",
+  "version": 3,
+  "deck": {
+    "default": true,
+    "note": "Official Deck chosen by default for its games when the API launches them. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+  },
+  "match": {
+    "roms": ["19xx", "19xx-the-war-against-destiny", "19xxa", "19xxb", "19xxh", "19xxj", "19xxjr1", "19xxjr2", "19xxu"],
+    "titles": ["19XX: The War Against Destiny"],
+    "variantOf": "19xx"
+  },
+  "native": {
+    "width": 224,
+    "height": 384,
+    "scaling": "nearest",
+    "note": "19XX vertical as the FBNeo core gives it (224 x 384, display aspect 3:4 from the core, so game pixels are not square). The deck is drawn on a canvas of game pixels and enlarged on the same column and row grid as the game (nearest neighbour, RetroArch video_smooth = false)."
+  },
+  "provenance": {
+    "author": "NelfePlay",
+    "license": "CC BY 4.0 (patterns, icons, laurels, cockade and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game or from M2)",
+    "palette": "Colours picked (exact counts and median cut, no pixel copied) from the game's own screens. Hull (v2, 08/11): MISSION COMPLETED screen replayed in memory with the FBNeo core from a cabinet replay (riveted brown and black steel: #101010, #202010, #413010, #524420, #625531, #736541; rivets #bd998b, #9c7552). Other screens captured on the cabinet: machine select hangar (cream card, yellow lettering, dark red shadow), red hangar corridor, briefing screen (olive instrument panel, radar greens, cyan), ranking screen (orange).",
+    "fonts": [
+      { "family": "Press Start 2P", "file": "PressStart2P-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)" },
+      { "family": "Silkscreen", "file": "Silkscreen-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)" },
+      { "family": "Silkscreen Bold", "file": "Silkscreen-Bold.ttf", "license": "SIL Open Font License 1.1", "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)" }
+    ]
+  },
+  "skin": {
+    "grid": "game",
+    "digits": {
+      "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'block', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+      "gap": 1,
+      "outline": "#222211",
+      "ramp": ["#ffffcc", "#ffff77", "#ffee55", "#ffee55", "#d8c838", "#a89820"],
+      "glyphs": {
+        "0": ["##########", "##########", "####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "##########", "##########"],
+        "1": ["....####..", "....####..", "..######..", "..######..", "....####..", "....####..", "....####..", "....####..", "....####..", "....####..", "....####..", "....####..", "..########", "..########"],
+        "2": ["##########", "##########", "........##", "........##", "........##", "........##", "##########", "##########", "####......", "####......", "####......", "####......", "##########", "##########"],
+        "3": ["##########", "##########", "........##", "........##", "........##", "........##", "..########", "..########", "........##", "........##", "........##", "........##", "##########", "##########"],
+        "4": ["####....##", "####....##", "####....##", "####....##", "####....##", "####....##", "##########", "##########", "........##", "........##", "........##", "........##", "........##", "........##"],
+        "5": ["##########", "##########", "####......", "####......", "####......", "####......", "##########", "##########", "........##", "........##", "........##", "........##", "##########", "##########"],
+        "6": ["##########", "##########", "####......", "####......", "####......", "####......", "##########", "##########", "####....##", "####....##", "####....##", "####....##", "##########", "##########"],
+        "7": ["##########", "##########", "........##", "........##", "......####", "......####", "....####..", "....####..", "....####..", "....####..", "....####..", "....####..", "....####..", "....####.."],
+        "8": ["##########", "##########", "####....##", "####....##", "####....##", "####....##", "##########", "##########", "####....##", "####....##", "####....##", "####....##", "##########", "##########"],
+        "9": ["##########", "##########", "####....##", "####....##", "####....##", "####....##", "##########", "##########", "........##", "........##", "........##", "........##", "##########", "##########"],
+        ":": ["..", "..", "##", "##", "..", "..", "..", "..", "##", "##", "..", "..", "..", ".."],
+        ".": ["..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "##", "##"],
+        ",": ["..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "..", "##", "##"],
+        "-": ["......", "......", "......", "......", "......", "......", "######", "######", "......", "......", "......", "......", "......", "......"],
+        "+": ["......", "......", "......", "......", "..##..", "..##..", "######", "######", "..##..", "..##..", "......", "......", "......", "......"],
+        "/": ["....##", "....##", "....##", "....##", "..##..", "..##..", "..##..", "..##..", "##....", "##....", "##....", "##....", "##....", "##...."],
+        "#": ["..##..##..", "..##..##..", "##########", "##########", "..##..##..", "..##..##..", "..##..##..", "..##..##..", "##########", "##########", "..##..##..", "..##..##..", "..##..##..", "..##..##.."],
+        "%": ["##......##", "##......##", "......##..", "......##..", "....##....", "....##....", "....##....", "....##....", "..##......", "..##......", "##........", "##........", "##......##", "##......##"],
+        " ": ["....", "....", "....", "....", "....", "....", "....", "....", "....", "....", "....", "....", "....", "...."]
+      }
+    },
+    "fonts": {
+      "title":     { "face": "Press Start 2P", "size": 8, "pixel": true },
+      "label":     { "face": "Silkscreen", "size": 8, "pixel": true },
+      "value":     { "face": "Press Start 2P", "size": 8, "pixel": true },
+      "big":       { "face": "Press Start 2P", "size": 16, "pixel": true },
+      "bigNarrow": { "face": "Silkscreen", "size": 16, "pixel": true, "weight": 700 },
+      "head":      { "face": "Press Start 2P", "size": 24, "pixel": true }
+    },
+    "palette": {
+      "hull": "#524420", "hullLight": "#625531", "hullDark": "#413010", "hullShade": "#202010", "seam": "#101010", "seamLight": "#736541",
+      "rivetLight": "#bd998b", "rivetDark": "#202010", "rust": "#413010", "rustLight": "#9c7552",
+      "plate": "#555544", "plateLight": "#666655", "plateDark": "#444433", "plateEdge": "#9c8f71", "plateShade": "#333322",
+      "plateRust": "#665522", "outline": "#222211",
+      "window": "#222211", "windowEdge": "#000000", "windowLight": "#333322", "rowHi": "#333322",
+      "band": "#ffcc44", "bandText": "#222211", "hazardDark": "#222211",
+      "title": "#ffcc44", "titleShadow": "#771111",
+      "text": "#e8efb3", "value": "#ffee55", "dim": "#ada189", "absent": "#9c8f71",
+      "accent": "#88ddff", "warn": "#ff5533", "good": "#00dd66", "lit": "#ffee55",
+      "laurel": "#857b13", "laurelLight": "#ffcc44", "laurelDark": "#665522",
+      "map": "#005522", "mapGrid": "#3eac4a", "mapLand": "#537743", "mapCoast": "#475531",
+      "tap": "#e8efb3", "held": "#88ddff", "bomb": "#fd8400"
+    },
+    "icons": {
+      "roundel": {
+        "colors": { "d": "#222211", "o": "#857b13", "l": "#ffcc44", "s": "#e8efb3" },
+        "rows": [
+          "...ddddd...",
+          "..dlooood..",
+          ".dloosoood.",
+          "dlooosooood",
+          "dosssssssod",
+          "doosssssood",
+          "dooosssoood",
+          "doossossood",
+          ".dosooosod.",
+          "..doooood..",
+          "...ddddd..."
+        ]
+      },
+      "star": {
+        "colors": { "y": "#ffee55", "l": "#ffcc44" },
+        "rows": [
+          "...y...",
+          "...y...",
+          "yyyyyyy",
+          ".yyyyl.",
+          "..yyl..",
+          ".yl.yl.",
+          ".l...l."
+        ]
+      },
+      "ship": {
+        "colors": { "g": "#44774f", "l": "#67af7f", "d": "#2d4e35", "y": "#ffee55" },
+        "rows": [
+          ".......l.......",
+          "..g...ggg...g..",
+          "..g...gyg...g..",
+          "lgggggggggggggl",
+          "dgggggggggggggd",
+          "..g...ggg...g..",
+          "..g....g....g..",
+          "..g.........g..",
+          ".dgdddddddddgd."
+        ]
+      },
+      "special": {
+        "colors": { "r": "#771111", "o": "#fd8400", "y": "#ffee55", "k": "#331100" },
+        "rows": [
+          "..rrrrr..",
+          ".ryyooor.",
+          "ryykkkoor",
+          "ryokookor",
+          "rookkkoor",
+          "rookookor",
+          "rookkkoor",
+          ".rooooor.",
+          "..rrrrr.."
+        ]
+      },
+      "boss": {
+        "colors": { "b": "#222211", "l": "#555544" },
+        "rows": [
+          "..........l..........",
+          ".........lbl.........",
+          "...b..b..bbb..b..b...",
+          "lbbbbbbbbbbbbbbbbbbbl",
+          "bbbbbbbbbbbbbbbbbbbbb",
+          "...b..b..bbb..b..b...",
+          "..........b..........",
+          "........bbbbb........",
+          "..........b.........."
+        ]
+      }
+    }
+  },
+  "recipe": {
+    "title": "19XX",
+    "subtitle": "THE WAR AGAINST DESTINY",
+    "aspect": "3:4",
+    "layout": "two-rails",
+    "stages": ["STAGE 1", "STAGE 2", "STAGE 3", "STAGE 4", "STAGE 5", "STAGE 6", "STAGE 7"],
+    "words": { "stock": "SHIPS", "special": "BOMBS", "boss": "BOSS", "shot": "SHOT", "bombpower": "B.POWER", "fire": "SHOT RATE", "graph": "SCORE RATE", "firemix": "FIRE MIX", "nomiss": "NO MISS" },
+    "controls": [
+      { "id": "b", "label": "SHOT", "note": "hold: charge" },
+      { "id": "a", "label": "BOMB" },
+      { "id": "start", "label": "START" },
+      { "id": "select", "label": "COIN" }
+    ],
+    "fire": "b",
+    "holdMs": 500,
+    "bindings": {
+      "lives":   { "address": "0xFF82EC" },
+      "special": { "address": "0xFF8305" },
+      "credits": { "address": "0xFF4D15" }
+    },
+    "semantics": {
+      "special": "players.1.bombs",
+      "shot": "players.1.power.level",
+      "weapon": "players.1.weapon.id",
+      "bombpower": "players.1.game.19xx.bomb_power",
+      "stage": "stage",
+      "boss": "boss.state",
+      "bosshp": "boss.hp_max",
+      "note": "Sense of the .MEM signals sent by the API (deck.semantics, from the .SMEM next to the .MEM). Without it, the address bindings above stay in charge and SHOT shows NO DATA."
+    },
+    "contextRows": ["stage", "bombpower", "time", "credits"],
+    "left": ["header", "score", "stages", "nomiss", "controller"],
+    "trial": {
+      "at": "header",
+      "yields": { "special": ["lock:special"], "stock": ["lock:lives"] },
+      "drop": ["controller", "stages", "context", "shot", "boss", "fire", "stock", "special", "firemix", "nomiss", "graph", "score", "rank"],
+      "note": "Trial layer: the trial plates go after the header on the left rail. An instrument yields only when the rules lock its value. When a rail is too short, instruments give way in the order of drop: what the trial does not need first, then FIRE MIX, NO MISS, SCORE RATE, then the score, LIVE RANK last (the trial plates never)."
+    },
+    "right": ["stock|special", "rank", "shot", "boss", "graph", "fire", "firemix"]
+  }
+}

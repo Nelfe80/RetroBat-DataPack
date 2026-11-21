@@ -1,0 +1,995 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "ketsui-green-plate",
+ "name": "Ketsui Green Plate",
+ "version": 5,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "ket",
+   "ketsui-kizuna-jigoku-tachi",
+   "ket1",
+   "keta",
+   "ketb",
+   "ketarr",
+   "ketarr10",
+   "ketarr15",
+   "ketarr151",
+   "ketarrb",
+   "ketarrf",
+   "ketarrs151"
+  ],
+  "titles": [
+   "Ketsui: Kizuna Jigoku Tachi"
+  ]
+ },
+ "native": {
+  "width": 224,
+  "height": 448,
+  "rowUnit": 2,
+  "scaling": "nearest",
+  "note": "Ketsui vertical as the core gives it (448 x 224 turned, shown 3:4, game pixels twice as wide as tall). Like the game's own 8 x 16 text, each canvas row is 2 game lines (rowUnit 2): the canvas is 224 x 224. 1920 x 1080: game 810 x 1080, rails of 153 game pixels; 1920 x 1200: game 900 x 1200, rails of 127 game pixels. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows. Deck pixel auto (H-D25): the game pixel while every plate fits, half a pixel otherwise (fonts of skin.half doubled, icons and controller zoomed), a quarter only if needed (this game is rich in signals); the controller always stays.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (steel tile, green plates, lock shot and loop instruments, layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens: SCORE RANKING plates (green #007118 #004800, black frames, orange STAGE and CONTINUE labels, white figures), bolted grey frame and bomb bar of the HUD (#414041 #626973 #9caeb4 #cdd6de, green B pills), teal text (#10d694 #4a8d8b), red ranking plate (#d50000).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ],
+  "stageMapBackground": "Stage map background (themes/atlas/ketsui-green-plate/stage1_bg.png), exception granted for the maps only: FBNeo captures of ket with sprites and bullets not drawn, joined along the scroll, reduced to half pixel, pixelated and mapped to 5 tones of this theme's palette. No sprite, logo or font taken from the game."
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#414041",
+    "l": "#626973",
+    "k": "#000000",
+    "d": "#2e2e30",
+    "g": "#4a5258",
+    "b": "#cdd6de",
+    "t": "#4a8d8b"
+   },
+   "rows": [
+    "llllllllllllllllllllllllllllllll",
+    "lmbkdmmmmmmmmmmmmmmmmmmmmmmdmbkk",
+    "lmmmttttttttttttttttttttttttmmmk",
+    "lmmmkkgkkgkkgkkgkkgkkgkkgkkgmmmk",
+    "lmmmggggggggggggggggggggggggmmmk",
+    "lmmmkkgkkgkkgkkgkkgkkgkkgkkgmmmk",
+    "ldmmggggggggggggggggggggggggmmmk",
+    "lmmmkkgkkgkkgkkgkkgkkgkkgkkgdmmk",
+    "lmmmggggggggggggggggggggggggmmmk",
+    "lmmmkkgkkgkkgkkgkkgkkgkkgkkgmmmk",
+    "lmmmggggggggggggggggggggggggmmmk",
+    "lmmmkkgkkgkkgkkgkkgkkgkkgkkgmmmk",
+    "lmdmggggggggggggggggggggggggmmmk",
+    "lmmmttttttttttttttttttttttttmdmk",
+    "lmbkmmmmmmdmmmmmmmmmmmmmmmmmmbkk",
+    "lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'narrow', x2 by x1; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "##....##",
+     "......##",
+     "......##",
+     "....##..",
+     "..##....",
+     "##......",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "##....##",
+     "......##",
+     "..####..",
+     "......##",
+     "......##",
+     "##....##",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "##......",
+     "##......",
+     "######..",
+     "......##",
+     "......##",
+     "##....##",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "##......",
+     "##......",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "##....##",
+     "##....##",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "......##",
+     "......##",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "..",
+     "..",
+     "##",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "######",
+     "..##..",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffa0",
+    "#ffd84a",
+    "#ffb020",
+    "#ffb020",
+    "#ff8a10",
+    "#ff6a00"
+   ],
+   "gap": 1,
+   "outline": "#600000"
+  },
+  "plate": {
+   "band": "bar",
+   "rivets": true,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "airMax": 6,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#cdd6de",
+   "#10d694",
+   "#4a8d8b"
+  ],
+  "palette": {
+   "wall": "#414041",
+   "shadow": "#000000",
+   "outline": "#000000",
+   "plate": "#007118",
+   "plateLight": "#1f8a30",
+   "plateDark": "#004800",
+   "plateEdge": "#39b04a",
+   "plateShade": "#002800",
+   "rivetLight": "#cdd6de",
+   "rivet": "#9caeb4",
+   "rivetDark": "#000000",
+   "window": "#000000",
+   "windowEdge": "#002800",
+   "windowLight": "#004800",
+   "rowHi": "#08301a",
+   "band": "#000000",
+   "bandLight": "#626973",
+   "bandDark": "#000000",
+   "bandText": "#ff8a10",
+   "bandShadow": "#401800",
+   "title": "#ffffff",
+   "titleShadow": "#000000",
+   "subtitle": "#10d694",
+   "text": "#cdd6de",
+   "value": "#ffffff",
+   "dim": "#9caeb4",
+   "absent": "#4a5258",
+   "accent": "#10d694",
+   "head": "#ff8a10",
+   "warn": "#ff3a2a",
+   "good": "#a0ff40",
+   "lit": "#ffd84a",
+   "pillText": "#000000",
+   "bar": "#08301a",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "timer": "#ffd84a"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "w": "#e8e8e8",
+     "g": "#5ab45a",
+     "o": "#ff9c00"
+    },
+    "rows": [
+     "...w...",
+     "..www..",
+     ".wwgww.",
+     "wwwgwww",
+     "w.wgw.w",
+     "..o.o.."
+    ]
+   }
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "label": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6,
+    "headerLine": true
+   },
+   "digitsZoom": 2,
+   "iconZoom": 3,
+   "padZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "KETSUI",
+  "recap": [
+   {
+    "label": "CHIP TOTAL",
+    "value": "chipTotal",
+    "agg": "max"
+   },
+   {
+    "label": "DEATHS",
+    "value": "deaths"
+   },
+   {
+    "label": "BOMBS",
+    "value": "bombs"
+   }
+  ],
+  "subtitle": "KIZUNA JIGOKU TACHI",
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "words": {},
+  "values": {
+   "chip": {
+    "sem": "players.1.item.value",
+    "initial": 1,
+    "demo": 4
+   },
+   "chipTimer": {
+    "sem": "players.1.item.timer",
+    "countdown": 30,
+    "demo": 38
+   },
+   "chipTotal": {
+    "sem": "players.1.item.count",
+    "demo": 412
+   },
+   "chipMult": {
+    "sem": "players.1.multiplier",
+    "demo": 377
+   },
+   "bombs": {
+    "sem": "players.1.bombs.used",
+    "initial": 0,
+    "demo": 2
+   },
+   "deaths": {
+    "sem": "players.1.deaths",
+    "initial": 0,
+    "demo": 1
+   },
+   "loopUse": {
+    "sum": [
+     "deaths",
+     "bombs"
+    ]
+   },
+   "score": {
+    "score": 1,
+    "demo": 128653
+   },
+   "stage": {
+    "mem": {
+     "address": "0x12440",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 2
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     412300,
+     298450,
+     41200,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x12472",
+      "action": "LOSE_LIFE",
+      "player": 1
+     },
+     {
+      "address": "0x12472",
+      "action": "GAIN_LIFE",
+      "player": 1
+     }
+    ],
+    "demo": 2
+   },
+   "shipsLost": {
+    "count": {
+     "address": "0x12472",
+     "action": "LOSE_LIFE",
+     "player": 1
+    },
+    "initial": 0,
+    "demo": 1
+   },
+   "bombStock": {
+    "sem": "players.1.bombs",
+    "demo": 2
+   },
+   "stageBonus": {
+    "terms": [
+     {
+      "k": 500,
+      "of": [
+       "ships",
+       "chipTotal"
+      ],
+      "plus": [
+       1,
+       0
+      ]
+     },
+     {
+      "k": 50,
+      "of": [
+       "bombStock",
+       "chipTotal"
+      ]
+     }
+    ],
+    "demo": 309000
+   },
+   "power": {
+    "sem": "players.1.power.level",
+    "initial": 0,
+    "demo": 2
+   },
+   "fireMode": {
+    "sem": "players.1.game.ketsui.fire_mode",
+    "initial": 0,
+    "demo": 1,
+    "labels": [
+     "SHOT",
+     "LOCK"
+    ]
+   },
+   "scoreM": {
+    "score": 1,
+    "scale": {
+     "num": 1,
+     "den": 1000000,
+     "add": 0
+    },
+    "demo": 0
+   }
+  },
+  "panels": {
+   "lockshot": {
+    "type": "tiers",
+    "tiersFitFont": true,
+    "title": "LOCK SHOT CHIP",
+    "short": "CHIP",
+    "value": "chip",
+    "format": "x",
+    "unit": "CHIP VALUE",
+    "tiers": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "tierLabels": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5"
+    ],
+    "zones": [
+     {
+      "from": 1,
+      "color": "accent"
+     },
+     {
+      "from": 3,
+      "color": "lit"
+     },
+     {
+      "from": 5,
+      "color": "good"
+     }
+    ],
+    "value2": "chipTimer",
+    "max2": 55,
+    "items": [
+     {
+      "label": "FIRE MODE",
+      "short": "MODE",
+      "value": "fireMode",
+      "format": "label",
+      "color": "accent"
+     },
+     {
+      "label": "CHIP TOTAL",
+      "short": "TOTAL",
+      "value": "chipTotal",
+      "format": "int"
+     },
+     {
+      "label": "MULTIPLIER",
+      "short": "MULT",
+      "value": "chipMult",
+      "color": "accent",
+      "format": "int"
+     },
+     {
+      "label": "STAGE BONUS",
+      "short": "BONUS",
+      "value": "stageBonus",
+      "format": "group",
+      "color": "lit"
+     }
+    ]
+   },
+   "loop": {
+    "type": "checks",
+    "title": "2ND LOOP",
+    "short": "LOOP 2",
+    "items": [
+     {
+      "label": "DEATHS+BOMBS",
+      "short": "D+B",
+      "value": "loopUse",
+      "op": "<=",
+      "target": 6,
+      "final": "end",
+      "format": "ratio",
+      "of": 6
+     },
+     {
+      "label": "URA: NO DEATH",
+      "short": "URA D",
+      "value": "deaths",
+      "op": "<=",
+      "target": 0,
+      "final": "end"
+     },
+     {
+      "label": "URA: NO BOMB",
+      "short": "URA B",
+      "value": "bombs",
+      "op": "<=",
+      "target": 0,
+      "final": "end"
+     },
+     {
+      "label": "URA: 120 M",
+      "short": "URA M",
+      "value": "scoreM",
+      "op": ">=",
+      "target": 120,
+      "final": "end",
+      "format": "int"
+     }
+    ],
+    "note": "and no continue"
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     }
+    ]
+   },
+   "ship": {
+    "type": "rows",
+    "title": "SHIP STOCK",
+    "short": "SHIP",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "ship",
+      "format": "x"
+     },
+     {
+      "label": "BOMBS",
+      "value": "bombStock",
+      "format": "x"
+     },
+     {
+      "label": "POWER",
+      "short": "POW",
+      "value": "power",
+      "format": "ratio",
+      "of": 4
+     }
+    ]
+   },
+   "boss": {
+    "widget": "BossHealth",
+    "title": "BOSS",
+    "unit": "HEALTH",
+    "values": {
+     "max": {
+      "peak": "hp",
+      "while": "phase",
+      "demo": 208
+     },
+     "hp": {
+      "demo": 131
+     },
+     "phase": {
+      "demo": 1
+     }
+    },
+    "items": [],
+    "readout": "small"
+   },
+   "extend": {
+    "widget": "NextExtend",
+    "title": "NEXT EXTEND",
+    "short": "EXTEND",
+    "values": {
+     "next": {
+      "next": "score",
+      "steps": [
+       20000000,
+       45000000
+      ],
+      "status": "estimate",
+      "demo": 20000000
+     },
+     "left": {
+      "next": "score",
+      "steps": [
+       20000000,
+       45000000
+      ],
+      "part": "left",
+      "status": "estimate",
+      "demo": 19871347
+     }
+    }
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "title": "STAGES",
+    "value": "stageScore",
+    "first": 0,
+    "current": "stage",
+    "names": [
+     {
+      "label": "STAGE 1",
+      "short": "S1"
+     },
+     {
+      "label": "STAGE 2",
+      "short": "S2"
+     },
+     {
+      "label": "STAGE 3",
+      "short": "S3"
+     },
+     {
+      "label": "STAGE 4",
+      "short": "S4"
+     },
+     {
+      "label": "STAGE 5",
+      "short": "S5"
+     },
+     {
+      "label": "2ND LOOP",
+      "short": "2ND"
+     }
+    ],
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x12440",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 2
+     }
+    },
+    "dense": true,
+    "fold": 5,
+    "uniformLabels": true
+   },
+   "pad": {
+    "widget": "Controller"
+   },
+   "rankw": {
+    "widget": "RankTracker",
+    "title": "GAME RANK",
+    "short": "RANK",
+    "max": 224,
+    "values": {
+     "rank": {
+      "demo": 91
+     }
+    },
+    "items": [
+     {
+      "label": "POWER",
+      "short": "POW",
+      "value": "power",
+      "format": "ratio",
+      "of": 4
+     },
+     {
+      "label": "FIRE MODE",
+      "short": "MODE",
+      "value": "fireMode",
+      "format": "label",
+      "color": "accent"
+     }
+    ],
+    "readout": "small"
+   },
+   "map": {
+    "widget": "StageWindow",
+    "title": "STAGE MAP",
+    "marks": "sonar",
+    "threat": ["#DCE6EE", "#F0DC78", "#F5A030", "#EE6020", "#E21E1E"],
+    "waveGain": 2,
+    "short": "MAP",
+    "column": 140,
+    "columnSide": "right",
+    "squares": 0,
+    "noBand": false,
+    "whole": true,
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x12440",
+       "action": "PROGRESSION_STAGE"
+      },
+      "scale": {
+       "num": 1,
+       "den": 1,
+       "add": 1
+      },
+      "demo": 1
+     },
+     "dist": {
+      "mem": {
+       "address": "0x1247C",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 300
+     },
+     "stagePhase": {
+      "sem": "stage.phase",
+      "demo": 0
+     }
+    },
+    "stagePhase": "stagePhase"
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "extend",
+    "pad",
+    "loop",
+    "boss",
+    "ship",
+    "stages",
+    "lockshot",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "score",
+   "map",
+   "stages",
+   "boss",
+   "loop"
+  ],
+  "right": [
+   "rank",
+   "rankw",
+   "lockshot",
+   "ship",
+   "pad"
+  ],
+  "notes": [
+   "SCORE: the score as the game counts it.",
+   "STAGES: the points scored in each stage, the stage being played lit; the second loop folded in one line.",
+   "LOCK SHOT CHIP: the chip value (1 to 5) and its timer, the chip total of the stage (the boss multiplier, back to 0 at each stage) and the lock shot multiplier; STAGE BONUS: what the end of the stage pays now, (ships left + 1) x 500 x chip total + bombs x 50 x chip total.",
+   "BOSS: the boss health bar as the game draws it (midbosses too), against its length at the entry (percentage).",
+   "NEXT EXTEND: the next extend (20 and 45 million) and the points still to score; the thresholds are the rules of the game, not read in memory (estimate mark).",
+   "2ND LOOP: deaths plus bombs at most 6 for the second loop; the ura loop needs no death, no bomb and 120 million points in the first loop; continues are not tracked.",
+   "CONTROLLER: the buttons of the game pressed live, with their role.",
+   "SHIP STOCK: ships in reserve and bombs in stock (the game shows them too: the plate comes in when there is room).",
+   "GAME RANK: the hidden difficulty as the game computes it (0 to 224): a base per stage (52, 68, 84, 100, 100) plus one step every 512 frames plus 4 per power step; it sets how many bullets the enemies fire. POWER: 0 to 4 (MAX). FIRE MODE: SHOT, or LOCK once the fire button is held for about 25 frames. Shown only when the game data declares them.",
+   "STAGE MAP: the whole level in a narrow strip, the frame of the current screen climbing with the distance; enemies placed where they enter (the filled shapes are sure, hollow ones are indicative); the approach band only outside ranked play. Shown only with the surveyed levels."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "fit": [
+   "ship",
+   "compact:loop",
+   "extend"
+  ],
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT",
+    "note": "hold for the lock shot"
+   },
+   {
+    "id": "a",
+    "label": "BOMB"
+   },
+   {
+    "id": "y",
+    "label": "AUTO"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "titleShort": "KETSUI"
+ }
+}

@@ -1,0 +1,803 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "gunstar-heroes-flame-lab",
+ "name": "Gunstar Heroes Flame Lab",
+ "version": 1,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "gunstar-heroes",
+   "gunstar heroes (usa)",
+   "gunstar heroes (europe)",
+   "gunstar heroes (usa, europe)",
+   "gunstarheroes"
+  ],
+  "titles": [
+   "Gunstar Heroes"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 224,
+  "scaling": "nearest",
+  "note": "Gunstar Heroes as Genesis Plus GX gives it (320 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels = 128 Deck pixels. The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto), each game pixel cut in 2 x 2 Deck pixels on the same grid. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), the rail takes the width left on the left."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (sheet metal tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by Genesis Plus GX without a window: title (flames #8b2000 #ee4400 #ee8900 #eeee00, red letters #cd2000 ringed with black), weapon select (khaki sheet metal #626520, wine cells #620000, yellow frames #eeee00, night blue cells #0000ac), in-game HUD (blue band #0065ee, red alert #ee0020), stage 1 (cyan sky #00ceee, leaves #20aa62).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#3a3c10",
+    "h": "#626520",
+    "k": "#1a1c04",
+    "d": "#2e3008",
+    "r": "#a0a050"
+   },
+   "rows": [
+    "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "hmmmmmmmmmmdmmmkhmmmmmmmmmmmmmdk",
+    "hmmdmmmmmmmmmmmkhmmmmmdmmmmmmmmk",
+    "hmmrmmmmmmmmrmdkhmmrmmmmmmmmrmmk",
+    "hmmmkmdmmmmmmkmkhmmmkmmmmdmmmkmk",
+    "hmmmmmmmmmmmmmmkhdmmmmmmmmmmmmmk",
+    "hmmmmmmmmdmmmmmkhmmmmmmmmmmmdmmk",
+    "hdmmmmmmmmmmmmmkhmmmdmmmmmmmmmmk",
+    "hmmmmmmmmmmmdmmkhmmmmmmmmmmmmmmk",
+    "hmmmdmmmmmmmmmmkhmmmmmmdmmmmmmmk",
+    "hmmmmmmmmmmmmmmkhmmmmmmmmmmmmmmk",
+    "hmmmmmmdmmmmmmmkhmmmmmmmmmdmmmmk",
+    "hmmrmmmmmmmmrmmkhmdrmmmmmmmmrmmk",
+    "hmmmkmmmmmdmmkmkhmmmkmmmmmmmmkmk",
+    "hmdmmmmmmmmmmmmkhmmmmdmmmmmmmmmk",
+    "hkkkkkkkkkkkkkkkhkkkkkkkkkkkkkkk",
+    "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "hmmmmmmmmmmmmmmkhmmmmmmmmmmmmmmk",
+    "hmmmmmmmdmmmmmmkhmmmmmmmmmmdmmmk",
+    "hmmrmmmmmmmmrmmkhmmrmmmmmmmmrmmk",
+    "hmmmkmmmmmmdmkmkhmmmkmmmmmmmmkdk",
+    "hmmdmmmmmmmmmmmkhmmmmmdmmmmmmmmk",
+    "hmmmmmmmmmmmmmdkhmmmmmmmmmmmmmmk",
+    "hmmmmmdmmmmmmmmkhmmmmmmmmdmmmmmk",
+    "hmmmmmmmmmmmmmmkhdmmmmmmmmmmmmmk",
+    "hmmmmmmmmdmmmmmkhmmmmmmmmmmmdmmk",
+    "hdmmmmmmmmmmmmmkhmmmdmmmmmmmmmmk",
+    "hmmmmmmmmmmmdmmkhmmmmmmmmmmmmmmk",
+    "hmmrdmmmmmmmrmmkhmmrmmmdmmmmrmmk",
+    "hmmmkmmmmmmmmkmkhmmmkmmmmmmmmkmk",
+    "hmmmmmmdmmmmmmmkhmmmmmmmmmdmmmmk",
+    "hkkkkkkkkkkkkkkkhkkkkkkkkkkkkkkk"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'round', x1 by x1.57143; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     ".###.",
+     ".###.",
+     "##.##",
+     "##.##",
+     "##.##",
+     "##.##",
+     "##.##",
+     "##.##",
+     "##.##",
+     ".###.",
+     ".###."
+    ],
+    "1": [
+     ".##..",
+     ".##..",
+     "###..",
+     ".##..",
+     ".##..",
+     ".##..",
+     ".##..",
+     ".##..",
+     ".##..",
+     "####.",
+     "####."
+    ],
+    "2": [
+     ".###.",
+     ".###.",
+     "##.##",
+     "...##",
+     "...##",
+     "..##.",
+     ".##..",
+     ".##..",
+     "##...",
+     "#####",
+     "#####"
+    ],
+    "3": [
+     ".###.",
+     ".###.",
+     "##.##",
+     "...##",
+     "...##",
+     "..##.",
+     "...##",
+     "...##",
+     "##.##",
+     ".###.",
+     ".###."
+    ],
+    "4": [
+     "...#.",
+     "...#.",
+     "..##.",
+     ".###.",
+     ".###.",
+     "##.#.",
+     "#####",
+     "#####",
+     "...#.",
+     "...#.",
+     "...#."
+    ],
+    "5": [
+     "#####",
+     "#####",
+     "##...",
+     "####.",
+     "####.",
+     "...##",
+     "...##",
+     "...##",
+     "##.##",
+     ".###.",
+     ".###."
+    ],
+    "6": [
+     ".###.",
+     ".###.",
+     "##...",
+     "####.",
+     "####.",
+     "##.##",
+     "##.##",
+     "##.##",
+     "##.##",
+     ".###.",
+     ".###."
+    ],
+    "7": [
+     "#####",
+     "#####",
+     "...##",
+     "..##.",
+     "..##.",
+     "..##.",
+     ".##..",
+     ".##..",
+     ".##..",
+     ".##..",
+     ".##.."
+    ],
+    "8": [
+     ".###.",
+     ".###.",
+     "##.##",
+     "##.##",
+     "##.##",
+     ".###.",
+     "##.##",
+     "##.##",
+     "##.##",
+     ".###.",
+     ".###."
+    ],
+    "9": [
+     ".###.",
+     ".###.",
+     "##.##",
+     "##.##",
+     "##.##",
+     ".####",
+     "...##",
+     "...##",
+     "..##.",
+     ".##..",
+     ".##.."
+    ],
+    ":": [
+     ".",
+     ".",
+     "#",
+     ".",
+     ".",
+     ".",
+     "#",
+     "#",
+     ".",
+     ".",
+     "."
+    ],
+    ".": [
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     "#",
+     "#"
+    ],
+    ",": [
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     ".",
+     "#",
+     "#"
+    ],
+    "-": [
+     "...",
+     "...",
+     "...",
+     "...",
+     "...",
+     "###",
+     "...",
+     "...",
+     "...",
+     "...",
+     "..."
+    ],
+    "+": [
+     "...",
+     "...",
+     "...",
+     ".#.",
+     ".#.",
+     "###",
+     ".#.",
+     ".#.",
+     "...",
+     "...",
+     "..."
+    ],
+    "/": [
+     "..#",
+     "..#",
+     "..#",
+     ".#.",
+     ".#.",
+     ".#.",
+     "#..",
+     "#..",
+     "#..",
+     "#..",
+     "#.."
+    ],
+    "#": [
+     ".#.#.",
+     ".#.#.",
+     "#####",
+     ".#.#.",
+     ".#.#.",
+     ".#.#.",
+     "#####",
+     "#####",
+     ".#.#.",
+     ".#.#.",
+     ".#.#."
+    ],
+    "%": [
+     "#...#",
+     "#...#",
+     "...#.",
+     "..#..",
+     "..#..",
+     "..#..",
+     ".#...",
+     ".#...",
+     "#....",
+     "#...#",
+     "#...#"
+    ],
+    " ": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     ".."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#eeee00",
+    "#eeee00",
+    "#ee8900",
+    "#ee4400",
+    "#cd2000"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "bar",
+   "rivets": true,
+   "noise": true,
+   "bandHeight": 9,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#eeee00",
+   "#eeee00",
+   "#ee8900",
+   "#cd2000"
+  ],
+  "palette": {
+   "warn": "#ee0020",
+   "good": "#20d070",
+   "provisional": "#eeee00",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#3a3c10",
+   "shadow": "#0a0a02",
+   "outline": "#000000",
+   "plate": "#626520",
+   "plateLight": "#7a7e30",
+   "plateDark": "#4a4c14",
+   "plateEdge": "#eeee00",
+   "plateShade": "#2a2c08",
+   "rivetLight": "#ffffff",
+   "rivet": "#a0a050",
+   "rivetDark": "#2a2c08",
+   "window": "#000040",
+   "windowEdge": "#000000",
+   "windowLight": "#0000ac",
+   "rowHi": "#20206a",
+   "band": "#0065ee",
+   "bandLight": "#40a0ff",
+   "bandDark": "#0040a0",
+   "bandText": "#ffffff",
+   "bandShadow": "#002060",
+   "title": "#eeee00",
+   "titleShadow": "#000000",
+   "subtitle": "#eece62",
+   "text": "#f0f0d8",
+   "value": "#ffffff",
+   "dim": "#a8c8ff",
+   "absent": "#5a5a8a",
+   "accent": "#00ceee",
+   "head": "#eeee00",
+   "lit": "#eeee00",
+   "bar": "#000030",
+   "barLight": "#ffffff",
+   "timer": "#00ceee",
+   "curveFill": "#20206a"
+  },
+  "bandRamp": [],
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "big": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "bigNarrow": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 18,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6,
+    "headerLine": false
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "GUNSTAR HEROES",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "BEST SCORE",
+    "value": "score",
+    "agg": "max",
+    "format": "group"
+   },
+   {
+    "label": "HITS TAKEN",
+    "value": "hits"
+   },
+   {
+    "label": "DEATHS",
+    "value": "deaths"
+   }
+  ],
+  "words": {},
+  "controls": [],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 61230
+   },
+   "vit": {
+    "mem": [
+     {
+      "address": "0xA424",
+      "action": "HEALTH_STATE"
+     },
+     {
+      "address": "0xA424",
+      "action": "HIT"
+     },
+     {
+      "address": "0xA424",
+      "action": "HEAL"
+     }
+    ],
+    "demo": 46,
+    "labels": [
+     {
+      "min": 101,
+      "max": 65535,
+      "label": "KO"
+     }
+    ]
+   },
+   "lastHit": {
+    "drop": "vit",
+    "maxDrop": 99,
+    "demo": 6
+   },
+   "hits": {
+    "count": {
+     "address": "0xA424",
+     "action": "HEALTH_STATE"
+    },
+    "when": "drop",
+    "while": "score",
+    "demo": 9
+   },
+   "deaths": {
+    "count": {
+     "address": "0xA424",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "demo": 0
+   },
+   "vitHist": {
+    "history": "vit",
+    "everyMs": 1000,
+    "n": 120,
+    "while": "score",
+    "demo": [
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     95,
+     95,
+     95,
+     95,
+     95,
+     95,
+     95,
+     95,
+     92,
+     92,
+     92,
+     92,
+     92,
+     92,
+     86,
+     86,
+     86,
+     86,
+     86,
+     86,
+     86,
+     86,
+     86,
+     86,
+     80,
+     80,
+     80,
+     80,
+     80,
+     80,
+     74,
+     74,
+     74,
+     74,
+     74,
+     74,
+     74,
+     74,
+     62,
+     62,
+     62,
+     62,
+     62,
+     62,
+     62,
+     62,
+     62,
+     58,
+     58,
+     58,
+     58,
+     58,
+     58,
+     58,
+     52,
+     52,
+     52,
+     52,
+     52,
+     52,
+     46,
+     46,
+     46,
+     46,
+     46
+    ]
+   }
+  },
+  "panels": {
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     }
+    ]
+   },
+   "vital": {
+    "type": "gauge",
+    "title": "VITALITY",
+    "short": "VITAL",
+    "value": "vit",
+    "max": 100,
+    "format": "label",
+    "unit": "OF 100",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 25,
+      "color": "lit"
+     },
+     {
+      "from": 50,
+      "color": "good"
+     }
+    ],
+    "marks": [
+     25,
+     50,
+     75
+    ],
+    "items": [
+     {
+      "label": "LAST HIT",
+      "short": "HIT",
+      "value": "lastHit",
+      "color": "warn"
+     },
+     {
+      "label": "HITS TAKEN",
+      "short": "HITS",
+      "value": "hits"
+     }
+    ]
+   },
+   "graph": {
+    "type": "curve",
+    "grow": true,
+    "title": "VITALITY GRAPH",
+    "short": "GRAPH",
+    "unit": "VITALITY",
+    "value": "vitHist",
+    "value2": "vit",
+    "format": "label",
+    "max": 100,
+    "readout": "small",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 25,
+      "color": "lit"
+     },
+     {
+      "from": 50,
+      "color": "good"
+     }
+    ],
+    "marks": [
+     50
+    ],
+    "markLabels": [
+     "50"
+    ]
+   },
+   "clear": {
+    "type": "checks",
+    "title": "NO DEATH",
+    "short": "1CC",
+    "items": [
+     {
+      "label": "DEATHS",
+      "short": "DEATH",
+      "value": "deaths",
+      "op": "<=",
+      "target": 0,
+      "final": "end"
+     }
+    ]
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "graph",
+    "clear",
+    "vital",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "Vitality: the value the game shows, with the points lost on the last hit and the hits taken in this game.",
+   "Vitality graph: the vitality sampled every second.",
+   "Deaths: a death leads to the continue, which resets the score; the best score of the session is kept for the recap."
+  ],
+  "aspect": "4:3",
+  "layout": "single",
+  "left": [
+   "header",
+   "score",
+   "rank",
+   "vital",
+   "graph",
+   "clear"
+  ],
+  "narrow": [
+   "header",
+   "score",
+   "rank",
+   "vital",
+   "graph",
+   "clear"
+  ],
+  "fit": [
+   "compact:clear",
+   "compact:rank",
+   "graph",
+   "clear"
+  ]
+ }
+}

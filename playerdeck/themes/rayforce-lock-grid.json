@@ -1,0 +1,983 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "rayforce-lock-grid",
+ "name": "RayForce Lock Grid",
+ "version": 2,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "rayforce",
+   "rayforcej",
+   "gunlock"
+  ],
+  "titles": [
+   "RayForce",
+   "Ray Force",
+   "Gunlock"
+  ]
+ },
+ "native": {
+  "width": 224,
+  "height": 320,
+  "scaling": "nearest",
+  "note": "RayForce vertical as the FBNeo core gives it (320 x 224 turned, square game pixels). The deck is drawn on a canvas of game pixels, enlarged on the same column and row grid as the game."
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side: score, areas and ship stock on the left; controller, no miss, score per life and live rank on the right."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (grid tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: HUD black, dark red of the score figures (#410000 #620000 #99371b), LASER green (#57d656 #8df49c #056c05), laser blue (#39489c #0000ff), ivory (#fff3bd #f9fccd), gold (#d8c316 #c57b09).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#000000",
+    "l": "#003a10",
+    "s": "#425560",
+    "c": "#57d656"
+   },
+   "rows": [
+    "llllllllllllllllllllllllllllllll",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmsmmmmmmmmmm",
+    "lmmmmsmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmsmmmmm",
+    "lmmmmmmmcmsmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmcmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmccmccmmmmmlmmmmmmmmmmmmmms",
+    "lmmmmmmmcmmmmmmslmmmmmmmmmmmmmmm",
+    "lmmmmmmmcmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmsmmmmmmmmmmm",
+    "lmmmsmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmsmmmmmm",
+    "llllllllllllllllllllllllllllllll",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmsm",
+    "lmmmmmmmmmmmmmsmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmsmmmmcmmmmmmm",
+    "lmmsmmmmmmmmmmmmlmmmmmmmcmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmccmccmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmcmmmmmmm",
+    "lmmmmmmmsmmmmmmmlmmmmmmmcmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmsmm",
+    "lmmmmmmmmmmmmsmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm",
+    "lmmmmmmmmmmmmmmmlmmmmmmmmmmmmmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'narrow', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "..##....",
+     "####....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######..",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "##......",
+     "##......",
+     "########",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "....##..",
+     "..####..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "########",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "########",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "..####..",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "########",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "..######",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#fff3bd",
+    "#ffb060",
+    "#e06020",
+    "#99371b",
+    "#620000"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "tab",
+   "rivets": false,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "noise": false
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#fff3bd",
+   "#d8c316",
+   "#c57b09",
+   "#774512"
+  ],
+  "palette": {
+   "warn": "#ff3020",
+   "good": "#57d656",
+   "provisional": "#d8c316",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#000000",
+   "shadow": "#000000",
+   "outline": "#000000",
+   "plate": "#0c1810",
+   "plateLight": "#1a3020",
+   "plateDark": "#060c08",
+   "plateEdge": "#57d656",
+   "plateShade": "#003a10",
+   "window": "#000000",
+   "windowEdge": "#003a10",
+   "windowLight": "#056c05",
+   "rowHi": "#102a14",
+   "band": "#410000",
+   "bandLight": "#99371b",
+   "bandText": "#fff3bd",
+   "bandShadow": "#000000",
+   "bandTail": "#620000",
+   "bandTailDark": "#200000",
+   "title": "#fff3bd",
+   "titleShadow": "#410000",
+   "subtitle": "#57d656",
+   "text": "#f9fccd",
+   "value": "#ffffff",
+   "dim": "#8df49c",
+   "absent": "#425560",
+   "accent": "#5a78ff",
+   "head": "#d8c316",
+   "lit": "#d8c316",
+   "bar": "#000000",
+   "barLight": "#ffffff",
+   "timer": "#d8c316",
+   "curveFill": "#102a14"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "g": "#57d656",
+     "w": "#f9fccd",
+     "r": "#ff3020"
+    },
+    "rows": [
+     "...w...",
+     "..gwg..",
+     ".ggwgg.",
+     "gggwggg",
+     "g.g.g.g",
+     "..r.r.."
+    ]
+   }
+  }
+ },
+ "recipe": {
+  "title": "RAYFORCE",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "TOP RANK",
+    "value": "rankR",
+    "agg": "max"
+   },
+   {
+    "label": "8-LOCK SALVOS",
+    "value": "fullLocks",
+    "agg": "max"
+   },
+   {
+    "label": "FIRST LIFE",
+    "value": "firstLife",
+    "format": "group"
+   },
+   {
+    "label": "SHIPS LOST",
+    "value": "lost"
+   }
+  ],
+  "words": {},
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT"
+   },
+   {
+    "id": "a",
+    "label": "LOCK-ON",
+    "note": "lock-on laser on the ground targets"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 3184570
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x4B94",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0x4B94",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "lost": {
+    "count": {
+     "address": "0x4B94",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 1
+   },
+   "lifeScore": {
+    "buckets": "score",
+    "by": "lost",
+    "n": 8,
+    "demo": [
+     2010300,
+     1174270,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "zero": {
+    "initial": 0
+   },
+   "firstLife": {
+    "pick": "lifeScore",
+    "at": "zero"
+   },
+   "stage": {
+    "mem": {
+     "address": "0x38C0",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 3
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     0,
+     1120400,
+     1306900,
+     757270,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "rankR": {
+    "sem": "rank",
+    "demo": 6
+   },
+   "shot": {
+    "sem": "players.1.power.level",
+    "demo": 3
+   },
+   "lockCap": {
+    "sem": "players.1.game.rayforce.lock_capacity",
+    "demo": 7
+   },
+   "lockMult": {
+    "map": "lockCap",
+    "to": {
+     "5": 16,
+     "6": 32,
+     "7": 64,
+     "8": 128
+    },
+    "demo": 64
+   },
+   "fullLocks": {
+    "count": {
+     "address": "0x4BA0",
+     "action": "OBJECT_INTERACTION",
+     "player": 1
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 4
+   }
+  },
+  "panels": {
+   "stages": {
+    "widget": "StageProgress",
+    "title": "AREAS",
+    "value": "stageScore",
+    "first": 1,
+    "current": "stage",
+    "names": [
+     "AREA 1",
+     "AREA 2",
+     "AREA 3",
+     "AREA 4",
+     "AREA 5",
+     "AREA 6",
+     "AREA 7"
+    ],
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x38C0",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 3
+     }
+    },
+    "dense": false
+   },
+   "pad": {
+    "widget": "Controller"
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "THIS AREA",
+      "short": "AREA",
+      "value": "thisStage",
+      "format": "group",
+      "color": "lit"
+     },
+     {
+      "label": "FIRST LIFE",
+      "short": "1ST",
+      "value": "firstLife",
+      "format": "group",
+      "color": "accent"
+     }
+    ]
+   },
+   "ship": {
+    "type": "rows",
+    "title": "SHIP STOCK",
+    "short": "SHIP",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "ship",
+      "format": "x"
+     },
+     {
+      "label": "SHIPS LOST",
+      "short": "LOST",
+      "value": "lost"
+     }
+    ]
+   },
+   "lock": {
+    "type": "tiers",
+    "title": "LOCK-ON",
+    "short": "LOCK",
+    "value": "lockCap",
+    "unit": "TARGETS",
+    "tiers": [
+     5,
+     6,
+     7,
+     8
+    ],
+    "tierLabels": [
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "zones": [
+     {
+      "from": 5,
+      "color": "accent"
+     },
+     {
+      "from": 7,
+      "color": "lit"
+     },
+     {
+      "from": 8,
+      "color": "good"
+     }
+    ],
+    "items": [
+     {
+      "label": "LAST TARGET",
+      "short": "LAST",
+      "value": "lockMult",
+      "format": "x",
+      "color": "lit"
+     },
+     {
+      "label": "8-LOCK SALVOS",
+      "short": "8 LOCK",
+      "value": "fullLocks",
+      "format": "int",
+      "color": "accent"
+     }
+    ]
+   },
+   "shot": {
+    "type": "tiers",
+    "title": "SHOT",
+    "short": "SHOT",
+    "value": "shot",
+    "tiers": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "tierLabels": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6"
+    ],
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 3,
+      "color": "lit"
+     },
+     {
+      "from": 5,
+      "color": "good"
+     }
+    ]
+   },
+   "rankp": {
+    "type": "rows",
+    "title": "RANK",
+    "short": "RANK",
+    "items": [
+     {
+      "label": "LEVEL",
+      "value": "rankR",
+      "format": "int",
+      "big": true
+     }
+    ]
+   },
+   "extend": {
+    "widget": "NextExtend",
+    "title": "NEXT EXTEND",
+    "short": "EXTEND",
+    "values": {
+     "next": {
+      "next": "score",
+      "steps": [
+       1000000,
+       2000000
+      ],
+      "status": "estimate",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 2000000
+     },
+     "left": {
+      "next": "score",
+      "steps": [
+       1000000,
+       2000000
+      ],
+      "part": "left",
+      "status": "estimate",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 815430
+     }
+    }
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "pad",
+    "extend",
+    "shot",
+    "rankp",
+    "lock",
+    "ship",
+    "stages",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "Lock-on: how many targets the lock-on laser can hold (5 at start, 8 at most, one less per death); the last target of a full salvo scores 2 to the power of its rank (x16 to x128).",
+   "8-lock salvos: the times eight targets were locked at once.",
+   "Rank: the rank of the game, the value of its debug screen; it rises with play time.",
+   "Shot: the main shot level, 1 to 6.",
+   "Next extend: 1,000,000 and 2,000,000 (estimate, marked on screen).",
+   "Areas: the score of each area, from the area counter of the game; the area in progress is lit."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "left": [
+   "header",
+   "score",
+   "stages",
+   "lock"
+  ],
+  "right": [
+   "rankp",
+   "shot",
+   "extend",
+   "ship",
+   "pad",
+   "rank"
+  ],
+  "fit": [
+   "compact:ship",
+   "pad",
+   "compact:stages"
+  ]
+ }
+}

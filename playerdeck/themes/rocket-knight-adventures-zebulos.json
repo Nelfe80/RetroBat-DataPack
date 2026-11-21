@@ -1,0 +1,768 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "rocket-knight-adventures-zebulos",
+ "name": "Rocket Knight Zebulos",
+ "version": 1,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "rocket-knight-adventures",
+   "Rocket Knight Adventures (USA)",
+   "Rocket Knight Adventures (Europe)"
+  ],
+  "titles": [
+   "Rocket Knight Adventures"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 224,
+  "scaling": "nearest",
+  "deckPixel": "auto",
+  "note": "Rocket Knight Adventures as Genesis Plus GX gives it (320 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels, drawn at half the game pixel when the plates need it. The rail is always filled."
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), one rail on the left: the speedrun column, as LiveSplit puts it beside the game."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (tile, plates, digits and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (no pixel copied) from the game's screens produced by Genesis Plus GX: HUD frame violets (#200041 #41008b), gold #cd8900, reds #8b0000 #cd2000, forest greens #006541 #208962.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "b": "#200041",
+    "l": "#41008b",
+    "d": "#000020",
+    "r": "#cd8900"
+   },
+   "rows": [
+    "llllllllllllllllllllllllllllllll",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbrbbbbbbbbbbrbdlbrbbbbbbbbbbrbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "lbrbbbbbbbbbbrbdlbrbbbbbbbbbbrbd",
+    "lbbbbbbbbbbbbbbdlbbbbbbbbbbbbbbd",
+    "ldddddddddddddddlddddddddddddddd"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "..##....",
+     "####....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######..",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "##......",
+     "##......",
+     "########",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "....##..",
+     "..####..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "########",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "########",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "..####..",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "########",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "..######",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#eeeeee",
+    "#e0c080",
+    "#cd8900",
+    "#8b5000",
+    "#402000"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "label",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 8,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#eeeeee",
+   "#cd8900",
+   "#8b0000"
+  ],
+  "bandRamp": [
+   "#ffffff",
+   "#eeeeee",
+   "#cd8900",
+   "#8b0000"
+  ],
+  "palette": {
+   "shadow": "#000000",
+   "outline": "#000000",
+   "windowEdge": "#000000",
+   "titleShadow": "#000000",
+   "bandShadow": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "head": "#eeeeee",
+   "wall": "#200041",
+   "plate": "#200041",
+   "plateLight": "#41008b",
+   "plateDark": "#100020",
+   "plateEdge": "#cd8900",
+   "plateShade": "#000020",
+   "window": "#000020",
+   "windowLight": "#200041",
+   "rowHi": "#41008b",
+   "band": "#41008b",
+   "bandText": "#eeeeee",
+   "bandRule": "#cd8900",
+   "title": "#eeeeee",
+   "subtitle": "#cd8900",
+   "text": "#eeeeee",
+   "value": "#ffffff",
+   "dim": "#c0a0e0",
+   "absent": "#6a4a8a",
+   "accent": "#208962",
+   "warn": "#ff2020",
+   "good": "#40d080",
+   "lit": "#cd8900",
+   "bar": "#200041"
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "ROCKET KNIGHT",
+  "subtitle": "ADVENTURES",
+  "aspect": "4:3",
+  "layout": "single",
+  "pattern": "F",
+  "marks": true,
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 12000
+   },
+   "stage": {
+    "mem": {
+     "address": "0xB088",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 3
+   },
+   "lives": {
+    "mem": [
+     {
+      "address": "0xFB0C",
+      "action": "GAIN_LIFE"
+     },
+     {
+      "address": "0xFB0C",
+      "action": "LOSE_LIFE"
+     }
+    ],
+    "demo": 1
+   }
+  },
+  "panels": {
+   "status": {
+    "type": "rows",
+    "title": "SPARKSTER",
+    "short": "SPARK",
+    "items": [
+     {
+      "label": "REST",
+      "short": "RES",
+      "value": "lives",
+      "color": "lit"
+     },
+     {
+      "label": "STAGE",
+      "short": "STG",
+      "value": "stage",
+      "color": "accent"
+     }
+    ]
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     }
+    ]
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "splits": [
+   {
+    "kinds": [
+     "speedrun_full"
+    ],
+    "key": "stage",
+    "names": {
+     "1": "STAGE 1",
+     "2": "STAGE 2",
+     "3": "STAGE 3",
+     "4": "STAGE 4",
+     "5": "STAGE 5",
+     "6": "STAGE 6",
+     "7": "STAGE 7"
+    },
+    "route": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "title": "SPLITS"
+   }
+  ],
+  "trial": {
+   "at": "header",
+   "voids": [
+    {
+     "label": "PAUSE",
+     "on": [
+      "PAUSE_ON"
+     ],
+     "live": true
+    },
+    {
+     "label": "DEMO",
+     "on": [
+      "DEMO_MODE"
+     ],
+     "live": true
+    },
+    {
+     "label": "FAST FWD",
+     "on": [
+      "fast_forward"
+     ],
+     "live": true
+    },
+    {
+     "label": "STATE LOAD",
+     "on": [
+      "save_state_load"
+     ]
+    },
+    {
+     "label": "REWIND",
+     "on": [
+      "rewind"
+     ]
+    },
+    {
+     "label": "EMU PAUSE",
+     "on": [
+      "pause_clock_gap"
+     ]
+    }
+   ],
+   "yields": {
+    "score": [
+     "speedrun"
+    ],
+    "stages": [
+     "speedrun"
+    ]
+   },
+   "drop": [
+    "pad",
+    "stages",
+    "score",
+    "status",
+    "rank"
+   ],
+   "note": "Speedrun column (pattern F): TIME (official time of the trial, gaps to PB, world record and target rank), SPLITS (segments of the run against the best finished attempt of the session, or the PB splits the API publishes), RUN (the validity of the run: rules watched live in green, rules checked at certification in grey), then the game's own resources; LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "status",
+   "score",
+   "pad",
+   "rank"
+  ],
+  "right": [],
+  "narrow": [
+   "header",
+   "status",
+   "score",
+   "rank"
+  ],
+  "fit": [
+   "pad",
+   "compact:status",
+   "compact:score"
+  ],
+  "recap": [
+   {
+    "label": "BEST STAGE",
+    "value": "stage",
+    "agg": "max"
+   }
+  ],
+  "notes": [
+   "SPLITS: Any% (Easy), one line per stage (the game's own stage number), against the best finished attempt of this session (computed).",
+   "SPARKSTER: lives in reserve (REST, as the game shows) and stage."
+  ],
+  "controls": [
+   {
+    "id": "y",
+    "label": "ATTACK"
+   },
+   {
+    "id": "b",
+    "label": "JUMP"
+   },
+   {
+    "id": "a",
+    "label": "ATTACK"
+   },
+   {
+    "id": "start",
+    "label": "PAUSE"
+   }
+  ],
+  "fire": "y"
+ }
+}

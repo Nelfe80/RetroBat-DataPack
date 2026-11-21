@@ -1,0 +1,938 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "sonic-the-hedgehog-2-emerald-hill",
+ "name": "Sonic 2 Emerald Hill",
+ "version": 1,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "sonic-the-hedgehog-2",
+   "Sonic The Hedgehog 2 (World)",
+   "Sonic The Hedgehog 2 (World) (Rev A)"
+  ],
+  "titles": [
+   "Sonic the Hedgehog 2"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 224,
+  "scaling": "nearest",
+  "deckPixel": "auto",
+  "note": "Sonic the Hedgehog 2 as Genesis Plus GX gives it (320 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels, drawn at half the game pixel when the plates need it. The rail is always filled."
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), one rail on the left: the speedrun column, as LiveSplit puts it beside the game."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (tile, plates, digits and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (no pixel copied) from the game's screens produced by Genesis Plus GX: Emerald Hill ground (#ee8900 #cd6500 #8b4400 #622000), sky blues (#00008b #0020cd #6289ee), HUD yellow and white.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "a": "#ee8900",
+    "b": "#cd6500",
+    "l": "#8b4400",
+    "k": "#622000"
+   },
+   "rows": [
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "aaaaaaaabbbbbbbbaaaaaaaabbbbbbbb",
+    "llllllllkkkkkkkkllllllllkkkkkkkk",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "bbbbbbbbaaaaaaaabbbbbbbbaaaaaaaa",
+    "kkkkkkkkllllllllkkkkkkkkllllllll"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "..##....",
+     "####....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######..",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "##......",
+     "##......",
+     "########",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "....##..",
+     "..####..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "########",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "########",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "..####..",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "########",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "..######",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#eeeeee",
+    "#cdeeee",
+    "#6289ee",
+    "#0020cd",
+    "#00008b"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "label",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 8,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffff80",
+   "#eeee00",
+   "#eeaa00",
+   "#ee6500"
+  ],
+  "bandRamp": [
+   "#ffff80",
+   "#eeee00",
+   "#eeaa00",
+   "#ee6500"
+  ],
+  "palette": {
+   "shadow": "#000000",
+   "outline": "#000000",
+   "windowEdge": "#000000",
+   "titleShadow": "#000000",
+   "bandShadow": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "head": "#eeee00",
+   "wall": "#8b4400",
+   "plate": "#0020cd",
+   "plateLight": "#6289ee",
+   "plateDark": "#00008b",
+   "plateEdge": "#6289ee",
+   "plateShade": "#000062",
+   "window": "#00005a",
+   "windowLight": "#0020cd",
+   "rowHi": "#0020cd",
+   "band": "#0020cd",
+   "bandText": "#eeee00",
+   "bandRule": "#6289ee",
+   "title": "#eeee00",
+   "subtitle": "#cdeeee",
+   "text": "#eeeeee",
+   "value": "#ffffff",
+   "dim": "#cdeeee",
+   "absent": "#4a62cd",
+   "accent": "#8bee00",
+   "warn": "#ff3020",
+   "good": "#8bee00",
+   "lit": "#eeee00",
+   "bar": "#0020cd"
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "SONIC 2",
+  "subtitle": "THE HEDGEHOG",
+  "aspect": "4:3",
+  "layout": "single",
+  "pattern": "F",
+  "marks": true,
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 12000
+   },
+   "zone": {
+    "mem": {
+     "address": "0xFE11",
+     "action": "PROGRESSION_ZONE"
+    },
+    "demo": 13
+   },
+   "act": {
+    "mem": {
+     "address": "0xFE10",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 0
+   },
+   "actKey": {
+    "terms": [
+     {
+      "k": 2,
+      "of": [
+       "zone"
+      ]
+     },
+     {
+      "k": 1,
+      "of": [
+       "act"
+      ]
+     }
+    ],
+    "status": "measure",
+    "demo": 26,
+    "labels": [
+     {
+      "raw": 0,
+      "label": "EHZ1"
+     },
+     {
+      "raw": 1,
+      "label": "EHZ2"
+     },
+     {
+      "raw": 26,
+      "label": "CPZ1"
+     },
+     {
+      "raw": 27,
+      "label": "CPZ2"
+     },
+     {
+      "raw": 30,
+      "label": "ARZ1"
+     },
+     {
+      "raw": 31,
+      "label": "ARZ2"
+     },
+     {
+      "raw": 24,
+      "label": "CNZ1"
+     },
+     {
+      "raw": 25,
+      "label": "CNZ2"
+     },
+     {
+      "raw": 14,
+      "label": "HTZ1"
+     },
+     {
+      "raw": 15,
+      "label": "HTZ2"
+     },
+     {
+      "raw": 22,
+      "label": "MCZ1"
+     },
+     {
+      "raw": 23,
+      "label": "MCZ2"
+     },
+     {
+      "raw": 20,
+      "label": "OOZ1"
+     },
+     {
+      "raw": 21,
+      "label": "OOZ2"
+     },
+     {
+      "raw": 8,
+      "label": "MTZ1"
+     },
+     {
+      "raw": 9,
+      "label": "MTZ2"
+     },
+     {
+      "raw": 10,
+      "label": "MTZ3"
+     },
+     {
+      "raw": 32,
+      "label": "SCZ"
+     },
+     {
+      "raw": 12,
+      "label": "WFZ"
+     },
+     {
+      "raw": 28,
+      "label": "DEZ"
+     }
+    ]
+   },
+   "lives": {
+    "mem": [
+     {
+      "address": "0xFE13",
+      "action": "GAIN_LIFE"
+     },
+     {
+      "address": "0xFE13",
+      "action": "LOSE_LIFE"
+     }
+    ],
+    "demo": 3
+   },
+   "taken": {
+    "mem": {
+     "address": "0xFEF0",
+     "action": "COIN_GAIN"
+    },
+    "demo": 64,
+    "zeroOn": [
+     {
+      "address": "0xFE10",
+      "action": "PROGRESSION_STAGE"
+     },
+     {
+      "address": "0xFE11",
+      "action": "PROGRESSION_ZONE"
+     }
+    ]
+   }
+  },
+  "panels": {
+   "status": {
+    "type": "rows",
+    "title": "SONIC",
+    "items": [
+     {
+      "label": "RINGS TAKEN",
+      "short": "RINGS",
+      "value": "taken",
+      "color": "lit"
+     },
+     {
+      "label": "LIVES",
+      "short": "LIV",
+      "value": "lives"
+     },
+     {
+      "label": "ACT",
+      "short": "ACT",
+      "value": "actKey",
+      "format": "label",
+      "color": "accent"
+     }
+    ]
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     }
+    ]
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "splits": [
+   {
+    "kinds": [
+     "speedrun_full"
+    ],
+    "key": "actKey",
+    "names": {
+     "0": "EHZ1",
+     "1": "EHZ2",
+     "26": "CPZ1",
+     "27": "CPZ2",
+     "30": "ARZ1",
+     "31": "ARZ2",
+     "24": "CNZ1",
+     "25": "CNZ2",
+     "14": "HTZ1",
+     "15": "HTZ2",
+     "22": "MCZ1",
+     "23": "MCZ2",
+     "20": "OOZ1",
+     "21": "OOZ2",
+     "8": "MTZ1",
+     "9": "MTZ2",
+     "10": "MTZ3",
+     "32": "SCZ",
+     "12": "WFZ",
+     "28": "DEZ"
+    },
+    "route": [
+     0,
+     1,
+     26,
+     27,
+     30,
+     31,
+     24,
+     25,
+     14,
+     15,
+     22,
+     23,
+     20,
+     21,
+     8,
+     9,
+     10,
+     32,
+     12,
+     28
+    ],
+    "title": "SPLITS"
+   }
+  ],
+  "trial": {
+   "at": "header",
+   "voids": [
+    {
+     "label": "PAUSE",
+     "on": [
+      "PAUSE_ON"
+     ],
+     "live": true
+    },
+    {
+     "label": "LEVEL SELECT",
+     "on": [
+      "STAGE_SELECT"
+     ],
+     "live": true
+    },
+    {
+     "label": "DEBUG",
+     "on": [
+      "LEVEL_CHEAT_ACTIVATED"
+     ],
+     "live": true
+    },
+    {
+     "label": "RESET",
+     "on": [
+      "TITLE_SCREEN",
+      "CORPORATE_SCREEN"
+     ],
+     "live": true
+    },
+    {
+     "label": "FAST FWD",
+     "on": [
+      "fast_forward"
+     ],
+     "live": true
+    },
+    {
+     "label": "STATE LOAD",
+     "on": [
+      "save_state_load"
+     ]
+    },
+    {
+     "label": "REWIND",
+     "on": [
+      "rewind"
+     ]
+    },
+    {
+     "label": "EMU PAUSE",
+     "on": [
+      "pause_clock_gap"
+     ]
+    }
+   ],
+   "yields": {
+    "score": [
+     "speedrun"
+    ],
+    "stages": [
+     "speedrun"
+    ]
+   },
+   "drop": [
+    "pad",
+    "stages",
+    "score",
+    "status",
+    "rank"
+   ],
+   "note": "Speedrun column (pattern F): TIME (official time of the trial, gaps to PB, world record and target rank), SPLITS (segments of the run against the best finished attempt of the session, or the PB splits the API publishes), RUN (the validity of the run: rules watched live in green, rules checked at certification in grey), then the game's own resources; LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "status",
+   "score",
+   "pad",
+   "rank"
+  ],
+  "right": [],
+  "narrow": [
+   "header",
+   "status",
+   "score",
+   "rank"
+  ],
+  "fit": [
+   "pad",
+   "compact:status",
+   "compact:score"
+  ],
+  "recap": [
+   {
+    "label": "LIVES LOST",
+    "value": "lives",
+    "agg": "drops"
+   }
+  ],
+  "notes": [
+   "SPLITS: Any%, one line per act on the route of the game (EHZ1 to DEZ), against the best finished attempt of this session (computed); level runs have one segment.",
+   "SONIC: rings taken since the act began (the game's own count, it never drops on a hit), lives, act."
+  ],
+  "controls": [
+   {
+    "id": "y",
+    "label": "JUMP"
+   },
+   {
+    "id": "b",
+    "label": "JUMP"
+   },
+   {
+    "id": "a",
+    "label": "JUMP"
+   },
+   {
+    "id": "start",
+    "label": "PAUSE"
+   }
+  ],
+  "fire": "b"
+ }
+}

@@ -1,0 +1,1164 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "tgm2-violet-cubes",
+ "name": "TGM2 Violet Cubes",
+ "version": 4,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "tgm2",
+   "tgm2p",
+   "tetris-the-absolute-the-grand-master-2"
+  ],
+  "titles": [
+   "Tetris: The Absolute - The Grand Master 2"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 240,
+  "scaling": "nearest",
+  "note": "TGM2 as the FBNeo core gives it (Psikyo SH-2, 320 x 240, 4:3, square game pixels). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels = 128 Deck pixels. The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto): in 1920 x 1200 the rail is drawn at half the game pixel, each game pixel cut in 2 x 2 Deck pixels on the same grid. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), the rail takes the width left on the left, as Rebel Iron."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (cube tile, chrome plates, section table and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: violet riveted cubes of the rankings and the playfield (#5a4873 #413452 #292431 #7b69a4 #9c7db4 #b489d5), chrome field frame and digits (#ffffff #dedede #acaeac #838183), small orange HUD labels (#ffa500), Arika blue (#0048f6). SECTIONTIME RANKING table gave the section table.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "f": "#5a4873",
+    "g": "#413452",
+    "h": "#4e3f66",
+    "m": "#7b69a4",
+    "d": "#292431",
+    "k": "#120f18",
+    "l": "#9c7db4",
+    "r": "#b489d5"
+   },
+   "rows": [
+    "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+    "klllllllllllllllklllllllllllllllklllllllllllllll",
+    "klmfffffffffffdkklhddhmhmhhhdhdkklggmggdggggggdk",
+    "klfrffdfmfffrfdkklhrhhhhdhhhrhdkklgrdgggggggrgdk",
+    "klffkfmffffffkdkklmhkhmhhhdhmkdkklggkmgggggmgkdk",
+    "klmfdfffmfffffdkklhhdhhhmmhhmhdkklggggggddggggdk",
+    "klfddfffffmfffdkklmhhhhhhdhhdddkklgmgmggggggggdk",
+    "klfmffffffdfmmdkklhhhdhmhmhhhhdkklgdggggggggggdk",
+    "klmddfmffdfffddkklhhhhhhhhhhhhdkklgggmggggggdddk",
+    "klmdfffdmffdfmdkklhdmhhhhhhhdhdkklggggmgggggdgdk",
+    "klffdfffffffffdkklhhhhmhhhhhmhdkklgggggmggggggdk",
+    "klfmmfffffffffdkklhhhhhhhhhhhddkklgmgggggggmggdk",
+    "klfrffffmfffrfdkklhrhhdhhhhhrhdkklgrggggggggrgdk",
+    "klffkffdddffdkdkkldhkhhhhhhmhkdkkldgkgdmmggggkdk",
+    "kldddddddddddddkkldddddddddddddkkldddddddddddddk",
+    "klkkkkkkkkkkkkkkklkkkkkkkkkkkkkkklkkkkkkkkkkkkkk",
+    "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+    "klllllllllllllllklllllllllllllllklllllllllllllll",
+    "klgggggmgggmmgdkklfffffffmmdffdkkldhhhhhhhdhhmdk",
+    "klgrmgggggggrgdkklfrmfdfffffrfdkklhrdhhhhhhhrhdk",
+    "klggkgggdggggkdkklmfkfffmffffkdkklhhkhhhmhhhhkdk",
+    "klgdggggmgdgggdkklmfffmfmffdffdkklhhhhhhhhmhdhdk",
+    "klgggdggggdgggdkklffmfffmfffffdkklhhhhhhhhhhhhdk",
+    "klggggggmdgggmdkklffffffffffffdkklhhmhhhhhhhhhdk",
+    "klggggggggggggdkklffffffffffffdkkldhhhhhhhhhhhdk",
+    "klgggdmgggmgggdkklffffffffmfdmdkklhhhhhhhhmhhhdk",
+    "kldggggdgggmggdkklmmffffmfffffdkklhhhhmhhhdhhmdk",
+    "klggggggggggdgdkkldfdmffffffmmdkklddhhhdhhdhhhdk",
+    "klgrgdggggggrgdkklmrffffffffrfdkklhrhhhhhhhdrmdk",
+    "klggkggdgddgmkdkklffkmfdmfffmkdkklhhkhhhhhhhhkdk",
+    "kldddddddddddddkkldddddddddddddkkldddddddddddddk",
+    "klkkkkkkkkkkkkkkklkkkkkkkkkkkkkkklkkkkkkkkkkkkkk",
+    "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+    "klllllllllllllllklllllllllllllllklllllllllllllll",
+    "klhhhhhhhhhhhhdkkldgggdgggdgggdkklfdfmffffffffdk",
+    "klhrhhmhhhhhrddkklgrggggggggrgdkklfrffffffffrfdk",
+    "klmhkhmhdmhhhkdkklgmkgdmgggggkdkklffkfffffmmfkdk",
+    "klhmhhhhhhhmmhdkklggmmggggggggdkklffffffffffmfdk",
+    "kldhhmhhhhdhhhdkklgmgggggmggggdkklffffffffdfffdk",
+    "klhhhhmhhhhhhhdkklggmgggdgggggdkklffffdfffffffdk",
+    "klhhhhhhmhhhhhdkklgggggmgggdggdkklffffmfffffffdk",
+    "klhhhhhhhmhhhhdkklmggggdggmdggdkklffddfdddffffdk",
+    "klhhhhhhmhhhhhdkklggdggdggggggdkklffdfmfffffmfdk",
+    "klhhhhhhhhdmhhdkklggggggggmgggdkklfmffffffffffdk",
+    "klhrhmmhhhhhrhdkklgrggmdggggrgdkklfrfffdffffrddk",
+    "klhmkhmmhhhhhkdkklggkggggggggkdkkldfkffffmffdkdk",
+    "kldddddddddddddkkldddddddddddddkkldddddddddddddk",
+    "klkkkkkkkkkkkkkkklkkkkkkkkkkkkkkklkkkkkkkkkkkkkk"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'round', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "1": [
+     "..####....",
+     "..####....",
+     "######....",
+     "######....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "########..",
+     "########.."
+    ],
+    "2": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "####......",
+     "####......",
+     "##########",
+     "##########"
+    ],
+    "3": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "4": [
+     "......##..",
+     "......##..",
+     "....####..",
+     "....####..",
+     "..######..",
+     "..######..",
+     "####..##..",
+     "####..##..",
+     "##########",
+     "##########",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##.."
+    ],
+    "5": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "......####",
+     "......####",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "6": [
+     "..######..",
+     "..######..",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "7": [
+     "##########",
+     "##########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####...."
+    ],
+    "8": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "9": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..########",
+     "..########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####...."
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffffff",
+    "#dedede",
+    "#acaeac",
+    "#838183",
+    "#5a5a5a",
+    "#dedede"
+   ],
+   "gap": 1,
+   "outline": "#000000"
+  },
+  "plate": {
+   "band": "label",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 7,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#ffffff",
+   "#dedede",
+   "#acaeac"
+  ],
+  "bandRamp": [],
+  "palette": {
+   "wall": "#413452",
+   "shadow": "#120f18",
+   "outline": "#000000",
+   "plate": "#838183",
+   "plateLight": "#acaeac",
+   "plateDark": "#5a5a5a",
+   "plateEdge": "#dedede",
+   "plateShade": "#414041",
+   "window": "#000000",
+   "windowEdge": "#292431",
+   "windowLight": "#5a5a5a",
+   "rowHi": "#292431",
+   "band": "#000000",
+   "bandText": "#ffa500",
+   "bandShadow": "#310800",
+   "bandRule": "#5a5a5a",
+   "title": "#ffffff",
+   "titleShadow": "#000000",
+   "subtitle": "#dedede",
+   "text": "#dedede",
+   "value": "#ffffff",
+   "dim": "#acaeac",
+   "absent": "#5a4873",
+   "accent": "#ffa500",
+   "head": "#ffa500",
+   "warn": "#ff4a2a",
+   "good": "#5ade5a",
+   "lit": "#ffd84a",
+   "pillText": "#000000",
+   "bar": "#292431",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "timer": "#ffa500",
+   "provisional": "#ffa500",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000"
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "big": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "bigNarrow": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 14,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6,
+    "headerLine": false
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "TGM2",
+  "recap": [
+   {
+    "label": "BEST GRADE",
+    "value": "grade",
+    "agg": "max",
+    "format": "label"
+   },
+   {
+    "label": "LEVEL",
+    "value": "level",
+    "agg": "max"
+   },
+   {
+    "label": "TETRISES",
+    "value": "tetTotal"
+   }
+  ],
+  "subtitle": "",
+  "aspect": "4:3",
+  "layout": "single",
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 1234560
+   },
+   "grade": {
+    "sem": "players.1.grade",
+    "labels": [
+     {
+      "min": 0,
+      "max": 0,
+      "label": "9"
+     },
+     {
+      "min": 1,
+      "max": 1,
+      "label": "8"
+     },
+     {
+      "min": 2,
+      "max": 2,
+      "label": "7"
+     },
+     {
+      "min": 3,
+      "max": 3,
+      "label": "6"
+     },
+     {
+      "min": 4,
+      "max": 4,
+      "label": "5"
+     },
+     {
+      "min": 5,
+      "max": 6,
+      "label": "4"
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "label": "3"
+     },
+     {
+      "min": 9,
+      "max": 11,
+      "label": "2"
+     },
+     {
+      "min": 12,
+      "max": 14,
+      "label": "1"
+     },
+     {
+      "min": 15,
+      "max": 17,
+      "label": "S1"
+     },
+     {
+      "min": 18,
+      "max": 18,
+      "label": "S2"
+     },
+     {
+      "min": 19,
+      "max": 19,
+      "label": "S3"
+     },
+     {
+      "min": 20,
+      "max": 22,
+      "label": "S4"
+     },
+     {
+      "min": 23,
+      "max": 24,
+      "label": "S5"
+     },
+     {
+      "min": 25,
+      "max": 26,
+      "label": "S6"
+     },
+     {
+      "min": 27,
+      "max": 28,
+      "label": "S7"
+     },
+     {
+      "min": 29,
+      "max": 30,
+      "label": "S8"
+     },
+     {
+      "min": 31,
+      "max": 32,
+      "label": "S9"
+     }
+    ],
+    "demo": 20
+   },
+   "decay": {
+    "sem": "players.1.grade",
+    "labels": [
+     {
+      "min": 0,
+      "max": 0,
+      "label": "1/125F"
+     },
+     {
+      "min": 1,
+      "max": 2,
+      "label": "1/80F"
+     },
+     {
+      "min": 3,
+      "max": 3,
+      "label": "1/50F"
+     },
+     {
+      "min": 4,
+      "max": 6,
+      "label": "1/45F"
+     },
+     {
+      "min": 7,
+      "max": 11,
+      "label": "1/40F"
+     },
+     {
+      "min": 12,
+      "max": 14,
+      "label": "1/30F"
+     },
+     {
+      "min": 15,
+      "max": 19,
+      "label": "1/20F"
+     },
+     {
+      "min": 20,
+      "max": 29,
+      "label": "1/15F"
+     },
+     {
+      "min": 30,
+      "max": 32,
+      "label": "1/10F"
+     }
+    ],
+    "demo": 20
+   },
+   "points": {
+    "sem": "players.1.grade.points",
+    "demo": 62
+   },
+   "s0": {
+    "sem": "players.1.section.0.time",
+    "demo": 5280
+   },
+   "s1": {
+    "sem": "players.1.section.1.time",
+    "demo": 4310
+   },
+   "s2": {
+    "sem": "players.1.section.2.time",
+    "demo": 4105
+   },
+   "s3": {
+    "sem": "players.1.section.3.time",
+    "demo": 3990
+   },
+   "s4": {
+    "sem": "players.1.section.4.time",
+    "demo": 3880
+   },
+   "s5": {
+    "sem": "players.1.section.5.time"
+   },
+   "s6": {
+    "sem": "players.1.section.6.time"
+   },
+   "s7": {
+    "sem": "players.1.section.7.time"
+   },
+   "s8": {
+    "sem": "players.1.section.8.time"
+   },
+   "s9": {
+    "sem": "players.1.section.9.time"
+   },
+   "section": {
+    "mem": {
+     "address": "0x94E26",
+     "action": "LEVEL_TIMER"
+    },
+    "initial": 0,
+    "demo": 5
+   },
+   "tetrises": {
+    "mem": {
+     "address": "0x94DDB",
+     "action": "LEVEL_CLEAR"
+    },
+    "initial": 0
+   },
+   "tetBySection": {
+    "buckets": "tetrises",
+    "by": "section",
+    "n": 10,
+    "demo": [
+     2,
+     1,
+     3,
+     1,
+     2,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "t500": {
+    "sum": [
+     "s0",
+     "s1",
+     "s2",
+     "s3",
+     "s4"
+    ]
+   },
+   "t999": {
+    "sum": [
+     "s0",
+     "s1",
+     "s2",
+     "s3",
+     "s4",
+     "s5",
+     "s6",
+     "s7",
+     "s8",
+     "s9"
+    ]
+   },
+   "level": {
+    "mem": {
+     "address": "0x94DB8",
+     "action": "NEW_LEVEL"
+    },
+    "initial": 0,
+    "demo": 512
+   },
+   "mult": {
+    "mem": {
+     "address": "0x94DB8",
+     "action": "NEW_LEVEL"
+    },
+    "initial": 0,
+    "demo": 512,
+    "labels": [
+     {
+      "min": 0,
+      "max": 249,
+      "label": "x1"
+     },
+     {
+      "min": 250,
+      "max": 499,
+      "label": "x2"
+     },
+     {
+      "min": 500,
+      "max": 749,
+      "label": "x3"
+     },
+     {
+      "min": 750,
+      "max": 999,
+      "label": "x4"
+     }
+    ]
+   },
+   "phase": {
+    "sem": "phase",
+    "demo": 2,
+    "labels": [
+     {
+      "raw": 1,
+      "label": "NORMAL"
+     },
+     {
+      "raw": 2,
+      "label": "MASTER"
+     },
+     {
+      "raw": 9,
+      "label": "VERSUS"
+     },
+     {
+      "raw": 18,
+      "label": "ROLL"
+     }
+    ]
+   },
+   "secMedal": {
+    "mem": {
+     "address": "0x94DD0",
+     "action": "COIN_GAIN"
+    },
+    "initial": 0,
+    "demo": 2,
+    "labels": [
+     {
+      "raw": 0,
+      "label": "-"
+     },
+     {
+      "raw": 1,
+      "label": "BRONZE"
+     },
+     {
+      "raw": 2,
+      "label": "SILVER"
+     },
+     {
+      "raw": 3,
+      "label": "GOLD"
+     }
+    ]
+   },
+   "tetTotal": {
+    "mem": {
+     "address": "0x94DDB",
+     "action": "LEVEL_CLEAR"
+    },
+    "initial": 0,
+    "demo": 10
+   }
+  },
+  "panels": {
+   "grade": {
+    "type": "gauge",
+    "title": "GRADE",
+    "value": "grade",
+    "format": "label",
+    "value3": "points",
+    "max": 100,
+    "readout": "small",
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 80,
+      "color": "lit"
+     }
+    ],
+    "items": [
+     {
+      "label": "DECAY",
+      "short": "DEC",
+      "value": "decay",
+      "format": "label",
+      "color": "dim"
+     },
+     {
+      "label": "GM NEEDS S9",
+      "short": "S9?",
+      "value": "grade",
+      "format": "label",
+      "op": ">=",
+      "target": 31,
+      "final": "s9"
+     },
+     {
+      "label": "LINE PTS",
+      "short": "PTS",
+      "value": "mult",
+      "format": "label",
+      "color": "lit"
+     }
+    ]
+   },
+   "sections": {
+    "type": "table",
+    "title": "SECTION TIME",
+    "short": "SECTIONS",
+    "format": "time",
+    "compactFormat": "clock",
+    "dense": true,
+    "current": "section",
+    "items": [
+     {
+      "label": "000",
+      "short": "0",
+      "value": "s0",
+      "bucket": "tetBySection",
+      "target": 5400,
+      "op": "<="
+     },
+     {
+      "label": "100",
+      "short": "1",
+      "value": "s1",
+      "bucket": "tetBySection"
+     },
+     {
+      "label": "200",
+      "short": "2",
+      "value": "s2",
+      "bucket": "tetBySection"
+     },
+     {
+      "label": "300",
+      "short": "3",
+      "value": "s3",
+      "bucket": "tetBySection"
+     },
+     {
+      "label": "400",
+      "short": "4",
+      "value": "s4",
+      "bucket": "tetBySection"
+     },
+     {
+      "label": "500",
+      "short": "5",
+      "value": "s5",
+      "bucket": "tetBySection"
+     },
+     {
+      "label": "600",
+      "short": "6",
+      "value": "s6",
+      "bucket": "tetBySection",
+      "target": 4108,
+      "op": "<="
+     },
+     {
+      "label": "700",
+      "short": "7",
+      "value": "s7",
+      "bucket": "tetBySection",
+      "target": 4108,
+      "op": "<="
+     },
+     {
+      "label": "800",
+      "short": "8",
+      "value": "s8",
+      "bucket": "tetBySection",
+      "target": 4108,
+      "op": "<="
+     },
+     {
+      "label": "900",
+      "short": "9",
+      "value": "s9",
+      "bucket": "tetBySection",
+      "target": 2700,
+      "op": "<="
+     },
+     {
+      "label": "@500",
+      "short": "@5",
+      "value": "t500",
+      "target": 21600,
+      "op": "<="
+     },
+     {
+      "label": "@999",
+      "short": "@9",
+      "value": "t999",
+      "target": 34200,
+      "op": "<="
+     }
+    ],
+    "columns": [
+     "LEVEL",
+     "TIME",
+     "TET"
+    ]
+   },
+   "play": {
+    "type": "rows",
+    "title": "PLAY",
+    "items": [
+     {
+      "label": "LEVEL",
+      "short": "LV",
+      "value": "level",
+      "big": true
+     },
+     {
+      "label": "PHASE",
+      "value": "phase",
+      "format": "label",
+      "color": "lit"
+     },
+     {
+      "label": "TETRIS",
+      "short": "TET",
+      "value": "tetTotal"
+     },
+     {
+      "label": "MEDAL",
+      "value": "secMedal",
+      "format": "label"
+     }
+    ]
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "pad",
+    "sections",
+    "grade",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "rank",
+   "grade",
+   "play",
+   "sections",
+   "pad"
+  ],
+  "narrow": [
+   "header",
+   "rank",
+   "grade",
+   "sections"
+  ],
+  "notes": [
+   "LINE PTS: the grade points multiplier of the current quarter (x1 below level 250, x2, x3, x4 from 750), read from the level.",
+   "PLAY: level, phase (normal, master, credit roll), tetrises of the game and the section medal, in reserve when the rail is short.",
+   "CONTROLLER: the buttons of the game pressed live, with their role."
+  ],
+  "fit": [
+   "play"
+  ],
+  "controls": [
+   {
+    "id": "b",
+    "label": "CCW"
+   },
+   {
+    "id": "a",
+    "label": "CW"
+   },
+   {
+    "id": "y",
+    "label": "CCW"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   }
+  ],
+  "fire": "b"
+ }
+}

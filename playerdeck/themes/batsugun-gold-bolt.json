@@ -1,0 +1,1158 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "batsugun-gold-bolt",
+ "name": "Batsugun Gold Bolt",
+ "version": 3,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "batsugunsp",
+   "batsugun-special",
+   "batsugun",
+   "batsuguna"
+  ],
+  "titles": [
+   "Batsugun",
+   "Batsugun Special Version"
+  ]
+ },
+ "native": {
+  "width": 240,
+  "height": 320,
+  "scaling": "nearest",
+  "note": "Batsugun vertical as the FBNeo core gives it (320 x 240 turned, shown 3:4, square game pixels). The deck is drawn on a canvas of game pixels, enlarged on the same column and row grid as the game. 1920 x 1080: game 810 x 1080, two rails of 164 game pixels; 1920 x 1200: game 900 x 1200, rails of 136 game pixels."
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side: score, experience and no miss on the left; ship stock, shot power, score per life and live rank on the right."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (sky tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: title (night sky #001852 #183073, electric blue #0808ff, cyan rim #08e6ff, gold logo ramp #ffee4a #eeb600 #ac4800 #6a3008), TOP PLAYERS! (gold figures on black), in-game HUD (LEVEL plate acid green #83f629, sea blue #005094 #0071b4, white-blue score).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#001030",
+    "n": "#001852",
+    "b": "#0808c0",
+    "c": "#08b0e0"
+   },
+   "rows": [
+    "nmmmmmmmmmmmmmmmmmmbcbmnmmmmmmmm",
+    "mmmmmmmmmmmmmmmmnmbcbmmmmmmmmmmm",
+    "mmmmmmmmmnmmmmmmmbcbmmmmmmmmmmmm",
+    "mmnmmmmmmmmmmmmmbcbmmmmmmnmmmmmm",
+    "mmmmmmmmmmmmmmmbcbnmmmmmmmmmmmmm",
+    "mmmmmmbmmmmnmmmmbcbmmmmmmmmmmmmm",
+    "mmmmnbcbmmmmmmmmmbcbmmmmmmmnmmmm",
+    "mmmmmmbmmmmmmmmmmmbcbmmmmmmmmmmm",
+    "mmmmmmmmmmmmmnmmmbcbmmmmmmmmmmmm",
+    "mmmmmmnmmmmmmmmmbcbmmmmmmmmmmnmm",
+    "mmmmmmmmmmmmmmmbcbmmmmnmmmmmmmmm",
+    "mmmmmmmmmmmmmmbcbmmmmmmmmmmmmmmm",
+    "mmmmmmmmnmmmmbcbmmmmmmmmmmmmmmmn",
+    "mnmmmmmmmmmmmmbcbmmmmmmmnmmmmmmm",
+    "mmmmmmmmmmmmmmmbcbmmmmmmmmmmmmmm",
+    "mmmmmmmmmmnmmmmmbcbmmmmmmmmmmmmm",
+    "mmmnmmmmmmmmmmmbcbmmmmmmmmnmmmmm",
+    "mmmmmmmmmmmmmmbcbmmnmmmmmmmmmmmm",
+    "mmmmmmmmmmmmnbcbmmmmmmmmmmmmbmmm",
+    "mmmmmnmmmmmmbcbmmmmmmmmmmmmbcbmm",
+    "mmmmmmmmmmmbcbmmmmmmmnmmmmmmbmmm",
+    "mmmmmmmmmmmmbcbmmmmmmmmmmmmmmmmm",
+    "mmmmmmmnmmmmmbcbmmmmmmmmmmmmmmnm",
+    "nmmmmmmmmmmmmmbcbmmmmmmnmmmmmmmm",
+    "mmmmmmmmmmmmmmmbcbmmmmmmmmmmmmmm",
+    "mmmmmmmmmnmmmmmmbcbmmmmmmmmmmmmm",
+    "mmnmbmmmmmmmmmmmmbcbmmmmmnmmmmmm",
+    "mmmmmmmmmmmmmmmmmmbcbmmmmmmmmmmm",
+    "mmmmmmmmmmmnmmmmmmmbcbmmmmmmmmmm",
+    "mmmmnmmmmmmmmmmmmmmmbcbmmmmnmmmm",
+    "mmmmmmmmmmmmmmmmmmmbcbmmmmmmmmmm",
+    "mmmmmmmmmmmmmnmmmmmbcbmmmmmmmmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'block', x2 by x2, slanted; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "...##########",
+     "...##########",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     ".####....##..",
+     ".####....##..",
+     ".####....##..",
+     ".####....##..",
+     "####....##...",
+     "####....##...",
+     "##########...",
+     "##########..."
+    ],
+    "1": [
+     ".......####..",
+     ".......####..",
+     "....######...",
+     "....######...",
+     "......####...",
+     "......####...",
+     ".....####....",
+     ".....####....",
+     ".....####....",
+     ".....####....",
+     "....####.....",
+     "....####.....",
+     "..########...",
+     "..########..."
+    ],
+    "2": [
+     "...##########",
+     "...##########",
+     "..........##.",
+     "..........##.",
+     "..........##.",
+     "..........##.",
+     ".##########..",
+     ".##########..",
+     ".####........",
+     ".####........",
+     "####.........",
+     "####.........",
+     "##########...",
+     "##########..."
+    ],
+    "3": [
+     "...##########",
+     "...##########",
+     "..........##.",
+     "..........##.",
+     "..........##.",
+     "..........##.",
+     "...########..",
+     "...########..",
+     ".........##..",
+     ".........##..",
+     "........##...",
+     "........##...",
+     "##########...",
+     "##########..."
+    ],
+    "4": [
+     "...####....##",
+     "...####....##",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     ".##########..",
+     ".##########..",
+     ".........##..",
+     ".........##..",
+     "........##...",
+     "........##...",
+     "........##...",
+     "........##..."
+    ],
+    "5": [
+     "...##########",
+     "...##########",
+     "..####.......",
+     "..####.......",
+     "..####.......",
+     "..####.......",
+     ".##########..",
+     ".##########..",
+     ".........##..",
+     ".........##..",
+     "........##...",
+     "........##...",
+     "##########...",
+     "##########..."
+    ],
+    "6": [
+     "...##########",
+     "...##########",
+     "..####.......",
+     "..####.......",
+     "..####.......",
+     "..####.......",
+     ".##########..",
+     ".##########..",
+     ".####....##..",
+     ".####....##..",
+     "####....##...",
+     "####....##...",
+     "##########...",
+     "##########..."
+    ],
+    "7": [
+     "...##########",
+     "...##########",
+     "..........##.",
+     "..........##.",
+     "........####.",
+     "........####.",
+     ".....####....",
+     ".....####....",
+     ".....####....",
+     ".....####....",
+     "....####.....",
+     "....####.....",
+     "....####.....",
+     "....####....."
+    ],
+    "8": [
+     "...##########",
+     "...##########",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     ".##########..",
+     ".##########..",
+     ".####....##..",
+     ".####....##..",
+     "####....##...",
+     "####....##...",
+     "##########...",
+     "##########..."
+    ],
+    "9": [
+     "...##########",
+     "...##########",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     "..####....##.",
+     ".##########..",
+     ".##########..",
+     ".........##..",
+     ".........##..",
+     "........##...",
+     "........##...",
+     "##########...",
+     "##########..."
+    ],
+    ":": [
+     ".....",
+     ".....",
+     "..##.",
+     "..##.",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".##..",
+     ".##..",
+     ".....",
+     ".....",
+     ".....",
+     "....."
+    ],
+    ".": [
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     "##...",
+     "##..."
+    ],
+    ",": [
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     "##...",
+     "##..."
+    ],
+    "-": [
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".######..",
+     ".######..",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ],
+    "+": [
+     ".........",
+     ".........",
+     ".........",
+     ".........",
+     "....##...",
+     "....##...",
+     ".######..",
+     ".######..",
+     "...##....",
+     "...##....",
+     ".........",
+     ".........",
+     ".........",
+     "........."
+    ],
+    "/": [
+     ".......##",
+     ".......##",
+     "......##.",
+     "......##.",
+     "....##...",
+     "....##...",
+     "...##....",
+     "...##....",
+     ".##......",
+     ".##......",
+     "##.......",
+     "##.......",
+     "##.......",
+     "##......."
+    ],
+    "#": [
+     ".....##..##..",
+     ".....##..##..",
+     "..##########.",
+     "..##########.",
+     "....##..##...",
+     "....##..##...",
+     "...##..##....",
+     "...##..##....",
+     ".##########..",
+     ".##########..",
+     "..##..##.....",
+     "..##..##.....",
+     "..##..##.....",
+     "..##..##....."
+    ],
+    "%": [
+     "...##......##",
+     "...##......##",
+     "........##...",
+     "........##...",
+     "......##.....",
+     "......##.....",
+     ".....##......",
+     ".....##......",
+     "...##........",
+     "...##........",
+     "##...........",
+     "##...........",
+     "##......##...",
+     "##......##..."
+    ],
+    " ": [
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     ".......",
+     "......."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffee4a",
+    "#eeb600",
+    "#eeb600",
+    "#ac4800",
+    "#6a3008"
+   ],
+   "gap": 1,
+   "outline": "#000820"
+  },
+  "plate": {
+   "band": "tab",
+   "rivets": true,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "noise": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#ffee4a",
+   "#eeb600",
+   "#ac4800",
+   "#6a3008"
+  ],
+  "palette": {
+   "warn": "#ff5020",
+   "good": "#83f629",
+   "provisional": "#ffee4a",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#001030",
+   "shadow": "#000008",
+   "outline": "#000000",
+   "plate": "#183073",
+   "plateLight": "#24409a",
+   "plateDark": "#102058",
+   "plateEdge": "#08e6ff",
+   "plateShade": "#000c30",
+   "rivetLight": "#ffffff",
+   "rivet": "#08e6ff",
+   "rivetDark": "#001852",
+   "window": "#000818",
+   "windowEdge": "#000000",
+   "windowLight": "#0071b4",
+   "rowHi": "#0a2a5a",
+   "band": "#eeb600",
+   "bandLight": "#ffee4a",
+   "bandText": "#001030",
+   "bandShadow": "#ffee4a",
+   "bandTail": "#0808c0",
+   "bandTailDark": "#000818",
+   "title": "#ffee4a",
+   "titleShadow": "#0808c0",
+   "subtitle": "#08e6ff",
+   "text": "#d8ecff",
+   "value": "#ffffff",
+   "dim": "#7ec8f0",
+   "absent": "#3a5a8a",
+   "accent": "#08e6ff",
+   "head": "#eeb600",
+   "lit": "#ffee4a",
+   "level": "#83f629",
+   "bar": "#001030",
+   "barLight": "#ffffff",
+   "timer": "#08e6ff",
+   "curveFill": "#0a2a5a"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "w": "#e8f0ff",
+     "b": "#0071b4",
+     "y": "#ffee4a",
+     "r": "#ff5020"
+    },
+    "rows": [
+     "...w...",
+     "..wbw..",
+     ".wwbww.",
+     "wywbwyw",
+     "w.www.w",
+     "..r.r.."
+    ]
+   }
+  }
+ },
+ "recipe": {
+  "title": "BATSUGUN",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "TOP LEVEL",
+    "value": "level",
+    "agg": "max",
+    "format": "label"
+   },
+   {
+    "label": "FIRST LIFE",
+    "value": "firstLife",
+    "format": "group"
+   },
+   {
+    "label": "SHIPS LOST",
+    "value": "lost"
+   },
+   {
+    "label": "TOP LOOP",
+    "value": "loop",
+    "agg": "max"
+   }
+  ],
+  "words": {},
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT"
+   },
+   {
+    "id": "a",
+    "label": "BOMB"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 3480120
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x139A",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0x139A",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "lost": {
+    "count": {
+     "address": "0x139A",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 1
+   },
+   "lifeScore": {
+    "buckets": "score",
+    "by": "lost",
+    "n": 8,
+    "demo": [
+     2210900,
+     1269220,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisLife": {
+    "pick": "lifeScore",
+    "at": "lost"
+   },
+   "zero": {
+    "initial": 0
+   },
+   "firstLife": {
+    "pick": "lifeScore",
+    "at": "zero"
+   },
+   "level": {
+    "mem": [
+     {
+      "address": "0x1410",
+      "action": "OBJECT_INTERACTION"
+     },
+     {
+      "address": "0x1410",
+      "action": "NEW_LEVEL"
+     }
+    ],
+    "demo": 1,
+    "labels": [
+     {
+      "raw": 0,
+      "label": "LEVEL 1"
+     },
+     {
+      "raw": 1,
+      "label": "LEVEL 2"
+     },
+     {
+      "raw": 2,
+      "label": "LEVEL 3"
+     }
+    ]
+   },
+   "level3": {
+    "mem": [
+     {
+      "address": "0x1410",
+      "action": "OBJECT_INTERACTION"
+     },
+     {
+      "address": "0x1410",
+      "action": "NEW_LEVEL"
+     }
+    ],
+    "scale": {
+     "num": 3,
+     "den": 1,
+     "add": 0
+    },
+    "demo": 3
+   },
+   "expThird": {
+    "mem": {
+     "address": "0x1417",
+     "action": "OBJECT_INTERACTION"
+    },
+    "demo": 2
+   },
+   "exp": {
+    "sum": [
+     "level3",
+     "expThird"
+    ],
+    "labels": [
+     {
+      "raw": 0,
+      "label": "LV1 0/3"
+     },
+     {
+      "raw": 1,
+      "label": "LV1 1/3"
+     },
+     {
+      "raw": 2,
+      "label": "LV1 2/3"
+     },
+     {
+      "raw": 3,
+      "label": "LV2 0/3"
+     },
+     {
+      "raw": 4,
+      "label": "LV2 1/3"
+     },
+     {
+      "raw": 5,
+      "label": "LV2 2/3"
+     },
+     {
+      "raw": 6,
+      "label": "LV3 0/3"
+     },
+     {
+      "raw": 7,
+      "label": "LV3 1/3"
+     },
+     {
+      "raw": 8,
+      "label": "LV3 2/3"
+     }
+    ]
+   },
+   "power": {
+    "mem": {
+     "address": "0x1412",
+     "action": "OBJECT_INTERACTION"
+    },
+    "demo": 4
+   },
+   "nextP": {
+    "mem": [
+     {
+      "address": "0x13E6",
+      "action": "OBJECT_INTERACTION"
+     },
+     {
+      "address": "0x13E6",
+      "action": "DYNAMIC_INVENTORY"
+     }
+    ],
+    "demo": 2,
+    "labels": [
+     {
+      "raw": 0,
+      "label": "1,000"
+     },
+     {
+      "raw": 1,
+      "label": "2,000"
+     },
+     {
+      "raw": 2,
+      "label": "3,000"
+     },
+     {
+      "raw": 3,
+      "label": "4,000"
+     },
+     {
+      "raw": 4,
+      "label": "5,000"
+     },
+     {
+      "raw": 5,
+      "label": "6,000"
+     },
+     {
+      "raw": 6,
+      "label": "7,000"
+     },
+     {
+      "raw": 7,
+      "label": "8,000"
+     },
+     {
+      "raw": 8,
+      "label": "9,000"
+     },
+     {
+      "raw": 9,
+      "label": "10,000"
+     }
+    ]
+   },
+   "stage": {
+    "mem": {
+     "address": "0x13AA",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 2
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     1240300,
+     1610420,
+     629400,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "bombs": {
+    "sem": "players.1.bombs",
+    "demo": 3
+   },
+   "medS": {
+    "sem": "players.1.game.batsugun.medals_small",
+    "demo": 12
+   },
+   "medB": {
+    "sem": "players.1.game.batsugun.medals_big",
+    "demo": 7
+   },
+   "medBonus": {
+    "terms": [
+     {
+      "k": 3000,
+      "of": [
+       "medS"
+      ]
+     },
+     {
+      "k": 5000,
+      "of": [
+       "medB"
+      ]
+     }
+    ],
+    "status": "computed",
+    "demo": 71000
+   },
+   "loopDrops": {
+    "count": {
+     "address": "0x13AA",
+     "action": "PROGRESSION_STAGE"
+    },
+    "when": "drop",
+    "while": "score",
+    "resetBy": "score",
+    "demo": 1
+   },
+   "one": {
+    "initial": 1
+   },
+   "loop": {
+    "sum": [
+     "loopDrops",
+     "one"
+    ],
+    "demo": 2
+   }
+  },
+  "panels": {
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "THIS LIFE",
+      "short": "LIFE",
+      "value": "thisLife",
+      "format": "group",
+      "color": "lit"
+     },
+     {
+      "label": "FIRST LIFE",
+      "short": "1ST",
+      "value": "firstLife",
+      "format": "group",
+      "color": "accent"
+     }
+    ]
+   },
+   "exp": {
+    "type": "gauge",
+    "vertical": true,
+    "grow": true,
+    "title": "EXPERIENCE",
+    "short": "EXP",
+    "value": "exp",
+    "format": "label",
+    "max": 9,
+    "marks": [
+     3,
+     6
+    ],
+    "markLabels": [
+     "LV2",
+     "LV3"
+    ],
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 3,
+      "color": "level"
+     },
+     {
+      "from": 6,
+      "color": "lit"
+     }
+    ],
+    "items": []
+   },
+   "power": {
+    "type": "tiers",
+    "title": "SHOT POWER",
+    "short": "POWER",
+    "value": "power",
+    "next": true,
+    "tiers": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "tierLabels": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5"
+    ],
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 2,
+      "color": "level"
+     },
+     {
+      "from": 4,
+      "color": "lit"
+     }
+    ],
+    "items": [
+     {
+      "label": "NEXT P AT MAX",
+      "short": "NEXT P",
+      "value": "nextP",
+      "format": "label",
+      "color": "lit"
+     }
+    ]
+   },
+   "ship": {
+    "type": "rows",
+    "title": "SHIP STOCK",
+    "short": "SHIP",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "ship",
+      "format": "x"
+     },
+     {
+      "label": "BOMBS",
+      "value": "bombs",
+      "format": "x"
+     },
+     {
+      "label": "SHIPS LOST",
+      "short": "LOST",
+      "value": "lost"
+     }
+    ]
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "title": "STAGES",
+    "value": "stageScore",
+    "first": 0,
+    "current": "stage",
+    "names": [
+     "STAGE 1",
+     "STAGE 2",
+     "STAGE 3",
+     "STAGE 4",
+     "STAGE 5"
+    ],
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x13AA",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 2
+     }
+    },
+    "dense": false
+   },
+   "pad": {
+    "widget": "Controller"
+   },
+   "extend": {
+    "widget": "NextExtend",
+    "title": "NEXT EXTEND",
+    "short": "EXTEND",
+    "values": {
+     "next": {
+      "next": "score",
+      "steps": [
+       1000000
+      ],
+      "status": "computed",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 1000000
+     },
+     "left": {
+      "next": "score",
+      "steps": [
+       1000000
+      ],
+      "part": "left",
+      "status": "computed",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 412600
+     }
+    },
+    "items": [
+     {
+      "label": "AT",
+      "value": "next",
+      "format": "group"
+     },
+     {
+      "label": "TO GO",
+      "short": "LEFT",
+      "value": "left",
+      "format": "group",
+      "color": "accent"
+     },
+     {
+      "label": "LOOP",
+      "value": "loop",
+      "format": "ratio",
+      "of": 4,
+      "color": "lit"
+     }
+    ]
+   },
+   "medals": {
+    "type": "rows",
+    "title": "MEDALS",
+    "short": "MEDAL",
+    "items": [
+     {
+      "label": "SMALL X 3000",
+      "short": "SMALL",
+      "value": "medS",
+      "format": "int"
+     },
+     {
+      "label": "BIG X 5000",
+      "short": "BIG",
+      "value": "medB",
+      "format": "int"
+     },
+     {
+      "label": "STAGE BONUS",
+      "short": "BONUS",
+      "value": "medBonus",
+      "format": "group",
+      "color": "lit"
+     }
+    ]
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "pad",
+    "extend",
+    "medals",
+    "power",
+    "exp",
+    "ship",
+    "stages",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "Experience: the ship level (1 to 3) and the bar in thirds, as one track up to the top level; the game shows the bar without figures. Experience is kept when a ship is lost.",
+   "Shot power: the P items taken (lost with the ship); at the top power, the next P item is worth the points shown.",
+   "Stages: the score of each stage, from the stage counter of the game; the stage in progress is lit.",
+   "Next extend: one extend at 1,000,000 on the factory settings (seen in game: the ship stock rises when the score passes 1,000,000).",
+   "Medals: the small and big medals of the stage, counted at its tally at 3,000 and 5,000 (stage bonus); medals taken before a ship is lost are not counted.",
+   "Loop: Batsugun Special loops four times (stages 1 to 5, then 2 to 5, 3 to 5, 4 to 5), with an extend at the end of each loop; the loop is counted from the stage counter.",
+   "Bombs: the bombs in stock (7 at most)."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "left": [
+   "header",
+   "score",
+   "stages",
+   "medals",
+   "exp"
+  ],
+  "right": [
+   "ship",
+   "power",
+   "extend",
+   "pad",
+   "rank"
+  ],
+  "fit": [
+   "pad",
+   "compact:extend",
+   "compact:medals"
+  ]
+ }
+}

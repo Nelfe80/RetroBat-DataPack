@@ -1,0 +1,884 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "bubble-bobble-pink-cave",
+ "name": "Bubble Bobble Pink Cave",
+ "version": 4,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "bublbobl",
+   "bubble-bobble",
+   "bublbobl1",
+   "bublbobr",
+   "bubbobr1",
+   "boblbobl",
+   "sboblbobl"
+  ],
+  "titles": [
+   "Bubble Bobble"
+  ]
+ },
+ "native": {
+  "width": 256,
+  "height": 224,
+  "scaling": "nearest",
+  "note": "Bubble Bobble as the core gives it (256 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 85 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 51 game pixels = 102 Deck pixels. The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto): in 1920 x 1200 the rail is drawn at half the game pixel, each game pixel cut in 2 x 2 Deck pixels on the same grid. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 48,
+  "note": "Game pushed right at full screen height (no black band), the rail takes the width left on the left."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (striped block tile, plates, sweet and shoe icons, layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens: striped pink blocks of round 1 (#ff009c #ffaaff #8b0041), TODAY'S RECORD band (blue #0000ff, cyan #00aaff, red #9c0000), BEST 5 lettering (white, red #ff0000, cyan #00ffff, yellow #ffff00), title bubble letters (yellow, pink outline).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "p": "#ff009c",
+    "l": "#ffaaff",
+    "d": "#8b0041"
+   },
+   "rows": [
+    "ppllppldppllppld",
+    "pllpplldpllpplld",
+    "llppllpdllppllpd",
+    "lppllppdlppllppd",
+    "ppllppldppllppld",
+    "pllpplldpllpplld",
+    "llppllpdllppllpd",
+    "dddddddddddddddd",
+    "ppldppllppldppll",
+    "plldpllpplldpllp",
+    "llpdllppllpdllpp",
+    "lppdlppllppdlppl",
+    "ppldppllppldppll",
+    "plldpllpplldpllp",
+    "llpdllppllpdllpp",
+    "dddddddddddddddd"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'round', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "1": [
+     "..####....",
+     "..####....",
+     "######....",
+     "######....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "########..",
+     "########.."
+    ],
+    "2": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "####......",
+     "####......",
+     "##########",
+     "##########"
+    ],
+    "3": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "4": [
+     "......##..",
+     "......##..",
+     "....####..",
+     "....####..",
+     "..######..",
+     "..######..",
+     "####..##..",
+     "####..##..",
+     "##########",
+     "##########",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##.."
+    ],
+    "5": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "......####",
+     "......####",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "6": [
+     "..######..",
+     "..######..",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "7": [
+     "##########",
+     "##########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####...."
+    ],
+    "8": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "9": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..########",
+     "..########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####...."
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffffff",
+    "#aaffff",
+    "#00ffff"
+   ],
+   "gap": 1,
+   "outline": "#ff009c"
+  },
+  "plate": {
+   "band": "bar",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 8,
+   "compactBelow": 70,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffff00",
+   "#ffff00",
+   "#ffba00"
+  ],
+  "palette": {
+   "wall": "#ff009c",
+   "shadow": "#000000",
+   "outline": "#000000",
+   "plate": "#000000",
+   "plateLight": "#000000",
+   "plateDark": "#000000",
+   "plateEdge": "#00aaff",
+   "plateShade": "#0000ff",
+   "window": "#000000",
+   "windowEdge": "#000000",
+   "windowLight": "#000000",
+   "rowHi": "#1a1a5a",
+   "band": "#0000ff",
+   "bandLight": "#00aaff",
+   "bandDark": "#000080",
+   "bandText": "#ffffff",
+   "bandShadow": "#000080",
+   "title": "#ffff00",
+   "titleShadow": "#ff009c",
+   "subtitle": "#ffffff",
+   "text": "#ffffff",
+   "value": "#ffffff",
+   "dim": "#ffaaff",
+   "absent": "#8b0041",
+   "accent": "#00ffff",
+   "head": "#ff0000",
+   "warn": "#ff0000",
+   "good": "#00ff00",
+   "lit": "#ffff00",
+   "pillText": "#000000",
+   "bar": "#1a1a5a",
+   "barEdge": "#000000",
+   "barLight": "#ffffff",
+   "sweetYellow": "#ffff00",
+   "sweetPink": "#ff6aff",
+   "sweetBlue": "#00aaff",
+   "shoe": "#ffba00",
+   "bubbleShine": "#ffffff",
+   "letterOn": "#000000",
+   "extE": "#ff6573",
+   "extX": "#ffba00",
+   "extT": "#ffff00",
+   "extE2": "#00ff00",
+   "extN": "#00ffff",
+   "extD": "#ff009c"
+  },
+  "icons": {
+   "sweetY": {
+    "colors": {
+     "k": "#000000",
+     "c": "#ffff00",
+     "l": "#ffba00"
+    },
+    "rows": [
+     "l.....l",
+     "lccccc.",
+     ".cclcc.",
+     "lccccc.",
+     "l.....l"
+    ]
+   },
+   "sweetP": {
+    "colors": {
+     "k": "#000000",
+     "c": "#ff6aff",
+     "l": "#ff009c"
+    },
+    "rows": [
+     "l.....l",
+     "lccccc.",
+     ".cclcc.",
+     "lccccc.",
+     "l.....l"
+    ]
+   },
+   "sweetB": {
+    "colors": {
+     "k": "#000000",
+     "c": "#00aaff",
+     "l": "#0000ff"
+    },
+    "rows": [
+     "l.....l",
+     "lccccc.",
+     ".cclcc.",
+     "lccccc.",
+     "l.....l"
+    ]
+   },
+   "shoe": {
+    "colors": {
+     "o": "#ffba00",
+     "r": "#ff0000",
+     "w": "#ffffff"
+    },
+    "rows": [
+     "..oo...",
+     "..oo...",
+     ".ooooo.",
+     "ooooooo",
+     "rrwrrwr"
+    ]
+   }
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "BUBBLE BOBBLE",
+  "recap": [
+   {
+    "label": "BEST ROUND",
+    "value": "round",
+    "agg": "max"
+   },
+   {
+    "label": "MISSES",
+    "value": "misses"
+   }
+  ],
+  "subtitle": "",
+  "aspect": "4:3",
+  "layout": "single",
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 123400
+   },
+   "jumps": {
+    "sem": "game.bubble_bobble.jumps",
+    "initial": 0,
+    "demo": 28
+   },
+   "blown": {
+    "sem": "game.bubble_bobble.bubbles",
+    "initial": 0,
+    "demo": 35
+   },
+   "popped": {
+    "sem": "game.bubble_bobble.pops",
+    "initial": 0,
+    "demo": 12
+   },
+   "run": {
+    "sem": "game.bubble_bobble.distance",
+    "initial": 0,
+    "demo": 7
+   },
+   "ext1": {
+    "sem": "players.1.extend.letters",
+    "initial": 0,
+    "demo": 11
+   },
+   "ext2": {
+    "sem": "players.2.extend.letters",
+    "initial": 0,
+    "demo": 36
+   },
+   "round": {
+    "mem": {
+     "address": "0xE64B",
+     "action": "NEW_LEVEL"
+    },
+    "scale": {
+     "num": 1,
+     "den": 1,
+     "add": 1
+    },
+    "demo": 17
+   },
+   "misses": {
+    "count": {
+     "address": "0xE691",
+     "action": "LOSE_LIFE"
+    },
+    "note": "One event per death: the player state 0xE691 = 2 (Player died). The lives byte 0xE645 also drops at the start of each game (27 then 2) and goes to 255 at the last death: it is not a death count.",
+    "initial": 0,
+    "demo": 0
+   },
+   "bestRound": {
+    "peak": "round",
+    "demo": 24
+   }
+  },
+  "panels": {
+   "items": {
+    "type": "thresholds",
+    "title": "SECRET ITEMS",
+    "short": "ITEMS",
+    "items": [
+     {
+      "label": "JUMPS",
+      "short": "JMP",
+      "icon": "sweetY",
+      "value": "jumps",
+      "target": 35,
+      "color": "sweetYellow"
+     },
+     {
+      "label": "BLOWN",
+      "short": "BLW",
+      "icon": "sweetP",
+      "value": "blown",
+      "target": 35,
+      "color": "sweetPink"
+     },
+     {
+      "label": "POPPED",
+      "short": "POP",
+      "icon": "sweetB",
+      "value": "popped",
+      "target": 35,
+      "color": "sweetBlue"
+     },
+     {
+      "label": "RUN",
+      "short": "RUN",
+      "icon": "shoe",
+      "value": "run",
+      "target": 12,
+      "color": "shoe"
+     }
+    ]
+   },
+   "extend": {
+    "type": "letters",
+    "title": "EXTEND",
+    "letters": "EXTEND",
+    "value": "ext1",
+    "value2": "ext2",
+    "letterColors": [
+     "extE",
+     "extX",
+     "extT",
+     "extE2",
+     "extN",
+     "extD"
+    ]
+   },
+   "rooms": {
+    "type": "checks",
+    "title": "SECRET ROOMS",
+    "short": "ROOMS",
+    "items": [
+     {
+      "label": "NO MISS R20+",
+      "short": "R20+",
+      "value": "misses",
+      "op": "<=",
+      "target": 0,
+      "final": "round",
+      "finalAt": 40,
+      "format": "none"
+     }
+    ]
+   },
+   "run": {
+    "type": "rows",
+    "title": "THIS RUN",
+    "short": "RUN",
+    "items": [
+     {
+      "label": "ROUND",
+      "short": "RD",
+      "value": "round",
+      "big": true
+     },
+     {
+      "label": "LIVES LOST",
+      "short": "LOST",
+      "value": "misses"
+     }
+    ]
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "type": "gauge",
+    "title": "ROUNDS",
+    "value": "stage",
+    "max": 100,
+    "marks": [
+     10,
+     20,
+     30,
+     40,
+     50,
+     60,
+     70,
+     80,
+     90
+    ],
+    "markLabels": [
+     "",
+     "20",
+     "",
+     "40",
+     "",
+     "60",
+     "",
+     "80",
+     ""
+    ],
+    "items": [
+     {
+      "label": "BEST",
+      "value": "bestRound",
+      "color": "accent"
+     }
+    ],
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0xE64B",
+       "action": "NEW_LEVEL"
+      },
+      "scale": {
+       "num": 1,
+       "den": 1,
+       "add": 1
+      },
+      "demo": 17
+     }
+    },
+    "names": null,
+    "first": 0,
+    "current": null,
+    "format": "int",
+    "readout": "small",
+    "unit": "OF 100",
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     }
+    ]
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "stages",
+    "pad",
+    "rooms",
+    "extend",
+    "items",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "items",
+   "stages",
+   "rooms",
+   "run",
+   "rank",
+   "extend",
+   "pad"
+  ],
+  "narrow": [
+   "header",
+   "items",
+   "rooms",
+   "rank",
+   "extend"
+  ],
+  "notes": [
+   "SECRET ROOMS: rounds 20, 30 and 40 open a diamond room when no life has been lost on the way; a diamond while the run is clean, a check at round 40, a cross at the first life lost.",
+   "THIS RUN: the round and the lives lost, in reserve when the rail is short.",
+   "CONTROLLER: the buttons of the game pressed live, with their role.",
+   "ROUNDS: the round being played on the way to 100, marks every 10, and the best round reached in this game."
+  ],
+  "fit": [
+   "run",
+   "compact:items",
+   "compact:rank",
+   "extend",
+   "compact:stages"
+  ],
+  "controls": [
+   {
+    "id": "b",
+    "label": "BUBBLE"
+   },
+   {
+    "id": "a",
+    "label": "JUMP"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b"
+ }
+}

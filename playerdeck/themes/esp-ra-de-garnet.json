@@ -1,0 +1,1099 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "esp-ra-de-garnet",
+ "name": "ESP Ra.De. Garnet Rank",
+ "version": 3,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "esprade",
+   "esp-ra-de",
+   "espradej",
+   "espradejo"
+  ],
+  "titles": [
+   "ESP Ra.De."
+  ]
+ },
+ "native": {
+  "width": 240,
+  "height": 320,
+  "scaling": "nearest",
+  "note": "ESP Ra.De. vertical as the FBNeo core gives it (320 x 240 turned, shown 3:4, square game pixels). The deck is drawn on a canvas of game pixels, enlarged on the same column and row grid as the game. 1920 x 1080: game 810 x 1080, two rails of 164 game pixels; 1920 x 1200: game 900 x 1200, rails of 136 game pixels."
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side: score, score per life and lives on the left; score graph with the extends, clear conditions and live rank on the right."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (garnet tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: SCORE RANKING (dark red #5a0000, garnet plates #9c2041, rose frames and title #ee619c), title screen (night blue brush #102062, chrome #cdcecd, pale yellow #dece6a), player select (green #6ade4a), in-game HUD (cyan guard gauge #29eec5, steel blue #4169ac, violet lives).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ],
+  "stageMapBackground": "Stage map background (themes/atlas/<id>/stage<N>_bg.png), exception granted for the maps only: FBNeo captures of esprade with sprites and bullets not drawn, joined along the scroll (measured: 8.001 px per step), reduced to half pixel, pixelated and mapped to 5 tones of this theme's tile palette. No sprite, logo or font taken from the game."
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#3a0008",
+    "n": "#4a0010",
+    "l": "#6a1830",
+    "k": "#24000a",
+    "x": "#102062"
+   },
+   "rows": [
+    "nnnnnnnlmmmmmmmmmmmmmmmmmmmmmmmm",
+    "nnnnnnlmmmmmmmmmmmmmkmmmmmmmmmmn",
+    "nnnnnlmmmmmmmmmmmmmmmmmmmmmmmmnn",
+    "nnnnlmmmmmmmmmmmmmmmmmmkmmmmmnnn",
+    "nnnlmmkmmmmmmmmmmmmmmmmmmmmmnnnn",
+    "nnlmmmmmmmmmmmmmmmmmmmmmmmknnnnn",
+    "nlmmmmmmmkmmmmmmmmmmmmmmmmnnnnnn",
+    "lmmmmmmmmmmmmmmmmmmmmmmmmnnnnnnn",
+    "mmmmmmmmmmmmkmmmmmmmmmmmnnnnnnnl",
+    "mmmmmmmmmmmmmmmmmmmmmmxnxnnnnnlm",
+    "mmmmmmmmmmmmmmmkmmmmmmnxnnnnnlmm",
+    "mmmmmmmmmmmmmmmmmmmmmnxnxnnnlmmm",
+    "mmmmmmmmmmmmmmmmmmkmnnnnnnnlmmmm",
+    "mkmmmmmmmmmmmmmmmmmnnnnnnnlmmmmm",
+    "mmmmmmmmmmmmmmmmmmnnnnnnnlmmmmmm",
+    "mmmmkmmmmmmmmmmmmnnnnnnnlmmmmmmm",
+    "mmmmmmmmmmmmmmmmnnnnnnnlkmmmmmmm",
+    "mmmmmmmkmmmmmmmnnnnnnnlmmmmmmmmm",
+    "mmmmmmmmmmmmmmnnnnnnnlmmmmmkmmmm",
+    "mmmmmmmmmmkmmnnnnnnnlmmmmmmmmmmm",
+    "mmmmmmmmmmmmnnnnnnnlmmmmmmmmmmkm",
+    "mmmmmmmmmmmnnnnnnnlmmmmmmmmmmmmm",
+    "mmmmmmmmmmnnnnnnnlmmmmmmmmmmmmmm",
+    "mmmmmmmmmnnnnnnnlmmmmmmmmmmmmmmm",
+    "mmmmmmmmnnnnnnnlmmmmmmmmmmmmmmmm",
+    "mmmmmmxnxnnnnnlmmmmkmmmmmmmmmmmm",
+    "mmkmmmnxnnnnnlmmmmmmmmmmmmmmmmmm",
+    "mmmmmnxnxnnnlmmmmmmmmmkmmmmmmmmm",
+    "mmmmnnnnnnnlmmmmmmmmmmmmmmmmmmmm",
+    "mmmnnnnnnnlmmmmmmmmmmmmmmkmmmmmm",
+    "mmnnnnnnnlmmmmmmmmmmmmmmmmmmmmmm",
+    "mnnnnnnnlmmmmmmmmmmmmmmmmmmmkmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'round', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "1": [
+     "..####....",
+     "..####....",
+     "######....",
+     "######....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "########..",
+     "########.."
+    ],
+    "2": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "####......",
+     "####......",
+     "##########",
+     "##########"
+    ],
+    "3": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "4": [
+     "......##..",
+     "......##..",
+     "....####..",
+     "....####..",
+     "..######..",
+     "..######..",
+     "####..##..",
+     "####..##..",
+     "##########",
+     "##########",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##.."
+    ],
+    "5": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "......####",
+     "......####",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "6": [
+     "..######..",
+     "..######..",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "7": [
+     "##########",
+     "##########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####...."
+    ],
+    "8": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "9": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..########",
+     "..########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####...."
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffffff",
+    "#e6e6ee",
+    "#cdcecd",
+    "#a4a4b4",
+    "#7b7b94"
+   ],
+   "gap": 1,
+   "outline": "#2a0010"
+  },
+  "plate": {
+   "band": "tab",
+   "rivets": false,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "noise": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#e6e6f0",
+   "#cdcecd",
+   "#9c9cb4",
+   "#6a6a8b"
+  ],
+  "palette": {
+   "warn": "#ff4a4a",
+   "good": "#6ade4a",
+   "provisional": "#dece6a",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#3a0008",
+   "shadow": "#14000a",
+   "outline": "#000000",
+   "plate": "#9c2041",
+   "plateLight": "#b8305a",
+   "plateDark": "#7a1030",
+   "plateEdge": "#ee619c",
+   "plateShade": "#5a0000",
+   "window": "#24000c",
+   "windowEdge": "#000000",
+   "windowLight": "#7a1030",
+   "rowHi": "#5a1028",
+   "band": "#ee619c",
+   "bandLight": "#ffa0c8",
+   "bandText": "#24000c",
+   "bandShadow": "#ffa0c8",
+   "bandTail": "#7a1030",
+   "bandTailDark": "#3a0008",
+   "title": "#ffffff",
+   "titleShadow": "#102062",
+   "subtitle": "#ee619c",
+   "text": "#f6dce6",
+   "value": "#ffffff",
+   "dim": "#e8a0bc",
+   "absent": "#8a4a66",
+   "accent": "#29eec5",
+   "head": "#ee619c",
+   "lit": "#dece6a",
+   "bar": "#1a0010",
+   "barLight": "#ffffff",
+   "timer": "#29eec5",
+   "curveFill": "#4a1838"
+  },
+  "icons": {
+   "heart": {
+    "colors": {
+     "v": "#b048d0",
+     "l": "#e8a0ff",
+     "d": "#602080"
+    },
+    "rows": [
+     ".vv.vv.",
+     "vlvvvvv",
+     "vvvvvvd",
+     ".vvvvd.",
+     "..vvd..",
+     "...d..."
+    ]
+   }
+  }
+ },
+ "recipe": {
+  "title": "ESP RA.DE.",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "FIRST LIFE",
+    "value": "firstLife",
+    "format": "group"
+   },
+   {
+    "label": "TOP ITEM COUNTER",
+    "value": "items",
+    "agg": "max"
+   },
+   {
+    "label": "LIVES LOST",
+    "value": "lost"
+   },
+   {
+    "label": "CONTINUES",
+    "value": "conts"
+   }
+  ],
+  "words": {},
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT"
+   },
+   {
+    "id": "a",
+    "label": "AUTO"
+   },
+   {
+    "id": "y",
+    "label": "GUARD",
+    "note": "guard barrier, its gauge on the deck"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 5263710
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x254E",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0x254E",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "lost": {
+    "count": {
+     "address": "0x254E",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 2
+   },
+   "lifeScore": {
+    "buckets": "score",
+    "by": "lost",
+    "n": 8,
+    "demo": [
+     2104300,
+     1730500,
+     1428910,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "zero": {
+    "initial": 0
+   },
+   "firstLife": {
+    "pick": "lifeScore",
+    "at": "zero"
+   },
+   "conts": {
+    "count": {
+     "address": "0x240A",
+     "action": "CONTINUE_SCREEN"
+    },
+    "resetBy": "score",
+    "demo": 0
+   },
+   "stage": {
+    "mem": {
+     "address": "0x25A6",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 2
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     2104300,
+     1730500,
+     1428910,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "power": {
+    "sem": "players.1.power.level",
+    "demo": 3
+   },
+   "items": {
+    "sem": "players.1.item.count",
+    "demo": 146
+   },
+   "itemMax": {
+    "sem": "players.1.game.esp_ra_de.item_max",
+    "demo": 300
+   },
+   "barrier": {
+    "sem": "players.1.game.esp_ra_de.barrier",
+    "demo": 2780
+   },
+   "multRaw": {
+    "sem": "players.1.multiplier",
+    "demo": 8
+   },
+   "chainTimer": {
+    "sem": "players.1.item.timer",
+    "demo": 40
+   },
+   "mult": {
+    "gate": "multRaw",
+    "by": "chainTimer",
+    "otherwise": 1,
+    "note": "Timer 0x26FC at 0: the game no longer applies the multiplier, but byte 0x26FE keeps its old value (proved at the lab). The Deck then shows x1; it shows the byte again as soon as the timer restarts."
+   },
+   "charge": {
+    "sem": "players.1.game.esp_ra_de.barrier_charge",
+    "demo": 1800
+   }
+  },
+  "panels": {
+   "stages": {
+    "widget": "StageProgress",
+    "title": "STAGES",
+    "value": "stageScore",
+    "first": 0,
+    "current": "stage",
+    "names": [
+     {
+      "label": "STAGE 1",
+      "short": "S1"
+     },
+     {
+      "label": "STAGE 2",
+      "short": "S2"
+     },
+     {
+      "label": "STAGE 3",
+      "short": "S3"
+     },
+     {
+      "label": "STAGE 4",
+      "short": "S4"
+     },
+     {
+      "label": "STAGE 5",
+      "short": "S5"
+     },
+     {
+      "label": "STAGE 6",
+      "short": "S6"
+     }
+    ],
+    "uniformLabels": true,
+   "abbrev": true,
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x25A6",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 2
+     }
+    },
+    "dense": false
+   },
+   "map": {
+    "widget": "StageWindow",
+    "title": "STAGE MAP",
+    "marks": "sonar",
+    "threat": ["#E8F0F8", "#FFE070", "#FFA030", "#FF6A30", "#FF3838"],
+    "waveGain": 3,
+    "short": "MAP",
+    "squares": 0,
+    "noBand": false,
+    "whole": true,
+    "column": 72,
+    "columnSide": "right",
+    "frameAspect": 1,
+    "approach": "arrows",
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x25A6",
+       "action": "PROGRESSION_STAGE"
+      },
+      "scale": {
+       "num": 1,
+       "den": 1,
+       "add": 1
+      },
+      "demo": 2
+     },
+     "dist": {
+      "sem": "stage.progress",
+      "demo": 300
+     }
+    }
+   },
+   "pad": {
+    "widget": "Controller"
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "THIS STAGE",
+      "short": "STAGE",
+      "value": "thisStage",
+      "format": "group",
+      "color": "lit"
+     },
+     {
+      "label": "FIRST LIFE",
+      "short": "1ST",
+      "value": "firstLife",
+      "format": "group",
+      "color": "accent"
+     }
+    ]
+   },
+   "ship": {
+    "type": "rows",
+    "title": "LIVES",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "heart",
+      "format": "x"
+     },
+     {
+      "label": "LIVES LOST",
+      "short": "LOST",
+      "value": "lost"
+     },
+     {
+      "label": "CONTINUES",
+      "short": "CONT",
+      "value": "conts"
+     }
+    ]
+   },
+   "clear": {
+    "type": "checks",
+    "title": "1CC / 1LC",
+    "short": "CLEAR",
+    "items": [
+     {
+      "label": "NO CONTINUE",
+      "short": "1CC",
+      "value": "conts",
+      "op": "<=",
+      "target": 0,
+      "final": "end",
+      "format": "none"
+     },
+     {
+      "label": "NO MISS",
+      "short": "1LC",
+      "value": "lost",
+      "op": "<=",
+      "target": 0,
+      "final": "end",
+      "format": "none"
+     }
+    ]
+   },
+   "items": {
+    "type": "gauge",
+    "title": "ITEM COUNTER",
+    "short": "ITEMS",
+    "value": "items",
+    "maxValue": "itemMax",
+    "max": 200,
+    "readout": "small",
+    "unit": "ITEMS",
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 100,
+      "color": "lit"
+     }
+    ],
+    "items": [
+     {
+      "label": "MAXIMUM",
+      "short": "MAX",
+      "value": "itemMax",
+      "format": "int",
+      "color": "lit"
+     }
+    ]
+   },
+   "barrier": {
+    "type": "gauge",
+    "title": "GUARD BARRIER",
+    "short": "BARRIER",
+    "value": "barrier",
+    "max": 4000,
+    "percent": true,
+    "readout": "small",
+    "unit": "GAUGE",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 1000,
+      "color": "accent"
+     },
+     {
+      "from": 4000,
+      "color": "good"
+     }
+    ],
+    "items": [
+     {
+      "label": "CHARGE",
+      "short": "CHG",
+      "value": "charge",
+      "format": "int",
+      "color": "lit"
+     }
+    ]
+   },
+   "power": {
+    "type": "tiers",
+    "title": "POWER",
+    "short": "POWER",
+    "value": "power",
+    "tiers": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "tierLabels": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4"
+    ],
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 2,
+      "color": "lit"
+     },
+     {
+      "from": 4,
+      "color": "good"
+     }
+    ]
+   },
+   "extend": {
+    "widget": "NextExtend",
+    "title": "NEXT EXTEND",
+    "short": "EXTEND",
+    "values": {
+     "next": {
+      "next": "score",
+      "steps": [
+       4000000,
+       8000000
+      ],
+      "status": "estimate",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 8000000
+     },
+     "left": {
+      "next": "score",
+      "steps": [
+       4000000,
+       8000000
+      ],
+      "part": "left",
+      "status": "estimate",
+      "labels": [
+       {
+        "min": 0,
+        "max": 0,
+        "label": "DONE"
+       }
+      ],
+      "demo": 2736290
+     }
+    }
+   },
+   "chain": {
+    "type": "tiers",
+    "title": "CHAIN MULTIPLIER",
+    "short": "CHAIN",
+    "value": "mult",
+    "format": "x",
+    "unit": "MULTIPLIER",
+    "tiers": [
+     1,
+     2,
+     4,
+     8,
+     12,
+     16
+    ],
+    "tierLabels": [
+     "1",
+     "2",
+     "4",
+     "8",
+     "12",
+     "16"
+    ],
+    "zones": [
+     {
+      "from": 1,
+      "color": "accent"
+     },
+     {
+      "from": 8,
+      "color": "lit"
+     },
+     {
+      "from": 16,
+      "color": "good"
+     }
+    ],
+    "value2": "chainTimer",
+    "max2": 69,
+    "items": [
+     {
+      "label": "CHAIN TIME",
+      "short": "TIME",
+      "value": "chainTimer",
+      "format": "int",
+      "color": "lit"
+     }
+    ]
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "pad",
+    "chain",
+    "clear",
+    "extend",
+    "power",
+    "barrier",
+    "items",
+    "ship",
+    "stages",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "Item counter: the score items taken, against the maximum of the moment (200 at start, raised each time the counter is emptied).",
+   "Guard barrier: the gauge of the guard barrier (button 3), 4000 when full.",
+   "Power: the shot level, 0 to 4.",
+   "Next extend: 4,000,000 and 8,000,000 on the factory settings (estimate, marked on screen).",
+   "First life: the score of the first life, what the 1LC board ranks.",
+   "Stages: the score of each stage, from the stage counter of the game; the stage in progress is lit.",
+   "Chain multiplier: x1 to x16 from the power shot, counted only while the chain timer runs (the bar under the tiers); the timer is read in steps of 32 frames. Guard barrier charge: the laser charge while the guard button is held."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "left": [
+   "header",
+   "score",
+   "map",
+   "stages",
+   "items",
+  "ship"
+  ],
+  "fit": [
+   "compact:items",
+   "compact:score",
+   "compact:clear",
+   "compact:ship",
+   "compact:chain",
+   "compact:stages",
+   "compact:barrier",
+   "compact:power",
+   "compact:extend"
+  ],
+  "right": [
+   "barrier",
+   "chain",
+   "power",
+   "extend",
+   "pad",
+   "clear",
+   "rank"
+  ]
+ }
+}

@@ -1,0 +1,100 @@
+{
+  "format": "nelfeplay.deck-theme/1",
+  "id": "19xx",
+  "name": "19XX Steel Sky",
+  "version": 1,
+  "match": {
+    "roms": ["19xx", "19xx-the-war-against-destiny", "19xxa", "19xxb", "19xxh", "19xxj", "19xxjr1", "19xxjr2", "19xxu"],
+    "titles": ["19XX: The War Against Destiny"]
+  },
+  "native": { "width": 224, "height": 384, "scaling": "nearest", "note": "Declared only: this theme still draws on the screen grid (skin.grid absent). 19xx-hangar draws on the game grid." },
+  "provenance": {
+    "author": "NelfePlay",
+    "license": "CC BY 4.0 (icons and layout drawn for NelfePlay; no asset taken from the game or from M2)",
+    "fonts": [
+      { "family": "Press Start 2P", "file": "PressStart2P-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)" },
+      { "family": "Silkscreen", "file": "Silkscreen-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)" }
+    ]
+  },
+  "skin": {
+    "fonts": {
+      "title": { "face": "Press Start 2P", "size": 16, "pixel": true },
+      "label": { "face": "Silkscreen", "size": 16, "pixel": true },
+      "value": { "face": "Press Start 2P", "size": 24, "pixel": true },
+      "big":   { "face": "Press Start 2P", "size": 40, "pixel": true },
+      "head":  { "face": "Press Start 2P", "size": 24, "pixel": true }
+    },
+    "palette": {
+      "rail": "#040a1c", "panel": "#0a1636", "panelHi": "#132a5c", "frame": "#2c5cb4", "frameLight": "#8cc4ff", "frameDark": "#020617",
+      "titleBar": "#123276", "title": "#ffd23f", "titleShadow": "#b4400c", "text": "#ffffff", "dim": "#7d91c4",
+      "accent": "#58e0ff", "warn": "#ff4b3a", "good": "#7dff6a", "lit": "#ffd23f", "absent": "#56648a", "stripe": "#ffd23f"
+    },
+    "frame": { "style": "bevel", "cut": 12, "border": 2, "titleHeight": 34 },
+    "icons": {
+      "ship": {
+        "colors": { "g": "#5fc43c", "l": "#c8f07a", "d": "#1d4f17", "y": "#ffe14a" },
+        "rows": [
+          ".......l.......",
+          "..g...ggg...g..",
+          "..g...gyg...g..",
+          "lgggggggggggggl",
+          "dgggggggggggggd",
+          "..g...ggg...g..",
+          "..g....g....g..",
+          "..g.........g..",
+          ".dgdddddddddgd."
+        ]
+      },
+      "special": {
+        "colors": { "r": "#8a1c0c", "o": "#ff8a1f", "y": "#ffe14a", "k": "#3a0d04" },
+        "rows": [
+          "..rrrrr..",
+          ".ryyooor.",
+          "ryykkkoor",
+          "ryokookor",
+          "rookkkoor",
+          "rookookor",
+          "rookkkoor",
+          ".rooooor.",
+          "..rrrrr.."
+        ]
+      },
+      "boss": {
+        "colors": { "b": "#8a5a2b", "l": "#d39a55", "d": "#4a2a10" },
+        "rows": [
+          "..........l..........",
+          ".........lbl.........",
+          "...d..d..bbb..d..d...",
+          "lbbbbbbbbbbbbbbbbbbbl",
+          "dbbbbbbbbbbbbbbbbbbbd",
+          "...d..d..bbb..d..d...",
+          "..........b..........",
+          "........dbbbd........",
+          "..........d.........."
+        ]
+      }
+    }
+  },
+  "recipe": {
+    "title": "19XX",
+    "subtitle": "THE WAR AGAINST DESTINY",
+    "aspect": "3:4",
+    "layout": "two-rails",
+    "stages": ["STAGE 1", "STAGE 2", "STAGE 3", "STAGE 4", "STAGE 5"],
+    "words": { "stock": "SHIPS", "special": "BOMBS", "boss": "BOSS", "fire": "SHOT RATE", "graph": "SCORE RATE" },
+    "controls": [
+      { "id": "b", "label": "SHOT", "note": "hold: charge shot" },
+      { "id": "a", "label": "BOMB" },
+      { "id": "start", "label": "START" },
+      { "id": "select", "label": "COIN" }
+    ],
+    "fire": "b",
+    "bindings": {
+      "lives":   { "address": "0xFF82EC" },
+      "special": { "address": "0xFF8305" },
+      "credits": { "address": "0xFF4D15" }
+    },
+    "left": ["header", "score", "stages", "controller"],
+    "right": ["graph", "stock", "special", "boss", "fire", "context"]
+  }
+}

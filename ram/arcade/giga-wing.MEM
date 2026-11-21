@@ -1,3 +1,4 @@
+-- 2026-11-21 (Deck, etat de jeu) : octet de mode 0x727E lu a chaque changement (6 en partie, 7 ecran de continue, 4 titre, 11 choix du pilote) pour les signaux game.playing et game.continue du Deck ; ligne d affichage seulement (OBJECT_INTERACTION), hors score.
 -- 2026-11-09 : score = quatre mots BCD (0x70CC a 0x70D2) avec leurs poids (value * N) : sans eux les mots
 -- s additionnaient a poids 1 (10 520 a l ecran lu 521) ; 0x2094 = CREDITS (+1 par piece, -1 au START) ; vies 0x72DC
 -- (joueur 1) et 0x72DE (joueur 2) avec player= ; plus de fin de partie sur les vies du joueur 2 (a 0 quand il ne joue
@@ -6,6 +7,7 @@
 -- charge, redescend a 0 pendant la recharge : 0 = prete). Lignes d affichage seulement (OBJECT_INTERACTION), hors score ;
 -- mask = lecture par paliers (jamais a chaque image).
 -- 2026-11-20 (Deck enrichi, publie en N+1 le 20/11) : multiplicateur de score P1 = u32 BCD 0x72E4 (mot fort) + 0x72E6 (mot faible), prouve au banc (poser 0x0100 puis 0x0900 : gains 1000 puis 9000, rapport exact x9) ; lignes d affichage seulement. Auto-mute (simulateur du labo, partie de 12 000 images depuis le demarrage, aucune ligne coupee) : 0x72E6 lu par paliers de 100 (mask 0XFF00, sans mask : coupee a l image 550) ; les deux lignes de la valeur de medaille 0x72F2, publiees SANS mask, etaient COUPEES a l image 550 : lecture par paliers de 10 (mask 0XFFF0).
+-- 2026-11-20 (Deck enrichi, carte des stages) : distance de stage 0x733C (stages 1 a 5 et 7) et compteur du stage 6 0x6DC4 (le stage 6 ne defile pas), lus par blocs (mask) ; lignes d affichage seulement, passees au simulateur d auto-mute du labo (aucune coupee).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -25,6 +27,7 @@ return {
   events = {
     flow = {
       lifecycle = {
+        { address=0X727E, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game mode byte: 6 playing, 7 continue screen, 4 title, 11 fighter select, 13/14 intro or story; read at each change only" },
         { address=0X2094, type="u8", condition="change", action="CREDITS", desc="Credits (+1 per coin, -1 at START)" },
         { address=0X2244, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="On" },
         { address=0X727E, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen" },
@@ -38,6 +41,8 @@ return {
     progression = {
       stage = {
         { address=0X733E, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Physical Stage ID" },
+        { address=0X733C, type="u16le", condition="change", mask=0XFFF0, action="PROGRESSION_STAGE", desc="Stage distance, scroll counter (16 bits, read unsigned; it does not restart at 0: about -28, 1024, 2724, 2048, 3492 or 1316 at the start of a stage, so only differences count); stages 1 to 5 and 7, read by blocks (mask), never at each step" },
+        { address=0X6DC4, type="u16le", condition="change", mask=0XFFC0, action="PROGRESSION_STAGE", desc="Stage 6 distance counter (frames since the start of stage 6, which does not scroll); read by blocks (mask), never at each frame" },
         { address=0X7342, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Stage Number" },
         { address=0X7342, type="u8", condition="eq", value=0X00, action="PROGRESSION_STAGE", desc="Stage 1" },
         { address=0X7342, type="u8", condition="eq", value=0X01, action="PROGRESSION_STAGE", desc="Stage 2" },

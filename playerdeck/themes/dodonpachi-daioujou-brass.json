@@ -1,0 +1,1046 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "dodonpachi-daioujou-brass",
+ "name": "DoDonPachi DaiOuJou Brass Hive",
+ "version": 5,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "ddpdojblka",
+   "dodonpachi-daioujou",
+   "ddpdojblk",
+   "ddpdoj",
+   "ddpdoja",
+   "ddpdojb",
+   "ddp3"
+  ],
+  "titles": [
+   "DoDonPachi DaiOuJou",
+   "DoDonPachi III"
+  ]
+ },
+ "native": {
+  "width": 224,
+  "height": 448,
+  "rowUnit": 2,
+  "scaling": "nearest",
+  "note": "DoDonPachi DaiOuJou vertical as the core gives it (PGM, 448 x 224 turned, shown 3:4, game pixels twice as wide as tall); the deck canvas uses rows of 2 game lines, like the game's own 8 x 16 figures. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows. Deck pixel auto (H-D25): the game pixel while every plate fits, half a pixel otherwise, with the fonts of skin.half doubled so the text keeps its size; the controller always stays (bottom right).",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (pipework tile, brass plates, instruments and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own SCORE RANKING screen produced by the FBNeo core without a window: pipework (#0d2020 #203031 #33413a), brass frames (#f7d78f #9f925f #89653b #714417 #4c2711), dark red windows (#200000), orange letters (#e3a55e), red rank figures (#830d07).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ],
+  "stageMapBackground": "Stage map background (themes/atlas/<id>/stage1_bg.png), exception granted for the maps only: FBNeo captures of ddpdojblka with sprites and bullets not drawn, joined along the scroll, reduced to half pixel, pixelated and mapped to 5 tones of this theme's tile palette. No sprite, logo or font taken from the game."
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#0d2020",
+    "p": "#33413a",
+    "l": "#4f6458",
+    "d": "#203031",
+    "k": "#001016",
+    "b": "#9f925f"
+   },
+   "rows": [
+    "kmmmmmmmmlpmmmmmmmmmmmmmmpmmmkmm",
+    "mmmmmmmmmlpmmmmmmmmmkmmmmpmmmmmm",
+    "mmmmmmmmmlpkmmmmmmmmmmmmmpmmmmmm",
+    "lllllllllblllllllllllllllbllllll",
+    "ppppppppplpppppppppppppppppppppp",
+    "mmmmmmmmmlpmmkmmmmdmmmmmmpmmmmmm",
+    "mmmmkmmmmlpmmmmmmmdmmmmmmpmmmmmm",
+    "mmmmmmmmmlpmmmmmmmdmmmmmkpmmmmmm",
+    "mmmmmmmmmlpmmmmkmmdmmmmmmpmmmmmm",
+    "mmmmmmkmmlpmmmmmmmdmmmmmmpmmmmmm",
+    "mmmmmmmmmlpmmmmmmmdmmmmmmpkmmmmm",
+    "mmmmmmmmmlpmmmmmmkdmmmmmmpmmmmmm",
+    "mmmmmmmmklpmmddddddddddddbdddddd",
+    "mmmmmmmmmbpmmmmmmmdmmmmmmpmmkmmm",
+    "mmmmmmmmmlpmmmmmmmdkmmmmmpmmmmmm",
+    "mmmmmmmmmlpmmmmmmmdmmmmmmpmmmmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'round', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "1": [
+     "..####....",
+     "..####....",
+     "######....",
+     "######....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "########..",
+     "########.."
+    ],
+    "2": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "####......",
+     "####......",
+     "##########",
+     "##########"
+    ],
+    "3": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "4": [
+     "......##..",
+     "......##..",
+     "....####..",
+     "....####..",
+     "..######..",
+     "..######..",
+     "####..##..",
+     "####..##..",
+     "##########",
+     "##########",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##.."
+    ],
+    "5": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "......####",
+     "......####",
+     "......####",
+     "......####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "6": [
+     "..######..",
+     "..######..",
+     "####......",
+     "####......",
+     "########..",
+     "########..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "7": [
+     "##########",
+     "##########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####....",
+     "..####...."
+    ],
+    "8": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..######..",
+     "..######.."
+    ],
+    "9": [
+     "..######..",
+     "..######..",
+     "####..####",
+     "####..####",
+     "####..####",
+     "####..####",
+     "..########",
+     "..########",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "..####....",
+     "..####...."
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#fff0c0",
+    "#f7d78f",
+    "#e3a55e",
+    "#e3a55e",
+    "#c46a24",
+    "#a03010"
+   ],
+   "gap": 1,
+   "outline": "#200000"
+  },
+  "plate": {
+   "band": "bar",
+   "rivets": true,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "airMax": 8,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#f7d78f",
+   "#e3a55e",
+   "#c46a24",
+   "#830d07"
+  ],
+  "palette": {
+   "wall": "#0d2020",
+   "shadow": "#000000",
+   "outline": "#000000",
+   "plate": "#89653b",
+   "plateLight": "#9f925f",
+   "plateDark": "#714417",
+   "plateEdge": "#f7d78f",
+   "plateShade": "#4c2711",
+   "rivetLight": "#f7d78f",
+   "rivet": "#9f925f",
+   "rivetDark": "#4c2711",
+   "window": "#200000",
+   "windowEdge": "#4c2711",
+   "windowLight": "#3a0a04",
+   "rowHi": "#3a0a04",
+   "band": "#200000",
+   "bandLight": "#9f925f",
+   "bandDark": "#4c2711",
+   "bandText": "#e3a55e",
+   "bandShadow": "#200000",
+   "title": "#f7d78f",
+   "titleShadow": "#200000",
+   "subtitle": "#e3a55e",
+   "text": "#e8d8b0",
+   "value": "#ffffff",
+   "dim": "#9f925f",
+   "absent": "#5a4630",
+   "accent": "#e3a55e",
+   "head": "#e3a55e",
+   "warn": "#ff3a2a",
+   "good": "#a0ff40",
+   "lit": "#ffd84a",
+   "pillText": "#200000",
+   "bar": "#3a0a04",
+   "barEdge": "#000000",
+   "barLight": "#f7d78f",
+   "timer": "#ffd84a"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "w": "#e8e8e8",
+     "r": "#d83a2a",
+     "g": "#40c060"
+    },
+    "rows": [
+     "...g...",
+     "..wgw..",
+     ".wwrww.",
+     "wwwrwww",
+     "w.wrw.w",
+     "..r.r.."
+    ]
+   }
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "label": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6,
+    "headerLine": true
+   },
+   "digitsZoom": 2,
+   "iconZoom": 3,
+   "padZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "DODONPACHI",
+  "recap": [
+   {
+    "label": "MAX HIT",
+    "value": "maxHit",
+    "agg": "max"
+   },
+   {
+    "label": "HYPERS",
+    "value": "hypersUsed",
+    "agg": "last"
+   },
+   {
+    "label": "BOMBS",
+    "value": "bombsUsed",
+    "agg": "last"
+   },
+   {
+    "label": "SHIPS LOST",
+    "value": "deaths",
+    "agg": "last"
+   }
+  ],
+  "subtitle": "DAIOUJOU",
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 7296714
+   },
+   "stage": {
+    "sem": "stage",
+    "demo": 3
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     0,
+     412300,
+     698450,
+     905100,
+     233500,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "maxHit": {
+    "mem": {
+     "address": "0x1B62A",
+     "action": "COMBO_HIT",
+     "player": 1
+    },
+    "decode": "bcd",
+    "demo": 268
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x130BA",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0x130BA",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "deaths": {
+    "count": {
+     "address": "0x130BA",
+     "action": "LOSE_LIFE",
+     "player": 1
+    },
+    "while": "score",
+    "resetBy": "score",
+    "initial": 0,
+    "demo": 1
+   },
+   "bombs": {
+    "sem": "players.1.bombs",
+    "demo": 3
+   },
+   "bombCap": {
+    "sem": "players.1.game.daioujou.bomb_capacity",
+    "demo": 4
+   },
+   "bombsUsed": {
+    "count": {
+     "address": "0x10407",
+     "action": "OBJECT_INTERACTION",
+     "player": 1
+    },
+    "when": "drop",
+    "while": "score",
+    "resetBy": "score",
+    "initial": 0,
+    "demo": 2
+   },
+   "bees": {
+    "mem": {
+     "address": "0x17F78",
+     "action": "OBJECT_INTERACTION"
+    },
+    "demo": 7
+   },
+   "beeStages": {
+    "count": {
+     "address": "0x17F78",
+     "action": "OBJECT_INTERACTION"
+    },
+    "equals": 10,
+    "while": "score",
+    "resetBy": "score",
+    "initial": 0,
+    "demo": 2
+   },
+   "hyperOn": {
+    "sem": "players.1.hyper.active",
+    "demo": 0
+   },
+   "hypersUsed": {
+    "count": {
+     "address": "0x1B654",
+     "action": "OBJECT_INTERACTION",
+     "player": 1
+    },
+    "when": "drop",
+    "while": "score",
+    "resetBy": "score",
+    "initial": 0,
+    "demo": 3
+   },
+   "hit": {
+    "mem": {
+     "address": "0x1B5D2",
+     "action": "COMBO_HIT",
+     "player": 1
+    },
+    "decode": "bcd",
+    "demo": 151
+   },
+   "hyperRank": {
+    "sem": "players.1.game.daioujou.hyper_rank",
+    "demo": 5
+   },
+   "bulletSpeed": {
+    "sem": "game.daioujou.bullet_speed",
+    "demo": 1
+   }
+  },
+  "panels": {
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "HIT",
+      "short": "HIT",
+      "value": "hit",
+      "color": "lit"
+     }
+    ]
+   },
+   "hyper": {
+    "widget": "HyperTracker",
+    "title": "HYPER",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "stock",
+      "format": "x"
+     },
+     {
+      "label": "USED",
+      "value": "hypersUsed"
+     }
+    ],
+    "zones": [
+     {
+      "from": 0,
+      "color": "accent"
+     },
+     {
+      "from": 2400,
+      "color": "good"
+     }
+    ],
+    "values": {
+     "gauge": {
+      "demo": 1740
+     },
+     "stock": {
+      "demo": 2
+     }
+    },
+    "readout": "small",
+    "noRatio": true
+   },
+   "rankw": {
+    "widget": "RankTracker",
+    "title": "GAME RANK",
+    "short": "RANK",
+    "max": 248,
+    "values": {
+     "rank": {
+      "demo": 87
+     }
+    },
+    "items": [
+     {
+      "label": "BULLET SPEED",
+      "short": "SPEED",
+      "value": "bulletSpeed",
+      "format": "plus"
+     },
+     {
+      "label": "HYPER RANK",
+      "short": "HYPER",
+      "value": "hyperRank",
+      "format": "ratio",
+      "of": 15
+     }
+    ],
+    "readout": "small"
+   },
+   "boss": {
+    "widget": "BossHealth",
+    "title": "BOSS",
+    "unit": "HEALTH",
+    "values": {
+     "max": {
+      "peak": "hp",
+      "while": "phase",
+      "demo": 224
+     },
+     "hp": {
+      "demo": 140
+     },
+     "phase": {
+      "demo": 1
+     }
+    },
+    "items": [],
+    "readout": "small"
+   },
+   "ship": {
+    "type": "rows",
+    "title": "SHIP STOCK",
+    "short": "SHIP",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "ship",
+      "format": "x"
+     },
+     {
+      "label": "BOMBS",
+      "value": "bombs",
+      "format": "x"
+     }
+    ]
+   },
+   "extend": {
+    "widget": "NextExtend",
+    "title": "NEXT EXTEND",
+    "short": "EXTEND",
+    "values": {
+     "next": {
+      "next": "score",
+      "steps": [
+       20000000,
+       50000000
+      ],
+      "status": "estimate",
+      "demo": 20000000
+     },
+     "left": {
+      "next": "score",
+      "steps": [
+       20000000,
+       50000000
+      ],
+      "part": "left",
+      "status": "estimate",
+      "demo": 12703286
+     }
+    }
+   },
+   "loop": {
+    "type": "checks",
+    "title": "2ND LOOP: ANY ONE",
+    "short": "LOOP 2: ANY ONE",
+    "items": [
+     {
+      "label": "SHIPS LOST",
+      "short": "LOST",
+      "value": "deaths",
+      "op": "<=",
+      "target": 2,
+      "final": "end",
+      "format": "ratio",
+      "of": 2
+     },
+     {
+      "label": "BOMBS USED",
+      "short": "BOMBS",
+      "value": "bombsUsed",
+      "op": "<=",
+      "target": 3,
+      "final": "end",
+      "format": "ratio",
+      "of": 3
+     },
+     {
+      "label": "BEES THIS STAGE",
+      "short": "BEES",
+      "value": "bees",
+      "op": ">=",
+      "target": 10,
+      "final": "bees",
+      "finalAt": 10,
+      "format": "ratio",
+      "of": 10
+     },
+     {
+      "label": "FULL BEE STAGES",
+      "short": "FULL",
+      "value": "beeStages",
+      "op": ">=",
+      "target": 3,
+      "final": "beeStages",
+      "finalAt": 3,
+      "format": "ratio",
+      "of": 3
+     }
+    ]
+   },
+   "map": {
+    "widget": "StageWindow",
+    "title": "STAGE MAP",
+    "marks": "sonar",
+    "threat": ["#F4FAFF", "#FFB4D2", "#FF6A5A", "#FF3030", "#FF1414"],
+    "waveGain": 3,
+    "short": "MAP",
+    "column": 140,
+    "columnSide": "right",
+    "squares": 0,
+    "noBand": false,
+    "whole": true
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "noBand": false,
+    "title": "STAGES",
+    "value": "stageScore",
+    "names": [
+     {
+      "label": "STAGE 1",
+      "short": "S1"
+     },
+     {
+      "label": "STAGE 2",
+      "short": "S2"
+     },
+     {
+      "label": "STAGE 3",
+      "short": "S3"
+     },
+     {
+      "label": "STAGE 4",
+      "short": "S4"
+     },
+     {
+      "label": "STAGE 5",
+      "short": "S5"
+     },
+     {
+      "label": "2ND LOOP",
+      "short": "2ND"
+     }
+    ],
+    "values": {
+     "stage": {
+      "demo": 4
+     }
+    },
+    "dense": true,
+    "fold": 5,
+    "uniformLabels": true
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "extend",
+    "pad",
+    "loop",
+    "boss",
+    "hyper",
+    "stages",
+    "ship",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "score",
+   "map",
+   "stages",
+   "boss",
+   "hyper",
+   "extend"
+  ],
+  "right": [
+   "rank",
+   "rankw",
+   "ship",
+   "loop",
+   "pad"
+  ],
+  "notes": [
+   "SCORE: the score as the game counts it and the longest chain (MAX HIT).",
+   "STAGES: the points scored in each stage, the stage being played lit; the second loop folded in one line.",
+   "HYPER: the hyper gauge read in the game (a Hyper item falls when it is full), the items in stock (all used at once) and the hypers triggered in this game (the stock emptied).",
+   "BOSS: the boss health bar as the game draws it, against its length at the entry of the boss (percentage), and the form (1 or 2).",
+   "SHIP STOCK: ships in reserve, bombs in stock and their capacity (one more at each death); ships lost are counted in 2ND LOOP.",
+   "2ND LOOP: one condition is enough: at most 2 ships lost, or at most 3 bombs used, or all 10 bees in at least 3 stages. BEES THIS STAGE: hidden bees taken in this stage since the last death (dying starts again from 0); FULL BEE STAGES: stages where all 10 were taken.",
+   "NEXT EXTEND: the next extend of the Black Label (20 and 50 million) and the points still to score; the thresholds are the rules of the game, not read in memory (estimate mark).",
+   "CONTROLLER: the buttons of the game pressed live, with their role.",
+   "Hit: the current combo, as the game publishes it every 10 hits and when it breaks.",
+   "GAME RANK: the hidden difficulty as the game computes it (0 to 240, 248 in the 2nd loop): a base per stage plus one step every 256 frames; it sets how many bullets the enemies fire. BULLET SPEED: the extra speed of enemy bullets (+1 is about 5 percent), raised by the hyper rank. HYPER RANK: 0 to 15, +1 per hyper item used, divided by 4 at each death. Shown only when the game data declares them."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "fit": [
+   "compact:ship",
+   "compact:loop",
+   "extend"
+  ],
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT",
+    "note": "hold for the laser"
+   },
+   {
+    "id": "a",
+    "label": "BOMB",
+    "note": "hyper when one is in stock"
+   },
+   {
+    "id": "y",
+    "label": "AUTO"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "titleShort": "DAIOUJOU"
+ }
+}

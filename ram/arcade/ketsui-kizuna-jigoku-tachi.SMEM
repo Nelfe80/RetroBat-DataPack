@@ -6,10 +6,12 @@
 -- puis la valeur de la puce (1 a 5) et son minuteur. Conditions de boucle (history.dat, non verifiees au banc) : 2e boucle
 -- normale si morts + bombes <= 6 (0x1139E + 0x113A6) ; boucle speciale (ura) sans mort ni bombe et 120 millions au score.
 -- Version 2 : identifiants du vocabulaire standard du .SMEM. Version 3 : morts, bombes en stock, barre du boss.
+-- Version 4 (20/11/2026, Deck enrichi) : rank du jeu et niveau de puissance. Rank (banc FBNeo) = base du stage (52, 68, 84, 100, 100) + (horloge u32 >> 9) + 4 x puissance brute, plafonne a 224 ;
+-- il echelonne les tirs ennemis et ne se montre pas a l ecran. La ligne 0x12452 du .MEM est partie avec un profil N+1.
 return {
   schema = 1,
   kind = "semantics",
-  version = 3,
+  version = 4,
   game = { system = "arcade", slug = "ketsui-kizuna-jigoku-tachi", title = "Ketsui: Kizuna Jigoku Tachi" },
   mem = { file = "ketsui-kizuna-jigoku-tachi.MEM" },
 
@@ -49,6 +51,29 @@ return {
       from = { { address = 0XFEC6, action = "OBJECT_INTERACTION", player = 1 } },
       min = 0, max = 9, initial = 3, quality = "qualified",
       proof = "3 au depart, -1 a chaque bombe (le meme instant que +1 aux bombes utilisees), remis a 3 apres une mort" },
+    { id = "rank", kind = "gauge", label = "Rank", short = "RANK",
+      from = { { address = 0X12452, action = "OBJECT_INTERACTION" } },
+      min = 0, max = 224, initial = 0, quality = "qualified",
+      proof = "52 au depart du stage 1 (base par stage posee dans 0x12440 : 52, 68, 84, 100, 100 pour les stages 1 a 5), +1 toutes les 512 images de jeu (53 a 1304, 54 a 1816 sur un replay reel de 7 500 images), +8 a chaque palier de puissance pris (54 -> 62, 67 -> 75) (la puissance perdue a la mort fait chuter le rank de 16) ; ecriture : horloge posee a 20 000 -> 91, puissance posee a 8 -> 124, horloge a 61 440 -> 204, mot fort de l horloge a 2 -> 224 (plafond) ; 0x12452 echelonne les tables de tirs 0x1245E a 0x1246E" },
+    { id = "players.1.power.level", player = 1, kind = "level", label = "Power", short = "POW",
+      from = { { address = 0XFEC2, action = "NEW_LEVEL" } },
+      values = { { raw = 0, value = 0, label = "0" }, { raw = 2, value = 1, label = "1" }, { raw = 4, value = 2, label = "2" }, { raw = 6, value = 3, label = "3" }, { raw = 8, value = 4, label = "MAX" } },
+      min = 0, max = 4, initial = 0, quality = "partial",
+      proof = "0 puis 2 puis 4 sur un replay reel (un cran par objet de puissance) ; 8 = maximum du cheat MAME 80FEC2 et posable ; 6 non observe" },
+    { id = "players.1.game.ketsui.fire_mode", player = 1, kind = "enum", label = "Fire mode", short = "MODE",
+      from = { { address = 0XFEEA, action = "OBJECT_INTERACTION", player = 1 } },
+      values = { { raw = 512, value = 0, label = "SHOT" }, { raw = 1024, value = 1, label = "LOCK" } },
+      initial = 0, quality = "qualified",
+      proof = "512 en tir, 1024 en lock : le mode passe a 1024 quand le bouton est tenu 25 images (compte a rebours 0xFEF0 de 6400 a 0 par pas de 256), correlation 0,98 avec bouton tenu depuis 20 images sur un replay reel de 7 532 images, et les viseurs du lock-on sont a l ecran des que le mode est a 1024 (image 140 et 300 de la partie scriptee, absents a l image 112) ; mot recalcule a chaque image, une ecriture est ecrasee" },
+    { id = "stage.progress", kind = "counter", unit = "step", label = "Stage progress", short = "DIST",
+      from = { { address = 0X1247C, action = "PROGRESSION_STAGE" } },
+      min = -50, max = 900, initial = -50, quality = "qualified",
+      proof = "compteur 16 bits : demarre a -50 (65486) a chaque niveau, +1 par pas de defilement (8 px du decor par pas) ; boss : 551 (niveau 2), 281 (3), 549 (4), 626 (5), 790 (1) ; lecture par blocs de 32 pas (mask 0XFFE0), vivante au simulateur d auto-mute (46 emissions sur 1 439 changements) ; remplace la ligne 0X1247C sans mask, coupee des l image 799 ; au niveau 5 le compteur recule de 560 a 110 puis saute a 389 : voir stage.phase" },
+    { id = "stage.phase", kind = "enum", label = "Stage leg", short = "LEG",
+      from = { { address = 0X125DC, action = "OBJECT_INTERACTION" } },
+      values = { { raw = 0, value = 0, label = "1" }, { raw = 1, value = 1, label = "2" } },
+      initial = 0, quality = "partial",
+      proof = "0 pendant toute la premiere jambe du niveau 5 et aux niveaux 2 a 4, 1 des que la distance saute de 110 a 389 (image 17 980 d une partie immobile, 13 320 d un robot) ; releve sur deux parties ; non prouve par ecriture ; cle a valider avec le vocabulaire standard" },
     { id = "boss.hp", kind = "gauge", unit = "px", label = "Boss health", short = "BOSS",
       from = { { address = 0X1D176, action = "OBJECT_INTERACTION" } },
       min = 0, max = 255, quality = "qualified",
@@ -61,8 +86,9 @@ return {
   },
 
   instruments = {
-    { id = "p1.lockshot", label = "Lock shot", player = 1, show = "counter", signals = { "players.1.item.count", "players.1.multiplier", "players.1.item.value", "players.1.item.timer" } },
+    { id = "p1.lockshot", label = "Lock shot", player = 1, show = "counter", signals = { "players.1.item.count", "players.1.multiplier", "players.1.item.value", "players.1.item.timer", "players.1.game.ketsui.fire_mode" } },
     { id = "p1.loop", label = "Loop", player = 1, show = "counter", signals = { "players.1.bombs.used", "players.1.deaths", "players.1.bombs" } },
+    { id = "rank", label = "Rank", show = "gauge", signals = { "rank", "players.1.power.level" } },
     { id = "boss", label = "Boss", show = "gauge", signals = { "boss.hp", "boss.phase" } },
   },
 }

@@ -1,0 +1,946 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "dangun-feveron-fever-cab",
+ "name": "Dangun Feveron Fever Cab",
+ "version": 2,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "dfeveron",
+   "dangun-feveron",
+   "feversos"
+  ],
+  "titles": [
+   "Dangun Feveron",
+   "Fever SOS"
+  ]
+ },
+ "native": {
+  "width": 240,
+  "height": 320,
+  "scaling": "nearest",
+  "note": "Dangun Feveron vertical as the FBNeo core gives it (320 x 240 turned, shown 3:4, square game pixels). The deck is drawn on a canvas of game pixels, enlarged on the same column and row grid as the game. 1920 x 1080: game 810 x 1080, two rails of 164 game pixels; 1920 x 1200: game 900 x 1200, rails of 136 game pixels."
+ },
+ "placement": {
+  "anchor": "center",
+  "note": "Game in the middle at full screen height, a rail on each side: score, stages and ship stock on the left; controller, no miss, score per life and live rank on the right."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (space tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: space (#002031 #00384a #003041), stars (#9ab3ba #f0e3d9), shot red (#ba283a #90100f), score box (steel #394049 #828475, figures orange and yellow read by eye), dancer pink.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#002031",
+    "n": "#00384a",
+    "s": "#9ab3ba",
+    "w": "#f0e3d9"
+   },
+   "rows": [
+    "smmmmmmmmmmmmmmmmmmmmmmmmmmmmnmm",
+    "mmmmmmmmmmmmmmmmmmmmmnmmmmmmmmms",
+    "mmmmmmmmmmmmmnmmmmmmmsmmmmmmmmmm",
+    "mmmmmnmmmmmsmmmmmmmmmmmmmmmmmmmm",
+    "msmmmmmmmmmmmmmmmmmmmmmmmmnmmmmm",
+    "mmmmmmmmmmmmmmmmmmnmmmmmmmmmmmmm",
+    "mmmmmmmmmmnmmmmmmmmmmmsmmmmmmmmm",
+    "mmnmmmmmwmmmsmmmmmmmmmmmmmmmmmmn",
+    "mmsmmmmwwwmmmmmmmmmmmmmnmmmmmmmm",
+    "mmmmmmmmwmmmmmmnmmmmmmmmmmmmmmmm",
+    "mmmmmmmnmmmmmmmmmmmmmmmsmmmmmmmm",
+    "mmmmmmmmmmmmmsmmmmmmmmmmmmmmnmmm",
+    "mmmsmmmmmmmmmmmmmmmmnmmmmmmmmmmm",
+    "mmmmmmmmmmmmnmmmmmmmmmmmmmmmmmmm",
+    "mmmmnmmmmmmmmmmmmmmmmmmmsmmmmmmm",
+    "mmmmmmmmmmmmmmsmmmmmmmmmmnmmmmmm",
+    "mmmmsmmmmmmmmmmmmnmmmmmmmmmmmmmm",
+    "mmmmmmmmmnmmmmmmmmmmmmmmmmmmmmmm",
+    "mnmmmmmmmmmmmmmmmmmmmmmmmsmmmmnm",
+    "mmmmmmmmmmmmmmmsmmmmmmnmmmmmmmmm",
+    "mmmmmsmmmmmmmmnmmmmmmmmmmmmmmmmm",
+    "mmmmmmnmmmmmmmmmmmmmmmmmwmmmmmmm",
+    "mmmmmmmmmmmmmmmmmmmmmmmwwwsnmmmm",
+    "mmmmmmmmmmmmmmmmsmmnmmmmwmmmmmmm",
+    "mmmmmmsmmmmnmmmmmmmmmmmmmmmmmmmm",
+    "mmmnmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+    "mmmmmmmmmmmmmmmmmmmmmmmmnmmsmmmm",
+    "mmmmmmmmmmmmmmmmnsmmmmmmmmmmmmmm",
+    "mmmmmmmsnmmmmmmmmmmmmmmmmmmmmmmm",
+    "nmmmmmmmmmmmmmmmmmmmmmmmmmmmmnmm",
+    "mmmmmmmmmmmmmmmmmmmmmnmmmmmmsmmm",
+    "mmmmmmmmmmmmmnmmmmsmmmmmmmmmmmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'block', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "##########",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########"
+    ],
+    "1": [
+     "....####..",
+     "....####..",
+     "..######..",
+     "..######..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..########",
+     "..########"
+    ],
+    "2": [
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "####......",
+     "##########",
+     "##########"
+    ],
+    "3": [
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "..########",
+     "..########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "##########",
+     "##########"
+    ],
+    "4": [
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "........##"
+    ],
+    "5": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "####......",
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "##########",
+     "##########"
+    ],
+    "6": [
+     "##########",
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "####......",
+     "##########",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########"
+    ],
+    "7": [
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "......####",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####.."
+    ],
+    "8": [
+     "##########",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########"
+    ],
+    "9": [
+     "##########",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##",
+     "##########",
+     "##########"
+    ],
+    ":": [
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffe060",
+    "#ffb020",
+    "#ff8010",
+    "#e05010",
+    "#902008"
+   ],
+   "gap": 1,
+   "outline": "#000810"
+  },
+  "plate": {
+   "band": "tab",
+   "rivets": true,
+   "bandHeight": 10,
+   "compactBelow": 80,
+   "noise": false
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#ffe060",
+   "#ffb020",
+   "#e05010",
+   "#902008"
+  ],
+  "palette": {
+   "warn": "#ff3040",
+   "good": "#40e060",
+   "provisional": "#ffe060",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#002031",
+   "shadow": "#000810",
+   "outline": "#000000",
+   "plate": "#394049",
+   "plateLight": "#525a63",
+   "plateDark": "#2a3036",
+   "plateEdge": "#828475",
+   "plateShade": "#192027",
+   "rivetLight": "#f0e3d9",
+   "rivet": "#9ab3ba",
+   "rivetDark": "#192027",
+   "window": "#0f0808",
+   "windowEdge": "#000000",
+   "windowLight": "#4b0b08",
+   "rowHi": "#2a1010",
+   "band": "#ba283a",
+   "bandLight": "#ff5060",
+   "bandText": "#ffffff",
+   "bandShadow": "#4b0b08",
+   "bandTail": "#90100f",
+   "bandTailDark": "#0f0808",
+   "title": "#ffe060",
+   "titleShadow": "#4b0b08",
+   "subtitle": "#ff70c0",
+   "text": "#f0e3d9",
+   "value": "#ffffff",
+   "dim": "#9ab3ba",
+   "absent": "#4a5a62",
+   "accent": "#40d0ff",
+   "head": "#ffb020",
+   "lit": "#ffb020",
+   "bar": "#0f0808",
+   "barLight": "#ffffff",
+   "timer": "#ffb020",
+   "curveFill": "#2a1010"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "w": "#f0e3d9",
+     "r": "#ba283a",
+     "b": "#40d0ff"
+    },
+    "rows": [
+     "...w...",
+     "..wbw..",
+     ".wwbww.",
+     "wwwbwww",
+     "w.rwr.w",
+     "..r.r.."
+    ]
+   }
+  }
+ },
+ "recipe": {
+  "title": "DANGUN FEVERON",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "MAX CHAIN",
+    "value": "chain",
+    "agg": "max"
+   },
+   {
+    "label": "TOP RANK",
+    "value": "rankBase",
+    "agg": "max"
+   },
+   {
+    "label": "FIRST LIFE",
+    "value": "firstLife",
+    "format": "group"
+   },
+   {
+    "label": "SHIPS LOST",
+    "value": "lost"
+   }
+  ],
+  "words": {},
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOT"
+   },
+   {
+    "id": "a",
+    "label": "BOMB"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   },
+   {
+    "id": "select",
+    "label": "COIN"
+   }
+  ],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 2416520
+   },
+   "ships": {
+    "mem": [
+     {
+      "address": "0x52C4",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0x52C4",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "lost": {
+    "count": {
+     "address": "0x52C4",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 1
+   },
+   "lifeScore": {
+    "buckets": "score",
+    "by": "lost",
+    "n": 8,
+    "demo": [
+     1610400,
+     806120,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "zero": {
+    "initial": 0
+   },
+   "firstLife": {
+    "pick": "lifeScore",
+    "at": "zero"
+   },
+   "bombs": {
+    "mem": {
+     "address": "0x5A3A",
+     "action": "OBJECT_INTERACTION"
+    },
+    "demo": 3
+   },
+   "stage": {
+    "mem": {
+     "address": "0x52D8",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 2
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 12,
+    "demo": [
+     1245208,
+     1013551,
+     157761,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisStage": {
+    "pick": "stageScore",
+    "at": "stage"
+   },
+   "chain": {
+    "sem": "players.1.chain.count",
+    "demo": 312
+   },
+   "cybStage": {
+    "sem": "players.1.game.dangun_feveron.cyborgs_stage",
+    "demo": 418
+   },
+   "cybTotal": {
+    "sem": "players.1.game.dangun_feveron.cyborgs_total",
+    "demo": 1240
+   },
+   "missed": {
+    "sem": "game.dangun_feveron.cyborgs_missed",
+    "demo": 37
+   },
+   "rankBase": {
+    "sem": "rank",
+    "demo": 34
+   },
+   "powA": {
+    "sem": "players.1.game.dangun_feveron.power_a",
+    "demo": 4
+   },
+   "powB": {
+    "sem": "players.1.game.dangun_feveron.power_b",
+    "demo": 2
+   },
+   "power": {
+    "sum": [
+     "powA",
+     "powB"
+    ],
+    "demo": 6
+   },
+   "oneUpLeft": {
+    "next": "cybTotal",
+    "steps": [
+     2000
+    ],
+    "part": "left",
+    "status": "estimate",
+    "labels": [
+     {
+      "min": 0,
+      "max": 0,
+      "label": "DONE"
+     }
+    ],
+    "demo": 760
+   },
+   "bossBonus": {
+    "terms": [
+     {
+      "k": 1,
+      "of": [
+       "chain",
+       "cybStage"
+      ]
+     }
+    ],
+    "status": "estimate",
+    "demo": 130416
+   }
+  },
+  "panels": {
+   "stages": {
+    "widget": "StageProgress",
+    "title": "STAGES",
+    "value": "stageScore",
+    "first": 0,
+    "current": "stage",
+    "names": [
+     "STAGE 1",
+     "STAGE 2",
+     "STAGE 3",
+     "STAGE 4",
+     "STAGE 5"
+    ],
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0x52D8",
+       "action": "PROGRESSION_STAGE"
+      },
+      "demo": 2
+     }
+    },
+    "dense": false
+   },
+   "pad": {
+    "widget": "Controller"
+   },
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "THIS STAGE",
+      "short": "STAGE",
+      "value": "thisStage",
+      "format": "group",
+      "color": "lit"
+     }
+    ]
+   },
+   "ship": {
+    "type": "rows",
+    "title": "SHIP STOCK",
+    "short": "SHIP",
+    "items": [
+     {
+      "label": "STOCK",
+      "value": "ships",
+      "icon": "ship",
+      "format": "x"
+     },
+     {
+      "label": "BOMBS",
+      "value": "bombs",
+      "format": "x"
+     },
+     {
+      "label": "POWER",
+      "short": "POW",
+      "value": "power",
+      "format": "ratio",
+      "of": 9
+     },
+     {
+      "label": "SHIPS LOST",
+      "short": "LOST",
+      "value": "lost"
+     }
+    ]
+   },
+   "chain": {
+    "type": "rows",
+    "title": "CYBORG CHAIN",
+    "short": "CHAIN",
+    "items": [
+     {
+      "label": "CHAIN",
+      "value": "chain",
+      "format": "int",
+      "big": true
+     },
+     {
+      "label": "THIS STAGE",
+      "short": "STAGE",
+      "value": "cybStage",
+      "format": "int"
+     },
+     {
+      "label": "BOSS BONUS",
+      "short": "BONUS",
+      "value": "bossBonus",
+      "format": "group",
+      "color": "lit"
+     }
+    ]
+   },
+   "oneup": {
+    "type": "rows",
+    "title": "1UP",
+    "short": "1UP",
+    "items": [
+     {
+      "label": "CYBORGS",
+      "short": "TOTAL",
+      "value": "cybTotal",
+      "format": "group"
+     },
+     {
+      "label": "1UP IN",
+      "short": "LEFT",
+      "value": "oneUpLeft",
+      "format": "group",
+      "color": "accent"
+     }
+    ]
+   },
+   "boss": {
+    "widget": "BossHealth",
+    "title": "BOSS",
+    "unit": "HEALTH",
+    "readout": "small",
+    "items": [],
+    "values": {
+     "hp": {
+      "demo": 38
+     },
+     "max": {
+      "initial": 60,
+      "status": "measure",
+      "demo": 60
+     }
+    }
+   },
+   "rankg": {
+    "type": "gauge",
+    "title": "RANK",
+    "short": "RANK",
+    "value": "rankBase",
+    "max": 63,
+    "readout": "small",
+    "unit": "BULLET SPEED",
+    "zones": [
+     {
+      "from": 0,
+      "color": "rankLow"
+     },
+     {
+      "from": 24,
+      "color": "rankMid"
+     },
+     {
+      "from": 44,
+      "color": "rankHigh"
+     }
+    ],
+    "items": [
+     {
+      "label": "CYBORGS MISSED",
+      "short": "MISSED",
+      "value": "missed",
+      "format": "int",
+      "color": "accent"
+     }
+    ]
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "pad",
+    "oneup",
+    "rankg",
+    "boss",
+    "chain",
+    "ship",
+    "stages",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "Cyborg chain: each cyborg taken adds one and scores the new chain; enemies score the chain too; it falls back to 1 when a cyborg escapes.",
+   "Boss bonus: chain times the cyborgs of the stage (estimate from public guides, marked on screen).",
+   "1UP: the extend item comes after 2000 cyborgs taken in the game (estimate, marked on screen); no extend by score.",
+   "Rank: the base rank of the game (0 to 63, it sets the bullet speed): stage minimum plus bombs, lives and power-ups in stock; missed cyborgs speed up the aimed bullets.",
+   "Boss: the length of the BOSS bar the game draws.",
+   "Score: the game keeps a score per stage and adds it to the total at the end of the stage; the Deck shows the running total and the stage in progress."
+  ],
+  "pattern": "A",
+  "marks": true,
+  "aspect": "3:4",
+  "layout": "two-rails",
+  "left": [
+   "header",
+   "score",
+   "stages",
+   "chain",
+   "oneup"
+  ],
+  "right": [
+   "boss",
+   "rankg",
+   "ship",
+   "pad",
+   "rank"
+  ],
+  "fit": [
+   "compact:oneup",
+   "pad",
+   "compact:ship",
+   "compact:stages"
+  ]
+ }
+}

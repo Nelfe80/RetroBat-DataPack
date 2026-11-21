@@ -1,0 +1,741 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "metal-slug-3-pixel",
+ "name": "Metal Slug 3 Rebel Iron",
+ "version": 6,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its games when the API launches them. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "mslug3",
+   "metal-slug-3",
+   "mslug3h",
+   "mslug3a",
+   "mslug3b6"
+  ],
+  "titles": [
+   "Metal Slug 3"
+  ],
+  "variantOf": "metal-slug-3"
+ },
+ "native": {
+  "width": 304,
+  "height": 224,
+  "scaling": "nearest",
+  "deckPixel": "auto",
+  "note": "Metal Slug 3 as the FBNeo core gives it (retro_get_system_av_info: base 304 x 224, aspect 1.333333, 59.18 Hz; game pixels almost square, 0.982). The deck is drawn on a canvas of game pixels and enlarged on the same column and row grid as the game (nearest neighbour). The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto), each game pixel cut in 2 x 2 Deck pixels on the same grid."
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed to the right at full screen height (no black band above or below), the rail takes the width left on the left; railMin only shrinks the game on a screen too narrow to leave 56 game pixels (the compact rail). 1920 x 1080: game 1440 x 1080, rail 480 px = 101 game pixels. 1920 x 1200: game 1600 x 1200, rail 320 px = 61 game pixels, drawn at half the game pixel (122 Deck pixels): every plate in full form, lives and grenades back."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (iron wall, plates, name tags, lettering effects, icons and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (exact counts and median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window (attract mode, coin and start injected, and a cabinet replay replayed in memory): soldier select (rusty iron #291c08 #201408 #312410 #100b06 #49321e #624c38, bolts #736353 #b8a487, red rust #441900 #521c00, embossed title #d6cbbb #a4958b #745e4c, name plates #625541 #897d62, P1 tag #ffde00, hazard stripes #dea500 #945500), MISSION 1 START and MISSION COMPLETE lettering (#ffd629 #ff9510 #f62c00 #730808), in-game HUD (timer #fffa73 #ff5500, cream #f6f1b9), how to play (button green #94d64a, button blue #8bcaff), recaptured prisoner tally.",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'block', x2 by x[1, 2, 1, 1, 1, 2, 1]; colours per row picked from the game's screens. No pixel copied.",
+   "gap": 1,
+   "outline": "#300000",
+   "ramp": [
+    "#fffa73",
+    "#ffd629",
+    "#ff9510",
+    "#ff9510",
+    "#ff5500"
+   ],
+   "glyphs": {
+    "0": [
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########"
+    ],
+    "1": [
+     "....####..",
+     "..######..",
+     "..######..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "..########"
+    ],
+    "2": [
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "##########"
+    ],
+    "3": [
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "..########",
+     "........##",
+     "........##",
+     "........##",
+     "##########"
+    ],
+    "4": [
+     "####....##",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "........##"
+    ],
+    "5": [
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "##########"
+    ],
+    "6": [
+     "##########",
+     "####......",
+     "####......",
+     "####......",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########"
+    ],
+    "7": [
+     "##########",
+     "........##",
+     "........##",
+     "......####",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####..",
+     "....####.."
+    ],
+    "8": [
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########"
+    ],
+    "9": [
+     "##########",
+     "####....##",
+     "####....##",
+     "####....##",
+     "##########",
+     "........##",
+     "........##",
+     "........##",
+     "##########"
+    ],
+    ":": [
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "##",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "######",
+     "..##..",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   }
+  },
+  "motif": "rebel",
+  "half": {
+   "digitsZoom": 2,
+   "rankLine": false
+  },
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "palette": {
+   "iron": "#291c08",
+   "ironLight": "#312410",
+   "ironDark": "#201408",
+   "ironDeep": "#100b06",
+   "ironEdge": "#49321e",
+   "boltLight": "#b8a487",
+   "bolt": "#736353",
+   "boltDark": "#080000",
+   "rust": "#441900",
+   "rustDeep": "#521c00",
+   "plate": "#2d2515",
+   "plateLight": "#413020",
+   "plateDark": "#201c10",
+   "plateEdge": "#624c38",
+   "plateShade": "#100b06",
+   "outline": "#080000",
+   "window": "#080000",
+   "windowEdge": "#000000",
+   "windowLight": "#2d2515",
+   "rowHi": "#201408",
+   "tag": "#b8a487",
+   "tagLight": "#d6cbbb",
+   "tagDark": "#736353",
+   "tagText": "#201408",
+   "hazard": "#945500",
+   "hazardDark": "#201408",
+   "stripe": "#dea500",
+   "emboss": "#d6cbbb",
+   "embossMid": "#a4958b",
+   "embossDark": "#745e4c",
+   "embossShadow": "#080c00",
+   "missionOutline": "#730808",
+   "missionYellow": "#ffd629",
+   "missionOrange": "#ff9510",
+   "missionRed": "#f62c00",
+   "text": "#f6f1b9",
+   "value": "#fffa73",
+   "accent": "#ff9510",
+   "dim": "#b8a487",
+   "absent": "#897d62",
+   "warn": "#ff5500",
+   "good": "#94d64a",
+   "lit": "#ffde00",
+   "hp": "#94d64a",
+   "hpLow": "#ff5500",
+   "tap": "#f6f1b9",
+   "held": "#8bcaff",
+   "bomb": "#ff9510"
+  },
+  "icons": {
+   "ship": {
+    "colors": {
+     "h": "#e6ca41",
+     "r": "#d50000",
+     "s": "#f6bf6f",
+     "k": "#201408",
+     "m": "#ae4c1b",
+     "g": "#8b7131"
+    },
+    "rows": [
+     "..hhhhh..",
+     ".hhhhhhh.",
+     "rrrrrrrrr",
+     ".sssssss.",
+     ".sksssks.",
+     ".sssssss.",
+     "..ssmss..",
+     "...sss...",
+     "..ggggg.."
+    ]
+   },
+   "special": {
+    "colors": {
+     "m": "#b8a487",
+     "d": "#2d2515",
+     "g": "#8b7131",
+     "l": "#aca552"
+    },
+    "rows": [
+     "...mm..",
+     "..m..m.",
+     "..ddd..",
+     ".ggggg.",
+     "glgglgg",
+     "gdgdgdg",
+     "glgglgg",
+     ".ggggg.",
+     "..ddd.."
+    ]
+   },
+   "ammo": {
+    "colors": {
+     "b": "#e6ca41",
+     "l": "#fffa73",
+     "d": "#946531"
+    },
+    "rows": [
+     "..l..",
+     ".lbb.",
+     ".lbb.",
+     ".lbb.",
+     "ddddd",
+     ".lbb.",
+     ".lbb.",
+     ".lbb.",
+     ".ddd."
+    ]
+   },
+   "pow": {
+    "colors": {
+     "h": "#745e4c",
+     "s": "#f6bf6f",
+     "k": "#201408",
+     "b": "#d6cbbb",
+     "c": "#ece2a2",
+     "r": "#946941"
+    },
+    "rows": [
+     "..hhhhh..",
+     ".hsssssh.",
+     ".sksssks.",
+     ".sbbbbbs.",
+     "..bbbbb..",
+     "...bbb...",
+     ".ccccccc.",
+     "crrrrrrrc",
+     ".ccccccc."
+    ]
+   },
+   "best": {
+    "colors": {
+     "y": "#ffde00",
+     "o": "#ff9510"
+    },
+    "rows": [
+     "..y..",
+     "yyyyy",
+     ".yyo.",
+     ".y.o."
+    ]
+   },
+   "clock": {
+    "colors": {
+     "w": "#b8a487",
+     "o": "#ff9510"
+    },
+    "rows": [
+     ".www.",
+     "w.o.w",
+     "w.oow",
+     "w...w",
+     ".www."
+    ]
+   }
+  }
+ },
+ "recipe": {
+  "title": "METAL SLUG 3",
+  "subtitle": "",
+  "aspect": "4:3",
+  "layout": "single",
+  "stages": [
+   "MISSION 1",
+   "MISSION 2",
+   "MISSION 3",
+   "MISSION 4",
+   "MISSION 5"
+  ],
+  "words": {
+   "stock": "LIVES",
+   "special": "BOMBS",
+   "ammo": "ARMS",
+   "mission": "MISSION",
+   "pow": "POW",
+   "boss": "BOSS",
+   "nomiss": "NO MISS",
+   "firemix": "FIRE MIX",
+   "bombShort": "BOMB"
+  },
+  "controls": [
+   {
+    "id": "b",
+    "label": "SHOOT"
+   },
+   {
+    "id": "a",
+    "label": "JUMP"
+   },
+   {
+    "id": "y",
+    "label": "BOMB"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   }
+  ],
+  "fire": "b",
+  "holdMs": 500,
+  "vehicles": {
+   "1": "ON FOOT",
+   "4": "SV-001 TANK",
+   "6": "SLUG FLYER",
+   "7": "SLUG COPTER",
+   "8": "SLUG MARINER",
+   "9": "DRILL SLUG",
+   "10": "SLUGNOID",
+   "11": "ASTRO SLUG"
+  },
+  "rankLine": true,
+  "bindings": {
+   "lives": {
+    "address": "0x1002BB"
+   },
+   "special": {
+    "address": "0x10EAF5"
+   },
+   "ammo": {
+    "address": "0x10EAFA"
+   },
+   "weapon": {
+    "address": "0x10EAF3"
+   },
+   "stage": {
+    "address": "0x10040C",
+    "max": 4
+   },
+   "section": {
+    "address": "0x10040D"
+   },
+   "advance": {
+    "address": "0x100475"
+   },
+   "pow": {
+    "address": "0x10ED05"
+   },
+   "vehicle": {
+    "address": "0x1002C1"
+   }
+  },
+  "left": [
+   "header",
+   "score",
+   "rank",
+   "mission",
+   "bosslife",
+   "ammo",
+   "stock|special",
+   "pow",
+   "vehicle",
+   "nomiss",
+   "firemix",
+   "pad"
+  ],
+  "fit": [
+   "vehicle",
+   "stock",
+   "special"
+  ],
+  "narrow": [
+   "header",
+   "score",
+   "rank",
+   "mission",
+   "bosslife",
+   "ammo|pow",
+   "nomiss",
+   "firemix"
+  ],
+  "right": [],
+  "trial": {
+   "at": "header",
+   "yields": {
+    "ammo": [
+     "lock:weapon"
+    ],
+    "special": [
+     "lock:special"
+    ]
+   },
+   "drop": [
+    "pad",
+    "pow",
+    "bosslife",
+    "mission",
+    "ammo",
+    "vehicle",
+    "stock",
+    "special",
+    "firemix",
+    "nomiss",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gap, counters, efficiency, fail conditions) go after the header. An instrument yields its place only when it makes no sense for THIS trial: ARMS when the rules lock the weapon (knife only), BOMBS when they lock the grenade count (unlimited). When the rail is too short, instruments give way in the order of drop: what the trial does not need first, then FIRE MIX and NO MISS, then the score, LIVE RANK last (the trial plates never)."
+  },
+  "centered": {
+   "left": [
+    "score",
+    "stock",
+    "special",
+    "ammo"
+   ],
+   "right": [
+    "mission",
+    "pow",
+    "nomiss",
+    "vehicle"
+   ]
+  },
+  "panels": {
+   "pad": {
+    "widget": "Controller"
+   },
+   "bosslife": {
+    "type": "gauge",
+    "title": "BOSS LIFE",
+    "short": "BOSS",
+    "value": "bossHp",
+    "maxValue": "bossMax",
+    "percent": true,
+    "max": 100,
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 34,
+      "color": "accent"
+     },
+     {
+      "from": 67,
+      "color": "good"
+     }
+    ],
+    "items": []
+   }
+  },
+  "notes": [
+   "BOSS LIFE: the hidden life of the boss (the game draws no bar), read in the memory slot of each boss, in its mission and section only; against its value at the start of the fight (percentage). The mission 3 robot boss is not charted.",
+   "CONTROLLER: the buttons of the game pressed live, with their role."
+  ],
+  "values": {
+   "mission": {
+    "mem": {
+     "address": "0x10040C",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 2
+   },
+   "section": {
+    "mem": {
+     "address": "0x10040D",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 3
+   },
+   "bossCode": {
+    "terms": [
+     {
+      "k": 100,
+      "of": [
+       "mission"
+      ]
+     },
+     {
+      "k": 1,
+      "of": [
+       "section"
+      ]
+     }
+    ],
+    "demo": 302
+   },
+   "onBoss": {
+    "map": "bossCode",
+    "to": {
+     "4": 1,
+     "107": 1,
+     "302": 1,
+     "409": 1,
+     "414": 1
+    },
+    "demo": 1
+   },
+   "bossRaw": {
+    "mem": [
+     {
+      "address": "0x1008BA",
+      "action": "BOSS_HIT"
+     },
+     {
+      "address": "0x100E3A",
+      "action": "BOSS_HIT"
+     },
+     {
+      "address": "0x100ACA",
+      "action": "BOSS_HIT"
+     }
+    ],
+    "demo": 3200
+   },
+   "bossHp": {
+    "gate": "bossRaw",
+    "by": "onBoss",
+    "otherwise": 0,
+    "demo": 3200
+   },
+   "bossMax": {
+    "peak": "bossHp",
+    "while": "bossHp",
+    "demo": 5000
+   }
+  }
+ }
+}

@@ -1,0 +1,118 @@
+{
+  "format": "nelfeplay.deck-theme/1",
+  "id": "metal-slug-3",
+  "name": "Metal Slug 3 Rebel Plate",
+  "version": 1,
+  "match": {
+    "roms": ["mslug3", "metal-slug-3", "mslug3h", "mslug3a", "mslug3b6"],
+    "titles": ["Metal Slug 3"]
+  },
+  "native": { "width": 304, "height": 224, "scaling": "nearest", "note": "Declared only: this theme still draws on the screen grid (skin.grid absent); a game-grid redraw is still to do." },
+  "provenance": {
+    "author": "NelfePlay",
+    "license": "CC BY 4.0 (icons and layout drawn for NelfePlay; no asset taken from the game)",
+    "fonts": [
+      { "family": "Bungee", "file": "Bungee-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2023 The Bungee Project Authors (David Jonathan Ross)" },
+      { "family": "Silkscreen", "file": "Silkscreen-Bold.ttf", "license": "SIL Open Font License 1.1", "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)" },
+      { "family": "Press Start 2P", "file": "PressStart2P-Regular.ttf", "license": "SIL Open Font License 1.1", "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)" }
+    ]
+  },
+  "skin": {
+    "fonts": {
+      "title": { "face": "Bungee", "size": 22 },
+      "label": { "face": "Silkscreen", "size": 16, "pixel": true, "weight": 700 },
+      "value": { "face": "Press Start 2P", "size": 24, "pixel": true },
+      "big":   { "face": "Press Start 2P", "size": 40, "pixel": true },
+      "head":  { "face": "Bungee", "size": 34 }
+    },
+    "palette": {
+      "rail": "#0f0e09", "panel": "#24221a", "panelHi": "#3a3622", "frame": "#7d6f3c", "frameLight": "#c8b56a", "frameDark": "#050503",
+      "titleBar": "#3d371c", "title": "#ffb400", "titleShadow": "#8a1d0c", "text": "#fff7e0", "dim": "#a69a6c",
+      "accent": "#ffdd55", "warn": "#e8381c", "good": "#9ed84a", "lit": "#ff8a00", "absent": "#6e6650", "stripe": "#f2c200"
+    },
+    "frame": { "style": "rivet", "cut": 0, "border": 3, "titleHeight": 38 },
+    "icons": {
+      "ship": {
+        "colors": { "g": "#5d6b2a", "l": "#9aa857", "s": "#f2b179", "k": "#2a1a0e", "r": "#c0301a" },
+        "rows": [
+          "..ggggg..",
+          ".gglgggg.",
+          "ggggggggg",
+          ".sssssss.",
+          ".sksssks.",
+          ".sssssss.",
+          "..ssrss..",
+          "...sss...",
+          "..ggggg.."
+        ]
+      },
+      "special": {
+        "colors": { "m": "#c9c9c9", "d": "#24380f", "g": "#4f7a2a", "l": "#9cc25a" },
+        "rows": [
+          "..mmm..",
+          ".mmmmm.",
+          "..ddd..",
+          ".ggggg.",
+          "glggglg",
+          "gdgdgdg",
+          "glggglg",
+          "gdgdgdg",
+          ".ggggg.",
+          "..ddd.."
+        ]
+      },
+      "ammo": {
+        "colors": { "b": "#e0a93a", "l": "#ffe08a", "d": "#7a4f10" },
+        "rows": [
+          "..l..",
+          ".lbb.",
+          ".lbb.",
+          ".lbb.",
+          ".ddd.",
+          ".lbb.",
+          ".lbb.",
+          ".lbb.",
+          ".ddd."
+        ]
+      },
+      "boss": {
+        "colors": { "k": "#8f8a52", "d": "#3d3a1d", "l": "#c9c27a", "t": "#2a2a2a" },
+        "rows": [
+          "......lllll......",
+          ".....lkkkkkdddddd",
+          "......kkkkk......",
+          "..lkkkkkkkkkkkd..",
+          ".kkkkkkkkkkkkkkd.",
+          "ttttttttttttttttt",
+          "tdtdtdtdtdtdtdtdt",
+          ".ttttttttttttttt."
+        ]
+      }
+    }
+  },
+  "recipe": {
+    "title": "METAL SLUG 3",
+    "subtitle": "SUPER VEHICLE-001",
+    "aspect": "4:3",
+    "layout": "single",
+    "stages": ["MISSION 1", "MISSION 2", "MISSION 3", "MISSION 4", "MISSION 5"],
+    "words": { "stock": "LIVES", "special": "GRENADES", "boss": "BOSS", "fire": "SHOT RATE", "graph": "SCORE RATE", "ammo": "ARMS" },
+    "controls": [
+      { "id": "b", "label": "SHOOT" },
+      { "id": "a", "label": "JUMP" },
+      { "id": "y", "label": "GRENADE" },
+      { "id": "start", "label": "START" }
+    ],
+    "fire": "b",
+    "vehicles": { "1": "ON FOOT", "4": "SV-001 TANK", "6": "SLUG FLYER", "7": "SLUG COPTER", "8": "SLUG MARINER", "9": "DRILL SLUG", "10": "SLUGNOID", "11": "ASTRO SLUG" },
+    "bindings": {
+      "lives":   { "address": "0x1002BB" },
+      "special": { "address": "0x10EAF5" },
+      "ammo":    { "address": "0x10EAFA" },
+      "stage":   { "address": "0x10040C", "max": 4 },
+      "vehicle": { "address": "0x1002C1" }
+    },
+    "left": ["header", "score", "stages", "stock|special", "ammo", "fire", "boss", "context"],
+    "right": []
+  }
+}

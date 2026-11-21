@@ -1,0 +1,877 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "shock-troopers-field-plate",
+ "name": "Shock Troopers Field Plate",
+ "version": 1,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "shocktro",
+   "shock-troopers",
+   "shocktroa",
+   "shocktroj"
+  ],
+  "titles": [
+   "Shock Troopers"
+  ]
+ },
+ "native": {
+  "width": 304,
+  "height": 224,
+  "scaling": "nearest",
+  "note": "Shock Troopers as the core gives it (Neo Geo, 304 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 101 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 61 game pixels = 122 Deck pixels. The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto), each game pixel cut in 2 x 2 Deck pixels on the same grid. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), the rail takes the width left on the left."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (camouflage tile, plates, gauges and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by the FBNeo core without a window: title (yellow #ffd200, orange #ff9100, red rim #ff0000 #b40000, jungle green #415d29, steel plate #bdbebd), ROUTE SELECT (olive frame #415008, khaki map #a49129), RANKING (yellow figures ringed with violet #5200b4, sunset #de8918, night blue #201c4a), jungle floor (#9c5d18 #734408).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "m": "#2c4018",
+    "d": "#1c2a10",
+    "e": "#4a3410",
+    "k": "#3a5420"
+   },
+   "rows": [
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+    "mmmmmmmmmmmmmmmmmmmmemmmmmmmmmmm",
+    "mmmmmmmmmmmmmmmmeeeeeeeemmmmmmmm",
+    "mmmmmdmmmmmmmmeeeeeeeeeeeeemmmmm",
+    "mmdddddddmmmmmeeeeeeeeeeeeemmmmm",
+    "mdddddddddmmmmeeeeeeeeeeeeemmmmm",
+    "mddddddddddmmmmmeeeeeeeemmmmmmmm",
+    "mdddddddddmmmmmmmmmmemmmmmmmkkmm",
+    "mmdddddddmmmmmmmmmmmmmmmmmkkkkkm",
+    "mmmmmdmmemmmmmmmmmmmmmmmmkkkkkkk",
+    "mmmmmmmeeeeemmmmmmmmmmmmmmkkkkkm",
+    "mmmmmmmeeeeemmmmmmmmmmmmmmmmkkmm",
+    "mmmmmmmeeeeemmdmmmmmmmmmmmmmmmmm",
+    "mmmmmmmmedddddddddmmmmmmmmmmmmmm",
+    "mmmmmmmdddddddddddmmmmmmmmmmmmmm",
+    "mmmmmddddddddddddddmmmmmmmmmmmmm",
+    "mmmmmdddddddddddddddmmmmmmkmmmmm",
+    "mmmmmddddddddddddddmmmmmmkkkkkmm",
+    "mmmmmmmdddddddddddmmmmmkkkkkkkkk",
+    "mmmmmmmmddddddddddmmmmmkkkkkkkkk",
+    "mmmmmmmmmmmdmmdmmmmmmmkkkkkkkkkk",
+    "mmmmmmmmmmmmmmmmmmmmmmmkkkkkkkkk",
+    "mmemeemmmmmmmmmmmmmmmmmkkkkkkkkk",
+    "meeeeeeeemmmmmmmmmmmmmmmmkkkkkmm",
+    "eeeeeeeeeemmmmmmmkmmmmmmmmkmmmme",
+    "eeeeeeeeeeemmmkkkkkkkkmmmmmmmmme",
+    "eeeeeeeeeemmmmkkkkkkkkkkmmmmmmme",
+    "meeeeeeeemmmmkkkkkkkkkkkmmmmmmmm",
+    "mmemeemmmmmmmmkkkkkkkkkkmmmmmmmm",
+    "mmmmmmmmmmmmmmkkkkkkkkmmmmmmmmmm",
+    "mmmmmmmmmmmmmmmmmkmmmmmmmmmmmmmm",
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'block', x1 by x1.57143, slanted; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "...#####",
+     "...#####",
+     "..##..#.",
+     "..##..#.",
+     "..##..#.",
+     ".##..#..",
+     ".##..#..",
+     ".##..#..",
+     "##..#...",
+     "#####...",
+     "#####..."
+    ],
+    "1": [
+     ".....##.",
+     ".....##.",
+     "...###..",
+     "....##..",
+     "....##..",
+     "...##...",
+     "...##...",
+     "...##...",
+     "..##....",
+     ".####...",
+     ".####..."
+    ],
+    "2": [
+     "...#####",
+     "...#####",
+     "......#.",
+     "......#.",
+     "......#.",
+     ".#####..",
+     ".##.....",
+     ".##.....",
+     "##......",
+     "#####...",
+     "#####..."
+    ],
+    "3": [
+     "...#####",
+     "...#####",
+     "......#.",
+     "......#.",
+     "......#.",
+     "..####..",
+     ".....#..",
+     ".....#..",
+     "....#...",
+     "#####...",
+     "#####..."
+    ],
+    "4": [
+     "...##..#",
+     "...##..#",
+     "..##..#.",
+     "..##..#.",
+     "..##..#.",
+     ".#####..",
+     ".....#..",
+     ".....#..",
+     "....#...",
+     "....#...",
+     "....#..."
+    ],
+    "5": [
+     "...#####",
+     "...#####",
+     "..##....",
+     "..##....",
+     "..##....",
+     ".#####..",
+     ".....#..",
+     ".....#..",
+     "....#...",
+     "#####...",
+     "#####..."
+    ],
+    "6": [
+     "...#####",
+     "...#####",
+     "..##....",
+     "..##....",
+     "..##....",
+     ".#####..",
+     ".##..#..",
+     ".##..#..",
+     "##..#...",
+     "#####...",
+     "#####..."
+    ],
+    "7": [
+     "...#####",
+     "...#####",
+     "......#.",
+     ".....##.",
+     ".....##.",
+     "...##...",
+     "...##...",
+     "...##...",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "...#####",
+     "...#####",
+     "..##..#.",
+     "..##..#.",
+     "..##..#.",
+     ".#####..",
+     ".##..#..",
+     ".##..#..",
+     "##..#...",
+     "#####...",
+     "#####..."
+    ],
+    "9": [
+     "...#####",
+     "...#####",
+     "..##..#.",
+     "..##..#.",
+     "..##..#.",
+     ".#####..",
+     ".....#..",
+     ".....#..",
+     "....#...",
+     "#####...",
+     "#####..."
+    ],
+    ":": [
+     "....",
+     "....",
+     "..#.",
+     "....",
+     "....",
+     "....",
+     ".#..",
+     ".#..",
+     "....",
+     "....",
+     "...."
+    ],
+    ".": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "#...",
+     "#..."
+    ],
+    ",": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "#...",
+     "#..."
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     ".###..",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "...#..",
+     "...#..",
+     ".###..",
+     "..#...",
+     "..#...",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     ".....#",
+     ".....#",
+     "....#.",
+     "...#..",
+     "...#..",
+     "..#...",
+     ".#....",
+     ".#....",
+     "#.....",
+     "#.....",
+     "#....."
+    ],
+    "#": [
+     "....#.#.",
+     "....#.#.",
+     "..#####.",
+     "...#.#..",
+     "...#.#..",
+     "..#.#...",
+     ".#####..",
+     ".#####..",
+     ".#.#....",
+     ".#.#....",
+     ".#.#...."
+    ],
+    "%": [
+     "...#...#",
+     "...#...#",
+     ".....#..",
+     "....#...",
+     "....#...",
+     "...#....",
+     "..#.....",
+     "..#.....",
+     "#.......",
+     "#...#...",
+     "#...#..."
+    ],
+    " ": [
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     ".....",
+     "....."
+    ]
+   },
+   "ramp": [
+    "#ffffff",
+    "#ffee80",
+    "#ffd200",
+    "#ffd200",
+    "#ff9100",
+    "#de6a00"
+   ],
+   "gap": 1,
+   "outline": "#5200b4"
+  },
+  "plate": {
+   "band": "tab",
+   "rivets": true,
+   "noise": true,
+   "bandHeight": 9,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#ffffff",
+   "#ffd200",
+   "#ffd200",
+   "#ff9100"
+  ],
+  "palette": {
+   "warn": "#ff3020",
+   "good": "#8ae040",
+   "provisional": "#ffd200",
+   "provisionalBg": "#000000",
+   "hazardDark": "#000000",
+   "pillText": "#000000",
+   "barEdge": "#000000",
+   "wall": "#2c4018",
+   "shadow": "#0c1408",
+   "outline": "#000000",
+   "plate": "#415008",
+   "plateLight": "#5a6a18",
+   "plateDark": "#2c3a04",
+   "plateEdge": "#a49129",
+   "plateShade": "#1c2404",
+   "rivetLight": "#e8e8e8",
+   "rivet": "#bdbebd",
+   "rivetDark": "#4a4a4a",
+   "window": "#0c1206",
+   "windowEdge": "#000000",
+   "windowLight": "#415008",
+   "rowHi": "#2c3a10",
+   "band": "#b40000",
+   "bandLight": "#ff0000",
+   "bandText": "#ffd200",
+   "bandShadow": "#3a0000",
+   "bandTail": "#a49129",
+   "bandTailDark": "#2c3a04",
+   "title": "#ffd200",
+   "titleShadow": "#5200b4",
+   "subtitle": "#a49129",
+   "text": "#f0ecc8",
+   "value": "#ffffff",
+   "dim": "#c8bc78",
+   "absent": "#6a6a40",
+   "accent": "#7ab0ff",
+   "head": "#ffd200",
+   "lit": "#ffd200",
+   "bar": "#0c1206",
+   "barLight": "#ffffff",
+   "timer": "#ffd200",
+   "curveFill": "#1c2a10"
+  },
+  "bandRamp": [],
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "big": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "bigNarrow": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 18,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6,
+    "headerLine": false
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "SHOCK TROOPERS",
+  "subtitle": "",
+  "recap": [
+   {
+    "label": "FIRST LIFE",
+    "value": "firstLife",
+    "format": "group"
+   },
+   {
+    "label": "DEATHS",
+    "value": "lost"
+   },
+   {
+    "label": "CONTINUES",
+    "value": "conts"
+   }
+  ],
+  "words": {},
+  "controls": [],
+  "fire": "b",
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 1405720
+   },
+   "lost": {
+    "count": {
+     "address": "0x01B5",
+     "action": "LOSE_LIFE"
+    },
+    "while": "score",
+    "resetBy": "score",
+    "demo": 1
+   },
+   "lifeScore": {
+    "buckets": "score",
+    "by": "lost",
+    "n": 8,
+    "demo": [
+     902300,
+     503420,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "thisLife": {
+    "pick": "lifeScore",
+    "at": "lost"
+   },
+   "zero": {
+    "initial": 0
+   },
+   "firstLife": {
+    "pick": "lifeScore",
+    "at": "zero"
+   },
+   "life": {
+    "mem": [
+     {
+      "address": "0x8E3A",
+      "action": "HEALTH_STATE"
+     },
+     {
+      "address": "0x8E3A",
+      "action": "HIT"
+     },
+     {
+      "address": "0x8E3A",
+      "action": "HEAL"
+     }
+    ],
+    "demo": 44
+   },
+   "lastHit": {
+    "drop": "life",
+    "maxDrop": 63,
+    "demo": 13
+   },
+   "lifeHist": {
+    "history": "life",
+    "everyMs": 1000,
+    "n": 120,
+    "resetBy": "score",
+    "while": "score",
+    "demo": [
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     31,
+     31,
+     31,
+     31,
+     31,
+     31,
+     31,
+     31,
+     31,
+     31,
+     11,
+     11,
+     11,
+     11,
+     11,
+     11,
+     0,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     51,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44,
+     44
+    ]
+   },
+   "conts": {
+    "count": {
+     "address": "0xFDB7",
+     "action": "CONTINUES"
+    },
+    "when": "rise",
+    "resetBy": "score",
+    "demo": 0
+   }
+  },
+  "panels": {
+   "score": {
+    "type": "rows",
+    "title": "SCORE",
+    "items": [
+     {
+      "label": "",
+      "value": "score",
+      "format": "group",
+      "big": true
+     },
+     {
+      "label": "THIS LIFE",
+      "short": "LIFE",
+      "value": "thisLife",
+      "format": "group",
+      "color": "lit"
+     },
+     {
+      "label": "FIRST LIFE",
+      "short": "1ST",
+      "value": "firstLife",
+      "format": "group",
+      "color": "accent"
+     }
+    ]
+   },
+   "life": {
+    "type": "gauge",
+    "title": "TRUE LIFE",
+    "short": "LIFE",
+    "value": "life",
+    "max": 64,
+    "format": "ratio",
+    "readout": "small",
+    "unit": "POINTS",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 16,
+      "color": "lit"
+     },
+     {
+      "from": 33,
+      "color": "good"
+     }
+    ],
+    "marks": [
+     16,
+     32,
+     48
+    ],
+    "items": [
+     {
+      "label": "LAST HIT",
+      "short": "HIT",
+      "value": "lastHit",
+      "color": "warn"
+     }
+    ]
+   },
+   "graph": {
+    "type": "curve",
+    "grow": true,
+    "title": "LIFE GRAPH",
+    "short": "GRAPH",
+    "unit": "LIFE",
+    "value": "lifeHist",
+    "value2": "life",
+    "max": 64,
+    "readout": "small",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 16,
+      "color": "lit"
+     },
+     {
+      "from": 33,
+      "color": "good"
+     }
+    ],
+    "marks": [
+     32
+    ],
+    "markLabels": [
+     "32"
+    ]
+   },
+   "squad": {
+    "type": "rows",
+    "title": "SQUAD",
+    "items": [
+     {
+      "label": "DEATHS",
+      "value": "lost"
+     },
+     {
+      "label": "CONTINUES",
+      "short": "CONT",
+      "value": "conts"
+     }
+    ]
+   },
+   "clear": {
+    "type": "checks",
+    "title": "1CC / 1LC",
+    "short": "CLEAR",
+    "items": [
+     {
+      "label": "NO CONTINUE",
+      "short": "1CC",
+      "value": "conts",
+      "op": "<=",
+      "target": 0,
+      "final": "end",
+      "format": "none"
+     },
+     {
+      "label": "NO DEATH",
+      "short": "1LC",
+      "value": "lost",
+      "op": "<=",
+      "target": 0,
+      "final": "end",
+      "format": "none"
+     }
+    ]
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "graph",
+    "squad",
+    "clear",
+    "life",
+    "score",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "notes": [
+   "True life: the life bar as the game counts it (64 points, no figure on screen) and the points lost on the last hit.",
+   "Life graph: the life sampled every second.",
+   "Deaths and continues: counted in play from the start of the game; a continue is the CONTINUE screen of player 1.",
+   "Score per life: the points scored before each death (first life: what the 1LC board ranks)."
+  ],
+  "aspect": "4:3",
+  "layout": "single",
+  "left": [
+   "header",
+   "score",
+   "rank",
+   "life",
+   "graph",
+   "squad",
+   "clear"
+  ],
+  "narrow": [
+   "header",
+   "score",
+   "rank",
+   "life",
+   "graph",
+   "squad",
+   "clear"
+  ],
+  "fit": [
+   "compact:squad",
+   "compact:clear",
+   "squad",
+   "compact:rank",
+   "graph"
+  ]
+ }
+}

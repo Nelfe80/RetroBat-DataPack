@@ -1,3 +1,4 @@
+-- 2026-11-21 (Deck, etat de jeu) : octet d etat 0x240A lu a chaque changement (7 en partie, 8 ecran de continue, 11 choix, 5 demo, 4 titre) pour les signaux game.playing et game.continue du Deck ; ligne d affichage seulement (OBJECT_INTERACTION), hors score.
 -- 2026-11-09 : score = deux mots BCD (0x22E4 fort, 0x22E6 faible, valeur x10 a l ecran) ; credits 0x1226 (+1 par
 -- piece, -1 au START) ; vies 0x254E, une seule source (3 au depart, -1 par mort, 0 a l ecran CONTINUE ; la piece
 -- apres une demo le pose a 0 avant le START, puis 3). L etat 7 de 0x240A est la partie : GAME_PLAYING (il etait
@@ -5,6 +6,8 @@
 -- Mesures sous FBNeo (esprade, International 98/04/22).
 -- 2026-11-11 (Player Deck) : puissance 0x272A, compteur d items 0x26F8 et son maximum 0x2704, jauge de barriere 0x2750.
 -- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
+-- 2026-11-20 (carte des stages) : distance du stage 0x257C (s16, environ -40 au depart, +1 par pas de defilement, arret au boss), lue par blocs de 16 pas (mask 0XFFF0), vivante au simulateur d auto-mute (stages 3 et 5, 9000 images), coupee sans mask et avec 0XFFF8.
+-- 2026-11-20 (Deck enrichi, N+1) : multiplicateur 0x26FE (0 a 15 = x1 a x16), minuterie 0x26FC (images, -1 par image), charge de barriere 0x274E (0 a 4352).
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -24,6 +27,7 @@ return {
   events = {
     flow = {
       lifecycle = {
+        { address=0X240A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game state byte: 7 playing, 8 continue screen (countdown), 11 player select, 5 demo, 4 title; read at each change only" },
         { address=0X240A, type="u8", condition="eq", value=0X01, action="TITLE_SCREEN", desc="Title Screen before inserting credit" },
         { address=0X240A, type="u8", condition="eq", value=0X04, action="TITLE_SCREEN", desc="Title Screen after inserting credit" },
         { address=0X240A, type="u8", condition="eq", value=0X05, action="DEMO_MODE", desc="Demo" },
@@ -58,6 +62,10 @@ return {
         { address=0X26F8, type="u16le", condition="change", mask=0XFFE0, action="OBJECT_INTERACTION", player=1, desc="P1 score item counter, every 32 (mask)" },
         { address=0X2704, type="u16le", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 score item counter maximum (200 at start, +100 each time it is emptied)" },
         { address=0X2750, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="P1 guard barrier gauge (0 to 4000), every 256 units (mask)" },
+        { address=0X26FE, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="P1 chain multiplier (0 to 15 = x1 to x16), applied only while the chain timer runs" },
+        { address=0X26FC, type="u8", condition="change", mask=0XE0, action="OBJECT_INTERACTION", player=1, desc="P1 chain timer in frames (1 per frame, 69 seen), every 32 (mask)" },
+        { address=0X257C, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", desc="Stage distance (scroll steps of about 8 px of scenery: about -40 at the start of a stage, then +1 per step, stops at the boss), read by blocks (mask), never at each step" },
+        { address=0X274E, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="P1 guard barrier charge while held (0 to about 4352), every 256 (mask)" },
       },
     },
   },

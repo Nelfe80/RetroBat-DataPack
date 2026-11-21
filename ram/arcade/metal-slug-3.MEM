@@ -1,3 +1,8 @@
+-- .user 2026-11-20 : vie cachee des boss (le jeu n'affiche aucune barre ; banc FBNeo sans fenetre depuis les etats d'entree des boss, mission puis section) :
+-- le boss occupe un emplacement fixe de la table des objets, mot 16 bits a la valeur de depart ronde qui baisse a chaque coup (M1 Huge Hermit 5000 en 0x1008BA,
+-- M2 3000 en 0x100E3A, M4 5000 en 0x1008BA, faux boss de M5 2500 en 0x1008BA, Root Mars 8000 en 0x100ACA). Hors du combat l'emplacement sert a d'autres objets :
+-- le Deck ne lit la valeur que dans la mission et la section du boss. Lue par paliers de 128 (mask) : au pas du coup l'auto-mute coupait la ligne.
+-- Les deux lignes d'ennemi 0x10146A et 0x1022DA, relues sur tous les boss, ne portent jamais la vie d'un boss (gardees telles quelles).
 -- .user 2026-11-01 : tirs du joueur 1 (0x100590, labo MAME sans fenetre et releve d'une partie sous FBNeo) : +1 a chaque tir,
 -- pistolet et armes lourdes ; immobile au couteau et a la grenade ; remis a 0 a la mort, a l'arme videe et au changement
 -- de section, ou il passe par 0xFF : la hausse est bornee a 4, un saut de section n'est pas un tir.
@@ -88,6 +93,9 @@ return {
     },
     combat = {
       enemies = {
+        { address=0X1008BA, type="u16be", condition="change", mask=0XFF80, action="BOSS_HIT", desc="Boss life, main slot (M1 Huge Hermit 5000, M4 5000, M5 fake boss 2500; read only in the boss section)" },
+        { address=0X100E3A, type="u16be", condition="change", mask=0XFF80, action="BOSS_HIT", desc="Boss life, M2 boss (3000; read only in the boss section)" },
+        { address=0X100ACA, type="u16be", condition="change", mask=0XFF80, action="BOSS_HIT", desc="Boss life, Root Mars (8000; read only in the boss section)" },
         { address=0X10EAF5, type="u8", condition="decrease", action="BOMB_FIRED", desc="P1 grenade thrown" },
         { address=0X10EB03, type="u8", condition="decrease", action="BOMB_FIRED", player=2, desc="P2 grenade thrown" },
       },

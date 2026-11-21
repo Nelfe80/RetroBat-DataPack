@@ -1,0 +1,901 @@
+{
+ "format": "nelfeplay.deck-theme/1",
+ "id": "streets-of-rage-2-neon",
+ "name": "Streets of Rage 2 Neon Streets",
+ "version": 3,
+ "deck": {
+  "default": true,
+  "note": "Official Deck chosen by default for its game when the API launches it. The player can pick another installed Deck or Off in game; that choice wins for this player, game and mode."
+ },
+ "match": {
+  "roms": [
+   "streets-of-rage-2",
+   "Streets of Rage 2 (USA)",
+   "Bare Knuckle II (Japan)",
+   "Streets of Rage 2 (Europe)"
+  ],
+  "titles": [
+   "Streets of Rage 2"
+  ]
+ },
+ "native": {
+  "width": 320,
+  "height": 224,
+  "scaling": "nearest",
+  "note": "Streets of Rage 2 as Genesis Plus GX gives it (320 x 224 shown 4:3). 1920 x 1080: game 1440 x 1080 pushed right, rail 480 px = 106 game pixels; 1920 x 1200: game 1600 x 1200, rail 320 px = 64 game pixels = 128 Deck pixels. The Deck pixel is the game pixel while the rail holds its plates in full form, half the game pixel otherwise (deckPixel auto): in 1920 x 1200 the rail is drawn at half the game pixel, each game pixel cut in 2 x 2 Deck pixels on the same grid. The rail is always filled: plates in reserve come back when there is room (recipe.fit), the rest is shared between the rows.",
+  "deckPixel": "auto"
+ },
+ "placement": {
+  "anchor": "right",
+  "railMin": 56,
+  "note": "Game pushed right at full screen height (no black band), as Rebel Iron."
+ },
+ "provenance": {
+  "author": "NelfePlay",
+  "license": "CC BY 4.0 (brick and fence tile, plates, red timer digits and layout drawn for NelfePlay; no image, sprite, logo or font taken from the game)",
+  "palette": "Colours picked (median cut, no pixel copied) from the game's own screens produced by Genesis Plus GX without a window: street of stage 1 (bricks #412020 #624420, fence #626541, green #008962 #00ce62), SELECT PLAYER and AXEL gold lettering (#cd6500 and lighter), ranking text in blue and violet (#6265cd #acaaee #200041), HUD timer (red figures in a yellow frame).",
+  "fonts": [
+   {
+    "family": "Press Start 2P",
+    "file": "PressStart2P-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2012 The Press Start 2P Project Authors (CodeMan38)"
+   },
+   {
+    "family": "Silkscreen",
+    "file": "Silkscreen-Regular.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   },
+   {
+    "family": "Silkscreen Bold",
+    "file": "Silkscreen-Bold.ttf",
+    "license": "SIL Open Font License 1.1",
+    "copyright": "2001 The Silkscreen Project Authors (Jason Kottke)"
+   }
+  ]
+ },
+ "skin": {
+  "grid": "game",
+  "motif": "tile",
+  "fonts": {
+   "title": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true,
+    "weight": 700
+   },
+   "label": {
+    "face": "Silkscreen",
+    "size": 8,
+    "pixel": true
+   },
+   "value": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   },
+   "big": {
+    "face": "Press Start 2P",
+    "size": 16,
+    "pixel": true
+   },
+   "bigNarrow": {
+    "face": "Silkscreen",
+    "size": 16,
+    "pixel": true,
+    "weight": 700
+   },
+   "head": {
+    "face": "Press Start 2P",
+    "size": 8,
+    "pixel": true
+   }
+  },
+  "tile": {
+   "colors": {
+    "b": "#412020",
+    "l": "#624420",
+    "d": "#2a1010",
+    "m": "#120808",
+    "f": "#626541"
+   },
+   "rows": [
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+    "mlllllllllllllllmlllllllllllllll",
+    "mlbbdbbbbbbbbbbdmlbbbbbdbbbbbbbd",
+    "mlbbbbdbbbbbbbbdmlbbbbbbbdbbbbbd",
+    "mlbbbbbbdbbbbbbdmlbbbbbbbbbdbbbd",
+    "mlddddddddddddddmldddddddddddddd",
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+    "llllllllmlllllllllllllllmlllllll",
+    "bbbbbbbdmlbbbbbbdbbbbbbdmlbbbbbb",
+    "bbbbbbbdmlbbbbbbbbdbbbbdmlbbbbbb",
+    "bdbbbbbdmlbbbbbbbbbbdbbdmlbbbbbb",
+    "ddddddddmlddddddddddddddmldddddd",
+    "fmmmmmfmmmmmfmmmmmfmmmmmfmmmmmfm",
+    "mflllflflllflfllmflflllflflllflf",
+    "mlfbfbbbfdfbbbfdflbbfbfbbbfbfbbd",
+    "mlbfbbbbbfbdbbbfmlbbbfbbbbbfbbdd",
+    "mlfbfbbbfbfbbdfdflbbfbfbbbfbfbbd",
+    "mfdddfdfdddfdfddmfdfdddfdfdddfdf",
+    "fmmmmmfmmmmmfmmmmmfmmmmmfmmmmmfm",
+    "lflllflfmllflflllflflllfmflllflf",
+    "bbfbfbbdflfbbbfbfbbbfdfdmlfbfbbb",
+    "bbbfdbbdmfbbbbbfbbbbbfbdmlbfbbbb",
+    "bbfbfbddflfbbbfbfbbbfbfdmlfbfbbb",
+    "dfdddfdfmldfdfdddfdfdddfmfdddfdf"
+   ]
+  },
+  "digits": {
+   "note": "Digits redrawn for NelfePlay in the style of the game's own figures: skeleton 'narrow', x2 by x2; colours per row picked from the game's screens. No pixel copied.",
+   "glyphs": {
+    "0": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "1": [
+     "..##....",
+     "..##....",
+     "####....",
+     "####....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "######..",
+     "######.."
+    ],
+    "2": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "##......",
+     "##......",
+     "########",
+     "########"
+    ],
+    "3": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "4": [
+     "....##..",
+     "....##..",
+     "..####..",
+     "..####..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "##..##..",
+     "########",
+     "########",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##.."
+    ],
+    "5": [
+     "########",
+     "########",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "6": [
+     "..####..",
+     "..####..",
+     "##......",
+     "##......",
+     "##......",
+     "##......",
+     "######..",
+     "######..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "7": [
+     "########",
+     "########",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "....##..",
+     "....##..",
+     "....##..",
+     "....##..",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##....",
+     "..##...."
+    ],
+    "8": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..####..",
+     "..####.."
+    ],
+    "9": [
+     "..####..",
+     "..####..",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "##....##",
+     "..######",
+     "..######",
+     "......##",
+     "......##",
+     "......##",
+     "......##",
+     "..####..",
+     "..####.."
+    ],
+    ":": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##",
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    ".": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    ",": [
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "..",
+     "##",
+     "##"
+    ],
+    "-": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "######",
+     "######",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "+": [
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "......",
+     "..##..",
+     "..##..",
+     "######",
+     "######",
+     "..##..",
+     "..##..",
+     "......",
+     "......",
+     "......",
+     "......"
+    ],
+    "/": [
+     "....##",
+     "....##",
+     "....##",
+     "....##",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "..##..",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##....",
+     "##...."
+    ],
+    "#": [
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "##########",
+     "##########",
+     "..##..##..",
+     "..##..##..",
+     "..##..##..",
+     "..##..##.."
+    ],
+    "%": [
+     "##......##",
+     "##......##",
+     "......##..",
+     "......##..",
+     "......##..",
+     "......##..",
+     "....##....",
+     "....##....",
+     "..##......",
+     "..##......",
+     "..##......",
+     "..##......",
+     "##........",
+     "##........",
+     "##......##",
+     "##......##"
+    ],
+    " ": [
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "....",
+     "...."
+    ]
+   },
+   "ramp": [
+    "#ffd0c0",
+    "#ff6a50",
+    "#ff3020",
+    "#e01010",
+    "#b00000",
+    "#800000"
+   ],
+   "gap": 1,
+   "outline": "#200000"
+  },
+  "plate": {
+   "band": "label",
+   "rivets": false,
+   "noise": false,
+   "bandHeight": 8,
+   "compactBelow": 80,
+   "margin": 1,
+   "gap": 1,
+   "headerLine": true
+  },
+  "titleRamp": [
+   "#fff0a0",
+   "#ffcc33",
+   "#ff9a00",
+   "#cd6500"
+  ],
+  "bandRamp": [
+   "#fff0a0",
+   "#ffcc33",
+   "#ff9a00",
+   "#cd6500"
+  ],
+  "palette": {
+   "wall": "#412020",
+   "shadow": "#000000",
+   "outline": "#000000",
+   "plate": "#200041",
+   "plateLight": "#200041",
+   "plateDark": "#200041",
+   "plateEdge": "#6265cd",
+   "plateShade": "#000062",
+   "window": "#000000",
+   "windowEdge": "#000000",
+   "windowLight": "#200041",
+   "rowHi": "#1a1a40",
+   "band": "#200041",
+   "bandText": "#ffcc33",
+   "bandShadow": "#000000",
+   "bandRule": "#6265cd",
+   "title": "#ffcc33",
+   "titleShadow": "#000000",
+   "subtitle": "#acaaee",
+   "text": "#eeeeee",
+   "value": "#ffffff",
+   "dim": "#acaaee",
+   "absent": "#626541",
+   "accent": "#00ce62",
+   "head": "#ffcc33",
+   "warn": "#ff3020",
+   "good": "#00ce62",
+   "lit": "#ffcc33",
+   "pillText": "#000000",
+   "bar": "#1a1a40",
+   "barEdge": "#000000",
+   "barLight": "#ffffff"
+  },
+  "half": {
+   "fonts": {
+    "title": {
+     "face": "Silkscreen",
+     "size": 16,
+     "pixel": true,
+     "weight": 700
+    },
+    "value": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    },
+    "head": {
+     "face": "Press Start 2P",
+     "size": 16,
+     "pixel": true
+    }
+   },
+   "plate": {
+    "bandHeight": 16,
+    "margin": 2,
+    "gap": 2,
+    "airMax": 6
+   },
+   "digitsZoom": 2
+  }
+ },
+ "recipe": {
+  "title": "STREETS OF RAGE 2",
+  "recap": [
+   {
+    "label": "BEST STAGE",
+    "value": "stage",
+    "agg": "max"
+   },
+   {
+    "label": "LIVES LOST",
+    "value": "lives",
+    "agg": "drops"
+   }
+  ],
+  "subtitle": "",
+  "aspect": "4:3",
+  "layout": "single",
+  "words": {},
+  "values": {
+   "score": {
+    "score": 1,
+    "demo": 127100
+   },
+   "bossHp": {
+    "mem": [
+     {
+      "address": "0xF180",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0xF180",
+      "action": "GAIN_LIFE"
+     },
+     {
+      "address": "0xF180",
+      "action": "BOSS_HIT"
+     },
+     {
+      "address": "0xF180",
+      "action": "HEAL"
+     }
+    ],
+    "demo": 34
+   },
+   "bossBars": {
+    "mem": [
+     {
+      "address": "0xF182",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0xF182",
+      "action": "GAIN_LIFE"
+     },
+     {
+      "address": "0xF182",
+      "action": "BOSS_HIT"
+     },
+     {
+      "address": "0xF182",
+      "action": "HEAL"
+     }
+    ],
+    "demo": 2
+   },
+   "hp": {
+    "mem": [
+     {
+      "address": "0xEF80",
+      "action": "HEALTH_STATE"
+     },
+     {
+      "address": "0xEF80",
+      "action": "HIT"
+     },
+     {
+      "address": "0xEF80",
+      "action": "HEAL"
+     }
+    ],
+    "demo": 87
+   },
+   "lives": {
+    "mem": [
+     {
+      "address": "0xEF82",
+      "action": "LOSE_LIFE"
+     },
+     {
+      "address": "0xEF82",
+      "action": "GAIN_LIFE"
+     }
+    ],
+    "demo": 2
+   },
+   "stage": {
+    "mem": {
+     "address": "0xFC42",
+     "action": "PROGRESSION_STAGE"
+    },
+    "scale": {
+     "num": 1,
+     "den": 2,
+     "add": 1
+    },
+    "demo": 3
+   },
+   "area": {
+    "mem": {
+     "address": "0xFC44",
+     "action": "PROGRESSION_STAGE"
+    },
+    "demo": 1
+   },
+   "difficulty": {
+    "mem": [
+     {
+      "address": "0xFD04",
+      "action": "NEW_LEVEL"
+     },
+     {
+      "address": "0xFD04",
+      "action": "GAME_DIFFICULTY"
+     }
+    ],
+    "labels": [
+     {
+      "raw": 0,
+      "label": "VERY EASY"
+     },
+     {
+      "raw": 2,
+      "label": "EASY"
+     },
+     {
+      "raw": 4,
+      "label": "NORMAL"
+     },
+     {
+      "raw": 6,
+      "label": "HARD"
+     },
+     {
+      "raw": 8,
+      "label": "HARDEST"
+     },
+     {
+      "raw": 10,
+      "label": "MANIA"
+     }
+    ],
+    "demo": 4
+   },
+   "stageScore": {
+    "buckets": "score",
+    "by": "stage",
+    "n": 10,
+    "demo": [
+     0,
+     41200,
+     63800,
+     22100,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  "panels": {
+   "boss": {
+    "type": "rows",
+    "title": "BOSS",
+    "items": [
+     {
+      "label": "HIT POINTS",
+      "short": "HP",
+      "value": "bossHp",
+      "big": true
+     },
+     {
+      "label": "BARS LEFT",
+      "short": "BARS",
+      "value": "bossBars",
+      "format": "x",
+      "color": "lit"
+     }
+    ]
+   },
+   "run": {
+    "type": "rows",
+    "title": "THIS RUN",
+    "short": "RUN",
+    "items": [
+     {
+      "label": "STAGE",
+      "short": "STG",
+      "value": "stage"
+     },
+     {
+      "label": "AREA",
+      "short": "AREA",
+      "value": "area"
+     },
+     {
+      "label": "LEVEL",
+      "short": "LVL",
+      "value": "difficulty",
+      "format": "label",
+      "color": "lit"
+     }
+    ]
+   },
+   "vital": {
+    "type": "gauge",
+    "title": "TRUE HP",
+    "short": "HP",
+    "value": "hp",
+    "max": 104,
+    "format": "ratio",
+    "readout": "small",
+    "zones": [
+     {
+      "from": 0,
+      "color": "warn"
+     },
+     {
+      "from": 26,
+      "color": "accent"
+     },
+     {
+      "from": 52,
+      "color": "good"
+     }
+    ],
+    "items": [
+     {
+      "label": "LIVES",
+      "short": "LIV",
+      "value": "lives",
+      "color": "accent"
+     }
+    ]
+   },
+   "stages": {
+    "widget": "StageProgress",
+    "title": "STAGES",
+    "value": "stageScore",
+    "first": 1,
+    "dense": true,
+    "values": {
+     "stage": {
+      "mem": {
+       "address": "0xFC42",
+       "action": "PROGRESSION_STAGE"
+      },
+      "scale": {
+       "num": 1,
+       "den": 2,
+       "add": 1
+      },
+      "demo": 3
+     }
+    },
+    "names": 8,
+    "word": "STAGE"
+   },
+   "pad": {
+    "widget": "Controller"
+   }
+  },
+  "trial": {
+   "at": "header",
+   "drop": [
+    "stages",
+    "pad",
+    "run",
+    "vital",
+    "boss",
+    "rank"
+   ],
+   "note": "Trial layer: the trial plates (time and gaps, rule counters, efficiency, fail conditions) go after the header; when the rail is too short, the theme instruments give way in the order of drop, LIVE RANK last."
+  },
+  "left": [
+   "header",
+   "boss",
+   "vital",
+   "stages",
+   "run",
+   "rank",
+   "pad"
+  ],
+  "narrow": [
+   "header",
+   "boss",
+   "vital",
+   "rank",
+   "run"
+  ],
+  "notes": [
+   "TRUE HP: the life bar of player 1 as the game counts it (104 at full), with the lives in reserve.",
+   "STAGES: the points scored in each stage, the one being played lit.",
+   "CONTROLLER: the buttons of the game pressed live, with their role."
+  ],
+  "controls": [
+   {
+    "id": "y",
+    "label": "SPECIAL"
+   },
+   {
+    "id": "b",
+    "label": "ATTACK"
+   },
+   {
+    "id": "a",
+    "label": "JUMP"
+   },
+   {
+    "id": "start",
+    "label": "START"
+   }
+  ],
+  "fire": "b",
+  "fit": [
+   "compact:stages",
+   "run"
+  ]
+ }
+}
