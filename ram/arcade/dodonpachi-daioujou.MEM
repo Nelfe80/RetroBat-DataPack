@@ -1,3 +1,4 @@
+-- 2026-11-21 (Deck, etat de jeu) : octet d etat 0xB092 lu a chaque changement (10 en partie, 22 au choix du vaisseau et au chargement, 26 apres la partie, 0 au demarrage) et octet 0xE47B (1 aux ecrans CONTINUE et GAME OVER, 0 sinon) pour les signaux game.playing et game.continue du Deck ; lignes d affichage seulement (OBJECT_INTERACTION), hors score. Les quatre lignes CONTINUE_SCREEN 0xE334, 0xE335, 0xE384, 0xE385 sont retirees : sur cette revision ce ne sont pas des comptes a rebours du continue (elles bougent aussi au debut de chaque partie) ; l ecran CONTINUE part de 0xE47B.
 -- 2026-11-08 : REVISION ddpdojblka (2002.04.05.MASTER VER, ddb_1dot.u45).
 -- Valide au banc sur ddpdojblka : score (memes adresses), demo 0x3926, credits 0x395B. DECALES sur cette revision :
 -- stage 0xD570 -> 0xD56C, vies 0x130BE/0x130C0 -> 0x130BA/0x130BC (cheat MAME 0x8130BA), combos 0x1B5xx -> -8 (BCD u16le).
@@ -13,6 +14,11 @@
 -- 2026-11-15 (decision du user) : la revision ddpdojblk (ddb10_10_8_434f.u45, la plus recente) n est plus nommee : ses adresses
 -- ne sont pas prouvees et le site la refuse (aucune EEPROM d usine epinglee pour elle). Seule ddpdojblka (avec ddp3.zip, son
 -- parent FBNeo) est la ROM du classement. Titre : DoDonPachi DaiOuJou Black Label.
+-- 2026-11-20 (Deck enrichi, DaiOuJou) : abeilles 0x17F78 (remplacent 0x17F80 et 0x1B892, mortes sur ddpdojblka), rank 0x1309A (base du stage + horloge
+-- 0x130C4 >> 8, prouve par ecriture), hyper rank 0x1B63E (description corrigee : c est l hyper rank, plafond 15, divise par 4 a chaque mort, et non l hyper en cours),
+-- vitesse des balles 0x1294C, distance 0x130CA lue par blocs de 16 pas (mask 0XFFF0). Lignes retirees : 0x130CE (distance morte, coupee par l auto-mute),
+-- 0x17F84, 0x17F86, 0x17F88, 0x17F8A (etoiles : table d objets, une valeur par image), 0x13668 (coupee), 0x10425 et 0x12ECE (decomptes par image, coupes).
+-- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; toute ligne passee au simulateur d auto-mute du labo.
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
@@ -43,10 +49,9 @@ return {
       },
       lifecycle = {
         { address=0X3926, type="u8", condition="change", action="DEMO_MODE", desc="[1 byte] Demo indicator" },
-        { address=0XE334, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[1 byte] Center continue countdown, frame countdown - shared across both players" },
-        { address=0XE335, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[1 byte] Center continue countdown, number of seconds in BCD - shared across both players" },
-        { address=0XE384, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[1 byte] Corner continue countdown, frame countdown - used for 1P and 2P" },
-        { address=0XE385, type="u8", condition="change", action="CONTINUE_SCREEN", desc="[1 byte] Corner continue countdown, number of seconds in BCD - used for 1P and 2P" },
+        { address=0XE47B, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Continue / game over screen (1 from the continue screen to the end of GAME OVER)" },
+        { address=0XB092, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game state byte: 10 playing, 22 ship select and loading, 26 after the game, 0 at boot; read at each change only" },
+        { address=0XE47B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Continue / game over flag: 1 on the continue and game over screens, 0 otherwise; read at each change only" },
       },
       events = {
         { address=0X1B5D2, type="u16le", condition="change", min=7, action="COMBO_HIT", player=1, desc="1P current combo (BCD word), every 10 hits and when the combo breaks" },
@@ -60,13 +65,6 @@ return {
         { address=0X13074, type="u8", condition="change", action="NEW_LEVEL", desc="[1 byte] Cursor indicator, rounds - common across 1P and 2P" },
       },
       stage = {
-        { address=0X130CE, type="u24le", condition="change", action="PROGRESSION_STAGE", desc="[1 word] Distance into current stage - common across both players" },
-        { address=0X17F80, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1 byte] Bees collected in current stage without any player dying - shared between 1P and 2P" },
-        { address=0X17F84, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1 word] 1P ground stars collected in current stage" },
-        { address=0X17F86, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1 word] 1P small stars collected in current stage" },
-        { address=0X17F88, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1 word] 2P small stars collected in current stage" },
-        { address=0X17F8A, type="u8", condition="change", action="PROGRESSION_STAGE", desc="[1 word] 2P ground stars collected in current stage - TBC" },
-        { address=0X1B892, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Number of stages with all bees collected, candidate A" },
         { address=0XD56C, type="u8", condition="change", action="PROGRESSION_STAGE", desc="Current stage, 0 = stage 1 (ddpdojblka; 0xD570 on the newer set)" },
       },
     },
@@ -76,9 +74,6 @@ return {
         { address=0X130BA, type="u8", condition="decrease", action="LOSE_LIFE", player=1, max=1, desc="1P lives in reserve decreased by one (2, 1, 0); jumps 255 to 2 at demos and START are ignored" },
         { address=0X130BC, type="u8", condition="increase", action="GAIN_LIFE", player=2, max=1, desc="2P lives in reserve increased by one (1P block + 2, not seen)" },
         { address=0X130BC, type="u8", condition="decrease", action="LOSE_LIFE", player=2, max=1, desc="2P lives in reserve decreased by one (1P block + 2, not seen)" },
-      },
-      health = {
-                { address=0X13668, type="u8", condition="change", action="BOSS_HIT", desc="[1 word] Enemy health" },
       },
     },
     inventory = {
@@ -134,7 +129,6 @@ return {
     },
     state = {
       temporary = {
-        { address=0X10425, type="u24le", condition="change", action="INVINCIBILITY_START", desc="[1 byte] 1P invincibility countdown in frames after dying" },
         { address=0X10487, type="u24le", condition="change", action="INVINCIBILITY_START", desc="[1 byte] 2P invincibility countdown in frames after dying" },
       },
     },
@@ -143,7 +137,11 @@ return {
         { address=0X3764, type="u8", condition="change", action="OBJECT_INTERACTION", desc="[1 byte] DIP-switch settings, test mode" },
         { address=0X1B642, type="u16le", condition="change", mask=0XFF00, action="OBJECT_INTERACTION", player=1, desc="1P hyper gauge (0 to about 2400, full drops a Hyper item); only every 256 units (mask) so that it never fires each frame" },
         { address=0X1B654, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P hyper items in stock (0 to 5); all used at once by the bomb button" },
-        { address=0X1B63E, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P hyper running: its level (items used), 0 when it ends" },
+        { address=0X1B63E, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P hyper rank, 0 to 15: +N when N hyper items are used, divided by 4 (floor) at each death; persists after the hyper ends" },
+        { address=0X1309A, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game rank (difficulty), 0 to 240 (248 in the 2nd loop): stage base (52, 68, 84, 100, 100) + 1 per 256 frames; drives the density of enemy bullets" },
+        { address=0X1294C, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Enemy bullet speed bonus, 0 to 8: +1 per 2 steps of (hyper rank / 4), +1 in the 2nd loop (about +5 percent speed per step)" },
+        { address=0X130CA, type="u16le", condition="change", mask=0XFFF0, action="OBJECT_INTERACTION", desc="Stage distance (scroll steps, about 8 px of scenery each): 0 at the stage start, +1 per step; read by blocks of 16 steps (mask), never at each step" },
+        { address=0X17F78, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Bees collected in the current stage without dying (0 to 10): +1 per bee, 0 when the ship is hit, 0 at the next stage start (ddpdojblka; 0x17F80 on the white-label set)" },
         { address=0X10407, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P bombs in stock (-1 per bomb, refilled at each death)" },
         { address=0X10406, type="u8", condition="change", action="OBJECT_INTERACTION", player=1, desc="1P bomb capacity (3 at start, +1 at each death)" },
         { address=0XA6F8, type="u8", condition="decrease", mask=0XF8, action="OBJECT_INTERACTION", desc="Boss health bar length in pixels (0 to about 224), each 8 pixels lost (mask)" },
@@ -153,7 +151,6 @@ return {
     },
     system = {
       timer = {
-        { address=0X12ECE, type="u8", condition="change", action="GENERAL_TIMER", player=1, timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[1 word] 1P countdown timer for type selecfion or for doll selection" },
         { address=0X12F3E, type="u8", condition="change", action="GENERAL_TIMER", player=2, timer_kind="game", timer_role="unknown", timer_direction="countdown", timer_unit="unknown", desc="[1 word] 2P countdown timer for type selecfion or for doll selection" },
         { address=0X13666, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[ 1 word] Death flag" },
         { address=0X136B6, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="unknown", timer_direction="unknown", timer_unit="unknown", desc="[1 word] Timer for boss timeout, candidate C" },
