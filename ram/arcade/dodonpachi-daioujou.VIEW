@@ -1,0 +1,46 @@
+nelfeplay.view 1
+# DoDonPachi DaiOuJou Black Label (ddpdojblka), FBNeo 800f25e9 : PROPOSITION du labo (22/11/2026), requalifiee image par image.
+# Rien n'est publie. Adresses = decalages du bloc de FBNeo lus directement, comme le .MEM du jeu (vies 0x130BA).
+# Mots du 68000 = u16le. Unites du jeu : position = 1/64 de pixel (x, y du vaisseau, camera, defilement fin).
+# Preuves et limites : RAPPORT_LABO_VIEW.md (meme dossier). Les conversions d'ecran sont a faire cote API/Deck.
+#
+# Ecran du jeu : 224 x 448 (vertical). Conversions (verifiees) :
+#   vaisseau   : X = vaisseau_x / 64 ; Y = 456 - vaisseau_y / 64   (centre du corps du vaisseau, +-2 px)
+#   ennemi     : X = ax / 64 ;        Y = 447 - ay / 64            (case d'affichage, +-3 px)
+#   defilement : pos_px = f + 32 * arrondi((8 * distance + 4 - f) / 32), f = (defil_fin & 0x7FF) / 64
+#                (monde vers le haut du niveau, 1 pixel d'ecran par pixel ; distance = pas de 8 px)
+cadence 1
+
+champ temps       0x130C4 u16le      # compteur de temps (+1 par image en jeu)
+champ distance    0x130CA u16le      # distance du niveau : +1 par pas de defilement (8 px)
+champ defil_fin   0x13184 u16le masque 0x7FF   # defilement fin : 1/64 px, modulo 2048 (32 px)
+champ camera      0x13174 s16le      # decalage horizontal des sprites (s16 / 64 = pixels, +-32)
+champ niveau      0xD56C  u8
+champ vies        0x130BA u8         # 0 a 2 en partie, 255 hors partie
+champ vaisseau_x  0x103E6 u16le      # 1/64 px
+champ vaisseau_y  0x103E4 u16le      # 1/64 px, depuis le bas (voir conversion)
+champ mort_anim   0x10408 u8         # > 0 : animation de mort (29 vers 1, -1 par image)
+champ invincible  0x10421 u8         # > 0 : invincibilite apres la reapparition (240 vers 0, -1 par image)
+champ combo       0x1B5B8 u8         # jauge visible de la chaine : 0 a 56 (maximum constant 56), recharge a chaque coup, -1 par image
+champ chaine_bcd  0x1B5D2 u16le      # nombre de coups de la chaine (BCD : 0x0046 = 46)
+
+# Table des objets : 48 cases de 0x50, type a +0 (0 = case libre), vie a +0x18 (echelle propre a chaque type).
+table objets 0x13650 0x50 48
+  colonne type   0x00 u16le
+  colonne vie    0x18 u16le
+  actif          0x00 u16le ne 0
+
+# Table d'affichage : 48 cases de 0x20, meme rang que les objets ; l'objet est dessine si le drapeau porte 0x2000.
+table affichage 0x14594 0x20 48
+  colonne drapeau 0x00 u16le
+  colonne ay      0x02 u16le
+  colonne ax      0x04 u16le
+  actif           0x00 u16le masque 0x2000 ne 0
+
+# Tirs ennemis : 66 cases de 0x40 ; actif si le mot a +4 (type de balle) n'est pas nul. Plafond 64 : les plus proches du vaisseau.
+table tirs 0x17F80 0x40 66 garder 64
+  colonne btype  0x04 u16le
+  colonne by     0x06 u16le
+  colonne bx     0x08 u16le
+  actif          0x04 u16le ne 0
+  proche vaisseau_x vaisseau_y bx by

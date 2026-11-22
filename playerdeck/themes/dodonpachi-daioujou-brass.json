@@ -915,6 +915,8 @@
     "marks": "sonar",
     "threat": ["#F4FAFF", "#FFB4D2", "#FF6A5A", "#FF3030", "#FF1414"],
     "waveGain": 3,
+    "bossValue": "boss.hp",
+    "fadeMs": 1000,
     "short": "MAP",
     "column": 140,
     "columnSide": "right",
