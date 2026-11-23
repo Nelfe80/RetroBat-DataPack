@@ -980,8 +980,15 @@
    "map": {
     "widget": "StageWindow",
     "title": "STAGE MAP",
+    "marks": "sonar",
+    "threat": ["#F4FAFF", "#FFB4D2", "#FF6A5A", "#FF3030", "#FF1414"],
+    "waveGain": 3,
+    "bossValue": "bossTime",
+    "fadeMs": 1000,
+    "ahead": 300,
+    "behind": 50,
     "short": "MAP",
-    "noBand": false,
+    "noBand": true,
     "whole": true,
     "values": {
      "stage": {
@@ -1023,12 +1030,13 @@
   },
   "left": [
    "header",
+   "map",
    "combo",
    "rankw",
    "stageranks",
-   "pad",
    "rank",
-   "ship"
+   "ship",
+   "pad"
   ],
   "narrow": [
    "header",
@@ -1039,13 +1047,15 @@
   "notes": [
    "SHIP STOCK: ships in reserve as icons and ships lost in this game.",
    "STAGES: the points scored in each stage, the one being played lit.",
-   "CONTROLLER: the buttons of the game pressed live, with their role.",
+   "CONTROLLER: the buttons of the game pressed live, with their role; at the very bottom of the left rail, under SHIP STOCK.",
    "COMBO: consecutive hits, jewels taken (maximum 120) and the L.U.C.K.Y. panels of the stage (all five = bonus).",
    "GAME RANK: the hidden difficulty value the game keeps (64 at the start, up to 255), as read in memory: it rises with power items and L.U.C.K.Y. panels. What it changes in the enemies is not proven; no effect is claimed.",
-   "STAGE MAP: plate defined (horizontal strip) but NOT in the layout until the level surveys exist; add \"map\" after \"header\" in left then."
+   "STAGE MAP: horizontal strip (two game screens wide, current screen on the left, the one arriving on the right), placed after the header; surveys of stages 1 to 6 in themes/atlas (stage 7 is a lone boss fight, no map)."
   ],
   "fit": [
    "compact:stageranks",
+   "compact:rankw",
+   "compact:combo",
    "compact:rank",
    "ship",
    "compact:clear"
