@@ -1,0 +1,133 @@
+{
+  "schema": "nelfeplay.view-profile/1",
+  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 22/11/2026, rien publie) : sens des valeurs de giga-wing.VIEW. Preuves : E:/claude_travail/temp/canal/shmups_1212/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
+  "id": "giga-wing",
+  "view": "giga-wing",
+  "view_sha256": [
+    "b63fbfaae7172bc87ca0adaf4d43848acfc3cb4046599e4c06370c89efd0b45e"
+  ],
+  "roms": [
+    "gigawing"
+  ],
+  "screen": {
+    "w": 384,
+    "h": 224
+  },
+  "ship": {
+    "x": {
+      "scale": 1,
+      "offset": 0
+    },
+    "y": {
+      "scale": -1,
+      "offset": 224
+    }
+  },
+  "enemy": {
+    "column_x": "x",
+    "column_y": "y",
+    "x": {
+      "scale": 1,
+      "offset": 0
+    },
+    "y": {
+      "scale": -1,
+      "offset": 224
+    },
+    "drawn_mask": "0x8000",
+    "life_required": false,
+    "signed": true,
+    "classes": {
+      "light": [
+        "0x0017",
+        "0x020C",
+        "0x0253",
+        "0x030C",
+        "0x100F",
+        "0x110B",
+        "0x110C",
+        "0x1112",
+        "0x1118",
+        "0x112A",
+        "0x120A",
+        "0x120B",
+        "0x120C",
+        "0x120E",
+        "0x120F",
+        "0x1213",
+        "0x1214",
+        "0x121F",
+        "0x130C",
+        "0x130D",
+        "0x1313",
+        "0x1813",
+        "0x1833",
+        "0x210C",
+        "0x220B",
+        "0x220C",
+        "0x220E",
+        "0x230A",
+        "0x230C",
+        "0x2312",
+        "0x232C",
+        "0x240A",
+        "0x240C",
+        "0x310C",
+        "0x320B",
+        "0x321A",
+        "0x3300",
+        "0x340A",
+        "0x340B",
+        "0x340E",
+        "0x3411",
+        "0x3419",
+        "0x350C",
+        "0x350E",
+        "0x3812",
+        "0x410C",
+        "0x430A",
+        "0x440B",
+        "0x4418",
+        "0x450C",
+        "0x4511",
+        "0x460A",
+        "0x470A",
+        "0x480A",
+        "0x4819",
+        "0x490A",
+        "0x4A0A",
+        "0x511A",
+        "0x5211",
+        "0x550C",
+        "0x651A",
+        "0x6816",
+        "0x7412",
+        "0x751A",
+        "0x7917"
+      ],
+      "heavy": [
+        "0x110A",
+        "0x1115",
+        "0x1216",
+        "0x230E",
+        "0x230F",
+        "0x250D",
+        "0x2710",
+        "0x330A",
+        "0x3315",
+        "0x331A",
+        "0x341F",
+        "0x420A",
+        "0x4414",
+        "0x4617",
+        "0x560B",
+        "0x6418",
+        "0x7812"
+      ],
+      "special": [],
+      "generic": []
+    }
+  },
+  "camera_scale": 0,
+  "combo_max": 0
+}

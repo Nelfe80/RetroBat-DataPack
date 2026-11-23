@@ -1,0 +1,138 @@
+{
+  "schema": "nelfeplay.view-profile/1",
+  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 22/11/2026, rien publie) : sens des valeurs de ketsui-kizuna-jigoku-tachi.VIEW. Preuves : E:/claude_travail/temp/canal/shmups_1212/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
+  "id": "ketsui",
+  "view": "ketsui-kizuna-jigoku-tachi",
+  "view_sha256": [
+    "8386f98262474db00546c890b20cafe69502a4d743f7aa9992b1441341268322"
+  ],
+  "roms": [
+    "ket"
+  ],
+  "screen": {
+    "w": 224,
+    "h": 448
+  },
+  "ship": {
+    "x": {
+      "scale": "1/64",
+      "offset": -1
+    },
+    "y": {
+      "scale": "-1/64",
+      "offset": 454
+    }
+  },
+  "enemy": {
+    "column_x": "x",
+    "column_y": "y",
+    "x": {
+      "scale": "1/64",
+      "offset": 0
+    },
+    "y": {
+      "scale": "-1/64",
+      "offset": 444
+    },
+    "drawn_mask": "0x2000",
+    "life_required": false,
+    "signed": true,
+    "classes": {
+      "light": [
+        "0x0E01",
+        "0x1000",
+        "0x1200",
+        "0x1300",
+        "0x1400",
+        "0x1600",
+        "0x1840",
+        "0x1A00",
+        "0x1C00",
+        "0x1D00",
+        "0x2401",
+        "0x2600",
+        "0x2801",
+        "0x2A00",
+        "0x2C01",
+        "0x2D01",
+        "0x2E01",
+        "0x2F21",
+        "0x3000",
+        "0x3200",
+        "0x3300",
+        "0x3600",
+        "0x3800",
+        "0x4021",
+        "0x4200",
+        "0x4300",
+        "0x4A01",
+        "0x4C00",
+        "0x4C01",
+        "0x4D01",
+        "0x5200",
+        "0x5300",
+        "0x5380",
+        "0x5501",
+        "0x5701",
+        "0x5801",
+        "0x5920",
+        "0x5940",
+        "0x5980",
+        "0x5A01",
+        "0x6480",
+        "0x7500",
+        "0x7800",
+        "0x9081",
+        "0x9600",
+        "0x9640",
+        "0x9800",
+        "0x9901",
+        "0x9A00",
+        "0x9B00",
+        "0x9D01",
+        "0x9E00",
+        "0xA080"
+      ],
+      "heavy": [
+        "0x1800",
+        "0x2501",
+        "0x2701",
+        "0x2901",
+        "0x2B00",
+        "0x3A00",
+        "0x4401",
+        "0x4501",
+        "0x4801",
+        "0x4B01",
+        "0x4E01",
+        "0x5001",
+        "0x5101",
+        "0x5601",
+        "0x5E01",
+        "0x5F01",
+        "0x6381",
+        "0x7481",
+        "0x7680",
+        "0x7781",
+        "0x7A00",
+        "0x8080",
+        "0x8200",
+        "0x8400",
+        "0x8501",
+        "0x8601",
+        "0x8701",
+        "0x8801",
+        "0x8901",
+        "0x8A01",
+        "0x8B01",
+        "0x8D01",
+        "0x9180",
+        "0x9501"
+      ],
+      "special": [],
+      "generic": []
+    }
+  },
+  "camera_scale": 0,
+  "combo_max": 0
+}

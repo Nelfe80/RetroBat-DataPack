@@ -1075,6 +1075,7 @@
    },
    "map": {
     "widget": "StageWindow",
+    "fadeMs": 1000,
     "title": "STAGE MAP",
     "marks": "sonar",
     "threat": ["#E8F0F8", "#FFE070", "#FFA030", "#FF6A30", "#FF3838"],

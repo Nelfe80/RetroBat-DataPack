@@ -1,0 +1,32 @@
+nelfeplay.view 1
+# Giga Wing (set gigawing), FBNeo. PROPOSITION du labo (22/11/2026), pas un fichier publie. Rien n'ecrit.
+# Adresses = celles du .MEM (decalages du bloc FBNeo, mots du 68000 en u16le). Preuves : RAPPORT_LABO_SHMUPS.md, section Giga Wing.
+# Ecran 384 x 224. Conversions : x ecran = x ; y ecran = 224 - y (vaisseau et objets).
+# Boites touchees (hbg hbd hbh hbb) : bords relatifs au centre, s16 (confirmes par superposition le 21/11).
+cadence 1
+
+champ temps        0x2090 u16le
+champ distance     0x733C s16le      # +1 toutes les 16 images exactement (defilement constant)
+champ niveau       0x7342 u8
+champ vies         0x72DC u8
+champ vaisseau_x   0xADF4 s16le
+champ vaisseau_y   0xADF8 s16le
+champ mult_fort    0x72E4 u16le      # multiplicateur de partie, BCD sur deux mots
+champ mult_faible  0x72E6 u16le
+champ medaille     0x72F2 u16le      # valeur de la medaille en cours (BCD)
+
+# Deux tables de meme rang (profil d'affichage giga-wing.VIEW.json) : objets (type a +0x10) et affichage (drapeau +0xA, x +0x14, y +0x18, boites).
+# Ennemis : drapeau 0x8000 ou 0x9000 ; les marques (types 0 et 0xA) portent 0xA080 / 0xA001 (bit 0x2000) : filtrees ici par « bit 0x2000 a 0 ».
+table objets 0x75C0 0x80 35
+  colonne type  0x10 u16le
+  actif         0x10 u16le ne 0
+
+table affichage 0x75C0 0x80 35
+  colonne drapeau 0x0A u16le
+  colonne x       0x14 s16le
+  colonne y       0x18 s16le
+  colonne hbg     0x20 s16le
+  colonne hbd     0x22 s16le
+  colonne hbh     0x24 s16le
+  colonne hbb     0x26 s16le
+  actif           0x0A u16le masque 0x2000 eq 0

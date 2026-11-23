@@ -1,0 +1,70 @@
+{
+  "schema": "nelfeplay.view-profile/1",
+  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 22/11/2026, rien publie) : sens des valeurs de esp-ra-de.VIEW. Preuves : E:/claude_travail/temp/canal/shmups_1212/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
+  "id": "esp-ra-de",
+  "view": "esp-ra-de",
+  "view_sha256": [
+    "0b9ced03372993b8e5277a90e48d88fe42c4ad3d4682fad5952a2af807243c04"
+  ],
+  "roms": [
+    "esprade"
+  ],
+  "screen": {
+    "w": 240,
+    "h": 320
+  },
+  "ship": {
+    "x": {
+      "scale": "1/64",
+      "offset": 3
+    },
+    "y": {
+      "scale": "-1/64",
+      "offset": 319
+    }
+  },
+  "enemy": {
+    "column_x": "x",
+    "column_y": "y",
+    "x": {
+      "scale": "1/64",
+      "offset": 3
+    },
+    "y": {
+      "scale": "-1/64",
+      "offset": 319
+    },
+    "drawn_mask": "0x2000",
+    "life_required": false,
+    "signed": true,
+    "classes": {
+      "light": [
+        "0x0101",
+        "0x0102",
+        "0x0202",
+        "0x0204",
+        "0x0302",
+        "0x0303",
+        "0x0305",
+        "0x0403",
+        "0x0405",
+        "0x0407",
+        "0x0705"
+      ],
+      "heavy": [
+        "0x0304",
+        "0x0306",
+        "0x0404",
+        "0x0406",
+        "0x0604",
+        "0x0608",
+        "0x0806",
+        "0x0B06"
+      ],
+      "special": [],
+      "generic": []
+    }
+  },
+  "camera_scale": 0,
+  "combo_max": 0
+}

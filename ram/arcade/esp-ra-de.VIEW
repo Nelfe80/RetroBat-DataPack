@@ -1,0 +1,29 @@
+nelfeplay.view 1
+# ESP Ra.De. (set esprade, International 98/04/22), FBNeo. PROPOSITION du labo (22/11/2026), pas un fichier publie. Rien n'ecrit.
+# Adresses = celles du .MEM (decalages du bloc FBNeo, mots du 68000 en u16le). Preuves : RAPPORT_LABO_SHMUPS.md, section ESP Ra.De.
+# Ecran 240 x 320 (tate). Conversions (l'API et le Deck) :
+#   vaisseau et affichage : x ecran = x / 64 + 3 ; y ecran = 319 - y / 64
+cadence 1
+
+champ temps       0x11F2 u16le
+champ distance    0x257C s16le       # pas de defilement (8 px par pas), -41 au depart des niveaux 2 a 6
+champ camera      0x13B4 u16le       # decalage lateral du decor, en pixels
+champ niveau      0x25A6 u8          # 0 a 5
+champ vies        0x254E u8
+champ vaisseau_x  0x270E u16le
+champ vaisseau_y  0x270C u16le
+champ barriere    0x274E u16le       # charge 0 a 4352 (jauge CHARGE), 0 au relachement
+champ multiplicateur 0x26FE u8       # 0 a 15 = x1 a x16
+champ minuterie   0x26FC u8          # chaine : decompte -1 par image
+
+# Deux tables de meme rang (profil d'affichage ESP.VIEW.json) : objets (type du jeu = mot +0xE, u32 lu) et affichage (drapeau, y, x).
+# Case dessinee = drapeau 0xA043. Le type est a +0xE et +0x10 (taille de boite).
+table objets 0x449C 0x20 24
+  colonne type    0x0E u32le
+  actif           0x00 u16le eq 0xA043
+
+table affichage 0x449C 0x20 24
+  colonne drapeau 0x00 u16le
+  colonne y       0x02 u16le
+  colonne x       0x04 u16le
+  actif           0x00 u16le eq 0xA043

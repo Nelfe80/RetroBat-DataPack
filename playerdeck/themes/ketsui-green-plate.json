@@ -879,6 +879,8 @@
    },
    "map": {
     "widget": "StageWindow",
+    "bossValue": "boss.hp",
+    "fadeMs": 1000,
     "title": "STAGE MAP",
     "marks": "sonar",
     "threat": ["#DCE6EE", "#F0DC78", "#F5A030", "#EE6020", "#E21E1E"],

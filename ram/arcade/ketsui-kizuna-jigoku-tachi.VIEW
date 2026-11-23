@@ -1,0 +1,37 @@
+nelfeplay.view 1
+# Ketsui: Kizuna Jigoku Tachi (set ket), FBNeo. PROPOSITION du labo (22/11/2026), pas un fichier publie. Rien n'ecrit.
+# Adresses = celles du .MEM (decalages du bloc FBNeo, mots du 68000 en u16le). Preuves : RAPPORT_LABO_SHMUPS.md, section Ketsui.
+# Ecran 224 x 448 (tate). Conversions (l'API et le Deck les font, pas le wrapper) :
+#   vaisseau : x ecran = vaisseau_x / 64 - 1 ; y ecran = 454 - vaisseau_y / 64
+#   affichage : x ecran = x / 64 ; y ecran = 444 - y / 64
+cadence 1
+
+champ temps          0x12478 u16le     # +1 par image de jeu
+champ distance       0x1247C s16le     # pas de defilement (8 px du decor par pas, vitesse variable : 1 a 16 images par pas)
+champ niveau         0x12440 u8
+champ vies           0x12472 u8        # 255 hors partie
+champ phase          0x125DC u8        # niveau 5 : 0 puis 1 au saut de distance (preuve partielle)
+champ vaisseau_x     0xFEA6 u16le
+champ vaisseau_y     0xFEA4 u16le
+champ puissance      0xFEC2 u8         # 0 a 8 par pas de 2
+champ mode_tir       0xFEEA u16le      # 512 tir, 1024 lock
+champ bombes         0xFEC6 u8
+champ puce           0x1BB96 u8        # 0 4 8 12 16 = puce 1 a 5
+champ puce_minuterie 0x1BB90 u8        # 55 a la destruction, -1 toutes les 2 images
+champ total          0x11512 u16le
+champ multiplicateur 0x11510 u16le
+champ rank           0x12452 u16le
+champ boss_vie       0x1D176 u8        # barre en pixels (0 sans boss)
+champ boss_present   0x1D2C4 u8        # 3 tant que la barre est a l'ecran
+
+# Objets du jeu (ennemis, decor, pieces de boss) : 48 cases de 0x50, type a +0x30 (0 = case libre).
+table objets 0x12A40 0x50 48
+  colonne type   0x30 u16le
+  actif          0x30 u16le ne 0
+
+# Table d'affichage, meme rang que les objets : dessinee si le drapeau porte 0x2000 (0xA100 0xA101 0xA300 0xA301).
+table affichage 0x139B4 0x2A 48
+  colonne drapeau 0x00 u16le
+  colonne y       0x02 s16le
+  colonne x       0x04 s16le
+  actif           0x00 u16le masque 0x2000 ne 0
