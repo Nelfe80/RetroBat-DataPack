@@ -1,0 +1,69 @@
+{
+  "schema": "nelfeplay.view-profile/1",
+  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 22/11/2026, rien publie) : sens des valeurs de blazing-star.VIEW. Preuves : E:/claude_travail/temp/canal/shmups_1212/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
+  "id": "blazing-star",
+  "view": "blazing-star",
+  "view_sha256": [
+    "64eab9e1ace2df21c39a17c130325d0aefaeb58607fcd75f78d9ed54320c9604"
+  ],
+  "roms": [
+    "blazstar"
+  ],
+  "screen": {
+    "w": 304,
+    "h": 224
+  },
+  "ship": {
+    "x": {
+      "scale": 1,
+      "offset": -519
+    },
+    "y": {
+      "scale": 1,
+      "offset": -529.5
+    }
+  },
+  "enemy": {
+    "column_x": "x",
+    "column_y": "y",
+    "x": {
+      "scale": 1,
+      "offset": -519
+    },
+    "y": {
+      "scale": 1,
+      "offset": -529.5
+    },
+    "drawn_mask": "0x4000",
+    "life_required": false,
+    "signed": false,
+    "classes": {
+      "light": [
+        "0x1001",
+        "0x1002",
+        "0x1003",
+        "0x1006",
+        "0x1007",
+        "0x1008",
+        "0x100B",
+        "0x100C",
+        "0x1201",
+        "0x1202",
+        "0x1203",
+        "0x1204",
+        "0x1205"
+      ],
+      "heavy": [
+        "0x1101",
+        "0x1102",
+        "0x1103",
+        "0x1104",
+        "0x1105"
+      ],
+      "special": [],
+      "generic": []
+    }
+  },
+  "camera_scale": 0,
+  "combo_max": 0
+}

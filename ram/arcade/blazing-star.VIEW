@@ -1,0 +1,30 @@
+nelfeplay.view 1
+# Blazing Star (set blazstar), FBNeo, Neo-Geo. PROPOSITION du labo (22/11/2026), pas un fichier publie. Rien n'ecrit.
+# Adresses = celles du .MEM (decalages du bloc FBNeo : octets u8 directs, mots u16le). Preuves : RAPPORT_LABO_SHMUPS.md, section Blazing Star.
+# Ecran 304 x 224, axes croises : x ecran = mot(+0xC) - 519 ; y ecran = mot(+0x8) - 529,5 (vaisseau en 0x3800 : meme structure).
+cadence 1
+
+champ temps         0x1004 u16le
+champ distance      0xD1D8 u16le     # pas de defilement, mot fort du 32 bits
+champ distance_fin  0xD1DA u16le     # mot faible : +16384 par image (0,25 pas), report sur le mot fort toutes les 4 images
+champ niveau        0x1C86 u8
+champ vies          0x1BA0 u8
+champ vaisseau_y    0x3808 u16le
+champ vaisseau_x    0x380C u16le
+champ puissance     0x1B78 u8
+champ combo         0x1BCE u8
+champ joyaux        0x234C u8
+champ lucky         0x1CBD u8
+champ rank          0x1C93 u8
+
+# Deux tables de meme rang (profil d'affichage blazing-star.VIEW.json) : objets (type a +0) et affichage (drapeau +4, y +8, x +0xC).
+# La table du jeu MELANGE ennemis, tirs, debris et pieces de boss : les ennemis portent le bit 0x4000 du drapeau (mesure au banc, 0x1006 0x1101 0x1102 0x1103 0x1007).
+table objets 0x5000 0x40 64
+  colonne type    0x00 u16le
+  actif           0x00 u16le masque 0x1000 ne 0     # ennemis = types 0x10xx a 0x12xx (le bit 0x1000) ; tirs et debris (0x0002 0x0202 0x0204 0x0040...) l'ont a 0
+
+table affichage 0x5000 0x40 64
+  colonne drapeau 0x04 u16le
+  colonne y       0x08 u16le
+  colonne x       0x0C u16le
+  actif           0x04 u16le masque 0x4000 ne 0
