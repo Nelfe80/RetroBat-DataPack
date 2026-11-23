@@ -1,0 +1,121 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m5-0e",
+  "version": 2,
+  "ruleset": "ch-ms3-tr-m5-0e-v2",
+  "order": 515,
+  "kind": "training",
+  "group": {
+    "fr": "Mission finale",
+    "en": "Final mission",
+    "es": "Misión final",
+    "ja": "ファイナルミッション",
+    "ko": "파이널 미션",
+    "zh": "最终任务"
+  },
+  "title": {
+    "fr": "Mission finale · Rootmars",
+    "en": "Final mission · Rootmars",
+    "es": "Misión final · Rootmars",
+    "ja": "ファイナルミッション・Rootmars",
+    "ko": "파이널 미션 · Rootmars",
+    "zh": "最终任务·Rootmars"
+  },
+  "summary": {
+    "fr": "Départ juste avant le boss, partie normale ; rien n'est classé ni envoyé",
+    "en": "Start right before the boss, normal game; nothing is ranked or sent",
+    "es": "Salida justo antes del jefe, partida normal; nada se clasifica ni se envía",
+    "ja": "ボス直前からスタート、通常プレイ。ランキング・送信なし",
+    "ko": "보스 직전에서 출발, 일반 플레이. 순위 없음, 전송 없음",
+    "zh": "从首领战前开始，正常游戏；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m5-0e.state",
+    "name": "entrainement-m5-0e-fbneo",
+    "sha256": "2bf59ab6c8e1403afab29630e964d012e55475bb273ccee21b824050943c2b3d",
+    "size": 15024
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x04"
+      }
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x04"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x04",
+          "value": "0x05"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  },
+  "states": [
+    {
+      "file": "arcade/metal-slug-3/entrainement-m5-0e.state",
+      "name": "entrainement-m5-0e-fbneo",
+      "sha256": "2bf59ab6c8e1403afab29630e964d012e55475bb273ccee21b824050943c2b3d",
+      "size": 15024,
+      "core_sha256": [
+        "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+      ]
+    },
+    {
+      "name": "entrainement-m5-0e-fbneo-c261102",
+      "file": "arcade/metal-slug-3/entrainement-m5-0e-c261102.state",
+      "sha256": "49009e34c903d9e7d2694af074ec3662e8f4fe7d2f69b64636885ca0de374542",
+      "size": 15242,
+      "core_sha256": [
+        "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m2-01",
+  "version": 2,
+  "ruleset": "ch-ms3-tr-m2-01-v2",
+  "order": 207,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 2",
+    "en": "Mission 2",
+    "es": "Misión 2",
+    "ja": "ミッション2",
+    "ko": "미션 2",
+    "zh": "任务2"
+  },
+  "title": {
+    "fr": "Mission 2 · Vallée des morts (secret)",
+    "en": "Mission 2 · Valley of the Dead (secret)",
+    "es": "Misión 2 · Valle de los muertos (secreto)",
+    "ja": "ミッション2・死霊の渓谷（シークレット）",
+    "ko": "미션 2 · 사령의 계곡 (시크릿)",
+    "zh": "任务2·死灵溪谷（秘密）"
+  },
+  "summary": {
+    "fr": "L'aire secrète que le jeu n'utilise jamais, retrouvée dans la ROM ; partie normale, rien n'est classé",
+    "en": "The secret area the game never uses, found in the ROM; normal game, nothing is ranked",
+    "es": "La zona secreta que el juego nunca usa, hallada en la ROM; partida normal, nada se clasifica",
+    "ja": "ゲームで一度も使われない秘密のエリア（ROM内に残存）。通常プレイ、ランキングなし",
+    "ko": "게임에서 쓰이지 않는 비밀 구역(ROM 속에 남음). 일반 플레이, 순위 없음",
+    "zh": "游戏从未使用的秘密区域（存于ROM中）；正常游戏，不计排名"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m2-01.state",
+    "name": "entrainement-m2-01-fbneo",
+    "sha256": "b14a9acf0c6686e0ae2d012e084238e3fc90cc5884a5d4dd6e8d1a56d804fe11",
+    "size": 15129
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x01"
+      }
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x01"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x01",
+          "value": "0x02"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  },
+  "states": [
+    {
+      "file": "arcade/metal-slug-3/entrainement-m2-01.state",
+      "name": "entrainement-m2-01-fbneo",
+      "sha256": "b14a9acf0c6686e0ae2d012e084238e3fc90cc5884a5d4dd6e8d1a56d804fe11",
+      "size": 15129,
+      "core_sha256": [
+        "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+      ]
+    },
+    {
+      "name": "entrainement-m2-01-fbneo-c261102",
+      "file": "arcade/metal-slug-3/entrainement-m2-01-c261102.state",
+      "sha256": "413a1d6a8be77d3b042ccdaa10b743759c982fe1e05ef7faab3cd85e7a8d1156",
+      "size": 15342,
+      "core_sha256": [
+        "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415"
+      ]
+    }
+  ]
+}

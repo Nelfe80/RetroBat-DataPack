@@ -1,0 +1,121 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m4-00",
+  "version": 2,
+  "ruleset": "ch-ms3-tr-m4-00-v2",
+  "order": 401,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 4",
+    "en": "Mission 4",
+    "es": "Misión 4",
+    "ja": "ミッション4",
+    "ko": "미션 4",
+    "zh": "任务4"
+  },
+  "title": {
+    "fr": "Mission 4 · Départ (boucle du désert)",
+    "en": "Mission 4 · Start (desert loop)",
+    "es": "Misión 4 · Salida (bucle del desierto)",
+    "ja": "ミッション4・スタート（砂漠ループ）",
+    "ko": "미션 4 · 출발 (사막 루프)",
+    "zh": "任务4·起点（沙漠循环）"
+  },
+  "summary": {
+    "fr": "Départ au début de la mission, partie normale ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the mission, normal game; nothing is ranked or sent",
+    "es": "Salida al inicio de la misión, partida normal; nada se clasifica ni se envía",
+    "ja": "ミッションの最初からスタート、通常プレイ。ランキング・送信なし",
+    "ko": "미션 시작 지점에서 출발, 일반 플레이. 순위 없음, 전송 없음",
+    "zh": "从任务开头开始，正常游戏；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m4-00.state",
+    "name": "entrainement-m4-00-fbneo",
+    "sha256": "306fa3869d38a21e2219379a9b35e5cca678324c20215254430b33fb3d693a3e",
+    "size": 15107
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x03"
+      }
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x03"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x03",
+          "value": "0x04"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  },
+  "states": [
+    {
+      "file": "arcade/metal-slug-3/entrainement-m4-00.state",
+      "name": "entrainement-m4-00-fbneo",
+      "sha256": "306fa3869d38a21e2219379a9b35e5cca678324c20215254430b33fb3d693a3e",
+      "size": 15107,
+      "core_sha256": [
+        "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+      ]
+    },
+    {
+      "name": "entrainement-m4-00-fbneo-c261102",
+      "file": "arcade/metal-slug-3/entrainement-m4-00-c261102.state",
+      "sha256": "464f6e036d5911acf0fcf22f6e663843e0cbded60a38d0db80314c0b979476c5",
+      "size": 15319,
+      "core_sha256": [
+        "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415"
+      ]
+    }
+  ]
+}

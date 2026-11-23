@@ -1,0 +1,121 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "metal-slug-3.training-m3-00",
+  "version": 2,
+  "ruleset": "ch-ms3-tr-m3-00-v2",
+  "order": 301,
+  "kind": "training",
+  "group": {
+    "fr": "Mission 3",
+    "en": "Mission 3",
+    "es": "Misión 3",
+    "ja": "ミッション3",
+    "ko": "미션 3",
+    "zh": "任务3"
+  },
+  "title": {
+    "fr": "Mission 3 · Départ",
+    "en": "Mission 3 · Start",
+    "es": "Misión 3 · Salida",
+    "ja": "ミッション3・スタート",
+    "ko": "미션 3 · 출발",
+    "zh": "任务3·起点"
+  },
+  "summary": {
+    "fr": "Départ au début de la mission, partie normale ; rien n'est classé ni envoyé",
+    "en": "Start at the beginning of the mission, normal game; nothing is ranked or sent",
+    "es": "Salida al inicio de la misión, partida normal; nada se clasifica ni se envía",
+    "ja": "ミッションの最初からスタート、通常プレイ。ランキング・送信なし",
+    "ko": "미션 시작 지점에서 출발, 일반 플레이. 순위 없음, 전송 없음",
+    "zh": "从任务开头开始，正常游戏；不计排名，不上传"
+  },
+  "game": {
+    "rom_group": "metal-slug-3",
+    "system_id": "arcade"
+  },
+  "mem_sha256": "0fb6762a946cb3844633b5e57ba15c0c08a1a37f34ad8d57bbdc2e744a514084",
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "arcade/metal-slug-3/entrainement-m3-00.state",
+    "name": "entrainement-m3-00-fbneo",
+    "sha256": "b04e2957bf51a5e62339b390464e685db087fc1293fbf75d56695cb4cc034930",
+    "size": 15107
+  },
+  "start": [
+    {
+      "value": {
+        "address": "0x10FDB6",
+        "equals": "0x01"
+      }
+    },
+    {
+      "value": {
+        "address": "0x10040C",
+        "equals": "0x02"
+      }
+    }
+  ],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": {
+        "event": {
+          "action": "MOUNT_STATE",
+          "address": "0x1002C1",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0x10040C",
+              "equals": "0x02"
+            }
+          }
+        ]
+      },
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0x10040C",
+          "leaves": "0x02",
+          "value": "0x03"
+        }
+      }
+    }
+  },
+  "void": [],
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames"
+  },
+  "cores": [
+    "fbneo"
+  ],
+  "runtime": {
+    "core_ram": {
+      "base": "0x100000",
+      "swap16": true
+    },
+    "frame_rate": 59.185606
+  },
+  "states": [
+    {
+      "file": "arcade/metal-slug-3/entrainement-m3-00.state",
+      "name": "entrainement-m3-00-fbneo",
+      "sha256": "b04e2957bf51a5e62339b390464e685db087fc1293fbf75d56695cb4cc034930",
+      "size": 15107,
+      "core_sha256": [
+        "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+      ]
+    },
+    {
+      "name": "entrainement-m3-00-fbneo-c261102",
+      "file": "arcade/metal-slug-3/entrainement-m3-00-c261102.state",
+      "sha256": "10223168163aae5d0a3f78383f7fd23727ef165fd877d5ef63e60c0471482199",
+      "size": 15320,
+      "core_sha256": [
+        "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415"
+      ]
+    }
+  ]
+}
