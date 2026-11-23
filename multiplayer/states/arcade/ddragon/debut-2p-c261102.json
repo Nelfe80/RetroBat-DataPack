@@ -1,0 +1,23 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ddragon",
+  "situation": "debut-2p",
+  "description": "Garage de la mission 1, Billy et Jimmy entres (credit puis START ; le START du joueur 2 se repete, le depart du joueur 1 l'avale parfois).",
+  "state_file": "debut-2p-fbneo-c261102.state",
+  "state_sha256": "1cedcd9d5fc4c331474debfd971f18c27e6700749710baeee45d811449eb9624",
+  "core": "fbneo",
+  "core_sha256": "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "3f889265fc07769dca17a44d5a336e53e2d8884d4b8e05c9fc63dab24b0bfd3e",
+  "players_in_game": 2,
+  "bench_verification": "Converti de l'etat du coeur 800f25e9 (22/11) : disposition de serialisation du coeur FBNeo 261102 (abea9d81) reconstruite par alignement des deux coeurs a froid, sans RetroArch ; identique (900 images, memes entrees, RAM et video image par image : 0 RAM, 0 video differentes). Jamais essaye dans RetroArch ni en netplay.",
+  "certified": false,
+  "made_utc": "2026-11-22T21:01:00Z",
+  "min_api": "1.9.89",
+  "converted_from": {
+    "state_file": "debut-2p-fbneo.state",
+    "state_sha256": "c68b590eb8d65d443e051c1b9fc5132a228038207ee29a3fde3eb061e3374a6d",
+    "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+  },
+  "state_size": 3344
+}

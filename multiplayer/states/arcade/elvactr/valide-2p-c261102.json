@@ -1,0 +1,27 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/elvactr",
+  "situation": "valide-2p",
+  "description": "Briefing de la mission 1, une image apres la validation des deux joueurs (P1 Kart, P2 Edie) : plus rien ne se choisit. Le personnage de chaque place est 0x780C (P1) / 0x80E8 (P2), pose a la validation, valeur INVERSE du rang (Kart 2, Edie 1, Jad 0) ; les curseurs 0xB73C/0xB746 ne sont plus lus. Ecriture prise de 0,4 s a au moins 4 s apres le chargement (portraits du briefing et personnages de la mission). Remplace selection-2p.",
+  "state_file": "valide-2p-fbneo-c261102.state",
+  "state_sha256": "54a365aff0175d645d7d7b167bb52ecd7798fccd7b2008d598f53c88f75ea84d",
+  "core": "fbneo",
+  "core_sha256": "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "84e5ea64585a600ca073e8a098305c7c05dd8937a3186b5c56915fc20ee9f121",
+  "values_at_save": {
+    "p1_character_0x780C": 2,
+    "p2_character_0x80E8": 1,
+    "p1_cursor_0xB73C": 0,
+    "p2_cursor_0xB746": 1
+  },
+  "bench_verification": "Converti de l'etat du coeur 800f25e9 (22/11) : disposition de serialisation du coeur FBNeo 261102 (abea9d81) reconstruite par alignement des deux coeurs a froid, sans RetroArch ; ecarts (900 images, memes entrees, RAM et video image par image : 0 RAM, 152 video differentes). Jamais essaye dans RetroArch ni en netplay.",
+  "certified": false,
+  "made_utc": "2026-11-22T21:01:00Z",
+  "converted_from": {
+    "state_file": "valide-2p-fbneo.state",
+    "state_sha256": "09b076b11a3a107dbf658c5bd68dcf9a84020410f877fb052c35573ae35b1bf3",
+    "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+  },
+  "state_size": 48724
+}

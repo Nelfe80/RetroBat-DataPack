@@ -1,0 +1,21 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/finalb",
+  "situation": "debut-2p",
+  "description": "Debut d'un duel a deux joueurs, au debut de SELECT YOUR BOXER (minuteur a 9) : chaque joueur choisit son boxeur en jeu. Fin sur les drapeaux de victoire 0x22E8 / 0x25E8, garde 0x119C = 2 (duel). Verifie au vrai guet de l'API 1.9.127 dans les deux sens et en netplay (0 ecart, 30/10, couloir 2).",
+  "state_file": "debut-2p-fbneo-c261102.state",
+  "state_sha256": "6d904bd683a9e4f863a3c4cdd96d4c0625d083913317bd410877d6b63828b8fb",
+  "core": "fbneo",
+  "core_sha256": "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415",
+  "retroarch_version": "1.22.2",
+  "certified": false,
+  "made_utc": "2026-11-22T21:01:00Z",
+  "rom_sha256": "dd133143f9d471ea60efadb50a5c636fed62808cd992de8c76e4ba4753c1a72d",
+  "converted_from": {
+    "state_file": "debut-2p-fbneo.state",
+    "state_sha256": "310afdc9a3695c1990d85ce5d838773c6916d7947669c505335626499fe67171",
+    "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+  },
+  "state_size": 9430,
+  "bench_verification": "Converti de l'etat du coeur 800f25e9 (22/11) : disposition de serialisation du coeur FBNeo 261102 (abea9d81) reconstruite par alignement des deux coeurs a froid, sans RetroArch ; identique (900 images, memes entrees, RAM et video image par image : 0 RAM, 0 video differentes). Jamais essaye dans RetroArch ni en netplay."
+}

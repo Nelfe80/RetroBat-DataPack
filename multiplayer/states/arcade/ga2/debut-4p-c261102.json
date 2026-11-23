@@ -1,0 +1,23 @@
+{
+  "schema": "nelfeplay.multiplayer.start.v1",
+  "game": "arcade/ga2",
+  "situation": "debut-4p",
+  "description": "Carte de la scene 1, N heros entres (credit puis START) sur une borne reglee a quatre places (CABINET TYPE 4P, reglage de l'EEPROM du jeu, menu de test, que l'etat emporte ; l'usine est a 2P) : chaque place a son heros, Stern, Dora, Goah et Trix. Les places libres a Insert Coins.",
+  "state_file": "debut-4p-fbneo-c261102.state",
+  "state_sha256": "f88ca70236f14637511d17a0c5245d1365a2fc370fb903e3cbf0a4a8f0b44d25",
+  "core": "fbneo",
+  "core_sha256": "abea9d8195e1435f366aa0def3401edd546ffec85c5fc3e7e8725f600dcc6415",
+  "retroarch_version": "1.22.2",
+  "rom_sha256": "8ac9d6218ba275ea24671dc8aca7871231032f62ef42c610037b4893181204d1",
+  "players_in_game": 4,
+  "bench_verification": "Converti de l'etat du coeur 800f25e9 (22/11) : disposition de serialisation du coeur FBNeo 261102 (abea9d81) reconstruite par alignement des deux coeurs a froid, sans RetroArch ; identique (900 images, memes entrees, RAM et video image par image : 0 RAM, 0 video differentes). Jamais essaye dans RetroArch ni en netplay.",
+  "certified": false,
+  "made_utc": "2026-11-22T21:01:00Z",
+  "min_api": "1.9.89",
+  "converted_from": {
+    "state_file": "debut-4p-fbneo.state",
+    "state_sha256": "17cd40eb9eca6b42b35914d9a2ce7f4e061c6d3ec3842ae8b08bcf0b6b917968",
+    "core_sha256": "800f25e9f9f0ace6191321cff02b985663bf84568352b29ca68325e94fb3446e"
+  },
+  "state_size": 44185
+}
