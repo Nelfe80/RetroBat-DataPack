@@ -1,3 +1,10 @@
+-- 2026-11-22 (versions) : DEUX CLASSEMENTS, un par version du jeu. L'ecran du JEU « 1: VERSION-A (OLD) / 2: VERSION-B (NEW) »
+-- (compte a rebours de 10 s, defaut A) range l'octet 0x3810 du bloc de 128 Kio : 0 = VERSION-A (White Label, 2002.04.05 MASTER VER),
+-- 1 = VERSION-B (Black Label, 2002.10.07 BLACK VER), prouve au banc (FBNeo 260421 et 261102) ; c'est aussi l'octet 0x3810 de la NVRAM
+-- ddpdojblka.fs (meme decalage que les reglages 0x3808-0x380F). Une ligne GAME_MODE eq PAR VALEUR (modele Dangun Feveron) ; le profil
+-- de chaque version dit le drapeau qu'il couvre (mode.flags). Sans signal (valeur 0 jamais emise), c'est la VERSION-A, celle du compte a
+-- rebours expire. Le titre perd la mention Black Label (le jeu contient les deux versions). Aucune autre ligne ne change.
+-- 2026-11-21 (nuit, auto-mute) : l octet 0xB092 n est PAS un etat de jeu fiable : c est un emplacement d une table d objets au pas de 8 octets (0xB092, 0xB09A, ... tous au meme cycle) qui alterne 10, 10, 12 toutes les 3 images pendant le tir ; le wrapper (8 changements a 20 images ou moins) le coupe pour la session (journal API : AUTO-MUTE DEFINITIF pour [flow.lifecycle], 23:19:57 meme avec le masque 0XF8, au niveau 2). game.playing se lit maintenant sur le compteur de vies 0x130BA (255 hors partie : demarrage, choix du vaisseau, GAME OVER ; 0 a 2 en partie), qui ne change qu une fois par vie perdue et ne peut pas etre coupe. 0xE47A masque 0X02 (ecran CONTINUE, jamais coupe) est gardee ; la ligne CONTINUE_SCREEN passe de 0xE47B eq 1 (boucle 0, 2, 1 toutes les 3 images, coupee par l auto-mute des 8 declenchements) a 0xE47A masque 0X02 eq 2 (une seule entree, un seul declenchement) ; ce signal n est lu ni par le scoring ni par la coupure 1CC (continues = chiffre des credits du score, ligne CREDITS 0x395B, vies). Aucune ligne de score, de vie ou de credit n est modifiee.
 -- 2026-11-21 (Deck, etat de jeu) : octet d etat 0xB092 lu a chaque changement (10 en partie, 22 au choix du vaisseau et au chargement, 26 apres la partie, 0 au demarrage) et octet 0xE47B (1 aux ecrans CONTINUE et GAME OVER, 0 sinon) pour les signaux game.playing et game.continue du Deck ; lignes d affichage seulement (OBJECT_INTERACTION), hors score. Les quatre lignes CONTINUE_SCREEN 0xE334, 0xE335, 0xE384, 0xE385 sont retirees : sur cette revision ce ne sont pas des comptes a rebours du continue (elles bougent aussi au debut de chaque partie) ; l ecran CONTINUE part de 0xE47B.
 -- 2026-11-08 : REVISION ddpdojblka (2002.04.05.MASTER VER, ddb_1dot.u45).
 -- Valide au banc sur ddpdojblka : score (memes adresses), demo 0x3926, credits 0x395B. DECALES sur cette revision :
@@ -13,7 +20,7 @@
 -- Lignes d affichage seulement (OBJECT_INTERACTION), hors score ; mask = lecture par paliers (jamais a chaque image).
 -- 2026-11-15 (decision du user) : la revision ddpdojblk (ddb10_10_8_434f.u45, la plus recente) n est plus nommee : ses adresses
 -- ne sont pas prouvees et le site la refuse (aucune EEPROM d usine epinglee pour elle). Seule ddpdojblka (avec ddp3.zip, son
--- parent FBNeo) est la ROM du classement. Titre : DoDonPachi DaiOuJou Black Label.
+-- parent FBNeo) est la ROM du classement. Titre : DoDonPachi DaiOuJou (deux versions, voir 2026-11-22).
 -- 2026-11-20 (Deck enrichi, DaiOuJou) : abeilles 0x17F78 (remplacent 0x17F80 et 0x1B892, mortes sur ddpdojblka), rank 0x1309A (base du stage + horloge
 -- 0x130C4 >> 8, prouve par ecriture), hyper rank 0x1B63E (description corrigee : c est l hyper rank, plafond 15, divise par 4 a chaque mort, et non l hyper en cours),
 -- vitesse des balles 0x1294C, distance 0x130CA lue par blocs de 16 pas (mask 0XFFF0). Lignes retirees : 0x130CE (distance morte, coupee par l auto-mute),
@@ -22,7 +29,7 @@
 -- mem-curator v5.0.0 (2026-07-12) profile=wrapper
 return {
   game = {
-    title = "DoDonPachi DaiOuJou Black Label",
+    title = "DoDonPachi DaiOuJou",
     system = "arcade",
     system_name = "Arcade",
     genre = "Unknown"
@@ -36,6 +43,13 @@ return {
   },
 
   events = {
+    game_mode = {
+      -- Une ligne par valeur de l'octet de version (0x3810, fixe pour la session) ; chaque profil dit le drapeau qu'il couvre.
+      mode = {
+        { address=0X3810, type="u8", condition="eq", value=0X00, action="GAME_MODE", desc="Game version chosen on the start screen: VERSION-A (OLD), White Label 2002.04.05 MASTER VER (default when the countdown expires)" },
+        { address=0X3810, type="u8", condition="eq", value=0X01, action="GAME_MODE", desc="Game version chosen on the start screen: VERSION-B (NEW), Black Label 2002.10.07 BLACK VER" },
+      },
+    },
     flow = {
       settings = {
         { address=0X3808, type="u8", condition="neq", value=0X01, action="GAME_DIFFICULTY", desc="Test menu setting other than factory (CONTINUE: ON); saved in the NVRAM ddpdojblka.fs at the same offset" },
@@ -49,9 +63,9 @@ return {
       },
       lifecycle = {
         { address=0X3926, type="u8", condition="change", action="DEMO_MODE", desc="[1 byte] Demo indicator" },
-        { address=0XE47B, type="u8", condition="eq", value=0X01, action="CONTINUE_SCREEN", desc="Continue / game over screen (1 from the continue screen to the end of GAME OVER)" },
-        { address=0XB092, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Game state byte: 10 playing, 22 ship select and loading, 26 after the game, 0 at boot; read at each change only" },
-        { address=0XE47B, type="u8", condition="change", action="OBJECT_INTERACTION", desc="Continue / game over flag: 1 on the continue and game over screens, 0 otherwise; read at each change only" },
+        { address=0XE47A, type="u8", condition="eq", mask=0X02, value=0X02, action="CONTINUE_SCREEN", desc="Continue / game over screen (bit 2 of 0xE47A set from the continue screen to the end of GAME OVER; the neighbour 0xE47B cycles 0, 2, 1 every 3 frames there and was cut by the auto-mute)" },
+        { address=0X130BA, type="u8", condition="change", action="OBJECT_INTERACTION", desc="1P lives in reserve read at each change by the Deck (255 outside a game: boot, ship select, GAME OVER; 0 to 2 in play); never cycles, so it cannot be cut by the auto-mute; display only" },
+        { address=0XE47A, type="u8", condition="change", mask=0X02, action="OBJECT_INTERACTION", desc="Continue / game over screen: 2 (mask 0X02) from the continue screen until the game resumes, 0 otherwise; the neighbour byte 0XE47B cycles 0, 2, 1 every 3 frames there and was cut by the auto-mute; read at each change only" },
       },
       events = {
         { address=0X1B5D2, type="u16le", condition="change", min=7, action="COMBO_HIT", player=1, desc="1P current combo (BCD word), every 10 hits and when the combo breaks" },

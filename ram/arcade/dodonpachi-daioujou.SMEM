@@ -1,4 +1,4 @@
--- DoDonPachi DaiOuJou Black Label (revision ddpdojblka) : SENS des lignes de dodonpachi-daioujou.MEM.
+-- DoDonPachi DaiOuJou (revision ddpdojblka) : SENS des lignes de dodonpachi-daioujou.MEM.
 -- Lu par APIExpose et le PlayerDeck seulement. Ne declare aucune adresse : chaque signal cite des lignes du .MEM.
 -- Preuves : mesures au banc FBNeo sans ecran. Format : .SMEM, schema 1.
 -- Les combos sont des mots BCD : le schema 1 ne sait pas decoder le BCD, d'ou une table raw -> libelle (0 a 599).
@@ -9,7 +9,7 @@ return {
   schema = 1,
   kind = "semantics",
   version = 4,
-  game = { system = "arcade", slug = "dodonpachi-daioujou", title = "DoDonPachi DaiOuJou Black Label" },
+  game = { system = "arcade", slug = "dodonpachi-daioujou", title = "DoDonPachi DaiOuJou" },
   mem = { file = "dodonpachi-daioujou.MEM" },
 
   signals = {
@@ -1289,15 +1289,15 @@ return {
       min = 0, max = 10, initial = 0, quality = "qualified",
       proof = "0 -> 1 a la prise d'une abeille (3 prises au banc, score +1000 x coups a la meme image) ; 9 pose -> 10 a la prise suivante ; 0 quand le vaisseau est touche (avant la baisse du compteur de vies) ; 0 au debut du stage suivant" },
     { id = "game.playing", kind = "flag", label = "In game", short = "PLAY",
-      from = { { address = 0XB092, action = "OBJECT_INTERACTION" } },
-      values = { { raw = 10, value = 1, label = "Playing" }, { min = 0, max = 9, value = 0, label = "Not playing" }, { min = 11, max = 255, value = 0, label = "Not playing" } },
+      from = { { address = 0X130BA, action = "OBJECT_INTERACTION" } },
+      values = { { min = 0, max = 15, value = 1, label = "Playing" }, { min = 16, max = 255, value = 0, label = "Not playing" } },
       min = 0, max = 1, initial = 0, quality = "qualified",
-      proof = "banc FBNeo sans ecran, 21/11, deux passages (12 000 et 13 000 images) : 0xB092 = 10 pendant les trois parties (3710 a 4470, 3710 a 4480, 7420 a 9145), 22 au choix du vaisseau et au chargement, 26 des l ecran CONTINUE et apres, 0 au demarrage" },
+      proof = "replays DaiOuJou du 21/11 image par image (headless replay --snap-every 1) : 0x130BA = 255 avant le depart, au choix du vaisseau, a l ecran CONTINUE et au GAME OVER, 2 a 0 en partie (depart image 585, game over image 4653 sur le replay de la partie du user) ; trois changements de classe en 5 000 images, jamais coupe par l auto-mute (simulateur et modele image par image). L octet 0xB092 (10, 10, 12 toutes les 3 images en tir) est abandonne : coupe par le wrapper meme avec le masque 0XF8" },
     { id = "game.continue", kind = "flag", label = "Continue screen", short = "CONT",
-      from = { { address = 0XE47B, action = "OBJECT_INTERACTION" } },
-      values = { { raw = 1, value = 1, label = "Continue" }, { raw = 0, value = 0, label = "Other" }, { min = 2, max = 255, value = 0, label = "Other" } },
+      from = { { address = 0XE47A, action = "OBJECT_INTERACTION" } },
+      values = { { raw = 2, value = 1, label = "Continue" }, { raw = 0, value = 0, label = "Other" } },
       min = 0, max = 1, initial = 0, quality = "qualified",
-      proof = "banc FBNeo sans ecran, 21/11 : 0xE47B = 1 de 4515 a 4720 et de 9185 a 9390 (deux continues, une partie neuve entre les deux), 0 ailleurs ; il couvre aussi l ecran GAME OVER et part jusqu a 45 images apres l entree du continue" },
+      proof = "replays DaiOuJou du 21/11 image par image (headless replay --snap-every 1) : 0xE47A masque 0X02 = 2 de l entree au continue (images 1464 a 1903, 2000 a la fin) jusqu a la reprise, 0 ailleurs ; l octet voisin 0xE47B boucle 0, 2, 1 toutes les 3 images et etait COUPE par l auto-mute du wrapper" },
   },
 
   instruments = {
