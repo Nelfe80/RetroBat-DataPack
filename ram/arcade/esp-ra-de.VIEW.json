@@ -1,10 +1,10 @@
 {
   "schema": "nelfeplay.view-profile/1",
-  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 22/11/2026, rien publie) : sens des valeurs de esp-ra-de.VIEW. Preuves : E:/claude_travail/temp/canal/shmups_1212/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
+  "comment": "Profil d'affichage du canal du Player Deck (labo-jeu, plugins-7b, 24/11/2026, rien publie) : sens des valeurs de esp-ra-de.VIEW (pool des ennemis de 114 cases, drapeau teste par le bit 0x2000). Preuves : E:/claude_travail/temp/canal/esp_ennemis/RAPPORT.md. Lu par l'API, jamais par le wrapper.",
   "id": "esp-ra-de",
   "view": "esp-ra-de",
   "view_sha256": [
-    "0b9ced03372993b8e5277a90e48d88fe42c4ad3d4682fad5952a2af807243c04"
+    "e177413b7644cf3a56b144a3782e1e66bc2f474db080f72d4027812f2df24e89"
   ],
   "roms": [
     "esprade"
@@ -52,13 +52,22 @@
         "0x0705"
       ],
       "heavy": [
+        "0x0104",
         "0x0304",
         "0x0306",
         "0x0404",
         "0x0406",
+        "0x0503",
+        "0x0504",
+        "0x0602",
         "0x0604",
         "0x0608",
+        "0x0703",
+        "0x0707",
+        "0x0805",
         "0x0806",
+        "0x080A",
+        "0x0905",
         "0x0B06"
       ],
       "special": [],
