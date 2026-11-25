@@ -1659,5 +1659,15 @@
       "swap16": true,
       "source": "calcul 2026-10-30 (MemIndex FBNeo + pose sous FBNeo et MAME)"
     }
+  ],
+  "rainbow-islands": [
+    {
+      "from": "0x0000",
+      "size": "0x4000",
+      "base": "0x10C000",
+      "bank": "Taito68KRam1",
+      "swap16": true,
+      "source": "banc FBNeo 25/11/2026 (d_taitomisc.cpp MemIndex ; credit, vies, score vus a l ecran)"
+    }
   ]
 }

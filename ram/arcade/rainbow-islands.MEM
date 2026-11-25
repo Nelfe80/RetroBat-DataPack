@@ -20,8 +20,9 @@ return {
         { address=0X10D0AB, type="u8", condition="change", action="CREDITS", desc="Credits" },
       },
       lives = {
-        { address=0X10E1FF, type="u8", condition="increase", action="GAIN_LIFE", desc="Lives increased" },
-        { address=0X10E1FF, type="u8", condition="decrease", action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X10E1FF, type="u8", condition="increase", max=1, action="GAIN_LIFE", desc="Lives increased" },
+        { address=0X10E1FF, type="u8", condition="decrease", max=1, action="LOSE_LIFE", desc="Lives decreased" },
+        { address=0X10E1FF, type="u8", condition="eq", value=0XFF, action="LOSE_LIFE", desc="Last life lost (counter 0 -> 255)" },
       },
     },
     scoring = {
