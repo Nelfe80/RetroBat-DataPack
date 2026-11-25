@@ -2671,3 +2671,11 @@ msgstr "PLAYERDECK DANS MON DIRECT"
 msgctxt "game_options"
 msgid "When ON (default), a challenge you broadcast live shows your PlayerDeck around the game in the live, when that game has a Deck and the live program is up to date (0.7.3 or later). When OFF, the live shows the game alone, as before."
 msgstr "Si activé (par défaut), un défi que vous diffusez en direct montre votre PlayerDeck autour du jeu dans le direct, quand ce jeu a un Deck et que le programme du direct est à jour (0.7.3 ou plus). Désactivé : le direct montre le jeu seul, comme avant."
+
+msgctxt "game_options"
+msgid "RETROARCH NELFEPLAY"
+msgstr "RETROARCH NELFEPLAY"
+
+msgctxt "game_options"
+msgid "When ON (default), the NelfePlay build of RetroArch 1.22.2 replaces retroarch.exe when no game is running: same version, same DLLs, same replays, with three upstream fixes (replays of large game states, status command, netplay host). The official RetroBat file is kept and comes back as soon as this is turned OFF. Sources: github.com/Nelfe80/RetroArch, tag v1.22.2-nelfeplay.1."
+msgstr "Si activé (par défaut), la version NelfePlay de RetroArch 1.22.2 remplace retroarch.exe quand aucun jeu ne tourne : même version, mêmes DLL, mêmes replays, avec trois correctifs de l'amont (replays des gros états de jeu, commande d'état, hôte netplay). Le fichier officiel de RetroBat est gardé et revient dès que l'option est désactivée. Sources : github.com/Nelfe80/RetroArch, tag v1.22.2-nelfeplay.1."
