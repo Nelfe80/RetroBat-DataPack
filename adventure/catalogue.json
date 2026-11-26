@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "revision": "adventure-lot0-2026-11-26",
+ "revision": "adventure-lot0-2026-11-26.2",
  "collection": "adventure",
  "cores": {
   "gba": {
@@ -76,9 +76,6 @@
     }
    ],
    "core": "mgba_splitscreen",
-   "launcher_options": {
-    "autosave": "1"
-   },
    "adventure": {
     "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
     "resume": {
@@ -143,9 +140,6 @@
     }
    ],
    "core": "mgba_splitscreen",
-   "launcher_options": {
-    "autosave": "1"
-   },
    "adventure": {
     "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
     "resume": {
