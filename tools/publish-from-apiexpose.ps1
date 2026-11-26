@@ -50,7 +50,10 @@ $parties = @(
     @{ Source = 'startup-overlay'; Cible = 'startup-overlay'; ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'theme\hiscore';   Cible = 'theme\hiscore';   ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
     @{ Source = 'theme\images';    Cible = 'theme\images';    ExclureDossiers = @();                 ExclureFichiers = @('*.bak', '*.tmp') },
-    @{ Source='playerdeck\themes'; Cible='playerdeck\themes'; ExclureDossiers=@(); ExclureFichiers=@('*.bak','*.tmp','*.avant-*'); Optionnelle=$true }
+    @{ Source='playerdeck\themes'; Cible='playerdeck\themes'; ExclureDossiers=@(); ExclureFichiers=@('*.bak','*.tmp','*.avant-*'); Optionnelle=$true },
+    # NelfePlay Adventure (26/11) : catalogue et departs prets. ATTENTION : la SOURCE est ce depot (le catalogue s'y ecrit) ; la copie de la borne n'est qu'une
+    # copie installee par le Data Pack. Optionnelle, et a ne lancer qu'une fois la borne a jour : un /MIR depuis une copie plus ancienne reculerait le depot.
+    @{ Source='adventure'; Cible='adventure'; ExclureDossiers=@(); ExclureFichiers=@('.datapack-sync.json','*.bak','*.tmp','*.avant-*'); Optionnelle=$true }
 )
 
 foreach ($p in $parties) {
