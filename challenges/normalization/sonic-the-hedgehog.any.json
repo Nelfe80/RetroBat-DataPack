@@ -1,0 +1,28 @@
+{
+ "schema": "nelfe.challenge.normalization.v1",
+ "challenge_id": "sonic-the-hedgehog.any",
+ "ruleset_version": 2,
+ "document_sha256": "80ca2eb1d156dc382ff24b3145200d7beb06b08f9b5f1ffabe587c279fb6c96f",
+ "status": "pending_validation",
+ "community_timing": "realtime",
+ "mapping": {
+  "our_clock": "independent",
+  "their_method": "RTA moins le bonus de temps (RTA-TB)",
+  "game_time_lines": [],
+  "excluded_ranges": "decompte du bonus de temps de chaque acte : de la premiere baisse de 0xF7D2 a sa valeur 0 (peak/10 - 1 images ; la communaute retire peak/10 images, soit 1 image de moins retiree chez nous par acte, constant sur 7 pics 50 a 1000)"
+ },
+ "calibration": {
+  "start_offset_frames": 0,
+  "end_offset_frames": null,
+  "replays_measured": 6,
+  "max_spread_frames": 0,
+  "measured_at": "2026-11-26",
+  "note": "depart = Start au titre (F601 0x04 -> 0x8C) ; ancien reglement v1 (timer du jeu) 209 images plus tard (cale) et 235 (independant), constant sur 6 replays ; arrivee F601=0x18 identique a la communaute mais AUCUN replay local n'atteint la fin du jeu"
+ },
+ "summary": "Du Start au titre a la fin du fondu de la Final Zone, bonus de temps retire, morts permises",
+ "needs_mem_lines": [
+  "F601 eq 0x8C TITLE_START",
+  "F7D2 u16le decrease TIMEBONUS_COUNT is_score",
+  "F7D2 u16le eq 0 TIMEBONUS_END is_score"
+ ]
+}
