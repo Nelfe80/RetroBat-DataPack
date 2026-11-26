@@ -1,0 +1,233 @@
+{
+  "challenge_id": "sonic-the-hedgehog.green-hill-1",
+  "cores": [
+    "genesis_plus_gx"
+  ],
+  "fail": [
+    {
+      "event": {
+        "action": "LOSE_LIFE",
+        "address": "0xFE13"
+      }
+    }
+  ],
+  "finish_confirm": {
+    "any_of": [
+      {
+        "event": {
+          "action": "LEVEL_CLEAR",
+          "address": "0xF7CD",
+          "value": "0x01"
+        }
+      },
+      {
+        "event": {
+          "action": "GAME_PLAYING",
+          "address": "0xF601",
+          "value": "0x10"
+        }
+      },
+      {
+        "event": {
+          "address": "0xFE10",
+          "leaves": "0x00"
+        }
+      },
+      {
+        "event": {
+          "address": "0xFE11",
+          "leaves": "0x00"
+        }
+      }
+    ],
+    "cleared_by": [
+      {
+        "event": {
+          "action": "LOSE_LIFE",
+          "address": "0xFE13"
+        }
+      }
+    ]
+  },
+  "game": {
+    "rom_group": "sonic-the-hedgehog",
+    "system_id": "megadrive"
+  },
+  "kind": "speedrun_level",
+  "mem_sha256": "cb90ea5b3ed21e8e83aec00f12776768a798c9a60b5c5c869f1938e97787c133",
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-sonic-green-hill-1-v2"
+    ]
+  },
+  "ruleset": "ch-sonic-green-hill-1-v3",
+  "runtime": {
+    "frame_rate": 59.922743
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [
+    {
+      "value": {
+        "address": "0xFE11",
+        "equals": "0x00"
+      }
+    },
+    {
+      "value": {
+        "address": "0xFE10",
+        "equals": "0x00"
+      }
+    },
+    {
+      "value": {
+        "address": "0xFFFB",
+        "equals": "0x00"
+      }
+    }
+  ],
+  "start_policy": "canonical_state",
+  "state": {
+    "file": "megadrive/sonic-the-hedgehog/green-hill-1-panneau.state",
+    "name": "green-hill-1-panneau-genesis",
+    "sha256": "d35a49cb3f95afd5bc8878399fb8592657422588290e89dd2641e83dc675e87a"
+  },
+  "timing": {
+    "game_time": [
+      {
+        "address": "0xFE22",
+        "unit": "minute"
+      },
+      {
+        "address": "0xFE25",
+        "unit": "second"
+      }
+    ],
+    "game_timer_aligned": {
+      "finish": {
+        "event": {
+          "action": "GENERAL_TIMER",
+          "address": "0xFE1F",
+          "to": "0x00"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "GENERAL_TIMER",
+          "address": "0xFE1F",
+          "to": "0x01"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0xF601",
+              "equals": "0x8C"
+            }
+          },
+          {
+            "value": {
+              "address": "0xFE22",
+              "equals": "0x00"
+            }
+          },
+          {
+            "value": {
+              "address": "0xFE25",
+              "equals": "0x00"
+            }
+          }
+        ]
+      }
+    },
+    "game_timer_period_frames": 60,
+    "independent": {
+      "finish": {
+        "any_of": [
+          {
+            "event": {
+              "action": "LEVEL_CLEAR",
+              "address": "0xF7CD",
+              "value": "0x01"
+            }
+          },
+          {
+            "event": {
+              "action": "GAME_PLAYING",
+              "address": "0xF601",
+              "value": "0x10"
+            }
+          }
+        ]
+      },
+      "start": {
+        "event": {
+          "action": "GAME_PLAYING",
+          "address": "0xF601",
+          "leaves": "0x8C",
+          "value": "0x0C"
+        }
+      }
+    },
+    "official": "game_timer_aligned"
+  },
+  "title": {
+    "en": "Green Hill Zone · Act 1",
+    "fr": "Green Hill Zone · Acte 1"
+  },
+  "version": 3,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap",
+    {
+      "event": {
+        "action": "PAUSE_ON",
+        "address": "0xF63A",
+        "value": "0x01"
+      }
+    },
+    {
+      "event": {
+        "action": "NEW_LEVEL",
+        "address": "0xFFE1"
+      }
+    },
+    {
+      "event": {
+        "action": "LEVEL_CHEAT_ACTIVATED",
+        "address": "0xFFFB"
+      }
+    },
+    {
+      "event": {
+        "action": "TITLE_SCREEN",
+        "address": "0xF601",
+        "value": "0x04"
+      }
+    },
+    {
+      "event": {
+        "action": "CORPORATE_SCREEN",
+        "address": "0xF601",
+        "value": "0x00"
+      }
+    },
+    {
+      "event": {
+        "address": "0xFE10",
+        "leaves": "0x00"
+      }
+    },
+    {
+      "event": {
+        "address": "0xFE11",
+        "leaves": "0x00"
+      }
+    }
+  ]
+}
