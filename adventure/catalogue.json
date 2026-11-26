@@ -1,0 +1,311 @@
+{
+ "schema_version": 1,
+ "revision": "adventure-lot0-2026-11-26",
+ "collection": "adventure",
+ "cores": {
+  "gba": {
+   "core": "mgba_splitscreen",
+   "options": {
+    "splitscreen_boot_menu": "off",
+    "splitscreen_players": "{players}",
+    "splitscreen_overlays": "off",
+    "splitscreen_layout": "focus"
+   },
+   "seat_options": {
+    "splitscreen_focus_player": "{seat}",
+    "splitscreen_audio": "player {seat}"
+   },
+   "spectator": {
+    "options": {
+     "splitscreen_layout": "auto",
+     "splitscreen_audio": "player 1"
+    },
+    "grid": "auto"
+   }
+  },
+  "snes": {
+   "core": "snes9x"
+  },
+  "megadrive": {
+   "core": "genesis_plus_gx"
+  }
+ },
+ "games": [
+  {
+   "id": "gba/kirby-amazing-mirror",
+   "system": "gba",
+   "content": {
+    "md5": [
+     "df5efe075b35859529ebf82a4d824458"
+    ],
+    "crc": [
+     "9f2a3048"
+    ],
+    "size": [
+     16777216
+    ]
+   },
+   "name": "Kirby & The Amazing Mirror",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 4
+   },
+   "level": "nelfeplay",
+   "start": {
+    "state": "states/gba/kirby-amazing-mirror/aventure-2p-mgba-splitscreen.state",
+    "sha256": "32bdba4b90154f8b93f8106fe101273751be548f8b6c25d471c32578c54dcff5",
+    "players": 2,
+    "content": "df5efe075b35859529ebf82a4d824458",
+    "bytes": 100988
+   },
+   "starts": [
+    {
+     "state": "states/gba/kirby-amazing-mirror/aventure-3p-mgba-splitscreen.state",
+     "sha256": "eb34ecbb97daa47fbcb2d899c136fdad53ae0f531f28ae4f2e0c8a6bcb5f8eef",
+     "players": 3,
+     "content": "df5efe075b35859529ebf82a4d824458",
+     "bytes": 148597
+    },
+    {
+     "state": "states/gba/kirby-amazing-mirror/aventure-4p-mgba-splitscreen.state",
+     "sha256": "2504cca42e295f80fe2b36c1b688f1f2ace526c0c986875a39684509cf4bef28",
+     "players": 4,
+     "content": "df5efe075b35859529ebf82a4d824458",
+     "bytes": 191944
+    }
+   ],
+   "core": "mgba_splitscreen",
+   "launcher_options": {
+    "autosave": "1"
+   },
+   "adventure": {
+    "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
+    "resume": {
+     "same_players": "state",
+     "other_players": "new_start_plus_cartridge_save"
+    },
+    "new_start": "start",
+    "cartridge_save": {
+     "console": 1,
+     "file": "{rom}.srm",
+     "kind": "gba_srm_slots",
+     "slots": 4,
+     "slot_bytes": 32768,
+     "cartridge_place": 1,
+     "extract_from_state": "SPST : console 1, extdata tag 2 (SAVEDATA)",
+     "cartridge_bytes": 32768
+    }
+   }
+  },
+  {
+   "id": "gba/shining-soul-ii",
+   "system": "gba",
+   "content": {
+    "md5": [
+     "f4a655e23638e79eacf44a456faee6a4"
+    ],
+    "crc": [
+     "4038e282"
+    ],
+    "size": [
+     16777216
+    ]
+   },
+   "name": "Shining Soul II",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 4
+   },
+   "level": "nelfeplay",
+   "start": {
+    "state": "states/gba/shining-soul-ii/aventure-2p-mgba-splitscreen.state",
+    "sha256": "9910e9f55920b9709716da734db0aa7b4ef6a02990be9d8658876f6825364649",
+    "players": 2,
+    "content": "f4a655e23638e79eacf44a456faee6a4",
+    "bytes": 108492
+   },
+   "starts": [
+    {
+     "state": "states/gba/shining-soul-ii/aventure-3p-mgba-splitscreen.state",
+     "sha256": "e7804d0d6c1d4cc0cf639e0f536eae5fa746281a3f923caabd92d14ac322c567",
+     "players": 3,
+     "content": "f4a655e23638e79eacf44a456faee6a4",
+     "bytes": 165006
+    },
+    {
+     "state": "states/gba/shining-soul-ii/aventure-4p-mgba-splitscreen.state",
+     "sha256": "775cc94cd1f1c6162e54377b381eecab76b75d65b0e6c07a7c043499a312c3a2",
+     "players": 4,
+     "content": "f4a655e23638e79eacf44a456faee6a4",
+     "bytes": 222300
+    }
+   ],
+   "core": "mgba_splitscreen",
+   "launcher_options": {
+    "autosave": "1"
+   },
+   "adventure": {
+    "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
+    "resume": {
+     "same_players": "state",
+     "other_players": "new_start_plus_cartridge_save"
+    },
+    "new_start": "start",
+    "cartridge_save": {
+     "console": 1,
+     "file": "{rom}.srm",
+     "kind": "gba_srm_slots",
+     "slots": 4,
+     "slot_bytes": 32768,
+     "cartridge_place": 1,
+     "extract_from_state": "SPST : console 1, extdata tag 2 (SAVEDATA)",
+     "cartridge_bytes": 65536
+    }
+   }
+  },
+  {
+   "id": "snes/secret-of-mana",
+   "system": "snes",
+   "content": {
+    "md5": [
+     "5e1602019d4e337b9c6a714a6224ba1d"
+    ],
+    "crc": [
+     "e9334b9e"
+    ],
+    "size": [
+     2097152
+    ]
+   },
+   "name": "Secret of Mana",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 3
+   },
+   "level": "nelfeplay",
+   "start": {
+    "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
+    "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
+    "content": "5e1602019d4e337b9c6a714a6224ba1d",
+    "bytes": 110781
+   },
+   "device": [
+    {
+     "port": 2,
+     "id": 257
+    }
+   ],
+   "adventure": {
+    "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_or_new_start_plus_save"
+    },
+    "new_start": "start",
+    "note": "le départ à 2 ou 3 joueurs exige un état APRÈS l'arrivée de la fille et du lutin (plus d'une heure de jeu) : non fabriqué ; device {port 2, id 257} ÉPROUVÉ au banc sur Super Bomberman 3 (5 manettes actives) avec un .rmp de JEU : le snes.rmp de la borne force input_libretro_device_p2 à 1 et le masque",
+    "cartridge_save": {
+     "console": 1,
+     "file": "{rom}.srm",
+     "kind": "snes_sram",
+     "bytes": 8192,
+     "extract_from_state": "snes9x : bloc SRA, 8192 premiers octets"
+    }
+   },
+   "core": "snes9x"
+  },
+  {
+   "id": "snes/the-lost-vikings",
+   "system": "snes",
+   "content": {
+    "md5": [
+     "dbd58a2c35e4cda603b6238cda0dc6a0"
+    ],
+    "crc": [
+     "94093298"
+    ],
+    "size": [
+     1048576
+    ]
+   },
+   "name": "The Lost Vikings",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 2
+   },
+   "level": "nelfeplay",
+   "start": {
+    "state": "states/snes/the-lost-vikings/aventure-2p-snes9x.state",
+    "sha256": "2dc467ddc88ccb7f2fcd42809dd21d7ead01a17633dcf5d4d67071820e51914e",
+    "players": 2,
+    "content": "dbd58a2c35e4cda603b6238cda0dc6a0",
+    "bytes": 103540
+   },
+   "adventure": {
+    "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_only"
+    },
+    "new_start": "start",
+    "cartridge_save": {
+     "console": 1,
+     "file": null,
+     "kind": "password",
+     "bytes": 0
+    }
+   },
+   "core": "snes9x"
+  },
+  {
+   "id": "megadrive/the-lost-vikings",
+   "system": "megadrive",
+   "content": {
+    "md5": [
+     "8335ca918a503047fc9cde6a0b082308",
+     "44752b050421c4e51d1bee96b3fed44e"
+    ],
+    "crc": [
+     "63729b74",
+     "1f14efc6"
+    ],
+    "size": [
+     1048576
+    ]
+   },
+   "name": "The Lost Vikings",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 2
+   },
+   "level": "nelfeplay",
+   "adventure": {
+    "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_only"
+    },
+    "new_start": "start",
+    "cartridge_save": {
+     "console": 1,
+     "file": null,
+     "kind": "password",
+     "bytes": 0
+    }
+   },
+   "start": {
+    "state": "states/megadrive/the-lost-vikings/aventure-2p-genesis-plus-gx-usa.state",
+    "sha256": "a866c4ad1a4a342046a1d753090d9a2c57b1f734347fa36e98d4e09d3d7baa3a",
+    "players": 2,
+    "content": "8335ca918a503047fc9cde6a0b082308",
+    "bytes": 47739,
+    "content_note": "USA (October 1995) ; l'Europe (EnFrDe) a deja son depart au Data Pack (debut-2p-genesis-plus-gx.state)"
+   },
+   "core": "genesis_plus_gx"
+  }
+ ]
+}
