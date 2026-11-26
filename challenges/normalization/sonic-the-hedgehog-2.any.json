@@ -1,0 +1,23 @@
+{
+ "schema": "nelfe.challenge.normalization.v1",
+ "challenge_id": "sonic-the-hedgehog-2.any",
+ "ruleset_version": 2,
+ "document_sha256": "66f846703fa4b1364cec24e5fb605813c088682163740bd95532bc7a5fe6deda",
+ "status": "pending_validation",
+ "community_timing": "realtime",
+ "mapping": {
+  "our_clock": "independent",
+  "their_method": "RTA moins le bonus de temps et les continues (RTA-TBC)",
+  "game_time_lines": [],
+  "excluded_ranges": "decompte du bonus de temps de chaque acte (de la premiere baisse de 0xF7D2 a sa valeur 0 : 500 images pour un bonus de 5000, 1 de moins que bonus/10) ; ecran de continue (de F601 = 0x14 a F601 = 0x8C, 158 images mesurees) ; le temps de la mort et du GAME OVER avant l'ecran de continue n'est pas retire (plage non precisee par la regle de la communaute)"
+ },
+ "calibration": {
+  "start_offset_frames": 0,
+  "end_offset_frames": null,
+  "replays_measured": 3,
+  "max_spread_frames": 0,
+  "measured_at": "2026-11-26",
+  "note": "depart = Start au titre (F601 0x04 vers 0x8C) ; ancien reglement v1 (arrivee en jeu, F601 0x8C vers 0x0C) 172 images plus tard, constant sur 3 passages du labo (Start pose a 3 instants differents) ; PIEGE corrige : le choix du personnage se lit sur 0xFF72 (Player_option), car 0xFF70 n'est copie qu'au chargement du niveau, apres le depart ; bonus et continue mesures par ecritures memoire du labo (niveau pose pres du panneau, continues et vies forcees), pas par une vraie partie ; arrivee F601 = 0x20 non atteinte"
+ },
+ "summary": "Du Start au titre a la fin du jeu, bonus de temps et ecrans de continue retires, Sonic seul, morts et continues permis"
+}
