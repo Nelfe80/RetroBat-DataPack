@@ -320,7 +320,233 @@
         }
        ]
       }
-     }
+     },
+     "combination_starts": [
+      {
+       "seat_languages": [
+        "en",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-en-fr.state",
+        "sha256": "b49e99b1579cc50f18919d56d838b49029d5263ff6499b1cc7a23c68e0c113ce",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102230,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-en-de.state",
+        "sha256": "d1a767c3ee73092a81a5173aee595ed3b9fc8968b97435d965fd29a09b70b873",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102261,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-en-es.state",
+        "sha256": "dd5adea1b6d0ec379e627c8b8f9090b5b26dfccec2bfb5ece597472841aa443f",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102339,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-en-it.state",
+        "sha256": "73c94c4ce2f40cb4ad94f48c8c5f8eeccae536ae4694fb4730a8fd0eba108c43",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102301,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-fr-en.state",
+        "sha256": "b7b985e5483386039cd1c1de770ec573422e00ea062045c70e6f940e6bb02921",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102205,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-fr-de.state",
+        "sha256": "f9218217bfa03925396be48262bc327adb10560052828d8ef3a57a04d9fa2c2a",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102258,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-fr-es.state",
+        "sha256": "6fff7fc2eabe07d956023a3283f88927469cf6649a67f7285fa50568d7e675c9",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102337,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-fr-it.state",
+        "sha256": "02603fc7f5b6f2d83fd927ec460a6ad911cfe5f6947fc1c11bbb8adcd5180456",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102298,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-de-en.state",
+        "sha256": "b83d8c76f5cdc852ca2760ffa32baf76e437af20f28d8754bec9a5a166a909dc",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102207,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-de-fr.state",
+        "sha256": "0cd0ed8a22a834a13ad3073ccfcd2902bf8fc77632745c763e21c98d83a8a4a8",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102234,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-de-es.state",
+        "sha256": "f4dfbcf84a178808674d9fea5456099fe8cfd564cb19d23e5fc780bd03a3b422",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102340,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-de-it.state",
+        "sha256": "cd0f0cd70333c9fd7ddd50012b429749974b208db836b0e309beef0908b1a69b",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102302,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-it-de.state",
+        "sha256": "c8516804ce3c694eff0b417ef1afc89ae7f0a9e45b326f1e43c4c770aa1c6c0c",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102310,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-it-es.state",
+        "sha256": "bbd5cb06e8bb860f0907d91307fb3e73fa05e4d5aa950e0a13fe10a42bd4fe88",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102390,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      }
+     ]
     }
    ],
    "start": {
@@ -666,7 +892,265 @@
         }
        ]
       }
-     }
+     },
+     "combination_starts": [
+      {
+       "seat_languages": [
+        "en",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-en-fr.state",
+        "sha256": "4af5805b5c01c31b646c229844c5f592c457c9ff56096c40b98e463401870be7",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110505,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-en-de.state",
+        "sha256": "577c1c810bda0398ee2fdd55b65a18d944b33ba96ddde660597666ee8f2f8629",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109421,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-en-es.state",
+        "sha256": "5be15a2838a9d426071e8bce735108741c63235c1aaa89e494779fcae0157fc7",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109151,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "en",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-en-it.state",
+        "sha256": "23a47f1f52d6f0b6a4e1aa904f014f2edeb9c511e369158a2f809582ebb8c4e7",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109913,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-fr-en.state",
+        "sha256": "780b4b4a7e2ec0de8c540946dd518fc5507e92b684c5e31f99dd4daabd8d299f",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110549,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-fr-de.state",
+        "sha256": "e2f7267ebc194462965b1d1e2ebf402471e62722e54ef29f980faefe681c4417",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110800,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-fr-es.state",
+        "sha256": "a1f0f9481909f36935e9effcbeb449dd06dc2454b54e51b5404526e340ed2584",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110471,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "fr",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-fr-it.state",
+        "sha256": "f3cf16fa14d37a323d5e429bafb01debfe6fa985b9186cd7b1b501eb7efed680",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 111202,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-de-en.state",
+        "sha256": "2e3e54fe4ace2e0873cfa8d0890bae03e8afa3ac17c4f47a52e2847162675232",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109258,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-es-fr.state",
+        "sha256": "8d745faeba0192c035fc4f97a44700f21f0a1dd8cf66db19086d96f44f75b786",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110492,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-es-de.state",
+        "sha256": "edd601ce945a855604cda0f9b37063ef17c6968f056b5116bba9e00bc7279659",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109587,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-es-it.state",
+        "sha256": "685cf87fba347cd3457d074b33632a650c325f32dd667dec3e5f65b4bf69be30",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109784,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-it-en.state",
+        "sha256": "1f02e5d8ff4acdd3a20006ee504082121e0a8ac8166885b9e7eaa04112102782",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110145,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-it-fr.state",
+        "sha256": "19279b9d4e1e250481d3449976a3ee29692ff4d2b3a748a89627f4794ab6cee3",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 111379,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-it-de.state",
+        "sha256": "21065b6a4a2db18f05862c7598a4d6f180e32552d2a0faf7dbb0e9c55f3177ae",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110419,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-it-es.state",
+        "sha256": "fd2bfaa332baab1e09e91eaf1404bccee0a7c444827593e48298683a6b44af50",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 110000,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      }
+     ]
     },
     {
      "key": "japan",
@@ -1194,6 +1678,182 @@
         "players": 2,
         "content": "9edf4f6e19d901d470aa1117cb0372b3",
         "bytes": 182597,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-de-fr.state",
+        "sha256": "e1157f747f709b90c431de8d002c466e62f1fc31f545fd78ffc16c28adb91f09",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182678,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-de-es.state",
+        "sha256": "f69b9159acb63151eda332b7a193d0cd20d73e8b71405f25a14cbac0e95d142a",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182543,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "de",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-de-it.state",
+        "sha256": "95fe8dafa57b2a600f4e152bbb8ffa37965f6ae73f3829f76a4635a5c02064ed",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182624,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-es-en.state",
+        "sha256": "3755b150aa8f94ea5df0ea653755385c51695bae265b0c6b5b4ac47a9cd9c7a2",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182639,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-es-fr.state",
+        "sha256": "a4942ebb025604b091d7fc3bd4973292c80e55fcd3611e46fcca2ee258c3f25c",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182707,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-es-de.state",
+        "sha256": "457bdd12b49c48824e6b7f77af7340bb648d541f275e59d4fde078207d24f568",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182553,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "es",
+        "it"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-es-it.state",
+        "sha256": "306a1ee1c489c6fca613940c4e23687a05d71ce6c7d55f02c092fc12a42c6066",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182659,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "en"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-it-en.state",
+        "sha256": "1f8dd3b6a936dec8ccb1ae807c42e7b66389953ff205140de01cef30f42b0957",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182610,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "fr"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-it-fr.state",
+        "sha256": "4d78f8744687fb9f130bcb54d0a428cf4be9511f11ff8875b919b4a54ee3450a",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182684,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "de"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-it-de.state",
+        "sha256": "13d10da5fcab5d20c0d48b92ee840e59f3f345cc4f99d72ff0e099d41d785f3a",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182630,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       }
+      },
+      {
+       "seat_languages": [
+        "it",
+        "es"
+       ],
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-it-es.state",
+        "sha256": "5827838082ca8ed088df48ec644aad2dbfcffd47ff805b938276da312e1a625c",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 182663,
         "core_sha256": [
          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
         ]
