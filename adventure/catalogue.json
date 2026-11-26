@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "revision": "adventure-lot0-2026-11-26.2",
+ "revision": "adventure-lot0-2026-11-26.4",
  "collection": "adventure",
  "cores": {
   "gba": {
@@ -34,17 +34,6 @@
   {
    "id": "gba/kirby-amazing-mirror",
    "system": "gba",
-   "content": {
-    "md5": [
-     "df5efe075b35859529ebf82a4d824458"
-    ],
-    "crc": [
-     "9f2a3048"
-    ],
-    "size": [
-     16777216
-    ]
-   },
    "name": "Kirby & The Amazing Mirror",
    "family": "coop",
    "players": {
@@ -52,12 +41,297 @@
     "max": 4
    },
    "level": "nelfeplay",
+   "core": "mgba_splitscreen",
+   "content": {
+    "md5": [
+     "df5efe075b35859529ebf82a4d824458",
+     "1c759edf84a20174989588664bbbec55"
+    ],
+    "sha1": [
+     "274b102b6d940f46861a92b4e65f89a51815c12c",
+     "6f478a455383a2a12378f292581dfd7300300700"
+    ],
+    "crc": [
+     "9f2a3048",
+     "4f07c618"
+    ],
+    "size": [
+     16777216
+    ]
+   },
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "df5efe075b35859529ebf82a4d824458"
+      ],
+      "sha1": [
+       "274b102b6d940f46861a92b4e65f89a51815c12c"
+      ],
+      "crc": [
+       "9f2a3048"
+      ],
+      "size": [
+       16777216
+      ]
+     },
+     "file_hint": "Kirby & The Amazing Mirror (USA)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/gba/kirby-amazing-mirror/aventure-2p-mgba-splitscreen.state",
+      "sha256": "32bdba4b90154f8b93f8106fe101273751be548f8b6c25d471c32578c54dcff5",
+      "players": 2,
+      "content": "df5efe075b35859529ebf82a4d824458",
+      "bytes": 100988,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/kirby-amazing-mirror/aventure-3p-mgba-splitscreen.state",
+       "sha256": "eb34ecbb97daa47fbcb2d899c136fdad53ae0f531f28ae4f2e0c8a6bcb5f8eef",
+       "players": 3,
+       "content": "df5efe075b35859529ebf82a4d824458",
+       "bytes": 148597,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/kirby-amazing-mirror/aventure-4p-mgba-splitscreen.state",
+       "sha256": "2504cca42e295f80fe2b36c1b688f1f2ace526c0c986875a39684509cf4bef28",
+       "players": 4,
+       "content": "df5efe075b35859529ebf82a4d824458",
+       "bytes": 191944,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ]
+    },
+    {
+     "key": "europe",
+     "label": "Europe",
+     "region": "Europe",
+     "languages": [
+      "en",
+      "de",
+      "fr",
+      "es",
+      "it"
+     ],
+     "content": {
+      "md5": [
+       "1c759edf84a20174989588664bbbec55"
+      ],
+      "sha1": [
+       "6f478a455383a2a12378f292581dfd7300300700"
+      ],
+      "crc": [
+       "4f07c618"
+      ],
+      "size": [
+       16777216
+      ]
+     },
+     "file_hint": "Kirby & The Amazing Mirror (Europe) (En,Fr,De,Es,It)",
+     "language_choice": {
+      "in_game": true,
+      "where": "ecran titre : rangee de drapeaux (UK, DE, FR, ES, IT), droite puis START, console par console",
+      "per_console": true
+     },
+     "start_language": "en",
+     "start": {
+      "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen.state",
+      "sha256": "4f0b1576b8be804cb9f4ed476b61d9a6b2d18a2630bc7b78889dcb143ae3d461",
+      "players": 2,
+      "content": "1c759edf84a20174989588664bbbec55",
+      "bytes": 102208,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/kirby-amazing-mirror/europe/aventure-3p-mgba-splitscreen.state",
+       "sha256": "4942d09f8198492ee6944fd0fb6cbbb7ec7028f5269184439c8902ad13affb64",
+       "players": 3,
+       "content": "1c759edf84a20174989588664bbbec55",
+       "bytes": 154410,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/kirby-amazing-mirror/europe/aventure-4p-mgba-splitscreen.state",
+       "sha256": "1c1eaf506b76a017fbf7fbef2349856ac49e2f2ed91ff6281f82aa10297f37cb",
+       "players": 4,
+       "content": "1c759edf84a20174989588664bbbec55",
+       "bytes": 208525,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ],
+     "language_starts": {
+      "de": {
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-de.state",
+        "sha256": "10988c00ea936c9a9fb04159e7c5a7a2c07f2c6f055249df46496417eb626e24",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102257,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-3p-mgba-splitscreen-de.state",
+         "sha256": "14663b67d192b2acecb5e4bf11703cf79fbecffe305902cb690f32483b6edcbe",
+         "players": 3,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 154443,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-4p-mgba-splitscreen-de.state",
+         "sha256": "05f37df36a590f44049546406789826315ba34a6c6eee9984d0a61a88c5599f5",
+         "players": 4,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 208583,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "fr": {
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-fr.state",
+        "sha256": "53ff9a89219eca892770eb58be7ca1fe54e7f46c92161c0e0d4cd7b64fa4b840",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102228,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-3p-mgba-splitscreen-fr.state",
+         "sha256": "1d0359ae7882e65ad4b5b6b5a97014fd3636f288a2c56810745dc87be980baaa",
+         "players": 3,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 154352,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-4p-mgba-splitscreen-fr.state",
+         "sha256": "c08351ac23bd723fbd0223f2cf986cb338bd729ecbbcf5fa192b1d8893eddd35",
+         "players": 4,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 208539,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "es": {
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-es.state",
+        "sha256": "aeea8e1518849278b93b0832ea31f8e1b36a61d8a1e6b420d5282ce679090bf6",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102447,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-3p-mgba-splitscreen-es.state",
+         "sha256": "5d93a1acf9d8c2b1e773d50712b913cc50423454d4a49da9080a9eae51906688",
+         "players": 3,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 154746,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-4p-mgba-splitscreen-es.state",
+         "sha256": "66dd154f82765ab1df7939ad61b7e6d0153b5f0f1184eece16709c68d174b155",
+         "players": 4,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 208986,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "it": {
+       "start": {
+        "state": "states/gba/kirby-amazing-mirror/europe/aventure-2p-mgba-splitscreen-it.state",
+        "sha256": "08e86e0997915904129a0aa3d92b2aebeb03736ffb6621131eca5dd75e526ad0",
+        "players": 2,
+        "content": "1c759edf84a20174989588664bbbec55",
+        "bytes": 102347,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-3p-mgba-splitscreen-it.state",
+         "sha256": "b1d1cdf9d8d31b480e590dd58b7fe0d21809fda216ac01b8af5368d22c43c447",
+         "players": 3,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 154567,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/kirby-amazing-mirror/europe/aventure-4p-mgba-splitscreen-it.state",
+         "sha256": "33856892186a643df52670e9c3b464c7013e3419cb28f38c5a0b92fe595733b3",
+         "players": 4,
+         "content": "1c759edf84a20174989588664bbbec55",
+         "bytes": 208826,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      }
+     }
+    }
+   ],
    "start": {
     "state": "states/gba/kirby-amazing-mirror/aventure-2p-mgba-splitscreen.state",
     "sha256": "32bdba4b90154f8b93f8106fe101273751be548f8b6c25d471c32578c54dcff5",
     "players": 2,
     "content": "df5efe075b35859529ebf82a4d824458",
-    "bytes": 100988
+    "bytes": 100988,
+    "core_sha256": [
+     "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+    ]
    },
    "starts": [
     {
@@ -65,19 +339,24 @@
      "sha256": "eb34ecbb97daa47fbcb2d899c136fdad53ae0f531f28ae4f2e0c8a6bcb5f8eef",
      "players": 3,
      "content": "df5efe075b35859529ebf82a4d824458",
-     "bytes": 148597
+     "bytes": 148597,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
     },
     {
      "state": "states/gba/kirby-amazing-mirror/aventure-4p-mgba-splitscreen.state",
      "sha256": "2504cca42e295f80fe2b36c1b688f1f2ace526c0c986875a39684509cf4bef28",
      "players": 4,
      "content": "df5efe075b35859529ebf82a4d824458",
-     "bytes": 191944
+     "bytes": 191944,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
     }
    ],
-   "core": "mgba_splitscreen",
    "adventure": {
-    "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
+    "core_sha256": "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44",
     "resume": {
      "same_players": "state",
      "other_players": "new_start_plus_cartridge_save"
@@ -87,9 +366,9 @@
      "console": 1,
      "file": "{rom}.srm",
      "kind": "gba_srm_slots",
-     "slots": 4,
-     "slot_bytes": 32768,
+     "srm_bytes": 131072,
      "cartridge_place": 1,
+     "note": "le .srm de RetroArch est la sauvegarde de la console 1 SEULE (correction du dev-natif, 26/11) ; kind garde le nom que lit l API 1.9.222 (gba_srm_slots : elle place les premiers octets du .srm dans la console 1 du depart)",
      "extract_from_state": "SPST : console 1, extdata tag 2 (SAVEDATA)",
      "cartridge_bytes": 32768
     }
@@ -98,17 +377,6 @@
   {
    "id": "gba/shining-soul-ii",
    "system": "gba",
-   "content": {
-    "md5": [
-     "f4a655e23638e79eacf44a456faee6a4"
-    ],
-    "crc": [
-     "4038e282"
-    ],
-    "size": [
-     16777216
-    ]
-   },
    "name": "Shining Soul II",
    "family": "coop",
    "players": {
@@ -116,12 +384,358 @@
     "max": 4
    },
    "level": "nelfeplay",
+   "core": "mgba_splitscreen",
+   "content": {
+    "md5": [
+     "f4a655e23638e79eacf44a456faee6a4",
+     "49aa688745111aaa51076a345f8f18c3",
+     "3bae05647bbee8565e3993fade2ca5ba"
+    ],
+    "sha1": [
+     "541469b319a72ef4bc262483745526ac3eddd925",
+     "aa1288be9257337abdfe3034898cf6c7aa778fbc",
+     "19856388caf5140f7527728bd09e20bcb8924eeb"
+    ],
+    "crc": [
+     "4038e282",
+     "55e503c1",
+     "7b39a7b2"
+    ],
+    "size": [
+     16777216
+    ]
+   },
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "f4a655e23638e79eacf44a456faee6a4"
+      ],
+      "sha1": [
+       "541469b319a72ef4bc262483745526ac3eddd925"
+      ],
+      "crc": [
+       "4038e282"
+      ],
+      "size": [
+       16777216
+      ]
+     },
+     "file_hint": "Shining Soul II (USA)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/gba/shining-soul-ii/aventure-2p-mgba-splitscreen.state",
+      "sha256": "9910e9f55920b9709716da734db0aa7b4ef6a02990be9d8658876f6825364649",
+      "players": 2,
+      "content": "f4a655e23638e79eacf44a456faee6a4",
+      "bytes": 108492,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/shining-soul-ii/aventure-3p-mgba-splitscreen.state",
+       "sha256": "e7804d0d6c1d4cc0cf639e0f536eae5fa746281a3f923caabd92d14ac322c567",
+       "players": 3,
+       "content": "f4a655e23638e79eacf44a456faee6a4",
+       "bytes": 165006,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/shining-soul-ii/aventure-4p-mgba-splitscreen.state",
+       "sha256": "775cc94cd1f1c6162e54377b381eecab76b75d65b0e6c07a7c043499a312c3a2",
+       "players": 4,
+       "content": "f4a655e23638e79eacf44a456faee6a4",
+       "bytes": 222300,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ]
+    },
+    {
+     "key": "europe",
+     "label": "Europe",
+     "region": "Europe",
+     "languages": [
+      "en",
+      "de",
+      "fr",
+      "es",
+      "it"
+     ],
+     "content": {
+      "md5": [
+       "49aa688745111aaa51076a345f8f18c3"
+      ],
+      "sha1": [
+       "aa1288be9257337abdfe3034898cf6c7aa778fbc"
+      ],
+      "crc": [
+       "55e503c1"
+      ],
+      "size": [
+       16777216
+      ]
+     },
+     "file_hint": "Shining Soul II (Europe) (En,Fr,De,Es,It)",
+     "language_choice": {
+      "in_game": true,
+      "where": "premier ecran apres le logo : drapeaux (UK, DE, FR en haut ; IT, ES en bas), A, console par console",
+      "per_console": true
+     },
+     "start_language": "en",
+     "start": {
+      "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen.state",
+      "sha256": "f7e30209a65cb3b81a4211a3b1d7f7d0524304ac5f1262f397161c4871e84dd6",
+      "players": 2,
+      "content": "49aa688745111aaa51076a345f8f18c3",
+      "bytes": 109249,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/shining-soul-ii/europe/aventure-3p-mgba-splitscreen.state",
+       "sha256": "e0189449c90b48b497a3519d236e471adbd433350cc5e873bedf222d06b93da2",
+       "players": 3,
+       "content": "49aa688745111aaa51076a345f8f18c3",
+       "bytes": 161856,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/shining-soul-ii/europe/aventure-4p-mgba-splitscreen.state",
+       "sha256": "edc905e17aef16204310e950f18ac4b066c87f68b51dcd1916668ae4fb68637e",
+       "players": 4,
+       "content": "49aa688745111aaa51076a345f8f18c3",
+       "bytes": 211222,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ],
+     "language_starts": {
+      "de": {
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-de.state",
+        "sha256": "7a369c252cef1194332ddb071b644f93b0456d69dc5fe9fc9775fc1f5e3f5917",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 109564,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-3p-mgba-splitscreen-de.state",
+         "sha256": "d172aa52f1223be75d1a83d8389fb32e88d1eed6bc902a34038ec01cde46acef",
+         "players": 3,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 165544,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-4p-mgba-splitscreen-de.state",
+         "sha256": "7bec1a5c2032291a740d22f6e1116b71a10103563b3a60e747d04baa927e8916",
+         "players": 4,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 221390,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "fr": {
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-fr.state",
+        "sha256": "53b6777a3b978d104cad06a36b702166e218dd710bd962a8905d35f639e42d01",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 107995,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-3p-mgba-splitscreen-fr.state",
+         "sha256": "0e76aaac058c6b07764d69adb491bbbdc9b2863ad447f3b2bfdc972b39c12806",
+         "players": 3,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 168668,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-4p-mgba-splitscreen-fr.state",
+         "sha256": "5e5d77e07c22b33b8abdd1611daa54b4da953b868ca175f6e2ff1b0a6e3909fc",
+         "players": 4,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 225305,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "es": {
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-es.state",
+        "sha256": "b4d1ba2e594b68107dccab1aff6c6a32bc471330c7a82377c0c81b798c515088",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 107713,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-3p-mgba-splitscreen-es.state",
+         "sha256": "b08332c5da688dacae9d6de59a591fd1f5ed9c6f3c68388554b79600cba1c94b",
+         "players": 3,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 164650,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-4p-mgba-splitscreen-es.state",
+         "sha256": "d19dc48005c2dbbc97b13460a43c1af15415d67161b07a3338279e5c897a62cf",
+         "players": 4,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 220210,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "it": {
+       "start": {
+        "state": "states/gba/shining-soul-ii/europe/aventure-2p-mgba-splitscreen-it.state",
+        "sha256": "0eeb33cfb7125d11098366d89bc79045443b08b198349476a3a9193122e7614c",
+        "players": 2,
+        "content": "49aa688745111aaa51076a345f8f18c3",
+        "bytes": 108104,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-3p-mgba-splitscreen-it.state",
+         "sha256": "8c663af2c0f2751080ffd1229d615739272afcdd14ffd917b5433c58802712a6",
+         "players": 3,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 166962,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/shining-soul-ii/europe/aventure-4p-mgba-splitscreen-it.state",
+         "sha256": "c00d4f4e69c4a3aa9acb4c4872479d50359beba05dd962f7fa32a913b3f435e5",
+         "players": 4,
+         "content": "49aa688745111aaa51076a345f8f18c3",
+         "bytes": 223329,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "key": "japan",
+     "label": "Japan",
+     "region": "Japan",
+     "languages": [
+      "ja"
+     ],
+     "content": {
+      "md5": [
+       "3bae05647bbee8565e3993fade2ca5ba"
+      ],
+      "sha1": [
+       "19856388caf5140f7527728bd09e20bcb8924eeb"
+      ],
+      "crc": [
+       "7b39a7b2"
+      ],
+      "size": [
+       16777216
+      ]
+     },
+     "file_hint": "Shining Soul II (Japan)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/gba/shining-soul-ii/japan/aventure-2p-mgba-splitscreen.state",
+      "sha256": "3497b4e29aa72e81e1f7d06e8ba76754f03703a6cd0f46aedc5976d9941573d5",
+      "players": 2,
+      "content": "3bae05647bbee8565e3993fade2ca5ba",
+      "bytes": 108766,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/shining-soul-ii/japan/aventure-3p-mgba-splitscreen.state",
+       "sha256": "a0f00b7b39eafeb40ca872358a50402b0a38c33af2aed3395e2b8fe350690cc6",
+       "players": 3,
+       "content": "3bae05647bbee8565e3993fade2ca5ba",
+       "bytes": 170052,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/shining-soul-ii/japan/aventure-4p-mgba-splitscreen.state",
+       "sha256": "e537d32372a489e8f543abc593d5d72a42565a462fc18ce59d3ea2046e985da6",
+       "players": 4,
+       "content": "3bae05647bbee8565e3993fade2ca5ba",
+       "bytes": 227983,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ]
+    }
+   ],
    "start": {
     "state": "states/gba/shining-soul-ii/aventure-2p-mgba-splitscreen.state",
     "sha256": "9910e9f55920b9709716da734db0aa7b4ef6a02990be9d8658876f6825364649",
     "players": 2,
     "content": "f4a655e23638e79eacf44a456faee6a4",
-    "bytes": 108492
+    "bytes": 108492,
+    "core_sha256": [
+     "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+    ]
    },
    "starts": [
     {
@@ -129,19 +743,24 @@
      "sha256": "e7804d0d6c1d4cc0cf639e0f536eae5fa746281a3f923caabd92d14ac322c567",
      "players": 3,
      "content": "f4a655e23638e79eacf44a456faee6a4",
-     "bytes": 165006
+     "bytes": 165006,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
     },
     {
      "state": "states/gba/shining-soul-ii/aventure-4p-mgba-splitscreen.state",
      "sha256": "775cc94cd1f1c6162e54377b381eecab76b75d65b0e6c07a7c043499a312c3a2",
      "players": 4,
      "content": "f4a655e23638e79eacf44a456faee6a4",
-     "bytes": 222300
+     "bytes": 222300,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
     }
    ],
-   "core": "mgba_splitscreen",
    "adventure": {
-    "core_sha256": "04b8277e038b34429e8f667306388e6a0214b77c0b0c8f5d3663900c09b95a54",
+    "core_sha256": "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44",
     "resume": {
      "same_players": "state",
      "other_players": "new_start_plus_cartridge_save"
@@ -151,28 +770,362 @@
      "console": 1,
      "file": "{rom}.srm",
      "kind": "gba_srm_slots",
-     "slots": 4,
-     "slot_bytes": 32768,
+     "srm_bytes": 131072,
      "cartridge_place": 1,
+     "note": "le .srm de RetroArch est la sauvegarde de la console 1 SEULE (correction du dev-natif, 26/11) ; kind garde le nom que lit l API 1.9.222 (gba_srm_slots : elle place les premiers octets du .srm dans la console 1 du depart)",
      "extract_from_state": "SPST : console 1, extdata tag 2 (SAVEDATA)",
      "cartridge_bytes": 65536
     }
    }
   },
   {
-   "id": "snes/secret-of-mana",
-   "system": "snes",
+   "id": "gba/zelda-alttp-four-swords",
+   "system": "gba",
+   "name": "The Legend of Zelda: A Link to the Past & Four Swords",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 4
+   },
+   "level": "nelfeplay",
+   "core": "mgba_splitscreen",
    "content": {
     "md5": [
-     "5e1602019d4e337b9c6a714a6224ba1d"
+     "3287ca66e5cc285a9fe3a922051e84c6",
+     "9edf4f6e19d901d470aa1117cb0372b3"
+    ],
+    "sha1": [
+     "a272055abbbf6c26b0cd54c87395d01699589161",
+     "3bb7f97ada7d60d8d334b271084effd1db853b32"
     ],
     "crc": [
-     "e9334b9e"
+     "8e91cd13",
+     "5a164321"
     ],
     "size": [
-     2097152
+     8388608
     ]
    },
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "3287ca66e5cc285a9fe3a922051e84c6"
+      ],
+      "sha1": [
+       "a272055abbbf6c26b0cd54c87395d01699589161"
+      ],
+      "crc": [
+       "8e91cd13"
+      ],
+      "size": [
+       8388608
+      ]
+     },
+     "file_hint": "Legend of Zelda, The - A Link to the Past & Four Swords (USA)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/gba/zelda-alttp-four-swords/usa/aventure-2p-mgba-splitscreen.state",
+      "sha256": "39861b3cce65456959d5a26a3d3d32b3abf921a63ce1d7177517359efbd57a5f",
+      "players": 2,
+      "content": "3287ca66e5cc285a9fe3a922051e84c6",
+      "bytes": 178301,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/zelda-alttp-four-swords/usa/aventure-3p-mgba-splitscreen.state",
+       "sha256": "3f0efeb6c7581bda8fa00a987c78843227b8233206998d2f373a51ddae6026f6",
+       "players": 3,
+       "content": "3287ca66e5cc285a9fe3a922051e84c6",
+       "bytes": 268680,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/zelda-alttp-four-swords/usa/aventure-4p-mgba-splitscreen.state",
+       "sha256": "de4331a759af4af51e0eb29754d2508aade8ccefdd84e8780c23369de45d92e7",
+       "players": 4,
+       "content": "3287ca66e5cc285a9fe3a922051e84c6",
+       "bytes": 359369,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ],
+     "requires_core_sha256": "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+    },
+    {
+     "key": "europe",
+     "label": "Europe",
+     "region": "Europe",
+     "languages": [
+      "en",
+      "de",
+      "fr",
+      "es",
+      "it"
+     ],
+     "content": {
+      "md5": [
+       "9edf4f6e19d901d470aa1117cb0372b3"
+      ],
+      "sha1": [
+       "3bb7f97ada7d60d8d334b271084effd1db853b32"
+      ],
+      "crc": [
+       "5a164321"
+      ],
+      "size": [
+       8388608
+      ]
+     },
+     "file_hint": "Legend of Zelda, The - A Link to the Past & Four Swords (Europe) (En,Fr,De,Es,It)",
+     "language_choice": {
+      "in_game": true,
+      "where": "premier ecran apres le logo : ENGLISH, FRANCAIS, DEUTSCH, ESPANOL, ITALIANO (bas puis A), console par console",
+      "per_console": true
+     },
+     "start_language": "en",
+     "start": {
+      "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen.state",
+      "sha256": "e70e7c8d898260a0aae5f0eeee664b54da7ccb5b868c7083359823165ef54002",
+      "players": 2,
+      "content": "9edf4f6e19d901d470aa1117cb0372b3",
+      "bytes": 178222,
+      "core_sha256": [
+       "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+      ]
+     },
+     "starts": [
+      {
+       "state": "states/gba/zelda-alttp-four-swords/europe/aventure-3p-mgba-splitscreen.state",
+       "sha256": "26962e968e32a74bbdc3039e2e2421825c40648be4eac3513b9ac46f6fbdd89d",
+       "players": 3,
+       "content": "9edf4f6e19d901d470aa1117cb0372b3",
+       "bytes": 268477,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      },
+      {
+       "state": "states/gba/zelda-alttp-four-swords/europe/aventure-4p-mgba-splitscreen.state",
+       "sha256": "1d8ee64607bc8489ce4b15ffcca659f0af2a51d8e55a39e834ec19bb54648c7f",
+       "players": 4,
+       "content": "9edf4f6e19d901d470aa1117cb0372b3",
+       "bytes": 358731,
+       "core_sha256": [
+        "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+       ]
+      }
+     ],
+     "language_starts": {
+      "de": {
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-de.state",
+        "sha256": "480cbcbab9481c69bfd0a6e1e9836f268bb6a792d89d5b4981efe3af2fac8d0b",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 178230,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-3p-mgba-splitscreen-de.state",
+         "sha256": "108aa4d580383a48f73773eb60ecb30ae9d65014758e2e04faf99d85f2635560",
+         "players": 3,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 274894,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-4p-mgba-splitscreen-de.state",
+         "sha256": "f16b78e727b99fcabb7322082b994284690dd6315c10fff0dd39d9c32652d09e",
+         "players": 4,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 367962,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "fr": {
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-fr.state",
+        "sha256": "9c5fffc506032eb4e6d9af8e6881ff03a5864030073ac26862ac49a31354bc16",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 178314,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-3p-mgba-splitscreen-fr.state",
+         "sha256": "3bbcfe69d15f6178d3a643230f6b0f8b99f7110be90d5df94db66ab1373ef84a",
+         "players": 3,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 275032,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-4p-mgba-splitscreen-fr.state",
+         "sha256": "59fdb04811525abcbb1cf5530f968d36cf18e46ef88739511bb98bc0c878fd53",
+         "players": 4,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 368167,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "es": {
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-es.state",
+        "sha256": "41828d6c21854b15796526057254a3438338b48bcb1bc5bae70608be35e1ae80",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 178171,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-3p-mgba-splitscreen-es.state",
+         "sha256": "f425f446a0d111bab81b126c78c993741c7f0c42c555d1f59f01254be108e3a8",
+         "players": 3,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 275018,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-4p-mgba-splitscreen-es.state",
+         "sha256": "b035bcaa14b8424b9bbc156f84242764fd1e0c9cd34fc05bf72d2c8fd1fde43c",
+         "players": 4,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 368125,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      },
+      "it": {
+       "start": {
+        "state": "states/gba/zelda-alttp-four-swords/europe/aventure-2p-mgba-splitscreen-it.state",
+        "sha256": "3b2bc23deacfee6f18a362a6b2fac6808cf98da9761b425b465745498d95518f",
+        "players": 2,
+        "content": "9edf4f6e19d901d470aa1117cb0372b3",
+        "bytes": 178256,
+        "core_sha256": [
+         "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+        ]
+       },
+       "starts": [
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-3p-mgba-splitscreen-it.state",
+         "sha256": "f25548239baa29a7f7188b78b3e97b33e8f86fd3ab5fc991cb90dfb372ccb6ac",
+         "players": 3,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 274984,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        },
+        {
+         "state": "states/gba/zelda-alttp-four-swords/europe/aventure-4p-mgba-splitscreen-it.state",
+         "sha256": "82ff2e57c5248fd62504ff60aa5792f608cfa1a971dbc738a2e6fe71eb80585d",
+         "players": 4,
+         "content": "9edf4f6e19d901d470aa1117cb0372b3",
+         "bytes": 367998,
+         "core_sha256": [
+          "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+         ]
+        }
+       ]
+      }
+     },
+     "requires_core_sha256": "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+    }
+   ],
+   "start": {
+    "state": "states/gba/zelda-alttp-four-swords/usa/aventure-2p-mgba-splitscreen.state",
+    "sha256": "39861b3cce65456959d5a26a3d3d32b3abf921a63ce1d7177517359efbd57a5f",
+    "players": 2,
+    "content": "3287ca66e5cc285a9fe3a922051e84c6",
+    "bytes": 178301,
+    "core_sha256": [
+     "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+    ]
+   },
+   "starts": [
+    {
+     "state": "states/gba/zelda-alttp-four-swords/usa/aventure-3p-mgba-splitscreen.state",
+     "sha256": "3f0efeb6c7581bda8fa00a987c78843227b8233206998d2f373a51ddae6026f6",
+     "players": 3,
+     "content": "3287ca66e5cc285a9fe3a922051e84c6",
+     "bytes": 268680,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
+    },
+    {
+     "state": "states/gba/zelda-alttp-four-swords/usa/aventure-4p-mgba-splitscreen.state",
+     "sha256": "de4331a759af4af51e0eb29754d2508aade8ccefdd84e8780c23369de45d92e7",
+     "players": 4,
+     "content": "3287ca66e5cc285a9fe3a922051e84c6",
+     "bytes": 359369,
+     "core_sha256": [
+      "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44"
+     ]
+    }
+   ],
+   "adventure": {
+    "core_sha256": "cf385d9421d5ad130cd854adc466444ffd84baed2c375630ab0afa84be8eca44",
+    "resume": {
+     "same_players": "state",
+     "other_players": "new_start_plus_cartridge_save"
+    },
+    "new_start": "start",
+    "cartridge_save": {
+     "console": 1,
+     "file": "{rom}.srm",
+     "kind": "gba_srm_slots",
+     "srm_bytes": 131072,
+     "cartridge_place": 1,
+     "note": "le .srm de RetroArch est la sauvegarde de la console 1 SEULE (correction du dev-natif, 26/11) ; kind garde le nom que lit l API 1.9.222 (gba_srm_slots : elle place les premiers octets du .srm dans la console 1 du depart)",
+     "extract_from_state": "SPST : console 1, extdata tag 2 (SAVEDATA)",
+     "cartridge_bytes": 8192
+    }
+   }
+  },
+  {
+   "id": "snes/secret-of-mana",
+   "system": "snes",
    "name": "Secret of Mana",
    "family": "coop",
    "players": {
@@ -180,50 +1133,284 @@
     "max": 3
    },
    "level": "nelfeplay",
-   "start": {
-    "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
-    "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
-    "content": "5e1602019d4e337b9c6a714a6224ba1d",
-    "bytes": 110781
+   "core": "snes9x",
+   "content": {
+    "md5": [
+     "10a894199a9adc50ff88815fd9853e19",
+     "0194f74c93b0edf3e4a7672a448572ad",
+     "35afb723a7a1166d894549519d78622c",
+     "5e1602019d4e337b9c6a714a6224ba1d",
+     "b57303407986c0d28f2d78f931efc59c"
+    ],
+    "sha1": [
+     "8133041a363e3cc68cedef40b49b6d20d03c505d",
+     "d9aaf3119784887475da9548000738e1da84bee6",
+     "d5601be19de691e58edd55194e10496c77e464e5",
+     "ab8a31bfb4cf0ce19b96893a31442ffbfd8d0beb"
+    ],
+    "crc": [
+     "d0176b24",
+     "c5cb2f26",
+     "6be4ca95",
+     "e9334b9e",
+     "b069bb3a"
+    ],
+    "size": [
+     2097152
+    ]
    },
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "10a894199a9adc50ff88815fd9853e19"
+      ],
+      "sha1": [
+       "8133041a363e3cc68cedef40b49b6d20d03c505d"
+      ],
+      "crc": [
+       "d0176b24"
+      ],
+      "size": [
+       2097152
+      ]
+     },
+     "file_hint": "Secret of Mana (USA)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
+      "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+      "content": "10a894199a9adc50ff88815fd9853e19",
+      "bytes": 111682,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
+       "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+       "content": "10a894199a9adc50ff88815fd9853e19",
+       "bytes": 111682,
+       "players": 3
+      }
+     ]
+    },
+    {
+     "key": "europe",
+     "label": "Europe",
+     "region": "Europe",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "0194f74c93b0edf3e4a7672a448572ad"
+      ],
+      "sha1": [
+       "d9aaf3119784887475da9548000738e1da84bee6"
+      ],
+      "crc": [
+       "c5cb2f26"
+      ],
+      "size": [
+       2097152
+      ]
+     },
+     "file_hint": "Secret of Mana (Europe)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/secret-of-mana/europe/aventure-1p-snes9x.state",
+      "sha256": "2deac80ce3b37e3c80bf745a6144a92f76e07406c2304a9ce9adb05c11530d84",
+      "content": "0194f74c93b0edf3e4a7672a448572ad",
+      "bytes": 111405,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/europe/aventure-1p-snes9x.state",
+       "sha256": "2deac80ce3b37e3c80bf745a6144a92f76e07406c2304a9ce9adb05c11530d84",
+       "content": "0194f74c93b0edf3e4a7672a448572ad",
+       "bytes": 111405,
+       "players": 3
+      }
+     ]
+    },
+    {
+     "key": "france",
+     "label": "France",
+     "region": "France",
+     "languages": [
+      "fr"
+     ],
+     "content": {
+      "md5": [
+       "35afb723a7a1166d894549519d78622c"
+      ],
+      "sha1": [
+       "d5601be19de691e58edd55194e10496c77e464e5"
+      ],
+      "crc": [
+       "6be4ca95"
+      ],
+      "size": [
+       2097152
+      ]
+     },
+     "file_hint": "Secret of Mana (France)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/secret-of-mana/france/aventure-1p-snes9x.state",
+      "sha256": "bce4c76bdd872fdfb9cfcc330544583c663fcb20555c8274d8460d7dd69a4bc9",
+      "content": "35afb723a7a1166d894549519d78622c",
+      "bytes": 111516,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/france/aventure-1p-snes9x.state",
+       "sha256": "bce4c76bdd872fdfb9cfcc330544583c663fcb20555c8274d8460d7dd69a4bc9",
+       "content": "35afb723a7a1166d894549519d78622c",
+       "bytes": 111516,
+       "players": 3
+      }
+     ]
+    },
+    {
+     "key": "france-rev1",
+     "label": "France (Rev 1)",
+     "region": "France",
+     "languages": [
+      "fr"
+     ],
+     "content": {
+      "md5": [
+       "5e1602019d4e337b9c6a714a6224ba1d"
+      ],
+      "crc": [
+       "e9334b9e"
+      ],
+      "size": [
+       2097152
+      ]
+     },
+     "file_hint": "Secret of Mana (France) (Rev 1)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
+      "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
+      "content": "5e1602019d4e337b9c6a714a6224ba1d",
+      "bytes": 110781,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
+       "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
+       "content": "5e1602019d4e337b9c6a714a6224ba1d",
+       "bytes": 110781,
+       "players": 3
+      }
+     ]
+    },
+    {
+     "key": "germany",
+     "label": "Germany",
+     "region": "Germany",
+     "languages": [
+      "de"
+     ],
+     "content": {
+      "md5": [
+       "b57303407986c0d28f2d78f931efc59c"
+      ],
+      "sha1": [
+       "ab8a31bfb4cf0ce19b96893a31442ffbfd8d0beb"
+      ],
+      "crc": [
+       "b069bb3a"
+      ],
+      "size": [
+       2097152
+      ]
+     },
+     "file_hint": "Secret of Mana (Germany)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/secret-of-mana/germany/aventure-1p-snes9x.state",
+      "sha256": "2d6f57a64c1feb7a65a4ac772045dfe8e14c03e35928331f259298960a484d18",
+      "content": "b57303407986c0d28f2d78f931efc59c",
+      "bytes": 111424,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/germany/aventure-1p-snes9x.state",
+       "sha256": "2d6f57a64c1feb7a65a4ac772045dfe8e14c03e35928331f259298960a484d18",
+       "content": "b57303407986c0d28f2d78f931efc59c",
+       "bytes": 111424,
+       "players": 3
+      }
+     ]
+    }
+   ],
    "device": [
     {
      "port": 2,
      "id": 257
     }
    ],
+   "start": {
+    "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
+    "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+    "content": "10a894199a9adc50ff88815fd9853e19",
+    "bytes": 111682,
+    "players": 2
+   },
+   "starts": [
+    {
+     "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
+     "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+     "content": "10a894199a9adc50ff88815fd9853e19",
+     "bytes": 111682,
+     "players": 3
+    }
+   ],
    "adventure": {
     "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
-    "resume": {
-     "same_players": "state",
-     "other_players": "state_or_new_start_plus_save"
-    },
-    "new_start": "start",
-    "note": "le départ à 2 ou 3 joueurs exige un état APRÈS l'arrivée de la fille et du lutin (plus d'une heure de jeu) : non fabriqué ; device {port 2, id 257} ÉPROUVÉ au banc sur Super Bomberman 3 (5 manettes actives) avec un .rmp de JEU : le snes.rmp de la borne force input_libretro_device_p2 à 1 et le masque",
     "cartridge_save": {
      "console": 1,
      "file": "{rom}.srm",
      "kind": "snes_sram",
      "bytes": 8192,
      "extract_from_state": "snes9x : bloc SRA, 8192 premiers octets"
-    }
-   },
-   "core": "snes9x"
+    },
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_or_new_start_plus_save"
+    },
+    "new_start": "start",
+    "note": "depart solo ; 2 ou 3 joueurs exigent un etat apres l'arrivee de la fille et du lutin ; multitap = .rmp de jeu (le snes.rmp de la borne le masque)"
+   }
   },
   {
    "id": "snes/the-lost-vikings",
    "system": "snes",
-   "content": {
-    "md5": [
-     "dbd58a2c35e4cda603b6238cda0dc6a0"
-    ],
-    "crc": [
-     "94093298"
-    ],
-    "size": [
-     1048576
-    ]
-   },
    "name": "The Lost Vikings",
    "family": "coop",
    "players": {
@@ -231,36 +1418,246 @@
     "max": 2
    },
    "level": "nelfeplay",
+   "core": "snes9x",
+   "content": {
+    "md5": [
+     "7c6990bbacc9e3202ba39c8f37d0bdbf",
+     "dbd58a2c35e4cda603b6238cda0dc6a0",
+     "402347c45af9310afa944cd2b88722cd",
+     "67e4617fc9c17572b7b27386a3f7e766",
+     "0113ea2e60f90bf1c79be5545cbd466d"
+    ],
+    "sha1": [
+     "ed1b3038825835d6614ec8a2f3d22517f5334deb",
+     "72b472a389a6392ed8189bdc24bceafea238f6fb",
+     "4aad42b6813d12f90aef9a6fdc3ad1d97024ad93",
+     "6c4b1326755230c870a407df7a30e1f849eacf6c",
+     "7820419c0f1e70bd88a6c9de26a872556251deae"
+    ],
+    "crc": [
+     "6838be08",
+     "94093298",
+     "4ee705ab",
+     "6e8a1081",
+     "50fef979"
+    ],
+    "size": [
+     1048576
+    ]
+   },
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "7c6990bbacc9e3202ba39c8f37d0bdbf"
+      ],
+      "sha1": [
+       "ed1b3038825835d6614ec8a2f3d22517f5334deb"
+      ],
+      "crc": [
+       "6838be08"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings, The (USA)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/the-lost-vikings/usa/aventure-2p-snes9x.state",
+      "sha256": "50c0e38d3f277ddbe91f0c75d033743e8e7817b240331b889161a45d22e56a71",
+      "players": 2,
+      "content": "7c6990bbacc9e3202ba39c8f37d0bdbf",
+      "bytes": 101132
+     }
+    },
+    {
+     "key": "france",
+     "label": "France",
+     "region": "France",
+     "languages": [
+      "fr",
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "dbd58a2c35e4cda603b6238cda0dc6a0"
+      ],
+      "sha1": [
+       "72b472a389a6392ed8189bdc24bceafea238f6fb"
+      ],
+      "crc": [
+       "94093298"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings, The (France) (En,Fr) (1)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/the-lost-vikings/aventure-2p-snes9x.state",
+      "sha256": "2dc467ddc88ccb7f2fcd42809dd21d7ead01a17633dcf5d4d67071820e51914e",
+      "players": 2,
+      "content": "dbd58a2c35e4cda603b6238cda0dc6a0",
+      "bytes": 103540
+     },
+     "duplicate_files": [
+      "Lost Vikings, The (France) (En,Fr).zip"
+     ]
+    },
+    {
+     "key": "germany",
+     "label": "Germany",
+     "region": "Germany",
+     "languages": [
+      "de"
+     ],
+     "content": {
+      "md5": [
+       "402347c45af9310afa944cd2b88722cd"
+      ],
+      "sha1": [
+       "4aad42b6813d12f90aef9a6fdc3ad1d97024ad93"
+      ],
+      "crc": [
+       "4ee705ab"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings, The (Germany)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/the-lost-vikings/germany/aventure-2p-snes9x.state",
+      "sha256": "faa935a11af8fa86aab5a0bfba38e138be5bf9a21948ee0e388b10b7494ef0de",
+      "players": 2,
+      "content": "402347c45af9310afa944cd2b88722cd",
+      "bytes": 101504
+     }
+    },
+    {
+     "key": "spain",
+     "label": "Spain",
+     "region": "Spain",
+     "languages": [
+      "es"
+     ],
+     "content": {
+      "md5": [
+       "67e4617fc9c17572b7b27386a3f7e766"
+      ],
+      "sha1": [
+       "6c4b1326755230c870a407df7a30e1f849eacf6c"
+      ],
+      "crc": [
+       "6e8a1081"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings, The (Spain)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/the-lost-vikings/spain/aventure-2p-snes9x.state",
+      "sha256": "90248b6d60ba8d6ece825f7185993f28c1bdce57df0ca95bca519c2281ff0b43",
+      "players": 2,
+      "content": "67e4617fc9c17572b7b27386a3f7e766",
+      "bytes": 101694
+     }
+    },
+    {
+     "key": "japan",
+     "label": "Japan",
+     "region": "Japan",
+     "languages": [
+      "ja"
+     ],
+     "content": {
+      "md5": [
+       "0113ea2e60f90bf1c79be5545cbd466d"
+      ],
+      "sha1": [
+       "7820419c0f1e70bd88a6c9de26a872556251deae"
+      ],
+      "crc": [
+       "50fef979"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Viking no Daimeiwaku (Japan)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/snes/the-lost-vikings/japan/aventure-2p-snes9x.state",
+      "sha256": "bdfa278f604f1963b50bef6a52265c1456e88b6c1bcc298c4666a7c30a3d0049",
+      "players": 2,
+      "content": "0113ea2e60f90bf1c79be5545cbd466d",
+      "bytes": 103194
+     }
+    }
+   ],
    "start": {
-    "state": "states/snes/the-lost-vikings/aventure-2p-snes9x.state",
-    "sha256": "2dc467ddc88ccb7f2fcd42809dd21d7ead01a17633dcf5d4d67071820e51914e",
+    "state": "states/snes/the-lost-vikings/usa/aventure-2p-snes9x.state",
+    "sha256": "50c0e38d3f277ddbe91f0c75d033743e8e7817b240331b889161a45d22e56a71",
     "players": 2,
-    "content": "dbd58a2c35e4cda603b6238cda0dc6a0",
-    "bytes": 103540
+    "content": "7c6990bbacc9e3202ba39c8f37d0bdbf",
+    "bytes": 101132
    },
    "adventure": {
     "core_sha256": "c0ea65d8af6b8a8d99d63c391f5077d1bde4086c78e212790e41cdeb18db6c09",
-    "resume": {
-     "same_players": "state",
-     "other_players": "state_only"
-    },
-    "new_start": "start",
     "cartridge_save": {
      "console": 1,
      "file": null,
      "kind": "password",
      "bytes": 0
-    }
-   },
-   "core": "snes9x"
+    },
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_only"
+    },
+    "new_start": "start"
+   }
   },
   {
    "id": "megadrive/the-lost-vikings",
    "system": "megadrive",
+   "name": "The Lost Vikings",
+   "family": "coop",
+   "players": {
+    "min": 2,
+    "max": 2
+   },
+   "level": "nelfeplay",
+   "core": "genesis_plus_gx",
    "content": {
     "md5": [
      "8335ca918a503047fc9cde6a0b082308",
      "44752b050421c4e51d1bee96b3fed44e"
+    ],
+    "sha1": [
+     "1434551cec6f7a9ca6f7f9a8bb4aad4d89b0e3fb",
+     "c977a21d287187c3931202b3501063d71fcaf714"
     ],
     "crc": [
      "63729b74",
@@ -270,36 +1667,101 @@
      1048576
     ]
    },
-   "name": "The Lost Vikings",
-   "family": "coop",
-   "players": {
-    "min": 2,
-    "max": 2
-   },
-   "level": "nelfeplay",
-   "adventure": {
-    "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
-    "resume": {
-     "same_players": "state",
-     "other_players": "state_only"
+   "default_version": "usa",
+   "versions": [
+    {
+     "key": "usa",
+     "label": "USA (October 1995)",
+     "region": "USA",
+     "languages": [
+      "en"
+     ],
+     "content": {
+      "md5": [
+       "8335ca918a503047fc9cde6a0b082308"
+      ],
+      "sha1": [
+       "1434551cec6f7a9ca6f7f9a8bb4aad4d89b0e3fb"
+      ],
+      "crc": [
+       "63729b74"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings The (USA) (October 1995)",
+     "language_choice": {
+      "in_game": false
+     },
+     "start": {
+      "state": "states/megadrive/the-lost-vikings/aventure-2p-genesis-plus-gx-usa.state",
+      "sha256": "a866c4ad1a4a342046a1d753090d9a2c57b1f734347fa36e98d4e09d3d7baa3a",
+      "players": 2,
+      "content": "8335ca918a503047fc9cde6a0b082308",
+      "bytes": 47739
+     }
     },
-    "new_start": "start",
-    "cartridge_save": {
-     "console": 1,
-     "file": null,
-     "kind": "password",
-     "bytes": 0
+    {
+     "key": "europe",
+     "label": "Europe",
+     "region": "Europe",
+     "languages": [
+      "en",
+      "fr",
+      "de"
+     ],
+     "content": {
+      "md5": [
+       "44752b050421c4e51d1bee96b3fed44e"
+      ],
+      "sha1": [
+       "c977a21d287187c3931202b3501063d71fcaf714"
+      ],
+      "crc": [
+       "1f14efc6"
+      ],
+      "size": [
+       1048576
+      ]
+     },
+     "file_hint": "Lost Vikings The (Europe) (EnFrDe)",
+     "language_choice": {
+      "in_game": true,
+      "where": "options : ligne LANGUAGE",
+      "per_console": false
+     },
+     "start_language": "en",
+     "start": {
+      "state": "states/megadrive/the-lost-vikings/europe/aventure-2p-genesis-plus-gx.state",
+      "sha256": "673f13fb2e8189162bd69f8da1da626f207a962db7bf3e3d9af973385e8b3137",
+      "players": 2,
+      "content": "44752b050421c4e51d1bee96b3fed44e",
+      "bytes": 45326
+     }
     }
-   },
+   ],
    "start": {
     "state": "states/megadrive/the-lost-vikings/aventure-2p-genesis-plus-gx-usa.state",
     "sha256": "a866c4ad1a4a342046a1d753090d9a2c57b1f734347fa36e98d4e09d3d7baa3a",
     "players": 2,
     "content": "8335ca918a503047fc9cde6a0b082308",
-    "bytes": 47739,
-    "content_note": "USA (October 1995) ; l'Europe (EnFrDe) a deja son depart au Data Pack (debut-2p-genesis-plus-gx.state)"
+    "bytes": 47739
    },
-   "core": "genesis_plus_gx"
+   "adventure": {
+    "core_sha256": "a28e8f2a1606b3bf12f61b96434e2ce85222d2a2f898537f571af150fda9ad28",
+    "cartridge_save": {
+     "console": 1,
+     "file": null,
+     "kind": "password",
+     "bytes": 0
+    },
+    "resume": {
+     "same_players": "state",
+     "other_players": "state_only"
+    },
+    "new_start": "start"
+   }
   }
  ]
 }
