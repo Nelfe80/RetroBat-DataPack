@@ -1,0 +1,38 @@
+{
+  "schema": "nelfe.challenge.v2",
+  "challenge_id": "dodonpachi-daioujou.training-fantomes",
+  "version": 1,
+  "ruleset": "ch-ddpdoj-tr-fantomes-v1",
+  "order": 100,
+  "kind": "training",
+  "group": { "fr": "Fantômes", "en": "Ghosts", "es": "Fantasmas", "ja": "ゴースト", "ko": "고스트", "zh": "幽灵" },
+  "title": {
+    "fr": "Fantômes · Partie normale", "en": "Ghosts · Normal game", "es": "Fantasmas · Partida normal",
+    "ja": "ゴースト・通常プレイ", "ko": "고스트 · 일반 플레이", "zh": "幽灵·正常游戏"
+  },
+  "summary": {
+    "fr": "Partie normale avec les fantômes de ton record et du record mondial ; rien n'est classé ni envoyé",
+    "en": "Normal game with the ghosts of your record and the world record; nothing is ranked or sent",
+    "es": "Partida normal con los fantasmas de tu récord y del récord mundial; nada se clasifica ni se envía",
+    "ja": "あなたの記録と世界記録のゴーストと通常プレイ。ランキング・送信なし",
+    "ko": "내 기록과 세계 기록의 고스트와 함께 일반 플레이. 순위 없음, 전송 없음",
+    "zh": "与你的纪录和世界纪录的幽灵一起正常游戏；不计排名，不上传"
+  },
+  "game": { "system_id": "arcade", "rom_group": "dodonpachi-daioujou" },
+  "mem_sha256": "06f8ea2a408112803f5c680953645b6655bf774de5404c80a9ab57a840a3b8c6",
+  "min_api": "1.9.223",
+  "start_policy": "normal_boot",
+  "ghosts": { "engine": "fbneo", "crc": "be7be29b", "game": "dodonpachi-daioujou", "rules": ["1cc", "1cc-black-label"] },
+  "start": [],
+  "timing": {
+    "official": "independent",
+    "independent": {
+      "start": { "event": { "action": "GAME_MODE", "address": "0x3810" } },
+      "finish": { "event": { "action": "PROGRESSION_STAGE", "address": "0xD56C" } }
+    }
+  },
+  "void": [],
+  "ranking": { "direction": "lower_better", "metric": "frames" },
+  "cores": [ "fbneo" ],
+  "runtime": { "frame_rate": 59.185606 }
+}
