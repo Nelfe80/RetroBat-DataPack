@@ -1,3 +1,6 @@
+-- .user 2026-11-26 (speedruns normalises, Sonic 2 Any% v2) : decompte du bonus de temps de fin d'acte retire du chrono. 0xF7D2 (bonus,
+-- u16le) est charge au panneau (ex. 5000) puis baisse de 10 par image jusqu'a 0 (mesure sur un passage de Emerald Hill 1, 500 images).
+-- Les deux lignes sont is_score pour que l'auto-mute ne les coupe pas apres huit emissions. Aucune ligne existante modifiee.
 -- .user 2026-11-06 (speedruns, carte du desassemblage s2disasm de Sonic Retro, AVANT mesure au banc) : index bruts de Genesis
 -- Plus GX (octet 68000 $FFxxxx = index xxxx ^ 1). Mode de jeu Game_Mode $F600 (0xF601) : 0x8C pendant le carton du niveau,
 -- 0x0C en jeu, 0x10 Special Stage, 0x20 sequence de fin. Commandes bloquees Control_Locked $F7CC (0xF7CD) : 1 au panneau de fin
@@ -151,6 +154,8 @@ return {
         { address=0XFE1F, type="u8", condition="change", action="GENERAL_TIMER", timer_kind="game", timer_role="level", timer_direction="unknown", timer_unit="unknown", desc="HUD Timer Update Flag" },
         { address=0XFE22, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="minute", desc="Timer_minute" },
         { address=0XFE25, type="u8", condition="change", action="LEVEL_TIMER", timer_kind="game", timer_role="level", timer_direction="elapsed", timer_unit="second", desc="Timer_second" },
+        { address=0XF7D2, type="u16le", condition="decrease", action="TIMEBONUS_COUNT", is_score=true, desc="Bonus de temps de fin d acte : baisse de 10 par image (decompte)" },
+        { address=0XF7D2, type="u16le", condition="eq", value=0X0, action="TIMEBONUS_END", is_score=true, desc="Bonus de temps de fin d acte : decompte fini" },
       },
     },
   },
