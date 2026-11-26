@@ -1,0 +1,23 @@
+{
+ "schema": "nelfe.challenge.normalization.v1",
+ "challenge_id": "rocket-knight-adventures.any-easy",
+ "ruleset_version": 2,
+ "document_sha256": "fd73e2bceafcfe4ba5148a7404b9c452764fa076dcd9093af57a5f83eed14cf2",
+ "status": "pending_validation",
+ "community_timing": "realtime",
+ "mapping": {
+  "our_clock": "independent",
+  "their_method": "RTA, du choix de Start au titre au fondu au blanc apres la fuite finale (Easy)",
+  "game_time_lines": [],
+  "excluded_ranges": []
+ },
+ "calibration": {
+  "start_offset_frames": 70,
+  "end_offset_frames": null,
+  "replays_measured": 3,
+  "max_spread_frames": 0,
+  "measured_at": "2026-11-26",
+  "note": "depart = entree dans le jeu depuis le titre (0xB028 passe a 1 avec 0xFB12 = 0x2C), 70 images apres l'appui de Start qui choisit la partie (constant sur 3 passages) : notre chrono part 70 images (1,17 s) apres la communaute, aucun signal du .MEM plus tot (0xB002 passe a 3 a +65 images mais 0xFB16 de la difficulte n'est ecrit qu'a +68) ; ancien depart (prise de main au stage 1) 1555 images plus tard ; la valeur 0xFB16 = 1 pose comme Easy par le reglement v1 est celle de la difficulte par defaut au depart : correspondance avec Easy non verifiee dans le menu ; arrivee (0xFB12 = 0x32, fondu au blanc) non atteinte"
+ },
+ "summary": "Du Start au titre a la fin du jeu, en Easy, morts et continues permis"
+}

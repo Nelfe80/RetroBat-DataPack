@@ -1,0 +1,94 @@
+{
+  "challenge_id": "rocket-knight-adventures.any-easy",
+  "cores": [
+    "genesis_plus_gx"
+  ],
+  "game": {
+    "rom_group": "rocket-knight-adventures",
+    "system_id": "megadrive"
+  },
+  "kind": "speedrun_full",
+  "mem_sha256": "b70bb964efe230ffeb14367c2453712ce7aa90d6425997924be7fb587b33eb3c",
+  "order": 1,
+  "ranking": {
+    "direction": "lower_better",
+    "metric": "frames",
+    "includes": [
+      "ch-rka-any-easy-v1"
+    ]
+  },
+  "ruleset": "ch-rka-any-easy-v2",
+  "runtime": {
+    "frame_rate": 59.922743
+  },
+  "schema": "nelfe.challenge.v2",
+  "start": [
+    {
+      "value": {
+        "address": "0xFB16",
+        "equals": "0x01"
+      }
+    }
+  ],
+  "start_policy": "normal_boot",
+  "summary": {
+    "fr": "Du Start au titre a la fin du jeu, en Easy, morts et continues permis",
+    "en": "From Start on the title screen to the ending, on Easy, deaths and continues allowed"
+  },
+  "timing": {
+    "independent": {
+      "finish": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0xFB12",
+          "value": "0x32"
+        }
+      },
+      "start": {
+        "event": {
+          "action": "PROGRESSION_STAGE",
+          "address": "0xB028",
+          "value": "0x01",
+          "leaves": "0x00"
+        },
+        "when": [
+          {
+            "value": {
+              "address": "0xFB12",
+              "equals": "0x2C"
+            }
+          }
+        ]
+      }
+    },
+    "official": "independent"
+  },
+  "title": {
+    "en": "Full game · Any% (Easy)",
+    "fr": "Jeu complet · Any% (Easy)"
+  },
+  "version": 2,
+  "void": [
+    "save_state_load",
+    "rewind",
+    "runahead",
+    "fast_forward",
+    "cheats",
+    "netplay",
+    "pause_clock_gap",
+    {
+      "event": {
+        "action": "PAUSE_ON",
+        "address": "0xB015",
+        "value": "0xFF"
+      }
+    },
+    {
+      "event": {
+        "action": "DEMO_MODE",
+        "address": "0xB002",
+        "value": "0x07"
+      }
+    }
+  ]
+}
