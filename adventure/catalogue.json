@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "revision": "adventure-lot4-2026-11-27.5",
+ "revision": "adventure-som-mt-2026-11-27.6",
  "collection": "adventure",
  "cores": {
   "gba": {
@@ -1977,18 +1977,18 @@
       "in_game": false
      },
      "start": {
-      "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
-      "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+      "state": "states/snes/secret-of-mana/usa/aventure-mt-snes9x.state",
+      "sha256": "ff8d273ba07dde1a7df69112fa864610d4aca8ea3e2f8fe62b2b046fef2db7fe",
       "content": "10a894199a9adc50ff88815fd9853e19",
-      "bytes": 111682,
+      "bytes": 109957,
       "players": 2
      },
      "starts": [
       {
-       "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
-       "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+       "state": "states/snes/secret-of-mana/usa/aventure-mt-snes9x.state",
+       "sha256": "ff8d273ba07dde1a7df69112fa864610d4aca8ea3e2f8fe62b2b046fef2db7fe",
        "content": "10a894199a9adc50ff88815fd9853e19",
-       "bytes": 111682,
+       "bytes": 109957,
        "players": 3
       }
      ]
@@ -2019,18 +2019,18 @@
       "in_game": false
      },
      "start": {
-      "state": "states/snes/secret-of-mana/europe/aventure-1p-snes9x.state",
-      "sha256": "2deac80ce3b37e3c80bf745a6144a92f76e07406c2304a9ce9adb05c11530d84",
+      "state": "states/snes/secret-of-mana/europe/aventure-mt-snes9x.state",
+      "sha256": "ed1d23702cf0b66a8521657be742c813165c3ed61020b9212f28d91b5af89de9",
       "content": "0194f74c93b0edf3e4a7672a448572ad",
-      "bytes": 111405,
+      "bytes": 113129,
       "players": 2
      },
      "starts": [
       {
-       "state": "states/snes/secret-of-mana/europe/aventure-1p-snes9x.state",
-       "sha256": "2deac80ce3b37e3c80bf745a6144a92f76e07406c2304a9ce9adb05c11530d84",
+       "state": "states/snes/secret-of-mana/europe/aventure-mt-snes9x.state",
+       "sha256": "ed1d23702cf0b66a8521657be742c813165c3ed61020b9212f28d91b5af89de9",
        "content": "0194f74c93b0edf3e4a7672a448572ad",
-       "bytes": 111405,
+       "bytes": 113129,
        "players": 3
       }
      ]
@@ -2061,18 +2061,18 @@
       "in_game": false
      },
      "start": {
-      "state": "states/snes/secret-of-mana/france/aventure-1p-snes9x.state",
-      "sha256": "bce4c76bdd872fdfb9cfcc330544583c663fcb20555c8274d8460d7dd69a4bc9",
+      "state": "states/snes/secret-of-mana/france/aventure-mt-snes9x.state",
+      "sha256": "6c61bd5afc4b994fff532fb331839d43cecfff40d20b2fd8d111eb3965a72669",
       "content": "35afb723a7a1166d894549519d78622c",
-      "bytes": 111516,
+      "bytes": 113084,
       "players": 2
      },
      "starts": [
       {
-       "state": "states/snes/secret-of-mana/france/aventure-1p-snes9x.state",
-       "sha256": "bce4c76bdd872fdfb9cfcc330544583c663fcb20555c8274d8460d7dd69a4bc9",
+       "state": "states/snes/secret-of-mana/france/aventure-mt-snes9x.state",
+       "sha256": "6c61bd5afc4b994fff532fb331839d43cecfff40d20b2fd8d111eb3965a72669",
        "content": "35afb723a7a1166d894549519d78622c",
-       "bytes": 111516,
+       "bytes": 113084,
        "players": 3
       }
      ]
@@ -2099,22 +2099,7 @@
      "language_choice": {
       "in_game": false
      },
-     "start": {
-      "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
-      "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
-      "content": "5e1602019d4e337b9c6a714a6224ba1d",
-      "bytes": 110781,
-      "players": 2
-     },
-     "starts": [
-      {
-       "state": "states/snes/secret-of-mana/debut-solo-snes9x.state",
-       "sha256": "e94898be8311290daffd867b428307e526c0f74aeca8d917cbf3de1d0556d314",
-       "content": "5e1602019d4e337b9c6a714a6224ba1d",
-       "bytes": 110781,
-       "players": 3
-      }
-     ]
+     "note": "pas de depart Multitap (ROM non disponible pour le refaire) : version indisponible en Adventure"
     },
     {
      "key": "germany",
@@ -2142,18 +2127,18 @@
       "in_game": false
      },
      "start": {
-      "state": "states/snes/secret-of-mana/germany/aventure-1p-snes9x.state",
-      "sha256": "2d6f57a64c1feb7a65a4ac772045dfe8e14c03e35928331f259298960a484d18",
+      "state": "states/snes/secret-of-mana/germany/aventure-mt-snes9x.state",
+      "sha256": "b89145932fee1e38d16942e54e11ea8e3b9514f3fbddce9f6667284e5b3a6de0",
       "content": "b57303407986c0d28f2d78f931efc59c",
-      "bytes": 111424,
+      "bytes": 113700,
       "players": 2
      },
      "starts": [
       {
-       "state": "states/snes/secret-of-mana/germany/aventure-1p-snes9x.state",
-       "sha256": "2d6f57a64c1feb7a65a4ac772045dfe8e14c03e35928331f259298960a484d18",
+       "state": "states/snes/secret-of-mana/germany/aventure-mt-snes9x.state",
+       "sha256": "b89145932fee1e38d16942e54e11ea8e3b9514f3fbddce9f6667284e5b3a6de0",
        "content": "b57303407986c0d28f2d78f931efc59c",
-       "bytes": 111424,
+       "bytes": 113700,
        "players": 3
       }
      ]
@@ -2166,18 +2151,18 @@
     }
    ],
    "start": {
-    "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
-    "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+    "state": "states/snes/secret-of-mana/usa/aventure-mt-snes9x.state",
+    "sha256": "ff8d273ba07dde1a7df69112fa864610d4aca8ea3e2f8fe62b2b046fef2db7fe",
     "content": "10a894199a9adc50ff88815fd9853e19",
-    "bytes": 111682,
+    "bytes": 109957,
     "players": 2
    },
    "starts": [
     {
-     "state": "states/snes/secret-of-mana/usa/aventure-1p-snes9x.state",
-     "sha256": "7924c4b84d93dfd04170b630978dc9f9f344a7eb459960abe78fb86863e27323",
+     "state": "states/snes/secret-of-mana/usa/aventure-mt-snes9x.state",
+     "sha256": "ff8d273ba07dde1a7df69112fa864610d4aca8ea3e2f8fe62b2b046fef2db7fe",
      "content": "10a894199a9adc50ff88815fd9853e19",
-     "bytes": 111682,
+     "bytes": 109957,
      "players": 3
     }
    ],
@@ -2195,7 +2180,8 @@
      "other_players": "state_or_new_start_plus_save"
     },
     "new_start": "start",
-    "note": "depart solo ; 2 ou 3 joueurs exigent un etat apres l'arrivee de la fille et du lutin ; multitap = .rmp de jeu (le snes.rmp de la borne le masque)"
+    "note": "depart au debut du jeu a 2 et 3 joueurs (decision du user 27/11) : etats faits a froid avec le Multitap des l'allumage (le jeu detecte le Multitap au demarrage) ; les joueurs 2 et 3 appuient sur START quand leur personnage rejoint l'equipe ; multitap = .rmp de jeu (le snes.rmp de la borne le masque)",
+    "start_hint": "adventure.hint.press_start_to_join"
    }
   },
   {
