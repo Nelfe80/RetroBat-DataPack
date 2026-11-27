@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "revision": "adventure-som-mt-2026-11-27.6",
+ "revision": "adventure-som-mt-2026-11-27.7",
  "collection": "adventure",
  "cores": {
   "gba": {
@@ -2099,7 +2099,22 @@
      "language_choice": {
       "in_game": false
      },
-     "note": "pas de depart Multitap (ROM non disponible pour le refaire) : version indisponible en Adventure"
+     "start": {
+      "state": "states/snes/secret-of-mana/france-rev1/aventure-mt-snes9x.state",
+      "sha256": "6c61bd5afc4b994fff532fb331839d43cecfff40d20b2fd8d111eb3965a72669",
+      "content": "5e1602019d4e337b9c6a714a6224ba1d",
+      "bytes": 113084,
+      "players": 2
+     },
+     "starts": [
+      {
+       "state": "states/snes/secret-of-mana/france-rev1/aventure-mt-snes9x.state",
+       "sha256": "6c61bd5afc4b994fff532fb331839d43cecfff40d20b2fd8d111eb3965a72669",
+       "content": "5e1602019d4e337b9c6a714a6224ba1d",
+       "bytes": 113084,
+       "players": 3
+      }
+     ]
     },
     {
      "key": "germany",
