@@ -1,0 +1,38 @@
+{
+  "schema": "nelfeplay.extend/1",
+  "conversions": [
+    {
+      "id": "megadrive/dune2-multiplayer",
+      "system": "megadrive",
+      "title": "Dune II Multiplayer",
+      "version": "0.12-alpha",
+      "technology": "faction-ai-replacement",
+      "source": {
+        "sha256": "31979d1d9a5d6fe5c9ae95f3cfc1dd6f9f51e9e075268bb8a9f9ca57da847547",
+        "md5": "a0797d35cfb48d68ebb8b977d057ba3e",
+        "crc": "b58ae71d",
+        "size": 1048576,
+        "label": "Dune II - The Battle for Arrakis (Europe)"
+      },
+      "patch": {
+        "format": "ips",
+        "path": "extend/patches/megadrive/dune2-multiplayer/0.12-alpha.ips",
+        "sha256": "446dc8b236b95390409299560c153e1e57ff37e4cbcee9fcd457d5e64f3d4f13",
+        "size": 439957
+      },
+      "result": {
+        "sha256": "b77b300192b23ccc66b90744cb38ed9135a370acc64a55378fc0a7ec9f2bb197",
+        "md5": "ba3dbafee6f58f902d1ece102a71d5c0",
+        "size": 2097152,
+        "file": "Dune II Multiplayer (NelfePlay).md"
+      },
+      "core": {
+        "name": "genesis_plus_gx_nelfelink",
+        "sha256": [
+          "aa84092ee0bd968723255d00b12b20a4901771b53e38ee83c7b865f9c57041a9"
+        ]
+      },
+      "min_api": "1.9.226"
+    }
+  ]
+}
